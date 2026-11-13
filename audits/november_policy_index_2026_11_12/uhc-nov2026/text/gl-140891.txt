@@ -1,0 +1,116 @@
+--- PDF page 1855 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1855 
+Vonjo (pacritinib) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-140891  
+Guideline Name 
+Vonjo (pacritinib)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2022  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Vonjo  
+Diagnosis 
+Myelofibrosis  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting ALL of 
+the following:  
+ 
+ 1.1 Diagnosis of ONE of the following:  
+
+
+--- PDF page 1856 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1856 
+• 
+Primary myelofibrosis  
+• 
+Post-polycythemia vera myelofibrosis  
+• 
+Post-essential thrombocythemia myelofibrosis  
+ 
+AND 
+ 
+ 1.2 Disease is intermediate or high risk  
+ 
+AND 
+ 
+ 1.3 Pre-treatment platelet count below 50 x 10^9 L  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with ONE of the following:  
+• 
+Hematologist  
+• 
+Oncologist  
+ 
+Product Name:Vonjo  
+Diagnosis 
+Myelofibrosis  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting positive 
+clinical response to therapy (e.g., symptom improvement, spleen volume reduction)  
+ 
+Product Name:Vonjo  
+Diagnosis 
+NCCN Recommended Regimens  
+
+
+--- PDF page 1857 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1857 
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - This drug will be approved for uses supported by The National Comprehensive Cancer 
+Network (NCCN) Drugs and Biologics Compendium with a Category of Evidence and 
+Consensus of 1, 2A, or 2B  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/4/2022  
+C&S to match AZM as of 10.1.22  
+ 
