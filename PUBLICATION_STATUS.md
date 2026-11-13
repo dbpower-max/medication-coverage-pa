@@ -13,3 +13,5 @@ Archive SHA-256: ec3185e7c1b02cef86c8f36220cd2cf08230e7c861e9b8ef8bd399157303fd1
 This partial repository cannot run until the required datasets are uploaded. No live deployment is claimed.
 
 Verification: compare all uploaded Git blob hashes against local file bytes and confirm main points to this commit.
+
+5B: 29 source PDFs under 1 MB included in this commit (320 PDF pages); larger PDFs, detailed audits and database archives remain pending.
