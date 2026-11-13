@@ -348,7 +348,7 @@
     el.planStatus.className = `plan-status ${plan.status}`;
     const statewideDate = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' })
       .format(new Date(`${state.data.meta.drugListEffective}T00:00:00Z`));
-    el.planStatus.innerHTML = `<strong>${escapeHtml(plan.name)} · ${labels[plan.status]}</strong><p>${escapeHtml(plan.detail)}</p>;
+    el.planStatus.innerHTML = `<strong>${escapeHtml(plan.name)} · ${labels[plan.status]}</strong><p>${escapeHtml(plan.detail)}</p>`;
 
     const evidence = state.data.planEvidence.filter((item) => item.planId === plan.id);
     el.planEvidence.hidden = evidence.length === 0;
