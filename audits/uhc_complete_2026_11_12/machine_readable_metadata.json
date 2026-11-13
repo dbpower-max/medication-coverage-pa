@@ -1,0 +1,93 @@
+{
+  "officialUrl": "https://legacy.providerlookuponline.com/mrf/optumrx/drugs/2877216/JSON_Drugs_UHCCPAZ.json",
+  "sha256": "f94fa72844ff82be2e49c4d414ff6bc9744589846f0b175a8738e999d985103f",
+  "bytes": 4478218,
+  "httpLastModified": "Tue, 20 Oct 2026 18:01:22 GMT",
+  "httpContentType": "application/json",
+  "limitations": [
+    "Feed is retained as supplementary machine-readable evidence. No effective date or NDC identifiers have been established from its contents.",
+    "An absent/false flag in this feed does not override explicit PA/ST/QL conditions in the dated October PDF.",
+    "Duplicate PDF listings are not asserted to be NDC-specific."
+  ],
+  "rxnormRecords": 10138,
+  "planVariants": 10923,
+  "planVariantCounts": {
+    "UCSAZQ3": 10310,
+    "PART D": 613
+  },
+  "rootKeys": [
+    "drug_name",
+    "plans",
+    "rxnorm_id"
+  ],
+  "planKeys": [
+    "drug_tier",
+    "plan_id",
+    "plan_id_type",
+    "prior_authorization",
+    "quantity_limit",
+    "step_therapy",
+    "years"
+  ],
+  "years": [
+    2026
+  ],
+  "sameRxnormDifferentPlanVariants": [
+    {
+      "rxnorm_id": "199387",
+      "drug_name": "risperidone 1 MG/ML Oral Solution",
+      "plans": [
+        {
+          "plan_id_type": "PLAN-ID",
+          "plan_id": "UCSAZQ3",
+          "drug_tier": "NON-PREFERRED(90)",
+          "prior_authorization": false,
+          "step_therapy": true,
+          "quantity_limit": true,
+          "years": [
+            2026
+          ]
+        },
+        {
+          "plan_id_type": "PLAN-ID",
+          "plan_id": "UCSAZQ3",
+          "drug_tier": "PREFERRED(29)",
+          "prior_authorization": false,
+          "step_therapy": false,
+          "quantity_limit": true,
+          "years": [
+            2026
+          ]
+        }
+      ]
+    },
+    {
+      "rxnorm_id": "485496",
+      "drug_name": "aripiprazole 1 MG/ML Oral Solution",
+      "plans": [
+        {
+          "plan_id_type": "PLAN-ID",
+          "plan_id": "UCSAZQ3",
+          "drug_tier": "PREFERRED(29)",
+          "prior_authorization": false,
+          "step_therapy": false,
+          "quantity_limit": true,
+          "years": [
+            2026
+          ]
+        },
+        {
+          "plan_id_type": "PLAN-ID",
+          "plan_id": "UCSAZQ3",
+          "drug_tier": "NON-PREFERRED(90)",
+          "prior_authorization": false,
+          "step_therapy": true,
+          "quantity_limit": true,
+          "years": [
+            2026
+          ]
+        }
+      ]
+    }
+  ]
+}
