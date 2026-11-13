@@ -1,0 +1,95 @@
+--- PDF page 629 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 629 
+Fabry Disease Agents 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-140996  
+Guideline Name 
+Fabry Disease Agents  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2023  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Fabrazyme  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of Fabry disease  
+ 
+AND 
+
+
+--- PDF page 630 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 630 
+ 
+2 - Patient is 2 years of age or older  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) confirming ONE of the following:  
+ 
+ 3.1 Detection of pathogenic mutations in the GLA gene by molecular genetic testing  
+ 
+OR 
+ 
+ 3.2 Deficiency in alpha-galactosidase A (alpha-Gal A) enzyme activity in plasma, isolated 
+leukocytes, or dried blood spots (DBS)  
+ 
+OR 
+ 
+ 3.3 Significant clinical manifestations (e.g., neuropathic pain, cardiomyopathy, renal 
+insufficiency, angiokeratomas, cornea verticillata)  
+ 
+AND 
+ 
+4 - Will not be used in combination with Galafold (migalastat)  
+ 
+Product Name:Fabrazyme  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+2 .  Revision History  
+ 
+
+
+--- PDF page 631 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 631 
+Date  
+Notes  
+8/9/2023  
+Updated guideline name, updated all criteria.  
+ 

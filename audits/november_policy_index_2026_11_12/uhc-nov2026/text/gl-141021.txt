@@ -1,0 +1,175 @@
+--- PDF page 1289 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1289 
+Orencia (abatacept) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-141021  
+Guideline Name 
+Orencia (abatacept)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+1/1/2024  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Orencia Clickject, Orencia prefilled syringe  
+Diagnosis 
+Rheumatoid Arthritis (RA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of moderately to severely active rheumatoid arthritis  
+
+
+--- PDF page 1290 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1290 
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a rheumatologist  
+ 
+AND 
+ 
+3 - Trial and failure, contraindication, or intolerance to ONE nonbiologic disease-modifying 
+antirheumatic drug (DMARD) [e.g., methotrexate (Rheumatrex/Trexall), Arava (leflunomide), 
+Azulfidine (sulfasalazine)]  
+ 
+Product Name:Orencia Clickject, Orencia prefilled syringe  
+Diagnosis 
+Rheumatoid Arthritis (RA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+Product Name:Orencia Clickject, Orencia prefilled syringe  
+Diagnosis 
+Polyarticular Juvenile Idiopathic Arthritis (PJIA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of moderately to severely active polyarticular juvenile idiopathic arthritis  
+
+
+--- PDF page 1291 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1291 
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a rheumatologist  
+ 
+AND 
+ 
+3 - Trial and failure, contraindication, or intolerance to ONE of the following nonbiologic 
+disease modifying anti-rheumatic drugs (DMARDs):  
+• 
+leflunomide (Arava)  
+• 
+methotrexate (Rheumatrex/Trexall)  
+ 
+Product Name:Orencia Clickject, Orencia prefilled syringe  
+Diagnosis 
+Polyarticular Juvenile Idiopathic Arthritis (PJIA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+Product Name:Orencia Clickject, Orencia prefilled syringe  
+Diagnosis 
+Psoriatic Arthritis (PsA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 1292 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1292 
+ 
+1 - Diagnosis of active psoriatic arthritis (PsA)  
+ 
+AND 
+ 
+2 - Patient is 2 years of age or older  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with one of the following:  
+• 
+Dermatologist  
+• 
+Rheumatologist  
+ 
+Product Name:Orencia Clickject, Orencia prefilled syringe  
+Diagnosis 
+Psoriatic Arthritis (PsA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+12/7/2023  
+Added age criterion to PsA indication.  
+ 

@@ -1,0 +1,146 @@
+--- PDF page 1863 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1863 
+Voxzogo (vosoritide) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-141023  
+Guideline Name 
+Voxzogo (vosoritide)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+1/1/2024  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Voxzogo  
+Diagnosis 
+Achondroplasia  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient has open epiphyses  
+
+
+--- PDF page 1864 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1864 
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting 
+diagnosis of achondroplasia as confirmed by one of the following:  
+ 
+ 2.1 Both of the following:  
+ 
+  2.1.1 Patient has clinical manifestations characteristic of achondroplasia (e.g., 
+macrocephaly, frontal bossing, midface retrusion, disproportionate short stature with 
+rhizomelic shortening of the arms and the legs, brachydactyly, trident configuration of the 
+hands, thoracolumbar kyphosis, and accentuated lumbar lordosis)  
+ 
+AND 
+ 
+  2.1.2 Patient has radiographic findings characteristic of achondroplasia (e.g., large calvaria 
+and narrowing of the foramen magnum region, undertubulated, shortened long bones with 
+metaphyseal abnormalities, narrowing of the interpedicular distance of the caudal spine, 
+square ilia and horizontal acetabula, small sacrosciatic notches, proximal scooping of the 
+femoral metaphyses, and short and narrow chest)  
+ 
+OR 
+ 
+ 2.2 Molecular genetic testing confirmed c.1138G > A or c.1138G > C variant (i.e., 
+p.Gly380Arg mutation) in the fibroblast growth factor receptor-3 (FGFR3) gene  
+ 
+AND 
+ 
+3 - Patient did not have limb-lengthening surgery in the previous 18 months and does not plan 
+on having limb-lengthening surgery while on Voxzogo therapy  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with one of the following:  
+• 
+Clinical geneticist  
+• 
+Endocrinologist  
+• 
+A physician who has specialized expertise in the management of achondroplasia  
+
+
+--- PDF page 1865 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1865 
+Notes  
+Requests for Idiopathic Short Stature (ISS) should not be approved. D
+eny as a benefit exclusion. 
+ 
+Product Name:Voxzogo  
+Diagnosis 
+Achondroplasia  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient continues to have open epiphyses  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting positive 
+clinical response to therapy as evidenced by one of the following:  
+• 
+Improvement in annualized growth velocity (AGV) compared to baseline  
+• 
+Improvement in height Z-score compared to baseline  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with one of the following:  
+• 
+Clinical geneticist  
+• 
+Endocrinologist  
+• 
+A physician who has specialized expertise in the management of achondroplasia  
+Notes  
+Requests for Idiopathic Short Stature (ISS) should not be approved. D
+eny as a benefit exclusion. 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+
+
+--- PDF page 1866 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1866 
+12/7/2023  
+Removed age criterion for Achondroplasia, removed ISS criteria secti
+on, added notes.  
+ 

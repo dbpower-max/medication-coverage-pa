@@ -1,0 +1,84 @@
+--- PDF page 1092 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1092 
+Luxturna 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-141005  
+Guideline Name 
+Luxturna  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+1/1/2024  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Luxturna  
+Approval Length 
+45 Day(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient is greater than 12 months of age  
+ 
+AND 
+ 
+2 - Diagnosis of a confirmed biallelic RPE65 mutation-associated retinal dystrophy [e.g., 
+
+
+--- PDF page 1093 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1093 
+Leber’s congenital amaurosis (LCA), retinitis pigmentosa (RP), early onset severe retinal 
+dystrophy (EOSRD), etc.]  
+ 
+AND 
+ 
+3 - Genetic testing documenting biallelic mutations of the RPE65 gene  
+ 
+AND 
+ 
+4 - Sufficient viable retinal cells as determined by optical coherence tomography (OCT) 
+confirming an area of retina within the posterior pole of greater than 100 micrometers 
+thickness  
+ 
+AND 
+ 
+5 - Prescribed and administered by ophthalmologist or retinal surgeon with experience 
+providing sub-retinal injections  
+ 
+AND 
+ 
+6 - Patient has not previously received Luxturna treatment in the intended eye  
+ 
+AND 
+ 
+7 - Must not exceed more than 1 treatment per lifetime per eye  
+Notes  
+Authorization will be issued for no more than 1 treatment per lifetime p
+er eye and for no longer than 45 days from approval. 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+10/30/2023  
+Updated guideline name, updated approval length, added once per lif
+etime criteria and note.  
+ 
