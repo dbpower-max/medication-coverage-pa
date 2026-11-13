@@ -1,0 +1,2 @@
+Manufacturer labeling source verified through web retrieval on November12,2026: https://pi.lilly.com/us/HUMULIN-N-USPI.pdf
+HUMULIN N is insulin isophane human injectable suspension, including KwikPen. Banner source prints regularinsulin solution, so identity remains unresolved. Direct byte download returned HTTP403; no full PDF file is claimed.

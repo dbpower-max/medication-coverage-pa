@@ -1,0 +1,170 @@
+[
+  {
+    "kind": "page_boundary",
+    "source": {
+      "page": 2,
+      "table": 2,
+      "row": 49,
+      "class": "SHORT-ACTING OPIOID AGONISTS",
+      "cells": [
+        "",
+        "",
+        "",
+        "",
+        "PA REQUIRED for > 2 Short Acting Opioid",
+        "",
+        "",
+        ""
+      ]
+    },
+    "target_position": [
+      3,
+      1,
+      1
+    ]
+  },
+  {
+    "kind": "page_boundary",
+    "source": {
+      "page": 4,
+      "table": 2,
+      "row": 28,
+      "class": "BENZODIAZEPINES",
+      "cells": [
+        "",
+        "",
+        "",
+        "",
+        "PA REQUIRED for Ages < 6 years. PA REQUIRED for > 1 Anxiolytic Medication in a 30-day time",
+        "",
+        "",
+        ""
+      ]
+    },
+    "target_position": [
+      5,
+      1,
+      1
+    ]
+  },
+  {
+    "kind": "page_boundary",
+    "source": {
+      "page": 5,
+      "table": 2,
+      "row": 25,
+      "class": "BENZODIAZEPINES",
+      "cells": [
+        "",
+        "",
+        "",
+        "",
+        "PA REQUIRED for Ages < 6 years.",
+        "",
+        "",
+        ""
+      ]
+    },
+    "target_position": [
+      6,
+      1,
+      1
+    ]
+  },
+  {
+    "kind": "page_boundary",
+    "source": {
+      "page": 15,
+      "table": 2,
+      "row": 33,
+      "class": "ANTIPSYCHOTICS ANTIPSYCHOTICS - SECOND GENERATION - ATYPICAL ORAL AGENTS",
+      "cells": [
+        "",
+        "",
+        "",
+        "",
+        "PA REQUIRED for Ages < 6 years Prior Authorization is not REQUIRED for ages 6 and greater when prescribed by a psychiatric clinician, a developmental pediatrician or other prescribers as approved by the MCO Contractors.",
+        "",
+        "",
+        ""
+      ]
+    },
+    "target_position": [
+      16,
+      1,
+      1
+    ]
+  },
+  {
+    "kind": "page_boundary",
+    "source": {
+      "page": 16,
+      "table": 3,
+      "row": 4,
+      "class": "ANTIPSYCHOTICS - SECOND GENERATION - ATYPICAL LONG ACTING INJECTABLES",
+      "cells": [
+        "",
+        "",
+        "",
+        "",
+        "PA REQUIRED for < 6 years of age, Prior Authorization is not required when prescribed by a psychiatric clinician, a behavioral pediatrician or other prescribers as approved by the FFS",
+        "",
+        "",
+        ""
+      ]
+    },
+    "target_position": [
+      17,
+      1,
+      1
+    ]
+  },
+  {
+    "kind": "page_boundary",
+    "source": {
+      "page": 17,
+      "table": 2,
+      "row": 5,
+      "class": "ANTIPSYCHOTICS - FIRST GENERATION -TYPICAL ORAL AGENTS",
+      "cells": [
+        "",
+        "",
+        "",
+        "",
+        "PA REQUIRED for Ages < 12 years",
+        "",
+        "",
+        ""
+      ]
+    },
+    "target_position": [
+      18,
+      1,
+      1
+    ]
+  },
+  {
+    "kind": "page_boundary",
+    "source": {
+      "page": 9,
+      "table": 2,
+      "row": 33,
+      "class": "SEROTONIN-NOREPINEPHRINE REUPTAKE INHIBITORS (SNRIS)",
+      "cells": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "37.5mg: 90 75mg: 90",
+        "30 30"
+      ]
+    },
+    "target_position": [
+      10,
+      1,
+      1
+    ]
+  }
+]

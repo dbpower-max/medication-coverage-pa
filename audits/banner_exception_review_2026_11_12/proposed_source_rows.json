@@ -1,0 +1,235 @@
+[
+  {
+    "id": "banner-source-review-11-1-5",
+    "recordType": "source_issue",
+    "planId": "banner-ufc",
+    "name": "INSULIN REGULAR (HUMAN) SOLUTION PEN INJECTION",
+    "brand": "HUMULIN N KWIKPEN",
+    "notes": "The source drug name and reference-brand/formulation cells conflict. Do not interpret this row as coverage for either inferred insulin product; payer clarification is required.",
+    "subcategory": "INSULIN",
+    "coverage": "unresolved_identity",
+    "preferred": "not_specified",
+    "pa": "not_specified",
+    "paText": "",
+    "step": "not_specified",
+    "stepText": "",
+    "qlAmount": "",
+    "qlDays": "",
+    "conditions": [],
+    "sourceTitle": "Banner - University Family Care Acute–Long Term Care Drug List",
+    "sourceEffective": "2026-10-01",
+    "sourcePage": 11,
+    "sourceUrl": "/sources/bufc_formulary_eff10012026_en.pdf",
+    "rawSourceRow": {
+      "page": 11,
+      "table": 1,
+      "row": 5,
+      "class": "INSULIN",
+      "cells": [
+        "INSULIN REGULAR (HUMAN) SOLUTION PEN INJECTION",
+        "HUMULIN N KWIKPEN",
+        "BRAND ONLY",
+        "PREFERRED DRUG",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "reason": "Printed regular insulin and NPH reference brand disagree"
+    },
+    "validation": "source_identity_unresolved",
+    "sourceIssue": "Drug identity requires payer clarification",
+    "listingLabel": "Unresolved source identity",
+    "suppressCoverageAndPaBadges": true,
+    "identityCorroboration": {
+      "url": "https://pi.lilly.com/us/HUMULIN-N-USPI.pdf",
+      "fact": "HUMULIN N is insulin isophane human injectable suspension; the source row prints regular insulin solution."
+    }
+  },
+  {
+    "id": "banner-source-review-11-1-10",
+    "recordType": "source_issue",
+    "planId": "banner-ufc",
+    "name": "INSULIN GLARGINE SUSPENSION",
+    "brand": "LANTUS SOLOSTAR",
+    "notes": "The source drug name and reference-brand/formulation cells conflict. Do not interpret this row as coverage for either inferred insulin product; payer clarification is required.",
+    "subcategory": "INSULIN",
+    "coverage": "unresolved_identity",
+    "preferred": "not_specified",
+    "pa": "not_specified",
+    "paText": "",
+    "step": "not_specified",
+    "stepText": "",
+    "qlAmount": "",
+    "qlDays": "",
+    "conditions": [],
+    "sourceTitle": "Banner - University Family Care Acute–Long Term Care Drug List",
+    "sourceEffective": "2026-10-01",
+    "sourcePage": 11,
+    "sourceUrl": "/sources/bufc_formulary_eff10012026_en.pdf",
+    "rawSourceRow": {
+      "page": 11,
+      "table": 1,
+      "row": 10,
+      "class": "INSULIN",
+      "cells": [
+        "INSULIN GLARGINE SUSPENSION",
+        "LANTUS SOLOSTAR",
+        "BRAND ONLY",
+        "PREFERRED DRUG",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "reason": "Printed suspension and glargine pen formulation disagree"
+    },
+    "validation": "source_identity_unresolved",
+    "sourceIssue": "Drug identity requires payer clarification",
+    "listingLabel": "Unresolved source identity",
+    "suppressCoverageAndPaBadges": true,
+    "identityCorroboration": {
+      "url": "https://products.sanofi.us/lantus/lantus.pdf",
+      "fact": "LANTUS SoloStar is insulin glargine injection solution; the source row prints suspension."
+    }
+  },
+  {
+    "id": "banner-source-review-11-2-16",
+    "recordType": "formulary",
+    "planId": "banner-ufc",
+    "name": "GLIPIZIDE TABLET 24-HOUR",
+    "brand": "GLUCATROL XL",
+    "notes": "Verbatim generic identity is clear. Banner prints GLUCATROL XL; the manufacturer identifies GLUCOTROL XL as glipizide extended-release tablets. The lookup alias does not change payer source text.",
+    "subcategory": "SULFONYLUREAS",
+    "coverage": "listed",
+    "preferred": "not_specified",
+    "pa": "not_specified",
+    "paText": "",
+    "step": "not_specified",
+    "stepText": "",
+    "qlAmount": "",
+    "qlDays": "",
+    "conditions": [],
+    "sourceTitle": "Banner - University Family Care Acute–Long Term Care Drug List",
+    "sourceEffective": "2026-10-01",
+    "sourcePage": 11,
+    "sourceUrl": "/sources/bufc_formulary_eff10012026_en.pdf",
+    "rawSourceRow": {
+      "page": 11,
+      "table": 2,
+      "row": 16,
+      "class": "SULFONYLUREAS",
+      "cells": [
+        "GLIPIZIDE TABLET 24-HOUR",
+        "GLUCATROL XL",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "reason": "Printed reference-brand spelling requires identity review"
+    },
+    "validation": "verbatim_source_row_independently_verified",
+    "searchAliases": [
+      "GLUCOTROL XL",
+      "glipizide extended release"
+    ],
+    "identityCorroboration": {
+      "url": "https://labeling.pfizer.com/showlabeling.aspx?id=585",
+      "fact": "GLUCOTROL XL is glipizide extended-release tablets."
+    }
+  },
+  {
+    "id": "banner-source-review-12-2-48",
+    "recordType": "formulary",
+    "planId": "banner-ufc",
+    "name": "ROUVASTATIN TABLETS",
+    "brand": "CRESTOR",
+    "notes": "Banner prints ROUVASTATIN TABLETS beside CRESTOR. FDA labeling identifies CRESTOR as rosuvastatin tablets; retain source spelling and expose the documented lookup alias.",
+    "subcategory": "HMG COA REDUCTASE INHIBITORS",
+    "coverage": "listed",
+    "preferred": "preferred",
+    "pa": "not_specified",
+    "paText": "",
+    "step": "not_specified",
+    "stepText": "",
+    "qlAmount": "30",
+    "qlDays": "30",
+    "conditions": [],
+    "sourceTitle": "Banner - University Family Care Acute–Long Term Care Drug List",
+    "sourceEffective": "2026-10-01",
+    "sourcePage": 12,
+    "sourceUrl": "/sources/bufc_formulary_eff10012026_en.pdf",
+    "rawSourceRow": {
+      "page": 12,
+      "table": 2,
+      "row": 48,
+      "class": "HMG COA REDUCTASE INHIBITORS",
+      "cells": [
+        "ROUVASTATIN TABLETS",
+        "CRESTOR",
+        "",
+        "PREFERRED DRUG",
+        "",
+        "",
+        "30",
+        "30"
+      ],
+      "reason": "Printed ROUVASTATIN spelling requires identity review"
+    },
+    "validation": "verbatim_source_row_independently_verified",
+    "searchAliases": [
+      "ROSUVASTATIN TABLETS"
+    ],
+    "identityCorroboration": {
+      "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/021366s048lbl.pdf",
+      "fact": "CRESTOR is rosuvastatin tablets."
+    }
+  },
+  {
+    "id": "banner-source-review-29-1-1",
+    "recordType": "formulary",
+    "planId": "banner-ufc",
+    "name": "DIAPHRAGMS - OTHER+A1294",
+    "brand": "OMNIFLEX DIAPHRAGM",
+    "notes": "Verbatim source row. The +A1294 spreadsheet-reference artifact remains in the source name; reference brand explicitly identifies OMNIFLEX DIAPHRAGM. No strength or additional restriction is inferred.",
+    "subcategory": "MEDICAL DEVICES CONTRACEPTIVES",
+    "coverage": "listed",
+    "preferred": "not_specified",
+    "pa": "not_specified",
+    "paText": "",
+    "step": "not_specified",
+    "stepText": "",
+    "qlAmount": "",
+    "qlDays": "",
+    "conditions": [],
+    "sourceTitle": "Banner - University Family Care Acute–Long Term Care Drug List",
+    "sourceEffective": "2026-10-01",
+    "sourcePage": 29,
+    "sourceUrl": "/sources/bufc_formulary_eff10012026_en.pdf",
+    "rawSourceRow": {
+      "page": 29,
+      "table": 1,
+      "row": 1,
+      "class": "MEDICAL DEVICES CONTRACEPTIVES",
+      "cells": [
+        "DIAPHRAGMS - OTHER+A1294",
+        "OMNIFLEX DIAPHRAGM",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "reason": "Spreadsheet cell reference appears inside the printed product name"
+    },
+    "validation": "verbatim_source_row_independently_verified",
+    "searchAliases": [
+      "DIAPHRAGMS - OTHER",
+      "OMNIFLEX DIAPHRAGM"
+    ]
+  }
+]

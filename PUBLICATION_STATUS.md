@@ -17,3 +17,5 @@ Verification: compare all uploaded Git blob hashes against local file bytes and 
 5B: 29 source PDFs under 1 MB included in this commit (320 PDF pages); larger PDFs, detailed audits and database archives remain pending.
 
 5C: Three additional source PDFs included: UHC commercial September 2026 reference, Banner October 2026 formulary, and Mercy integrated October 2026 formulary. Larger PDFs, detailed audits, database archives and hosting verification remain pending.
+
+5D: Ten additional audit/supporting text and JSON files uploaded (26,603 bytes). Git blob hashes verified against archived source bytes. Remaining source PDFs, detailed audits, database archives and hosting verification remain pending.
