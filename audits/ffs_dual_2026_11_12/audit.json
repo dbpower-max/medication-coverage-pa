@@ -1,0 +1,37 @@
+{
+  "printed_product_positions": 328,
+  "distinct_records": 328,
+  "class_headings": 111,
+  "independent_cell_discrepancies": 0,
+  "fragments": 0,
+  "duplicate_conflicts": 0,
+  "pa_counts": {
+    "not_specified": 321,
+    "conditional": 4,
+    "required": 3
+  },
+  "source": {
+    "filename": "AHCCCS_DUAL_DrugList-4-1-26.pdf",
+    "official_url": "https://www.azahcccs.gov/Resources/Downloads/PharmacyUpdates/2026/AHCCCS_DUAL_DrugList-4-1-26.pdf",
+    "archive_url": "/sources/ahcccs-ffs-dual-2026-04-01.pdf",
+    "sha256": "7e3d82e17b9dac74316d8d2f1fbd1ce9963d723ba15c1890b7cda761ef182a8e",
+    "page_count": 9,
+    "effective_date": "2026-04-01",
+    "retrieved": "2026-11-12",
+    "hub": "https://www.azahcccs.gov/Resources/GuidesManualsPolicies/pharmacyupdates.html",
+    "hub_label": "AHCCCS Dual Eligible Drug List - Updated March 1, 2026",
+    "date_conflict": "PDF footer states 4/1/2026; website link label says UpdatedMarch 1, 2026. Retain document date and disclose discrepancy.",
+    "scope": "AHCCCS FFS dual non-Part D Medicaid benefit; not Medicare Part D coverage",
+    "pa_criteria_source": "AHCCCS FFS criteria only as applicable to this Medicaid benefit",
+    "scope_sources": [
+      {
+        "url": "https://www.azahcccs.gov/PlansProviders/Downloads/FFSProviderManual/FFS_Chap12Pharmacy.pdf",
+        "pages": "4\u20135"
+      },
+      {
+        "url": "https://www.azahcccs.gov/PlansProviders/Downloads/IHS-TribalManual/IHS-Chap10Pharmacy.pdf",
+        "pages": "15\u201316"
+      }
+    ]
+  }
+}
