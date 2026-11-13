@@ -1,0 +1,596 @@
+--- PDF page 665 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 665 
+Forteo and Teriparatide Products, Prolia and Denosumab 60mg Products, Tymlos 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-755194  
+Guideline Name 
+Forteo and Teriparatide Products, Prolia and Denosumab 60mg 
+Products, Tymlos  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+11/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Forteo  
+Diagnosis 
+Patients with osteoporosis at high risk for fracture  
+Approval Length 
+12 Months**  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of osteoporosis  
+
+
+--- PDF page 666 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 666 
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 Bone Mineral Density (BMD) T-score less than or equal to -3.5 based on BMD 
+measurements from lumbar spine (at least two vertebral bodies), hip (femoral neck, total hip), 
+or radius (one-third radius site). [NOTE: Provider must submit patient specific BMD T-score]  
+ 
+OR 
+ 
+ 2.2 BOTH of the following:  
+ 
+  2.2.1 BMD T-score between -2.5 and -3.5 (BMD T-score greater than -3.5 and less than or 
+equal to -2.5) based on BMD measurements from lumbar spine (at least two vertebral 
+bodies), hip (femoral neck, total hip), or radius (one-third radius site). [NOTE: Provider must 
+submit patient specific BMD T-score]  
+ 
+AND 
+ 
+  2.2.2 ONE of the following:  
+ 
+   2.2.2.1 History of ONE of the following resulting from minimal trauma: 
+• 
+Vertebral compression fracture  
+• 
+Fracture of the hip  
+• 
+Fracture of the distal radius  
+• 
+Fracture of the pelvis  
+• 
+Fracture of the proximal humerus  
+ 
+OR 
+ 
+   2.2.2.2 History of failure, contraindication, or intolerance to ONE conventional osteoporosis 
+therapy [e.g., bisphosphonate or selective estrogen receptor modulator (SERM)] (Document 
+drug, date, and duration of trial)* 
+ 
+OR 
+ 
+ 2.3 ALL of the following:  
+
+
+--- PDF page 667 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 667 
+ 
+  2.3.1 BMD T-score between -1 and -2.5 (BMD T-score greater than -2.5 and less than or 
+equal to -1) based on BMD measurements from lumbar spine (at least two vertebral bodies), 
+hip (femoral neck, total hip), or radius (one-third radius site). [NOTE: Provider must submit 
+patient specific BMD T-score]  
+ 
+AND 
+ 
+  2.3.2 ONE of the following:  
+ 
+   2.3.2.1 History of ONE of the following resulting from minimal trauma: 
+• 
+Vertebral compression fracture  
+• 
+Fracture of the hip  
+• 
+Fracture of the distal radius  
+• 
+Fracture of the pelvis  
+• 
+Fracture of the proximal humerus  
+ 
+OR 
+ 
+   2.3.2.2 ONE of the following Fracture Risk Assessment Tool (FRAX) 10-year fracture 
+probabilities: 
+• 
+Major osteoporotic fracture at 20 percent or more  
+• 
+Hip fracture at 3 percent or more  
+ 
+AND 
+ 
+  2.3.3 History of failure, contraindication, or intolerance to ONE conventional osteoporosis 
+therapy [e.g., bisphosphonate or selective estrogen receptor modulator (SERM)] (Document 
+drug, date, and duration of trial)*  
+ 
+AND 
+ 
+3 - Treatment duration has not exceeded a total of 24 months** of cumulative use of 
+parathyroid hormone analogs (e.g., Teriparatide Injection, Forteo, Tymlos) during the patient's 
+lifetime  
+Notes  
+*Claims history may be used in conjunction as documentation of drug,
+ date, and duration of trial.  
+ 
+
+
+--- PDF page 668 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 668 
+**Duration of coverage will be limited to 24 months of cumulative parat
+hyroid hormone analog therapy (e.g., Forteo, Tymlos) in the patient's l
+ifetime. 
+ 
+Product Name:Bonsity, generic teriparatide, Brand Teriparatide, Tymlos  
+Diagnosis 
+Patients with osteoporosis at high risk for fracture  
+Approval Length 
+12 Months**  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of osteoporosis  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 Bone Mineral Density (BMD) T-score less than or equal to -3.5 based on BMD 
+measurements from lumbar spine (at least two vertebral bodies), hip (femoral neck, total hip), 
+or radius (one-third radius site). [NOTE: Provider must submit patient specific BMD T-score]  
+ 
+OR 
+ 
+ 2.2 BOTH of the following:  
+ 
+  2.2.1 BMD T-score between -2.5 and -3.5 (BMD T-score greater than -3.5 and less than or 
+equal to -2.5) based on BMD measurements from lumbar spine (at least two vertebral 
+bodies), hip (femoral neck, total hip), or radius (one-third radius site). [NOTE: Provider must 
+submit patient specific BMD T-score]  
+ 
+AND 
+ 
+  2.2.2 ONE of the following:  
+ 
+   2.2.2.1 History of ONE of the following resulting from minimal trauma: 
+
+
+--- PDF page 669 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 669 
+• 
+Vertebral compression fracture  
+• 
+Fracture of the hip  
+• 
+Fracture of the distal radius  
+• 
+Fracture of the pelvis  
+• 
+Fracture of the proximal humerus  
+ 
+OR 
+ 
+   2.2.2.2 History of failure, contraindication, or intolerance to BOTH of the following 
+(Document drug, date, and duration of trial)*: 
+• 
+bisphosphonate (e.g., alendronate, ibandronate)  
+• 
+selective estrogen receptor modulator (SERM) (e.g., raloxifene)  
+ 
+OR 
+ 
+ 2.3 ALL of the following:  
+ 
+  2.3.1 BMD T-score between -1 and -2.5 (BMD T-score greater than -2.5 and less than or 
+equal to -1) based on BMD measurements from lumbar spine (at least two vertebral bodies), 
+hip (femoral neck, total hip), or radius (one-third radius site). [NOTE: Provider must submit 
+patient specific BMD T-score]  
+ 
+AND 
+ 
+  2.3.2 ONE of the following:  
+ 
+   2.3.2.1 History of ONE of the following resulting from minimal trauma: 
+• 
+Vertebral compression fracture  
+• 
+Fracture of the hip  
+• 
+Fracture of the distal radius  
+• 
+Fracture of the pelvis  
+• 
+Fracture of the proximal humerus  
+ 
+OR 
+ 
+   2.3.2.2 ONE of the following Fracture Risk Assessment Tool (FRAX) 10-year fracture 
+probabilities: 
+
+
+--- PDF page 670 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 670 
+• 
+Major osteoporotic fracture at 20 percent or more  
+• 
+Hip fracture at 3 percent or more  
+ 
+AND 
+ 
+  2.3.3 History of failure, contraindication, or intolerance to BOTH of the following (Document 
+drug, date, and duration of trial)*:  
+• 
+bisphosphonate (e.g., alendronate, ibandronate)  
+• 
+selective estrogen receptor modulator (SERM) (e.g., raloxifene)  
+ 
+AND 
+ 
+3 - Treatment duration has not exceeded a total of 24 months** of cumulative use of 
+parathyroid hormone analogs (e.g., Teriparatide Injection, Forteo, Tymlos) during the patient's 
+lifetime  
+ 
+AND 
+ 
+4 - History of failure, contraindication, or intolerance to BOTH of the following preferred 
+medications:  
+• 
+Bildyos (denosumab-nxxp)  
+• 
+Brand Forteo (teriparatide)  
+Notes  
+*Claims history may be used in conjunction as documentation of drug,
+ date, and duration of trial.  
+ 
+**Duration of coverage will be limited to 24 months of cumulative parat
+hyroid hormone analog therapy (e.g., Forteo, Tymlos) in the patient's l
+ifetime. 
+ 
+Product Name:Bonsity, Brand Forteo, generic teriparatide, Brand Teriparatide, Tymlos  
+Diagnosis 
+Patients with osteoporosis at high risk for fracture  
+Approval Length 
+12 Months*  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 671 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 671 
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy  
+ 
+AND 
+ 
+2 - Treatment duration has not exceeded a total of 24 months* of cumulative use of 
+parathyroid hormone analogs (e.g., Teriparatide Injection, Forteo, Tymlos) during the patient’s 
+lifetime  
+ 
+AND 
+ 
+3 - If the request is non-preferred^, history of failure, contraindication, or intolerance to the 
+preferred teriparatide product, Brand Forteo (teriparatide)  
+Notes  
+*Duration of coverage will be limited to 24 months of cumulative parat
+hyroid hormone analog therapy (e.g., Forteo, Tymlos) in the patient's l
+ifetime.  
+ 
+^PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP 
+ 
+Product Name:Bildyos  
+Diagnosis 
+Patients with osteoporosis at high risk for fracture  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of osteoporosis  
+ 
+AND 
+
+
+--- PDF page 672 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 672 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 Bone Mineral Density (BMD) T-score less than or equal to -3.5 based on BMD 
+measurements from lumbar spine (at least two vertebral bodies), hip (femoral neck, total hip), 
+or radius (one-third radius site). [NOTE: Provider must submit patient specific BMD T-score]  
+ 
+OR 
+ 
+ 2.2 BOTH of the following:  
+ 
+  2.2.1 BMD T-score between -2.5 and -3.5 (BMD T-score greater than -3.5 and less than or 
+equal to -2.5) based on BMD measurements from lumbar spine (at least two vertebral 
+bodies), hip (femoral neck, total hip), or radius (one-third radius site). [NOTE: Provider must 
+submit patient specific BMD T-score]  
+ 
+AND 
+ 
+  2.2.2 ONE of the following:  
+ 
+   2.2.2.1 History of ONE of the following resulting from minimal trauma: 
+• 
+Vertebral compression fracture  
+• 
+Fracture of the hip  
+• 
+Fracture of the distal radius  
+• 
+Fracture of the pelvis  
+• 
+Fracture of the proximal humerus  
+ 
+OR 
+ 
+   2.2.2.2 History of failure, contraindication, or intolerance to ONE conventional osteoporosis 
+therapy [e.g., bisphosphonate or selective estrogen receptor modulator (SERM)] (Document 
+drug, date, and duration of trial)* 
+ 
+OR 
+ 
+ 2.3 ALL of the following:  
+ 
+  2.3.1 BMD T-score between -1 and -2.5 (BMD T-score greater than -2.5 and less than or 
+equal to -1) based on BMD measurements from lumbar spine (at least two vertebral bodies), 
+
+
+--- PDF page 673 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 673 
+hip (femoral neck, total hip), or radius (one-third radius site). [NOTE: Provider must submit 
+patient specific BMD T-score]  
+ 
+AND 
+ 
+  2.3.2 ONE of the following:  
+ 
+   2.3.2.1 History of ONE of the following resulting from minimal trauma: 
+• 
+Vertebral compression fracture  
+• 
+Fracture of the hip  
+• 
+Fracture of the distal radius  
+• 
+Fracture of the pelvis  
+• 
+Fracture of the proximal humerus  
+ 
+OR 
+ 
+   2.3.2.2 ONE of the following Fracture Risk Assessment Tool (FRAX) 10-year fracture 
+probabilities: 
+• 
+Major osteoporotic fracture at 20 percent or more  
+• 
+Hip fracture at 3 percent or more  
+ 
+AND 
+ 
+  2.3.3 History of failure, contraindication, or intolerance to ONE conventional osteoporosis 
+therapy [e.g., bisphosphonate or selective estrogen receptor modulator (SERM)] (Document 
+drug, date, and duration of trial)*  
+Notes  
+*Claims history may be used in conjunction as documentation of drug,
+ date, and duration of trial. 
+ 
+Product Name:Bosaya, Conexxence, Enoby, Jubbonti, Ospomyv, Osvyrti, Prolia, Stoboclo  
+Diagnosis 
+Patients with osteoporosis at high risk for fracture  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 674 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 674 
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of osteoporosis  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 Bone Mineral Density (BMD) T-score less than or equal to -3.5 based on BMD 
+measurements from lumbar spine (at least two vertebral bodies), hip (femoral neck, total hip), 
+or radius (one-third radius site). [NOTE: Provider must submit patient specific BMD T-score]  
+ 
+OR 
+ 
+ 2.2 BOTH of the following:  
+ 
+  2.2.1 BMD T-score between -2.5 and -3.5 (BMD T-score greater than -3.5 and less than or 
+equal to -2.5) based on BMD measurements from lumbar spine (at least two vertebral 
+bodies), hip (femoral neck, total hip), or radius (one-third radius site). [NOTE: Provider must 
+submit patient specific BMD T-score]  
+ 
+AND 
+ 
+  2.2.2 ONE of the following:  
+ 
+   2.2.2.1 History of ONE of the following resulting from minimal trauma: 
+• 
+Vertebral compression fracture  
+• 
+Fracture of the hip  
+• 
+Fracture of the distal radius  
+• 
+Fracture of the pelvis  
+• 
+Fracture of the proximal humerus  
+ 
+OR 
+ 
+   2.2.2.2 History of failure, contraindication, or intolerance to BOTH of the following 
+(Document drug, date, and duration of trial)*: 
+
+
+--- PDF page 675 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 675 
+• 
+bisphosphonate (e.g., alendronate, ibandronate)  
+• 
+selective estrogen receptor modulator (SERM) (e.g., raloxifene)  
+ 
+OR 
+ 
+ 2.3 ALL of the following:  
+ 
+  2.3.1 BMD T-score between -1 and -2.5 (BMD T-score greater than -2.5 and less than or 
+equal to -1) based on BMD measurements from lumbar spine (at least two vertebral bodies), 
+hip (femoral neck, total hip), or radius (one-third radius site). [NOTE: Provider must submit 
+patient specific BMD T-score]  
+ 
+AND 
+ 
+  2.3.2 ONE of the following:  
+ 
+   2.3.2.1 History of ONE of the following resulting from minimal trauma: 
+• 
+Vertebral compression fracture  
+• 
+Fracture of the hip  
+• 
+Fracture of the distal radius  
+• 
+Fracture of the pelvis  
+• 
+Fracture of the proximal humerus  
+ 
+OR 
+ 
+   2.3.2.2 ONE of the following Fracture Risk Assessment Tool (FRAX) 10-year fracture 
+probabilities: 
+• 
+Major osteoporotic fracture at 20 percent or more  
+• 
+Hip fracture at 3 percent or more  
+ 
+AND 
+ 
+  2.3.3 History of failure, contraindication, or intolerance to BOTH of the following (Document 
+drug, date, and duration of trial)*:  
+• 
+bisphosphonate (e.g., alendronate, ibandronate)  
+• 
+selective estrogen receptor modulator (SERM) (e.g., raloxifene)  
+
+
+--- PDF page 676 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 676 
+ 
+AND 
+ 
+3 - History of failure, contraindication, or intolerance to BOTH of the following preferred 
+medications:  
+• 
+Bildyos (denosumab-nxxp)  
+• 
+Brand Forteo (teriparatide)  
+Notes  
+*Claims history may be used in conjunction as documentation of drug,
+ date, and duration of trial. 
+ 
+Product Name:Bildyos, Bosaya, Conexxence, Enoby, Jubbonti, Ospomyv, Osvyrti, Prolia, 
+Stoboclo  
+Diagnosis 
+Patients with osteoporosis at high risk for fracture  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy  
+ 
+AND 
+ 
+2 - If the request is non-preferred^, history of failure, contraindication, or intolerance to the 
+preferred denosumab product, Bildyos (denosumab-nxxp)  
+Notes  
+^PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+
+
+--- PDF page 677 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 677 
+10/14/2026  
+Updated embedded step requirements in initial auth sections for Bon
+sity/generic teriparatide/Brand Teriparatide/Tymlos and Bosaya/Cone
+xxence/Enoby/ Jubbonti/Ospomyv/Osvyrti/Prolia/Stoboclo. Added em
+bedded step requirement to all reauth sections.  
+ 
