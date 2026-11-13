@@ -15,3 +15,5 @@ This partial repository cannot run until the required datasets are uploaded. No 
 Verification: compare all uploaded Git blob hashes against local file bytes and confirm main points to this commit.
 
 5B: 29 source PDFs under 1 MB included in this commit (320 PDF pages); larger PDFs, detailed audits and database archives remain pending.
+
+5C: Three additional source PDFs included: UHC commercial September 2026 reference, Banner October 2026 formulary, and Mercy integrated October 2026 formulary. Larger PDFs, detailed audits, database archives and hosting verification remain pending.
