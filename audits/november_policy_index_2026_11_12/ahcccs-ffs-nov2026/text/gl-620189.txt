@@ -1,0 +1,118 @@
+--- PDF page 192 ---
+Page 192 
+Avlayah (tividenofusp alfa-eknm) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-620189  
+Guideline Name 
+Avlayah (tividenofusp alfa-eknm)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+6/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Avlayah  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a diagnosis of Hunter 
+syndrome (Mucopolysaccharidosis type II, MPS II)  
+
+
+--- PDF page 193 ---
+Page 193 
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) confirming diagnosis by one of the 
+following:  
+• 
+Enzyme assay demonstrating deficient iduronate 2 sulfatase (I2S) activity  
+• 
+Presence of iduronate-2-sulfatase (IDS) gene mutation as detected by a FDA-
+approved test or a test performed at a facility approved by Clinical Laboratory 
+Improvement Amendments (CLIA)  
+ 
+AND 
+ 
+3 - Disease is one of the following:  
+• 
+Presymptomatic  
+• 
+Symptomatic  
+ 
+AND 
+ 
+4 - Requested medication is initiated prior to advanced neurologic impairment (e.g., 
+progressive cognitive decline, status epilepticus)  
+ 
+AND 
+ 
+5 - Patient's weight is greater than or equal to 5 kg  
+ 
+AND 
+ 
+6 - Prescribed by or in consultation with one of the following:  
+• 
+Geneticist  
+• 
+Metabolic disease specialist  
+• 
+Physician who specializes in the treatment of lysosomal storage disorders  
+ 
+AND 
+
+
+--- PDF page 194 ---
+Page 194 
+ 
+7 - Requested medication is not used in combination with other enzyme replacement 
+therapies for the treatment of Hunter syndrome (e.g., Elaprase)  
+ 
+Product Name:Avlayah  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting positive clinical response 
+to therapy (e.g., reductions from baseline in cerebrospinal fluid heparan sulfate [CSF HS)])  
+ 
+AND 
+ 
+2 - Requested medication is not used in combination with other enzyme replacement 
+therapies for the treatment of Hunter syndrome (e.g., Elaprase)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+5/27/2026  
+New Program  
+ 
