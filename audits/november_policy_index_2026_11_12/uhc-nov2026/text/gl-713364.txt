@@ -1,0 +1,644 @@
+--- PDF page 1941 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1941 
+Xolair and Omalizumab Products 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-713364  
+Guideline Name 
+Xolair and Omalizumab Products  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Xolair, Omlyclo, newly launched omalizumab products  
+Diagnosis 
+Allergic Asthma  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of documentation (e.g., chart notes) confirming diagnosis of moderate to 
+severe persistent allergic asthma  
+
+
+--- PDF page 1942 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1942 
+ 
+AND 
+ 
+2 - Submission of documentation (e.g., chart notes, lab values) confirming a positive skin test 
+or in vitro reactivity to a perennial aeroallergen  
+ 
+AND 
+ 
+3 - ONE of the following:  
+ 
+ 3.1 BOTH of the following:  
+• 
+Patient is 12 years of age or older  
+• 
+Submission of documentation (e.g., chart notes, lab values) confirming pre-treatment 
+serum immunoglobulin (Ig)E level between 30 to 700 IU/mL  
+ 
+OR 
+ 
+ 3.2 BOTH of the following:  
+• 
+Patient is 6 years to less than 12 years of age  
+• 
+Submission of documentation (e.g. chart notes, lab values) confirming pre-treatment 
+serum immunoglobulin (Ig)E level between 30 to 1300 IU/mL  
+ 
+AND 
+ 
+4 - Paid claims or submission of documentation (e.g., chart notes) confirming patient is 
+currently being treated with ONE of the following, unless there is a contraindication or 
+intolerance to these medications:  
+ 
+ 4.1 BOTH of the following:  
+• 
+High-dose inhaled corticosteroid (ICS) (e.g., greater than 500 mcg fluticasone 
+propionate equivalent/day)  
+• 
+Additional asthma controller medication (e.g., leukotriene receptor antagonist [e.g., 
+montelukast], long-acting beta-2 agonist [LABA] [e.g., salmeterol ], tiotropium)  
+ 
+OR 
+
+
+--- PDF page 1943 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1943 
+ 
+ 4.2 One maximally-dosed combination ICS/LABA product (e.g., Advair [fluticasone 
+propionate/salmeterol], Symbicort [budesonide/formoterol], Breo Ellipta [fluticasone/vilanterol]) 
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with ONE of the following:  
+• 
+Pulmonologist  
+• 
+Allergist/immunologist  
+ 
+AND 
+ 
+6 - If the request is non-preferred*, history of failure to ALL preferred* omalizumab products  
+Notes  
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP 
+ 
+Product Name:Xolair, Omlyclo, newly launched omalizumab products  
+Diagnosis 
+Allergic Asthma  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of documentation (e.g., chart notes) confirming a positive clinical response to 
+therapy (e.g., reduction in exacerbations, improvement in forced expiratory volume in 1 
+second [FEV1], decreased use of rescue medications)  
+ 
+AND 
+ 
+2 - Paid claims or submission of documentation (e.g., chart notes) confirming patient 
+continues to be treated with an inhaled corticosteroid (ICS) (e.g., fluticasone, budesonide) 
+with or without additional asthma controller medication (e.g., leukotriene receptor antagonist 
+
+
+--- PDF page 1944 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1944 
+[e.g., montelukast], long-acting beta-2 agonist [LABA] [e.g., salmeterol], tiotropium) unless 
+there is a contraindication or intolerance to these medications  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with ONE of the following:  
+• 
+Pulmonologist  
+• 
+Allergist/immunologist  
+ 
+AND 
+ 
+4 - If the request is non-preferred*, history of failure to ALL preferred* omalizumab products  
+Notes  
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP 
+ 
+Product Name:Xolair, Omlyclo, newly launched omalizumab products  
+Diagnosis 
+Chronic Spontaneous Urticaria (CSU)  
+Approval Length 
+3 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of documentation (e.g., chart notes) confirming diagnosis of chronic 
+spontaneous urticaria  
+ 
+AND 
+ 
+2 - Persistent symptoms (itching and hives) for at least 4 consecutive weeks despite titrating 
+to an optimal dose with a second generation H1 antihistamine (e.g., cetirizine, fexofenadine), 
+unless there is a contraindication or intolerance to H1 antihistamines  
+
+
+--- PDF page 1945 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1945 
+ 
+AND 
+ 
+3 - Paid claims or submission of documentation (e.g., chart notes) confirming concurrent use 
+with an H1 antihistamine, unless there is a contraindication or intolerance to H1 
+antihistamines  
+ 
+AND 
+ 
+4 - Paid claims or submission of documentation (e.g., chart notes) confirming patient has tried 
+and had an inadequate response or intolerance to at least TWO of the following additional 
+therapies:  
+• 
+Doxepin  
+• 
+H1 antihistamine  
+• 
+H2 antagonist (e.g., famotidine, cimetidine)  
+• 
+Hydroxyzine  
+• 
+Leukotriene receptor antagonist (e.g., montelukast)  
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with ONE of the following:  
+• 
+Allergist/immunologist  
+• 
+Dermatologist  
+ 
+AND 
+ 
+6 - If the request is non-preferred*, history of failure to ALL preferred* omalizumab products  
+Notes  
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP 
+ 
+Product Name:Xolair, Omlyclo, newly launched omalizumab products  
+Diagnosis 
+Chronic Spontaneous Urticaria (CSU)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Reauthorization  
+
+
+--- PDF page 1946 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1946 
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient’s disease status has been re-evaluated since the last authorization to confirm the 
+patient’s condition warrants continued treatment  
+ 
+AND 
+ 
+2 - Submission of documentation (e.g., chart notes) confirming patient has experienced at 
+least ONE of the following:  
+• 
+Reduction in itching severity from baseline  
+• 
+Reduction in the number of hives from baseline  
+ 
+AND 
+ 
+3 - If the request is non-preferred*, history of failure to ALL preferred* omalizumab products  
+Notes  
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP 
+ 
+Product Name:Xolair, Omlyclo, newly launched omalizumab products  
+Diagnosis 
+Chronic Rhinosinusitis with Nasal Polyps (CRSwNP)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient is 18 years of age or older  
+ 
+AND 
+
+
+--- PDF page 1947 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1947 
+ 
+2 - Submission of documentation (e.g., chart notes) confirming ONE of the following:  
+ 
+ 2.1 ALL of the following:  
+ 
+  2.1.1 Diagnosis of chronic rhinosinusitis with nasal polyposis (CRSwNP) defined by ALL of 
+the following:  
+ 
+   2.1.1.1 TWO or more of the following symptoms for greater than or equal to 12 weeks 
+duration: 
+• 
+Mucopurulent discharge  
+• 
+Nasal obstruction and congestion  
+• 
+Decreased or absent sense of smell  
+• 
+Facial pressure or pain  
+ 
+AND 
+ 
+   2.1.1.2 ONE of the following: 
+• 
+Evidence of inflammation on paranasal sinus examination or computed tomography 
+(CT)  
+• 
+Evidence of purulence coming from paranasal sinuses or ostiomeatal complex  
+ 
+AND 
+ 
+   2.1.1.3 The presence of nasal polyps 
+ 
+AND 
+ 
+  2.1.2 ONE of the following:  
+• 
+Patient has required prior sino-nasal surgery  
+• 
+Patient has required systemic corticosteroids in the previous 2 years  
+ 
+AND 
+ 
+  2.1.3 Patient has been unable to obtain symptom relief after trial of ALL of the following 
+agents/classes of agents:  
+• 
+Nasal saline irrigations  
+
+
+--- PDF page 1948 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1948 
+• 
+Intranasal corticosteroids (e.g. fluticasone, mometasone, triamcinolone, etc.)  
+• 
+Antileukotriene agents (e.g. montelukast, zafirlukast, zileuton)  
+ 
+OR 
+ 
+ 2.2 BOTH of the following:  
+ 
+  2.2.1 Diagnosis of chronic rhinosinusitis with nasal polyposis (CRSwNP)  
+ 
+AND 
+ 
+  2.2.2 Patient is currently on Xolair therapy  
+ 
+AND 
+ 
+3 - Patient will receive Xolair as add-on maintenance therapy in combination with intranasal 
+corticosteroids  
+ 
+AND 
+ 
+4 - Patient is NOT receiving Xolair in combination with another biologic medication (e.g., 
+Dupixent [dupilumab], Nucala [mepolizumab])  
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with ONE of the following:  
+• 
+Otolaryngologist  
+• 
+Allergist  
+• 
+Pulmonologist  
+ 
+AND 
+ 
+6 - If the request is non-preferred*, history of failure to ALL preferred* omalizumab products  
+
+
+--- PDF page 1949 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1949 
+Notes  
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP 
+ 
+Product Name:Xolair, Omlyclo, newly launched omalizumab products  
+Diagnosis 
+Chronic Rhinosinusitis with Nasal Polyps (CRSwNP)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of documentation (e.g., chart notes, lab values) confirming a positive clinical 
+response to Xolair therapy  
+ 
+AND 
+ 
+2 - Patient will continue to receive Xolair as add-on maintenance therapy in combination with 
+intranasal corticosteroids  
+ 
+AND 
+ 
+3 - Patient is NOT receiving Xolair in combination with another biologic medication (e.g., 
+Dupixent [dupilumab], Nucala [mepolizumab])  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with ONE of the following:  
+• 
+Otolaryngologist  
+• 
+Allergist  
+• 
+Pulmonologist  
+ 
+AND 
+
+
+--- PDF page 1950 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1950 
+ 
+5 - If the request is non-preferred*, history of failure to ALL preferred* omalizumab products  
+Notes  
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP 
+ 
+Product Name:Xolair, Omlyclo, newly launched omalizumab products  
+Diagnosis 
+IgE-Mediated Food Allergy  
+Approval Length 
+20 Week(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following:  
+ 
+ 1.1 Submission of documentation (e.g., chart notes, lab values) confirming BOTH of the 
+following:  
+ 
+  1.1.1 Diagnosis of IgE Mediated Food Allergy as evidenced by ONE of the following:  
+• 
+Positive skin prick test (defined as greater than or equal to 4 millimeters wheal greater 
+than saline control) to food  
+• 
+Positive food specific IgE (greater than or equal to 6 kUA/L)  
+• 
+Positive oral food challenge, defined as experiencing dose-limiting symptoms at a 
+single dose of less than or equal to 300 mg of food protein  
+ 
+AND 
+ 
+  1.1.2 Clinical history of IgE Mediated Food Allergy  
+ 
+OR 
+ 
+ 1.2 Submission of documentation (e.g., chart notes, lab values) confirming patient has a 
+history of severe allergic response, including anaphylaxis, following exposure to one or more 
+foods  
+
+
+--- PDF page 1951 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1951 
+ 
+AND 
+ 
+2 - Patient is 1 year of age or older  
+ 
+AND 
+ 
+3 - Used in conjunction with food allergen avoidance  
+ 
+AND 
+ 
+4 - Submission of documentation (e.g., chart notes, lab values) confirming BOTH of the 
+following:  
+• 
+Baseline (pre-Xolair treatment) serum total IgE level is greater than or equal to 30 
+IU/mL and less than or equal to 1850 IU/mL  
+• 
+Dosing is according to serum total IgE levels and body weight  
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with ONE of the following:  
+• 
+Allergist  
+• 
+Immunologist  
+ 
+AND 
+ 
+6 - If the request is non-preferred*, history of failure to ALL preferred* omalizumab products  
+Notes  
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP 
+ 
+Product Name:Xolair, Omlyclo, newly launched omalizumab products  
+Diagnosis 
+IgE-Mediated Food Allergy  
+Approval Length 
+12 month(s)  
+
+
+--- PDF page 1952 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1952 
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of documentation (e.g., chart notes, lab values) confirming a positive clinical 
+response to therapy (e.g., reduction of type 1 allergic reactions, including anaphylaxis, 
+following accidental exposure to one or more foods)  
+ 
+AND 
+ 
+2 - Used in conjunction with food allergen avoidance  
+ 
+AND 
+ 
+3 - Submission of documentation (e.g., chart notes, lab values) confirming that dosing will 
+continue to be based on body weight and pretreatment total IgE serum levels (Note: Dose 
+should only be adjusted during therapy due to significant changes in patient body weight)  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with ONE of the following:  
+• 
+Allergist  
+• 
+Immunologist  
+ 
+AND 
+ 
+5 - If the request is non-preferred*, history of failure to ALL preferred* omalizumab products  
+Notes  
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP 
+ 
+ 
+2 .  Background  
+
+
+--- PDF page 1953 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1953 
+ 
+Clinical Practice Guidelines  
+The Global Initiative for Asthma Global Strategy for Asthma Management and 
+Prevention: Table 1. Low, medium and high daily doses of inhaled corticosteroids in 
+adolescents and adults 12 years and older.  
+Inhaled corticosteroid 
+Total Daily ICS Dose (mcg) 
+  
+Low 
+Medium 
+High 
+Beclometasone dipropionate (pMDI, 
+standard particle, HFA) 
+200-500 
+> 500-1000 
+> 1000 
+Beclometasone dipropionate (DPI or 
+pMDI, extrafine particle*, HFA) 
+100-200 
+> 200-400 
+> 400 
+Budesonide (DPI, or pMDI, standard 
+particle, HFA) 
+200-400 
+> 400-800 
+> 800 
+Ciclesonide (pMDI, extrafine 
+particle*, HFA) 
+80-160 
+> 160-320 
+> 320 
+Fluticasone furoate (DPI) 
+100 
+200 
+Fluticasone propionate (DPI) 
+100-250 
+> 250-500 
+> 500 
+Fluticasone propionate (pMDI, 
+standard particle, HFA) 
+100-250 
+> 250-500 
+> 500 
+Mometasone furoate (DPI) 
+Depends on DPI device – see product 
+information 
+Mometasone furoate (pMDI, 
+standard particle, HFA) 
+200-400 
+> 400 
+DPI: dry powder inhaler; HFA: hydrofluoroalkane propellant; ICS: inhaled 
+corticosteroid; N/A: not applicable; pMDI: pressurized metered dose inhaler 
+(non-chlorofluorocarbon formulations); ICS by pMDI should be preferably used 
+with a spacer *See product information.  
+This is not a table of equivalence, but instead, suggested total daily doses 
+for the ‘low’, ‘medium’ and ‘high’ dose ICS options for adults/adolescents, 
+based on available studies and product information. Data on comparative 
+potency are not readily available and therefore this table does NOT imply 
+potency equivalence. Doses may be country -specific depending on local 
+availability, regulatory labelling and clinical guidelines. 
+
+
+--- PDF page 1954 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1954 
+For new preparations, including generic ICS, the manufacturer’s information 
+should be reviewed carefully; products containing the same molecule may not 
+be clinically equivalent. 
+ 
+3 .  Revision History  
+ 
+Date  
+Notes  
+9/11/2026  
+Updated guideline name. Added Omlyclo products as targets. Updat
+ed product name lists and GPI tables throughout guideline. In all crite
+ria sections, added an embedded step criterion pertaining to request
+s for non-preferred omalizumab products and added PDL link in the n
+otes section.  
+ 

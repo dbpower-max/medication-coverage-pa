@@ -1,0 +1,115 @@
+--- PDF page 798 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 798 
+Hepcludex (bulevirtide-gmod) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-715289  
+Guideline Name 
+Hepcludex (bulevirtide-gmod)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Hepcludex  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of chronic hepatitis delta virus (HDV) infection  
+ 
+AND 
+
+
+--- PDF page 799 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 799 
+ 
+2 - Submission of medical records (e.g., chart notes, lab results) documenting detectable HDV 
+RNA within the 6 months before initiating therapy  
+ 
+AND 
+ 
+3 - Patient has active liver disease (e.g., ALT above the upper limit of normal [ULN], evidence 
+of hepatic fibrosis by noninvasive testing [e.g., transient elastography])  
+ 
+AND 
+ 
+4 - Patient is without decompensated liver disease (e.g., Child-Pugh Class B or C)  
+ 
+AND 
+ 
+5 - ONE of the following:  
+• 
+Patient is receiving concomitant therapy for hepatitis B virus (HBV) (e.g., entecavir, 
+tenofovir disoproxil fumarate)  
+• 
+Patient is NOT a candidate for HBV therapy  
+ 
+AND 
+ 
+6 - Prescriber attests that the patient has been counseled on the importance of adherence to 
+therapy with risk of disease reactivation and need for ongoing monitoring if discontinued  
+ 
+AND 
+ 
+7 - Prescribed by or in consultation with ONE of the following:  
+• 
+Hepatologist  
+• 
+Gastroenterologist  
+• 
+Infectious disease specialist  
+ 
+Product Name:Hepcludex  
+Approval Length 
+12 month(s)  
+
+
+--- PDF page 800 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 800 
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy (e.g., ALT normalization, 
+improvement in or stabilization of fibrosis, undetectable HDV RNA level)  
+ 
+AND 
+ 
+2 - Prescriber attests that the patient has been counseled on the importance of adherence to 
+therapy with risk of disease reactivation and need for ongoing monitoring if discontinued  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+9/2/2026  
+Added criterion pertaining to HBV therapy in initial auth section.  
+ 

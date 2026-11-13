@@ -1,0 +1,266 @@
+--- PDF page 1389 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1389 
+Pulmonary Arterial Hypertension (PAH) Agents 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-715293  
+Guideline Name 
+Pulmonary Arterial Hypertension (PAH) Agents  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Adcirca, generic tadalafil 20 mg (PAH), Adempas, Alyq, Brand Letairis, 
+generic ambrisentan, Brand Opsumit, generic macitentan, Opsynvi, Orenitram, Remodulin 0.4 
+mg/mL, Brand Revatio tabs, generic sildenafil 20 mg tabs, sildenafil susp, Tadliq, Brand 
+Tracleer tabs, generic bosentan tabs, Brand Tracleer tab for oral susp, generic bosentan tab 
+for oral susp, Tyvaso, Tyvaso DPI, Uptravi tabs, Ventavis, Yutrepia  
+Diagnosis 
+Pulmonary Arterial Hypertension  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 1390 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1390 
+ 
+1 - Diagnosis of pulmonary arterial hypertension  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 Patient is 18 years of age or older  
+ 
+OR 
+ 
+ 2.2 ONE of the following:  
+• 
+If the request is for Tracleer/bosentan, patient is 3 years of age or older  
+• 
+If the request is for Uptravi tablets, patient is 2 years of age or older  
+ 
+AND 
+ 
+3 - Pulmonary arterial hypertension is symptomatic  
+ 
+AND 
+ 
+4 - ONE of the following:  
+ 
+ 4.1 Diagnosis of pulmonary arterial hypertension was confirmed by right heart catheterization  
+ 
+OR 
+ 
+ 4.2 Patient is currently on any therapy for the diagnosis of pulmonary arterial hypertension  
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with ONE of the following:  
+• 
+Pulmonologist  
+
+
+--- PDF page 1391 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1391 
+• 
+Cardiologist  
+ 
+AND 
+ 
+6 - If the request is non-preferred*, patient has a history of failure, contraindication, or 
+intolerance to BOTH of the following:  
+• 
+A preferred* endothelin receptor antagonist (ERA) [e.g., generic ambrisentan, 
+bosentan tablet for oral suspension]  
+• 
+A preferred* phosphodiesterase 5 inhibitor (PDE5i) [e.g., Alyq or tadalafil 20 mg (PAH), 
+generic sildenafil tablet (generic for Revatio tablet), generic sildenafil suspension]  
+ 
+AND 
+ 
+7 - If the request is for Brand Adcirca, patient must have tried and failed generic tadalafil 20 
+mg (PAH) or Alyq  
+ 
+AND 
+ 
+8 - If the request is for Opsynvi, patient must have tried and failed BOTH of the following as 
+separate products:  
+• 
+generic tadalafil 20 mg (PAH)  
+• 
+Opsumit^  
+Notes  
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP  
+ 
+^Drug may require PA. 
+ 
+Product Name:Brand Adcirca, generic tadalafil 20 mg (PAH), Adempas, Alyq, Brand Letairis, 
+generic ambrisentan, Brand Opsumit, generic macitentan, Opsynvi, Orenitram, Remodulin 0.4 
+mg/mL, Brand Revatio tabs, generic sildenafil 20 mg tabs, sildenafil susp, Tadliq, Brand 
+Tracleer tabs, generic bosentan tabs, Brand Tracleer tab for oral susp, generic bosentan tab 
+for oral susp, Tyvaso, Tyvaso DPI, Uptravi tabs, Ventavis, Yutrepia  
+Diagnosis 
+Pulmonary Arterial Hypertension  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+
+
+--- PDF page 1392 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1392 
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+Product Name:Adempas  
+Diagnosis 
+Chronic Thromboembolic Pulmonary Hypertension (CTEPH)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following:  
+ 
+ 1.1 BOTH of the following:  
+ 
+  1.1.1 Diagnosis of inoperable or persistent/recurrent chronic thromboembolic pulmonary 
+hypertension (CTEPH)  
+ 
+AND 
+ 
+  1.1.2 CTEPH is symptomatic  
+ 
+OR 
+ 
+ 1.2 Patient is currently on any therapy for the diagnosis of CTEPH  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with ONE of the following:  
+• 
+Pulmonologist  
+
+
+--- PDF page 1393 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1393 
+• 
+Cardiologist  
+ 
+Product Name:Adempas  
+Diagnosis 
+Chronic Thromboembolic Pulmonary Hypertension (CTEPH)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+Product Name:Winrevair  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of pulmonary arterial hypertension  
+ 
+AND 
+ 
+2 - Pulmonary arterial hypertension is symptomatic  
+ 
+AND 
+ 
+3 - Patient is currently on at least TWO therapies indicated for the treatment of pulmonary 
+arterial hypertension from the following different mechanisms of action, unless there is a 
+contraindication or intolerance:  
+• 
+Endothelin receptor antagonists [e.g., bosentan, ambrisentan or macitentan]  
+
+
+--- PDF page 1394 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1394 
+• 
+Phosphodiesterase 5 inhibitors [e.g., tadalafil or sildenafil]  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with ONE of the following:  
+• 
+Pulmonologist  
+• 
+Cardiologist  
+ 
+Product Name:Winrevair  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+9/2/2026  
+Added new GPIs for Uptravi 100 mcg and 150 mcg tabs. Updated pr
+oduct name lists and GPI tables, where applicable. No changes to cli
+nical criteria.  
+ 
