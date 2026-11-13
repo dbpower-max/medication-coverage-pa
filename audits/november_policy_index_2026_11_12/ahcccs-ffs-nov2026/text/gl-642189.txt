@@ -1,0 +1,117 @@
+--- PDF page 270 ---
+Page 270 
+Breztri, Trelegy Ellipta - AZM 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-642189  
+Guideline Name 
+Breztri, Trelegy Ellipta - AZM  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+7/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Breztri, Trelegy Ellipta  
+Diagnosis 
+Asthma  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of asthma  
+
+
+--- PDF page 271 ---
+Page 271 
+ 
+AND 
+ 
+2 - One of the following:  
+• 
+For Breztri requests: Patient is 12 years of age or older  
+• 
+For Trelegy requests: Patient is 18 years of age or older  
+ 
+AND 
+ 
+3 - History of failure, contraindication, or intolerance to treatment with ALL of the following 
+preferred products:  
+• 
+Wixela Inhub, generic fluticasone-salmeterol diskus, or Advair HFA  
+• 
+Dulera  
+• 
+generic budesonide-formoterol (generic for Symbicort)  
+ 
+Product Name:Breztri, Trelegy Ellipta  
+Diagnosis 
+COPD  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of chronic obstructive pulmonary disease (COPD), including chronic bronchitis 
+and/or emphysema  
+ 
+AND 
+ 
+2 - History of failure, contraindication, or intolerance to treatment with at least a 30 day trial of 
+both of the following used in combination:  
+• 
+Stiolto Respimat (tiotropium-olodaterol)  
+
+
+--- PDF page 272 ---
+Page 272 
+• 
+Brand Flovent HFA or generic fluticasone propionate  
+ 
+Product Name:Breztri, Trelegy Ellipta  
+Diagnosis 
+Asthma, COPD  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+6/25/2026  
+Added new Breztri GPI, added Breztri to Asthma criteria box with age
+ criterion added.  
+ 

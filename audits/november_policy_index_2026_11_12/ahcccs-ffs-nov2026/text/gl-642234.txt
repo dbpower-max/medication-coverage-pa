@@ -1,0 +1,121 @@
+--- PDF page 1313 ---
+Page 1313 
+Omisirge (omidubicel-onlv) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-642234  
+Guideline Name 
+Omisirge (omidubicel-onlv)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+7/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Omisirge  
+Diagnosis 
+Hematologic Malignancies  
+Approval Length 
+1 Time Authorization in Lifetime  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming diagnosis of hematologic 
+malignancy  
+
+
+--- PDF page 1314 ---
+Page 1314 
+ 
+AND 
+ 
+2 - Patient is 12 years of age or older  
+ 
+AND 
+ 
+3 - Prescribed by a physician with expertise in the treatment of hematologic malignancies at a 
+center with expertise in hematopoietic stem cell transplants with shared decision-making 
+regarding the potential risks of treatment with Omisirge  
+ 
+AND 
+ 
+4 - Provider attests that patient has never received Omisirge treatment in their lifetime  
+ 
+Product Name:Omisirge  
+Diagnosis 
+Severe Aplastic Anemia  
+Approval Length 
+1 Time Authorization in Lifetime  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming both of the following:  
+ 
+ 1.1 Diagnosis of severe aplastic anemia  
+ 
+AND 
+ 
+ 1.2 Both of the following:  
+ 
+  1.2.1 Bone marrow cellularity of less than 25%  
+ 
+AND 
+
+
+--- PDF page 1315 ---
+Page 1315 
+ 
+  1.2.2 Patient meets at least two of the following:  
+• 
+Platelet count of less than 20,000/mcL  
+• 
+Absolute neutrophil count of less than 500/mcL  
+• 
+Absolute reticulocyte count of less than 60,000/mcL  
+ 
+AND 
+ 
+2 - Prescriber attests that other known causes of bone marrow failure (BMF) have been ruled 
+out (e.g., immune thrombocytopenia [ITP], hodgkin lymphoma or non-hodgkin lymphoma, 
+aplastic anemia associated with paroxysmal nocturnal hemoglobinuria [PNH])  
+ 
+AND 
+ 
+3 - Patient is 6 years of age or older  
+ 
+AND 
+ 
+4 - Prescribed by a physician with expertise in the treatment of severe aplastic anemia in a 
+center with expertise in hematopoietic stem cell transplants with shared decision-making 
+regarding the potential risks of treatment with Omisirge  
+ 
+AND 
+ 
+5 - Provider attests that patient has never received Omisirge treatment in their lifetime  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+6/25/2026  
+New program  
+ 
