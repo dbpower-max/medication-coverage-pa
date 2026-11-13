@@ -1,0 +1,108 @@
+--- PDF page 1089 ---
+Page 1089 
+Livdelzi (seladelpar) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-157798  
+Guideline Name 
+Livdelzi (seladelpar)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+11/1/2024  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Livdelzi  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of primary biliary 
+cholangitis (PBC) (also known as primary biliary cirrhosis)  
+
+
+--- PDF page 1090 ---
+Page 1090 
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) or paid claims documenting one of the 
+following:  
+ 
+ 2.1 Both of the following:  
+ 
+  2.1.1 Patient has failed to achieve an alkaline phosphatase (ALP) level of less than 1.67 
+times the upper limit of normal (ULN) after at least 12 consecutive months of treatment with 
+ursodeoxycholic acid (UDCA) (e.g., Urso, Urso Forte, ursodiol)  
+ 
+AND 
+ 
+  2.1.2 Used in combination with ursodeoxycholic acid (UDCA)  
+ 
+OR 
+ 
+ 2.2 History of contraindication or intolerance to ursodeoxycholic acid (UDCA)  
+ 
+AND 
+ 
+3 - Requested drug will not be used in combination with Ocaliva (obeticholic acid) or Iqirvo 
+(elafibranor)  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with one of the following:  
+• 
+Hepatologist  
+• 
+Gastroenterologist  
+ 
+Product Name:Livdelzi  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+
+
+--- PDF page 1091 ---
+Page 1091 
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting positive clinical response 
+to therapy (e.g., ALP level less than 1.67 times ULN, total bilirubin less than or equal to ULN, 
+ALP decrease greater than or equal to 15% from baseline )  
+ 
+AND 
+ 
+2 - Requested drug will not be used in combination with Ocaliva (obeticholic acid) or Iqirvo 
+(elafibranor)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+10/25/2024  
+New program  
+ 

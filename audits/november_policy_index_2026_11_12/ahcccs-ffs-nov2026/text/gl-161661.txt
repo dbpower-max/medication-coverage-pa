@@ -1,0 +1,81 @@
+--- PDF page 2094 ---
+Page 2094 
+Yorvipath (palopegteriparatide) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-161661  
+Guideline Name 
+Yorvipath (palopegteriparatide)  
+Formulary 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+1/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Yorvipath  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting all of the following:  
+ 
+ 1.1 Diagnosis of hypoparathyroidism  
+
+
+--- PDF page 2095 ---
+Page 2095 
+ 
+AND 
+ 
+ 1.2 Requested drug is not being used in the setting of acute post-surgical 
+hypoparathyroidism  
+ 
+AND 
+ 
+ 1.3 Patient has achieved albumin-corrected serum calcium of at least 7.8 mg/dL using 
+calcium and active vitamin D (e.g., calcitriol) treatment  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with an endocrinologist  
+ 
+Product Name:Yorvipath  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting that patient demonstrates 
+positive clinical response to therapy as evidenced by maintenance of normalized calcium 
+levels compared to baseline  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+12/4/2024  
+New program  
+ 
