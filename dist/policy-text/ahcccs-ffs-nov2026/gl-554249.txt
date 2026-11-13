@@ -1,0 +1,129 @@
+--- PDF page 583 ---
+Page 583 
+Ergot Alkaloids 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-554249  
+Guideline Name 
+Ergot Alkaloids  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+4/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brekiya injection, Brand Migranal nasal spray, Generic dihydroergotamine 
+mesylate nasal spray, Trudhesa nasal spray  
+Diagnosis 
+Migraines  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of migraine headaches with or without aura  
+
+
+--- PDF page 584 ---
+Page 584 
+ 
+AND 
+ 
+2 - Will be used for the acute treatment of migraine  
+ 
+AND 
+ 
+3 - Patient is 18 years of age or older  
+ 
+AND 
+ 
+4 - History of failure, contraindication, or intolerance to TWO preferred 5-HT1 (5-
+hydroxytryptamine-1) receptor agonist (triptan) alternatives [eg, Imitrex (sumatriptan), Maxalt 
+or Maxalt-MLT (rizatriptan)]  
+ 
+Product Name:Brekiya injection, Brand Migranal nasal spray, Generic dihydroergotamine 
+mesylate nasal spray, Trudhesa nasal spray  
+Diagnosis 
+Migraines  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient has experienced a positive response to therapy (e.g., reduction in pain, 
+photophobia, phonophobia, nausea)  
+ 
+Product Name:Brekiya injection  
+Diagnosis 
+Cluster Headaches  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 585 ---
+Page 585 
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of cluster headache  
+ 
+AND 
+ 
+2 - Patient is 18 years of age or older  
+ 
+AND 
+ 
+3 - Trial and failure, contraindication, or intolerance to sumatriptan injection  
+ 
+Product Name:Brekiya injection  
+Diagnosis 
+Cluster Headaches  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient has experienced a positive response to therapy, demonstrated by a reduction in 
+headache frequency and/or intensity  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/24/2026  
+Added Brekiya and Trudhesa as targets, added criteria for cluster he
+adaches, updated guideline name.  
+ 

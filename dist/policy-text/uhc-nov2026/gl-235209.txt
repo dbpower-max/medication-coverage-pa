@@ -1,0 +1,370 @@
+--- PDF page 1602 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1602 
+Sublingual Immunotherapy (SLIT) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-235209  
+Guideline Name 
+Sublingual Immunotherapy (SLIT)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+5/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Grastek, Oralair, Ragwitek, Odactra  
+Diagnosis 
+Patients 21 years of age and older  
+Approval Length 
+N/A - All requests for patients 21 years of age and older should be 
+DENIED as benefit exclusion  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Requests for patients 21 years of age and older are not covered  
+Notes  
+Approval Length: N/A - All requests for patients 21 years of age and ol
+der should be denied as a benefit exclusion. 
+ 
+
+
+--- PDF page 1603 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1603 
+Product Name:Grastek  
+Diagnosis 
+Grass pollen-induced allergic rhinitis for patients under 21 years of 
+age  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of moderate to severe grass pollen-induced allergic rhinitis  
+ 
+AND 
+ 
+2 - Diagnosis confirmed by ONE of the following:  
+• 
+Positive skin test to Timothy grass or cross-reactive grass pollens (e.g., Sweet Vernal, 
+Orchard/Cocksfoot, Perennial Rye, Kentucky blue/June grass, Meadow Fescue, or 
+Redtop)  
+• 
+In vitro testing for pollen-specific IgE (immunoglobulin E) antibodies for Timothy grass 
+or cross-reactive grass pollens (e.g., Sweet Vernal, Orchard/Cocksfoot, Perennial Rye, 
+Kentucky blue/June grass, Meadow Fescue, or Redtop)  
+ 
+AND 
+ 
+3 - Treatment is started or will be started at least 12 weeks before the beginning of the grass 
+pollen season  
+ 
+AND 
+ 
+4 - History of failure, contraindication, or intolerance to TWO of the following:  
+• 
+Oral antihistamine [e.g., cetirizine (Zyrtec)]  
+• 
+Intranasal antihistamine [e.g., azelastine (Astelin)]  
+• 
+Intranasal corticosteroid [e.g., fluticasone (Flonase)]  
+• 
+Leukotriene inhibitor [e.g., montelukast (Singulair)]  
+
+
+--- PDF page 1604 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1604 
+ 
+AND 
+ 
+5 - Not received in combination with similar cross-reactive grass pollen immunotherapy (e.g., 
+Oralair)  
+ 
+AND 
+ 
+6 - Patient does not have unstable and/or uncontrolled asthma  
+ 
+AND 
+ 
+7 - Prescribed by or in consultation with a specialist in allergy and immunology  
+ 
+Product Name:Grastek  
+Diagnosis 
+Grass pollen-induced allergic rhinitis for patients under 21 years of 
+age  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to Grastek therapy  
+ 
+Product Name:Oralair  
+Diagnosis 
+Grass pollen-induced allergic rhinitis for patients under 21 years of 
+age  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 1605 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1605 
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of moderate to severe grass pollen-induced allergic rhinitis  
+ 
+AND 
+ 
+2 - Diagnosis confirmed by ONE of the following:  
+• 
+Positive skin test to any of the five grass species contained in Oralair [(i.e., Sweet 
+Vernal, Orchard, Perennial Rye, Timothy, and Kentucky Blue grass mixed pollens) or 
+cross-reactive grass pollens (e.g., Cocksfoot, Meadow Fescue, or Redtop)]  
+• 
+In vitro testing for pollen-specific IgE antibodies for any of the five grass species 
+contained in Oralair [(i.e., Sweet Vernal, Orchard, Perennial Rye, Timothy, and 
+Kentucky Blue grass mixed pollens) or cross-reactive grass pollens (e.g., Cocksfoot, 
+Meadow Fescue, or Redtop)]  
+ 
+AND 
+ 
+3 - Treatment is started or will be started at least 4 months before the beginning of the grass 
+pollen season  
+ 
+AND 
+ 
+4 - History of failure, contraindication, or intolerance to TWO of the following:  
+• 
+Oral antihistamine [e.g., cetirizine (Zyrtec)]  
+• 
+Intranasal antihistamine [e.g., azelastine (Astelin)]  
+• 
+Intranasal corticosteroid [e.g., fluticasone (Flonase)]  
+• 
+Leukotriene inhibitor [e.g., montelukast (Singulair)]  
+ 
+AND 
+ 
+5 - Not received in combination with similar cross-reactive grass pollen immunotherapy (e.g., 
+Grastek)  
+ 
+AND 
+
+
+--- PDF page 1606 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1606 
+ 
+6 - Patient does not have unstable and/or uncontrolled asthma  
+ 
+AND 
+ 
+7 - Prescribed by or in consultation with a specialist in allergy and immunology  
+ 
+Product Name:Oralair  
+Diagnosis 
+Grass pollen-induced allergic rhinitis for patients under 21 years of 
+age  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to Oralair therapy  
+ 
+Product Name:Ragwitek  
+Diagnosis 
+Short ragweed pollen-induced allergic rhinitis for patients under 21 
+years of age  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of moderate to severe short ragweed pollen-induced allergic rhinitis  
+ 
+AND 
+ 
+2 - Diagnosis confirmed by ONE of the following:  
+
+
+--- PDF page 1607 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1607 
+• 
+Positive skin test to short ragweed pollen  
+• 
+In vitro testing for pollen-specific IgE antibodies for short ragweed pollen  
+ 
+AND 
+ 
+3 - Treatment is started or will be started at least 12 weeks before the beginning of the short 
+ragweed pollen season  
+ 
+AND 
+ 
+4 - History of failure, contraindication, or intolerance to TWO of the following:  
+• 
+Oral antihistamine [e.g., cetirizine (Zyrtec)]  
+• 
+Intranasal antihistamine [e.g., azelastine (Astelin)]  
+• 
+Intranasal corticosteroid [e.g., fluticasone (Flonase)]  
+• 
+Leukotriene inhibitor [e.g., montelukast (Singulair)]  
+ 
+AND 
+ 
+5 - Patient does not have unstable and/or uncontrolled asthma  
+ 
+AND 
+ 
+6 - Prescribed by or in consultation with a specialist in allergy and immunology  
+ 
+Product Name:Ragwitek  
+Diagnosis 
+Short ragweed pollen-induced allergic rhinitis for patients under 21 
+years of age  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 1608 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1608 
+ 
+1 - Documentation of positive clinical response to Ragwitek therapy  
+ 
+Product Name:Odactra  
+Diagnosis 
+House dust mite (HDM)-induced allergic rhinitis for patients under 21 
+years of age  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of house dust mite (HDM)-induced allergic rhinitis  
+ 
+AND 
+ 
+2 - Diagnosis confirmed by ONE of the following:  
+• 
+Positive skin test to licensed house dust mite allergen extracts  
+• 
+In vitro testing for IgE antibodies to Dermatophagoides farinae or Dermatophagoides 
+pteronyssinus house dust mites  
+ 
+AND 
+ 
+3 - History of failure, contraindication, or intolerance to TWO of the following:  
+• 
+Oral antihistamine [e.g., cetirizine (Zyrtec)]  
+• 
+Intranasal antihistamine [e.g., azelastine (Astelin)]  
+• 
+Intranasal corticosteroid [e.g., fluticasone (Flonase)]  
+• 
+Leukotriene inhibitor [e.g., montelukast (Singulair)]  
+ 
+AND 
+ 
+4 - Patient does not have unstable and/or uncontrolled asthma  
+
+
+--- PDF page 1609 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1609 
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with a specialist in allergy and immunology  
+ 
+AND 
+ 
+6 - Patient is at least 5 years of age and not greater than 20 years of age  
+ 
+Product Name:Odactra  
+Diagnosis 
+House dust mite (HDM)-induced allergic rhinitis for patients under 21 
+years of age  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to Odactra therapy  
+ 
+AND 
+ 
+2 - Patient is at least 5 years of age and not greater than 20 years of age  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+4/7/2025  
+Updated age criterion for Odactra due to expanded approval.  
+ 

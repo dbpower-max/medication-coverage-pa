@@ -1,0 +1,145 @@
+--- PDF page 263 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 263 
+Brinsupri (brensocatib) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-449198  
+Guideline Name 
+Brinsupri (brensocatib)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+12/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brinsupri  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - BOTH of the following:  
+ 
+ 1.1 Diagnosis of non-cystic fibrosis bronchiectasis (NCFB)  
+
+
+--- PDF page 264 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 264 
+ 
+AND 
+ 
+ 1.2 Diagnosis has been confirmed by computed tomographic (CT) scan  
+ 
+AND 
+ 
+2 - Diagnostic testing confirms patient does NOT have cystic fibrosis  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) confirming patient has a clinical history 
+consistent with non-cystic fibrosis bronchiectasis (e.g., chronic cough or sputum production or 
+recurrent respiratory tract infections)  
+ 
+AND 
+ 
+4 - Patient is 12 years of age or older  
+ 
+AND 
+ 
+5 - ONE of the following:  
+ 
+ 5.1 If patient is 12 to 17 years of age, patient has had at least one (1) documented pulmonary 
+exacerbation requiring treatment with systemic antibiotics in the previous 12 months  
+ 
+OR 
+ 
+ 5.2 If patient is 18 years of age or older, patient has had at least two (2) documented 
+pulmonary exacerbations requiring treatment with systemic antibiotics in the previous 12 
+months  
+ 
+AND 
+ 
+6 - ONE of the following:  
+
+
+--- PDF page 265 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 265 
+ 
+ 6.1 For patients with co-existing COPD, submission of medical records (e.g., chart notes) or 
+paid claims documenting that the patient is receiving ONE of the following therapies:  
+• 
+Triple therapy (i.e., an inhaled corticosteroid [ICS] [e.g., budesonide], a long-acting 
+muscarinic antagonist [LAMA] [e.g., tiotropium, umeclidinium], and a long-acting beta 
+agonist [LABA] [e.g., salmeterol, arformoterol, formoterol])  
+• 
+If ICS are contraindicated, a LAMA and a LABA  
+ 
+OR 
+ 
+ 6.2 For patients with co-existing asthma, submission of medical records (e.g., chart notes) or 
+paid claims documenting that the patient is currently being treated with ONE of the following 
+unless there is a contraindication or intolerance to these medications:  
+ 
+  6.2.1 BOTH of the following:  
+• 
+Inhaled corticosteroid (ICS) (e.g., fluticasone propionate)  
+• 
+Additional asthma controller medication (e.g., leukotriene receptor antagonist [LTRA] 
+[e.g., montelukast], long-acting beta-2 agonist [LABA] [e.g., salmeterol], long-acting 
+muscarinic antagonist [LAMA] [e.g., tiotropium])  
+ 
+OR 
+ 
+  6.2.2 One combination ICS/LABA product (e.g., Advair, Breo Ellipta)  
+ 
+AND 
+ 
+7 - Prescribed by or in consultation with a pulmonologist  
+ 
+Product Name:Brinsupri  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 266 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 266 
+ 
+1 - Patient demonstrates positive clinical response to therapy (e.g., stabilization or reduction 
+in number of pulmonary exacerbations)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+11/11/2025  
+New program for ACUAZ/ACUAZEC.  
+ 

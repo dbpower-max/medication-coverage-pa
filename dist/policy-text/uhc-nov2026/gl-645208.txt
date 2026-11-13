@@ -1,0 +1,282 @@
+--- PDF page 862 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 862 
+Imcivree (setmelanotide) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-645208  
+Guideline Name 
+Imcivree (setmelanotide)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Imcivree  
+Diagnosis 
+POMC, PCSK1, LEPR Deficiency  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Requests for POMC, PCSK1, LEPR Deficiency is excluded and is to be denied as a 
+benefit exclusion  
+ 
+Product Name:Imcivree  
+Diagnosis 
+Bardet-Biedl syndrome (BBS)  
+
+
+--- PDF page 863 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 863 
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting ALL of the following:  
+ 
+ 1.1 BOTH of the following:  
+• 
+Diagnosis of Bardet-Biedl syndrome (BBS)  
+• 
+Molecular genetic testing to confirm homozygous variants in a BBS gene that are 
+interpreted as pathogenic or likely pathogenic (results of genetic testing must be 
+submitted)  
+ 
+AND 
+ 
+ 1.2 ONE of the following:  
+ 
+  1.2.1 Patient has at least THREE of the following primary features of the disease:  
+• 
+Rod-cone dystrophy  
+• 
+Polydactyly  
+• 
+Learning disabilities  
+• 
+Hypogonadotropic hypogonadism and/or genitourinary anomalies  
+• 
+Renal anomalies  
+ 
+OR 
+ 
+  1.2.2 BOTH of the following:  
+ 
+   1.2.2.1 Patient has at least TWO of the following primary features of the disease: 
+• 
+Rod-cone dystrophy  
+• 
+Polydactyly  
+• 
+Learning disabilities  
+• 
+Hypogonadotropic hypogonadism and/or genitourinary anomalies  
+• 
+Renal anomalies  
+
+
+--- PDF page 864 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 864 
+ 
+AND 
+ 
+   1.2.2.2 Patient has at least TWO of the following secondary features of the disease: 
+• 
+Speech disorder/delay  
+• 
+Strabismus/cataracts/astigmatism  
+• 
+Brachydactyly/syndactyly  
+• 
+Developmental delay  
+• 
+Ataxia/poor coordination/imbalance  
+• 
+Mild spasticity (especially lower limbs)  
+• 
+Diabetes mellitus  
+• 
+Dental crowding/hypodontia/small roots/high arched palate  
+• 
+Left ventricular hypertrophy/congenital heart disease  
+• 
+Hepatic fibrosis  
+ 
+AND 
+ 
+ 1.3 Patient has been diagnosed with obesity defined by ONE of the following:  
+• 
+BMI greater than or equal to 30 kg/m2 for adults 18 years of age or older  
+• 
+Weight greater than or equal to 95th percentile using growth chart assessments for 
+pediatric patients  
+ 
+AND 
+ 
+ 1.4 Patient is 2 years of age or older  
+ 
+AND 
+ 
+ 1.5 Other causes or types of obesity have been ruled out (e.g., obesity due to suspected 
+POMC, PCSK1, or LEPR deficiency with POMC, PCSK1, or LEPR variants classified as 
+benign or likely benign; obesity associated with other genetic syndromes; polygenic obesity)  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with an endocrinologist  
+ 
+
+
+--- PDF page 865 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 865 
+Product Name:Imcivree  
+Diagnosis 
+Bardet-Biedl syndrome (BBS)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting BOTH of the following:  
+ 
+ 1.1 Patient has been on therapy for 12 months or more  
+ 
+AND 
+ 
+ 1.2 Weight loss of greater than or equal to 5% of baseline body weight or BMI  
+ 
+Product Name:Imcivree  
+Diagnosis 
+Hypothalamic Obesity (HO)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming diagnosis of acquired 
+hypothalamic obesity (HO)  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) supporting HO diagnosis as evidenced 
+by BOTH of the following:  
+• 
+Documented acquired hypothalamic injury supported by neuroimaging or 
+neurosurgical history  
+
+
+--- PDF page 866 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 866 
+• 
+Accelerated and sustained weight gain with hyperphagia or clear change in energy 
+balance temporally linked to the injury  
+ 
+AND 
+ 
+3 - Patient is 4 years of age or older  
+ 
+AND 
+ 
+4 - Submission of medical records (e.g., chart notes) confirming BOTH of the following:  
+ 
+ 4.1 Weight gain is associated with hypothalamic injury (e.g., traumatic brain injury, 
+neurosurgery, brain tumor)  
+ 
+AND 
+ 
+ 4.2 Other causes or types of obesity have been excluded (e.g., PPL [POMC, PCSK1, LEPR, 
+collectively], BBS [Bardet-Biedl syndrome], obesity associated with other genetic syndromes; 
+polygenic obesity)  
+ 
+AND 
+ 
+5 - Submission of medical records (e.g., chart notes) confirming ONE of the following:  
+• 
+BMI greater than or equal to 30 kg/m2 for adults 18 years of age or older  
+• 
+BMI greater than or equal to 95th percentile using growth assessment charts for 
+pediatric patients  
+ 
+AND 
+ 
+6 - Submission of medical records (e.g., chart notes) confirming patient’s BMI z-score has 
+been recorded at baseline  
+ 
+Product Name:Imcivree  
+Diagnosis 
+Hypothalamic Obesity (HO)  
+Approval Length 
+12 month(s)  
+
+
+--- PDF page 867 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 867 
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - BOTH of the following:  
+• 
+Patient is 18 years of age or older  
+• 
+Submission of medical records (e.g., chart notes) confirming reduction in BMI of 
+greater than or equal to 5% from baseline  
+ 
+OR 
+ 
+2 - BOTH of the following:  
+• 
+Patient is 4 years of age to less than 18 years of age  
+• 
+Submission of medical records (e.g., chart notes) confirming reduction in BMI z-score 
+of greater than or equal to 0.2 points from baseline  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+7/7/2026  
+Added new criteria for hypothalamic obesity.  
+ 

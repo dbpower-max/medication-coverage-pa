@@ -1,0 +1,263 @@
+--- PDF page 1316 ---
+Page 1316 
+Omvoh (mirikizumab-mrkz) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-502261  
+Guideline Name 
+Omvoh (mirikizumab-mrkz)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+2/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Omvoh IV  
+Diagnosis 
+Crohn’s disease (CD)  
+Approval Length 
+3 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of moderately to 
+severely active Crohn’s disease (CD)  
+
+
+--- PDF page 1317 ---
+Page 1317 
+ 
+AND 
+ 
+2 - One of the following:  
+• 
+Frequent diarrhea and abdominal pain  
+• 
+At least 10% weight loss  
+• 
+Complications such as obstruction, fever, abdominal mass  
+• 
+Abnormal lab values (e.g., C-reactive protein [CRP])  
+• 
+CD Activity Index (CDAI) greater than 220  
+ 
+AND 
+ 
+3 - Paid claims or submission of medical records (e.g., chart notes) confirming a trial and 
+failure, contraindication, or intolerance to ONE of the following conventional therapies:  
+• 
+6-mercaptopurine  
+• 
+Azathioprine  
+• 
+Corticosteroids (e.g., prednisone)  
+• 
+Methotrexate  
+ 
+AND 
+ 
+4 - One of the following:  
+ 
+ 4.1 Paid claims or submission of medical records (e.g., chart notes) confirming history of 
+failure, contraindication, or intolerance to ALL of the following:  
+• 
+A preferred adalimumab biosimilar  
+• 
+infliximab  
+• 
+A preferred ustekinumab biosimilar  
+ 
+OR 
+ 
+ 4.2 Paid claims or submission of medical records (e.g., chart notes) confirming continuation 
+of prior therapy, defined as no more than a 45-day gap in therapy  
+ 
+AND 
+
+
+--- PDF page 1318 ---
+Page 1318 
+ 
+5 - Will be administered as an intravenous induction dose  
+ 
+AND 
+ 
+6 - Prescribed by or in consultation with a gastroenterologist  
+ 
+Product Name:Omvoh SC  
+Diagnosis 
+Crohn’s disease (CD)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of moderately to 
+severely active Crohn’s disease (CD)  
+ 
+AND 
+ 
+2 - Will be used as a maintenance dose following the intravenous induction doses  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with a gastroenterologist  
+ 
+Product Name:Omvoh IV  
+Diagnosis 
+Ulcerative Colitis (UC)  
+Approval Length 
+3 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+
+
+--- PDF page 1319 ---
+Page 1319 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of moderately to 
+severely active ulcerative colitis  
+ 
+AND 
+ 
+2 - One of the following:  
+• 
+Greater than 6 stools per day  
+• 
+Frequent blood in the stools  
+• 
+Frequent urgency  
+• 
+Presence of ulcers  
+• 
+Abnormal lab values (e.g., hemoglobin, erythrocyte sedimentation rate, C-reactive 
+protein)  
+• 
+Dependent on, or refractory to, corticosteroids  
+ 
+AND 
+ 
+3 - Paid claims or submission of medical records (e.g., chart notes) confirming a trial and 
+failure, contraindication, or intolerance to ONE of the following conventional therapies:  
+• 
+6-mercaptopurine  
+• 
+Aminosalicylate (e.g., mesalamine, olsalazine, sulfasalazine)  
+• 
+Azathioprine  
+• 
+Corticosteroids (e.g., prednisone)  
+ 
+AND 
+ 
+4 - One of the following:  
+ 
+ 4.1 Paid claims or submission of medical records (e.g., chart notes) confirming history of 
+failure, contraindication, or intolerance to ALL of the following:  
+• 
+A preferred adalimumab biosimilar  
+• 
+infliximab  
+• 
+Xeljanz (tofacitinib) oral tablet (IR or XR)  
+• 
+A preferred ustekinumab biosimilar  
+ 
+OR 
+
+
+--- PDF page 1320 ---
+Page 1320 
+ 
+ 4.2 Paid claims or submission of medical records (e.g., chart notes) confirming continuation 
+of prior therapy, defined as no more than a 45-day gap in therapy  
+ 
+AND 
+ 
+5 - Will be administered as an intravenous induction dose  
+ 
+AND 
+ 
+6 - Prescribed by or in consultation with a gastroenterologist  
+ 
+Product Name:Omvoh SC  
+Diagnosis 
+Ulcerative Colitis (UC)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of moderately to 
+severely active ulcerative colitis  
+ 
+AND 
+ 
+2 - Will be used as a maintenance dose following the intravenous induction doses  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with a gastroenterologist  
+ 
+Product Name:Omvoh SC  
+Diagnosis 
+Crohn's Disease (CD), Ulcerative Colitis (UC)  
+
+
+--- PDF page 1321 ---
+Page 1321 
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy as evidenced by at least one of 
+the following:  
+• 
+Improvement in intestinal inflammation (e.g., mucosal healing, improvement of lab 
+values [platelet counts, erythrocyte sedimentation rate, C-reactive protein level]) from 
+baseline  
+• 
+Reversal of high fecal output state  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+1/28/2026  
+Added new GPIs for SC formulations  
+ 

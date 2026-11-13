@@ -1,0 +1,58 @@
+=== PDF PAGE 1189 ===
+Page 1189 
+Monurol 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-108624  
+Guideline Name 
+Monurol  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+6/23/2022  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Monurol  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - The provider has submitted labs showing the culture and sensitivity is positive for Monural 
+and negative to Ciprofloxacin or Nitrofurantoin  
+ 
+OR 
+
+
+=== PDF PAGE 1190 ===
+Page 1190 
+ 
+2 - Trial and failure, contraindication, or intolerance to ONE of the following:  
+• 
+Ciprofloxacin  
+• 
+Nitrofurantoin  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+6/23/2022  
+Added product name to criteria section, no change to criteria  
+ 

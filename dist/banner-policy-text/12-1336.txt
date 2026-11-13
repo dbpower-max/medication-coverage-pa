@@ -1,0 +1,69 @@
+=== PDF PAGE 1336 ===
+Page 1336 
+Orlynvah (sulopenem etzadroxil and probenecid) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-450249  
+Guideline Name 
+Orlynvah (sulopenem etzadroxil and probenecid)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+1/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Orlynvah  
+Approval Length 
+5 Day(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of an uncomplicated urinary tract infection (uUTI)  
+ 
+AND 
+ 
+2 - Patient is 18 years of age or older  
+
+
+=== PDF PAGE 1337 ===
+Page 1337 
+ 
+AND 
+ 
+3 - Trial and inadequate response, contraindication or resistance to one alternative oral 
+antibacterial treatment option (e.g., trimethoprim-sulfamethoxazole, ciprofloxacin)  
+ 
+AND 
+ 
+4 - Infection caused by one of the following:  
+• 
+Escherichia coli  
+• 
+Klebsiella pneumoniae  
+• 
+Proteus mirabilis  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+12/17/2025  
+Updated criterion 4 "infection with" to "infection caused by", no chang
+e to clinical intent.  
+ 

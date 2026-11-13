@@ -1,0 +1,100 @@
+--- PDF page 1988 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1988 
+Zokinvy 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-434311  
+Guideline Name 
+Zokinvy  
+Formulary 
+• 
+Medicaid - Community & State Colorado  
+• 
+Medicaid - Community & State Hawaii  
+• 
+Medicaid - Community & State Maryland  
+• 
+Medicaid - Community & State Nevada  
+• 
+Medicaid - Community & State New Jersey  
+• 
+Medicaid - Community & State New York EPP  
+• 
+Medicaid - Community & State New York  
+• 
+Medicaid - Community & State Pennsylvania CHIP  
+• 
+Medicaid - Community & State Rhode Island  
+• 
+Medicaid - Community & State Arizona  
+• 
+Medicaid - Community & State Virginia  
+• 
+Medicaid - Community & State Pennsylvania  
+• 
+Medicaid - Community & State Nebraska  
+• 
+Medicaid - Community & State New Mexico  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+1/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Zokinvy  
+Diagnosis 
+Hutchinson-Gilford Progeria Syndrome  
+Approval Length 
+12 month(s)  
+
+
+--- PDF page 1989 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1989 
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of Hutchinson-Gilford Progeria Syndrome  
+ 
+Product Name:Zokinvy  
+Diagnosis 
+Progeroid Laminopathies  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of processing deficient Progeroid laminopathy  
+ 
+AND 
+ 
+2 - Documentation of ONE of the following:  
+• 
+Heterozygous LMNA (gene) mutation with progerin-like protein accumulation  
+• 
+Homozygous or compound heterozygous ZMPSTE24 (gene) mutations  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+11/3/2025  
+Added NV formulary  
+ 

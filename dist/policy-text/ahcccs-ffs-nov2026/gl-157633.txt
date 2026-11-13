@@ -1,0 +1,141 @@
+--- PDF page 1696 ---
+Page 1696 
+Sublocade, Brixadi - AZM 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-157633  
+Guideline Name 
+Sublocade, Brixadi - AZM  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+11/1/2024  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brixadi, Sublocade  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+ 
+ 1.1 All of the following:  
+ 
+  1.1.1 Patient has severe Opioid Use Disorder (OUD) as defined by the DSM-5 (Diagnostic 
+
+
+--- PDF page 1697 ---
+Page 1697 
+and Statistical Manual of Mental Disorders, Fifth Edition) OUD Diagnostic Tool and has a 
+demonstrated history of non-adherence to oral medications  
+ 
+AND 
+ 
+  1.1.2 Patient is currently maintained on 8mg to 24mg per day dose of oral, sublingual, or 
+transmucosal buprenorphine product equivalent prior to initiation of Brixadi or Sublocade  
+ 
+AND 
+ 
+  1.1.3 Patient will not receive supplemental oral, sublingual, or transmucosal buprenorphine 
+for greater than 6 weeks after initiation of Brixadi or Sublocade  
+ 
+AND 
+ 
+  1.1.4 Patient is receiving psychosocial interventions as part of a comprehensive medication 
+assisted treatment (MAT) program  
+ 
+AND 
+ 
+  1.1.5 Prescriber checks the Arizona State Board of Pharmacy Controlled Substance 
+Prescription Monitoring Program (CSPMP) database prior to each monthly injection of Brixadi 
+or Sublocade  
+ 
+AND 
+ 
+  1.1.6 Dosing of Brixadi or Sublocade is in accordance with the U. S. Food and Drug 
+Administration approved labeling  
+ 
+OR 
+ 
+ 1.2 Brixadi or Sublocade is being requested due to circumstances other than non-adherence 
+to oral medications. Document circumstance(s).  
+ 
+Product Name:Brixadi, Sublocade  
+
+
+--- PDF page 1698 ---
+Page 1698 
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Physician documentation that the patient has experienced a positive clinical response to 
+Brixadi or Sublocade therapy, as defined by the provider  
+ 
+AND 
+ 
+2 - One of the following:  
+ 
+ 2.1 All of the following:  
+ 
+  2.1.1 Patient will not receive supplemental oral, sublingual, or transmucosal buprenorphine 
+for greater than 6 weeks after Brixadi or Sublocade therapy initiation  
+ 
+AND 
+ 
+  2.1.2 Patient is receiving psychosocial interventions as part of a comprehensive medication 
+assisted treatment (MAT) program  
+ 
+AND 
+ 
+  2.1.3 Prescriber checks the Arizona State Board of Pharmacy Controlled Substance 
+Prescription Monitoring Program (CSPMP) database prior to each monthly injection of Brixadi 
+or Sublocade  
+ 
+AND 
+ 
+  2.1.4 Dosing of Brixadi or Sublocade is in accordance with the U. S. Food and Drug 
+Administration approved labeling  
+ 
+OR 
+
+
+--- PDF page 1699 ---
+Page 1699 
+ 
+ 2.2 Brixadi or Sublocade is being requested due to circumstances other than non-adherence 
+to oral medications. Document circumstance(s).  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+10/25/2024  
+Remove min day requirement for buprenorphine prior to initiation fro
+m 1.1.2  
+ 

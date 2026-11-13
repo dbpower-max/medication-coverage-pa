@@ -1,0 +1,275 @@
+=== PDF PAGE 1741 ===
+Page 1741 
+Taltz (ixekizumab) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-329256  
+Guideline Name 
+Taltz (ixekizumab)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Taltz  
+Diagnosis 
+Plaque Psoriasis (PsO)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) or verification of paid claims 
+documenting ALL of the following:  
+ 
+ 1.1 Diagnosis of chronic moderate to severe plaque psoriasis (PsO)  
+
+
+=== PDF PAGE 1742 ===
+Page 1742 
+ 
+AND 
+ 
+ 1.2 Greater than or equal to 3 percent body surface area involvement, palmoplantar, facial, or 
+genital involvement, or severe scalp psoriasis  
+ 
+AND 
+ 
+ 1.3 History of failure to ONE of the following topical therapies, unless contraindicated or 
+clinically significant adverse effects are experienced:  
+• 
+Corticosteroids (e.g., betamethasone, clobetasol, desonide)  
+• 
+Vitamin D analogs (e.g., calcitriol, calcipotriene)  
+• 
+Tazarotene  
+• 
+Calcineurin inhibitors (e.g., tacrolimus, pimecrolimus)  
+ 
+AND 
+ 
+ 1.4 History of failure to a 3 month trial of methotrexate at the maximally indicated dose within 
+the last 6 months, unless contraindicated or clinically significant adverse effects are 
+experienced  
+ 
+AND 
+ 
+ 1.5 History of failure, contraindication, or intolerance to one of the following topical therapies:  
+• 
+Vtama  
+• 
+Zoryve 0.3% cream  
+ 
+AND 
+ 
+ 1.6 History of failure, contraindication, or intolerance to ALL of the following:  
+• 
+A preferred adalimumab biosimilar or Enbrel (etanercept)  
+• 
+Infliximab  
+• 
+Otezla (apremilast)  
+• 
+A preferred ustekinumab biosimilar  
+
+
+=== PDF PAGE 1743 ===
+Page 1743 
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a dermatologist  
+ 
+Product Name:Taltz  
+Diagnosis 
+Plaque Psoriasis (PsO)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a dermatologist  
+ 
+Product Name:Taltz  
+Diagnosis 
+Psoriatic Arthritis (PsA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) or verification of paid claims 
+documenting ALL of the following:  
+ 
+ 1.1 Diagnosis of active psoriatic arthritis (PsA)  
+
+
+=== PDF PAGE 1744 ===
+Page 1744 
+ 
+AND 
+ 
+ 1.2 History of failure to a 3 month trial of methotrexate at the maximally indicated dose within 
+the last 6 months, unless contraindicated or clinically significant adverse effects are 
+experienced  
+ 
+AND 
+ 
+ 1.3 History of failure, contraindication, or intolerance to ALL of the following preferred biologic 
+products  
+• 
+A preferred adalimumab biosimilar or Enbrel (etanercept)  
+• 
+infliximab  
+• 
+Orencia (abatacept)  
+• 
+Otezla (apremilast)  
+• 
+Xeljanz (tofacitinib) oral tablet (IR or XR)  
+• 
+A preferred ustekinumab biosimilar  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with ONE of the following:  
+• 
+Rheumatologist  
+• 
+Dermatologist  
+ 
+Product Name:Taltz  
+Diagnosis 
+Psoriatic Arthritis (PsA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+
+
+=== PDF PAGE 1745 ===
+Page 1745 
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with ONE of the following:  
+• 
+Rheumatologist  
+• 
+Dermatologist  
+ 
+Product Name:Taltz  
+Diagnosis 
+Ankylosing Spondylitis (AS), Non-radiographic axial spondyloarthritis 
+(nr-axSpA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) or verification of paid claims 
+documenting ALL of the following:  
+ 
+ 1.1 One of the following diagnoses:  
+• 
+Active ankylosing spondylitis (AS)  
+• 
+Active non-radiographic axial spondyloarthritis (nr-axSpA)  
+ 
+AND 
+ 
+ 1.2 History of failure to TWO nonsteroidal anti-inflammatory drugs (NSAIDs) (e.g., ibuprofen, 
+naproxen) at maximally indicated doses, each used for at least 4 weeks within the last 3 
+months, unless contraindicated or clinically significant adverse effects are experienced  
+ 
+AND 
+ 
+ 1.3 History of failure, contraindication, or intolerance to ALL of the following:  
+
+
+=== PDF PAGE 1746 ===
+Page 1746 
+• 
+A preferred adalimumab biosimilar or Enbrel (etanercept)  
+• 
+infliximab  
+• 
+Xeljanz (tofacitinib) oral tablet (IR or XR)  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a rheumatologist  
+ 
+Product Name:Taltz  
+Diagnosis 
+Ankylosing Spondylitis (AS), Non-radiographic axial spondyloarthritis 
+(nr-axSpA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a rheumatologist  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+7/16/2025  
+Updated preferred agents/embedded steps, updated criteria through
+out. PsA, added 'or verification of paid claims'  
+ 

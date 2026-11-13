@@ -1,0 +1,293 @@
+=== PDF PAGE 1567 ===
+Page 1567 
+SGLT-2 Inhibitors - AZM 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-589207  
+Guideline Name 
+SGLT-2 Inhibitors - AZM  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+5/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Farxiga, generic dapagliflozin  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+ 
+ 1.1 All of the following:  
+• 
+Patient is 10 years of age or older  
+• 
+Diagnosis of type 2 diabetes mellitus  
+
+
+=== PDF PAGE 1568 ===
+Page 1568 
+• 
+History of failure to metformin at a minimum dose of 1500mg daily for 90 days, or 
+contraindication or intolerance to metformin  
+ 
+OR 
+ 
+ 1.2 One of the following:  
+• 
+Diagnosis of chronic kidney disease (CKD)  
+• 
+Diagnosis of heart failure (NYHA class II-IV) with reduced ejection fraction  
+• 
+Diagnosis of heart failure (NYHA class II-IV) with preserved ejection fraction  
+ 
+AND 
+ 
+2 - For generic dapagliflozin requests ONLY: History of failure, intolerance, or contraindication 
+to Brand Farxiga  
+Notes  
+PA Team Note: To approve products designated "Only Brand Covere
+d" or "Brand Over Generic - Not Covered"; flip Brand/Generic Flag to "
+Y", approve at MSC "O". 
+ 
+Product Name:Jardiance  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+ 
+ 1.1 All of the following:  
+• 
+Patient is 10 years of age or older  
+• 
+Diagnosis of type 2 diabetes mellitus  
+• 
+History of failure to metformin at a minimum dose of 1500mg daily for 90 days, or 
+contraindication or intolerance to metformin.  
+ 
+OR 
+ 
+ 1.2 Both of the following:  
+
+
+=== PDF PAGE 1569 ===
+Page 1569 
+• 
+Requested medication is being used to reduce the risk of cardiovascular death in 
+adults with type 2 diabetes mellitus and established cardiovascular disease  
+• 
+History of failure to metformin at a minimum dose of 1500mg daily for 90 days, or 
+contraindication or intolerance to metformin.  
+ 
+OR 
+ 
+ 1.3 Requested medication is being used for one of the following:  
+• 
+To reduce the risk of cardiovascular death and hospitalization for heart failure in adults 
+with heart failure  
+• 
+To reduce the risk of sustained decline in eGFR, end-stage kidney disease, 
+cardiovascular death, and hospitalization in adults with chronic kidney disease at risk 
+of progression.  
+ 
+Product Name:Synjardy, Synjardy XR  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - All of the following:  
+• 
+Patient is 10 years of age or older  
+• 
+Diagnosis of type 2 diabetes mellitus  
+• 
+History of failure to metformin at a minimum dose of 1500mg daily for 90 days, or 
+contraindication or intolerance to metformin  
+ 
+AND 
+ 
+2 - For Synjardy XR requests ONLY; History of failure, intolerance, or contraindication to ALL 
+of the following:  
+• 
+Brand Farxiga  
+• 
+Jardiance  
+ 
+
+
+=== PDF PAGE 1570 ===
+Page 1570 
+Product Name:Inovkana, Invokamet, Invokamet XR, Segluromet, Steglatro, Trijardy XR  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Both of the following:  
+• 
+Diagnosis of type 2 diabetes mellitus  
+• 
+History of failure to metformin at a minimum dose of 1500mg daily for 90 days, or 
+contraindication or intolerance to metformin  
+ 
+AND 
+ 
+2 - History of failure, intolerance, or contraindication to ALL of the following:  
+• 
+Brand Farxiga  
+• 
+Jardiance  
+ 
+AND 
+ 
+3 - Patient is 10 years of age or older (applies to Invokana, Invokamet, Invokamet XR ONLY)  
+ 
+Product Name:Brand Xigduo XR, generic dapagliflozin-metformin  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+ 
+ 1.1 All of the following:  
+• 
+Patient is 10 years of age or older  
+• 
+Diagnosis of type 2 diabetes mellitus  
+
+
+=== PDF PAGE 1571 ===
+Page 1571 
+• 
+History of failure to metformin at a minimum dose of 1500mg daily for 90 days, or 
+contraindication or intolerance to metformin.  
+ 
+OR 
+ 
+ 1.2 One of the following:  
+• 
+Diagnosis of chronic kidney disease (CKD)  
+• 
+Diagnosis of heart failure (NYHA class II-IV) with reduced ejection fraction  
+ 
+AND 
+ 
+2 - For generic dapagliflozin-metformin requests ONLY: History of failure, intolerance, or 
+contraindication to Brand Xigduo XR  
+Notes  
+PA Team Note: To approve products designated "Only Brand Covere
+d" or "Brand Over Generic - Not Covered"; flip Brand/Generic Flag to "
+Y", approve at MSC "O". 
+ 
+Product Name:Brand Bexagliflozin, Brenzavvy, Glyxambi, Qtern, Brand Dapagliflozin-
+Saxagliptin, Steglujan  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Both of the following:  
+• 
+Diagnosis of type 2 diabetes mellitus  
+• 
+History of failure to metformin at a minimum dose of 1500mg daily for 90 days, or 
+contraindication or intolerance to metformin  
+ 
+AND 
+ 
+2 - History and failure, intolerance, or contraindication to ALL of the following:  
+• 
+Janumet or Janumet XR  
+• 
+Januvia  
+
+
+=== PDF PAGE 1572 ===
+Page 1572 
+• 
+Jentadueto  
+• 
+Onglyza  
+• 
+Tradjenta  
+• 
+Trijardy XR  
+ 
+AND 
+ 
+3 - History of failure, intolerance, or contraindication to ALL of the following:  
+• 
+Brand Farxiga  
+• 
+Jardiance  
+ 
+Product Name:Inpefa  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Requested medication is being used to reduce the risk of cardiovascular death, 
+hospitalization for heart failure, and urgent heart failure visit in adults with one of the following:  
+• 
+heart failure  
+• 
+type 2 diabetes mellitus, chronic kidney disease, and other cardiovascular risk factors  
+ 
+AND 
+ 
+2 - History of failure, intolerance, or contraindication to Brand Farxiga  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+4/30/2026  
+Added GPIs for generic dapaglifozin, dap/metformin and dapaglifozin
+-saxagliptin (Qtern) as NP targets. Added messaging for PA team for 
+B over G approvals.  
+
+
+=== PDF PAGE 1573 ===
+Page 1573 
+ 

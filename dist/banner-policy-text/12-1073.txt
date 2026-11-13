@@ -1,0 +1,101 @@
+=== PDF PAGE 1073 ===
+Page 1073 
+Libervant, Nayzilam, Valtoco 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-288251  
+Guideline Name 
+Libervant, Nayzilam, Valtoco  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+6/5/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Libervant, Nayzilam, Valtoco  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of epilepsy  
+ 
+AND 
+
+
+=== PDF PAGE 1074 ===
+Page 1074 
+ 
+2 - Requested medication is being prescribed for the acute treatment of intermittent, 
+stereotypic episodes of frequent seizure activity that are distinct from a patient’s usual seizure 
+pattern  
+ 
+Product Name:Libervant, Nayzilam, Valtoco  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+Product Name:Nayzilam, Valtoco  
+Diagnosis 
+Requests Exceeding Quantity Limit  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Quantity Limit  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following*:  
+• 
+For Nayzilam: Physician has provided rationale for needing to exceed the quantity limit 
+of 2 boxes per 30 days  
+• 
+For Valtoco: Physician has provided rationale for needing to exceed the quantity limit 
+of 1 box per 30 days  
+ 
+AND 
+ 
+2 - The requested dose is within the FDA (Food and Drug Administration) maximum dose per 
+day  
+Notes  
+*Nayzilam QL is 2 boxes (containing 2 doses each box) per 30 days. 
+Valtoco QL is 1 box (containing 5 doses) per 30 days 
+ 
+
+
+=== PDF PAGE 1075 ===
+Page 1075 
+2 .  Revision History  
+ 
+Date  
+Notes  
+6/4/2025  
+Updated QL for Valtoco, added note for clarification.  
+ 

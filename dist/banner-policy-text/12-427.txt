@@ -1,0 +1,114 @@
+=== PDF PAGE 427 ===
+Page 427 
+Crenessity (crinecerfont) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-321192  
+Guideline Name 
+Crenessity (crinecerfont)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Crenessity  
+Diagnosis 
+Congenital Adrenal Hyperplasia (CAH)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a diagnosis of classic 21-
+hydroxylase deficiency congenital adrenal hyperplasia  
+
+
+=== PDF PAGE 428 ===
+Page 428 
+ 
+AND 
+ 
+2 - Patient is 4 years of age or older  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) or paid claims documenting patient is 
+receiving chronic treatment with glucocorticoid (GC) replacement therapy (e.g., 
+dexamethasone, hydrocortisone, methylprednisolone) for adrenal insufficiency as one of the 
+following:  
+ 
+ 3.1 Both of the following:   
+• 
+Patient is 4 to 17 years old  
+• 
+Daily GC dose is greater than 12 mg/m2/day in hydrocortisone dose equivalents  
+ 
+OR 
+ 
+ 3.2 Both of the following:   
+• 
+Patient is 18 years of age or older  
+• 
+Daily GC dose is greater than 13 mg/m2/day in hydrocortisone dose equivalents  
+ 
+AND 
+ 
+4 - Prescribed by an endocrinologist  
+ 
+Product Name:Crenessity  
+Diagnosis 
+Congenital Adrenal Hyperplasia (CAH)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+
+
+=== PDF PAGE 429 ===
+Page 429 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting that patient demonstrates 
+positive clinical response to therapy (e.g., lowered androgen levels, reduced daily dose of 
+steroids)  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) or paid claims documenting patient 
+continues to receive chronic treatment with glucocorticoid (GC) replacement therapy (e.g., 
+dexamethasone, hydrocortisone, methylprednisolone)  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with an endocrinologist  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+7/16/2025  
+Added GPI for new 25mg caps.  
+ 

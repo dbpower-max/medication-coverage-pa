@@ -1,0 +1,372 @@
+=== PDF PAGE 851 ===
+Page 851 
+Ilaris (canakinumab) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-300288  
+Guideline Name 
+Ilaris (canakinumab)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Ilaris  
+Diagnosis 
+Periodic Fever Syndromes [Cryopyrin-Associated Periodic Syndromes 
+(CAPS), Tumor Necrosis Factor Receptor Associated Periodic 
+Syndrome (TRAPS), Hyperimmunoglobulin D Syndrome 
+(HIDS)/Mevalonate Kinase Deficiency(MKD), Familial Mediterranean 
+Fever(FMF)]  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+=== PDF PAGE 852 ===
+Page 852 
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of one of the 
+following periodic fever syndromes:  
+• 
+Cryopyrin-associated periodic syndromes (CAPS), including familial cold 
+autoinflammatory syndrome (FCAS) and Muckle-Wells syndrome (MWS)  
+• 
+Tumor necrosis factor (TNF) receptor associated periodic syndrome (TRAPS)  
+• 
+Hyperimmunoglobulin D (Hyper-IgD) syndrome (HIDS/mevalonate kinase deficiency 
+(MKD)  
+• 
+Familial Mediterranean Fever (FMF)  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with one of the following:  
+• 
+Rheumatologist  
+• 
+Immunologist  
+ 
+AND 
+ 
+3 - Both of the following:  
+• 
+Patient is not receiving concomitant treatment with Tumor Necrosis Factor (TNF) 
+inhibitors (e.g., Enbrel [etanercept], Humira [adalimumab], Remicade [infliximab])  
+• 
+Patient is not receiving concomitant treatment with Interleukin-1 inhibitor (e.g., Arcalyst 
+[rilonacept], Kineret [anakinra])  
+ 
+AND 
+ 
+4 - Patients diagnosed with Familial Mediterranean Fever (FMF) have a history of failure, 
+contraindication, or intolerance to colchicine (applies to diagnosis of FMF ONLY)  
+ 
+Product Name:Ilaris  
+Diagnosis 
+Periodic Fever Syndrome [CAPS, TRAPS, HIDS/MKD, FMF]  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+=== PDF PAGE 853 ===
+Page 853 
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy [defined as a decrease in frequency 
+or severity of attacks, or a decrease in index disease flare or normalization of CRP (C-reactive 
+protein)]  
+ 
+AND 
+ 
+2 - Both of the following:  
+• 
+Patient is not receiving concomitant treatment with Tumor Necrosis Factor (TNF) 
+inhibitors (e.g., Enbrel [etanercept], Humira [adalimumab], Remicade [infliximab])  
+• 
+Patient is not receiving concomitant treatment with Interleukin-1 inhibitor (e.g., Arcalyst 
+[rilonacept], Kineret [anakinra])  
+ 
+Product Name:Ilaris  
+Diagnosis 
+Systemic Juvenile Idiopathic Arthritis (SJIA)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of active systemic 
+juvenile idiopathic arthritis (SJIA)  
+ 
+AND 
+ 
+2 - Paid claims or submission of medical records (e.g., chart notes) confirming a trial and 
+failure, contraindication, or intolerance to one of the following conventional therapies at 
+maximally tolerated doses:  
+• 
+Minimum duration of a 3-month trial and failure of methotrexate  
+
+
+=== PDF PAGE 854 ===
+Page 854 
+• 
+Minimum duration of a 1-month trial of a nonsteroidal anti-inflammatory drug (NSAID) 
+(e.g., ibuprofen, naproxen)  
+• 
+Minimum duration of a 2-week trial of a systemic glucocorticoid (e.g., prednisone)  
+ 
+AND 
+ 
+3 - Paid claims or submission of medical records (e.g., chart notes) confirming a trial and 
+failure, contraindication, or intolerance to a preferred tocilizumab biosimilar  
+ 
+AND 
+ 
+4 - Both of the following:  
+• 
+Patient is not receiving concomitant treatment with Tumor Necrosis Factor (TNF) 
+inhibitors (e.g., Enbrel [etanercept], Humira [adalimumab], Remicade [infliximab])  
+• 
+Patient is not receiving concomitant treatment with Interleukin-1 inhibitor (e.g., Arcalyst 
+[rilonacept], Kineret [anakinra])  
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with one of the following:  
+• 
+Rheumatologist  
+• 
+Immunologist  
+ 
+Product Name:Ilaris  
+Diagnosis 
+Systemic Juvenile Idiopathic Arthritis (SJIA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy as evidenced by at least one of the 
+following:  
+
+
+=== PDF PAGE 855 ===
+Page 855 
+• 
+Reduction in the total active (swollen and tender) joint count from baseline  
+• 
+Improvement in clinical features or symptoms (e.g., pain, fever, inflammation, rash, 
+lymphadenopathy, serositis) from baseline  
+ 
+AND 
+ 
+2 - Both of the following:  
+• 
+Patient is not receiving concomitant treatment with Tumor Necrosis Factor (TNF) 
+inhibitors (e.g., Enbrel [etanercept], Humira [adalimumab], Remicade [infliximab])  
+• 
+Patient is not receiving concomitant treatment with Interleukin-1 inhibitor (e.g., Arcalyst 
+[rilonacept], Kineret [anakinra])  
+ 
+Product Name:Ilaris  
+Diagnosis 
+Still's Disease  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of Still’s Disease, 
+including Adult-Onset Still’s Disease (AOSD)  
+ 
+AND 
+ 
+2 - Paid claims or submission of medical records (e.g., chart notes) confirming a trial and 
+failure, contraindication, or intolerance to one of the following: [1-3]  
+• 
+Corticosteroids (e.g., prednisone)  
+• 
+Methotrexate  
+• 
+Nonsteroidal anti-inflammatory drugs (NSAIDs) (e.g., ibuprofen, naproxen)  
+ 
+AND 
+
+
+=== PDF PAGE 856 ===
+Page 856 
+ 
+3 - Both of the following:  
+• 
+Patient is not receiving concomitant treatment with Tumor Necrosis Factor (TNF) 
+inhibitors (e.g., Enbrel [etanercept], Humira [adalimumab], Remicade [infliximab])  
+• 
+Patient is not receiving concomitant treatment with Interleukin-1 inhibitor (e.g., Arcalyst 
+[rilonacept], Kineret [anakinra])  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with one of the following:  
+• 
+Rheumatologist  
+• 
+Immunologist  
+ 
+Product Name:Ilaris  
+Diagnosis 
+Still's Disease  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+2 - Both of the following:  
+• 
+Patient is not receiving concomitant treatment with Tumor Necrosis Factor (TNF) 
+inhibitors (e.g., Enbrel [etanercept], Humira [adalimumab], Remicade [infliximab])  
+• 
+Patient is not receiving concomitant treatment with Interleukin-1 inhibitor (e.g., Arcalyst 
+[rilonacept], Kineret [anakinra])  
+ 
+Product Name:Ilaris  
+
+
+=== PDF PAGE 857 ===
+Page 857 
+Diagnosis 
+Gout Flares  
+Approval Length 
+12 Week(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of gout flares  
+ 
+AND 
+ 
+2 - Paid claims or submission of medical records (e.g., chart notes) confirming a trial and 
+failure, contraindication, or intolerance to ALL of the following:  
+• 
+Nonsteroidal anti-inflammatory drugs (NSAIDs) (e.g., ibuprofen, naproxen)  
+• 
+Colchicine  
+• 
+Corticosteroids (e.g., prednisone)  
+ 
+AND 
+ 
+3 - Patient has not received Ilaris in the last 12 weeks [A]  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with one of the following:  
+• 
+Rheumatologist  
+• 
+Nephrologist  
+ 
+ 
+2 .  Definitions 
+ 
+Definition 
+Description 
+
+
+=== PDF PAGE 858 ===
+Page 858 
+Cryopyrin-
+Associated Periodic 
+Syndromes (CAPS):  
+A group of rare, autosomal dominantly inherited auto-inflammatory 
+conditions comprising of Familial-Cold Auto-inflammatory Syndrome 
+(FCAS), Muckle-Wells Syndrome (MWS), Neonatal-Onset 
+Multisystem Inflammatory Disease (NOMID) or also known as 
+Chronic Infantile Neurologic Cutaneous Articular Syndrome 
+(CINCA), which are caused by the CIAS1 gene mutation and 
+characterized by recurrent symptoms (urticaria-like skin lesions, 
+fever chills, arthralgia, profuse sweating, sensorineural 
+hearing/vision loss, and increased inflammation markers the blood). 
+Approximately 300 people in the United States are affected by 
+CAPS. [1, 4, 5]  
+Familial Cold 
+Autoinflammatory 
+Syndrome (FCAS):  
+The mildest form of CAPS, is characterized by cold-induced, 
+daylong episodes of fever associated with rash, arthralgia, 
+headaches and less frequently conjunctivitis, but without other signs 
+of CNS inflammation. Symptoms usually begin during the first 6 
+months of life and are predominantly triggered by cold exposure. 
+Duration of episodes usually is less than 24 hours. [5]  
+Muckle-Wells 
+Syndrome (MWS):  
+A subtype of CAPS, which is characterized by episodic attacks of 
+inflammation associated with a generalized urticaria-like rash, fever, 
+malaise, arthralgia, and progressive hearing loss. Duration of 
+symptoms usually lasts from 24-48 hours. [5]  
+ 
+ 
+3 .  Endnotes 
+A. The recommended dose of Ilaris for adult patients with a gout flare is 150 mg 
+administered subcutaneously. In patients who require re-treatment, there should be an 
+interval of at least 12 weeks before a new dose of Ilaris may be administered [1].  
+ 
+4 .  Revision History  
+ 
+Date  
+Notes  
+7/3/2025  
+SJIA: Added step through preferred tocilizumab biosimilar  
+ 

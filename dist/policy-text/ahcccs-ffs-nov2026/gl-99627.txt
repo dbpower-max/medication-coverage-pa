@@ -1,0 +1,116 @@
+--- PDF page 1224 ---
+Page 1224 
+Natpara 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-99627  
+Guideline Name 
+Natpara  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+12/9/2021  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Natpara  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ALL of the following:  
+ 
+ 1.1 Diagnosis of hypocalcemia resulting from chronic hypoparathyroidism  
+
+
+--- PDF page 1225 ---
+Page 1225 
+ 
+AND 
+ 
+ 1.2 25-hydroxy vitamin D level is above the lower limit of the normal laboratory reference 
+range  
+ 
+AND 
+ 
+ 1.3 Patient is currently on active vitamin D (calcitriol) therapy  
+ 
+AND 
+ 
+ 1.4 Total serum calcium level (albumin corrected) is above 7.5 milligrams per deciliter  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 Patient is currently on calcium supplementation of 1-2 grams per day of elemental 
+calcium in divided doses  
+ 
+OR 
+ 
+ 2.2 Patient has a contraindication to calcium supplementation  
+ 
+AND 
+ 
+3 - Prescribed by ONE of the following:  
+• 
+Endocrinologist  
+• 
+Nephrologist  
+ 
+Product Name:Natpara  
+Approval Length 
+12 month(s)  
+
+
+--- PDF page 1226 ---
+Page 1226 
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Total serum calcium level (albumin corrected) within the lower half of the normal range 
+(approximately 8 to 9 milligrams per deciliter)  
+ 
+AND 
+ 
+2 - Patient continues to take concomitant calcium supplementation that is sufficient to meet 
+daily requirements  
+ 
+AND 
+ 
+3 - Prescribed by ONE of the following:  
+• 
+Endocrinologist  
+• 
+Nephrologist  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/11/2021  
+Bulk Copy C&S Arizona Medicaid SP to Medicaid Arizona SP for 7/1  
+ 

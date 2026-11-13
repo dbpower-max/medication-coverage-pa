@@ -1,0 +1,76 @@
+=== PDF PAGE 1233 ===
+Page 1233 
+Niktimvo (axatilimab-csfr) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-700353  
+Guideline Name 
+Niktimvo (axatilimab-csfr)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Niktimvo  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a diagnosis of chronic graft 
+versus host disease (cGVHD)  
+
+
+=== PDF PAGE 1234 ===
+Page 1234 
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) or paid claims documenting history of 
+failure or inadequate response to at least two other systemic therapies [e.g., corticosteroids 
+(e.g., prednisone, methylprednisolone), mycophenolate]  
+ 
+AND 
+ 
+3 - Patient weighs at least 40kg  
+ 
+Product Name:Niktimvo  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting patient does not show 
+evidence of progressive disease while on therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/26/2026  
+Added new GPIs  
+ 

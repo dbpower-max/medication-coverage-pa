@@ -1,0 +1,565 @@
+=== PDF PAGE 1824 ===
+Page 1824 
+Tremfya (guselkumab) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-500248  
+Guideline Name 
+Tremfya (guselkumab)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+1/21/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Tremfya SC 100mg*  
+Diagnosis 
+Plaque Psoriasis (PsO)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) or verification of paid claims 
+documenting ALL of the following:  
+ 
+ 1.1 Diagnosis of chronic moderate to severe plaque psoriasis (PsO)  
+
+
+=== PDF PAGE 1825 ===
+Page 1825 
+ 
+AND 
+ 
+ 1.2 Both of the following:  
+• 
+Patient is 6 years of age or older  
+• 
+Patient weighs at least 40 kg  
+ 
+AND 
+ 
+ 1.3 Greater than or equal to 3% body surface area involvement, palmoplantar, facial, or 
+genital involvement, or severe scalp psoriasis  
+ 
+AND 
+ 
+ 1.4 History of failure to one of the following topical therapies, unless contraindicated or 
+clinically significant adverse effects are experienced:  
+• 
+Corticosteroids (e.g., betamethasone, clobetasol, desonide)  
+• 
+Vitamin D analogs (e.g., calcitriol, calcipotriene)  
+• 
+Tazarotene  
+• 
+Calcineurin inhibitors (e.g., tacrolimus, pimecrolimus)  
+ 
+AND 
+ 
+ 1.5 History of failure of a 3 month trial of methotrexate at the maximally indicated dose within 
+the last 6 months, unless contraindicated or clinically significant adverse effects are 
+experienced  
+ 
+AND 
+ 
+ 1.6 History of failure, contraindication, or intolerance to one of the following topical therapies  
+• 
+Vtama  
+• 
+Zoryve 0.3% cream  
+
+
+=== PDF PAGE 1826 ===
+Page 1826 
+ 
+AND 
+ 
+ 1.7 History of failure, contraindication, or intolerance to ALL of the following preferred biologic 
+products:  
+• 
+A preferred adalimumab biosimilar or Enbrel (etanercept)  
+• 
+Infliximab  
+• 
+Otezla (apremilast)  
+• 
+A preferred ustekinumab biosimilar  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a dermatologist  
+Notes  
+*If patient meets criteria above, please approve at GPI-14 
+ 
+Product Name:Tremfya SC 100mg*  
+Diagnosis 
+Plaque Psoriasis (PsO)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a dermatologist  
+Notes  
+*If patient meets criteria above, please approve at GPI-14 
+ 
+Product Name:Tremfya SC 100mg*  
+Diagnosis 
+Psoriatic Arthritis (PsA)  
+Approval Length 
+12 month(s)  
+
+
+=== PDF PAGE 1827 ===
+Page 1827 
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) or verification of paid claims 
+documenting ALL of the following:  
+ 
+ 1.1 Diagnosis of active psoriatic arthritis (PsA)  
+ 
+AND 
+ 
+ 1.2 Both of the following:  
+• 
+Patient is 6 years of age or older  
+• 
+Patient weighs at least 40 kg  
+ 
+AND 
+ 
+ 1.3 History of failure to a 3 month trial of methotrexate at the maximally indicated dose within 
+the last 6 months, unless contraindicated or clinically significant adverse effects are 
+experienced  
+ 
+AND 
+ 
+ 1.4 History of failure, contraindication, or intolerance to ALL of the following preferred biologic 
+products:  
+• 
+A preferred adalimumab biosimilar or Enbrel (etanercept)  
+• 
+infliximab  
+• 
+Orencia (abatacept)  
+• 
+Otezla (apremilast)  
+• 
+Xeljanz (tofacitinib) oral tablet (IR or XR)  
+• 
+A preferred ustekinumab biosimilar  
+ 
+AND 
+ 
+2 - Prescribed by, or in consultation with, ONE of the following:  
+
+
+=== PDF PAGE 1828 ===
+Page 1828 
+• 
+Rheumatologist  
+• 
+Dermatologist  
+Notes  
+*If patient meets criteria above, please approve at GPI-14 
+ 
+Product Name:Tremfya SC 100mg*  
+Diagnosis 
+Psoriatic Arthritis (PsA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with ONE of the following:  
+• 
+Rheumatologist  
+• 
+Dermatologist  
+Notes  
+*If patient meets criteria above, please approve at GPI-14 
+ 
+Product Name:Tremfya IV  
+Diagnosis 
+Crohn's Disease (CD)  
+Approval Length 
+3 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of moderately to 
+severely active Crohn's Disease (CD)  
+
+
+=== PDF PAGE 1829 ===
+Page 1829 
+ 
+AND 
+ 
+2 - One of the following:  
+• 
+Frequent diarrhea and abdominal pain  
+• 
+At least 10% weight loss  
+• 
+Complications such as obstruction, fever, abdominal mass  
+• 
+Abnormal lab values (e.g., C-reactive protein [CRP])  
+• 
+CD Activity Index (CDAI) greater than 220  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) or verification of paid claims history 
+documenting BOTH of the following:  
+ 
+ 3.1 Trial and failure, contraindication, or intolerance to ONE of the following conventional 
+therapies:  
+• 
+Corticosteroids (e.g., prednisone, methylprednisolone, budesonide)  
+• 
+6-mercaptopurine (Purinethol)  
+• 
+Azathioprine (Imuran)  
+• 
+Methotrexate (Rheumatrex, Trexall)  
+ 
+AND 
+ 
+ 3.2 History of failure, contraindication, or intolerance to ALL of the following:  
+• 
+A preferred adalimumab biosimilar  
+• 
+infliximab  
+• 
+A preferred ustekinumab biosimilar  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with a gastroenterologist  
+ 
+AND 
+ 
+5 - Will be administered as an intravenous induction dose  
+
+
+=== PDF PAGE 1830 ===
+Page 1830 
+ 
+Product Name:Tremfya SC  
+Diagnosis 
+Crohn's Disease (CD)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of moderately to 
+severely active Crohn's Disease (CD)  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a gastroenterologist  
+ 
+AND 
+ 
+3 - One of the following:  
+ 
+ 3.1 Will be used as a maintenance dose following the intravenous induction doses  
+ 
+OR 
+ 
+ 3.2 ALL of the following:  
+ 
+  3.2.1 Will be used for induction dosing  
+ 
+AND 
+ 
+  3.2.2 One of the following:  
+• 
+Frequent diarrhea and abdominal pain  
+• 
+At least 10% weight loss  
+• 
+Complications such as obstruction, fever, abdominal mass  
+
+
+=== PDF PAGE 1831 ===
+Page 1831 
+• 
+Abnormal lab values (e.g., C-reactive protein [CRP])  
+• 
+CD Activity Index (CDAI) greater than 220  
+ 
+AND 
+ 
+  3.2.3 Submission of medical records (e.g., chart notes) or verification of paid claims history 
+documenting BOTH of the following:  
+ 
+   3.2.3.1 Trial and failure, contraindication, or intolerance to ONE of the following 
+conventional therapies: 
+• 
+Corticosteroids (e.g., prednisone, methylprednisolone, budesonide)  
+• 
+6-mercaptopurine (Purinethol)  
+• 
+Azathioprine (Imuran)  
+• 
+Methotrexate (Rheumatrex, Trexall)  
+ 
+AND 
+ 
+   3.2.3.2 History of failure, contraindication, or intolerance to ALL of the following: 
+• 
+A preferred adalimumab biosimilar  
+• 
+infliximab  
+• 
+A preferred ustekinumab biosimilar  
+ 
+Product Name:Tremfya IV  
+Diagnosis 
+Ulcerative Colitis (UC)  
+Approval Length 
+3 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of moderately to 
+severely active ulcerative colitis (UC)  
+ 
+AND 
+
+
+=== PDF PAGE 1832 ===
+Page 1832 
+ 
+2 - One of the following:  
+• 
+Greater than 6 stools per day  
+• 
+Frequent blood in the stools  
+• 
+Frequent urgency  
+• 
+Presence of ulcers  
+• 
+Abnormal lab values (e.g., hemoglobin, erythrocyte sedimentation rate, C-reactive 
+protein)  
+• 
+Dependent on, or refractory to, corticosteroids  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) or verification of paid claims history 
+documenting BOTH of the following:  
+ 
+ 3.1 Trial and failure, contraindication, or intolerance to ONE of the following conventional 
+therapies:  
+• 
+6-mercaptopurine  
+• 
+Aminosalicylate (e.g., mesalamine, olsalazine, sulfasalazine)  
+• 
+Azathioprine  
+• 
+Corticosteroids (e.g., prednisone)  
+ 
+AND 
+ 
+ 3.2 History of failure, contraindication, or intolerance to ALL of the following:  
+• 
+A preferred adalimumab biosimilar  
+• 
+infliximab  
+• 
+Xeljanz oral tablet (tofacitinib) (IR or XR)  
+• 
+A preferred ustekinumab biosimilar  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with a gastroenterologist  
+ 
+AND 
+ 
+5 - Will be administered as an intravenous induction dose  
+ 
+
+
+=== PDF PAGE 1833 ===
+Page 1833 
+Product Name:Tremfya SC  
+Diagnosis 
+Ulcerative Colitis (UC)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of moderately to 
+severely active ulcerative colitis (UC)  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a gastroenterologist  
+ 
+AND 
+ 
+3 - One of the following:  
+ 
+ 3.1 Will be used as a maintenance dose following the intravenous induction doses  
+ 
+OR 
+ 
+ 3.2 ALL of the following:  
+ 
+  3.2.1 Will be used for induction dosing  
+ 
+AND 
+ 
+  3.2.2 One of the following:  
+• 
+Greater than 6 stools per day  
+• 
+Frequent blood in the stools  
+• 
+Frequent urgency  
+• 
+Presence of ulcers  
+
+
+=== PDF PAGE 1834 ===
+Page 1834 
+• 
+Abnormal lab values (e.g., hemoglobin, erythrocyte sedimentation rate, C-reactive 
+protein)  
+• 
+Dependent on, or refractory to, corticosteroids  
+ 
+AND 
+ 
+  3.2.3 Submission of medical records (e.g., chart notes) or verification of paid claims history 
+documenting BOTH of the following:  
+ 
+   3.2.3.1 Trial and failure, contraindication, or intolerance to ONE of the following 
+conventional therapies: 
+• 
+6-mercaptopurine  
+• 
+Aminosalicylate (e.g., mesalamine, olsalazine, sulfasalazine)  
+• 
+Azathioprine  
+• 
+Corticosteroids (e.g., prednisone)  
+ 
+AND 
+ 
+   3.2.3.2 History of failure, contraindication, or intolerance to ALL of the following: 
+• 
+A preferred adalimumab biosimilar  
+• 
+infliximab  
+• 
+Xeljanz oral tablet (tofacitinib) (IR or XR)  
+• 
+A preferred ustekinumab biosimilar  
+ 
+Product Name:Tremfya SC  
+Diagnosis 
+Crohn's Disease (CD), Ulcerative Colitis (UC)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy as evidenced by at least one of 
+the following:  
+
+
+=== PDF PAGE 1835 ===
+Page 1835 
+• 
+Improvement in intestinal inflammation (e.g., mucosal healing, improvement of lab 
+values [platelet counts, erythrocyte sedimentation rate, C-reactive protein level]) from 
+baseline  
+• 
+Reversal of high fecal output state  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a gastroenterologist  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+1/21/2026  
+CD initial auth section (IV and SC), removed older verbiage, no chan
+ge to clinical intent.  
+ 

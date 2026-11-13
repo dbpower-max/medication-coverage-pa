@@ -1,0 +1,304 @@
+--- PDF page 1632 ---
+Page 1632 
+Sodium Oxybate Products (Lumryz, Xyrem, Xywav) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-163938  
+Guideline Name 
+Sodium Oxybate Products (Lumryz, Xyrem, Xywav)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+2/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Lumryz, Brand Xyrem, Generic sodium oxybate, Xywav  
+Diagnosis 
+Narcolepsy with Cataplexy (i.e., Narcolepsy Type 1)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g. chart notes, laboratory values) documenting a 
+diagnosis of narcolepsy with cataplexy (i.e., Narcolepsy Type 1) with BOTH of the following:  
+
+
+--- PDF page 1633 ---
+Page 1633 
+ 
+ 1.1 The patient has daily periods of irrepressible need to sleep or daytime lapses into sleep 
+occurring for at least three months  
+ 
+AND 
+ 
+ 1.2 A mean sleep latency of less than or equal to 8 minutes and two or more sleep onset 
+rapid eye movement (REM) periods (SOREMPs) on a Multiple Sleep Latency Test (MSLT) 
+performed according to standard techniques following a normal overnight polysomnogram. A 
+SOREMP (within 15 minutes of sleep onset) on the preceding nocturnal polysomnogram may 
+replace one of the SOREMPs on the MSLT  
+ 
+AND 
+ 
+2 - Physician attestation to BOTH of the following:  
+ 
+ 2.1 Patient has experienced cataplexy defined as more than one episode of sudden loss of 
+muscle tone with retained consciousness  
+ 
+AND 
+ 
+ 2.2 Other causes of sleepiness have been ruled out or treated (including but not limited to 
+obstructive sleep apnea, insufficient sleep syndrome, shift work, the effects of substances or 
+medications, or other sleep disorders)  
+ 
+AND 
+ 
+3 - Prescribed by ONE of the following:  
+• 
+Neurologist  
+• 
+Psychiatrist  
+• 
+Sleep Medicine Specialist  
+ 
+AND 
+ 
+4 - Patient is 7 years of age or older  
+ 
+
+
+--- PDF page 1634 ---
+Page 1634 
+Product Name:Lumryz, Brand Xyrem, Generic sodium oxybate, Xywav  
+Diagnosis 
+Narcolepsy with Cataplexy (i.e., Narcolepsy Type 1)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a reduction in frequency of 
+cataplexy attacks associated with therapy  
+ 
+OR 
+ 
+2 - Documentation demonstrating reduction in symptoms of excessive daytime sleepiness 
+associated with therapy  
+ 
+Product Name:Lumryz, Brand Xyrem, Generic sodium oxybate, Xywav  
+Diagnosis 
+Narcolepsy without Cataplexy (i.e., Narcolepsy Type 2)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g. chart notes, lab values) documenting a diagnosis of 
+narcolepsy without cataplexy (i.e., Narcolepsy Type 2) with BOTH of the following:  
+ 
+ 1.1 The patient has daily periods of irrepressible need to sleep or daytime lapses into sleep 
+occurring for at least three months  
+ 
+AND 
+ 
+ 1.2 A mean sleep latency of less than or equal to 8 minutes and two or more sleep onset 
+rapid eye movement (REM) periods (SOREMPs) are found on a Multiple Sleep Latency Test 
+
+
+--- PDF page 1635 ---
+Page 1635 
+(MSLT) performed according to standard techniques following a normal overnight 
+polysomnogram. A SOREMP (within 15 minutes of sleep onset) on the preceding nocturnal 
+polysomnogram may replace one of the SOREMPs on the MSLT  
+ 
+AND 
+ 
+2 - Physician attestation to BOTH of the following:  
+ 
+ 2.1 Cataplexy is absent  
+ 
+AND 
+ 
+ 2.2 Other causes of sleepiness have been ruled out or treated (including but not limited to 
+obstructive sleep apnea, insufficient sleep syndrome, shift work, the effects of substances or 
+medications or their withdrawal, sleep phase disorder, or other sleep disorders)  
+ 
+AND 
+ 
+3 - History of failure, contraindication, or intolerance of ALL of the following (MUST be verified 
+via paid pharmacy claims or submission of medical records):  
+ 
+ 3.1 ONE of the following:  
+• 
+Amphetamine based stimulant (e.g., amphetamine, dextroamphetamine)  
+• 
+Methylphenidate based stimulant  
+ 
+AND 
+ 
+ 3.2 Armodafanil (Nuvigil)  
+ 
+AND 
+ 
+ 3.3 Sunosi (solriamfetol)  
+ 
+AND 
+ 
+4 - Prescribed by ONE of the following:  
+
+
+--- PDF page 1636 ---
+Page 1636 
+• 
+Neurologist  
+• 
+Psychiatrist  
+• 
+Sleep Medicine Specialist  
+ 
+AND 
+ 
+5 - Patient is 7 years of age or older  
+ 
+Product Name:Lumryz, Brand Xyrem, Generic sodium oxybate, Xywav  
+Diagnosis 
+Narcolepsy without Cataplexy (i.e., Narcolepsy Type 2)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting reduction in symptoms of 
+excessive daytime sleepiness associated with therapy  
+ 
+Product Name:Xywav  
+Diagnosis 
+Idiopathic Hypersomnia (IH)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a diagnosis of idiopathic 
+hypersomnia (IH) confirmed by ALL of the following:  
+ 
+ 1.1 Patient has experienced daily periods of irrepressible need for sleep or daytime lapses 
+into sleep (i.e., excessive daytime sleepiness) for at least 3 months  
+
+
+--- PDF page 1637 ---
+Page 1637 
+ 
+AND 
+ 
+ 1.2 A multiple sleep latency test (MSLT) documents fewer than two sleep-onset rapid eye 
+movement periods (SOREMPs), or no SOREMPs if the REM sleep latency on the preceding 
+polysomnogram was ≤ 15 minutes  
+ 
+AND 
+ 
+ 1.3 The presence of at least one of the following:  
+• 
+MSLT shows a mean sleep latency of ≤ 8 minutes  
+• 
+Total 24-hour sleep time is ≥ 660 minutes (typically 12 to 14 hours) on 24-hour 
+polysomnography or by wrist actigraphy in association with a sleep log  
+ 
+AND 
+ 
+2 - Physician attestation to BOTH of the following:  
+ 
+ 2.1 Cataplexy is absent  
+ 
+AND 
+ 
+ 2.2 Other causes of sleepiness have been ruled out or treated (including but not limited to 
+obstructive sleep apnea, insufficient sleep syndrome, shift work, the effects of substances or 
+medications or their withdrawal, sleep phase disorder, or other sleep disorders)  
+ 
+AND 
+ 
+3 - Prescribed by with one of the following:  
+• 
+Neurologist  
+• 
+Psychiatrist  
+• 
+Sleep Medicine Specialist  
+ 
+AND 
+
+
+--- PDF page 1638 ---
+Page 1638 
+ 
+4 - History of failure, contraindication, or intolerance of ALL of the following (MUST be verified 
+via paid pharmacy claims or submission of medical records):  
+• 
+An amphetamine or methylphenidate based stimulant  
+• 
+modafinil  
+• 
+armodafinil  
+ 
+Product Name:Xywav  
+Diagnosis 
+Idiopathic Hypersomnia (IH)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting reduction in symptoms of 
+excessive daytime sleepiness associated with therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+1/31/2025  
+IH: Updated prescriber requirement verbiage  
+ 

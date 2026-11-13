@@ -1,0 +1,124 @@
+=== PDF PAGE 991 ===
+Page 991 
+Jesduvroq (daprodustat) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-143522  
+Guideline Name 
+Jesduvroq (daprodustat)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+3/1/2024  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Jesduvroq  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of chronic kidney disease (CKD)  
+ 
+AND 
+
+
+=== PDF PAGE 992 ===
+Page 992 
+ 
+2 - Patient has been on dialysis for at least 4 months  
+ 
+AND 
+ 
+3 - Adequate iron stores confirmed by both of the following:  
+• 
+Patient's ferritin level is greater than 100mcg/L  
+• 
+Patient's transferrin saturation (TSAT) is greater than 20%  
+ 
+AND 
+ 
+4 - Hemoglobin level less than 11 g/dL  
+ 
+AND 
+ 
+5 - Trial and failure, contraindication or intolerance to one of the following:  
+• 
+Epogen  
+• 
+Procrit  
+• 
+Retacrit  
+ 
+AND 
+ 
+6 - Prescribed by or in consultation with one of the following:  
+• 
+hematologist  
+• 
+nephrologist  
+ 
+AND 
+ 
+7 - Patient is not on concurrent treatment with an erythropoeitin stimulating agent [ESA] (e.g., 
+Aranesp, Epogen, Procrit)  
+ 
+Product Name:Jesduvroq  
+Approval Length 
+12 month(s)  
+
+
+=== PDF PAGE 993 ===
+Page 993 
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy (e.g., increase in hemoglobin)  
+ 
+AND 
+ 
+2 - Hemoglobin level does not exceed 12g/dL  
+ 
+AND 
+ 
+3 - Adequate iron stores confirmed by both of the following:  
+• 
+Patient's ferritin level is greater than 100mcg/L  
+• 
+Patient's transferrin saturation (TSAT) is greater than 20%  
+ 
+AND 
+ 
+4 - Patient is not on concurrent treatment with an erythropoeitin stimulating agent [ESA] (e.g., 
+Aranesp, Epogen, Procrit)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+2/28/2024  
+New program  
+ 

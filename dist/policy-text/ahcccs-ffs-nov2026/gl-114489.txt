@@ -1,0 +1,141 @@
+--- PDF page 232 ---
+Page 232 
+Benlysta (belimumab) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-114489  
+Guideline Name 
+Benlysta (belimumab)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2022  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Benlysta IV, Benlysta SQ  
+Diagnosis 
+Systemic Lupus Erythematosus  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of systemic lupus erythematosus  
+
+
+--- PDF page 233 ---
+Page 233 
+ 
+AND 
+ 
+2 - Patient is 5 years of age or older  
+ 
+AND 
+ 
+3 - Laboratory testing has documented the presence of autoantibodies [e.g., ANA, Anti-
+dsDNA, Anti-Sm, Anti-Ro/SSA, Anti-La/SSB]  
+ 
+AND 
+ 
+4 - Patient is currently receiving standard immunosuppressive therapy [e.g., 
+hydroxychloroquine, chloroquine, prednisone, azathioprine, methotrexate]  
+ 
+AND 
+ 
+5 - Patient does NOT have severe active central nervous system lupus  
+ 
+AND 
+ 
+6 - Patient is not receiving Benlysta in combination with a biologic DMARD (disease modifying 
+anti-rheumatic drug) [e.g., Enbrel (etanercept), Humira (adalimumab), Cimzia (certolizumab), 
+Kineret (anakinra)]  
+ 
+Product Name:Benlysta IV, Benlysta SQ  
+Diagnosis 
+Active Lupus Nephritis  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 234 ---
+Page 234 
+ 
+1 - Diagnosis of active lupus nephritis  
+ 
+AND 
+ 
+2 - Patient is 5 years of age or older  
+ 
+AND 
+ 
+3 - Patient is currently receiving standard immunosuppressive therapy for systemic lupus 
+erythematosus [e.g., hydroxychloroquine, chloroquine, prednisone, azathioprine, 
+methotrexate]  
+ 
+AND 
+ 
+4 - Patient does NOT have severe active central nervous system lupus  
+ 
+AND 
+ 
+5 - Patient is not receiving Benlysta in combination with a biologic DMARD (disease modifying 
+anti-rheumatic drug) [e.g., Enbrel (etanercept), Humira (adalimumab), Cimzia (certolizumab), 
+Kineret (anakinra)]  
+ 
+Product Name:Benlysta IV, Benlysta SQ  
+Diagnosis 
+Systemic Lupus Erythematosus, Active Lupus Nephritis  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to Benlysta therapy  
+
+
+--- PDF page 235 ---
+Page 235 
+ 
+AND 
+ 
+2 - Patient is not receiving Benlysta in combination with a biologic DMARD (disease modifying 
+anti-rheumatic drug) [e.g., Enbrel (etanercept), Humira (adalimumab), Cimzia (certolizumab), 
+Kineret (anakinra)]  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+9/26/2022  
+Updated age requirement. Added IV formulation as target.  
+ 

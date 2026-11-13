@@ -1,0 +1,563 @@
+=== PDF PAGE 945 ===
+Page 945 
+Infliximab Products 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-322197  
+Guideline Name 
+Infliximab Products  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Preferred: Infliximab (Janssen manufacturer)*  
+Diagnosis 
+Rheumatoid Arthritis (RA)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of moderately to 
+severely active RA  
+
+
+=== PDF PAGE 946 ===
+Page 946 
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a rheumatologist  
+ 
+AND 
+ 
+3 - Paid claims or submission of medical records (e.g., chart notes) confirming a minimum 
+duration of a 3-month trial and failure, contraindication, or intolerance to one of the following 
+conventional therapies at maximally tolerated doses:  
+• 
+methotrexate  
+• 
+leflunomide  
+• 
+sulfasalazine  
+ 
+AND 
+ 
+4 - Used in combination with methotrexate  
+Notes  
+*Note: Please approve at NDC level (NDC for preferred infliximab ma
+nufactured by Janssen: 57894016001) 
+ 
+Product Name:Preferred: Infliximab (Janssen manufacturer)*  
+Diagnosis 
+Rheumatoid Arthritis (RA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy as evidenced by at least one of the 
+following:  
+• 
+Reduction in the total active (swollen and tender) joint count from baseline  
+• 
+Improvement in symptoms (e.g., pain, stiffness, inflammation) from baseline  
+
+
+=== PDF PAGE 947 ===
+Page 947 
+Notes  
+*Note: Please approve at NDC level (NDC for preferred infliximab ma
+nufactured by Janssen: 57894016001) 
+ 
+Product Name:Preferred: Infliximab (Janssen manufacturer)*  
+Diagnosis 
+Psoriatic Arthritis (PsA)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of active PsA  
+ 
+AND 
+ 
+2 - One of the following:  
+• 
+Actively inflamed joints  
+• 
+Dactylitis  
+• 
+Enthesitis  
+• 
+Axial disease  
+• 
+Active skin and/or nail involvement  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with one of the following:  
+• 
+Dermatologist  
+• 
+Rheumatologist  
+Notes  
+*Note: Please approve at NDC level (NDC for preferred infliximab ma
+nufactured by Janssen: 57894016001) 
+ 
+Product Name:Preferred: Infliximab (Janssen manufacturer)*  
+Diagnosis 
+Psoriatic Arthritis (PsA)  
+Approval Length 
+12 month(s)  
+
+
+=== PDF PAGE 948 ===
+Page 948 
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy as evidenced by at least one of the 
+following:  
+• 
+Reduction in the total active (swollen and tender) joint count from baseline  
+• 
+Improvement in symptoms (e.g., pain, stiffness, pruritus, inflammation) from baseline  
+• 
+Reduction in the body surface area (BSA) involvement from baseline  
+Notes  
+*Note: Please approve at NDC level (NDC for preferred infliximab ma
+nufactured by Janssen: 57894016001) 
+ 
+Product Name:Preferred: Infliximab (Janssen manufacturer)*  
+Diagnosis 
+Plaque Psoriasis (PsO)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of chronic severe 
+(i.e., extensive and/or disabling) plaque psoriasis  
+ 
+AND 
+ 
+2 - One of the following:  
+• 
+Greater than or equal to 3% body surface area involvement  
+• 
+Severe scalp psoriasis  
+• 
+Palmoplantar (i.e., palms, soles), facial, or genital involvement  
+ 
+AND 
+
+
+=== PDF PAGE 949 ===
+Page 949 
+ 
+3 - Paid claims or submission of medical records (e.g., chart notes) confirming a minimum 
+duration of a 4-week trial and failure, contraindication, or intolerance to one of the following 
+topical therapies:  
+• 
+corticosteroids (e.g., betamethasone, clobetasol)  
+• 
+vitamin D analogs (e.g., calcitriol, calcipotriene)  
+• 
+tazarotene  
+• 
+calcineurin inhibitors (e.g., tacrolimus, pimecrolimus)  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with a dermatologist  
+Notes  
+*Note: Please approve at NDC level (NDC for preferred infliximab ma
+nufactured by Janssen: 57894016001) 
+ 
+Product Name:Preferred: Infliximab (Janssen manufacturer)*  
+Diagnosis 
+Plaque Psoriasis (PsO)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to infliximab therapy as evidenced by ONE of 
+the following:  
+• 
+Reduction the body surface area (BSA) involvement from baseline  
+• 
+Improvement in symptoms (e.g., pruritus, inflammation) from baseline  
+Notes  
+*Note: Please approve at NDC level (NDC for preferred infliximab ma
+nufactured by Janssen: 57894016001) 
+ 
+Product Name:Preferred: Infliximab (Janssen manufacturer)*  
+Diagnosis 
+Ankylosing Spondylitis (AS)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+
+
+=== PDF PAGE 950 ===
+Page 950 
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of active 
+ankylosing spondylitis  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a rheumatologist  
+ 
+AND 
+ 
+3 - Paid claims or submission of medical records (e.g., chart notes) confirming a minimum 
+duration of one month trial and failure, contraindication, or intolerance to two different NSAIDs 
+(e.g., ibuprofen, naproxen) at maximally tolerated doses  
+Notes  
+*Note: Please approve at NDC level (NDC for preferred infliximab ma
+nufactured by Janssen: 57894016001) 
+ 
+Product Name:Preferred: Infliximab (Janssen manufacturer)*  
+Diagnosis 
+Ankylosing Spondylitis (AS)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy as evidenced by improvement from 
+baseline for least one of the following:  
+• 
+Disease activity (e.g., pain, fatigue, inflammation, stiffness)  
+• 
+Lab values (erythrocyte sedimentation rate, C-reactive protein level)  
+• 
+Function  
+• 
+Axial status (e.g., lumbar spine motion, chest expansion)  
+
+
+=== PDF PAGE 951 ===
+Page 951 
+• 
+Total active (swollen and tender) joint count  
+Notes  
+*Note: Please approve at NDC level (NDC for preferred infliximab ma
+nufactured by Janssen: 57894016001) 
+ 
+Product Name:Preferred: Infliximab (Janssen manufacturer)*  
+Diagnosis 
+Crohn's Disease (CD) or Fistulizing Crohn's Disease  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of one of the 
+following:  
+• 
+Moderately to severely active Crohn's disease  
+• 
+Fistulizing Crohn's disease  
+ 
+AND 
+ 
+2 - One of the following:  
+• 
+Frequent diarrhea and abdominal pain  
+• 
+At least 10% weight loss  
+• 
+Complications such as obstruction, fever, abdominal mass  
+• 
+Abnormal lab values (e.g., C-reactive protein [CRP])  
+• 
+CD Activity Index (CDAI) greater than 220  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with a gastroenterologist  
+ 
+AND 
+
+
+=== PDF PAGE 952 ===
+Page 952 
+ 
+4 - Paid claims or submission of medical records (e.g., chart notes) confirming a trial and 
+failure, contraindication, or intolerance to one of the following conventional therapies:  
+• 
+6-mercaptopurine  
+• 
+Azathioprine  
+• 
+Corticosteroids (e.g., prednisone)  
+• 
+Methotrexate  
+Notes  
+*Note: Please approve at NDC level (NDC for preferred infliximab ma
+nufactured by Janssen: 57894016001) 
+ 
+Product Name:Preferred: Infliximab (Janssen manufacturer)*  
+Diagnosis 
+Crohn's Disease (CD) or Fistulizing Crohn's Disease  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy as evidenced by at least one of the 
+following:  
+• 
+Improvement in intestinal inflammation (e.g., mucosal healing, improvement of lab 
+values [platelet counts, erythrocyte sedimentation rate, C-reactive protein level]) from 
+baseline  
+• 
+Reversal of high fecal output state  
+Notes  
+*Note: Please approve at NDC level (NDC for preferred infliximab ma
+nufactured by Janssen: 57894016001) 
+ 
+Product Name:Preferred: Infliximab (Janssen manufacturer)*  
+Diagnosis 
+Ulcerative Colitis (UC)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+
+
+=== PDF PAGE 953 ===
+Page 953 
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of moderately to 
+severely active ulcerative colitis  
+ 
+AND 
+ 
+2 - One of the following:  
+• 
+Greater than 6 stools per day  
+• 
+Frequent blood in the stools  
+• 
+Frequent urgency  
+• 
+Presence of ulcers  
+• 
+Abnormal lab values (e.g., hemoglobin, ESR, CRP)  
+• 
+Dependent on, or refractory to, corticosteroids  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with a gastroenterologist  
+ 
+AND 
+ 
+4 - Paid claims or submission of medical records (e.g., chart notes) confirming a trial and 
+failure, contraindication, or intolerance to one of the following conventional therapies:  
+• 
+6-mercaptopurine  
+• 
+Aminosalicylate (e.g., mesalamine, olsalazine, sulfasalazine)  
+• 
+Azathioprine  
+• 
+Corticosteroids (e.g., prednisone)  
+Notes  
+*Note: Please approve at NDC level (NDC for preferred infliximab ma
+nufactured by Janssen: 57894016001) 
+ 
+Product Name:Preferred: Infliximab (Janssen manufacturer)*  
+Diagnosis 
+Ulcerative Colitis (UC)  
+Approval Length 
+12 month(s)  
+
+
+=== PDF PAGE 954 ===
+Page 954 
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy as evidenced by at least one of the 
+following:  
+• 
+Improvement in intestinal inflammation (e.g., mucosal healing, improvement of lab 
+values [platelet counts, erythrocyte sedimentation rate, C-reactive protein level]) from 
+baseline  
+• 
+Reversal of high fecal output state  
+Notes  
+*Note: Please approve at NDC level (NDC for preferred infliximab ma
+nufactured by Janssen: 57894016001) 
+ 
+Product Name:Preferred: Infliximab (Janssen manufacturer)*  
+Diagnosis 
+Sarcoidosis [Off-label]  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of sarcoidosis  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with one of the following:  
+• 
+Pulmonologist  
+• 
+Dermatologist  
+• 
+Ophthalmologist  
+ 
+AND 
+
+
+=== PDF PAGE 955 ===
+Page 955 
+ 
+3 - Paid claims or submission of medical records (e.g., chart notes) confirming a trial and 
+failure, contraindication, or intolerance to one corticosteroid (e.g., prednisone)  
+ 
+AND 
+ 
+4 - Paid claims or submission of medical records (e.g., chart notes) confirming a trial and 
+failure, contraindication, or intolerance to one immunosuppressant (e.g., methotrexate, 
+cyclophosphamide, or azathioprine)  
+Notes  
+*Note: Please approve at NDC level (NDC for preferred infliximab ma
+nufactured by Janssen: 57894016001) 
+ 
+Product Name:Preferred: Infliximab (Janssen manufacturer)*  
+Diagnosis 
+Sarcoidosis [Off-label]  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+Notes  
+*Note: Please approve at NDC level (NDC for preferred infliximab ma
+nufactured by Janssen: 57894016001) 
+ 
+Product Name:Non-Preferred*: Avsola, Inflectra, Remicade, Renflexis, Zymfentra, and newly 
+launched infliximab products  
+Approval Length 
+Requests for Non-Preferred biosimilars are not approved at this time  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Per your health plan's criteria, the non-preferred drug is not approved for coverage 
+because the plan's preferred product is Infliximab biosimilar (manufactured by Janssen). 
+**Please note: The drug(s) listed above may require additional review.  
+
+
+=== PDF PAGE 956 ===
+Page 956 
+Notes  
+*Patients must use preferred infliximab biosimilar. 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+7/16/2025  
+Added note to approve preferred infliximab at NDC level. Updated cri
+teria throughout. Updated NP section verbiage.  
+ 

@@ -1,0 +1,124 @@
+=== PDF PAGE 1133 ===
+Page 1133 
+Lynavoy (linerixibat) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-707202  
+Guideline Name 
+Lynavoy (linerixibat)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Lynavoy  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of cholestatic 
+pruritus associated with primary biliary cholangitis (PBC)  
+
+
+=== PDF PAGE 1134 ===
+Page 1134 
+ 
+AND 
+ 
+2 - PBC is confirmed by both of the following:  
+• 
+Antimitochondrial antibodies (AMA) or other PBC‐specific autoantibodies (e.g., sp100 
+or gp210) as detected by serologic blood test  
+• 
+Biochemical evidence of cholestasis (e.g., elevated alkaline phosphatase (ALP), 
+elevated gamma-glutamyl transferase (GGT), mildly elevated alanine 
+aminotransferase (ALT), mildly elevated aspartate aminotransferase (AST))  
+ 
+AND 
+ 
+3 - Presence of moderate to severe itch  
+ 
+AND 
+ 
+4 - Patient is receiving concurrent therapy for PBC (e.g., Ursodiol, Iqirvo, Livdelzi), unless 
+there is a contraindication or intolerance to these medications  
+ 
+AND 
+ 
+5 - Trial and failure, contraindication or intolerance to at least two of the following treatments 
+from different mechanisms of action used for the relief of pruritus:  
+• 
+Antihistamines (e.g., diphenhydramine, hydroxyzine)  
+• 
+Rifampin  
+• 
+Bile acid sequestrants (i.e., cholestyramine, colestipol)  
+• 
+Opioid antagonists (e.g., naltrexone)  
+ 
+AND 
+ 
+6 - Prescribed by or in consultation with one of the following:  
+• 
+Hepatologist  
+• 
+Gastroenterologist  
+ 
+
+
+=== PDF PAGE 1135 ===
+Page 1135 
+Product Name:Lynavoy  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting positive clinical response 
+to therapy as evidenced by a reduction in itch severity  
+ 
+AND 
+ 
+2 - Patient is receiving therapy for PBC (e.g., Ursodiol, Iqirvo, Livdelzi), unless there is a 
+contraindication or intolerance to these medications  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with one of the following:  
+• 
+Hepatologist  
+• 
+Gastroenterologist  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/26/2026  
+New program  
+ 

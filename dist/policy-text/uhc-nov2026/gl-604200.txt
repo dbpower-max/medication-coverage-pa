@@ -1,0 +1,119 @@
+--- PDF page 82 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 82 
+Alyftrek (vanzacaftor/tezacaftor/deutivacaftor) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-604200  
+Guideline Name 
+Alyftrek (vanzacaftor/tezacaftor/deutivacaftor)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+6/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Alyftrek  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a diagnosis of cystic 
+fibrosis (CF)  
+
+
+--- PDF page 83 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 83 
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) or laboratory results confirming the 
+presence of at least one mutation in the cystic fibrosis transmembrane conductance regulator 
+(CFTR) gene  
+ 
+AND 
+ 
+3 - ONE of the following:  
+ 
+ 3.1 CFTR mutation is responsive based on clinical or in vitro data  
+ 
+OR 
+ 
+ 3.2 CFTR mutation results in the production of CFTR protein  
+ 
+AND 
+ 
+4 - Patient is 6 years of age or older  
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with a specialist affiliated with a CF care center  
+ 
+AND 
+ 
+6 - ONE of the following:  
+ 
+ 6.1 Submission of medical records (e.g., chart notes) or paid claims documenting history of 
+failure or inadequate response to Trikafta (elexacaftor/tezacaftor/ivacaftor)  
+ 
+OR 
+ 
+ 6.2 Submission of medical records (e.g., chart notes) demonstrating that the patient has a 
+
+
+--- PDF page 84 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 84 
+documented CFTR gene mutation that is responsive to Alyftrek but is not responsive to 
+Trikafta (a complete up-to-date list of responsive mutations can be referenced in the Trikafta 
+Prescribing Information)  
+ 
+Product Name:Alyftrek  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting that patient demonstrates 
+positive clinical response to therapy (e.g., stable or improved lung function [percent predicted 
+forced expiratory volume in one second {PPFEV1}], decreased number of pulmonary 
+exacerbations)  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a specialist affiliated with a cystic fibrosis (CF) care 
+center  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+5/7/2026  
+Updated initial auth criteria. Defined CF abbreviation in reauth sectio
+n. Removed table in background section.  
+ 

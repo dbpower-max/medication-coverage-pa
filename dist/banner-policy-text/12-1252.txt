@@ -1,0 +1,137 @@
+=== PDF PAGE 1252 ===
+Page 1252 
+Northera 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-99629  
+Guideline Name 
+Northera  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+12/9/2021  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Northera  
+Approval Length 
+3 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of symptomatic neurogenic orthostatic hypotension (nOH) as defined by ONE of 
+the following when an upright position is assumed or when using a head-up tilt-table testing at 
+an angle of at least 60 degrees:  
+• 
+At least a 20 millimeters of mercury (mm Hg) fall in systolic pressure  
+
+
+=== PDF PAGE 1253 ===
+Page 1253 
+• 
+At least a 10 mm Hg fall in diastolic pressure  
+ 
+AND 
+ 
+2 - nOH caused by ONE of the following:  
+• 
+Primary autonomic failure (e.g., Parkinson’s disease, multiple system atrophy, and 
+pure autonomic failure)  
+• 
+Dopamine beta-hydroxylase deficiency  
+• 
+Non-diabetic autonomic neuropathy  
+ 
+AND 
+ 
+3 - Diagnostic evaluation has excluded other causes associated with orthostatic hypotension 
+(e.g., congestive heart failure, fluid restriction, malignancy)  
+ 
+AND 
+ 
+4 - The patient has tried at least TWO of the following non-pharmacologic interventions:  
+• 
+Discontinuation of drugs which can cause orthostatic hypotension [e.g., diuretics, 
+antihypertensive medications (primarily sympathetic blockers), anti-anginal drugs 
+(nitrates), alpha-adrenergic antagonists, and antidepressants]  
+• 
+Raising the head of the bed 10 to 20 degrees  
+• 
+Compression garments to the lower extremities or abdomen  
+• 
+Physical maneuvers to improve venous return (e.g., regular modest-intensity exercise)  
+• 
+Increased salt and water intake, if appropriate  
+• 
+Avoiding precipitating factors (e.g., overexertion in hot weather, arising too quickly 
+from supine to sitting or standing)  
+ 
+AND 
+ 
+5 - No previous diagnosis of supine hypertension  
+ 
+AND 
+ 
+6 - Prescribed by, or in consultation with, ONE of the following specialists:  
+• 
+Cardiologist  
+
+
+=== PDF PAGE 1254 ===
+Page 1254 
+• 
+Neurologist  
+• 
+Nephrologist  
+ 
+AND 
+ 
+7 - History of failure (after a trial of at least 30 days), contraindication or intolerance to BOTH 
+of the following medications:  
+• 
+Florinef (fludrocortisone)  
+• 
+ProAmatine (midodrine)  
+ 
+Product Name:Northera  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to Northera therapy  
+ 
+AND 
+ 
+2 - Physiological countermeasures for neurogenic orthostatic hypotension (nOH) continue to 
+be employed  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/11/2021  
+Bulk Copy C&S Arizona Medicaid SP to Medicaid Arizona SP for 7/1  
+ 

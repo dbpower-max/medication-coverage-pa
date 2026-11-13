@@ -1,0 +1,61 @@
+=== PDF PAGE 1551 ===
+Page 1551 
+Samsca 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-99642  
+Guideline Name 
+Samsca  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+12/9/2021  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Samsca, generic tolvaptan  
+Approval Length 
+30 Day(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+• 
+Diagnosis of clinically significant euvolemic hyponatremia  
+• 
+Diagnosis of clinically significant hypervolemic hyponatremia  
+
+
+=== PDF PAGE 1552 ===
+Page 1552 
+ 
+AND 
+ 
+2 - Patient has not responded to fluid restriction  
+ 
+AND 
+ 
+3 - Treatment has been initiated or re-initiated in a hospital setting prior to discharge  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/11/2021  
+Bulk Copy C&S Arizona Medicaid SP to Medicaid Arizona SP for 7/1  
+ 

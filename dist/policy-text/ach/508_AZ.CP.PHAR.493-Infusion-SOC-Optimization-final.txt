@@ -1,0 +1,2191 @@
+PDF PAGE 1
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+Clinical Policy: Infusion Therapy Site of Care Optimization 
+Reference Number: AZ. CP.PHAR.493 
+Effective Date: 02.01.2022 
+Last Review Date: 01.01.2025 
+Line of Business: Arizona Medicaid and 
+Arizona HIM 
+Coding Implications 
+Revision Log 
+See Important Reminder at the end of this policy for important regulatory and legal 
+information. 
+Description 
+Specialty infusion therapy is the intravenous or injectable administration of medication that helps 
+members manage complex and often chronic conditions. Site of Care is defined as the redirection 
+of administration and/or dispensing of specialty drugs in outpatient facilities. Place of Service 
+codes are listed below: 
+Place of Service Name 
+Place of Service 
+Code(s) 
+Pharmacy 
+01 
+Office 
+11 
+Home 
+12 
+Off Campus-Outpatient Hospital 
+19 
+On Campus-Outpatient Hospital 
+22 
+End-Stage Renal Disease Treatment Facility 
+65 
+FDA Approved Indication(s) 
+Varies 
+Policy/Criteria 
+It is the policy of health plans affiliated with Centene Corporation that medically necessary services must 
+be rendered in the least intensive setting that is appropriate for the delivery of the services and supplies. 
+Where applicable, the plan may compare the cost-effectiveness of alternative services, setting or supplies 
+when determining least intensive setting. Alternative less intensive site of care facilities include non-
+hospital affiliated outpatient infusion (e.g., ambulatory infusion center or physician office), Home 
+Infusion. An injectable medication must meet applicable medical necessity criteria for coverage. When 
+coverage criteria are met for the injectable medication, this coverage policy is used to determine the 
+medical necessity of the requested site of care. 
+Provider must submit documentation (such as office chart notes, lab results or other clinical information) 
+supporting that member has met all approval criteria. 
+It is the policy of health plans affiliated with Centene Corporation® that patient intravenous (IV) 
+or injectable therapy service is medically necessary when the following criteria are met: 
+I. Initial Approval Criteria 
+A. In-network outpatient hospital or non-hospital outpatient office or facility for 
+Intravenous or Injectable Therapy 
+1. Request is for a drug applicable for alternative site of care (see Appendix B).
+Page 1 of 10 
+
+
+PDF PAGE 2
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+ 
+ 
+ 
+ 
+CLINICAL POLICY  
+Infusion Site of Care 
+2.  There is no home infusion provider, ambulatory infusion center lower cost site of care
+to provide administration and/or specialty pharmacy is not able to provide drug.
+AND one of the following (a, b, c, d, or e): 
+a.
+Request is for the administration of the initial dose of the treatment or restart of
+treatment after a 6-month disruption for a short duration (e.g., 4 weeks).
+i.
+Provider must submit request for initial visit with continued administration at
+home infusion or ambulatory infusion suite.
+b. The FDA-approved indications require outpatient hospital for administration.
+c.
+Submitted documentation that home based therapy, ambulatory surgical/infusion
+center is a health risk for the member due to physical or behavioral impairment.
+i. Examples of physical or behavioral health impairment: severe venous
+access issues and vein finder is not available, member does not have
+access to a caregiver, cardiopulmonary disorder, unable to tolerate
+intravenous fluid loads, cognitive concerns that impact patient safety* 
+d. Submitted medical records or infusion records that document severe or life-
+threatening adverse events that were non-responsive to pre-medications,
+analgesics, steroids, antihistamines (e.g., diphenhydramine), fluids or infusion rate
+reductions.
+i. Examples severe or life-threatening adverse events: seizures, anaphylaxis
+with no other therapy options, myocardial infarction, renal failure* 
+ii. Non-qualifying examples of medical necessity: trypanophobia (fear of
+needles), pediatrics, preference/convenience, frequent laboratory
+monitoring, continuation of services from previous Plan.
+*This is not a complete list of examples
+Approval duration: Up to one year or length of approval for the drug 
+II. Continued Approval
+A. For continuation of services at the requested location, provider must submit medical
+records or infusion records to reassess the member’s site of care and documentation for
+the need to continue monitoring and advanced treatment capabilities beyond what
+routinely be needed for the infusion therapy.
+Approval duration: Up to one year or length of approval for the drug
+III.Diagnoses/Indications for which coverage is NOT authorized:
+A. Requests for IV or injectable therapy not meeting the initial approval criteria should be
+provided in an alternate, less intensive site of care.
+IV. Appendices/General Information
+Appendix A: Abbreviation/Acronym Key
+FDA: Food and Drug Administration
+IV: intravenous
+Page 2 of 10 
+
+
+PDF PAGE 3
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+   
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+  
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+CLINICAL POLICY
+Infusion Site of Care 
+Appendix B: Examples of Site of Care Alignment Medical Specialty Drugs – specialty 
+infusion therapies include, but are not limited to: 
+1. AZ Medicaid Reinsurance drugs are excluded from the medical benefit (buy/bill) and
+must be billed through the pharmacy benefit. 
+CPT or 
+HCPC 
+Code 
+Description 
+Notes 
+Generic Drug Name 
+Brand Drug Name 
+J0129 
+Abatacept 
+Orencia 
+J0172 
+Aducanumab-Avwa 
+Aduhelm 
+J0180 
+agalsidase beta 
+Fabrazyme 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J0202 
+alemtuzumab 
+Lemtrada 
+J0218 
+Olipudase Alfa 
+Xenopozyme 
+J0219 
+Avalglucosidase alfa-ngpt 
+Nexviazyme 
+J0221 
+algucosidase alfa 
+Lumizyme 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J0222 
+patisiran 
+Onpattro 
+J0223 
+givosiran 
+Givlaari 
+J0224 
+lumasiran 
+Oxlumo 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J0225 
+vutrisiran 
+Amvuttra 
+J0256 
+alpha-1 proteinase inhibitor 
+Aralast NP and Prolastin-C 
+J0257 
+alpha-1 proteinase inhibitor 
+Glassia 
+J0278 
+amikacin 
+Amikin 
+J0485 
+belatacept 
+Nulojix 
+J0490 
+Belimumab 
+Benlysta IV 
+J0517 
+benralizumab 
+Fasenra 
+does not include self-administration 
+J0565 
+bezlotoxumab 
+Zinplava 
+J0584 
+burosumab-twza 
+Crysvita 
+J0597 
+C1 Esterase Inhibitor, human 
+BERINERT 
+J0598 
+C1 Esterase Inhibitor, human 
+Cinryze 
+J0638 
+canakinumab 
+Ilaris 
+does not include self-administration 
+J0695 
+ceftolozane/tazobactam 
+Zerbaxa 
+J0717 
+certolizumab pegol 
+Cimzia 
+does not include self-administration 
+J0739 
+cabotegravir 
+Apretude 
+J0740 
+cidofovir 
+Vistide 
+J0741 
+cabotegravir; rilprivine 
+Cabenuva 
+J0791 
+crizanilzumab-tmca 
+Adakveo 
+J0795 
+corticorelin 
+Acthrel 
+J0800 
+corticoptropin gel 
+Acthar 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J0850 
+cytomegalovirus immune globulin 
+Cytogam 
+Page 3 of 10 
+
+
+PDF PAGE 4
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+  
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+CLINICAL POLICY 
+Infusion Site of Care 
+J0875 
+dalbavancin 
+Dalvance 
+J0878 
+daptomycin 
+Cubicin 
+J0881 
+darbepoetin alfa (not-esrd) 
+Aranesp 
+J0882 
+darbepoetin alfa (ESRD) 
+Aranesp 
+J0885 
+epoetin alfa (non-ESRD) 
+Epogen 
+J0885 
+epoetin alfa (non-ESRD) 
+Procrit 
+J0887 
+epoetin beta (ESRD) 
+Mircera 
+J0888 
+epoetin beta (non-ESRD) 
+Mircera 
+J0895 
+deferoxamine mesyl 
+Desferal 
+J0896 
+luspatercept 
+Reblozyl 
+J0897 
+denosumab 
+Prolia 
+J0897 
+denosumab 
+Xgeva 
+J1290 
+ecallantide 
+Kalbitor 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J1300 
+eculizumab 
+Soliris (and all biosimilars) 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J1301 
+edaravone 
+Radicava 
+J1303 
+ravulizumab-cwvz 
+Ultomiris 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J1306 
+inclisiran 
+Leqvio 
+J1322 
+elosulfase alfa 
+Vimizim 
+J1324 
+enfuvirtide 
+Fuzeon 
+J1427 
+viltolarsen 
+Viltepso 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J1437 
+ferric derisomaltose 
+Monoferric 
+J1439 
+ferric carboxymaltose 
+Injectafer 
+J1440 
+Fecal microbiota, live - jslm, 1 m 
+Rebyota 
+J1442 
+filgrastim (g-csf) 
+Neupogen 
+J1447 
+tbo-filgrastim 
+Granix 
+J1458 
+galsulfase 
+Naglazyme 
+J1459 
+immune globulin 
+Privigen 
+J1460 
+immune globulin 
+Gamastan 
+J1551 
+immune globulin 
+Cutaquig 
+J1554 
+immune globulin 
+Asceniv 
+J1555 
+immune globulin 
+Cuvitru 
+J1556 
+immune globulin 
+Bivigam 
+J1557 
+immune globulin 
+Gammaplex 
+J1558 
+immune globulin 
+Xembify 
+J1559 
+immune globulin 
+Hizentra 
+J1560 
+immune globulin 
+Gamastan 
+J1561 
+immune globulin 
+Gammaked 
+J1561 
+immune globulin 
+Gamunex-C 
+J1566 
+immune globulin 
+Carimune NF 
+Page 4 of 10 
+
+
+PDF PAGE 5
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+  
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+   
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+  
+  
+ 
+ 
+  
+ 
+CLINICAL POLICY 
+Infusion Site of Care 
+J1566 
+immune globulin 
+Gammagard 
+J1568 
+immune globulin 
+Octagam 
+J1569 
+immune globulin 
+Gammagard Liquid 
+J1570 
+ganciclovir 
+Cytovene 
+J1571 
+immune globulin 
+Hepagam IV 
+J1572 
+immune globulin 
+Flebogamma 
+J1573 
+immune globulin 
+Hepagam IM 
+J1575 
+immune globulin 
+Hyquiva 
+J1576 
+immune globulin 
+Panzyga 
+J1602 
+golimumab IV 
+Simponi Aria 
+J1626 
+granisetron 
+Kytril 
+J1628 
+guselkumab 
+Tremfya 
+J1740 
+ibandronic acid 
+Boniva IV 
+J1743 
+idursulfase 
+Elaprase 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J1744 
+Icatibant 
+Firazyr 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J1745 
+inflixmab 
+Remicade/infliximab 
+includes all biosimilars 
+J1750 
+iron dextran 
+Infed 
+J1753 
+hepatitis b immune globulin 
+Nabi-HB  
+J1756 
+iron sucrose 
+Venofer 
+J1786 
+imiglucerase 
+Cerezyme 
+J1823 
+inebilizumab 
+Uplizna 
+J1833 
+isavuconazonium sulfate 
+Cresemba 
+J1850 
+kanamycin A 
+Kanamycin 
+J1931 
+Laronidase 
+Aldurazyme 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J1942 
+aripiprazole lauroxil 
+Aristada 
+J1950 
+leuprolide 
+Lupron Depot 
+J1955 
+levocarnitine 
+Carnitine 
+J2182 
+mepolizumab 
+Nucala 
+J2315 
+naltrexone 
+Vivitrol 
+J2323 
+natalizumab 
+Tysabri 
+Facility must be certified; found approved 
+locations on Tysabri website 
+J2327 
+risankizumab-rzaa 
+Skyrizi 
+J2329 
+ublituximab-xiiy 
+Briumvi 
+J2350 
+ocrelizumab 
+Ocrevus 
+J2356 
+tezepelumab-ekko 
+Tezspire 
+J2357 
+omalizumab 
+Xolair 
+J2406 
+oritavancin 
+Kimyrsa 
+J2407 
+oritavancin 
+Orbactiv 
+J2426 
+paliperidone injection 
+Invega Sustenna 
+all strengths 
+Page 5 of 10 
+
+
+PDF PAGE 6
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+  
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+   
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Infusion Site of Care 
+J2430 
+pamidronate 
+Aredia 
+J2469 
+palonosetron 
+Aloxi 
+J2501 
+paricalcitol 
+Zemplar 
+J2506 
+peg-filgrastim 
+Neulasta 
+J2507 
+pegloticase 
+Krystexxa 
+J2786 
+reslizumab 
+CINQAIR 
+J2790 
+rho(D) immune globulin 
+Rhogam and Winrho 
+J2794 
+risperidone 
+Risperdal Consta 
+J2796 
+romisplostim 
+Nplate 
+J2820 
+sargramostim 
+Leukine 
+J2840 
+sebelipase alfa 
+Kanuma 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J2916 
+ferric gluconate 
+Ferrlecit 
+J2997 
+alteplase 
+Cathflo activase 
+J3032 
+eptinezumab-jjmr 
+Vyepti 
+J3060 
+taliglucerase alfa 
+Elelyso 
+J3090 
+tedizolid 
+Sivextro 
+J3095 
+telavancin 
+Vibativ 
+J3110 
+teriparatide 
+Forteo 
+J3111 
+romosozumab-aqqg 
+Evenity 
+J3240 
+thyrotropin 
+Thyrogen 
+J3241 
+teprotumumab-trbw 
+Tepezza 
+J3245 
+tildrakizumab-asmn 
+Ilumya 
+J3262 
+tocilizumab 
+Actemra 
+J3315 
+triptorelin 
+Trelstar 
+J3357 
+ustekinumab 
+Stelara SubQ 
+J3358 
+ustekinumab 
+Stelara IV 
+J3380 
+vedolizumab 
+Entyvio 
+J3385 
+velaglucerase alfa 
+Vpriv 
+J3485 
+zidovudine 
+Retrovi 
+J3489 
+zoledronic acid 
+Reclast 
+J7170 
+emicizumab-kxwh 
+Hemlibra 
+J7175 
+coagulation factor X 
+Coagadex 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7177 
+human fibrinogen concentrate 
+Fibryga 
+J7178 
+human fibrinogen concentrate 
+Riastap 
+J7179 
+von willebrand factor 
+Vonvendi 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7180 
+factor XIII concentrate 
+Corifact 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7181 
+Factor XIII  
+Tretten 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7182 
+antihemophilic factor 
+Novoeight 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7183 
+vwf and hemophilia A 
+Wilate 
+AZ Medicaid Reinsurance (Rx benefit only) 
+Page 6 of 10 
+
+
+PDF PAGE 7
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+   
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+CLINICAL POLICY 
+Infusion Site of Care 
+J7185 
+antihemophilic factor 
+Xyntha 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7186 
+vwf and hemophilia A 
+Alphanate 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7187 
+von willebrand factor 
+Humate-P 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7188 
+factor VIII 
+Obizur 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7189 
+factor VIIa 
+NovoSeven 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7190 
+factor VIII 
+Hemofil M 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7190 
+factor VIII 
+Koate 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7190 
+factor VIII 
+Monoclate-O 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7192 
+factor VIII 
+ADVATE 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7192 
+factor VIII 
+Refacto 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7193 
+factor IX 
+AlphaNine 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7193 
+Monovine 
+MONONINE 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7194 
+factor IX 
+Bebulin 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7194 
+factor IX 
+Profilnine 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7195 
+factor IX 
+BeneFIX & Benefix RT 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7195 
+factor IX 
+Ixinity 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7197 
+antihrombin III 
+Thrombate 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7200 
+factor IX 
+Rixubis 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7201 
+factor IX 
+Alprolix 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7202 
+factor IX 
+Idelvion 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7203 
+factor IX 
+Rebinyn 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7204 
+factor VIII 
+Esperoct 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7205 
+efmoroctocog alfa 
+Eloctate 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7207 
+factor VIII 
+Adynovate 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7208 
+damoctocog alfa pegol 
+Jivi 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7209 
+factor VIII 
+Nuwiq 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7210 
+factor VIII 
+Afstyla 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7211 
+factor VIII 
+Kovaltry 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J7212 
+factor VIII 
+Sevenfact 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J3303 
+factor VIII 
+Aristospan 
+AZ Medicaid Reinsurance (Rx benefit only) 
+J9217 
+leuprolide 
+Lupron 
+J9218 
+leuprolide 
+lupron 
+J9312 
+rituximab 
+Rituxan 
+1st visit in AIS; includes biosimilars 
+J9332 
+efgartigimod alfa 
+Vyvgart 
+J9334 
+efgartigimod alfa and hyaluronidase-
+qvfc 
+Vyvgart Hytrulo 
+Q0138 
+Ferumoxytol 
+Feraheme 
+Q2023 
+factor VIII 
+Xyntha 
+Q5101 
+filgrastim-sndz 
+Zarxio 
+Page 7 of 10 
+
+
+PDF PAGE 8
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+  
+ 
+  
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+  
+  
+ 
+  
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Infusion Site of Care 
+Q5103 
+infliximab 
+Inflectra 
+Q5104 
+infliximab 
+Renflexis 
+Q5106 
+epoetin alfa-epbx 
+Retacrit 
+Q5108 
+pegfilgrastim-jmdb 
+Fulphila 
+Q5109 
+infliximab-qbtx 
+Ixifi 
+Q5111 
+pegfilgastrim-cbqv 
+Udenyca 
+Q5115 
+rituximab 
+Truxima 
+Q5119 
+rituximab 
+Ruxience 
+Q5121 
+infliximab 
+Avsola 
+Q5123 
+rituximab 
+Riabni 
+V. Dosage and Administration 
+Please see FDA approval or package insert. 
+VI. Product Availability 
+Not applicable 
+VII. References 
+1.  Polinski JM, et al. Home infusion: Safe, clinically effective, patient preferred, and cost  
+saving. Healthcare 5 (2017): 68-80.  
+2.  Santillo M, Jenkins, A, Jamieson C. Guidance on the Pharmaceutical Issues concerning 
+OPAT (Outpatient Parenteral Antibiotic Therapy) Services and other Outpatient Intravenous 
+Therapies. Edition 1, April 2018. NHS Pharmaceutical Quality Assurance Committee 2018. 
+3.  Nelson, S and Ard, KL. Outpatient Parenteral Antimicrobial Therapy. UpToDate. Accessed 
+October 9, 2019. 
+Reviews, Revisions, and Approvals 
+Date 
+P&T 
+Approval 
+Date 
+Policy created 
+06.08.20 
+08.20 
+Annual review; no changes. 
+06.02.21 
+07.21 
+Plan-specific policy created; Added examples of medical instability; 
+Added J-codes and notations in Appendix B; 
+01.13.23 
+07.22 
+Added Arizona HIM (Ambetter from Arizona) LOB; clarified that if the 
+request is for chemotherapy or member has a documented history of a 
+severe or life-threatening acute adverse reaction, these reasons meet the 
+medical necessity reasons for in-network outpatient hospital or non-
+hospital outpatient office or facility for intravenous or injectable therapy 
+as site-of-care; clarified that for new start requests, provider must submit 
+request for initial visit with continued administration at home infusion or 
+ambulatory infusion suite (AIS); Added fear of needles and continuation 
+01.24.23 
+01.23 
+Page 8 of 10 
+
+
+PDF PAGE 9
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Infusion Site of Care 
+Reviews, Revisions, and Approvals 
+Date 
+P&T 
+Approval 
+Date 
+of services from previous Plan as non-qualifying examples of medical 
+necessity. 
+Annual review; Added unbranded infliximab to J1745 Remicade under 
+Appendix B: Examples of Specialty Infusion Drugs. 
+12.28.23 
+01.24 
+Updated description to include Place of Service Codes for OP billing 
+include home, office, pharmacy, and hospital for medical billing.  
+Updated the Initial Approval Criteria section A.1 to include FDA 
+approval for SOC, drug availability at a specialty pharmacy and member 
+setting is safe for infusion.  Updated Section 2i-iii to include specialty 
+pharmacy as a source for the drug if the provider member needs to be at 
+outpatient hospital or office.  2.ii.ii included specific BH impairments 
+including cognitive issues; 2.iii.iii. added trypanophobia as a non-
+qualifying example. Approval duration clarified to one year or approval 
+for the drug.  Added Continued approval portion that was not previously 
+provided.  Appendix B was expanded to include more drugs and the link 
+for SharePoint for access to the full list of drugs as well the locations 
+where the drugs can be administered.  
+09.30.24 
+10.24 
+In Section I.A.1 updated OR to AND to clarify that both 1 and a or b or c 
+or d or e when reviewing. Also added a chart for place of service 
+locations and place of service codes. Some minor grammar updates. 
+01.25 
+1.2025 
+Important Reminder 
+This clinical policy has been developed by appropriately experienced and licensed health care 
+professionals based on a review and consideration of currently available generally accepted 
+standards of medical practice; peer-reviewed medical literature; government agency/program 
+approval status; evidence-based guidelines and positions of leading national health professional 
+organizations; views of physicians practicing in relevant clinical areas affected by this clinical 
+policy; and other available clinical information. The Health Plan makes no representations and 
+accepts no liability with respect to the content of any external information used or relied upon in 
+developing this clinical policy. This clinical policy is consistent with standards of medical 
+practice current at the time that this clinical policy was approved. “Health Plan” means a health 
+plan that has adopted this clinical policy and that is operated or administered, in whole or in part, 
+by Centene Management Company, LLC, or any of such health plan’s affiliates, as applicable. 
+The purpose of this clinical policy is to provide a guide to medical necessity, which is a 
+component of the guidelines used to assist in making coverage decisions and administering 
+benefits. It does not constitute a contract or guarantee regarding payment or results. Coverage 
+decisions and the administration of benefits are subject to all terms, conditions, exclusions, and 
+limitations of the coverage documents (e.g., evidence of coverage, certificate of coverage, policy, 
+Page 9 of 10 
+
+
+PDF PAGE 10
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Infusion Site of Care 
+contract of insurance, etc.), as well as to state and federal requirements and applicable Health  
+Plan-level administrative policies and procedures.  
+This clinical policy is effective as of the date determined by the Health Plan. The date of posting  
+may not be the effective date of this clinical policy. This clinical policy may be subject to  
+applicable legal and regulatory requirements relating to provider notification. If there is a  
+discrepancy between the effective date of this clinical policy and any applicable legal or  
+regulatory requirement, the requirements of law and regulation shall govern. The Health Plan  
+retains the right to change, amend or withdraw this clinical policy, and additional clinical  
+policies may be developed and adopted as needed, at any time.  
+This clinical policy does not constitute medical advice, medical treatment, or medical care. It is  
+not intended to dictate to providers how to practice medicine. Providers are expected to exercise  
+professional medical judgment in providing the most appropriate care and are solely responsible  
+for the medical advice and treatment of members. This clinical policy is not intended to  
+recommend treatment for members. Members should consult with their treating physician in  
+connection with diagnosis and treatment decisions.   
+Providers referred to in this clinical policy are independent contractors who exercise independent  
+judgment and over whom the Health Plan has no control or right of control. Providers are not  
+agents or employees of the Health Plan.  
+This clinical policy is the property of the Health Plan. Unauthorized copying, use, and  
+distribution of this clinical policy or any information contained herein are strictly prohibited.  
+Providers, members, and their representatives are bound to the terms and conditions expressed  
+herein through the terms of their contracts. Where no such contract exists, providers, members  
+and their representatives agree to be bound by such terms and conditions by providing services to  
+members and/or submitting claims for payment for such services.  
+Note:  
+For Medicaid members, when state Medicaid coverage provisions conflict with the coverage  
+provisions in this clinical policy, state Medicaid coverage provisions take precedence. Please  
+refer to the state Medicaid manual for any coverage provisions pertaining to this clinical policy.  
+©2023 Centene Corporation. All rights reserved. All materials are exclusively owned by Centene  
+Corporation and are protected by United States copyright law and international copyright law.  
+No part of this publication may be reproduced, copied, modified, distributed, displayed, stored in  
+a retrieval system, transmitted in any form or by any means, or otherwise published without the  
+prior written permission of Centene Corporation. You may not alter or remove any trademark,   
+copyright or other notice contained herein. Centene® and Centene Corporation®  are registered   
+trademarks exclusively owned by Centene Corporation.  
+Page 10 of 10 

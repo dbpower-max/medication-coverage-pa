@@ -1,0 +1,216 @@
+--- PDF page 1966 ---
+Page 1966 
+Vonoprazan Containing Agents 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-155420  
+Guideline Name 
+Vonoprazan Containing Agents  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2024  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Voquezna Dual Pak, Voquezna Triple Pak  
+Diagnosis 
+Helicobacter pylori (H. pylori) Infection  
+Approval Length 
+1 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of Helicobacter pylori infection  
+ 
+AND 
+
+
+--- PDF page 1967 ---
+Page 1967 
+ 
+2 - Trial and failure, contraindication, or intolerance to BOTH of the following first line 
+treatment regimens:  
+• 
+Clarithromycin based therapy (e.g., clarithromycin based triple therapy, clarithromycin 
+based concomitant therapy) [D]  
+• 
+Bismuth quadruple therapy (e.g., bismuth and metronidazole and tetracycline and 
+proton pump inhibitor [PPI] )  
+ 
+Product Name:Voquezna 20mg tablet  
+Diagnosis 
+Helicobacter pylori (H. pylori) Infection  
+Approval Length 
+1 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of Helicobacter pylori infection  
+ 
+AND 
+ 
+2 - One of the following:  
+• 
+Used in combination with amoxicillin and clarithromycin for the treatment of H. pylori 
+infection  
+• 
+Used in combination with amoxicillin for the treatment of H. pylori infection  
+ 
+AND 
+ 
+3 - Trial and failure, contraindication, or intolerance to BOTH of the following first line 
+treatment regimens:  
+• 
+Clarithromycin based therapy (e.g., clarithromycin based triple therapy, clarithromycin 
+based concomitant therapy) [D]  
+• 
+Bismuth quadruple therapy (e.g., bismuth and metronidazole and tetracycline and 
+proton pump inhibitor [PPI] )  
+ 
+
+
+--- PDF page 1968 ---
+Page 1968 
+Product Name:Voquezna 20mg tablet  
+Diagnosis 
+Healing and Relief of Heartburn associated with Erosive Esophagitis  
+Approval Length 
+8 Week(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of erosive esophagitis  
+ 
+AND 
+ 
+2 - Used for healing of all grades of erosive esophagitis and relief of heartburn associated with 
+erosive esophagitis  
+ 
+AND 
+ 
+3 - Trial (of a minimum 8-week supply) and inadequate response (within the last 365 days), 
+contraindication, or intolerance to TWO of the following generic proton pump inhibitors (PPI’s): 
+• 
+omeprazole  
+• 
+esomeprazole  
+• 
+pantoprazole  
+• 
+lansoprazole  
+• 
+rabeprazole  
+• 
+dexlansoprazole  
+ 
+Product Name:Voquezna 10mg tablet  
+Diagnosis 
+Maintenance of Healing and Relief of Heartburn associated with 
+Erosive Esophagitis  
+Approval Length 
+6 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 1969 ---
+Page 1969 
+ 
+1 - Used to maintain healing and relief of heartburn associated with erosive esophagitis  
+ 
+AND 
+ 
+2 - Trial (of a minimum 8-week supply) and inadequate response (within the last 365 days), 
+contraindication, or intolerance to TWO of the following generic proton pump inhibitors (PPI’s): 
+• 
+omeprazole  
+• 
+esomeprazole  
+• 
+pantoprazole  
+• 
+lansoprazole  
+• 
+rabeprazole  
+• 
+dexlansoprazole  
+ 
+Product Name:Voquezna 10mg tablet*  
+Diagnosis 
+Relief of Heartburn associated with Non-Erosive Gastroesophageal 
+Reflux Disease  
+Approval Length 
+1 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of non-erosive Gastroesophageal Reflux Disease  
+ 
+AND 
+ 
+2 - Both of the following:  
+• 
+Patient has history of heartburn for at least 6 months  
+• 
+Heartburn symptoms are present for at least 4 days during any consecutive 7-day 
+period  
+ 
+AND 
+
+
+--- PDF page 1970 ---
+Page 1970 
+ 
+3 - Trial (of a minimum 8-week supply) and inadequate response (within the last 365 days), 
+contraindication, or intolerance to TWO of the following generic proton pump inhibitors (PPI’s): 
+• 
+omeprazole  
+• 
+esomeprazole  
+• 
+pantoprazole  
+• 
+lansoprazole  
+• 
+rabeprazole  
+• 
+dexlansoprazole  
+Notes  
+*Voquezna 20 mg tablets are not FDA approved for non-erosive gastr
+oesophageal reflux disease. 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+9/26/2024  
+Added criteria for new indication  
+ 

@@ -1,0 +1,98 @@
+=== PDF PAGE 1089 ===
+Page 1089 
+Livtencity (maribavir) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-113529  
+Guideline Name 
+Livtencity (maribavir)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/8/2022  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Livtencity  
+Diagnosis 
+CMV infection/disease  
+Approval Length 
+8 Week(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of cytomegalovirus (CMV) infection/disease as confirmed by one of the following 
+methods:  
+• 
+quantitative polymerase chain reaction (qPCR)  
+
+
+=== PDF PAGE 1090 ===
+Page 1090 
+• 
+CMV pp65 antigenemia  
+ 
+AND 
+ 
+2 - Patient is a recipient of one of the following:  
+• 
+Hematopoietic stem cell transplant  
+• 
+Solid organ transplant  
+ 
+AND 
+ 
+3 - Trial and failure of a minimum 2 weeks duration, contraindication, or intolerance to one of 
+the following therapies at an appropriately indicated dose:  
+• 
+Intravenous (IV) ganciclovir  
+• 
+Oral valganciclovir  
+• 
+IV foscarnet  
+• 
+IV cidofovir  
+ 
+AND 
+ 
+4 - Patient is 12 years of age or older  
+ 
+AND 
+ 
+5 - Patient weighs greater than or equal to 35kg  
+ 
+AND 
+ 
+6 - Prescribed by or in consultation with a provider who specializes in one of the following 
+areas:  
+• 
+Transplant  
+• 
+Infectious Disease  
+ 
+2 .  Revision History  
+
+
+=== PDF PAGE 1091 ===
+Page 1091 
+ 
+Date  
+Notes  
+9/8/2022  
+Removed references and end note, no changes to clinical criteria.  
+ 

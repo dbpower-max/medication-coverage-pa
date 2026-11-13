@@ -1,0 +1,77 @@
+=== PDF PAGE 679 ===
+Page 679 
+Flucytosine- Arizona 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-99520  
+Guideline Name 
+Flucytosine- Arizona  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+12/9/2021  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Ancobon, generic flucytosine  
+Approval Length 
+2 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+ 
+ 1.1 Diagnosis of septicemia, endocarditis or a urinary system infection caused by Candida 
+species  
+
+
+=== PDF PAGE 680 ===
+Page 680 
+ 
+OR 
+ 
+ 1.2 Diagnosis of meningitis or a pulmonary infection caused by Cryptococcus species  
+ 
+AND 
+ 
+2 - If the patient is being treated for a systemic infection, flucytosine is being used in 
+combination with amphotericin B  
+ 
+Product Name:Brand Ancobon, generic flucytosine*  
+Diagnosis 
+Infectious Diseases Society of America (IDSA) Recommended 
+Regimens  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - The medication is being prescribed by or in consultation with an infectious disease 
+specialist.  
+Notes  
+*Approval duration based on provider recommended treatment duratio
+ns, up to 12 months. 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+5/13/2021  
+Arizona Medicaid 7.1 Implementation  
+ 

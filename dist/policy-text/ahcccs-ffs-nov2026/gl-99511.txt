@@ -1,0 +1,93 @@
+--- PDF page 1370 ---
+Page 1370 
+Panretin 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-99511  
+Guideline Name 
+Panretin  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+12/9/2021  
+P&T Approval Date: 
+P&T Revision Date: 
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Panretin  
+Diagnosis 
+AIDS-related Kaposi’s Sarcoma (KS)  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of acquired immunodeficiency syndrome (AIDS)-related Kaposi’s Sarcoma (KS)  
+
+
+--- PDF page 1371 ---
+Page 1371 
+ 
+AND 
+ 
+2 - Patient is not receiving systemic anti-KS treatment  
+ 
+Product Name:Panretin  
+Diagnosis 
+NCCN Recommended Regimen  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Panretin will be approved for uses supported by The National Comprehensive Cancer 
+Network (NCCN) Drugs and Biologics Compendium with a Category of Evidence and 
+Consensus of 1, 2A, or 2B.  
+ 
+Product Name:Panretin  
+Diagnosis 
+NCCN Recommended Regimen  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to Panretin therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+
+
+--- PDF page 1372 ---
+Page 1372 
+4/8/2021  
+7/1 Implementation  
+ 

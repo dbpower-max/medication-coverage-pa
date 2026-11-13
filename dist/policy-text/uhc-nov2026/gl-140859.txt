@@ -1,0 +1,151 @@
+--- PDF page 1680 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1680 
+Tegsedi 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-140859  
+Guideline Name 
+Tegsedi  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+2/1/2021  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Tegsedi  
+Diagnosis 
+Hereditary transthyretin-mediated (hATTR) amyloidosis with 
+polyneuropathy  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - BOTH of the following:  
+
+
+--- PDF page 1681 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1681 
+• 
+Diagnosis of Hereditary transthyretin-mediated (hATTR) amyloidosis with 
+polyneuropathy  
+• 
+Documentation that the patient has a pathogenic transthyretin (TTR) mutation (e.g., 
+V30M)  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a neurologist  
+ 
+AND 
+ 
+3 - Documentation of ONE of the following:  
+• 
+Patient has a baseline polyneuropathy disability (PND) score less than or equal to IIIb  
+• 
+Patient has a baseline familial amyloidotic polyneuropathy (FAP) Stage 1 or 2  
+• 
+Patient has a baseline neuropathy impairment (NIS) score greater than or equal to 10 
+and less than or equal to 130  
+ 
+AND 
+ 
+4 - Patient has not had a liver transplant  
+ 
+AND 
+ 
+5 - Presence of clinical signs and symptoms of the disease (e.g., peripheral sensorimotor 
+polyneuropathy, autonomic neuropathy, motor disability, etc.)  
+ 
+AND 
+ 
+6 - Patient is not receiving Tegsedi in combination with ONE of the following:  
+• 
+Oligonucleotide agents [e.g., Onpattro (patisiran)]  
+• 
+Tafamidis (e.g., Vyndaqel, Vyndamax)  
+ 
+Product Name:Tegsedi  
+
+
+--- PDF page 1682 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1682 
+Diagnosis 
+Hereditary transthyretin-mediated (hATTR) amyloidosis with 
+polyneuropathy  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient has previously received treatment with Tegsedi  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a neurologist  
+ 
+AND 
+ 
+3 - Documentation of ONE of the following:  
+• 
+Patient continues to have a polyneuropathy disability (PND) score less than or equal 
+to IIIb  
+• 
+Patient continues to have a familial amyloidotic polyneuropathy (FAP) Stage 1 or 2  
+• 
+Patient continues to have a neuropathy impairment (NIS) score greater than or equal 
+to 10 and less than or equal to 130  
+ 
+AND 
+ 
+4 - Documentation that the patient has experienced a positive clinical response to Tegsedi 
+therapy (e.g., improved neurologic impairment, motor function, quality of life, slowing of 
+disease progression, etc.)  
+ 
+AND 
+ 
+5 - Patient is not receiving Tegsedi in combination with ONE of the following:  
+• 
+Oligonucleotide agents [e.g., Onpattro (patisiran)]  
+
+
+--- PDF page 1683 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1683 
+• 
+Tafamidis (e.g., Vyndaqel, Vyndamax)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+12/17/2020  
+Added examples of tafamidis products but no change to clinical inten
+t.  
+ 

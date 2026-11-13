@@ -1,0 +1,137 @@
+=== PDF PAGE 1495 ===
+Page 1495 
+Rezdiffra (resmetirom) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-700345  
+Guideline Name 
+Rezdiffra (resmetirom)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Rezdiffra  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of metabolic dysfunction-associated steatohepatitis (MASH), formerly known as 
+nonalcoholic steatohepatitis (NASH)  
+
+
+=== PDF PAGE 1496 ===
+Page 1496 
+ 
+AND 
+ 
+2 - Patient does not have cirrhosis (e.g., decompensated cirrhosis)  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) confirming disease is fibrosis stage F2 or 
+F3 as confirmed by one of the following:  
+• 
+Enhanced liver fibrosis (ELF) test  
+• 
+Liver stiffness measurement (LSM) by vibration-controlled transient elastography 
+(VCTE) (e.g., FibroScan)  
+• 
+FibroScan aspartate aminotransferase (FAST)  
+• 
+MRI aspartate aminotransferase (MAST)  
+• 
+Magnetic Resonance Elastography combined with fibrosis-4 index (MEFIB)  
+• 
+Liver biopsy within the past 12 months  
+ 
+AND 
+ 
+4 - Presence of greater than or equal to 3 metabolic risk factors (e.g., Type 2 diabetes, 
+hypertension, obesity)  
+ 
+AND 
+ 
+5 - Submission of medical records (e.g., chart notes) confirming drug is used as an adjunct to 
+lifestyle modification (e.g., dietary or caloric restriction, exercise, behavioral support, 
+community based program)  
+ 
+AND 
+ 
+6 - Prescribed by or in consultation with one of the following:  
+• 
+Gastroenterologist  
+• 
+Hepatologist  
+ 
+AND 
+
+
+=== PDF PAGE 1497 ===
+Page 1497 
+ 
+7 - Medication will not be used in combination with Wegovy (semaglutide) for the treatment of 
+MASH  
+ 
+Product Name:Rezdiffra  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive response to therapy (e.g., NASH resolution, fibrosis stage 
+improvement, etc.)  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) confirming drug will continue to be used 
+as an adjunct to lifestyle modification (e.g., dietary or caloric restriction, exercise, behavioral 
+support, community based program)  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) confirming patient has not progressed to 
+cirrhosis  
+ 
+AND 
+ 
+4 - Medication will not be used in combination with Wegovy (semaglutide) for the treatment of 
+MASH  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+
+
+=== PDF PAGE 1498 ===
+Page 1498 
+8/26/2026  
+Updated confirmatory testing verbiage, added concomitant use criteri
+on  
+ 

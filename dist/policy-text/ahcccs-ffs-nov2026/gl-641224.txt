@@ -1,0 +1,145 @@
+--- PDF page 532 ---
+Page 532 
+Elevidys (delandistrogene moxeparvovec-rokl) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-641224  
+Guideline Name 
+Elevidys (delandistrogene moxeparvovec-rokl)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+7/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Elevidys  
+Diagnosis 
+Duchenne Muscular Dystrophy (DMD)  
+Approval Length 
+1 Time Authorization in Lifetime  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting ALL of the following:  
+ 
+ 1.1 Diagnosis of Duchenne Muscular Dystrophy (DMD)  
+
+
+--- PDF page 533 ---
+Page 533 
+ 
+AND 
+ 
+ 1.2 Mutation in the DMD gene has been confirmed  
+ 
+AND 
+ 
+ 1.3 No deletion in exon 8 or exon 9 in the DMD gene is present  
+ 
+AND 
+ 
+ 1.4 Patient is 4 through 5 years of age (at least 4 years 0 days and less than 6 years old)  
+ 
+AND 
+ 
+ 1.5 Submission of medical records including results of baseline North Star Ambulatory 
+Assessment (NSAA) confirming the patient is ambulatory without needing an assistive device 
+(e.g., without side-by-side assist, cane, walker, wheelchair, etc.) as evidenced by NSAA 
+scoring  
+ 
+AND 
+ 
+ 1.6 Anti-AAVrh74 total binding antibody titers are less than 1:400  
+ 
+AND 
+ 
+ 1.7 Patient has been on a stable dose of a corticosteroid, unless contraindicated or 
+intolerance, prior to start of therapy and will be used concomitantly with a corticosteroid 
+regimen pre- and post- infusion  
+ 
+AND 
+ 
+ 1.8 Submission of medical records (e.g., chart notes) documenting results of all of the 
+following laboratory values in the 30 days prior to therapy:  
+
+
+--- PDF page 534 ---
+Page 534 
+• 
+Liver function (i.e., clinical exam, GGT, total bilirubin)  
+• 
+Platelet counts  
+• 
+Troponin-I  
+ 
+AND 
+ 
+ 1.9 Patient has a left ventricular ejection fraction of greater than or equal to 40 percent (%)  
+ 
+AND 
+ 
+ 1.10 Patient does not have clinical signs or symptoms of infection  
+ 
+AND 
+ 
+ 1.11 A one-time gene therapy for ambulatory children ages 4 through 5 years of age for the 
+treatment of Duchenne Muscular Dystrophy. Patient will not receive Duvyzat (givinostat) or 
+exon-skipping therapies for DMD [e.g., Amondys (casimersen), Exondys 51 (eteplirsen), 
+Viltepso (viltolarsen), Vyondys 53 (golodirsen)] concomitantly or following Elevidys treatment  
+ 
+AND 
+ 
+ 1.12 Patient has never received Elevidys treatment in their lifetime  
+ 
+AND 
+ 
+2 - Provider attests that patient does not have preexisting liver impairment, chronic hepatic 
+condition or acute liver disease  
+ 
+AND 
+ 
+3 - Provider attests that liver function (clinical exam, GGT, and total bilirubin) will be monitored 
+weekly for the first 3 months following Elevidys infusion and monitoring will be continued 
+thereafter if clinically indicated as per FDA-approved recommendations in the labeling  
+
+
+--- PDF page 535 ---
+Page 535 
+ 
+AND 
+ 
+4 - Provider attests that these laboratory values will be monitored after administration 
+according to the FDA-approved recommendations in the labeling:  
+• 
+Platelet counts  
+• 
+Troponin-I  
+ 
+AND 
+ 
+5 - Prescribed by a neurologist with expertise in the treatment of DMD at an authorized 
+treatment center with expertise in gene therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+6/25/2026  
+Updated concomitant use criterion verbiage  
+ 

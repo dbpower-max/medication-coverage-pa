@@ -1,0 +1,231 @@
+=== PDF PAGE 667 ===
+Page 667 
+Filspari (sparsentan) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-620202  
+Guideline Name 
+Filspari (sparsentan)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+7/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Filspari  
+Diagnosis 
+Primary immunoglobulin A nephropathy (IgAN)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting diagnosis of primary 
+immunoglobulin A nephropathy (IgAN) as confirmed by a kidney biopsy  
+
+
+=== PDF PAGE 668 ===
+Page 668 
+ 
+AND 
+ 
+2 - Patient is at risk for disease progression (e.g., proteinuria of at least 0.5 g/day, or by other 
+criteria such as clinical risk scoring using the International IgAN Prediction Tool  
+ 
+AND 
+ 
+3 - Used to slow kidney function decline  
+ 
+AND 
+ 
+4 - Patient has an estimated glomerular filtration rate (eGFR) of greater than or equal to 30 
+mL/min/1.73 m2  
+ 
+AND 
+ 
+5 - Submission of medical records (e.g., chart notes) demonstrating patient has been on a 
+minimum 90-day trial of a maximally tolerated dose of one of the following (paid pharmacy 
+claims may be used to confirm appropriate trial):  
+• 
+An angiotensin-converting enzyme (ACE) inhibitor (e.g., benazepril, lisinopril)  
+• 
+An angiotensin II receptor blocker (ARB) (e.g., losartan, valsartan)  
+ 
+AND 
+ 
+6 - Medication will not be used in combination with any of the following:  
+• 
+Angiotensin receptor blockers or angiotensin receptor-neprilysin inhibitor (ARNI) [e.g., 
+Entresto (sacubitril/valsartan)]  
+• 
+Endothelin receptor antagonists (ERAs) [e.g., Letairis (ambrisentan), Tracleer 
+(bosentan), Opsumit (macitentan)]  
+• 
+Tekturna (aliskiren)  
+ 
+AND 
+ 
+7 - Prescribed by or in consultation with a nephrologist  
+
+
+=== PDF PAGE 669 ===
+Page 669 
+ 
+AND 
+ 
+8 - Prescriber is certified/enrolled in the Filspari REMS (Risk Evaluation and Mitigation 
+Strategy) Program  
+ 
+Product Name:Filspari  
+Diagnosis 
+Primary immunoglobulin A nephropathy (IgAN)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a positive clinical response 
+to therapy as demonstrated by a decrease in urine protein-to-creatinine ratio (UPCR) from 
+baseline  
+ 
+AND 
+ 
+2 - Medication is not taken in combination with any of the following:  
+• 
+Angiotensin receptor blockers or angiotensin receptor-neprilysin inhibitor (ARNI) [e.g., 
+Entresto (sacubitril/valsartan)]  
+• 
+Endothelin receptor antagonists (ERAs) [e.g., Letairis (ambrisentan), Tracleer 
+(bosentan), Opsumit (macitentan)]  
+• 
+Tekturna (aliskiren)  
+ 
+AND 
+ 
+3 - Prescriber is certified/enrolled in the Filspari REMS (Risk Evaluation and Mitigation 
+Strategy) Program  
+ 
+Product Name:Filspari  
+Diagnosis 
+Focal Segmental Glomerulosclerosis  
+
+
+=== PDF PAGE 670 ===
+Page 670 
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a diagnosis of focal 
+segmental glomerulosclerosis  
+ 
+AND 
+ 
+2 - Used to reduce proteinuria  
+ 
+AND 
+ 
+3 - Patient is 8 years of age or older  
+ 
+AND 
+ 
+4 - Patient does not have nephrotic syndrome  
+ 
+AND 
+ 
+5 - Medication is not taken in combination with any of the following:  
+• 
+Angiotensin receptor blockers or angiotensin receptor-neprilysin inhibitor (ARNI) [e.g., 
+Entresto (sacubitril/valsartan)]  
+• 
+Endothelin receptor antagonists (ERAs) [e.g., Letairis (ambrisentan), Tracleer 
+(bosentan), Opsumit (macitentan)]  
+• 
+Tekturna (aliskiren)  
+ 
+AND 
+ 
+6 - Prescribed by or in consultation with a nephrologist  
+
+
+=== PDF PAGE 671 ===
+Page 671 
+ 
+AND 
+ 
+7 - Prescriber is certified/enrolled in the Filspari REMS (Risk Evaluation and Mitigation 
+Strategy) Program  
+ 
+Product Name:Filspari  
+Diagnosis 
+Focal Segmental Glomerulosclerosis  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a positive clinical response 
+to therapy (e.g., UPCR reduction from baseline)  
+ 
+AND 
+ 
+2 - Medication is not taken in combination with any of the following:  
+• 
+Angiotensin receptor blockers or angiotensin receptor-neprilysin inhibitor (ARNI) [e.g., 
+Entresto (sacubitril/valsartan)]  
+• 
+Endothelin receptor antagonists (ERAs) [e.g., Letairis (ambrisentan), Tracleer 
+(bosentan), Opsumit (macitentan)]  
+• 
+Tekturna (aliskiren)  
+ 
+AND 
+ 
+3 - Prescriber is certified/enrolled in the Filspari REMS (Risk Evaluation and Mitigation 
+Strategy) Program  
+ 
+2 .  Revision History  
+ 
+
+
+=== PDF PAGE 672 ===
+Page 672 
+Date  
+Notes  
+6/25/2026  
+Added criteria for new indication of FSGS  
+ 

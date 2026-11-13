@@ -1,0 +1,932 @@
+--- PDF page 1062 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1062 
+Long-Acting Opioid Products 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-620192  
+Guideline Name 
+Long-Acting Opioid Products  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+6/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:generic morphine sulfate ER tabs, Brand MS Contin, morphine sulfate ER 
+caps, morphine sulfate beads caps ER, fentanyl patches, generic hydrocodone ER tabs, 
+Brand Hysingla ER, oxymorphone ER, Tapentadol ER, oxycodone ER, Oxycontin, Conzip, 
+tramadol ER biphasic release caps, tramadol ER biphasic release tabs, tramadol ER tabs 
+(non-biphasic release), generic methadone tabs/concentrate/soln/tabs for oral susp, Brand 
+Methadose, Diskets, hydromorphone ER, hydrocodone ER caps  
+Diagnosis 
+PA REQUIRED for use of MAT and other Opioids  
+Guideline Type 
+DUR  
+ 
+ 
+Approval Criteria    
+ 
+1 - Provider attests to notify the prescriber of the MAT (medication assisted treatment) therapy 
+and the prescriber of the MAT therapy approves the concurrent opioid therapy  
+
+
+--- PDF page 1063 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1063 
+ 
+AND 
+ 
+2 - The days supply does not exceed 14 days for a surgical procedure  
+ 
+AND 
+ 
+3 - The days supply does not exceed 5 days for all other requests  
+ 
+AND 
+ 
+4 - There has not been a previous approval in the last 6 months  
+Notes  
+Approval Length: 14 Days for surgical procedure, 5 Days for all other r
+equests 
+ 
+Product Name:generic morphine sulfate ER tabs, fentanyl patches 12 mcg/hr, 25 mcg/hr, 50 
+mcg/hr, 75 mcg/hr, 100 mcg/hr, tramadol ER tabs (non-biphasic release), Oxycontin, generic 
+methadone tabs/concentrate/soln/tabs for oral susp, Brand Methadose  
+Diagnosis 
+Cancer related pain/Hospice care/end-of-life care*  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following:  
+ 
+ 1.1 Patient is being treated for cancer  
+ 
+OR 
+ 
+ 1.2 Patient is receiving hospice or end-of-life care  
+Notes  
+*If the patient is currently taking the requested long-acting opioid for at
+ least 30 days and does not meet the medical necessity authorization 
+criteria requirements for treatment with an opioid, a denial should be i
+
+
+--- PDF page 1064 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1064 
+ssued and a maximum 30 day authorization may be authorized one ti
+me for the requested drug/strength combination up to the requested q
+uantity for transition to an alternative treatment. 
+ 
+Product Name:Brand MS Contin, morphine sulfate ER caps, morphine sulfate beads caps ER, 
+fentanyl patches 37.5mcg/hr, 62.5mcg/hr, and 87.5mcg/hr, generic hydrocodone ER tabs, 
+Brand Hysingla ER, oxymorphone ER, Tapentadol ER, oxycodone ER, Diskets, 
+hydromorphone ER, hydrocodone ER caps  
+Diagnosis 
+Cancer related pain/Hospice care/end-of-life care*  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following:  
+ 
+ 1.1 Patient is being treated for cancer  
+ 
+OR 
+ 
+ 1.2 Patient is receiving hospice or end-of-life care  
+ 
+AND 
+ 
+2 - BOTH of the following:  
+ 
+ 2.1 ONE of the following:  
+ 
+  2.1.1 The patient has a history of failure, contraindication, or intolerance to a trial of at least 
+THREE of the following (Document drugs and date of trials):*  
+• 
+morphine sulfate controlled release tablets (specifically generic MS Contin)  
+• 
+preferred fentanyl transdermal (12 mcg, 25 mcg, 50 mcg, 75 mcg, 100 mcg)**  
+• 
+Brand Butrans (buprenorphine) transdermal  
+• 
+Brand Oxycontin  
+• 
+tramadol extended release tablets (non-biphasic release tablets)  
+• 
+Brand Methadose or generic methadone tablets/concentrate/soln/tablets for oral susp  
+
+
+--- PDF page 1065 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1065 
+ 
+OR 
+ 
+  2.1.2 Patient is established on pain therapy with the requested medication for cancer, 
+hospice care, or end-of-life care pain, and the medication is not a new regimen for treatment 
+of cancer, hospice care, or end-of-life care pain (Document date regimen was started)  
+ 
+AND 
+ 
+ 2.2 Prescriber attests to the following: the information provided is true and accurate to the 
+best of their knowledge and they understand that a routine audit may be performed and the 
+medical information necessary to verify the accuracy of the information provided may be 
+requested  
+Notes  
+*If the patient is currently taking the requested long-acting opioid for at
+ least 30 days and does not meet the medical necessity authorization 
+criteria requirements for treatment with an opioid, a denial should be i
+ssued and a maximum 30-day authorization may be authorized one ti
+me for the requested drug/strength combination up to the requested q
+uantity for transition to an alternative treatment.  
+*If the request is for a non-preferred product and the patient is currentl
+y taking the requested long-acting opioid for at least 30 days and has 
+met the medical necessity authorization criteria requirements for treat
+ment with an opioid, but has not tried the preferred alternatives a deni
+al should be issued and a maximum 30-day authorization may be auth
+orized one time for the requested drug/strength combination up to the 
+requested quantity for transition to an alternative treatment.  
+*Claims history may be used in conjunction as documentation of drug,
+ date, and duration of trial.  
+**Fentanyl transdermal 37.5mcg/hr, 62.5mcg/hr, and 87.5mcg/hr are n
+on-preferred. 
+ 
+Product Name:Conzip, tramadol ER biphasic release caps, tramadol ER biphasic release tabs 
+Diagnosis 
+Cancer related pain/Hospice care/end-of-life care*  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following:  
+
+
+--- PDF page 1066 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1066 
+ 
+ 1.1 Patient is being treated for cancer  
+ 
+OR 
+ 
+ 1.2 Patient is receiving hospice or end-of-life care  
+ 
+AND 
+ 
+2 - BOTH of the following:  
+ 
+ 2.1 ONE of the following:  
+ 
+  2.1.1 The patient has a history of failure, contraindication or intolerance to a trial of BOTH of 
+the following (Document drugs and date of trials):*  
+• 
+tramadol immediate release (IR)  
+• 
+tramadol extended release tablets (non-biphasic release tablets)  
+ 
+OR 
+ 
+  2.1.2 Patient is established on pain therapy with the requested medication for cancer, 
+hospice care, or end-of-life care pain, and the medication is not a new regimen for treatment 
+of cancer, hospice care, or end-of-life care pain (Document date regimen was started)  
+ 
+AND 
+ 
+ 2.2 Prescriber attests to the following: the information provided is true and accurate to the 
+best of their knowledge and they understand that a routine audit may be performed and the 
+medical information necessary to verify the accuracy of the information provided may be 
+requested  
+Notes  
+*If the patient is currently taking the requested long-acting opioid for at
+ least 30 days and does not meet the medical necessity authorization 
+criteria requirements for treatment with an opioid, a denial should be i
+ssued and a maximum 30-day authorization may be authorized one ti
+me for the requested drug/strength combination up to the requested q
+uantity for transition to an alternative treatment.  
+*Claims history may be used in conjunction as documentation of drug,
+ date, and duration of trial. 
+ 
+
+
+--- PDF page 1067 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1067 
+Product Name:generic morphine sulfate ER tabs, fentanyl patches 12 mcg/hr, 25 mcg/hr, 50 
+mcg/hr, 75 mcg/hr, 100 mcg/hr, tramadol ER tabs (non-biphasic release), Oxycontin, generic 
+methadone tabs/concentrate/soln/tabs for oral susp, Brand Methadose  
+Diagnosis 
+Non-cancer pain/Non-hospice care/Non-end-of-life care pain*  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Prescriber attests to ALL of the following:  
+• 
+The information provided is true and accurate to the best of their knowledge and they 
+understand that a routine audit may be performed and the medical information 
+necessary to verify the accuracy of the information provided may be requested  
+• 
+Treatment goals are defined, including estimated duration of treatment  
+• 
+Treatment plan includes the use of a non-opioid analgesic and/or non-pharmacologic 
+intervention  
+• 
+Patient has been screened for substance abuse/opioid dependence  
+• 
+If used in patients with medical comorbidities or if used concurrently with a 
+benzodiazepine or other drugs that could potentially cause drug-drug interactions, the 
+prescriber has acknowledged that they have completed an assessment of increased 
+risk for respiratory depression  
+• 
+Pain is moderate to severe and expected to persist for an extended period of time  
+• 
+Pain is chronic  
+• 
+Pain is not postoperative (unless the patient is already receiving chronic opioid therapy 
+prior to surgery, or if the postoperative pain is expected to be moderate to severe and 
+persist for an extended period of time)  
+• 
+Pain management is required around the clock with a long-acting opioid  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 Prior to the start of therapy with the long-acting opioid, the patient has failed an adequate 
+(minimum of 2 week) trial of a short-acting opioid within the last 30 days [Document drug(s) 
+and date of trial]*  
+ 
+OR 
+
+
+--- PDF page 1068 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1068 
+ 
+ 2.2 The patient is already receiving chronic opioid therapy prior to surgery for postoperative 
+pain  
+ 
+OR 
+ 
+ 2.3 Postoperative pain is expected to be moderate to severe and persist for an extended 
+period of time  
+ 
+AND 
+ 
+3 - If the request for neuropathic pain (examples of neuropathic pain include neuralgias, 
+neuropathies, fibromyalgia), BOTH of the following:  
+ 
+ 3.1 Unless it is contraindicated, the patient has not exhibited an adequate response to 8 
+weeks of treatment with gabapentin titrated to a therapeutic dose (Document date of trial)*  
+ 
+AND 
+ 
+ 3.2 Unless it is contraindicated, the patient has not exhibited an adequate response to at 
+least 6 weeks of treatment with a tricyclic antidepressant titrated to the maximum tolerated 
+dose (Document drug and date of trial)*  
+Notes  
+*If the patient is currently taking the requested long-acting opioid for at
+ least 30 days and does not meet the medical necessity authorization 
+criteria requirements for treatment with an opioid, a denial should be i
+ssued and a maximum 30-day authorization may be authorized one ti
+me for the requested drug/strength combination up to the requested q
+uantity for transition to an alternative treatment.  
+*Claims history may be used in conjunction as documentation of drug,
+ date, and duration of trial.  
+**Fentanyl transdermal 37.5mcg/hr, 62.5mcg/hr, and 87.5 mcg/hr are 
+non-preferred. 
+ 
+Product Name:Brand MS Contin, morphine sulfate ER caps, morphine sulfate beads caps ER, 
+fentanyl patches 37.5mcg/hr, 62.5mcg/hr, and 87.5mcg/hr, generic hydrocodone ER tabs, 
+Brand Hysingla ER, oxymorphone ER, Tapentadol ER, oxycodone ER, Diskets, 
+hydromorphone ER, hydrocodone ER caps  
+Diagnosis 
+Non-cancer pain/Non-hospice care/Non-end-of-life care pain*  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+
+
+--- PDF page 1069 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1069 
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Prescriber attests to ALL of the following:  
+• 
+The information provided is true and accurate to the best of their knowledge and they 
+understand that a routine audit may be performed and the medical information 
+necessary to verify the accuracy of the information provided may be requested  
+• 
+Treatment goals are defined, including estimated duration of treatment  
+• 
+Treatment plan includes the use of a non-opioid analgesic and/or non-pharmacologic 
+intervention  
+• 
+Patient has been screened for substance abuse/opioid dependence  
+• 
+If used in patients with medical comorbidities or if used concurrently with a 
+benzodiazepine or other drugs that could potentially cause drug-drug interactions, the 
+prescriber has acknowledged that they have completed an assessment of increased 
+risk for respiratory depression  
+• 
+Pain is moderate to severe and expected to persist for an extended period of time  
+• 
+Pain is chronic  
+• 
+Pain is not postoperative (unless the patient is already receiving chronic opioid therapy 
+prior to surgery, or if the postoperative pain is expected to be moderate to severe and 
+persist for an extended period of time)  
+• 
+Pain management is required around the clock with a long-acting opioid  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 Prior to the start of therapy with the long-acting opioid, the patient has failed an adequate 
+(minimum of 2 week) trial of a short-acting opioid within the last 30 days [Document drug(s) 
+and date of trial]*  
+ 
+OR 
+ 
+ 2.2 The patient is already receiving chronic opioid therapy prior to surgery for postoperative 
+pain  
+ 
+OR 
+
+
+--- PDF page 1070 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1070 
+ 
+ 2.3 Postoperative pain is expected to be moderate to severe and persist for an extended 
+period of time  
+ 
+AND 
+ 
+3 - The patient has a history of failure, contraindication, or intolerance to at least THREE of 
+the following (Document drugs and date of trials):*  
+• 
+morphine sulfate controlled release tablets (specifically generic MS Contin)  
+• 
+preferred fentanyl transdermal (12 mcg, 25 mcg, 50 mcg, 75 mcg, 100 mcg)**  
+• 
+Brand Butrans (buprenorphine) transdermal  
+• 
+Brand Oxycontin  
+• 
+tramadol extended release tablets (non-biphasic release tablets)  
+• 
+Brand Methadose or generic methadone tablets/concentrate/soln/tablets for oral susp  
+ 
+AND 
+ 
+4 - If the request for neuropathic pain (examples of neuropathic pain include neuralgias, 
+neuropathies, fibromyalgia), BOTH of the following:  
+ 
+ 4.1 Unless it is contraindicated, the patient has not exhibited an adequate response to 8 
+weeks of treatment with gabapentin titrated to a therapeutic dose (Document date of trial)*  
+ 
+AND 
+ 
+ 4.2 Unless it is contraindicated, the patient has not exhibited an adequate response to at 
+least 6 weeks of treatment with a tricyclic antidepressant titrated to the maximum tolerated 
+dose (Document drug and date of trial)*  
+Notes  
+*If the patient is currently taking the requested long-acting opioid for at
+ least 30 days and does not meet the medical necessity authorization 
+criteria requirements for treatment with an opioid, a denial should be i
+ssued and a maximum 30-day authorization may be authorized one ti
+me for the requested drug/strength combination up to the requested q
+uantity for transition to an alternative treatment.  
+*If the request is for a non-preferred product and the patient is currentl
+y taking the requested long-acting opioid for at least 30 days and has 
+met the medical necessity authorization criteria requirements for treat
+ment with an opioid, but has not tried the preferred alternatives a deni
+al should be issued and a maximum 30-day authorization may be auth
+orized one time for the requested drug/strength combination up to the 
+requested quantity for transition to an alternative treatment.  
+*Claims history may be used in conjunction as documentation of drug,
+
+
+--- PDF page 1071 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1071 
+ date, and duration of trial.  
+**Fentanyl transdermal 37.5mcg/hr, 62.5mcg/hr, and 87.5 mcg/hr are 
+non-preferred. 
+ 
+Product Name:Conzip, tramadol ER biphasic release caps, tramadol ER biphasic release tabs 
+Diagnosis 
+Non-cancer pain/Non-hospice care/Non-end-of-life care pain*  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Prescriber attests to ALL of the following:  
+• 
+The information provided is true and accurate to the best of their knowledge and they 
+understand that a routine audit may be performed and the medical information 
+necessary to verify the accuracy of the information provided may be requested  
+• 
+Treatment goals are defined, including estimated duration of treatment  
+• 
+Treatment plan includes the use of a non-opioid analgesic and/or non-pharmacologic 
+intervention  
+• 
+Patient has been screened for substance abuse/opioid dependence  
+• 
+If used in patients with medical comorbidities or if used concurrently with a 
+benzodiazepine or other drugs that could potentially cause drug-drug interactions, the 
+prescriber has acknowledged that they have completed an assessment of increased 
+risk for respiratory depression  
+• 
+Pain is moderate to severe and expected to persist for an extended period of time  
+• 
+Pain is chronic  
+• 
+Pain is not postoperative (unless the patient is already receiving chronic opioid therapy 
+prior to surgery, or if the postoperative pain is expected to be moderate to severe and 
+persist for an extended period of time)  
+• 
+Pain management is required around the clock with a long-acting opioid  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 Prior to the start of therapy with the long-acting opioid, the patient has failed an adequate 
+(minimum of 2 week) trial of a short-acting opioid within the last 30 days [Document drug(s) 
+and date of trial]*  
+
+
+--- PDF page 1072 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1072 
+ 
+OR 
+ 
+ 2.2 The patient is already receiving chronic opioid therapy prior to surgery for postoperative 
+pain  
+ 
+OR 
+ 
+ 2.3 Postoperative pain is expected to be moderate to severe and persist for an extended 
+period of time  
+ 
+AND 
+ 
+3 - If the request for neuropathic pain (examples of neuropathic pain include neuralgias, 
+neuropathies, fibromyalgia), BOTH of the following:  
+ 
+ 3.1 Unless it is contraindicated, the patient has not exhibited an adequate response to 8 
+weeks of treatment with gabapentin titrated to a therapeutic dose (Document date of trial)*  
+ 
+AND 
+ 
+ 3.2 Unless it is contraindicated, the patient has not exhibited an adequate response to at 
+least 6 weeks of treatment with a tricyclic antidepressant titrated to the maximum tolerated 
+dose (Document drug and date of trial)*  
+ 
+AND 
+ 
+4 - The patient has a history of failure, contraindication, or intolerance to BOTH of the 
+following (Document drugs and date of trials):*  
+• 
+tramadol immediate release (IR)**  
+• 
+tramadol extended release tablets (non-biphasic release tablets)**  
+Notes  
+*If the patient is currently taking the requested long-acting opioid for at
+ least 30 days and does not meet the medical necessity authorization 
+criteria requirements for treatment with an opioid, a denial should be i
+ssued and a maximum 30-day authorization may be authorized one ti
+me for the requested drug/strength combination up to the requested q
+
+
+--- PDF page 1073 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1073 
+uantity for transition to an alternative treatment.  
+*If the request is for tramadol extended release capsules or tramadol 
+extended release biphasic release tablets and the patient is currently t
+aking the requested long-acting opioid for at least 30 days and has m
+et the medical necessity authorization criteria requirements for treatm
+ent with an opioid, but has not tried the preferred alternatives a denial 
+should be issued and a maximum 30-day authorization may be author
+ized one time for the requested drug/strength combination up to the re
+quested quantity for transition to an alternative treatment.  
+*Claims history may be used in conjunction as documentation of drug,
+ date, and duration of trial.  
+**Drug may require prior authorization. 
+ 
+Product Name:generic morphine sulfate ER tabs, Brand MS Contin, morphine sulfate ER 
+caps, morphine sulfate beads caps ER, fentanyl patches**, generic hydrocodone ER tabs, 
+Brand Hysingla ER, oxymorphone ER, Tapentadol ER, oxycodone ER, Oxycontin, Conzip, 
+tramadol ER biphasic release caps, tramadol ER biphasic release tabs, tramadol ER tabs 
+(non-biphasic release), generic methadone tabs/concentrate/soln/tabs for oral susp, Brand 
+Methadose, Diskets, hydromorphone ER, hydrocodone ER caps  
+Diagnosis 
+Non-cancer pain/Non-hospice care/Non-end-of-life care pain*  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates meaningful improvement in pain and function (Document 
+improvement in function or pain score improvement)  
+ 
+AND 
+ 
+2 - Identify rationale for not tapering and discontinuing opioid (Document rationale)  
+ 
+AND 
+ 
+3 - Prescriber attests to ALL of the following:  
+
+
+--- PDF page 1074 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1074 
+• 
+The information provided is true and accurate to the best of their knowledge and they 
+understand that a routine audit may be performed and the medical information 
+necessary to verify the accuracy of the information provided may be requested  
+• 
+Treatment goals are defined, including estimated duration of treatment  
+• 
+Treatment plan includes the use of a non-opioid analgesic and/or non-pharmacologic 
+intervention  
+• 
+Patient has been screened for substance abuse/opioid dependence  
+• 
+If used in patients with medical comorbidities or if used concurrently with a 
+benzodiazepine or other drugs that could potentially cause drug-drug interactions, the 
+prescriber has acknowledged that they have completed an assessment of increased 
+risk for respiratory depression  
+• 
+Pain is moderate to severe and expected to persist for an extended period of time  
+• 
+Pain is chronic  
+• 
+Pain is not postoperative (unless the patient is already receiving chronic opioid therapy 
+prior to surgery, or if the postoperative pain is expected to be moderate to severe and 
+persist for an extended period of time)  
+• 
+Pain management is required around the clock with a long-acting opioid  
+Notes  
+*If the patient is currently taking the requested long-acting opioid for at
+ least 30 days and does not meet the medical necessity authorization 
+criteria requirements for treatment with an opioid, a denial should be i
+ssued and a maximum 30-day authorization may be authorized one ti
+me for the requested drug/strength combination up to the requested q
+uantity for transition to an alternative treatment.  
+*If the request is for a non-preferred product and the patient is currentl
+y taking the requested long-acting opioid for at least 30 days and has 
+met the medical necessity authorization criteria requirements for treat
+ment with an opioid, but has not tried the preferred alternatives a deni
+al should be issued and a maximum 30-day authorization may be auth
+orized one time for the requested drug/strength combination up to the 
+requested quantity for transition to an alternative treatment.  
+**Fentanyl transdermal 37.5mcg/hr, 62.5mcg/hr, and 87.5m cg/hr are 
+non-preferred. 
+ 
+Product Name:generic morphine sulfate ER tabs, Brand MS Contin, morphine sulfate ER 
+caps, morphine sulfate beads caps ER, fentanyl patches, generic hydrocodone ER tabs, 
+Brand Hysingla ER, oxymorphone ER, Tapentadol ER, oxycodone ER, Oxycontin, Conzip, 
+tramadol ER biphasic release caps, tramadol ER biphasic release tabs, tramadol ER tabs 
+(non-biphasic release), generic methadone tabs/concentrate/soln/tabs for oral susp, Brand 
+Methadose, Diskets, hydromorphone ER, hydrocodone ER caps  
+Guideline Type 
+Quantity Limit  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 1075 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1075 
+ 
+1 - The requested dose cannot be achieved by moving to a higher strength of the product  
+ 
+AND 
+ 
+2 - The requested dose is within the Food and Drug Administration (FDA) maximum dose per 
+day, where an FDA maximum dose per day exists (see Table 1 in the Background section)  
+Notes  
+Authorization will be issued for:  
+• Cancer pain/hospice/end-of-life related pain: 12 months  
+• All Tramadol ER requests: 6 months  
+• Non-cancer pain/non-hospice/non-end-of-life related pain: 6 months 
+ 
+Product Name:generic morphine sulfate ER tabs, Brand MS Contin, morphine sulfate ER 
+caps, morphine sulfate beads caps ER, fentanyl patches, generic hydrocodone ER tabs, 
+Brand Hysingla ER, oxymorphone ER, Tapentadol ER, oxycodone ER, Oxycontin, Conzip, 
+tramadol ER biphasic release caps, tramadol ER biphasic release tabs, tramadol ER tabs 
+(non-biphasic release), generic methadone tabs/concentrate/soln/tabs for oral susp, Brand 
+Methadose, Diskets, hydromorphone ER, hydrocodone ER caps  
+Diagnosis 
+Doses Exceeding the Cumulative MME of 90 mg - 
+Cancer/Hospice/End-of-Life/Palliative Care/Skilled Nursing 
+Facility/Traumatic Injury Related Pain*  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Morphine Milligram Equivalent (MME) MME 90.00 exceeded; PA 
+REQUIRED; Dosage Above MEDD Limit  
+ 
+ 
+Approval Criteria    
+ 
+1 - Doses exceeding the cumulative morphine milligram equivalent (MME) of 90 milligrams 
+will be approved up to the requested amount for ALL opioid products if the patient has one of 
+the following conditions:  
+• 
+Active oncology diagnosis  
+• 
+Hospice care  
+• 
+End-of-life care (other than hospice)  
+• 
+Palliative care  
+• 
+Skilled nursing facility care  
+• 
+Traumatic injury, including burns and excluding post-surgical procedure  
+ 
+AND 
+
+
+--- PDF page 1076 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1076 
+ 
+2 - Provider attests patient has been prescribed naloxone (may also be verified via paid 
+pharmacy claims)  
+Notes  
+*Authorization will be issued for 12 months for one of the above condit
+ions. The authorization should be entered for an MME of 9999 so as t
+o prevent future disruptions in therapy if the patient’s dose is increase
+d. 
+ 
+Product Name:generic morphine sulfate ER tabs, Brand MS Contin, morphine sulfate ER 
+caps, morphine sulfate beads caps ER, fentanyl patches, generic hydrocodone ER tabs, 
+Brand Hysingla ER, oxymorphone ER, Tapentadol ER, oxycodone ER, Oxycontin, Conzip, 
+tramadol ER biphasic release caps, tramadol ER biphasic release tabs, tramadol ER tabs 
+(non-biphasic release), generic methadone tabs/concentrate/soln/tabs for oral susp, Brand 
+Methadose, Diskets, hydromorphone ER, hydrocodone ER caps  
+Diagnosis 
+Doses Exceeding the Cumulative MME of 90 mg - Non-cancer/non-
+hospice/non-end-of-life/non-palliative care/non-skilled nursing 
+facility/non-traumatic injury related pain*  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Morphine Milligram Equivalent (MME) MME 90.00 exceeded; PA 
+REQUIRED; Dosage Above MEDD Limit  
+ 
+ 
+Approval Criteria    
+ 
+1 - Prescriber attests to ALL of the following:  
+• 
+The information provided is true and accurate to the best of their knowledge and they 
+understand that a routine audit may be performed and the medical information 
+necessary to verify the accuracy of the information provided may be requested  
+• 
+Treatment goals are defined, including estimated duration of treatment  
+• 
+Treatment plan includes the use of a non-opioid analgesic and/or non-pharmacologic 
+intervention  
+• 
+Patient has been screened for substance abuse/opioid dependence  
+• 
+if used in patients with medical comorbidities or if used concurrently with a 
+benzodiazepine or other drugs that could potentially cause drug-drug interactions, the 
+prescriber has acknowledged that they have completed an assessment of increased 
+risk for respiratory depression  
+ 
+AND 
+ 
+2 - BOTH of the following:  
+
+
+--- PDF page 1077 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1077 
+ 
+ 2.1 Patient has tried and failed non-opioid pain medication (document drug name and date of 
+trial)  
+ 
+AND 
+ 
+ 2.2 Opioid medication doses of less than 90 morphine milligram equivalent (MME) have been 
+tried and did not adequately control pain (document drug regimen or MME and dates of 
+therapy)  
+ 
+AND 
+ 
+3 - Provider attests patient has been prescribed naloxone (may also be verified via paid 
+pharmacy claims)  
+Notes  
+*If the patient has been established on the requested MME dose for at
+ least 30 days and does not meet the medical necessity authorization 
+criteria requirements, a denial should be issued and a maximum 30-d
+ay authorization may be authorized one time for the requested MME d
+ose.  
+**Authorization will be issued for 6 months for non-cancer/non-hospic
+e/non-end-of-life/non-palliative care/non-skilled nursing facility/non-tra
+umatic injury related pain up to the current requested MME plus 90 M
+ME. 
+ 
+Product Name:generic morphine sulfate ER tabs, Brand MS Contin, morphine sulfate ER 
+caps, morphine sulfate beads caps ER, fentanyl patches, generic hydrocodone ER tabs, 
+Brand Hysingla ER, oxymorphone ER, Tapentadol ER, oxycodone ER, Oxycontin, Conzip, 
+tramadol ER biphasic release caps, tramadol ER biphasic release tabs, tramadol ER tabs 
+(non-biphasic release), generic methadone tabs/concentrate/soln/tabs for oral susp, Brand 
+Methadose, Diskets, hydromorphone ER, hydrocodone ER caps  
+Diagnosis 
+Doses Exceeding the Cumulative MME of 90 mg - Non-cancer/non-
+hospice/non-end-of-life/non-palliative care/non-skilled nursing 
+facility/non-traumatic injury related pain*  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Morphine Milligram Equivalent (MME)** MME 90.00 exceeded; PA 
+REQUIRED; Dosage Above MEDD Limit  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 1078 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1078 
+ 
+1 - Prescriber attests to ALL of the following:  
+• 
+The information provided is true and accurate to the best of their knowledge and they 
+understand that a routine audit may be performed and the medical information 
+necessary to verify the accuracy of the information provided may be requested  
+• 
+Treatment goals are defined, including estimated duration of treatment  
+• 
+Treatment plan includes the use of a non-opioid analgesic and/or non-pharmacologic 
+intervention  
+• 
+Patient has been screened for substance abuse/opioid dependence  
+• 
+if used in patients with medical comorbidities or if used concurrently with a 
+benzodiazepine or other drugs that could potentially cause drug-drug interactions, the 
+prescriber has acknowledged that they have completed an assessment of increased 
+risk for respiratory depression  
+ 
+AND 
+ 
+2 - Identify rationale for not tapering and discontinuing opioid (Document rationale)  
+ 
+AND 
+ 
+3 - Patient demonstrates meaningful improvement in pain and function (Document 
+improvement in function or pain score improvement)  
+ 
+AND 
+ 
+4 - Provider attests patient has been prescribed naloxone (may also be verified via paid 
+pharmacy claims)  
+Notes  
+*If the patient has been established on the requested MME dose for at
+ least 30 days and does not meet the medical necessity authorization 
+criteria requirements, a denial should be issued and a maximum 30-d
+ay authorization may be authorized one time for the requested MME d
+ose.  
+**Authorization will be issued for 6 months for non-cancer/non-hospic
+e/non-end-of-life/non-palliative care/non-skilled nursing facility/non-tra
+umatic injury related pain up to the current requested MME plus 90 M
+ME. 
+ 
+ 
+2 .  Background  
+ 
+
+
+--- PDF page 1079 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1079 
+Benefit/Coverage/Program Information  
+Table 1. CDC Recommended Morphine Milligram Equivalents per Day*  
+Active Ingredient 
+FDA Label Max Daily Doses 
+90 MME Equivalent 
+(mg/day) 
+(non treatment naïve) 
+Morphine 
+None 
+90mg 
+Morphine and naltrexone 
+None 
+90mg 
+Hydromorphone 
+None 
+22.5mg 
+Fentanyl transdermal, 
+mcg/hr 
+None 
+37.5 mcg/hr 
+Hydrocodone 
+None 
+90mg 
+Methadone 
+None 
+ Conversion factor is 
+variable based upon dose 
+Tapentadol 
+500mg ER products 
+225mg 
+Oxymorphone 
+None 
+30mg 
+Tramadol 
+300mg ER products 
+900mg 
+*Doses are not considered equianalgesic and table does not represent a dose conversion 
+chart.  
+  
+Max MME is the maximum dose per day based on morphine milligram equivalents allowed 
+without consultation or prescription by a pain specialist.  Max MME is based upon the CDC 
+guidelines and adjusted for currently available product strengths.  Fentanyl is dosed in mcg/hr 
+rather than mg/day. 
+ 
+3 .  Revision History  
+ 
+Date  
+Notes  
+5/20/2026  
+Added Diskets product as a target. For cancer/hospice/end-of-life an
+d non-cancer/non-hospice/non-end-of-life, moved Methadose produc
+ts to same criteria sections as other preferred agents. Updated altern
+atives in cancer/hospice/end-of life and non-cancer/hospice/end-of lif
+
+
+--- PDF page 1080 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1080 
+e for NP agents. Updated product name lists and GPI tables through
+out guideline.  
+ 

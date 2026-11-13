@@ -1,0 +1,78 @@
+=== PDF PAGE 1377 ===
+Page 1377 
+Pradaxa Pellet Packs 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-700343  
+Guideline Name 
+Pradaxa Pellet Packs  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Pradaxa Pellet Packs  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+ 
+ 1.1 Patient is 8 years of age or younger  
+ 
+OR 
+
+
+=== PDF PAGE 1378 ===
+Page 1378 
+ 
+ 1.2 ALL of the following:  
+ 
+  1.2.1 Patient is between 9 and 12 years of age  
+ 
+AND 
+ 
+  1.2.2 Requested medication is being used for one of the following diagnoses:  
+• 
+Treatment of venous thromboembolic events (VTE) in patients who have been treated 
+with a parenteral anticoagulant for at least 5 days  
+• 
+To reduce the risk of recurrence of VTE in patients who have been previously treated  
+ 
+AND 
+ 
+  1.2.3 One of the following:  
+ 
+   1.2.3.1 Trial and failure, contraindication, or intolerance to generic dabigatran capsules 
+(verified via paid pharmacy claims or submitted chart notes) 
+ 
+OR 
+ 
+   1.2.3.2 Patient is unable to swallow oral tablets/capsules 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/26/2026  
+Updated step through Brand Pradaxa (now step through generic cap
+sules)  
+ 

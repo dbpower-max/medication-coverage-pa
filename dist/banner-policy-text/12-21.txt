@@ -1,0 +1,96 @@
+=== PDF PAGE 21 ===
+Page 21 
+Acthar Gel, Cortrophin Gel 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-224208  
+Guideline Name 
+Acthar Gel, Cortrophin Gel  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+4/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Acthar Gel vial  
+Diagnosis 
+Infantile spasm (i.e., West Syndrome)*  
+Approval Length 
+4 Week(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of infantile spasms (i.e., West Syndrome)*  
+ 
+AND 
+
+
+=== PDF PAGE 22 ===
+Page 22 
+ 
+2 - Patient is less than 2 years old  
+ 
+AND 
+ 
+3 - Both of following:  
+ 
+ 3.1 Initial dose: 75 units per meters squared intramuscular (IM) twice daily for 2 weeks  
+ 
+AND 
+ 
+ 3.2 After 2 weeks, dose should be tapered according to the following schedule: 30 units per 
+meters squared IM in the morning for 3 days; 15 units per meters squared IM in the morning 
+for 3 days; 10 units per meters squared IM in the morning for 3 days; 10 units per meters 
+squared IM every other morning for 6 days (3 doses)  
+Notes  
+*Note: Acthar Gel is not medically necessary for treatment of acute ex
+acerbations of multiple sclerosis. 
+ 
+Product Name:Acthar Gel, Cortrophin  
+Diagnosis 
+Opsoclonus-myoclonus syndrome (i.e., OMS, Kinsbourne Syndrome)*  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of Opsoclonus-myoclonus syndrome (i.e., OMS, Kinsbourne Syndrome)*  
+ 
+AND 
+ 
+2 - For Cortrophin requests ONLY: Trial and failure or intolerance to Acthar Gel (verified via 
+paid pharmacy claims or submission of medical records/chart notes)  
+Notes  
+*Note: Acthar Gel is not medically necessary for treatment of acute ex
+ acerbations of multiple sclerosis. 
+ 
+2 .  Revision History  
+
+
+=== PDF PAGE 23 ===
+Page 23 
+ 
+Date  
+Notes  
+3/26/2025  
+Added new GPIs for Acthar and Cortrophin  
+ 

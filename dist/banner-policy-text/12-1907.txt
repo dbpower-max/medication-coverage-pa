@@ -1,0 +1,141 @@
+=== PDF PAGE 1907 ===
+Page 1907 
+Vafseo (vadadustat) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-155844  
+Guideline Name 
+Vafseo (vadadustat)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2024  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Vafseo  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) or paid claims confirming ALL of the 
+following:  
+ 
+ 1.1 Diagnosis of chronic kidney disease (CKD)  
+
+
+=== PDF PAGE 1908 ===
+Page 1908 
+ 
+AND 
+ 
+ 1.2 Patient has been on dialysis for at least 3 months  
+ 
+AND 
+ 
+ 1.3 Adequate iron stores confirmed by both of the following:  
+• 
+Patient's ferritin level is greater than 100mcg/L  
+• 
+Patient's transferrin saturation (TSAT) is greater than 20%  
+ 
+AND 
+ 
+ 1.4 Hemoglobin level less than 11 g/dL  
+ 
+AND 
+ 
+ 1.5 Trial and failure, contraindication or intolerance to one of the following preferred 
+erythropoietin stimulating agents (ESA):  
+• 
+Epogen (epoetin alfa)  
+• 
+Retacrit (epoetin alfa-epbx)  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with one of the following:  
+• 
+hematologist  
+• 
+nephrologist  
+ 
+AND 
+ 
+3 - Patient is not on concurrent treatment with an erythropoeitin stimulating agent [ESA] (e.g., 
+Aranesp, Epogen, Procrit)  
+ 
+
+
+=== PDF PAGE 1909 ===
+Page 1909 
+Product Name:Vafseo  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) or paid claims confirming ALL of the 
+following:  
+ 
+ 1.1 Patient demonstrates positive clinical response to therapy (e.g., increase in hemoglobin)  
+ 
+AND 
+ 
+ 1.2 Hemoglobin level does not exceed 11g/dL  
+ 
+AND 
+ 
+ 1.3 Adequate iron stores confirmed by both of the following:  
+• 
+Patient's ferritin level is greater than 100mcg/L  
+• 
+Patient's transferrin saturation (TSAT) is greater than 20%  
+ 
+AND 
+ 
+ 1.4 Trial and failure, contraindication or intolerance to one of the following:  
+• 
+Epogen (epoetin alfa)  
+• 
+Retacrit (epoetin alfa-epbx)  
+ 
+AND 
+ 
+2 - Patient is not on concurrent treatment with an erythropoeitin stimulating agent [ESA] (e.g., 
+Aranesp, Epogen, Procrit)  
+ 
+
+
+=== PDF PAGE 1910 ===
+Page 1910 
+2 .  Revision History  
+ 
+Date  
+Notes  
+9/26/2024  
+New program  
+ 

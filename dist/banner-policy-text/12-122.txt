@@ -1,0 +1,326 @@
+=== PDF PAGE 122 ===
+Page 122 
+Antidepressants - AZM 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-731218  
+Guideline Name 
+Antidepressants - AZM  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:generic citalopram oral solution, generic fluoxetine oral solution, generic 
+sertraline oral conc for solution  
+Diagnosis 
+Requests for Patients greater than 12 years of age  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - The member is unable to swallow the oral tablet/capsule  
+ 
+
+
+=== PDF PAGE 123 ===
+Page 123 
+Product Name:Amitriptyline, amoxapine, bupropion tabs/SR tabs/XL tabs (150 and 300mg), 
+citalopram tabs/oral soln, clomipramine, desipramine, generic desvenlafaxine ER, doxepin 
+caps/oral conc for solution, duloxetine capsules (20, 30, 60mg), escitalopram tablets, 
+fluoxetine caps/oral soln, fluvoxamine IR, generic mirtazapine tabs/ODT, imipramine 
+tabs/caps, nortriptyline caps/oral soln, paroxetine tabs, protriptyline, sertraline tabs/oral soln, 
+trazodone 50mg/100mg/150mg/300mg tabs, trimipramine, venlafaxine tabs/ER capsules  
+Diagnosis 
+PREFERRED DRUG Requests for patient 6 years of age or younger  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - The patient is unresponsive to other treatment modalities, unless contraindicated (i.e. 
+other medications or behavioral modification attempted)  
+ 
+AND 
+ 
+2 - The physician attests that the requested medication is medically necessary. (Document 
+rationale for use)  
+Notes  
+Drug may require PA 
+ 
+Product Name:Brand Venlafaxine besylate ER  
+Diagnosis 
+Non-Preferred Drugs  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - The patient is unresponsive to other treatment modalities, unless contraindicated (i.e. 
+other medications or behavioral modification attempted)  
+ 
+AND 
+ 
+2 - The physician attests that the requested medication is medically necessary. (Document 
+rationale for use)  
+
+
+=== PDF PAGE 124 ===
+Page 124 
+ 
+AND 
+ 
+3 - Patient has history of failure or intolerance to preferred generic venlafaxine or venlafaxine 
+ER  
+ 
+AND 
+ 
+4 - Patient has a history of failure, contraindication or intolerance to at least 2 preferred 
+alternatives*  
+• 
+Bupropion (Generic Wellbutrin)  
+• 
+Bupropion SR (Generic Wellbutrin SR)  
+• 
+Bupropion XL (Generic Wellbutrin XL)  
+• 
+Citalopram (Generic Celexa)  
+• 
+Generic desvenlafaxine ER (Generic Pristiq)  
+• 
+Duloxetine 20mg, 30mg, or 60 mg capsules  
+• 
+Escitalopram tablets (Generic Lexapro)  
+• 
+Esketamine (Spravato)  
+• 
+Fluoxetine capsules (Generic Prozac)  
+• 
+Fluoxetine solution (Generic Prozac)  
+• 
+Fluvoxamine tablets (Generic Luvox)  
+• 
+Mirtazapine (Generic Remeron)  
+• 
+Paroxetine tablets (Generic Paxil)  
+• 
+Sertraline tablets (Generic Zoloft)  
+• 
+Trazodone 50mg/100mg/150mg/300mg tablets  
+Notes  
+*Drug may require PA 
+ 
+Product Name:Raldesy  
+Diagnosis 
+Non-Preferred Drugs  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Trial and failure, or intolerance to trazodone oral tablet  
+
+
+=== PDF PAGE 125 ===
+Page 125 
+ 
+OR 
+ 
+2 - Patient is unable to swallow the oral tablet formulation of trazodone  
+ 
+Product Name:Auvelity tablets  
+Diagnosis 
+Non-Preferred Drugs: Major Depressive Disorder (MDD)  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of major depressive disorder (MDD)  
+ 
+AND 
+ 
+2 - The patient is unresponsive to other treatment modalities, unless contraindicated (i.e. 
+other medications or behavioral modification attempted)  
+ 
+AND 
+ 
+3 - The physician attests that the requested medication is medically necessary. (Document 
+rationale for use)  
+ 
+AND 
+ 
+4 - Patient has a history of failure, contraindication or intolerance to at least 3 preferred 
+alternatives*  
+• 
+Bupropion (Generic Wellbutrin)  
+• 
+Bupropion SR (Generic Wellbutrin SR)  
+• 
+Bupropion XL (Generic Wellbutrin XL)  
+• 
+Citalopram (Generic Celexa)  
+• 
+Generic desvenlafaxine ER (Generic Pristiq)  
+• 
+Duloxetine 20mg, 30mg, or 60 mg capsules  
+
+
+=== PDF PAGE 126 ===
+Page 126 
+• 
+Escitalopram tablets (Generic Lexapro)  
+• 
+Esketamine (Spravato)  
+• 
+Fluoxetine capsules (Generic Prozac)  
+• 
+Fluoxetine solution (Generic Prozac)  
+• 
+Fluvoxamine tablets (Generic Luvox)  
+• 
+Mirtazapine (Generic Remeron)  
+• 
+Paroxetine tablets (Generic Paxil)  
+• 
+Sertraline tablets (Generic Zoloft)  
+• 
+Trazodone 50mg/100mg/150mg/300mg tablets  
+• 
+Venlafaxine (Generic Effexor)  
+• 
+Venlafaxine ER capsules (Generic Effexor ER)  
+Notes  
+*Drug may require PA 
+ 
+Product Name:Auvelity tablets, Auvelity titration pack  
+Diagnosis 
+Non-Preferred Drugs: Agitation Associated With Dementia Due To 
+Alzheimer's Disease  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - The requested medication is being used for treatment of agitation associated with 
+dementia due to Alzheimer's disease  
+ 
+Product Name:Brand Anafranil, Brand Celexa, generic citalopram capsules, Brand Cymbalta, 
+generic duloxetine 40mg/80mg/90mg/120mg caps, Drizalma, Brand Effexor XR, generic 
+venlafaxine ER tabs, Emsam, escitalopram capsules, escitalopram oral solution, Exxua, 
+Fetzima, fluvoxamine ER, Brand Lexapro, maprotiline, Marplan, Brand Nardil, generic 
+phenelzine, nefazodone, Brand Norpramin, Brand Pamelor caps/oral soln, Brand Parnate, 
+generic tranylcypromine, Brand Paxil, generic paroxetine capsules, Brand Paxil susp, generic 
+paroxetine suspension, Brand Paxil CR, generic paroxetine ER, Pexeva, Brand Pristiq, Brand 
+Desvenlafaxine ER, Brand Prozac, generic fluoxetine tablets, Brand Remeron SLTB, Brand 
+Remeron, trazodone 25mg/75mg tabs,Trintellix, Viibryd, Brand Wellbutrin SR, Brand 
+Wellbutrin XL/Forfivo, generic bupropion ER (XL) 450mg tabs, Brand Zoloft, generic sertraline 
+capsules  
+Diagnosis 
+Non-Preferred Drugs  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+
+
+=== PDF PAGE 127 ===
+Page 127 
+ 
+ 
+Approval Criteria    
+ 
+1 - The patient is unresponsive to other treatment modalities, unless contraindicated (i.e. 
+other medications or behavioral modification attempted)  
+ 
+AND 
+ 
+2 - The physician attests that the requested medication is medically necessary. (Document 
+rationale for use)  
+ 
+AND 
+ 
+3 - Patient has a history of failure, contraindication or intolerance to at least 3 preferred 
+alternatives*  
+• 
+Bupropion (Generic Wellbutrin)  
+• 
+Bupropion SR (Generic Wellbutrin SR)  
+• 
+Bupropion XL (Generic Wellbutrin XL)  
+• 
+Citalopram (Generic Celexa)  
+• 
+Generic desvenlafaxine ER (Generic Pristiq)  
+• 
+Duloxetine 20mg, 30mg, or 60 mg capsules  
+• 
+Escitalopram tablets (Generic Lexapro)  
+• 
+Esketamine (Spravato)  
+• 
+Fluoxetine capsules (Generic Prozac)  
+• 
+Fluoxetine solution (Generic Prozac)  
+• 
+Fluvoxamine tablets (Generic Luvox)  
+• 
+Mirtazapine (Generic Remeron)  
+• 
+Paroxetine tablets (Generic Paxil)  
+• 
+Sertraline tablets (Generic Zoloft)  
+• 
+Trazodone 50mg/100mg/150mg/300mg tablets  
+• 
+Venlafaxine (Generic Effexor)  
+• 
+Venlafaxine ER capsules (Generic Effexor ER)  
+Notes  
+*Drug may require PA 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+
+
+=== PDF PAGE 128 ===
+Page 128 
+9/23/2026  
+Added GPIs for trazodone 25mg and 75mg as NPD, updated preferr
+ed trazodone strengths.  
+ 

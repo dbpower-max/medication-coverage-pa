@@ -1,0 +1,162 @@
+=== PDF PAGE 661 ===
+Page 661 
+Fentanyl IR 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-99519  
+Guideline Name 
+Fentanyl IR  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+12/9/2021  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Fentanyl citrate lozenges (generic Actiq)  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records demonstrating use is for the management of breakthrough 
+pain associated with a cancer diagnosis (cancer diagnosis must be documented)  
+ 
+AND 
+
+
+=== PDF PAGE 662 ===
+Page 662 
+ 
+2 - Patient must have at least a one week history of ONE of the following medications to 
+demonstrate tolerance to opioids (Document drug and date of trial):  
+• 
+Morphine sulfate at a doses of greater than or equal to 60 milligrams per day  
+• 
+Fentanyl transdermal patch at a dose of greater than or equal to 25 micrograms per 
+hour  
+• 
+Oxycodone at a dose of greater than or equal to 30 milligrams per day  
+• 
+Oral hydromorphone at a dose of greater than or equal to 8 milligrams per day  
+• 
+Oral oxymorphone at a dose of greater than or equal to 25 milligrams per day  
+• 
+An alternative opioid at an equianalgesic dose (e.g., oral methadone greater than or 
+equal to 20 milligrams per day)  
+ 
+AND 
+ 
+3 - The patient is currently taking a long-acting opioid around the clock for cancer pain 
+(Document drug)  
+ 
+AND 
+ 
+4 - ONE of the following:  
+ 
+ 4.1 The patient is not concurrently receiving an alternative fentanyl transmucosal product  
+ 
+OR 
+ 
+ 4.2 BOTH of the following:  
+ 
+  4.2.1 The patient is currently receiving an alternative transmucosal fentanyl product  
+ 
+AND 
+ 
+  4.2.2 The prescriber is requesting the termination of all current authorizations for alternative 
+transmucosal fentanyl products in order to begin treatment with the requested medication 
+(Only one transmucosal fentanyl product will be approved at a time. If previous authorizations 
+cannot be terminated, the PA request will be denied)  
+ 
+Product Name:Abstral, Brand Actiq, Brand Fentora, generic fentanyl citrate buccal tablet, 
+Lazanda, Subsys  
+
+
+=== PDF PAGE 663 ===
+Page 663 
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records demonstrating use is for the management of breakthrough 
+pain associated with a cancer diagnosis (cancer diagnosis must be documented)  
+ 
+AND 
+ 
+2 - Patient must have at least a one week history of ONE of the following medications to 
+demonstrate tolerance to opioids (Document drug and date of trial):  
+• 
+Morphine sulfate at a doses of greater than or equal to 60 milligrams per day  
+• 
+Fentanyl transdermal patch at a dose of greater than or equal to 25 micrograms per 
+hour  
+• 
+Oxycodone at a dose of greater than or equal to 30 milligrams per day  
+• 
+Oral hydromorphone at a dose of greater than or equal to 8 milligrams per day  
+• 
+Oral oxymorphone at a dose of greater than or equal to 25 milligrams per day  
+• 
+An alternative opioid at an equianalgesic dose (e.g., oral methadone greater than or 
+equal to 20 milligrams per day)  
+ 
+AND 
+ 
+3 - The patient is currently taking a long-acting opioid around the clock for cancer pain 
+(Document drug)  
+ 
+AND 
+ 
+4 - ONE of the following:  
+ 
+ 4.1 The patient is not concurrently receiving an alternative fentanyl transmucosal product  
+ 
+OR 
+ 
+ 4.2 BOTH of the following:  
+ 
+  4.2.1 The patient is currently receiving an alternative transmucosal fentanyl product  
+
+
+=== PDF PAGE 664 ===
+Page 664 
+ 
+AND 
+ 
+  4.2.2 The prescriber is requesting the termination of all current authorizations for alternative 
+transmucosal fentanyl products in order to begin treatment with the requested medication 
+(Only one transmucosal fentanyl product will be approved at a time. If previous authorizations 
+cannot be terminated, the PA request will be denied)  
+ 
+AND 
+ 
+5 - History of failure, contraindication, or intolerance to Fentanyl citrate lozenges (generic 
+Actiq) [Document date of trial]  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+6/8/2021  
+Arizona Medicaid 7.1 Implementation  
+ 

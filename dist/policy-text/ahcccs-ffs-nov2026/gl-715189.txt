@@ -1,0 +1,326 @@
+--- PDF page 384 ---
+Page 384 
+Constipation Agents - AZM 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-715189  
+Guideline Name 
+Constipation Agents - AZM  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Amitiza  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+ 
+ 1.1 ONE of the following diagnoses:  
+• 
+Opioid-induced constipation in an adult with chronic, non-cancer pain  
+
+
+--- PDF page 385 ---
+Page 385 
+• 
+Opioid-induced constipation in patients with chronic pain related to prior cancer or its 
+treatment who do not require frequent (e.g., weekly) opioid dosage escalation  
+• 
+Chronic idiopathic constipation  
+ 
+OR 
+ 
+ 1.2 Both of the following:  
+• 
+Diagnosis of irritable bowel syndrome with constipation  
+• 
+Patient was female at birth  
+ 
+AND 
+ 
+2 - ALL of the following:  
+ 
+ 2.1 Trial and failure, contraindication, or intolerance to an osmotic laxative e.g., (lactulose, 
+polyethylene glycol, sorbitol)  
+ 
+AND 
+ 
+ 2.2 Trial and failure, contraindication, or intolerance to ONE of the following:  
+• 
+Bulk Forming Laxatives (e.g., psyllium, fiber)  
+• 
+Stimulant Laxatives (e.g., bisacodyl, senna)  
+ 
+AND 
+ 
+ 2.3 History of failure to generic lubiprostone  
+Notes  
+Note: generic lubiprostone is preferred without PA required 
+ 
+Product Name:Ibsrela  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 386 ---
+Page 386 
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of irritable bowel syndrome with constipation  
+ 
+AND 
+ 
+2 - History of failure, contraindication or intolerance to BOTH of the following:  
+• 
+Lactulose  
+• 
+Polyethylene glycol (Miralax)  
+ 
+AND 
+ 
+3 - History of failure, contraindication or intolerance to ONE of the following:  
+• 
+generic lubiprostone  
+• 
+Linzess  
+ 
+Product Name:Linzess  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+ 
+ 1.1 Both of the following:  
+• 
+Diagnosis of irritable bowel syndrome with constipation (IBS-C)  
+• 
+Patient is 7 years of age or older  
+ 
+OR 
+
+
+--- PDF page 387 ---
+Page 387 
+ 
+ 1.2 Both of the following:  
+• 
+Diagnosis of chronic idiopathic constipation (CIC)  
+• 
+Patient is 18 years of age or older  
+ 
+OR 
+ 
+ 1.3 Both of the following (Applies to Linzess 72mcg requests ONLY)  
+• 
+Diagnosis of functional constipation (FC)  
+• 
+Patient is 2-17 years of age  
+ 
+AND 
+ 
+2 - Both of the following:  
+ 
+ 2.1 Trial and failure, contraindication, or intolerance to an osmotic laxative e.g., (lactulose, 
+polyethylene glycol, sorbitol)  
+ 
+AND 
+ 
+ 2.2 Trial and failure, contraindication, or intolerance to ONE of the following:  
+• 
+Bulk Forming Laxatives (e.g., psyllium, fiber)  
+• 
+Stimulant Laxatives (e.g., bisacodyl, senna)  
+ 
+AND 
+ 
+3 - Trial and failure, contraindication, or intolerance to BOTH of the following (applies to 
+patients new to Linzess therapy ONLY):  
+• 
+generic lubiprostone  
+• 
+generic prucalopride  
+ 
+Product Name:Brand Motegrity  
+Approval Length 
+12 month(s)  
+
+
+--- PDF page 388 ---
+Page 388 
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of chronic idiopathic constipation  
+ 
+AND 
+ 
+2 - Both of the following  
+ 
+ 2.1 History of failure, contraindication or intolerance to BOTH of the following:  
+• 
+Lactulose  
+• 
+Polyethylene glycol (Miralax)  
+ 
+AND 
+ 
+ 2.2 History of failure to generic prucalopride  
+Notes  
+Note: generic prucalopride is preferred without PA required 
+ 
+Product Name:Movantik  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following diagnoses:  
+• 
+Opioid-induced constipation in patients being treated for chronic, non-cancer pain  
+• 
+Opioid-induced constipation in patients with chronic pain related to prior cancer or its 
+treatment who do not require frequent (e.g., weekly) opioid dosage escalation  
+ 
+
+
+--- PDF page 389 ---
+Page 389 
+Product Name:Symproic  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following diagnoses:  
+• 
+Opioid-induced constipation in patients being treated for chronic, non-cancer pain  
+• 
+Opioid-induced constipation in patients with chronic pain related to prior cancer or its 
+treatment who do not require frequent (e.g., weekly) opioid dosage escalation  
+ 
+AND 
+ 
+2 - History of failure, contraindication or intolerance to BOTH of the following:  
+• 
+Lactulose  
+• 
+Polyethylene glycol (Miralax)  
+ 
+AND 
+ 
+3 - History of failure, contraindication or intolerance to Movantik  
+ 
+Product Name:Zelnorm  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of irritable bowel syndrome with constipation  
+
+
+--- PDF page 390 ---
+Page 390 
+ 
+AND 
+ 
+2 - Patient was female at birth  
+ 
+AND 
+ 
+3 - History of failure, contraindication or intolerance to BOTH of the following:  
+• 
+Lactulose  
+• 
+Polyethylene glycol (Miralax)  
+ 
+AND 
+ 
+4 - History of failure, contraindication or intolerance to ONE of the following:  
+• 
+Generic lubiprostone  
+• 
+Linzess  
+ 
+Product Name:Brand Amitiza, Ibsrela, Linzess, Brand Motegrity, Movantik, Symproic, Zelnorm  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+
+
+--- PDF page 391 ---
+Page 391 
+9/11/2026  
+10/1 Changes: Generic lubiprostone and prucalopride to preferred wi
+thout PA req, Linzess added step through generic lubiprostone and p
+rucalopride for new starts only.  
+ 

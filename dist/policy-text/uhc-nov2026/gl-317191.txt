@@ -1,0 +1,141 @@
+--- PDF page 681 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 681 
+Fotivda 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-317191  
+Guideline Name 
+Fotivda  
+Formulary 
+• 
+Medicaid - Community & State Colorado  
+• 
+Medicaid - Community & State Hawaii  
+• 
+Medicaid - Community & State Maryland  
+• 
+Medicaid - Community & State New Jersey  
+• 
+Medicaid - Community & State New York  
+• 
+Medicaid - Community & State New York EPP  
+• 
+Medicaid - Community & State Pennsylvania CHIP  
+• 
+Medicaid - Community & State Rhode Island  
+• 
+Medicaid - Community & State Arizona  
+• 
+Medicaid - Community & State New Mexico  
+• 
+Medicaid - Community & State Virginia  
+• 
+Medicaid - Community & State Washington  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Fotivda  
+Diagnosis 
+Renal Cell Carcinoma (RCC)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+
+
+--- PDF page 682 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 682 
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of advanced renal cell carcinoma (RCC)  
+ 
+AND 
+ 
+2 - ONE of the following:  
+• 
+Disease has relapsed  
+• 
+Disease is refractory  
+ 
+AND 
+ 
+3 - Patient has received two or more prior systemic therapies  
+ 
+Product Name:Fotivda  
+Diagnosis 
+Renal Cell Carcinoma (RCC)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient does not show evidence of progressive disease while on Fotivda therapy  
+ 
+Product Name:Fotivda  
+Diagnosis 
+NCCN Recommended Regimens  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 683 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 683 
+ 
+ 
+Approval Criteria    
+ 
+1 - Use is supported by The National Comprehensive Cancer Network (NCCN) Drugs and 
+Biologics Compendium  
+ 
+Product Name:Fotivda  
+Diagnosis 
+NCCN Recommended Regimens  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to Fotivda therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+7/2/2025  
+Combined formularies. Added RCC abbreviation in dx header section
+s. No changes to clinical criteria.  
+ 

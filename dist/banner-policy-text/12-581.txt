@@ -1,0 +1,350 @@
+=== PDF PAGE 581 ===
+Page 581 
+Erythropoietic Agents - AZM 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-325192  
+Guideline Name 
+Erythropoietic Agents - AZM  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Preferred: Retacrit  
+Diagnosis 
+Anemia Due to Chronic Kidney Disease (CKD)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of chronic kidney disease (CKD)  
+
+
+=== PDF PAGE 582 ===
+Page 582 
+ 
+AND 
+ 
+2 - Hematocrit is less than 30% at initiation of therapy  
+ 
+AND 
+ 
+3 - ONE of the following:  
+ 
+ 3.1 Patient is on dialysis  
+ 
+OR 
+ 
+ 3.2 ALL of the following:  
+ 
+  3.2.1 Patient is NOT on dialysis  
+ 
+AND 
+ 
+  3.2.2 The rate of hematocrit decline indicates the likelihood of requiring a red blood cell 
+(RBC) transfusion  
+ 
+AND 
+ 
+  3.2.3 Reducing the risk of alloimmunization and/or other RBC transfusion-related risks is a 
+goal  
+ 
+Product Name:Preferred: Retacrit  
+Diagnosis 
+Anemia Due to Chronic Kidney Disease (CKD)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+=== PDF PAGE 583 ===
+Page 583 
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of chronic kidney disease (CKD)  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 Both of the following:  
+• 
+Patient is on dialysis  
+• 
+Most recent or average Hct over 3 months is 33% or less (Hgb 11 g/dL or less)  
+ 
+OR 
+ 
+ 2.2 All of the following:  
+• 
+Patient is NOT on dialysis  
+• 
+Most recent or average (avg) Hct over 3 mo is 30% or less (Hgb 10 g/dL or less)  
+• 
+Reducing the risk of alloimmunization and/or other RBC transfusion-related risks is a 
+goal  
+ 
+OR 
+ 
+ 2.3 Both of the following:  
+• 
+Request is for a pediatric patient  
+• 
+Most recent or average Hct over 3 mo is 36% or less (Hgb 12 g/dL or less)  
+ 
+AND 
+ 
+3 - One of the following:  
+• 
+Decrease in the need for blood transfusion  
+• 
+Hemoglobin (Hgb) increased greater than or equal to 1g/dL from pre-treatment level  
+ 
+
+
+=== PDF PAGE 584 ===
+Page 584 
+Product Name:Preferred: Retacrit  
+Diagnosis 
+Anemia Associated with Zidovudine Treatment in HIV-Infected 
+Patients  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient is receiving zidovudine administered at less than or equal to 4200 milligrams per 
+week  
+ 
+AND 
+ 
+2 - Endogenous serum erythropoietin level is less than or equal to 500 milliunits per milliliter  
+ 
+AND 
+ 
+3 - Hematocrit is less than 30% at initiation of therapy  
+ 
+Product Name:Preferred: Retacrit  
+Diagnosis 
+Anemia Due to Cancer Chemotherapy  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Hematocrit less than 30% at initiation of therapy  
+ 
+AND 
+ 
+2 - There is a minimum of two additional months of planned chemotherapy  
+ 
+
+
+=== PDF PAGE 585 ===
+Page 585 
+Product Name:Preferred: Retacrit  
+Diagnosis 
+Preoperative Use for Reduction of Allogeneic Blood Transfusions in 
+Surgery Patients  
+Approval Length 
+1 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Perioperative hematocrit is greater than 30% and less than or equal to 39%  
+ 
+AND 
+ 
+2 - Patient is at high risk for blood loss during surgery  
+ 
+AND 
+ 
+3 - Patient is unable or unwilling to donate autologous blood  
+ 
+AND 
+ 
+4 - Surgery procedure is elective, non-cardiac, and non-vascular  
+ 
+Product Name:Preferred: Retacrit  
+Diagnosis 
+Anemia Associated with Myelodysplastic Disease  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of myelodysplastic disease (MDS)  
+
+
+=== PDF PAGE 586 ===
+Page 586 
+ 
+AND 
+ 
+2 - ONE of the following:  
+• 
+Serum erythropoietin level less than or equal to 500 milliunits per milliliter  
+• 
+Hematocrit is less than or equal to 30% at the initiation of therapy  
+ 
+Product Name:Preferred: Retacrit  
+Diagnosis 
+Anemia Associated with Myelodysplastic Disease  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+ 
+ 1.1 Hematocrit remains less than 36%  
+ 
+OR 
+ 
+ 1.2 Patient has demonstrated a response to therapy  
+ 
+Product Name:Preferred: Retacrit  
+Diagnosis 
+Anemia in Patients with Hepatitis C with Ribavirin and Interferon 
+Therapy  
+Approval Length 
+3 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+
+
+=== PDF PAGE 587 ===
+Page 587 
+Approval Criteria    
+ 
+1 - Diagnosis of hepatitis C virus (HCV) infection  
+ 
+AND 
+ 
+2 - Patient is receiving ribavirin and interferon therapy  
+ 
+AND 
+ 
+3 - Hematocrit is less than or equal to 30% at initiation of therapy  
+ 
+Product Name:Preferred: Retacrit*  
+Diagnosis 
+Anemia in Patients with Hepatitis C with Ribavirin and Interferon 
+Therapy  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+ 
+ 1.1 Hematocrit remains less than 36%  
+ 
+OR 
+ 
+ 1.2 Patient has demonstrated a response to therapy  
+Notes  
+*NOTE: Authorization will be issued for 12 months or if patient has de
+monstrated response to therapy, authorization will be issued for the ful
+l course of ribavirin therapy. 
+ 
+Product Name:Preferred: Retacrit*  
+Diagnosis 
+Erythropoietin Stimulating Agents –Off-Label Uses  
+Guideline Type 
+Prior Authorization  
+
+
+=== PDF PAGE 588 ===
+Page 588 
+ 
+ 
+Approval Criteria    
+ 
+1 - Off-label requests will be evaluated on a case-by-case basis by a clinical pharmacist  
+ 
+AND 
+ 
+2 - Requests for coverage in patients with hemoglobin (Hgb) greater than 10 grams per 
+deciliter or hematocrit (Hct) greater than 30% will not be approved  
+Notes  
+*If the request is deemed medically necessary, the authorization will b
+e issued for requested length of therapy. 
+ 
+Product Name:Non-Preferred*: Aranesp, Epogen, Mircera, Procrit, and newly launched 
+erythropoietin stimulating agents  
+Approval Length 
+Requests for Non-Preferred biosimilars are not approved at this time  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Per your health plan's criteria, the non-preferred drug is not approved for coverage 
+because the plan's preferred product is Retacrit. **Please note: The drug(s) listed above may 
+require additional review.  
+Notes  
+*Patients must use preferred erythropoietin stimulating agent (Retacrit
+). 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+7/16/2025  
+Updated preferred/NPD agents, updated criteria throughout. Updated
+ NP section verbiage.  
+ 

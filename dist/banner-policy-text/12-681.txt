@@ -1,0 +1,323 @@
+=== PDF PAGE 681 ===
+Page 681 
+Forteo and Teriparatide Products, Prolia and Denosumab 60mg Products, Tymlos 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-731220  
+Guideline Name 
+Forteo and Teriparatide Products, Prolia and Denosumab 60mg 
+Products, Tymlos  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Preferred Drugs: Brand Forteo, Bildyos  
+Diagnosis 
+Patients with osteoporosis at high risk for fracture  
+Approval Length 
+12 Months**  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of osteoporosis  
+
+
+=== PDF PAGE 682 ===
+Page 682 
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 Bone Mineral Density (BMD) T-score less than or equal to -3.5 based on BMD 
+measurements from lumbar spine (at least two vertebral bodies), hip (femoral neck, total hip), 
+or radius (one-third radius site) [NOTE: Provider must submit patient specific BMD T-score]  
+ 
+OR 
+ 
+ 2.2 BOTH of the following:  
+ 
+  2.2.1 BMD T-score between -2.5 and -3.5 (BMD T-score greater than -3.5 and less than or 
+equal to -2.5) based on BMD measurements from lumbar spine (at least two vertebral 
+bodies), hip (femoral neck, total hip), or radius (one-third radius site) [NOTE: Provider must 
+submit patient specific BMD T-score]  
+ 
+AND 
+ 
+  2.2.2 ONE of the following:  
+ 
+   2.2.2.1 History of ONE of the following resulting from minimal trauma: 
+• 
+Vertebral compression fracture  
+• 
+Fracture of the hip  
+• 
+Fracture of the distal radius  
+• 
+Fracture of the pelvis  
+• 
+Fracture of the proximal humerus  
+ 
+OR 
+ 
+   2.2.2.2 History of failure, contraindication, or intolerance to ONE conventional osteoporosis 
+therapy [e.g., bisphosphonate or selective estrogen receptor modulator (SERM)] (Document 
+drug, date, and duration of trial)** 
+ 
+OR 
+ 
+ 2.3 ALL of the following:  
+
+
+=== PDF PAGE 683 ===
+Page 683 
+ 
+  2.3.1 BMD T-score between -1 and -2.5 (BMD T-score greater than -2.5 and less than or 
+equal to -1) based on BMD measurements from lumbar spine (at least two vertebral bodies), 
+hip (femoral neck, total hip), or radius (one-third radius site) [NOTE: Provider must submit 
+patient specific BMD T-score]  
+ 
+AND 
+ 
+  2.3.2 ONE of the following:  
+ 
+   2.3.2.1 History of ONE of the following resulting from minimal trauma: 
+• 
+Vertebral compression fracture  
+• 
+Fracture of the hip  
+• 
+Fracture of the distal radius  
+• 
+Fracture of the pelvis  
+• 
+Fracture of the proximal humerus  
+ 
+OR 
+ 
+   2.3.2.2 ONE of the following Fracture Risk Assessment Tool (FRAX) 10-year fracture 
+probabilities: 
+• 
+Major osteoporotic fracture at 20 percent or more  
+• 
+Hip fracture at 3 percent or more  
+ 
+AND 
+ 
+  2.3.3 History of failure, contraindication, or intolerance to ONE conventional osteoporosis 
+therapy [e.g., bisphosphonate or selective estrogen receptor modulator (SERM)] (Document 
+drug, date, and duration of trial)*  
+ 
+AND 
+ 
+3 - For Brand Forteo Requests ONLY: Treatment duration has not exceeded a total of 24 
+months** of cumulative use of parathyroid hormone analogs (e.g., Teriparatide Injection, 
+Forteo, Tymlos) during the patient’s lifetime (APPLIES TO BRAND FORTEO ONLY)  
+Notes  
+*Claims history may be used in conjunction as documentation of drug,
+ date, and duration of trial  
+**Duration of coverage will be limited to 24 months of cumulative parat
+
+
+=== PDF PAGE 684 ===
+Page 684 
+hyroid hormone analog therapy (e.g., Forteo, Tymlos) in the patient's l
+ifetime 
+ 
+Product Name:Non-Preferred Drugs: Bonsity, Bosaya, Conexxence, Enoby, Jubbonti, 
+Ospomyv, Osvyrti, Prolia, Stoboclo, Brand Teriparatide, generic teriparatide, Tymlos  
+Diagnosis 
+Patients with osteoporosis at high risk for fracture  
+Approval Length 
+12 Months**  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of osteoporosis  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 Bone Mineral Density (BMD) T-score less than or equal to -3.5 based on BMD 
+measurements from lumbar spine (at least two vertebral bodies), hip (femoral neck, total hip), 
+or radius (one-third radius site) [NOTE: Provider must submit patient specific BMD T-score]  
+ 
+OR 
+ 
+ 2.2 BOTH of the following:  
+ 
+  2.2.1 BMD T-score between -2.5 and -3.5 (BMD T-score greater than -3.5 and less than or 
+equal to -2.5) based on BMD measurements from lumbar spine (at least two vertebral 
+bodies), hip (femoral neck, total hip), or radius (one-third radius site) [NOTE: Provider must 
+submit patient specific BMD T-score]  
+ 
+AND 
+ 
+  2.2.2 ONE of the following:  
+ 
+   2.2.2.1 History of ONE of the following resulting from minimal trauma: 
+
+
+=== PDF PAGE 685 ===
+Page 685 
+• 
+Vertebral compression fracture  
+• 
+Fracture of the hip  
+• 
+Fracture of the distal radius  
+• 
+Fracture of the pelvis  
+• 
+Fracture of the proximal humerus  
+ 
+OR 
+ 
+   2.2.2.2 History of failure, contraindication, or intolerance to ALL of the following (Document 
+drug, date, and duration of trial) 
+• 
+bisphosphonate (e.g. ALENDRONATE, IBANDRONATE)  
+• 
+selective estrogen receptor modulator (SERM) (e.g RALOXIFENE)  
+• 
+Bildyos (denosumab-nxxp)  
+• 
+Brand Forteo (teriparatide)  
+ 
+OR 
+ 
+ 2.3 ALL of the following:  
+ 
+  2.3.1 BMD T-score between -1 and -2.5 (BMD T-score greater than -2.5 and less than or 
+equal to -1) based on BMD measurements from lumbar spine (at least two vertebral bodies), 
+hip (femoral neck, total hip), or radius (one-third radius site) [NOTE: Provider must submit 
+patient specific BMD T-score]  
+ 
+AND 
+ 
+  2.3.2 ONE of the following:  
+ 
+   2.3.2.1 History of ONE of the following resulting from minimal trauma: 
+• 
+Vertebral compression fracture  
+• 
+Fracture of the hip  
+• 
+Fracture of the distal radius  
+• 
+Fracture of the pelvis  
+• 
+Fracture of the proximal humerus  
+ 
+OR 
+
+
+=== PDF PAGE 686 ===
+Page 686 
+ 
+   2.3.2.2 ONE of the following Fracture Risk Assessment Tool (FRAX) 10-year fracture 
+probabilities: 
+• 
+Major osteoporotic fracture at 20 percent or more  
+• 
+Hip fracture at 3 percent or more  
+ 
+AND 
+ 
+  2.3.3 History of failure, contraindication, or intolerance to ALL of the following (Document 
+drug, date, and duration of trial)  
+• 
+bisphosphonate (e.g. ALENDRONATE, IBANDRONATE)  
+• 
+selective estrogen receptor modulator (SERM) (e.g RALOXIFENE)  
+• 
+Bildyos (denosumab-nxxp)  
+• 
+Brand Forteo (teriparatide)  
+ 
+AND 
+ 
+3 - Treatment duration has not exceeded a total of 24 months** of cumulative use of 
+parathyroid hormone analogs (e.g., Teriparatide Injection, Forteo, Tymlos) during the patient’s 
+lifetime  
+Notes  
+*Claims history may be used in conjunction as documentation of drug,
+ date, and duration of trial  
+**Duration of coverage will be limited to 24 months of cumulative parat
+hyroid hormone analog therapy (e.g., Forteo, Tymlos) in the patient's l
+ifetime 
+ 
+Product Name:Preferred Drugs: Brand Forteo, Bildyos; Non-Preferred Drugs: Bonsity, 
+Bosaya, Conexxence, Enoby, Jubbonti, Ospomyv, Osvyrti, Prolia, Stoboclo, Brand 
+Teriparatide, generic teriparatide, Tymlos  
+Diagnosis 
+Patients with osteoporosis at high risk for fracture  
+Approval Length 
+12 Months*  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+=== PDF PAGE 687 ===
+Page 687 
+ 
+1 - Patient demonstrates positive clinical response to therapy  
+ 
+AND 
+ 
+2 - Treatment duration has not exceeded a total of 24 months* of cumulative use of 
+parathyroid hormone analogs (e.g., Teriparatide Injection, Forteo, Tymlos) during the patient’s 
+lifetime)  
+ 
+AND 
+ 
+3 - Requests for Non-Preferred Drugs: History of failure, contraindication, or intolerance to 
+BOTH of the following preferred products:  
+• 
+Bildyos (denosumab-nxxp)  
+• 
+Brand Forteo (teriparatide)  
+Notes  
+*Duration of coverage will be limited to 24 months of cumulative parat
+hyroid hormone analog therapy (e.g., Forteo, Tymlos) in the patient's l
+ifetime 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+9/23/2026  
+Added step through preferred agents to reauth, also updated 24 mon
+ths tx note.  
+ 

@@ -1,0 +1,151 @@
+--- PDF page 1494 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1494 
+Sedative Hypnotics 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-637194  
+Guideline Name 
+Sedative Hypnotics  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+7/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:generic ramelteon  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Step Therapy  
+ 
+ 
+Approval Criteria    
+ 
+1 - History of failure, contraindication, or intolerance to a trial of at least TWO of the following 
+preferred agents:  
+• 
+Eszopiclone (Generic Lunesta)  
+• 
+Zolpidem/Zolpidem ER (Generic Ambien/Ambien CR)  
+• 
+Temazepam 15/30 mg (milligram) capsules (Generic Restoril)  
+
+
+--- PDF page 1495 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1495 
+ 
+Product Name:Brand Ambien, Brand Ambien CR, zolpidem SL, Edluar, Belsomra, estazolam, 
+Brand Lunesta, flurazepam, triazolam, Brand Halcion, Brand Restoril, generic temazepam 7.5 
+mg and 22.5 mg, Brand Rozerem, generic doxepin, Brand Silenor, zaleplon, Quviviq, Dayvigo  
+Diagnosis 
+Non-Preferred  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - History of failure, contraindication, or intolerance to a trial of at least TWO of the following 
+preferred agents:  
+• 
+Eszopiclone (Generic Lunesta)  
+• 
+Zolpidem/Zolpidem ER (Generic Ambien/Ambien CR)  
+• 
+Temazepam 15/30 mg (milligram) capsules (Generic Restoril)  
+ 
+AND 
+ 
+2 - If the request is for Brand Rozerem, patient must have tried and failed generic ramelteon  
+ 
+Product Name:Brand Ambien, generic zolpidem, Brand Ambien CR, generic zolpidem ER, 
+zolpidem SL, Edluar, Belsomra, estazolam, generic eszopiclone, Brand Lunesta, flurazepam, 
+triazolam, Brand Halcion, Brand Restoril, generic temazepam, generic ramelteon, Brand 
+Rozerem, generic doxepin, Brand Silenor, zaleplon, Quviviq, Dayvigo  
+Diagnosis 
+Greater than 1 hypnotic in 30 days  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - The requested medication is being used to adjust the dose of the drug  
+ 
+OR 
+
+
+--- PDF page 1496 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1496 
+ 
+2 - The requested medication will be used in place of the previously prescribed drug, and not 
+in addition to it  
+ 
+OR 
+ 
+3 - The requested medication dosage form will be used in place of the previously prescribed 
+medication dosage form, and not in addition to it  
+ 
+OR 
+ 
+4 - The physician attests they are aware of the multiple sedative hypnotics prescribed to the 
+patient and feels treatment with both medications is medically necessary (Document rationale 
+for use)  
+ 
+Product Name:Brand Ambien, generic zolpidem, Brand Ambien CR, generic zolpidem ER, 
+zolpidem SL, Edluar, Belsomra, estazolam, generic eszopiclone, Brand Lunesta, flurazepam, 
+triazolam, Brand Halcion, Brand Restoril, generic temazepam, generic ramelteon, Brand 
+Rozerem, generic doxepin, Brand Silenor, zaleplon, Quviviq, Dayvigo  
+Diagnosis 
+Requests for Patients less than 6 years of age  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - The patient is unresponsive to other treatment modalities, unless contraindicated (i.e., 
+other medications or behavioral modification attempted)  
+ 
+AND 
+ 
+2 - The physician attests that the requested medication is medically necessary (Document 
+rationale for use)  
+ 
+2 .  Revision History  
+ 
+
+
+--- PDF page 1497 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1497 
+Date  
+Notes  
+6/10/2026  
+Removed Zolpimist as a target due to being obsolete. Moved generic
+ ramelteon to ST criteria section and moved Brand Rozerem to NP s
+ection. Updated embedded step in NP section to specify Brand Roze
+rem requests require t/f of generic ramelteon.  
+ 

@@ -1,0 +1,107 @@
+=== PDF PAGE 1926 ===
+Page 1926 
+Veltassa 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-136978  
+Guideline Name 
+Veltassa  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+12/1/2023  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Veltassa  
+Diagnosis 
+Non-Life Threatening Hyperkalemia  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of non-life threatening hyperkalemia  
+
+
+=== PDF PAGE 1927 ===
+Page 1927 
+ 
+AND 
+ 
+2 - Patient is 12 years of age or older  
+ 
+AND 
+ 
+3 - Where clinically appropriate, medications known to cause hyperkalemia (e.g. angiotensin-
+converting enzyme inhibitor, angiotensin II receptor blocker, aldosterone antagonist, non-
+steroidal anti-inflammatory drugs [NSAIDs]) have been discontinued or reduced to the lowest 
+effective dose  
+ 
+AND 
+ 
+4 - Where clinically appropriate, loop or thiazide diuretic therapy for potassium removal has 
+failed  
+ 
+AND 
+ 
+5 - Patient follows a low potassium diet (less than or equal to 3 grams per day)  
+ 
+AND 
+ 
+6 - History of failure, intolerance, or contraindication to Lokelma  
+ 
+Product Name:Veltassa  
+Diagnosis 
+Non-Life Threatening Hyperkalemia  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+=== PDF PAGE 1928 ===
+Page 1928 
+ 
+1 - Patient has a positive clinical response to Veltassa therapy  
+ 
+AND 
+ 
+2 - Patient continues to require treatment for hyperkalemia  
+ 
+AND 
+ 
+3 - Where clinically appropriate, medications known to cause hyperkalemia (e.g. angiotensin-
+converting enzyme inhibitor, angiotensin II receptor blocker, aldosterone antagonist, non-
+steroidal anti-inflammatory drugs [NSAIDs])) have been discontinued or reduced to the lowest 
+effective dose  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+9/26/2024  
+Added new GPI, added age criterion due to expanded approval  
+ 

@@ -1,0 +1,174 @@
+--- PDF page 2009 ---
+Page 2009 
+Wakix (pitolisant) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-540207  
+Guideline Name 
+Wakix (pitolisant)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+4/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Wakix  
+Diagnosis 
+Narcolepsy with Cataplexy (i.e., Narcolepsy Type 1)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g. chart notes) documenting ALL of the following:  
+ 
+ 1.1 Diagnosis of narcolepsy as confirmed by sleep study (unless the prescriber provides 
+justification confirming that a sleep study would not be feasible)  
+
+
+--- PDF page 2010 ---
+Page 2010 
+ 
+AND 
+ 
+ 1.2 Symptoms of cataplexy are present  
+ 
+AND 
+ 
+ 1.3 Symptoms of excessive daytime sleepiness (e.g., irrepressible need to sleep or daytime 
+lapses into sleep) are present  
+ 
+AND 
+ 
+2 - Physician attestation to the following: Other causes of sleepiness have been ruled out or 
+treated (including but not limited to obstructive sleep apnea, insufficient sleep syndrome, shift 
+work, the effects of substances or medications or their withdrawal, sleep phase disorder, or 
+other sleep disorders)  
+ 
+AND 
+ 
+3 - Patient is 6 years of age or older  
+ 
+AND 
+ 
+4 - Prescribed by one of the following:  
+• 
+Neurologist  
+• 
+Psychiatrist  
+• 
+Sleep Medicine Specialist  
+ 
+Product Name:Wakix  
+Diagnosis 
+Narcolepsy without cataplexy (Narcolepsy Type 2)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 2011 ---
+Page 2011 
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g. chart notes) documenting ALL of the following:  
+ 
+ 1.1 Diagnosis of narcolepsy as confirmed by sleep study (unless the prescriber provides 
+justification confirming that a sleep study would not be feasible)  
+ 
+AND 
+ 
+ 1.2 Symptoms of cataplexy are absent  
+ 
+AND 
+ 
+ 1.3 Symptoms of excessive daytime sleepiness (e.g., irrepressible need to sleep or daytime 
+lapses into sleep) are present  
+ 
+AND 
+ 
+2 - Physician attestation to the following: Other causes of sleepiness have been ruled out or 
+treated (including but not limited to obstructive sleep apnea, insufficient sleep syndrome, shift 
+work, the effects of substances or medications or their withdrawal, sleep phase disorder, or 
+other sleep disorders)  
+ 
+AND 
+ 
+3 - Patient is 6 years of age or older  
+ 
+AND 
+ 
+4 - Paid claims or submission of medical records (e.g., chart notes) confirming BOTH of the 
+following:  
+ 
+ 4.1 Trial and failure, contraindication (e.g., age), or intolerance to BOTH of the following:  
+• 
+armodafinil or modafinil  
+
+
+--- PDF page 2012 ---
+Page 2012 
+• 
+Sunosi (solriamfetol)  
+ 
+AND 
+ 
+ 4.2 Trial and failure, contraindication, or intolerance to an amphetamine (e.g., amphetamine, 
+dextroamphetamine) or methylphenidate based stimulant UNLESS patient is not a candidate  
+ 
+AND 
+ 
+5 - Prescribed by one of the following:  
+• 
+Neurologist  
+• 
+Psychiatrist  
+• 
+Sleep Medicine Specialist  
+ 
+Product Name:Wakix  
+Diagnosis 
+All Indications Listed Above  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient has a reduction in symptoms of excessive daytime sleepiness associated with 
+therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/24/2026  
+Age criterion add/update for narcolepsy w cataplexy  
+ 

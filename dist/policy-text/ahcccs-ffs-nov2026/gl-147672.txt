@@ -1,0 +1,118 @@
+--- PDF page 1063 ---
+Page 1063 
+Lenmeldy (atidarsagene autotemcel) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-147672  
+Guideline Name 
+Lenmeldy (atidarsagene autotemcel)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+6/1/2024  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Lenmeldy  
+Approval Length 
+1 Time Authorization in Lifetime*  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting both of the following:  
+• 
+Diagnosis of metachromatic leukodystrophy (MLD)  
+• 
+Molecular genetic testing confirms mutation in the arylsulfatase A (ARSA) gene  
+
+
+--- PDF page 1064 ---
+Page 1064 
+ 
+AND 
+ 
+2 - Disease is one of the following:  
+ 
+ 2.1 Pre-symptomatic late infantile (PSLI) as confirmed by both of the following:  
+ 
+  2.1.1 Disease onset at less than or equal to 30 months of age  
+ 
+AND 
+ 
+  2.1.2 One of the following:  
+• 
+Absence of neurological signs and symptoms of MLD (e.g., peripheral neuropathy, gait 
+difficulties, hypotonia)  
+• 
+Abnormal reflexes or abnormalities on brain magnetic resonance imaging (MRI) and/or 
+nerve conduction tests not associated with functional impairment (e.g., no tremor, no 
+peripheral ataxia)  
+ 
+OR 
+ 
+ 2.2 Pre-symptomatic early juvenile (PSEJ) as confirmed by both of the following:  
+ 
+  2.2.1 Disease onset at greater than 30 months and less than 7 years of age  
+ 
+AND 
+ 
+  2.2.2 One of the following:  
+• 
+Absence of neurological signs and symptoms of MLD (e.g., peripheral neuropathy, gait 
+difficulties, hypotonia)  
+• 
+Abnormal reflexes or abnormalities on brain magnetic resonance imaging (MRI) and/or 
+nerve conduction tests not associated with functional impairment (e.g., no tremor, no 
+peripheral ataxia)  
+ 
+OR 
+ 
+ 2.3 Early-symptomatic early juvenile (ESEJ) as confirmed by all of the following:  
+• 
+Disease onset at greater than 30 months and less than 7 years of age  
+
+
+--- PDF page 1065 ---
+Page 1065 
+• 
+Gross motor function classification (GMFC)-MLD score less than or equal to 1  
+• 
+Intelligence quotient (IQ) of greater than or equal to 85  
+ 
+AND 
+ 
+3 - Prescribed by a specialist with expertise in MLD at an authorized treatment center  
+ 
+AND 
+ 
+4 - Both of the following:  
+• 
+Patient has never received Lenmeldy treatment in their lifetime  
+• 
+Patient has never received prior hematopoietic stem cell transplant (HSCT)  
+Notes  
+*Per prescribing information, Lenmeldy is for one-time, single dose int
+ravenous use only. 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+5/23/2024  
+New program  
+ 

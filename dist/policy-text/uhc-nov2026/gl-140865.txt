@@ -1,0 +1,98 @@
+--- PDF page 1725 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1725 
+Tobramycin Inhalation   
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-140865  
+Guideline Name 
+Tobramycin Inhalation    
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+5/1/2021  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Bethkis, Kitabis  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of cystic fibrosis (CF)  
+ 
+Product Name:Brand TOBI Nebulizer Solution, generic tobramycin solution for inhalation, 
+TOBI Podhaler  
+Approval Length 
+12 month(s)  
+
+
+--- PDF page 1726 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1726 
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of cystic fibrosis (CF)  
+ 
+AND 
+ 
+2 - Lung infection with positive culture demonstrating Pseudomonas aeruginosa infection  
+ 
+AND 
+ 
+3 - History of failure, intolerance, or contraindication to BOTH of the following  
+• 
+Brand Bethkis  
+• 
+Kitabis  
+ 
+Product Name:Brand TOBI Nebulizer Solution, generic tobramycin solution for inhalation, 
+TOBI Podhaler  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+
+
+--- PDF page 1727 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1727 
+3/10/2021  
+Added generic Bethkis. Updated product name listing of first criteria 
+box to specify brand Bethkis and updated NP language to specify T/F
+ must be brand Bethkis.  
+ 

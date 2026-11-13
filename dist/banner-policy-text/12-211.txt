@@ -1,0 +1,202 @@
+=== PDF PAGE 211 ===
+Page 211 
+Baxdela 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-99516  
+Guideline Name 
+Baxdela  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+12/9/2021  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Baxdela  
+Diagnosis 
+Community-Acquired Bacterial Pneumonia  
+Approval Length 
+10 Days*  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - For continuation of therapy upon hospital discharge  
+ 
+OR 
+
+
+=== PDF PAGE 212 ===
+Page 212 
+ 
+2 - As continuation of therapy when transitioning from intravenous antibiotics that are shown 
+to be sensitive to the cultured organism for the requested indication  
+ 
+OR 
+ 
+3 - All of the following:  
+ 
+ 3.1 Diagnosis of community-acquired bacterial pneumonia (CABP)  
+ 
+AND 
+ 
+ 3.2 Infection caused by an organism that is confirmed to be or likely to be susceptible to 
+treatment with Baxdela  
+ 
+AND 
+ 
+ 3.3 History of failure, contraindication, or intolerance to THREE of the following antibiotics or 
+antibiotic regimens:  
+• 
+Amoxicillin**  
+• 
+A macrolide**  
+• 
+Doxycycline**  
+• 
+A fluoroquinolone**  
+• 
+Combination therapy with amoxicillin/clavulanate or cephalosporin AND a macrolide or 
+doxycycline  
+Notes  
+*Note: Authorization will be issued for up to 10 days.  
+**Drug may require PA 
+ 
+Product Name:Baxdela  
+Diagnosis 
+Acute Bacterial Skin and Skin Structure Infections  
+Approval Length 
+14 Days*  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+=== PDF PAGE 213 ===
+Page 213 
+ 
+1 - For continuation of therapy upon hospital discharge  
+ 
+OR 
+ 
+2 - As continuation of therapy when transitioning from intravenous antibiotics that are shown 
+to be sensitive to the cultured organism for the requested indication  
+ 
+OR 
+ 
+3 - All of the following:  
+ 
+ 3.1 One of the following diagnoses:  
+ 
+  3.1.1 Both of the following  
+ 
+   3.1.1.1 Acute bacterial skin and skin structure infections 
+ 
+AND 
+ 
+   3.1.1.2 Infection caused by methicillin-resistant Staphylococcus aureus (MRSA) 
+documented by culture and sensitivity report 
+ 
+OR 
+ 
+  3.1.2 Both of the following:  
+ 
+   3.1.2.1 Empirical treatment of patients with acute bacterial skin and skin structure infections 
+ 
+AND 
+ 
+   3.1.2.2 Presence of MRSA infection is likely 
+ 
+AND 
+ 
+ 3.2 History of failure, contraindication, or intolerance to linezolid (generic Zyvox)  
+
+
+=== PDF PAGE 214 ===
+Page 214 
+ 
+AND 
+ 
+ 3.3 History of failure, contraindication, or intolerance to ONE of the following antibiotics:  
+• 
+Sulfamethoxazole-trimethoprim (SMZ-TMP)**  
+• 
+A tetracycline**  
+• 
+Clindamycin**  
+ 
+OR 
+ 
+4 - All of the following:  
+ 
+ 4.1 Diagnosis of acute bacterial skin and skin structure infections  
+ 
+AND 
+ 
+ 4.2 Infection caused by an organism that is confirmed to be or likely to be susceptible to 
+treatment with Baxdela  
+ 
+AND 
+ 
+ 4.3 History of failure, contraindication, or intolerance to THREE of the following antibiotics:  
+• 
+A penicillin**  
+• 
+A cephalosporin**  
+• 
+A tetracycline**  
+• 
+Sulfamethoxazole-trimethoprim (SMZ-TMP)**  
+• 
+Clindamycin**  
+Notes  
+*Note: Authorization will be issued for up to 14 days.  
+**Drug may require PA 
+ 
+Product Name:Baxdela  
+Diagnosis 
+Off-Label Uses*  
+Guideline Type 
+Prior Authorization  
+
+
+=== PDF PAGE 215 ===
+Page 215 
+ 
+ 
+Approval Criteria    
+ 
+1 - For continuation of therapy upon hospital discharge  
+ 
+OR 
+ 
+2 - As continuation of therapy when transitioning from intravenous antibiotics that are shown 
+to be sensitive to the cultured organism for the requested indication  
+Notes  
+*Note: Authorization duration based on provider recommended treatm
+ent durations, up to 6 months. 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+5/12/2021  
+Arizona Medicaid 7.1 Implementation  
+ 

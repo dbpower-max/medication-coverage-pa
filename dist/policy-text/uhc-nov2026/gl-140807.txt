@@ -1,0 +1,104 @@
+--- PDF page 642 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 642 
+Fecal Microbiota Agents 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-140807  
+Guideline Name 
+Fecal Microbiota Agents  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2023  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Vowst  
+Approval Length 
+14 Day(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of documentation (e.g., chart notes) confirming diagnosis of recurrent 
+clostridioides difficile infection (CDI) as defined by BOTH of the following:  
+ 
+ 1.1 Presence of diarrhea defined as a passage of 3 or more loose bowel movements within a 
+24-hour period for 2 consecutive days  
+
+
+--- PDF page 643 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 643 
+ 
+AND 
+ 
+ 1.2 A positive stool test for C. difficile toxin or toxigenic C. difficile  
+ 
+AND 
+ 
+2 - Patient is 18 years of age or older  
+ 
+AND 
+ 
+3 - Patient has a history of two or more recurrent episodes of CDI within 12 months  
+ 
+AND 
+ 
+4 - Submission of medical records (e.g., chart notes) confirming ALL of the following:  
+ 
+ 4.1 Patient has completed at least 10 consecutive days of ONE of the following antibiotic 
+therapies 2-4 days prior to initiating Vowst*:  
+• 
+Oral vancomycin  
+• 
+Dificid (fidaxomicin)  
+ 
+AND 
+ 
+ 4.2 Patient has completed the recommended course of magnesium citrate the day before 
+and at least 8 hours prior to initiating Vowst  
+ 
+AND 
+ 
+ 4.3 Previous episode of CDI is under control [e.g., less than 3 unformed/loose (i.e., Bristol 
+Stool Scale type 6-7) stools/day for 2 consecutive days]  
+ 
+AND 
+
+
+--- PDF page 644 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 644 
+ 
+5 - Prescribed by or in consultation with ONE of the following:  
+• 
+Gastroenterologist  
+• 
+Infectious disease specialist  
+Notes  
+*Trial requirements may be verified via paid pharmacy claims or subm
+ission of medical records/chart notes. 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/9/2023  
+New guideline.  
+ 

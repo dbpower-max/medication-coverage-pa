@@ -1,0 +1,80 @@
+=== PDF PAGE 1029 ===
+Page 1029 
+Kimmtrak (tebentafusp-tebn) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-104978  
+Guideline Name 
+Kimmtrak (tebentafusp-tebn)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+4/1/2022  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Kimmtrak  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting 
+diagnosis of uveal melanoma  
+
+
+=== PDF PAGE 1030 ===
+Page 1030 
+ 
+AND 
+ 
+2 - Disease is unresectable or metastatic  
+ 
+AND 
+ 
+3 - Patient is HLA-A*02:01 genotype positive as determined by a high-resolution genotyping 
+test [2]  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with an oncologist  
+ 
+Product Name:Kimmtrak  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting patient 
+does not show evidence of progressive disease while on therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/22/2022  
+New Program mirrors ORx with Submission of Records added to initi
+al and reauth  
+ 

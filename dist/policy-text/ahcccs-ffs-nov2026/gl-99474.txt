@@ -1,0 +1,70 @@
+--- PDF page 1158 ---
+Page 1158 
+Mepron 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-99474  
+Guideline Name 
+Mepron  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+12/9/2021  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Mepron, generic atovaquone  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following:  
+ 
+ 1.1 BOTH of the following:  
+ 
+  1.1.1 The patient has a diagnosis (e.g. human immunodeficiency virus [HIV]) warranting 
+Pneumocystis jirovecii pneumonia (PCP) infection prophylaxis  
+
+
+--- PDF page 1159 ---
+Page 1159 
+ 
+AND 
+ 
+  1.1.2 The patient has a documented intolerance or contraindication to trimethoprim-
+sulfamethoxazole (TMP-SMX) and dapsone  
+ 
+OR 
+ 
+ 1.2 BOTH of the following:  
+ 
+  1.2.1 The patient has a diagnosis of mild to moderate pneumonia caused by P. jirovecii  
+ 
+AND 
+ 
+  1.2.2 The patient has a documented intolerance, contraindication, or history of treatment 
+failure to TMP-SMX  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/11/2021  
+Bulk copy C&S Arizona standard to Medicaid Arizona  
+ 

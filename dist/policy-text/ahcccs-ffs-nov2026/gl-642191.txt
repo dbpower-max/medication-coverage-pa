@@ -1,0 +1,133 @@
+--- PDF page 66 ---
+Page 66 
+Afrezza 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-642191  
+Guideline Name 
+Afrezza  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+7/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Afrezza  
+Diagnosis 
+Type 1 or Type 2 diabetes mellitus  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+ 
+ 1.1 Diagnosis of type 1 diabetes mellitus and used in combination with a basal insulin or 
+continuous insulin pump  
+
+
+--- PDF page 67 ---
+Page 67 
+ 
+OR 
+ 
+ 1.2 Diagnosis of type 2 diabetes mellitus  
+ 
+AND 
+ 
+2 - Patient is 6 years of age or older  
+ 
+AND 
+ 
+3 - Patient is unable to self-inject medications (e.g. Humalog, Lantus, Levemir) due to ONE of 
+the following:  
+• 
+Physical impairment  
+• 
+Visual impairment  
+• 
+Lipohypertrophy  
+• 
+Documented needle-phobia to the degree that the patient has previously refused any 
+injectable therapy or medical procedure (refer to DSM-5 for specific phobia diagnostic 
+criteria)  
+ 
+AND 
+ 
+4 - Forced Expiratory Volume (FEV1) within the last 60 days is greater than or equal to 70% 
+of expected normal as determined by the physician  
+ 
+AND 
+ 
+5 - Afrezza will not be approved in patients with ONE of the following:  
+• 
+Who smoke cigarettes  
+• 
+Who recently quit smoking (within the past 6 months)  
+• 
+With chronic lung disease (e.g. asthma, chronic obstructive pulmonary disease)  
+ 
+Product Name:Afrezza  
+Diagnosis 
+Type 1 or Type 2 diabetes mellitus  
+
+
+--- PDF page 68 ---
+Page 68 
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Repeat pulmonary function test confirms that patient has NOT experienced a decline of 
+20% or more in Forced Expiratory Volume (FEV1)  
+ 
+AND 
+ 
+2 - Patient continues to be unable to self-inject short-acting insulin due to ONE of the 
+following:  
+• 
+Physical impairment  
+• 
+Visual impairment  
+• 
+Lipohypertrophy  
+• 
+Documented needle-phobia to the degree that the patient has previously refused any 
+injectable therapy or medical procedure (refer to DSM-5 for specific phobia diagnostic 
+criteria)  
+ 
+AND 
+ 
+3 - Patient continues to not smoke cigarettes  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+6/25/2026  
+Added age criterion due to expanded approval.  
+ 

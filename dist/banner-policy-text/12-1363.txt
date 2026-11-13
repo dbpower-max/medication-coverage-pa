@@ -1,0 +1,72 @@
+=== PDF PAGE 1363 ===
+Page 1363 
+Papzimeos (zopapogene imadenovec-drba) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-700344  
+Guideline Name 
+Papzimeos (zopapogene imadenovec-drba)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Papzimeos  
+Approval Length 
+12 Weeks (One treatment course)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of recurrent 
+respiratory papillomatosis  
+ 
+AND 
+
+
+=== PDF PAGE 1364 ===
+Page 1364 
+ 
+2 - Patient has had, or is scheduled to have, surgical debulking of visible laryngotracheal 
+papillomas associated with the current recurrence to establish minimal residual disease 
+before the first dose of Papzimeos (Note: Historical debulking procedures associated with 
+prior disease episodes do not satisfy this requirement)  
+ 
+AND 
+ 
+3 - Provider attests that patient has never received a treatment course with Papzimeos in their 
+lifetime  
+ 
+AND 
+ 
+4 - Patient is 18 years of age or older  
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with a specialist knowledgeable in the treatment of 
+recurrent respiratory papillomatosis (e.g., otolaryngologist, pulmonologist, oncologist)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/26/2026  
+Updated debulking criteria to specify procedure is for a new episode 
+of RRP  
+ 

@@ -1,0 +1,116 @@
+--- PDF page 1970 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1970 
+Yeztugo (lenacapavir) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-560212  
+Guideline Name 
+Yeztugo (lenacapavir)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+5/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Yeztugo  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Requested drug is being used for pre-exposure prophylaxis (PrEP) to reduce the risk of 
+sexually acquired HIV (human immunodeficiency virus)-1 infection  
+
+
+--- PDF page 1971 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1971 
+ 
+AND 
+ 
+2 - Patient's weight is greater than or equal to 35 kg (kilograms)  
+ 
+AND 
+ 
+3 - BOTH of the following:  
+• 
+Provider attests that the patient has a negative HIV-1 test prior to the initiation of 
+Yeztugo  
+• 
+Provider attests that the patient has been informed about the need for the required 
+testing, adherence, and every 6-month injection dosing schedule with Yeztugo  
+ 
+AND 
+ 
+4 - ONE of the following:  
+ 
+ 4.1 Trial and failure, contraindication or intolerance to BOTH of the following:  
+• 
+emtricitabine-tenofovir (generic Truvada)  
+• 
+Descovy  
+ 
+OR 
+ 
+ 4.2 Submission of medical records (e.g., chart notes) from provider documenting BOTH of 
+the following:  
+• 
+Patient would benefit from long-acting injectable therapy over standard oral regimens  
+• 
+Patient would be adherent to testing and dosing schedule  
+ 
+Product Name:Yeztugo  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 1972 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1972 
+ 
+ 
+Approval Criteria    
+ 
+1 - Provider attests that patient is adherent to the testing appointments and scheduled 
+injections of Yeztugo  
+ 
+AND 
+ 
+2 - BOTH of the following:  
+• 
+Patient has a negative HIV-1 test  
+• 
+Provider confirms that the patient will be tested for HIV-1 infection with each 
+subsequent injection  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/30/2026  
+Updated GPIs. Updated HIV testing requirement in both initial and re
+auth  
+ 

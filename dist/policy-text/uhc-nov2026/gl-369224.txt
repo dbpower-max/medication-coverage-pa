@@ -1,0 +1,168 @@
+--- PDF page 937 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 937 
+Infliximab Products 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-369224  
+Guideline Name 
+Infliximab Products  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Zymfentra  
+Diagnosis 
+Crohn's Disease (CD)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of moderately to 
+severely active Crohn's disease (CD)  
+
+
+--- PDF page 938 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 938 
+ 
+AND 
+ 
+2 - ONE of the following:  
+• 
+Frequent diarrhea and abdominal pain  
+• 
+At least 10% weight loss  
+• 
+Complications such as obstruction, fever, abdominal mass  
+• 
+Abnormal lab values (e.g., C-reactive protein [CRP])  
+• 
+CD Activity Index (CDAI) greater than 220  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with a gastroenterologist  
+ 
+AND 
+ 
+4 - Paid claims or submission of medical records (e.g., chart notes) confirming a trial and 
+failure, contraindication, or intolerance to ONE of the following conventional therapies:  
+• 
+6-mercaptopurine  
+• 
+Methotrexate  
+• 
+Azathioprine  
+• 
+Corticosteroids (e.g., prednisone)  
+ 
+Product Name:Zymfentra  
+Diagnosis 
+Ulcerative Colitis (UC)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of moderately to 
+severely active ulcerative colitis (UC)  
+
+
+--- PDF page 939 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 939 
+ 
+AND 
+ 
+2 - ONE of the following:  
+• 
+Greater than 6 stools per day  
+• 
+Frequent blood in the stools  
+• 
+Frequent urgency  
+• 
+Presence of ulcers  
+• 
+Abnormal lab values (e.g., hemoglobin, ESR, CRP)  
+• 
+Dependent on, or refractory to, corticosteroids  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with a gastroenterologist  
+ 
+AND 
+ 
+4 - Paid claims or submission of medical records (e.g., chart notes) confirming a trial and 
+failure, contraindication, or intolerance to ONE of the following conventional therapies:  
+• 
+6-mercaptopurine  
+• 
+Aminosalicylate (e.g., mesalamine, olsalazine, sulfasalazine)  
+• 
+Azathioprine  
+• 
+Corticosteroids (e.g., prednisone)  
+ 
+Product Name:Zymfentra  
+Diagnosis 
+Crohn's Disease (CD), Ulcerative Colitis (UC)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy as evidenced by at least ONE of the 
+following:  
+
+
+--- PDF page 940 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 940 
+• 
+Improvement in intestinal inflammation [e.g., mucosal healing, improvement of lab 
+values (platelet counts, erythrocyte sedimentation rate, C-reactive protein level)] from 
+baseline  
+• 
+Reversal of high fecal output state  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/14/2025  
+Updated initial auth criteria for CD and UC.  
+ 

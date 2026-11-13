@@ -1,0 +1,70 @@
+=== PDF PAGE 455 ===
+Page 455 
+Dificid (fidaxomicin) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-357232  
+Guideline Name 
+Dificid (fidaxomicin)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Preferred: Brand Dificid tablets; Non-Preferred: generic fidaxomicin tablets, 
+Brand Dificid oral suspension  
+Approval Length 
+10 Day(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of Clostridioides difficile-associated diarrhea (CDAD) [previously known as 
+Clostridium difficile- associated diarrhea]  
+ 
+AND 
+
+
+=== PDF PAGE 456 ===
+Page 456 
+ 
+2 - BOTH of the following:  
+ 
+ 2.1 One of the following:  
+• 
+History of failure, contraindication, or intolerance to generic vancomycin oral solution  
+• 
+For continuation of prior Dificid therapy  
+ 
+AND 
+ 
+ 2.2 Trial and failure, or intolerance to Brand Dificid tablets (applies to requests for generic 
+fidaxomicin and Brand Dificid suspension only)  
+Notes  
+PA Team Note: To approve, flip Brand/Generic Flag to "Y", approve at
+ MSC "O" 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/28/2025  
+Added generic fidaxomicin and Brand Dificid susp, updated step requ
+irements  
+ 

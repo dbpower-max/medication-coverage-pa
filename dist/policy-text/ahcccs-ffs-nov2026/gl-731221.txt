@@ -1,0 +1,69 @@
+--- PDF page 84 ---
+Page 84 
+Alpha-1 Proteinase Inhibitors 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-731221  
+Guideline Name 
+Alpha-1 Proteinase Inhibitors  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Aralast NP, Glassia, Prolastin-C, Prolastin-C liquid, Zemaira  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient has clinically evident emphysema  
+ 
+AND 
+
+
+--- PDF page 85 ---
+Page 85 
+ 
+2 - Submission of medical records (e.g., chart notes) documenting a diagnosis of severe 
+congenital deficiency of Alpha1- proteinase inhibitor (alpha1 antitrypsin deficiency)  
+ 
+Product Name:Aralast NP, Glassia, Prolastin-C, Prolastin-C liquid, Zemaira  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient has positive clinical response to therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+9/23/2026  
+Glassia to preferred (removed step) and added reauth criteria  
+ 

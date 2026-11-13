@@ -1,0 +1,144 @@
+=== PDF PAGE 129 ===
+Page 129 
+Antiemetics - AZM 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-620204  
+Guideline Name 
+Antiemetics - AZM  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+6/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Anzemet, granisetron tablet, granisetron injection, Granisol solution  
+Diagnosis 
+Nausea and vomiting associated with cancer chemotherapy  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Prevention or treatment of nausea and vomiting associated with cancer chemotherapy  
+ 
+AND 
+
+
+=== PDF PAGE 130 ===
+Page 130 
+ 
+2 - For Granisol requests ONLY, BOTH of the following:  
+ 
+ 2.1 Patient is unable to swallow a solid dosage form (e.g., oral tablet, capsule) due to one of 
+the following:  
+• 
+Age  
+• 
+Physical impairment (e.g., difficulties with motor or oral coordination)  
+• 
+Dysphagia  
+• 
+Patient is using a feeding tube or nasal gastric tube  
+ 
+AND 
+ 
+ 2.2 History of failure, contraindication, or intolerance to ondansetron ODT  
+ 
+Product Name:Anzemet, granisetron tablet, granisetron injection, Granisol solution  
+Diagnosis 
+Nausea and vomiting associated with radiotherapy  
+Approval Length 
+3 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Prevention or treatment of nausea and vomiting associated with radiotherapy (total body 
+irradiation, single high-dose fraction to the abdomen, or daily fractions to the abdomen)  
+ 
+AND 
+ 
+2 - For Granisol requests ONLY, BOTH of the following:  
+ 
+ 2.1 Patient is unable to swallow a solid dosage form (e.g., oral tablet, capsule) due to one of 
+the following:  
+• 
+Age  
+• 
+Physical impairment (e.g., difficulties with motor or oral coordination)  
+• 
+Dysphagia  
+• 
+Patient is using a feeding tube or nasal gastric tube  
+
+
+=== PDF PAGE 131 ===
+Page 131 
+ 
+AND 
+ 
+ 2.2 History of failure, contraindication, or intolerance to ondansetron ODT  
+ 
+Product Name:Anzemet, granisetron tablet, granisetron injection, Granisol solution  
+Diagnosis 
+Postoperative nausea and/or vomiting  
+Approval Length 
+1 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Prevention of postoperative nausea and/or vomiting (administration prior to induction of 
+anesthesia)  
+ 
+AND 
+ 
+2 - For Granisol requests ONLY, BOTH of the following:  
+ 
+ 2.1 Patient is unable to swallow a solid dosage form (e.g., oral tablet, capsule) due to one of 
+the following:  
+• 
+Age  
+• 
+Physical impairment (e.g., difficulties with motor or oral coordination)  
+• 
+Dysphagia  
+• 
+Patient is using a feeding tube or nasal gastric tube  
+ 
+AND 
+ 
+ 2.2 History of failure, contraindication, or intolerance to ondansetron ODT  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+
+
+=== PDF PAGE 132 ===
+Page 132 
+5/27/2026  
+Added Granisol solution as target, updated criteria.  
+ 

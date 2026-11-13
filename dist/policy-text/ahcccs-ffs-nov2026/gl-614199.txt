@@ -1,0 +1,305 @@
+--- PDF page 1666 ---
+Page 1666 
+Spinraza - AZM 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-614199  
+Guideline Name 
+Spinraza - AZM  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+5/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Spinraza  
+Approval Length 
+3 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of spinal muscular atrophy (SMA) type I, II, or III made by, or in consultation 
+with, a neurologist with expertise in the diagnosis of SMA  
+
+
+--- PDF page 1667 ---
+Page 1667 
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes, laboratory values) confirming both of the 
+following:  
+ 
+ 2.1 The mutation or deletion of genes in chromosome 5q resulting in one of the following:  
+• 
+Homozygous gene deletion or mutation (e.g., homozygous deletion of exon 7 at locus 
+5q13)  
+• 
+Compound heterozygous mutation (e.g., deletion of SMN1 exon 7 [allele 1] and 
+mutation of SMN1 [allele 2])  
+ 
+AND 
+ 
+ 2.2 Patient has at least 2 copies of SMN2  
+ 
+AND 
+ 
+3 - Patient is not dependent on invasive ventilation or tracheostomy  
+ 
+AND 
+ 
+4 - Patient is not dependent on use of non-invasive ventilation beyond use for naps and 
+nightime sleep  
+ 
+AND 
+ 
+5 - Submission of medical records (e.g., chart notes, laboratory values) or claims history of 
+the baseline exam of one of the following exams (based on patient age and motor ability) to 
+establish baseline motor ability:  
+• 
+Hammersmith Infant Neurological Exam Part 2 (HINE-2) (infant to early childhood)  
+• 
+Hammersmith Functional Motor Scale Expanded (HFMSE)  
+• 
+Upper Limb Module (ULM) Test (Non ambulatory)  
+• 
+Children’s Hospital of Philadelphia Infant Test of Neuromuscular Disorders (CHOP 
+INTEND)  
+
+
+--- PDF page 1668 ---
+Page 1668 
+ 
+AND 
+ 
+6 - Prescribed by, or in consultation with, a neurologist with expertise in the treatment of SMA  
+ 
+AND 
+ 
+7 - One of the following:  
+ 
+ 7.1 Patient has not previously received gene replacement therapy for the treatment of SMA  
+ 
+OR 
+ 
+ 7.2 One of the following:  
+ 
+  7.2.1 Both of the following:  
+ 
+   7.2.1.1 Patient recently received gene replacement therapy within the previous 6 months 
+ 
+AND 
+ 
+   7.2.1.2 Patient has experienced a declination in clinical status since receipt of gene 
+replacement therapy 
+ 
+OR 
+ 
+  7.2.2 Both of the following:  
+ 
+   7.2.2.1 Patient has previously received gene replacement therapy 
+ 
+AND 
+ 
+   7.2.2.2 Patient has experienced a declination in clinical status that represents a potential 
+abatement of gene therapy efficacy 
+ 
+AND 
+
+
+--- PDF page 1669 ---
+Page 1669 
+ 
+8 - Spinraza is to be administered intrathecally by, or under the direction of, healthcare 
+professionals experienced in performing lumbar punctures  
+ 
+AND 
+ 
+9 - Spinraza dosing for SMA is within accordance with the United States Food and Drug 
+Administration approved labeling  
+ 
+Product Name:Spinraza  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of spinal muscular atrophy (SMA) type I, II, or III made by, or in consultation 
+with, a neurologist with expertise in the diagnosis of SMA  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes, laboratory values) or claims history 
+confirming both of the following:  
+ 
+ 2.1 The mutation or deletion of genes in chromosome 5q resulting in one of the following:  
+• 
+Homozygous gene deletion or mutation (e.g., homozygous deletion of exon 7 at locus 
+5q13)  
+• 
+Compound heterozygous mutation (e.g., deletion of SMN1 exon 7 [allele 1] and 
+mutation of SMN1 [allele 2])  
+ 
+AND 
+ 
+ 2.2 Patient has at least 2 copies of SMN2  
+
+
+--- PDF page 1670 ---
+Page 1670 
+ 
+AND 
+ 
+3 - Patient is not dependent on invasive ventilation or tracheostomy  
+ 
+AND 
+ 
+4 - Patient is not dependent on use of non-invasive ventilation beyond use for naps and 
+nightime sleep  
+ 
+AND 
+ 
+5 - One of the following:  
+ 
+ 5.1 Patient has not previously received gene replacement therapy for the treatment of SMA  
+ 
+OR 
+ 
+ 5.2 Both of the following:  
+ 
+  5.2.1 Patient has previously received gene replacement therapy  
+ 
+AND 
+ 
+  5.2.2 Patient has experienced a declination in clinical status that represented a potential 
+failure or abatement of gene therapy efficacy  
+ 
+AND 
+ 
+6 - Submission of medical records (e.g., chart notes, laboratory values) or claims history with 
+the most recent results (less than 1 month prior to request) documenting a positive clinical 
+response from pretreatment baseline status to Spinraza therapy as demonstrated by one of 
+the following exams:  
+ 
+ 6.1 Both of the following for Hammersmith Infant Neurological Exam Part 2 (HINE-2) 
+milestones:  
+
+
+--- PDF page 1671 ---
+Page 1671 
+ 
+  6.1.1 One of the following:  
+• 
+Improvement or maintenance of previous improvement of at least 2 point (or maximal 
+score) increase in ability to kick  
+• 
+Improvement or maintenance of previous improvement of at least 1 point increase in 
+any other HINE-2 milestone (e.g., head control, rolling, sitting, crawling, etc.), 
+excluding voluntary grasp  
+ 
+AND 
+ 
+  6.1.2 One of the following:  
+• 
+The patient exhibited improvement or maintenance of previous improvement in more 
+HINE motor milestones than worsening, from pretreatment baseline (net positive 
+improvement)  
+• 
+Achieved and maintained any new motor milestones when they would otherwise be 
+unexpected to do so (e.g., sit unassisted, stand, walk)  
+ 
+OR 
+ 
+ 6.2 One of the following for Hammersmith Functional Motor Scale Expanded (HFMSE):  
+• 
+Improvement or maintenance of previous improvement of at least a 3 point increase in 
+score from pretreatment baseline  
+• 
+Patient has achieved and maintained any new motor milestone from pretreatment 
+baseline when they would otherwise be unexpected to do so  
+ 
+OR 
+ 
+ 6.3 One of the following for Upper Limb Module (ULM):  
+• 
+Improvement or maintenance of previous improvement of at least a 2 point increase in 
+score from pretreatment baseline  
+• 
+Patient has achieved and maintained any new motor milestone from pretreatment 
+baseline when they would otherwise be unexpected to do so  
+ 
+OR 
+ 
+ 6.4 One of the following for Children’s Hospital of Philadelphia Infant Test of Neuromuscular 
+Disorders (CHOP INTEND):  
+
+
+--- PDF page 1672 ---
+Page 1672 
+ 
+  6.4.1 Improvement or maintenance of previous improvement of at least a 4 point increase in 
+score from pretreatment baseline  
+ 
+OR 
+ 
+  6.4.2 Patient has achieved and maintained any new motor milestone from pretreatment 
+baseline when they would otherwise be unexpected to do so  
+ 
+OR 
+ 
+  6.4.3 Both of the following:  
+• 
+Patient was prescribed Spinraza due to clinical declination after receipt of gene 
+therapy  
+• 
+Patients clinical status has stabilized after receipt of Spinraza therapy  
+ 
+AND 
+ 
+7 - Prescribed by, or in consultation with, a neurologist with expertise in the treatment of SMA  
+ 
+AND 
+ 
+8 - Spinraza is to be administered intrathecally by, or under the direction of, healthcare 
+professionals experienced in performing lumbar punctures  
+ 
+AND 
+ 
+9 - Spinraza dosing for SMA is within accordance with the United States Food and Drug 
+Administration approved labeling  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+
+
+--- PDF page 1673 ---
+Page 1673 
+5/19/2026  
+Added new GPIs, updated dosing criterion verbiage due to new high 
+dose regimen  
+ 

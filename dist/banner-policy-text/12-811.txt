@@ -1,0 +1,202 @@
+=== PDF PAGE 811 ===
+Page 811 
+Hereditary Angioedema (HAE) Agents - AZM 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-525295  
+Guideline Name 
+Hereditary Angioedema (HAE) Agents - AZM  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+4/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Preferred: Cinryze, Haegarda; Non-Preferred: Andembry, Dawnzera, 
+Orladeyo, Takhzyro  
+Diagnosis 
+Prophylaxis of HAE attacks  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting diagnosis of hereditary 
+angioedema (HAE) confirmed by ONE of the following:  
+
+
+=== PDF PAGE 812 ===
+Page 812 
+ 
+ 1.1 C1 inhibitor (C1-INH) deficiency or dysfunction (Type I or II HAE) as documented by ONE 
+of the following (per laboratory standard):  
+• 
+C1-INH antigenic level below the lower limit of normal  
+• 
+C1-INH functional level below the lower limit of normal  
+ 
+OR 
+ 
+ 1.2 HAE with normal C1 inhibitor levels and ONE of the following:  
+• 
+Confirmed presence of a FXII, angiopoietin-1 or plasminogen gene mutation  
+• 
+Recurring angioedema attacks that are refractory to high-dose antihistamines with 
+confirmed family history of angioedema  
+ 
+AND 
+ 
+2 - For prophylaxis against HAE attacks  
+ 
+AND 
+ 
+3 - One of the following:  
+• 
+Patient is 2 years of age or older (applies to Orladeyo pellets and Takhzyro only)  
+• 
+Patient is 6 years of age or older (applies to Cinryze and Haegarda only)  
+• 
+Patient is 12 years of age or older (applies to Andembry, Dawnzera, and Orladeyo 
+capsules only)  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with one of the following:  
+• 
+Immunologist  
+• 
+Allergist  
+ 
+AND 
+ 
+5 - ONE of the following: (APPLIES TO ANDEMBRY, DAWNZERA, ORLADEYO, AND 
+TAKHZYRO ONLY):  
+
+
+=== PDF PAGE 813 ===
+Page 813 
+ 
+ 5.1 Submission of medical records documenting a history of failure, contraindication, or 
+intolerance to Cinryze or Haegarda  
+ 
+OR 
+ 
+ 5.2 Submission of medical records documenting patient is currently on Andembry, Dawnzera, 
+Orladeyo, or Takhzyro therapy  
+Notes  
+*Please note: Preferred agents are Cinryze and Haegarda 
+ 
+Product Name:Preferred: Berinert, Cinryze [off-label],Generic icatibant, Kalbitor; Non-
+Preferred: Brand Firazyr, Ekterly, Ruconest, or Sajazir  
+Diagnosis 
+Treatment of acute HAE attacks  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting diagnosis of hereditary 
+angioedema (HAE) confirmed by ONE of the following:  
+ 
+ 1.1 C1 inhibitor (C1-INH) deficiency or dysfunction (Type I or II HAE) as documented by ONE 
+of the following (per laboratory standard):  
+• 
+C1-INH antigenic level below the lower limit of normal  
+• 
+C1-INH functional level below the lower limit of normal  
+ 
+OR 
+ 
+ 1.2 HAE with normal C1 inhibitor levels and ONE of the following:  
+• 
+Confirmed presence of a FXII, angiopoietin-1 or plasminogen gene mutation  
+• 
+Recurring angioedema attacks that are refractory to high-dose antihistamines with 
+confirmed family history of angioedema  
+ 
+AND 
+
+
+=== PDF PAGE 814 ===
+Page 814 
+ 
+2 - For the treatment of acute HAE attacks  
+ 
+AND 
+ 
+3 - Not used in combination with other approved treatments for acute HAE attacks  
+ 
+AND 
+ 
+4 - One of the following:  
+• 
+Patient is 6 years of age or older (applies to Cinryze only)  
+• 
+Patient is 12 years of age or older (applies to Ekterly and Kalbitor only)  
+• 
+Patient is 18 years of age or older (applies to Brand Firazyr, generic icatibant, and 
+Sajazir only)  
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with one of the following:  
+• 
+Immunologist  
+• 
+Allergist  
+ 
+AND 
+ 
+6 - ONE of the following (APPLIES TO BRAND FIRAZYR, EKTERLY, RUCONEST, AND 
+SAJAZIR ONLY):  
+ 
+ 6.1 Submission of medical records documenting a history of failure, contraindication, or 
+intolerance to ALL of the following preferred HAE agents:  
+• 
+Berinert  
+• 
+Cinryze  
+• 
+generic icatibant  
+• 
+Kalbitor  
+ 
+OR 
+
+
+=== PDF PAGE 815 ===
+Page 815 
+ 
+ 6.2 Submission of medical records or paid claims documenting patient is currently on Brand 
+Firazyr, Ekterly, Ruconest, or Sajazir therapy  
+Notes  
+Please note: Preferred HAE agents are Berinert, Cinryze, generic icati
+bant, and Kalbitor 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/5/2026  
+January P&T changes: Haegarda to PDL. Added Orladeyo pellet pac
+kets, updated age criterion.  
+ 

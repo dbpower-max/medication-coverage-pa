@@ -1,0 +1,971 @@
+--- PDF page 781 ---
+Page 781 
+Hemophilia Clotting Factors 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-700341  
+Guideline Name 
+Hemophilia Clotting Factors  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Corifact  
+Diagnosis 
+Congenital Factor XIII Deficiency  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of congenital factor XIII deficiency  
+ 
+AND 
+
+
+--- PDF page 782 ---
+Page 782 
+ 
+2 - ONE of the following:  
+• 
+Routine prophylactic treatment of bleeding  
+• 
+Peri-operative management of surgical bleeding  
+• 
+Treatment of bleeding episodes  
+ 
+Product Name:Tretten  
+Diagnosis 
+Congenital Factor XIII Deficiency  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of congenital factor XIII A-subunit deficiency  
+ 
+AND 
+ 
+2 - ONE of the following:  
+• 
+Routine prophylactic treatment of bleeding  
+• 
+Peri-operative management of surgical bleeding  
+• 
+Treatment of bleeding episodes  
+ 
+Product Name:Humate-P  
+Diagnosis 
+Von Willebrand Disease (VWD)  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+
+
+--- PDF page 783 ---
+Page 783 
+ 
+ 1.1 BOTH of the following:  
+• 
+Diagnosis of Type 1, 2A, 2M, or 2N von Willebrand disease (VWD)  
+• 
+History of failure, contraindication or intolerance to treatment with desmopressin  
+ 
+OR 
+ 
+ 1.2 Diagnosis of Type 2B or Type 3 von Willebrand disease (VWD)  
+ 
+OR 
+ 
+ 1.3 Requested medication is being used for treatment of spontaneous and trauma-induced 
+bleeding episodes  
+ 
+Product Name:Alphanate  
+Diagnosis 
+Von Willebrand Disease (VWD)  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - BOTH of the following:  
+ 
+ 1.1 Diagnosis of Type 1, 2A, 2M, or 2N von Willebrand disease (VWD)  
+ 
+AND 
+ 
+ 1.2 History of failure, contraindication or intolerance to treatment with desmopressin  
+ 
+OR 
+ 
+2 - Diagnosis of Type 2B or Type 3 von Willebrand disease (VWD)  
+ 
+
+
+--- PDF page 784 ---
+Page 784 
+Product Name:Wilate or Vonvendi  
+Diagnosis 
+Von Willebrand Disease (VWD)  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+ 
+ 1.1 Both of the following:  
+• 
+Diagnosis of Type 1, 2A, 2M, or 2N von Willebrand disease (VWD)  
+• 
+History of failure, contraindication or intolerance to treatment with desmopressin  
+ 
+OR 
+ 
+ 1.2 Diagnosis of Type 2B or Type 3 von Willebrand disease (VWD)  
+ 
+AND 
+ 
+2 - ONE of the following:  
+• 
+Treatment of bleeding episodes  
+• 
+Peri-operative management of surgical bleeding  
+• 
+Routine prophylactic treatment  
+ 
+Product Name:NovoSeven RT  
+Diagnosis 
+Congenital Factor VII Deficiency  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of congenital factor VII deficiency  
+
+
+--- PDF page 785 ---
+Page 785 
+ 
+AND 
+ 
+2 - ONE of the following:  
+• 
+Treatment of bleeding episodes  
+• 
+Routine prophylactic treatment of bleeding  
+ 
+Product Name:Advate, Alphanate, Humate-P, Hemofilm, KoAte, KoAte-DVI, Kogenate FS, 
+Kovaltry, NovoEight, Nuwiq, Recombinate, Xyntha, or Xyntha Solofuse  
+Diagnosis 
+Hemophilia A  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of hemophilia A  
+ 
+AND 
+ 
+2 - ONE of the following:  
+• 
+Routine prophylactic treatment of bleeding  
+• 
+Peri-operative management of surgical bleeding  
+• 
+Treatment of bleeding episodes  
+ 
+Product Name:Eloctate  
+Diagnosis 
+Hemophilia A  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+
+
+--- PDF page 786 ---
+Page 786 
+Approval Criteria    
+ 
+1 - Diagnosis of hemophilia A  
+ 
+AND 
+ 
+2 - ONE of the following:  
+• 
+Routine prophylactic treatment of bleeding  
+• 
+Peri-operative management of surgical bleeding  
+• 
+Treatment of bleeding episodes  
+ 
+AND 
+ 
+3 - Patient is not a suitable candidate for treatment with shorter half-life Factor VIII 
+(recombinant) products [e.g., Advate, Kogenate FS, Kovaltry, Novoeight, Nuwiq, or 
+Recombinate] as attested by the prescribing physician  
+ 
+AND 
+ 
+4 - ONE of the following:  
+ 
+ 4.1 BOTH of the following:  
+• 
+Dose does not exceed 50 IU/kg  
+• 
+Infusing no more frequently than every 4 days  
+ 
+OR 
+ 
+ 4.2 Requested dosage regimen does not exceed 12.5 IU/kg/day  
+ 
+OR 
+ 
+ 4.3 BOTH of the following:  
+ 
+  4.3.1 Patient is less than 6 years of age  
+
+
+--- PDF page 787 ---
+Page 787 
+ 
+AND 
+ 
+  4.3.2 ONE of the following:  
+• 
+Pharmacokinetic (PK) testing results suggest that dosing more intensive than 50 IU/kg 
+is required  
+• 
+PK testing results suggest that dosing more frequently than every 3 to 5 days is 
+required  
+• 
+PK testing results suggest that dosing more intensive than 14.5 IU/kg/day is required  
+ 
+Product Name:Jivi  
+Diagnosis 
+Hemophilia A  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of hemophilia A  
+ 
+AND 
+ 
+2 - ONE of the following:  
+• 
+Peri-operative management of surgical bleeding  
+• 
+Routine prophylactic treatment of bleeding  
+• 
+Treatment of bleeding episodes  
+ 
+AND 
+ 
+3 - Patient has previously received Factor VIII replacement therapy  
+ 
+AND 
+
+
+--- PDF page 788 ---
+Page 788 
+ 
+4 - Patient is 7 years of age or older  
+ 
+AND 
+ 
+5 - Patient is not a candidate for treatment with shorter acting half-life Factor VIII 
+(recombinant) products [e.g., Advate, Kogenate FS, Kovaltry, Novoeight, Nuwiq, or 
+Recombinate] as attested by the prescribing physician  
+ 
+AND 
+ 
+6 - Patient is not to receive routine infusions more than 2 times per week  
+ 
+Product Name:Afstyla  
+Diagnosis 
+Hemophilia A  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of hemophilia A  
+ 
+AND 
+ 
+2 - ONE of the following:  
+• 
+Routine prophylactic treatment of bleeding  
+• 
+Peri-operative management of surgical bleeding  
+• 
+Treatment of bleeding episodes  
+ 
+AND 
+ 
+3 - Patient is not a suitable candidate for treatment with shorter acting half-life Factor VIII 
+(recombinant) products [e.g., Advate, Kogenate FS, Kovaltry, Novoeight, Nuwiq, 
+Recombinate] as attested by the prescribing physician  
+
+
+--- PDF page 789 ---
+Page 789 
+ 
+AND 
+ 
+4 - ONE of the following:  
+ 
+ 4.1 Patient is not to receive routine infusions more frequently than 3 times per week  
+ 
+OR 
+ 
+ 4.2 BOTH of the following:  
+• 
+Patient is less than 12 years of age  
+• 
+Pharmacokinetic (PK) testing results suggest that more frequently than 3 times per 
+week dosing is required  
+ 
+Product Name:Hemlibra  
+Diagnosis 
+Hemophilia A  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+ 
+ 1.1 All of the following:  
+ 
+  1.1.1 Diagnosis of severe hemophilia A  
+ 
+AND 
+ 
+  1.1.2 Documentation of endogenous factor VIII level less than 1% of normal factor VIII ( < 
+0.01 IU/mL)  
+ 
+AND 
+
+
+--- PDF page 790 ---
+Page 790 
+ 
+  1.1.3 Physician attestation that the patient is not to receive extended half-life factor VIII 
+replacement products (e.g., Eloctate, Adynovate, Afstyla, Jivi) for the treatment of 
+breakthrough bleeding episodes  
+ 
+OR 
+ 
+ 1.2 All of the following:  
+ 
+  1.2.1 One of the following:  
+ 
+   1.2.1.1 BOTH of the following: 
+• 
+Diagnosis of moderate hemophilia A  
+• 
+Documentation of endogenous factor VIII level greater than or equal to 1% to less than 
+5% (greater than or equal to 0.01 IU/mL to less than 0.05 IU/mL)  
+ 
+OR 
+ 
+   1.2.1.2 Both of the following: 
+• 
+Diagnosis of mild hemophilia A  
+• 
+Documentation of endogenous factor VIII level greater than or equal to 5% (greater 
+than 0.05 IU/mL)  
+ 
+AND 
+ 
+  1.2.2 Submission of medical records (e.g., chart notes, laboratory values) documenting a 
+failure to meet clinical goals (e.g., continuation of spontaneous bleeds, inability to achieve 
+appropriate trough level, previous history of inhibitors) after a trial of prophylactic factor VIII 
+replacement products  
+ 
+AND 
+ 
+  1.2.3 Physician attestation that the patient is not to receive extended half-life factor VIII 
+replacement products (e.g., Eloctate, Adynovate, Afstyla, Jivi) for the treatment of 
+breakthrough bleeding episodes  
+ 
+OR 
+
+
+--- PDF page 791 ---
+Page 791 
+ 
+ 1.3 BOTH of the following:  
+• 
+Diagnosis of hemophilia A  
+• 
+Patient has developed high-titer factor VIII inhibitors (greater than or equal to 5 
+Bethesda units [BU])  
+ 
+AND 
+ 
+2 - Prescribed for the prevention of bleeding episodes (i.e., routine prophylaxis)  
+ 
+Product Name:FEIBA  
+Diagnosis 
+Hemophilia A  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of hemophilia A  
+ 
+AND 
+ 
+2 - Documentation of inhibitors (e.g., Bethesda inhibitor assay)  
+ 
+AND 
+ 
+3 - One of the following:  
+• 
+Routine prophylactic treatment of bleeding  
+• 
+Peri-operative management of surgical bleeding  
+• 
+Treatment of bleeding episodes  
+ 
+Product Name:NovoSeven RT, Obizur  
+Diagnosis 
+Acquired factor VIII Hemophilia  
+
+
+--- PDF page 792 ---
+Page 792 
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of acquired factor VIII hemophilia (e.g., acquired hemophilia A, Factor VIII 
+deficiency)  
+ 
+AND 
+ 
+2 - Treatment or prevention of bleeding episodes  
+ 
+Product Name:Adynovate  
+Diagnosis 
+Hemophilia A  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of hemophilia A  
+ 
+AND 
+ 
+2 - One of the following:  
+• 
+Routine prophylactic treatment of bleeding  
+• 
+Peri-operative management of surgical bleeding  
+• 
+Treatment of bleeding episodes  
+ 
+AND 
+ 
+3 - Patient is not a suitable candidate for treatment with shorter acting half-life Factor VIII 
+(recombinant) products [Advate, Kogenate FS, Kovaltry, Novoeight, Nuwiq, or Recombinate] 
+as attested by the prescribing physician  
+
+
+--- PDF page 793 ---
+Page 793 
+ 
+AND 
+ 
+4 - One of the following:  
+ 
+ 4.1 BOTH of the following:  
+• 
+Patient is not to receive routine infusions more frequently than 2 times per week  
+• 
+Patient is not to receive a routine dose greater than 50 IU/kg  
+ 
+OR 
+ 
+ 4.2 ALL of the following:  
+• 
+Patient is less than 12 years of age  
+• 
+Patient is not to receive routine infusions more frequently than 2 times per week  
+• 
+Patient is not to receive a routine dose greater than 70 IU/kg  
+ 
+Product Name:Esperoct  
+Diagnosis 
+Hemophilia A  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of hemophilia A  
+ 
+AND 
+ 
+2 - ONE of the following:  
+• 
+Routine prophylactic treatment of bleeding  
+• 
+Peri-operative management of surgical bleeding  
+• 
+Treatment of bleeding episodes  
+
+
+--- PDF page 794 ---
+Page 794 
+ 
+AND 
+ 
+3 - ONE of the following:  
+ 
+ 3.1 Patient is not to receive routine infusions more frequently than 2 times per week  
+ 
+OR 
+ 
+ 3.2 BOTH of the following:  
+• 
+Patient is less than 12 years of age  
+• 
+Pharmacokinetic (PK) testing results suggest that more frequent than 2 times per 
+week dosing is required  
+ 
+Product Name:Wilate  
+Diagnosis 
+Hemophilia A  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of hemophilia A  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 Routine prophylactic treatment of bleeding  
+ 
+OR 
+ 
+ 2.2 Treatment of bleeding episodes  
+ 
+
+
+--- PDF page 795 ---
+Page 795 
+Product Name:NovoSeven RT, Sevenfact  
+Diagnosis 
+Hemophilia A  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of hemophilia A  
+ 
+AND 
+ 
+2 - Documentation of inhibitors (e.g., Bethesda inhibitor assay)  
+ 
+AND 
+ 
+3 - One of the following:  
+• 
+Peri-operative management of surgical bleeding  
+• 
+Treatment of bleeding episodes  
+ 
+Product Name:Altuviiio  
+Diagnosis 
+Hemophilia A  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of hemophilia A  
+ 
+AND 
+ 
+2 - ONE of the following:  
+
+
+--- PDF page 796 ---
+Page 796 
+• 
+Treatment of bleeding episodes  
+• 
+Prevention of bleeding in surgical interventions or invasive procedures (e.g., surgical 
+prophylaxis)  
+• 
+Prevention of bleeding episodes (i.e., routine prophylaxis)  
+ 
+AND 
+ 
+3 - Patient is not a suitable candidate for treatment with shorter acting half-life Factor VIII 
+(recombinant) products [e.g., Advate, Kogenate FS, Kovaltry, Novoeight, Nuwiq, or 
+Recombinate] as attested by the prescribing physician  
+ 
+AND 
+ 
+4 - Both of the following:  
+• 
+Dose does not exceed 50 IU/kg  
+• 
+Patient is infusing no more frequently than every 7 days  
+ 
+Product Name:AlphaNine SD, Mononine, Profilnine, Profilnine SD  
+Diagnosis 
+Hemophilia B  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of hemophilia B  
+ 
+AND 
+ 
+2 - One of the following:  
+• 
+Routine prophylactic treatment  
+• 
+Treatment of bleeding episodes  
+ 
+
+
+--- PDF page 797 ---
+Page 797 
+Product Name:BeneFIX, Rixubis, Alprolix, Idelvion, Ixinity, or Rebinyn  
+Diagnosis 
+Hemophilia B  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of hemophilia B  
+ 
+AND 
+ 
+2 - ONE of the following:  
+• 
+Routine prophylactic treatment  
+• 
+Peri-operative management of surgical bleeding  
+• 
+Treatment of bleeding episodes  
+ 
+Product Name:FEIBA  
+Diagnosis 
+Hemophilia B  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of hemophilia B  
+ 
+AND 
+ 
+2 - Documentation of inhibitors (e.g., Bethesda inhibitor assay)  
+ 
+AND 
+
+
+--- PDF page 798 ---
+Page 798 
+ 
+3 - ONE of the following:  
+• 
+Routine prophylactic treatment of bleeding  
+• 
+Peri-operative management of surgical bleeding  
+• 
+Treatment of bleeding episodes  
+ 
+Product Name:NovoSeven RT, Sevenfact  
+Diagnosis 
+Hemophilia B  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of hemophilia B  
+ 
+AND 
+ 
+2 - Documentation of inhibitors (e.g., Bethesda inhibitor assay)  
+ 
+AND 
+ 
+3 - ONE of the following:  
+• 
+Peri-operative management of surgical bleeding  
+• 
+Treatment of bleeding episodes  
+ 
+Product Name:Fesilty, Fibryga, RiaSTAP  
+Diagnosis 
+Fibrinogen Deficiency  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 799 ---
+Page 799 
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of congenital fibrinogen deficiency, including afibrinogenemia and 
+hypofibrinogenemia  
+ 
+AND 
+ 
+2 - Treatment of bleeding episodes  
+ 
+Product Name:NovoSeven RT  
+Diagnosis 
+Glanzmann Thrombasthenia  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of Glanzmann's thrombasthenia  
+ 
+AND 
+ 
+2 - Refractory to platelet transfusions  
+ 
+AND 
+ 
+3 - ONE of the following:  
+• 
+Treatment of bleeding episodes  
+• 
+Peri-operative management of surgical bleeding  
+ 
+Product Name:Coagadex  
+Diagnosis 
+Congenital Factor X Deficiency  
+
+
+--- PDF page 800 ---
+Page 800 
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of congenital Factor X deficiency  
+ 
+AND 
+ 
+2 - ONE of the following:  
+• 
+Treatment of bleeding episodes  
+• 
+Peri-operative management of surgical bleeding  
+• 
+Routine prophylactic treatment  
+ 
+Product Name:Hympavzi  
+Diagnosis 
+Hemophilia A, Hemophilia B  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of one of the following:  
+• 
+hemophilia A (congenital factor VIII deficiency) without factor VIII inhibitors  
+• 
+hemophilia B (congenital factor IX deficiency) without factor IX inhibitors  
+ 
+AND 
+ 
+2 - Patient is 6 years of age or older  
+ 
+AND 
+
+
+--- PDF page 801 ---
+Page 801 
+ 
+3 - Drug will be used for prophylaxis to prevent or reduce the frequency of bleeding episodes  
+ 
+Product Name:Alhemo  
+Diagnosis 
+Hemophilia A, Hemophilia B  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of one of the following:  
+• 
+hemophilia A (congenital factor VIII deficiency) with or without factor VIII inhibitors  
+• 
+hemophilia B (congenital factor IX deficiency) with or without factor IX inhibitors  
+ 
+AND 
+ 
+2 - Patient is 12 years of age or older  
+ 
+AND 
+ 
+3 - Drug will be used for prophylaxis to prevent or reduce the frequency of bleeding episodes  
+ 
+Product Name:Qfitlia  
+Diagnosis 
+Hemophilia A, Hemophilia B  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of one of the following:  
+• 
+hemophilia A (congenital factor VIII deficiency) with or without factor VIII inhibitors  
+
+
+--- PDF page 802 ---
+Page 802 
+• 
+hemophilia B (congenital factor IX deficiency) with or without factor IX inhibitors  
+ 
+AND 
+ 
+2 - Patient is 12 years of age or older  
+ 
+AND 
+ 
+3 - Drug will be used for prophylaxis to prevent or reduce the frequency of bleeding episodes  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/26/2026  
+Updated criteria for VWD drugs, verbiage now specific to type of VW
+D  
+ 

@@ -1,0 +1,81 @@
+=== PDF PAGE 735 ===
+Page 735 
+Gralise, Horizant - AZM 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-450258  
+Guideline Name 
+Gralise, Horizant - AZM  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+1/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Gralise, generic gabapentin (once-daily)  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of postherpetic neuralgia (PHN)  
+ 
+AND 
+
+
+=== PDF PAGE 736 ===
+Page 736 
+ 
+2 - Trial and failure or intolerance to generic immediate-release gabapentin (generic for 
+Neurontin)  
+ 
+AND 
+ 
+3 - For generic gabapentin (once-daily) requests ONLY: Trial and failure or intolerance to 
+Brand Gralise  
+ 
+Product Name:Horizant  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+ 
+ 1.1 Both of the following:  
+• 
+Diagnosis of postherpetic neuralgia (PHN)  
+• 
+Trial and failure or intolerance to generic immediate-release gabapentin (generic for 
+Neurontin)  
+ 
+OR 
+ 
+ 1.2 Diagnosis of restless legs syndrome  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+12/17/2025  
+Added new GPIs for generic Gralise (NP)  
+ 

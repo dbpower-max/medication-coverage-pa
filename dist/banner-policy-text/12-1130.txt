@@ -1,0 +1,112 @@
+=== PDF PAGE 1130 ===
+Page 1130 
+Lyfgenia (lovotibeglogene autotemcel) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-406247  
+Guideline Name 
+Lyfgenia (lovotibeglogene autotemcel)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Lyfgenia  
+Approval Length 
+1 Time Authorization in Lifetime*  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a diagnosis of sickle cell 
+disease (SCD) confirmed by patient genotype including βS/βS, βS/β0, or βS/β+  
+ 
+AND 
+
+
+=== PDF PAGE 1131 ===
+Page 1131 
+ 
+2 - Patient is 12 years of age or older  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) or paid claims confirming a history of 
+failure or intolerance to hydroxyurea (defined as being unable to take hydroxyurea per health 
+care professional judgement) at any point in the past  
+ 
+AND 
+ 
+4 - Provider attests that patient is clinically stable and eligible to undergo hematopoietic stem 
+cell transplant (HSCT)  
+ 
+AND 
+ 
+5 - Submission of medical records (e.g., chart notes) documenting one of the following:  
+ 
+ 5.1 Patient has a history of at least 4 vaso-occlusive events (VOEs) in the past 24 months 
+defined by one of following scenarios:  
+• 
+an episode of acute pain with no medically determined cause other than vaso-
+occlusion, lasting more than 2 hours  
+• 
+acute chest syndrome (ACS)  
+• 
+acute hepatic sequestration  
+• 
+acute splenic sequestration  
+• 
+VOE requiring a hospitalization or multiple visits to an emergency department/urgent 
+care over 72 hours and receiving intravenous medications at each visit  
+• 
+priapism requiring any level of medical attention  
+ 
+OR 
+ 
+ 5.2 Patient is currently receiving chronic transfusion therapy for recurrent Vaso-Occlusive 
+Events (VOEs)  
+ 
+AND 
+ 
+6 - Prescribed by a provider at a SCD treatment center with expertise in gene therapy  
+
+
+=== PDF PAGE 1132 ===
+Page 1132 
+ 
+AND 
+ 
+7 - Prescribed by or in consultation with a board-certified hematologist with SCD expertise  
+ 
+AND 
+ 
+8 - Patient has never received any previous sickle cell gene therapy treatment in their lifetime 
+(i.e., Casgevy, Lyfgenia)  
+Notes  
+*Per prescribing information, Lyfgenia is for one-time, single dose intr
+avenous use only. 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+9/30/2025  
+Updated criterion 1 verbiage (added "including"), no change to clinica
+l intent.  
+ 

@@ -1,0 +1,228 @@
+--- PDF page 477 ---
+Page 477 
+Duexis and Vimovo - Arizona 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-99563  
+Guideline Name 
+Duexis and Vimovo - Arizona  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+12/9/2021  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Duexis  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following risk factors for NSAID (non-steroidal anti-inflammatory drug) induced 
+adverse GI (gastrointestinal) events:  
+• 
+Patient is greater than or equal to 65 years of age  
+• 
+Prior history of peptic, gastric, or duodenal ulcer  
+• 
+History of NSAID-related ulcer  
+• 
+History of clinically significant GI bleeding  
+
+
+--- PDF page 478 ---
+Page 478 
+• 
+Untreated or active H. Pylori gastritis  
+• 
+Concurrent use of oral corticosteroids (eg, prednisone, prednisolone, dexamethasone)  
+• 
+Concurrent use of anticoagulants (eg, warfarin, heparin)  
+• 
+Concurrent use of antiplatelets (eg, aspirin including low-dose, clopidogrel)  
+ 
+AND 
+ 
+2 - Documentation of history of failure, contraindication, or intolerance to THREE 
+combinations of preferred NSAIDS taken with preferred H2 (histamine 2)-receptor 
+antagonists. (Provide name and date preferred products were tried)*  
+ 
+AND 
+ 
+3 - Physician has provided rationale for needing to use fixed-dose combination therapy with 
+Duexis instead of taking individual products in combination.  
+Notes  
+*Please reference background section for preferred products table 
+ 
+Product Name:Brand Vimovo, generic naproxen-esomeprazole  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following risk factors for NSAID (non-steroidal anti-inflammatory drug) induced 
+adverse GI (gastrointestinal) events:  
+• 
+Patient is greater than or equal to 65 years of age  
+• 
+Prior history of peptic, gastric, or duodenal ulcer  
+• 
+History of NSAID-related ulcer  
+• 
+History of clinically significant GI bleeding  
+• 
+Untreated or active H. Pylori gastritis  
+• 
+Concurrent use of oral corticosteroids (eg, prednisone, prednisolone, dexamethasone)  
+• 
+Concurrent use of anticoagulants (eg, warfarin, heparin)  
+• 
+Concurrent use of antiplatelets (eg, aspirin including low-dose, clopidogrel)  
+ 
+AND 
+
+
+--- PDF page 479 ---
+Page 479 
+ 
+2 - Documentation of history of failure, contraindication, or intolerance to THREE 
+combinations of preferred NSAIDS taken with preferred proton pump inhibitors (PPIs). 
+(Provide name and date preferred products were tried)*  
+ 
+AND 
+ 
+3 - Physician has provided rationale for needing to use fixed-dose combination therapy with 
+Vimovo instead of taking individual products in combination.  
+Notes  
+*Please reference background section for preferred products table 
+ 
+ 
+2 .  Background  
+ 
+Benefit/Coverage/Program Information  
+Preferred Table  
+NSAIDS 
+Proton Pump Inhibitors 
+(PPIs) 
+H2 (histamine 2)-receptor 
+antagonists 
+Diclofenac DR (Generic 
+Voltaren) 
+esomeprazole (Generic 
+Nexium)  
+Famotidine (Generic 
+Pepcid)  
+Diclofenac ER (Generic 
+Voltaren ER)  
+lansoprazole (Generic 
+Prevacid)  
+Nizatidine (Generic Axid)  
+  
+Etodolac (Generic Lodine)  
+  
+omeprazole (Generic 
+Prilosec)  
+Ranitidine (Generic Zantac)  
+  
+Etodolac ER (Generic 
+Lodine ER) 
+pantoprazole sodium 
+(Generic Protonix) 
+  
+Fenoprofen (Generic 
+Nalfon)  
+  
+  
+  
+Flurbiprofen (Generic 
+Ansaid)  
+  
+  
+  
+
+
+--- PDF page 480 ---
+Page 480 
+Ibuprofen  
+  
+  
+  
+Indomethacin (Generic 
+Indocin)  
+  
+  
+  
+Ketorolac (Generic Toradol)  
+  
+  
+  
+Mefenamic (Generic 
+Ponstel)  
+  
+  
+  
+Meloxicam (Generic Mobic)  
+  
+  
+  
+Nabumetone (Generic 
+Relafen)  
+  
+  
+  
+Nabumetone DS (Generic 
+Relafen DS)  
+  
+  
+  
+Naproxen (Generic 
+Anaprox)  
+  
+  
+  
+Naproxen DR (Generic 
+Anaprox DR)  
+  
+  
+  
+Naproxen EC (Generic 
+Anaprox EC)  
+  
+  
+  
+Oxaprozin (Generic Daypro)  
+  
+  
+  
+
+
+--- PDF page 481 ---
+Page 481 
+Piroxicam (Generic 
+Feldene)  
+  
+  
+Sulindac (Generic Clinoril)  
+  
+  
+  
+ 

@@ -1,0 +1,75 @@
+=== PDF PAGE 1590 ===
+Page 1590 
+Signifor 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-99643  
+Guideline Name 
+Signifor  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+12/9/2021  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Signifor  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Both of the following:  
+ 
+ 1.1 Diagnosis of endogenous Cushing’s disease (i.e., hypercortisolism is not a result of 
+chronic administration of high dose glucocorticoids)  
+
+
+=== PDF PAGE 1591 ===
+Page 1591 
+ 
+AND 
+ 
+ 1.2 One of the following:  
+• 
+Pituitary surgery has not been curative for the patient  
+• 
+Patient is not a candidate for pituitary surgery  
+ 
+Product Name:Signifor  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to Signifor therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/11/2021  
+Bulk Copy C&S Arizona Medicaid SP to Medicaid Arizona SP for 7/1  
+ 

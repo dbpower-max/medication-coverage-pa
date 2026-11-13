@@ -1,0 +1,203 @@
+--- PDF page 1286 ---
+Page 1286 
+Nuzyra 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-99522  
+Guideline Name 
+Nuzyra  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+12/9/2021  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Nuzyra  
+Diagnosis 
+Community-Acquired Bacterial Pneumonia  
+Approval Length 
+14 Day(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following:  
+ 
+ 1.1 For continuation of therapy upon hospital discharge  
+
+
+--- PDF page 1287 ---
+Page 1287 
+ 
+OR 
+ 
+ 1.2 As continuation of therapy when transitioning from intravenous antibiotics that are shown 
+to be sensitive to the cultured organism for the requested indication  
+ 
+OR 
+ 
+ 1.3 ALL of the following:  
+ 
+  1.3.1 Diagnosis of community-acquired bacterial pneumonia (CABP)  
+ 
+AND 
+ 
+  1.3.2 Infection caused by an organism that is confirmed to be or likely to be susceptible to 
+treatment with Nuzyra  
+ 
+AND 
+ 
+  1.3.3 History of failure, contraindication, or intolerance to THREE of the following antibiotics 
+or antibiotic regimens:  
+• 
+Amoxicillin  
+• 
+A macrolide  
+• 
+Doxycycline  
+• 
+A fluoroquinolone  
+• 
+Combination therapy with amoxicillin/clavulanate or cephalosporin AND a macrolide or 
+doxycycline  
+ 
+Product Name:Nuzyra  
+Diagnosis 
+Acute Bacterial Skin and Skin Structure Infections  
+Approval Length 
+14 Day(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+
+
+--- PDF page 1288 ---
+Page 1288 
+Approval Criteria    
+ 
+1 - ONE of the following:  
+ 
+ 1.1 For continuation of therapy upon hospital discharge  
+ 
+OR 
+ 
+ 1.2 As continuation of therapy when transitioning from intravenous antibiotics that are shown 
+to be sensitive to the cultured organism for the requested indication  
+ 
+OR 
+ 
+ 1.3 ALL of the following:  
+ 
+  1.3.1 ONE of the following diagnoses:  
+ 
+   1.3.1.1 BOTH of the following: 
+• 
+Acute bacterial skin and skin structure infections  
+• 
+Infection caused by methicillin-resistant Staphylococcus aureus (MRSA) documented 
+by culture and sensitivity report  
+ 
+OR 
+ 
+   1.3.1.2 BOTH of the following: 
+• 
+Empirical treatment of patients with acute bacterial skin and skin structure infections  
+• 
+Presence of MRSA infection is likely  
+ 
+AND 
+ 
+  1.3.2 History of failure, contraindication, or intolerance to linezolid (generic Zyvox)  
+ 
+AND 
+ 
+  1.3.3 History of failure, contraindication, or intolerance to ONE of the following antibiotics:  
+• 
+Sulfamethoxazole-trimethoprim (SMZ-TMP)  
+
+
+--- PDF page 1289 ---
+Page 1289 
+• 
+A tetracycline  
+• 
+Clindamycin  
+ 
+OR 
+ 
+ 1.4 ALL of the following:  
+ 
+  1.4.1 Diagnosis of acute bacterial skin and skin structure infections  
+ 
+AND 
+ 
+  1.4.2 Infection caused by an organism that is confirmed to be or likely to be susceptible to 
+treatment with Nuzyra  
+ 
+AND 
+ 
+  1.4.3 History of failure, contraindication, or intolerance to THREE of the following antibiotics:  
+• 
+A penicillin  
+• 
+A cephalosporin  
+• 
+A tetracycline  
+• 
+Sulfamethoxazole-trimethoprim (SMZ-TMP)  
+• 
+Clindamycin  
+ 
+Product Name:Nuzyra  
+Diagnosis 
+Off-Label Uses*  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following:  
+ 
+ 1.1 For continuation of therapy upon hospital discharge  
+ 
+OR 
+
+
+--- PDF page 1290 ---
+Page 1290 
+ 
+ 1.2 As continuation of therapy when transitioning from intravenous antibiotics that are shown 
+to be sensitive to the cultured organism for the requested indication  
+ 
+OR 
+ 
+ 1.3 The medication is being prescribed by or in consultation with an infectious disease 
+specialist.  
+Notes  
+*Note: Authorization duration based on provider treatment durations, n
+ot to exceed 6 months. 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+5/13/2021  
+Arizona Medicaid 7.1 Implementation  
+ 

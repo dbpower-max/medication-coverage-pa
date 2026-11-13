@@ -1,0 +1,153 @@
+--- PDF page 1263 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1263 
+Omnipod 5, Twiist 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-588187  
+Guideline Name 
+Omnipod 5, Twiist  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+• 
+Medicaid - Community & State Colorado  
+• 
+Medicaid - Community & State Hawaii  
+• 
+Medicaid - Community & State Michigan  
+• 
+Medicaid - Community & State New Jersey  
+• 
+Medicaid - Community & State New Mexico  
+• 
+Medicaid - Community & State New York  
+• 
+Medicaid - Community & State New York EPP  
+• 
+Medicaid - Community & State Pennsylvania CHIP  
+• 
+Medicaid - Community & State Rhode Island  
+• 
+Medicaid - Community & State Virginia  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+6/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Omnipod 5, Twiist  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 1264 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1264 
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following:  
+• 
+For Omnipod 5 product: Diagnosis of diabetes  
+• 
+For Twiist product: Diagnosis of Type 1 diabetes  
+ 
+AND 
+ 
+2 - ALL of the following:  
+ 
+ 2.1 Patient has done ONE of the following for at least 8 weeks:  
+• 
+Regularly tests blood glucose at least 4 times/day  
+• 
+Utilizes a continuous glucose monitor (CGM)  
+ 
+AND 
+ 
+ 2.2 Patient has completed a diabetes management program  
+ 
+AND 
+ 
+ 2.3 Patient injects insulin at least 3 times/day  
+ 
+AND 
+ 
+3 - BOTH of the following:  
+ 
+ 3.1 Patient or caregiver is motivated to assume responsibility for self-care and insulin 
+management  
+ 
+AND 
+ 
+ 3.2 Patient or caregiver demonstrates knowledge of importance of nutrition including 
+carbohydrate counting and meal planning  
+
+
+--- PDF page 1265 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1265 
+ 
+AND 
+ 
+4 - Prescriber attests that there is a reason or special circumstance the patient cannot use 
+external insulin pumps obtained on the medical benefit  
+Notes  
+If patient meets criteria, approve using NDC List OMNIPOD5 
+ 
+Product Name:Omnipod 5, Twiist  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response  
+Notes  
+If patient meets criteria, approve using NDC List OMNIPOD5 
+ 
+Product Name:Omnipod 5 pods  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Quantity Limit  
+ 
+ 
+Approval Criteria    
+ 
+1 - Physician confirmation that the patient requires a greater quantity  
+Notes  
+Authorization for quantity limit overrides should be entered at the NDC
+ level for the requested Omnipod 5 pods, for the requested quantity. 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+
+
+--- PDF page 1266 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1266 
+4/20/2026  
+Updated GPIs  
+ 

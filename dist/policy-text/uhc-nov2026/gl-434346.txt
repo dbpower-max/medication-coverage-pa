@@ -1,0 +1,102 @@
+--- PDF page 267 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 267 
+Bronchitol 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-434346  
+Guideline Name 
+Bronchitol  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+• 
+Medicaid - Community & State Colorado  
+• 
+Medicaid - Community & State Hawaii  
+• 
+Medicaid - Community & State Indiana  
+• 
+Medicaid - Community & State Maryland  
+• 
+Medicaid - Community & State New Jersey  
+• 
+Medicaid - Community & State New Mexico  
+• 
+Medicaid - Community & State New York  
+• 
+Medicaid - Community & State New York EPP  
+• 
+Medicaid - Community & State Pennsylvania  
+• 
+Medicaid - Community & State Pennsylvania CHIP  
+• 
+Medicaid - Community & State Rhode Island  
+• 
+Medicaid - Community & State Virginia  
+• 
+Medicaid - Community & State Nevada  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+1/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Bronchitol  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+
+
+--- PDF page 268 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 268 
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of cystic fibrosis (CF)  
+ 
+AND 
+ 
+2 - Used in conjunction with standard CF therapies [e.g., chest physiotherapy, 
+bronchodilators, antibiotics, anti-inflammatory therapy (e.g., ibuprofen, oral/inhaled 
+corticosteroids)]  
+ 
+AND 
+ 
+3 - Patient has passed the Bronchitol Tolerance Test  
+ 
+Product Name:Bronchitol  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to Bronchitol therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+11/4/2025  
+Added Nevada Formulary, - LKC  
+ 

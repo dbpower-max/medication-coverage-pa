@@ -1,0 +1,75 @@
+--- PDF page 1220 ---
+Page 1220 
+Nadolol 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-109903  
+Guideline Name 
+Nadolol  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2022  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Nadolol  
+Diagnosis 
+PA required for patients 18 years of age or older  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - History of failure, contraindication, or intolerance to 3 of the following:  
+• 
+atenolol  
+• 
+atenolol/chlorthalidone  
+• 
+bisoprolol fumarate  
+
+
+--- PDF page 1221 ---
+Page 1221 
+• 
+bisoprolol/hydrochlorothiazide  
+• 
+carvedilol  
+• 
+labetalol HCl  
+• 
+metoprolol succinate  
+• 
+metoprolol tartrate  
+• 
+metoprolol/hydrochlorothiazide  
+• 
+propranolol HCl  
+• 
+propranolol/hydrochlorothiazide  
+• 
+sotalol HCl  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+7/28/2022  
+Updated indication verbiage, no change to clinical criteria.  
+ 

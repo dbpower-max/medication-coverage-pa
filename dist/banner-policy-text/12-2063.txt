@@ -1,0 +1,97 @@
+=== PDF PAGE 2063 ===
+Page 2063 
+Xolremdi (mavorixafor) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-150126  
+Guideline Name 
+Xolremdi (mavorixafor)  
+Formulary 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2024  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Xolremdi  
+Diagnosis 
+WHIM syndrome  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting all of the following:  
+ 
+ 1.1 Diagnosis of WHIM (warts, hypogammaglobulinemia, infections and myelokathexis) 
+syndrome  
+
+
+=== PDF PAGE 2064 ===
+Page 2064 
+ 
+AND 
+ 
+ 1.2 Patient has genotype confirmed variant of CXCR4 as detected by an FDA-approved test 
+or a test performed at a facility approved by Clinical Laboratory Improvement Amendments 
+(CLIA)  
+ 
+AND 
+ 
+ 1.3 Patient has an absolute neutrophil count (ANC) less than or equal to 500 cells /µL  
+ 
+AND 
+ 
+2 - Patient is 12 years of age or older  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with one of the following:  
+Immunologist  
+Hematologist  
+Geneticist  
+Allergist  
+ 
+Product Name:Xolremdi  
+Diagnosis 
+WHIM syndrome  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+
+
+=== PDF PAGE 2065 ===
+Page 2065 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting positive clinical response 
+to therapy (e.g., improvement in ANC, reduction in infections)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+7/23/2024  
+New program  
+ 

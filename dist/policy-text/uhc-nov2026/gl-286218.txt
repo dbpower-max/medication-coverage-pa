@@ -1,0 +1,85 @@
+--- PDF page 1621 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1621 
+Sunlenca (lenacapavir sodium) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-286218  
+Guideline Name 
+Sunlenca (lenacapavir sodium)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+7/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Sunlenca  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+ 
+ 1.1 Submission of medical records (e.g., chart notes) documenting all of the following:  
+ 
+  1.1.1 Diagnosis of HIV-1 infection  
+
+
+--- PDF page 1622 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1622 
+ 
+AND 
+ 
+  1.1.2 Both of the following:  
+ 
+   1.1.2.1 Patient is heavily treatment-experienced with multidrug resistance as confirmed by a 
+resistance assay 
+ 
+AND 
+ 
+   1.1.2.2 Patient is failing their current antiretroviral regimen due to ONE of the following: 
+• 
+Resistance  
+• 
+Intolerance  
+• 
+Safety considerations  
+ 
+AND 
+ 
+  1.1.3 Patient is currently taking, or will be prescribed, an active and optimized background 
+antiretroviral therapy regimen  
+ 
+AND 
+ 
+  1.1.4 Prescribed by or in consultation with a clinician with HIV expertise  
+ 
+OR 
+ 
+ 1.2 For continuation of prior therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+6/3/2025  
+Updated title and GPIs  
+ 

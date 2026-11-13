@@ -1,0 +1,94 @@
+--- PDF page 1501 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1501 
+Sephience (sepiapterin) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-502215  
+Guideline Name 
+Sephience (sepiapterin)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+2/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Sephience  
+Approval Length 
+3 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of 
+phenylketonuria (PKU)  
+
+
+--- PDF page 1502 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1502 
+ 
+AND 
+ 
+2 - Used in conjunction with a phenylalanine (Phe)-restricted diet  
+ 
+AND 
+ 
+3 - Patient will have Phe blood levels measured within 2 weeks of therapy (new starts to 
+therapy only) and periodically for up to 3 months of therapy to determine response  
+ 
+AND 
+ 
+4 - Trial and failure, contraindication, or intolerance to generic sapropterin  
+ 
+Product Name:Sephience  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient has had an objective response to therapy, defined as a 15% or greater reduction in 
+phenylalanine (Phe) blood levels from baseline  
+ 
+AND 
+ 
+2 - Used in conjunction with a phenylalanine (Phe)-restricted diet  
+ 
+AND 
+ 
+3 - Patient will continue to have blood Phe levels measured periodically during therapy  
+ 
+
+
+--- PDF page 1503 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1503 
+2 .  Revision History  
+ 
+Date  
+Notes  
+1/15/2026  
+Added step through generic sapropterin  
+ 

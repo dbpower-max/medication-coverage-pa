@@ -1,0 +1,93 @@
+=== PDF PAGE 1436 ===
+Page 1436 
+Radicava (edaravone) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-163769  
+Guideline Name 
+Radicava (edaravone)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+2/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Radicava IV, Radicava ORS, generic edaravone  
+Diagnosis 
+Amyotrophic Lateral Sclerosis (ALS)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of documentation (e.g., chart notes) confirming diagnosis of “definite” or 
+“probable” amyotrophic lateral sclerosis (ALS) per the revised EL Escorial and Airlie House 
+diagnostic criteria  
+
+
+=== PDF PAGE 1437 ===
+Page 1437 
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a neurologist with expertise in the diagnosis of ALS  
+ 
+AND 
+ 
+3 - Patient has scores greater than or equal to 2 in all items of the ALS Functional Rating 
+Scale-Revised (ALSFRS-R) criteria at the start of treatment  
+ 
+AND 
+ 
+4 - Patient has a percent (%) forced vital capacity (%FVC) greater than or equal to 80% at the 
+start of treatment  
+ 
+Product Name:Radicava IV, Radicava ORS, generic edaravone  
+Diagnosis 
+Amyotrophic Lateral Sclerosis (ALS)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of documentation (e.g., chart notes) confirming positive clinical response to 
+therapy (e.g., slowing in the decline of functional abilities)  
+ 
+AND 
+ 
+2 - Patient is not dependent on invasive ventilation or tracheostomy  
+ 
+2 .  Revision History  
+ 
+
+
+=== PDF PAGE 1438 ===
+Page 1438 
+Date  
+Notes  
+1/31/2025  
+Added generic edaravone as target  
+ 

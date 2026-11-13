@@ -1,0 +1,76 @@
+=== PDF PAGE 1049 ===
+Page 1049 
+LAMA, LABA - AZM 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-269199  
+Guideline Name 
+LAMA, LABA - AZM  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+6/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Anoro Ellipta, Brand Umeclidinium-vilanterol, Bevespi, Stiolto  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of chronic obstructive pulmonary disease (COPD)  
+ 
+AND 
+ 
+2 - One of the following:  
+
+
+=== PDF PAGE 1050 ===
+Page 1050 
+ 
+ 2.1 History of failure, contraindication, or intolerance to treatment with a 30 day trial of a long-
+acting beta-agonist (e.g. Foradil, Serevent, Striverdi, Arcapta)  
+ 
+OR 
+ 
+ 2.2 History of failure, contraindication, or intolerance to treatment with a 30 day trial of an 
+orally inhaled anticholinergic agent (e.g. Spiriva, Atrovent, Combivent, Tudorza)  
+ 
+AND 
+ 
+3 - For Bevespi requests ONLY: history of failure, contraindication, or intolerance to treatment 
+with a 30 day trial of both of the following Preferred drugs:  
+• 
+Brand Anoro Ellipta  
+• 
+Stiolto Respimat  
+ 
+AND 
+ 
+4 - For Umeclidinium-vilanterol requests ONLY, history of failure or intolerance to Brand 
+Anoro Ellipta  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+5/29/2025  
+Added umeclidinium-vilanterol as NP target, with step through Brand 
+Anoro Ellipta  
+ 

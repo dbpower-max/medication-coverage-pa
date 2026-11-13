@@ -1,0 +1,169 @@
+--- PDF page 94 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 94 
+Anti-Parkinson’s Agents (Crexont, Duopa, Rytary, Vyalev) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-501228  
+Guideline Name 
+Anti-Parkinson’s Agents (Crexont, Duopa, Rytary, Vyalev)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+2/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Crexont, Rytary, Brand Carbidopa/Levodopa ER caps  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following diagnoses:  
+• 
+Parkinson's disease  
+• 
+Post-encephalitic parkinsonism  
+
+
+--- PDF page 95 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 95 
+• 
+Symptomatic parkinsonism that may follow carbon monoxide and/or manganese 
+intoxication  
+ 
+AND 
+ 
+2 - History of failure (after a minimum 30 day trial) or adverse reaction to ONE of the following: 
+• 
+generic carbidopa-levodopa immediate release  
+• 
+generic carbidopa-levodopa extended release tablets  
+ 
+Product Name:Duopa  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of advanced Parkinson's disease  
+ 
+AND 
+ 
+2 - Patient is levodopa-responsive  
+ 
+AND 
+ 
+3 - Patient experiences disabling “off” periods for a minimum of 3 hours per day  
+ 
+AND 
+ 
+4 - Disabling “off" periods occur despite therapy with BOTH of the following:  
+• 
+Oral levodopa-carbidopa  
+
+
+--- PDF page 96 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 96 
+• 
+One drug from a different class of anti-Parkinson's disease therapy (e.g., COMT 
+[catechol-O-methyltransferase] inhibitor [entacapone, tolcapone], MAO-B [monoamine 
+oxidase-B] inhibitor [selegiline, rasagiline], dopamine agonist [pramipexole, ropinirole])  
+ 
+AND 
+ 
+5 - Has undergone or has planned placement of a procedurally-placed tube  
+ 
+AND 
+ 
+6 - Prescribed by or in consultation with a neurologist  
+ 
+Product Name:Vyalev  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of advanced Parkinson's disease  
+ 
+AND 
+ 
+2 - Patient is levodopa-responsive  
+ 
+AND 
+ 
+3 - Patient experiences disabling “off” periods for a minimum of 2.5 hours per day  
+ 
+AND 
+ 
+4 - Disabling “off" periods occur despite therapy with BOTH of the following:  
+
+
+--- PDF page 97 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 97 
+• 
+Oral levodopa-carbidopa  
+• 
+One drug from a different class of anti-Parkinson's disease therapy (e.g., COMT 
+[catechol-O-methyltransferase] inhibitor [entacapone, tolcapone], MAO-B [monoamine 
+oxidase-B] inhibitor [selegiline, rasagiline], dopamine agonist [pramipexole, ropinirole])  
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with a neurologist  
+ 
+Product Name:Crexont, Rytary, Brand Carbidopa/Levodopa ER caps, Duopa, Vyalev  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+1/16/2026  
+Updated guideline name. Added Rytary and Brand Carbidopa/Levod
+opa ER caps (MSC M) as targets to same criteria sections as Crexon
+t. Specified alt as generic carbidopa-levodopa extended release "tabl
+ets" in initial auth section for Crexont, Rytary, and Brand Carbidopa/L
+evodopa ER caps. Updated GPI entry for Vyalev.  
+ 

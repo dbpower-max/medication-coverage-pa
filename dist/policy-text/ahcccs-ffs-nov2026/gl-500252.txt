@@ -1,0 +1,228 @@
+--- PDF page 2114 ---
+Page 2114 
+Zolgensma (onasemnogene abeparvovec-xioi), Itvisma (onasemnogene abeparvovec-brve) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-500252  
+Guideline Name 
+Zolgensma (onasemnogene abeparvovec-xioi), Itvisma 
+(onasemnogene abeparvovec-brve)  
+Formulary 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+2/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Zolgensma  
+Approval Length 
+1 Time Authorization in Lifetime  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming the mutation or deletion of 
+genes in chromosome 5q resulting in one of the following:  
+ 
+ 1.1 Homozygous gene deletion or mutation of SMN1 gene (e.g., homozygous deletion of 
+exon 7 at locus 5q13)  
+
+
+--- PDF page 2115 ---
+Page 2115 
+ 
+OR 
+ 
+ 1.2 Compound heterozygous mutation of SMN1 gene (e.g., deletion of Survival of Motor 
+Neuron 1 [SMN1] exon 7 [allele 1] and mutation of SMN1 [allele 2])  
+ 
+AND 
+ 
+2 - One of the following:  
+ 
+ 2.1 Both of the following:  
+ 
+  2.1.1 Diagnosis of symptomatic spinal muscular atrophy (SMA) confirmed by a neurologist 
+with expertise in the diagnosis and treatment of SMA  
+ 
+AND 
+ 
+  2.1.2 Patient is less than 2 years of age  
+ 
+OR 
+ 
+ 2.2 All of the following:  
+ 
+  2.2.1 Diagnosis of SMA based on the results of SMA newborn screening  
+ 
+AND 
+ 
+  2.2.2 Patient has 4 copies or less of Survival of Motor Neuron 2 (SMN 2)  
+ 
+AND 
+ 
+  2.2.3 Patient is less than or equal to 6 months of age  
+ 
+AND 
+
+
+--- PDF page 2116 ---
+Page 2116 
+ 
+3 - Patient is not dependent on invasive ventilation  
+ 
+AND 
+ 
+4 - Patient is not dependent on the use of non-invasive ventilation beyond use for naps and 
+nighttime sleep  
+ 
+AND 
+ 
+5 - Submission of medical records (e.g., chart notes) documenting patient's anti-AAV9 
+antibody titers are less than or equal to 1:50  
+ 
+AND 
+ 
+6 - Both of the following:  
+ 
+ 6.1 Provider attests that the patient has never received onasemnogene abeparvovec 
+treatment in their lifetime  
+ 
+AND 
+ 
+ 6.2 Provider attests that the patient is not receiving concomitant chronic survival motor 
+neuron (SMN) modifying therapy for the treatment of SMA (e.g. Spinraza, Evrysdi)  
+ 
+AND 
+ 
+7 - Prescribed by a neurologist with expertise in the diagnosis of SMA  
+ 
+Product Name:Itvisma  
+Approval Length 
+1 Time Authorization in Lifetime  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 2117 ---
+Page 2117 
+ 
+1 - Both of the following:  
+ 
+ 1.1 Submission of medical records (e.g., chart notes) confirming diagnosis of spinal muscular 
+atrophy (SMA)  
+ 
+AND 
+ 
+ 1.2 Submission of medical records (e.g., chart notes) confirming the presence of a SMN1 
+gene mutation  
+ 
+AND 
+ 
+2 - Patient is 2 years of age or older and under 17 years old  
+ 
+AND 
+ 
+3 - Both of the following:  
+ 
+ 3.1 Provider attests that the patient has never received onasemnogene abeparvovec (e.g., 
+Zolgensma) treatment in their lifetime  
+ 
+AND 
+ 
+ 3.2 Provider attests that the patient is not receiving concomitant chronic survival motor 
+neuron (SMN) modifying therapy for the treatment of SMA (e.g. Spinraza, Evrysdi)  
+ 
+AND 
+ 
+4 - Patient will commence systemic corticosteroids equivalent to oral prednisolone at 1mg per 
+kg of body weight per day (mg/kg/day), starting one day prior to Itvisma therapy and planned 
+for a total of 30 days  
+ 
+AND 
+ 
+5 - Submission of medical records (e.g., chart notes) confirming the absence of hepatic 
+dysfunction [e.g., alanine aminotransferase (ALT), total bilirubin, gamma-glutamyl transferase 
+
+
+--- PDF page 2118 ---
+Page 2118 
+(GGT) or glutamate dehydrogenase (GLDH) less than or equal to the upper limit of normal 
+(ULN)]  
+ 
+AND 
+ 
+6 - Provider attests that patient has not had clinical signs or symptoms of infection within 30 
+days prior to treatment  
+ 
+AND 
+ 
+7 - Both of the following:  
+ 
+ 7.1 Patient can sit independently  
+ 
+AND 
+ 
+ 7.2 Patient has never had the ability to walk independently  
+ 
+AND 
+ 
+8 - Submission of medical records (e.g., chart notes) confirming anti-AAV9 antibody titers are 
+less than or equal to 1:50  
+ 
+AND 
+ 
+9 - Patient’s clinical signs and symptoms onset occurred at greater than or equal to 6 months 
+of age  
+ 
+AND 
+ 
+10 - Patient is not dependent on any of the following:  
+Invasive ventilation  
+Awake noninvasive ventilation for greater than 6 hours during a 24-hour period  
+
+
+--- PDF page 2119 ---
+Page 2119 
+Noninvasive ventilation for greater than 12 hours during a 24-hour period  
+ 
+AND 
+ 
+11 - Both of the following:  
+ 
+ 11.1 Patient has not received surgery for scoliosis or hip fixation in the 12 months prior to 
+approval  
+ 
+AND 
+ 
+ 11.2 Patient has no planned surgery for scoliosis or hip fixation within the next 64 weeks 
+following therapy  
+ 
+AND 
+ 
+12 - Prescribed by a neurologist with expertise in the diagnosis of SMA  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+1/28/2026  
+Added criteria for Itvisma, updated guideline name. Updated Zolgens
+ma criteria.  
+ 

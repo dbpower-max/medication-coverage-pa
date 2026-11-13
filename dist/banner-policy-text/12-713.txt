@@ -1,0 +1,238 @@
+=== PDF PAGE 713 ===
+Page 713 
+GLP-1 Agonists - AZM 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-715192  
+Guideline Name 
+GLP-1 Agonists - AZM  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Preferred Drugs: Mounjaro, Trulicity, Brand Victoza, generic liraglutide  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Both of the following:  
+ 
+ 1.1 Submission of medical records (e.g. chart notes) confirming both of the following:  
+• 
+Diagnosis of type 2 diabetes mellitus  
+• 
+Baseline A1C greater than or equal to 6.5%  
+
+
+=== PDF PAGE 714 ===
+Page 714 
+ 
+AND 
+ 
+ 1.2 Submission of medical records (e.g., chart notes) or paid claims documenting history of 
+failure to metformin at a minimum dose of 1500 milligrams (mg) daily for 90 days, or 
+contraindication or intolerance to metformin  
+ 
+AND 
+ 
+2 - Patient is 10 years of age or older  
+ 
+AND 
+ 
+3 - Drug is not being used for weight loss  
+ 
+AND 
+ 
+4 - Provider attests that the requested medication will not be used concurrently with a DPP-4 
+inhibitor-containing agent [e.g., Januvia (sitagliptin), Jentadueto (linagliptin-metformin), 
+Tradjenta (linagliptin)] or a plan has been developed to address concomitant use  
+Notes  
+If requested medication is being used to treat appetite suppression/we
+ight loss or improve conditions caused by obesity (i.e., Zepbound for 
+OSA) – deny the case for Plan Exclusion. For all other indications den
+y the case for medical necessity and do not review for off-label use. 
+ 
+Product Name:Non-Preferred Drugs: Ozempic injection, Exenatide  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Both of the following:  
+ 
+ 1.1 Submission of medical records (e.g. chart notes) confirming both of the following:  
+• 
+Diagnosis of type 2 diabetes mellitus  
+
+
+=== PDF PAGE 715 ===
+Page 715 
+• 
+Baseline A1C greater than or equal to 6.5%  
+ 
+AND 
+ 
+ 1.2 Submission of medical records (e.g., chart notes) or paid claims documenting history of 
+failure to metformin at a minimum dose of 1500 milligrams (mg) daily for 90 days, or 
+contraindication or intolerance to metformin  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) or paid claims documenting a history of 
+a 90 day trial resulting in a therapeutic failure, contraindication, or intolerance to ALL of the 
+following:  
+• 
+Trulicity  
+• 
+Brand Victoza or generic liraglutide  
+• 
+Mounjaro  
+ 
+AND 
+ 
+3 - Patient is 18 years of age or older  
+ 
+AND 
+ 
+4 - Drug is not being used for weight loss  
+ 
+AND 
+ 
+5 - Provider attests that the requested medication will not be used concurrently with a DPP-4 
+inhibitor-containing agent [e.g., Januvia (sitagliptin), Jentadueto (linagliptin-metformin), 
+Tradjenta (linagliptin)] or a plan has been developed to address concomitant use  
+Notes  
+If requested medication is being used to treat appetite suppression/we
+ight loss or improve conditions caused by obesity (i.e., Zepbound for 
+OSA) – deny the case for Plan Exclusion. For all other indications den
+y the case for medical necessity and do not review for off-label use. 
+ 
+Product Name:Non-Preferred: Ozempic tablets, Rybelsus  
+
+
+=== PDF PAGE 716 ===
+Page 716 
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Both of the following:  
+ 
+ 1.1 Submission of medical records (e.g. chart notes) confirming both of the following:  
+• 
+Diagnosis of type 2 diabetes mellitus  
+• 
+Baseline A1C greater than or equal to 6.5%  
+ 
+AND 
+ 
+ 1.2 Submission of medical records (e.g., chart notes) or paid claims documenting history of 
+failure to metformin at a minimum dose of 1500 milligrams (mg) daily for 90 days, or 
+contraindication or intolerance to metformin  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 Submission of medical records (e.g., chart notes) or paid claims documenting a history of 
+a 90 day trial resulting in a therapeutic failure, contraindication, or intolerance to ALL of the 
+following:  
+• 
+Trulicity  
+• 
+Brand Victoza or generic liraglutide  
+• 
+Mounjaro  
+ 
+OR 
+ 
+ 2.2 BOTH of the following:  
+ 
+  2.2.1 Submission of medical records (e.g., chart notes) confirming that the patient is unable 
+to self-inject due to ONE of the following:  
+• 
+Physical impairment  
+• 
+Visual impairment  
+• 
+Lipohypertrophy  
+
+
+=== PDF PAGE 717 ===
+Page 717 
+• 
+Documented needle-phobia to the degree that the patient has previously refused any 
+injectable therapy or medical procedure (refer to DSM-5 for specific phobia diagnostic 
+criteria)  
+ 
+AND 
+ 
+  2.2.2 Submission of medical records (e.g., chart notes) or paid claims documenting a history 
+of a 90 day trial resulting in a therapeutic failure, contraindication, or intolerance to ALL of the 
+following:  
+• 
+Farxiga  
+• 
+Jardiance  
+• 
+Synjardy  
+• 
+Xigduo XR  
+ 
+AND 
+ 
+3 - Patient is 18 years of age or older  
+ 
+AND 
+ 
+4 - Drug is not being used for weight loss  
+ 
+AND 
+ 
+5 - Provider attests that the requested medication will not be used concurrently with a DPP-4 
+inhibitor-containing agent [e.g., Januvia (sitagliptin), Jentadueto (linagliptin-metformin), 
+Tradjenta (linagliptin)] or a plan has been developed to address concomitant use  
+Notes  
+If requested medication is being used to treat appetite suppression/we
+ight loss or improve conditions caused by obesity (i.e., Zepbound for 
+OSA) – deny the case for Plan Exclusion. For all other indications den
+y the case for medical necessity and do not review for off-label use. 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+
+
+=== PDF PAGE 718 ===
+Page 718 
+9/11/2026  
+10/1 changes: Mounjaro to PDL, Exenatide to NPD. Updated age crit
+eria and preferred prerequisites accordingly.  
+ 

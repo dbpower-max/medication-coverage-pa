@@ -1,0 +1,135 @@
+--- PDF page 459 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 459 
+DPP-4 Inhibitors 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-752241  
+Guideline Name 
+DPP-4 Inhibitors  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+11/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:alogliptin, alogliptin/metformin, alogliptin/pioglitazone, Brand Janumet, Brand 
+Janumet XR, Brand Januvia, Jentadueto, Tradjenta  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - The patient has a diagnosis of type 2 diabetes mellitus  
+ 
+AND 
+
+
+--- PDF page 460 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 460 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 History of failure to metformin at a minimum dose of 1500 milligrams daily for 90 days  
+ 
+OR 
+ 
+ 2.2 Contraindication or intolerance to metformin  
+ 
+AND 
+ 
+3 - Provider attests that the requested medication will not be used concurrently with a GLP-1 
+receptor agonist or combination agent [e.g., Victoza (liraglutide), Byetta (exenatide), Xultophy 
+(insulin degludec-liraglutide)], or a plan has been developed to address concomitant use  
+ 
+Product Name:Brynovin, Jentadueto XR, saxagliptin/metformin ER, Brand Onglyza, generic 
+saxagliptin, Zituvio, Sitagliptin, Zituvimet, Sitagliptin/metformin, Zituvimet XR, 
+Sitagliptin/metformin ER, generic sitagliptin phosphate, generic sitagliptin 
+phosphate/metformin, generic sitagliptin phosphate/metformin ER  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - The patient has a diagnosis of type 2 diabetes mellitus  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 History of failure to metformin at a minimum dose of 1500 milligrams daily for 90 days  
+ 
+OR 
+ 
+ 2.2 Contraindication or intolerance to metformin  
+
+
+--- PDF page 461 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 461 
+ 
+AND 
+ 
+3 - ONE of the following:  
+ 
+ 3.1 History of failure for 90 days to THREE of the following:  
+• 
+alogliptin, alogliptin-metformin, or alogliptin-pioglitazone  
+• 
+Brand Januvia  
+• 
+Brand Janumet/Janumet XR  
+• 
+Jentadueto  
+• 
+Tradjenta  
+ 
+OR 
+ 
+ 3.2 Intolerance or contraindication to THREE of the following:  
+• 
+alogliptin, alogliptin-metformin, or alogliptin-pioglitazone  
+• 
+Brand Januvia  
+• 
+Brand Janumet/Janumet XR  
+• 
+Jentadueto  
+• 
+Tradjenta  
+ 
+AND 
+ 
+4 - Provider attests that the requested medication will not be used concurrently with a GLP-1 
+receptor agonist or combination agent [e.g., Victoza (liraglutide), Byetta (exenatide), Xultophy 
+(insulin degludec-liraglutide)], or a plan has been developed to address concomitant use  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+10/13/2026  
+Created separate criteria sections for preferred vs non-preferred targ
+ets. For non-preferred targets, updated embedded step criterion to lis
+t specific DPP4 inhibitor alternatives.  
+ 

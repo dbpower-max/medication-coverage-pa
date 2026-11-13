@@ -1,0 +1,107 @@
+--- PDF page 1453 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1453 
+Rezurock (belumosudil) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-140885  
+Guideline Name 
+Rezurock (belumosudil)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2022  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Rezurock  
+Diagnosis 
+Chronic graft-versus-host disease  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of chronic graft-versus-host disease  
+
+
+--- PDF page 1454 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1454 
+ 
+AND 
+ 
+2 - Trial and failure of two or more lines of systemic therapy (e.g., corticosteroids, 
+mycophenolate, etc.)  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with one of the following:  
+• 
+Hematologist  
+• 
+Oncologist  
+• 
+Physician experienced in the management of transplant patients  
+ 
+Product Name:Rezurock  
+Diagnosis 
+Chronic graft-versus-host disease  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient does not show evidence of progressive disease while on therapy  
+ 
+Product Name:Rezurock  
+Diagnosis 
+Chronic graft-versus-host disease - Twice daily (BID) Therapy  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Quantity Limit  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient is using medication concomitantly with one of the following:  
+
+
+--- PDF page 1455 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1455 
+• 
+Strong CYP3A inducer (e.g., carbamazepine, phenobarbital, phenytoin, rifampin)  
+• 
+Proton pump inhibitor (e.g., omeprazole, pantoprazole, lansoprazole)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/4/2022  
+C&S to match AZM as of 10.1.22  
+ 

@@ -1,0 +1,206 @@
+=== PDF PAGE 639 ===
+Page 639 
+Fabhalta (iptacopan) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-707207  
+Guideline Name 
+Fabhalta (iptacopan)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Fabhalta  
+Diagnosis 
+Paroxysmal nocturnal hemoglobinuria (PNH)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of paroxysmal nocturnal hemoglobinuria (PNH)  
+
+
+=== PDF PAGE 640 ===
+Page 640 
+ 
+AND 
+ 
+2 - Hemoglobin level of less than 10 g/dL  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with a hematologist/oncologist  
+ 
+Product Name:Fabhalta  
+Diagnosis 
+paroxysmal nocturnal hemoglobinuria (PNH)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy (e.g., hemoglobin stabilization, 
+decrease in the number of red blood cell transfusions)  
+ 
+Product Name:Fabhalta  
+Diagnosis 
+Immunoglobulin A nephropathy (IgAN)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of primary immunoglobulin A nephropathy (IgAN)  
+
+
+=== PDF PAGE 641 ===
+Page 641 
+ 
+AND 
+ 
+2 - Patient is at risk for disease progression (e.g., proteinuria of at least 0.5 g/day, or by other 
+criteria such as clinical risk scoring using the International IgAN Prediction Tool)  
+ 
+AND 
+ 
+3 - Used to slow kidney function decline  
+ 
+AND 
+ 
+4 - One of the following:  
+ 
+ 4.1 Patient has been on a minimum 90-day trial of a maximally tolerated dose of one of the 
+following:  
+• 
+An angiotensin-converting enzyme (ACE) inhibitor (e.g., benazepril, lisinopril)  
+• 
+An angiotensin II receptor blocker (ARB) (e.g., losartan, valsartan)  
+ 
+OR 
+ 
+ 4.2 Patient has a contraindication or intolerance to both ACE inhibitors and ARBs  
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with a nephrologist  
+ 
+Product Name:Fabhalta  
+Diagnosis 
+Immunoglobulin A nephropathy (IgAN)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+=== PDF PAGE 642 ===
+Page 642 
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates a positive clinical response to therapy as demonstrated by a 
+decrease in urine protein-to-creatinine ratio (UPCR) from baseline  
+ 
+Product Name:Fabhalta  
+Diagnosis 
+Complement 3 Glomerulopathy  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of kidney complement 3 glomerulopathy (C3G)  
+ 
+AND 
+ 
+2 - Used to reduce proteinuria  
+ 
+AND 
+ 
+3 - Patient is on a maximally tolerated renin-angiotensin system (RAS) inhibitor (e.g., 
+benazepril, lisinopril, losartan, valsartan)  
+ 
+AND 
+ 
+4 - Patient has not had a kidney transplant  
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with a nephrologist  
+
+
+=== PDF PAGE 643 ===
+Page 643 
+ 
+Product Name:Fabhalta  
+Diagnosis 
+Complement 3 Glomerulopathy  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates a positive clinical response to therapy (e.g., reduction in 24-hour 
+UPCR, stable or improved eGFR compared to baseline)  
+ 
+AND 
+ 
+2 - Patient is on a maximally tolerated renin-angiotensin system (RAS) inhibitor (e.g., 
+benazepril, lisinopril, losartan, valsartan)  
+ 
+AND 
+ 
+3 - Patient has not had a kidney transplant  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/26/2026  
+IgAN: Updated criteria due to revised indication and updated KDIGO 
+guidelines  
+ 

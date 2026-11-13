@@ -1,0 +1,122 @@
+--- PDF page 100 ---
+Page 100 
+Anthelmintics - Arizona 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-99431  
+Guideline Name 
+Anthelmintics - Arizona  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+12/9/2021  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Albenza, generic albendazole  
+Diagnosis 
+See Note section*  
+Approval Length 
+1 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of Enterobius vermicularis (pinworm)  
+ 
+OR 
+
+
+--- PDF page 101 ---
+Page 101 
+ 
+2 - Diagnosis of Hydatid Disease [Echinococcosis (Tapeworm)]  
+ 
+OR 
+ 
+3 - Diagnosis of Ancylostoma/Necatoriasis (Hookworm)  
+ 
+OR 
+ 
+4 - Diagnosis of Ascariasis (Roundworm)  
+ 
+OR 
+ 
+5 - Diagnosis of Mansonella perstans (Filariasis)  
+ 
+OR 
+ 
+6 - Diagnosis of Toxocariasis (Roundworm)  
+ 
+OR 
+ 
+7 - Diagnosis of Trichinellosis  
+ 
+OR 
+ 
+8 - Diagnosis of Trichuriasis (Whipworm)  
+ 
+OR 
+ 
+9 - Diagnosis of Capillariasis  
+Notes  
+* Enterobius vermicularis (pinworm), Hydatid Disease [Echinococcosis
+ (Tapeworm)]  
+Ancylostoma/Necatoriasis (Hookworm), Ascariasis (Roundworm), Ma
+
+
+--- PDF page 102 ---
+Page 102 
+nsonella perstans (Filariasis), Toxocariasis (Roundworm), Trichinellosi
+s, Trichuriasis (Whipworm), Capillariasis 
+ 
+Product Name:Brand Albenza, generic albendazole  
+Diagnosis 
+Neurocysticercosis  
+Approval Length 
+6 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of neurocysticercosis  
+ 
+Product Name:Brand Stromectol, generic ivermectin  
+Approval Length 
+1 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of intestinal strongyloidiasis due to the nematode parasite Strongyloides 
+stercoralis  
+ 
+OR 
+ 
+2 - Diagnosis of onchocerciasis due to the nematode parasite Onchocerca volvulus  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/10/2021  
+Bulk Copy C&S Arizona to Arizona Standard  
+ 

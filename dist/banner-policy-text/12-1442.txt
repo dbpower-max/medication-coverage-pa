@@ -1,0 +1,101 @@
+=== PDF PAGE 1442 ===
+Page 1442 
+Rayos 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-356255  
+Guideline Name 
+Rayos  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Rayos  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following:  
+ 
+ 1.1 The requested drug must be used for a Food and Drug Administration (FDA)-approved 
+indication  
+
+
+=== PDF PAGE 1443 ===
+Page 1443 
+ 
+OR 
+ 
+ 1.2 The use of this drug is supported by information from ONE of the following appropriate 
+compendia of current literature:  
+• 
+American Hospital Formulary Service Drug Information  
+• 
+National Comprehensive Cancer Network Drugs and Biologics Compendium  
+• 
+Thomson Micromedex DrugDex  
+• 
+Clinical pharmacology  
+• 
+United States Pharmacopoeia-National Formulary (USP-NF)  
+ 
+AND 
+ 
+2 - The drug is being prescribed for a medically accepted indication that is recognized as a 
+covered benefit by the applicable health plan’s program*  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g. chart notes, laboratory values) or claims history 
+documenting an intolerance to generic prednisone tablets which is unable to be resolved with 
+attempts to minimize the adverse effects where appropriate  
+ 
+AND 
+ 
+4 - History of failure, contraindication, or intolerance to TWO the following:  
+• 
+Dexamethasone tablet, oral solution  
+• 
+Hydrocortisone tablet  
+• 
+Methylprednisolone tablet  
+• 
+Prednisolone tablet, oral solution  
+Notes  
+*Note: Medications used for anti-obesity/weight loss, cosmetic (e.g., al
+opecia, actinic keratosis, vitiligo), erectile dysfunction, and sexual dysf
+unction purposes are NOT medically accepted indications and are NO
+T recognized as a covered benefit. Erectile dysfunction drugs (Cialis/T
+adalafil) are covered for clinical diagnoses other than ED. 
+ 
+2 .  Revision History  
+
+
+=== PDF PAGE 1444 ===
+Page 1444 
+ 
+Date  
+Notes  
+8/28/2025  
+Removed the word "solely" from notes section, no change to clinical i
+ntent.  
+ 

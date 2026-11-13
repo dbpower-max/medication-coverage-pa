@@ -1,0 +1,227 @@
+=== PDF PAGE 1136 ===
+Page 1136 
+Lyrica 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-105529  
+Guideline Name 
+Lyrica  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+4/1/2022  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Lyrica  
+Diagnosis 
+Seizure Disorder  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of seizure disorder  
+ 
+AND 
+
+
+=== PDF PAGE 1137 ===
+Page 1137 
+ 
+2 - History of failure, contraindication, or intolerance to generic pregabalin immediate-release 
+capsules or generic pregabalin solution  
+ 
+Product Name:Brand Lyrica  
+Diagnosis 
+Neuropathic Pain Associated with Spinal Cord Injury  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of neuropathic pain associated with spinal cord injury  
+ 
+AND 
+ 
+2 - One of the following:  
+• 
+History of failure to generic pregabalin immediate-release capsules or solution at a 
+minimum dose of 300mg daily for 4 weeks  
+• 
+Contraindication or intolerance to generic pregabalin immediate-release capsules or 
+solution  
+ 
+Product Name:Brand Lyrica  
+Diagnosis 
+Fibromyalgia  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of fibromyalgia  
+ 
+AND 
+
+
+=== PDF PAGE 1138 ===
+Page 1138 
+ 
+2 - One of the following:  
+• 
+History of failure to generic pregabalin immediate-release capsules or solution at a 
+minimum dose of 300mg daily for 4 weeks  
+• 
+Contraindication or intolerance to generic pregabalin immediate-release capsules or 
+solution  
+ 
+Product Name:Brand Lyrica  
+Diagnosis 
+Diabetic peripheral neuropathy (DPN)  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of diabetic peripheral neuropathy (DPN)  
+ 
+AND 
+ 
+2 - One of the following:  
+• 
+History of failure to generic pregabalin immediate-release capsules or solution at a 
+minimum dose of 300mg daily for 4 weeks  
+• 
+Contraindication or intolerance to generic pregabalin immediate-release capsules or 
+solution  
+ 
+Product Name:Brand Lyrica  
+Diagnosis 
+Post herpetic neuralgia (PHN)  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+=== PDF PAGE 1139 ===
+Page 1139 
+ 
+1 - Diagnosis of post herpetic neuralgia (PHN)  
+ 
+AND 
+ 
+2 - One of the following:  
+• 
+History of failure to generic pregabalin immediate-release capsules or solution at a 
+minimum dose of 300mg daily for 4 weeks  
+• 
+Contraindication or intolerance to generic pregabalin immediate-release capsules or 
+solution  
+ 
+Product Name:Lyrica CR  
+Diagnosis 
+Diabetic peripheral neuropathy (DPN)  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of diabetic peripheral neuropathy (DPN)  
+ 
+AND 
+ 
+2 - History of failure, contraindication, or intolerance to gabapentin (generic Neurontin) at a 
+minimum dose of 1800 milligrams daily for 4 weeks  
+ 
+AND 
+ 
+3 - History of failure, contraindication, or intolerance to treatment with ONE of the following:  
+• 
+Tricyclic antidepressant at the maximum tolerated dose for 6 to 8 weeks, or 
+intolerance to a tricyclic antidepressant  
+• 
+Serotonin and norepinephrine reuptake inhibitor (SNRI) antidepressant (i.e. 
+duloxetine, venlafaxine)  
+
+
+=== PDF PAGE 1140 ===
+Page 1140 
+ 
+AND 
+ 
+4 - History of failure, contraindication, or intolerance to generic pregabalin immediate-release 
+capsules or generic pregabalin solution  
+ 
+Product Name:Lyrica CR  
+Diagnosis 
+Post herpetic neuralgia (PHN)  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of post herpetic neuralgia (PHN)  
+ 
+AND 
+ 
+2 - History of failure, contraindication, or intolerance to gabapentin (generic Neurontin) at a 
+minimum dose of 1800 milligrams daily for 4 weeks  
+ 
+AND 
+ 
+3 - History of failure, contraindication, or intolerance to a tricyclic antidepressant at the 
+maximum tolerated dose for 6 to 8 weeks  
+ 
+AND 
+ 
+4 - History of failure, contraindication, or intolerance to generic pregabalin immediate-release 
+capsules or generic pregabalin solution  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+
+
+=== PDF PAGE 1141 ===
+Page 1141 
+3/31/2022  
+Added step through generic for seizure indication. Updated all indicat
+ions to allow for any manufacturer of generic immediate-release caps
+ules or solution.  
+ 

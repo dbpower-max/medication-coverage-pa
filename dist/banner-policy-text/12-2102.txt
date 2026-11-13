@@ -1,0 +1,74 @@
+=== PDF PAGE 2102 ===
+Page 2102 
+Zinplava (bezlotoxumab) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-133807  
+Guideline Name 
+Zinplava (bezlotoxumab)  
+Formulary 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2023  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Zinplava  
+Approval Length 
+14 Day(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting ALL of the following:  
+ 
+ 1.1 Used for the reduction of the recurrence of Clostridium difficile infection (CDI)  
+ 
+AND 
+
+
+=== PDF PAGE 2103 ===
+Page 2103 
+ 
+ 1.2 Patient is 1 year of age or older  
+ 
+AND 
+ 
+ 1.3 Used in combination with antibacterial drug treatment for CDI [e.g., oral Vancocin 
+(vancomycin), Flagyl (metronidazole), or Dificid (fidaxomicin)]  
+ 
+AND 
+ 
+ 1.4 Patient has one or more of the following risk factors associated with CDI recurrence:  
+One or more prior episodes of CDI in the previous 6 months  
+Immunocompromised  
+Chronic dialysis  
+Inflammatory bowel disease  
+Continued use of non-CDI antimicrobials after diagnosis of CDI and/or after CDI treatment  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with one of the following:  
+Infectious disease specialist  
+Gastroenterologist  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+9/26/2023  
+New Program  
+ 

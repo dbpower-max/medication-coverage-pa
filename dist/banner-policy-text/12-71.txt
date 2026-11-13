@@ -1,0 +1,62 @@
+=== PDF PAGE 71 ===
+Page 71 
+Aldurazyme - AZM 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-589202  
+Guideline Name 
+Aldurazyme - AZM  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+5/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Aldurazyme  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+ 
+ 1.1 Confirmed diagnosis of Hurler or Hurler-Scheie forms of Mucopolysaccharidosis I (MPS I)  
+ 
+OR 
+
+
+=== PDF PAGE 72 ===
+Page 72 
+ 
+ 1.2 Both the following:  
+ 
+  1.2.1 Confirmed diagnosis of Scheie form of Mucopolysaccharidosis I (MPS I)  
+ 
+AND 
+ 
+  1.2.2 Have moderate to severe symptoms  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+4/30/2026  
+Changed "and" to "or" criterion 1.1: Confirmed diagnosis of Hurler "O
+R" Hurler-Scheie forms of Mucopolysaccharidosis I (MPS I)  
+ 

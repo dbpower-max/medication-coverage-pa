@@ -1,0 +1,65 @@
+--- PDF page 1779 ---
+Page 1779 
+Tepezza (teprotumumab-trbw) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-127089  
+Guideline Name 
+Tepezza (teprotumumab-trbw)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+7/1/2023  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Tepezza  
+Approval Length 
+6 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting diagnosis of thyroid eye 
+disease (TED)  
+ 
+AND 
+
+
+--- PDF page 1780 ---
+Page 1780 
+ 
+2 - Prescribed by or in consultation with one of the following:  
+• 
+Endocrinologist  
+• 
+Specialist with expertise in the treatment of TED  
+• 
+Ophthalmologist  
+ 
+AND 
+ 
+3 - Treatment with Tepezza has not exceeded a total of 8 infusions  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+6/26/2023  
+Removed criteria for TED severity due to expanded indication, added
+ ophthalmologist as prescriber option.  
+ 

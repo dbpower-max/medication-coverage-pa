@@ -1,0 +1,66 @@
+--- PDF page 1832 ---
+Page 1832 
+Trastuzumab Products 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-325196  
+Guideline Name 
+Trastuzumab Products  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Preferred: Ogivri  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - The drug is being used as indicated by National Comprehensive Cancer Network (NCCN) 
+guidelines with a Category of Evidence and Consensus of 1, 2A, or 2B  
+ 
+Product Name:Non-Preferred*: Herceptin, Hercessi, Herzuma, Kanjinti, Ontruzant, Trazimera, 
+and newly launched trastuzumab products  
+
+
+--- PDF page 1833 ---
+Page 1833 
+Approval Length 
+Requests for Non-Preferred biosimilars are not approved at this time  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Per your health plan's criteria, the non-preferred drug is not approved for coverage 
+because the plan's preferred product is Ogivri (trastuzumab-dkst). **Please note: The drug(s) 
+listed above may require additional review.  
+Notes  
+*Patients must use preferred trastuzumab biosimilar(s). 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+7/16/2025  
+New program, updated NP criteria verbiage.  
+ 

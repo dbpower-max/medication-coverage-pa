@@ -1,0 +1,87 @@
+=== PDF PAGE 1119 ===
+Page 1119 
+Lucemyra (lofexidine) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-154516  
+Guideline Name 
+Lucemyra (lofexidine)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2024  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Lucemyra, generic lofexidine  
+Approval Length 
+14 Day(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - For symptoms of abrupt opioid withdrawal  
+ 
+AND 
+ 
+2 - Opioids have been discontinued  
+
+
+=== PDF PAGE 1120 ===
+Page 1120 
+ 
+AND 
+ 
+3 - History of failure, contraindication, or intolerance to clonidine as verified by recent 
+clonidine claims history in the past 180 days  
+ 
+AND 
+ 
+4 - Prescriber must verify patient has been screened for hepatic and renal impairment and 
+that dosing is appropriate for the patient's degree of hepatic and renal function  
+ 
+AND 
+ 
+5 - Prescriber must verify patient's vital signs have been monitored and that the patient is 
+capable of and has been instructed on self-monitoring for hypotension, orthostasis, 
+bradycardia, and associated symptoms  
+ 
+AND 
+ 
+6 - Patient does not have severe coronary insufficiency, a recent myocardial infarction, 
+cerebrovascular disease, chronic renal failure, or marked bradycardia  
+ 
+AND 
+ 
+7 - Patient does not have congenital long QT syndrome  
+ 
+AND 
+ 
+8 - For Brand Lucemyra requests ONLY, history of failure or intolerance to generic lofexidine  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+
+
+=== PDF PAGE 1121 ===
+Page 1121 
+9/24/2024  
+Added step through generic lofexidine, removed bypass for step thro
+ugh clonidine. Updated guideline name  
+ 

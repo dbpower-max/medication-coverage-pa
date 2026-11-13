@@ -1,0 +1,200 @@
+--- PDF page 2020 ---
+Page 2020 
+Xalkori 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-99695  
+Guideline Name 
+Xalkori  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+12/9/2021  
+P&T Approval Date: 
+P&T Revision Date: 
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Xalkori  
+Diagnosis 
+Inflammatory Myofibroblastic Tumor (IMT)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 2021 ---
+Page 2021 
+ 
+1 - Diagnosis of inflammatory myofibroblastic tumor (IMT) with anaplastic lymphoma kinase 
+(ALK) translocation  
+ 
+Product Name:Xalkori  
+Diagnosis 
+Non-Small Cell Lung Cancer (NSCLC)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of non-small cell lung cancer (NSCLC)  
+ 
+AND 
+ 
+2 - Disease is ONE of the following:  
+• 
+Metastatic  
+• 
+Recurrent  
+• 
+Advanced  
+ 
+AND 
+ 
+3 - ONE of the following:  
+• 
+Tumor is anaplastic lymphoma kinase (ALK)-positive  
+• 
+Tumor is ROS1-positive  
+• 
+Tumor is positive for mesenchymal-epithelial transition (MET) amplification  
+• 
+Tumor is positive for MET exon 14 skipping mutation  
+ 
+Product Name:Xalkori  
+Diagnosis 
+Central Nervous System (CNS) Cancers  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+
+
+--- PDF page 2022 ---
+Page 2022 
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of metastatic brain cancer from non-small cell lung cancer (NSCLC)  
+ 
+AND 
+ 
+2 - ONE of the following:  
+• 
+Tumor is anaplastic lymphoma kinase (ALK)-positive  
+• 
+Tumor is ROS1-positive  
+ 
+Product Name:Xalkori  
+Diagnosis 
+Anaplastic Large Cell Lymphoma  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of anaplastic large cell lymphoma  
+ 
+AND 
+ 
+2 - Tumor is anaplastic lymphoma kinase (ALK)-positive  
+ 
+AND 
+ 
+3 - Disease is relapsed or refractory  
+ 
+
+
+--- PDF page 2023 ---
+Page 2023 
+Product Name:Xalkori  
+Diagnosis 
+Inflammatory Myofibroblastic Tumor (IMT), Non-Small Cell Lung 
+Cancer (NSCLC), Central Nervous System (CNS) Cancers, 
+Anaplastic Large Cell Lymphoma  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient does not show evidence of progressive disease while on Xalkori therapy  
+ 
+Product Name:Xalkori  
+Diagnosis 
+NCCN Recommended Regimens  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Xalkori will be approved for uses supported by The National Comprehensive Cancer 
+Network (NCCN) Drugs and Biologics Compendium with a Category of Evidence and 
+Consensus of 1, 2A, or 2B.  
+ 
+Product Name:Xalkori  
+Diagnosis 
+NCCN Recommended Regimens  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 2024 ---
+Page 2024 
+ 
+1 - Documentation of positive clinical response to Xalkori therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+4/8/2021  
+7/1 Implementation  
+ 

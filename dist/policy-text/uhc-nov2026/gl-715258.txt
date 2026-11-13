@@ -1,0 +1,152 @@
+--- PDF page 1046 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1046 
+Lipfendra (enlicitide) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-715258  
+Guideline Name 
+Lipfendra (enlicitide)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Lipfendra  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting ONE of the following 
+diagnoses:  
+• 
+Heterozygous familial hypercholesterolemia (HeFH)  
+
+
+--- PDF page 1047 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1047 
+• 
+Atherosclerotic cardiovascular disease (ASCVD) [e.g., history of acute coronary 
+syndromes (ACS), myocardial infarction (MI), stable or unstable angina, coronary or 
+other arterial revascularization, stroke, transient ischemic attack (TIA), or peripheral 
+artery disease (PAD)]  
+• 
+Primary hyperlipidemia or hypercholesterolemia  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) or verification of paid claims confirming 
+ONE of the following:  
+• 
+Patient has been receiving at least 12 consecutive weeks of highest tolerable dose of 
+statin therapy and has not reached LDL-C (low-density lipoprotein cholesterol) goal  
+• 
+Patient is statin intolerant as evidenced by an inability to tolerate at least two statins, 
+with at least one started at the lowest starting daily dose, due to intolerable symptoms 
+or clinically significant biomarker changes of liver function or muscle function (e.g., 
+creatine kinase)  
+• 
+Patient has an FDA (Food and Drug Administration) labeled contraindication to all 
+statins  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) or verification of paid claims confirming 
+ONE of the following:  
+ 
+ 3.1 Patient has not achieved LDL-C goal while on maximally tolerated lipid-lowering therapy 
+(e.g., statins) within the last 120 days as demonstrated by ONE of the following:  
+• 
+Patient has LDL-C greater than or equal to 55 mg/dL (milligrams/deciliter) with ASCVD  
+• 
+Patient has LDL-C greater than or equal to 70 mg/dL without ASCVD but at high risk 
+[e.g., with ASCVD risk factors (age greater than or equal to 65, current smoker, 
+diabetes), subclinical atherosclerosis]  
+• 
+Patient has LDL-C greater than or equal to 100 mg/dL without ASCVD and not at high 
+risk  
+ 
+OR 
+ 
+ 3.2 BOTH of the following:  
+ 
+  3.2.1 Patient has been receiving Lipfendra as adjunct to maximally tolerated lipid lowering 
+therapy (e.g., statins, ezetimibe)  
+
+
+--- PDF page 1048 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1048 
+ 
+AND 
+ 
+  3.2.2 Patient has reached LDL-C goal  
+ 
+AND 
+ 
+4 - Will not be used in combination with another proprotein convertase subtilisin/kexin type 9 
+(PCSK9) inhibitor (e.g., Repatha, Praluent)  
+ 
+Product Name:Lipfendra  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting positive clinical response 
+to therapy as evidenced by a reduction in LDL-C (low-density lipoprotein cholesterol) levels 
+from baseline  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) or verification of paid claims confirming 
+ONE of the following:  
+• 
+Patient continues to receive other lipid-lowering therapy (e.g., statins, ezetimibe)  
+• 
+Patient has a documented inability to take other lipid-lowering therapy (e.g., statins, 
+ezetimibe)  
+ 
+AND 
+ 
+3 - Will not be used in combination with another proprotein convertase subtilisin/kexin type 9 
+(PCSK9) inhibitor (e.g., Repatha, Praluent)  
+ 
+
+
+--- PDF page 1049 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1049 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/31/2026  
+New program.  
+ 

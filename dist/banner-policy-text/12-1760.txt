@@ -1,0 +1,229 @@
+=== PDF PAGE 1760 ===
+Page 1760 
+Tasigna 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-99772  
+Guideline Name 
+Tasigna  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+12/9/2021  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Tasigna  
+Diagnosis 
+Chronic Myeloid Leukemia  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of chronic myeloid leukemia  
+
+
+=== PDF PAGE 1761 ===
+Page 1761 
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 Patient is not a candidate for imatinib (Gleevec) as attested by physician  
+ 
+OR 
+ 
+ 2.2 Patient is currently on Tasigna therapy  
+ 
+Product Name:Tasigna  
+Diagnosis 
+Chronic Myeloid Leukemia  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient does not show evidence of progressive disease while on Tasigna therapy  
+ 
+Product Name:Tasigna  
+Diagnosis 
+Gastrointestinal Stromal Tumor (GIST)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of progressive gastrointestinal stromal tumor (GIST)  
+
+
+=== PDF PAGE 1762 ===
+Page 1762 
+ 
+AND 
+ 
+2 - History of failure, contraindication, or intolerance to ALL of the following:  
+• 
+Gleevec (imatinib)  
+• 
+Sutent (sunitinib)  
+• 
+Stivarga (regorafenib)  
+ 
+Product Name:Tasigna  
+Diagnosis 
+Gastrointestinal Stromal Tumor (GIST)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient does not show evidence of progressive disease while on Tasigna therapy  
+ 
+Product Name:Tasigna  
+Diagnosis 
+Acute Lymphoblastic Leukemia (ALL)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of Philadelphia chromosome-positive acute lymphoblastic leukemia (Ph+ALL)  
+ 
+Product Name:Tasigna  
+Diagnosis 
+Acute Lymphoblastic Leukemia (ALL)  
+
+
+=== PDF PAGE 1763 ===
+Page 1763 
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient does not show evidence of progressive disease while on Tasigna therapy  
+ 
+Product Name:Tasigna  
+Diagnosis 
+Myeloid/Lymphoid Neoplasms with Eosinophilia and Tyrosine Kinase 
+Fusion Genes  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of myeloid/lymphoid neoplasms with eosinophilia and ABL1 (gene) 
+rearrangement  
+ 
+AND 
+ 
+2 - Neoplasm is in blast or chronic phase  
+ 
+Product Name:Tasigna  
+Diagnosis 
+Myeloid/Lymphoid Neoplasms with Eosinophilia and Tyrosine Kinase 
+Fusion Genes  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+
+
+=== PDF PAGE 1764 ===
+Page 1764 
+Approval Criteria    
+ 
+1 - Patient does not show evidence of progressive disease while on Tasigna therapy  
+ 
+Product Name:Tasigna  
+Diagnosis 
+NCCN Recommended Regimens  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Tasigna will be approved for uses supported by The National Comprehensive Cancer 
+Network (NCCN) Drugs and Biologics Compendium with a Category of Evidence and 
+Consensus of 1, 2A, or 2B.  
+ 
+Product Name:Tasigna  
+Diagnosis 
+NCCN Recommended Regimens  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to Tasigna therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+6/2/2021  
+Arizona Medicaid 7.1 Implementation  
+ 

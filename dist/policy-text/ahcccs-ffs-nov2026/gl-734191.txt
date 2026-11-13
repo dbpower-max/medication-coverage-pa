@@ -1,0 +1,602 @@
+--- PDF page 726 ---
+Page 726 
+Gonadotropin-Releasing Hormone Agonists 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-734191  
+Guideline Name 
+Gonadotropin-Releasing Hormone Agonists  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/14/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Preferred: Fensolvi, Lupron Depot-Ped (1-month): 7.5 mg, 11.25 mg, or 15 mg; 
+Non-Preferred: Lupron Depot-Ped 3-Month (11.25mg and 30mg) and 6 month, Triptodur  
+Diagnosis 
+Central Precocious Puberty (CPP)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of central precocious puberty (idiopathic or neurogenic)  
+
+
+--- PDF page 727 ---
+Page 727 
+ 
+AND 
+ 
+2 - Onset of secondary sexual characteristics in one of the following:  
+ 
+ 2.1 Females less than or equal to 8 years of age  
+ 
+OR 
+ 
+ 2.2 Males less than or equal to 9 years of age  
+ 
+AND 
+ 
+3 - Confirmation of diagnosis as defined by one of the following:  
+ 
+ 3.1 Pubertal basal level of luteinizing hormone (based on laboratory reference ranges)  
+ 
+OR 
+ 
+ 3.2 A pubertal luteinizing hormone response to a gonadotropin releasing hormone (GnRH) 
+stimulation test  
+ 
+OR 
+ 
+ 3.3 Bone age advanced one year beyond the chronological age  
+ 
+AND 
+ 
+4 - For Non-Preferred requests: History of failure, contraindication, or intolerance to one of the 
+following:  
+• 
+Fensolvi  
+• 
+Lupron Depot-Ped (1-month): 7.5 mg, 11.25 mg, or 15 mg  
+ 
+
+
+--- PDF page 728 ---
+Page 728 
+Product Name:Preferred: Fensolvi, Lupron Depot-Ped (1-month): 7.5 mg, 11.25 mg, or 15 mg; 
+Non-Preferred: Lupron Depot-Ped 3-Month (11.25mg and 30mg) and 6 month, Triptodur  
+Diagnosis 
+Central Precocious Puberty (CPP)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient is currently receiving therapy for central precocious puberty  
+ 
+AND 
+ 
+2 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+3 - Patient is ONE of the following (younger than the appropriate time point for the onset of 
+puberty):  
+ 
+ 3.1 Female younger than 11 years of age  
+ 
+OR 
+ 
+ 3.2 Male younger than 12 years of age  
+ 
+AND 
+ 
+4 - For Non-Preferred requests, One of the following:  
+ 
+ 4.1 For Lupron Depot-Ped (3-Month and 6-Month) requests: Continuation of prior therapy 
+(Applies to requests for Lupron Depot-Ped (3-Month and 6-Month) ONLY)  
+ 
+OR 
+
+
+--- PDF page 729 ---
+Page 729 
+ 
+ 4.2 History of failure, contraindication, or intolerance to one of the following:  
+• 
+Fensolvi  
+• 
+Lupron Depot-Ped (1-month): 7.5 mg, 11.25 mg, or 15 mg  
+ 
+Product Name:Preferred: Lupron Depot 3.75 mg; Non-Preferred: Lupron Depot 3-month 
+11.25mg  
+Diagnosis 
+Endometriosis  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of endometriosis or endometriosis is suspected  
+ 
+AND 
+ 
+2 - One of the following:  
+ 
+ 2.1 History of failure, contraindication, or intolerance to both of the following:  
+ 
+  2.1.1 Oral contraceptives or depot medroxyprogesterone (e.g., Depo- Provera)  
+ 
+AND 
+ 
+  2.1.2 Non-steroidal anti-inflammatory drugs (NSAIDs)  
+ 
+OR 
+ 
+ 2.2 Patient has had surgical ablation to prevent recurrence  
+
+
+--- PDF page 730 ---
+Page 730 
+ 
+AND 
+ 
+3 - For Non-Preferred Requests, history of failure, contraindication, or intolerance to Lupron 
+Depot 3.75 mg  
+ 
+Product Name:Preferred: Lupron Depot 3.75 mg; Non-Preferred: Lupron Depot 3-month 
+11.25mg  
+Diagnosis 
+Endometriosis  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of endometriosis or endometriosis is suspected  
+ 
+AND 
+ 
+2 - Recurrence of symptoms following an initial course of therapy  
+ 
+AND 
+ 
+3 - Concurrently to be used with add-back therapy (e.g., progestin, estrogen, or bone sparing 
+agents)  
+ 
+AND 
+ 
+4 - For Non-Preferred Requests, history of failure, contraindication, or intolerance to Lupron 
+Depot 3.75 mg  
+ 
+Product Name:Preferred: Lupron Depot 3.75 mg; Non-Preferred: Lupron Depot 3-month 
+11.25mg  
+
+
+--- PDF page 731 ---
+Page 731 
+Diagnosis 
+Uterine Leiomyomata (Fibroids)  
+Approval Length 
+3 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+ 
+ 1.1 All of the following:  
+ 
+  1.1.1 For the treatment of uterine leiomyomata-related anemia  
+ 
+AND 
+ 
+  1.1.2 Patient did not respond to iron therapy of 1 month duration  
+ 
+AND 
+ 
+  1.1.3 For use prior to surgery  
+ 
+OR 
+ 
+ 1.2 For use prior to surgery to reduce the size of fibroids to facilitate a surgical procedure 
+(e.g., myomectomy, hysterectomy)  
+ 
+AND 
+ 
+2 - For Non-Preferred Requests, history of failure, contraindication, or intolerance to Lupron 
+Depot 3.75 mg  
+ 
+Product Name:Preferred: Fensolvi, Lupron Depot 3.75 mg, Lupron Depot 7.5mg, Lupron 
+Depot-Ped (1-month): 7.5 mg, 11.25 mg, or 15 mg; Non-Preferred: Leuprolide acetate inj kit 
+5mg/ml, Lupron Depot 3-Month (11.25mg and 22.5mg), 4-Month 30mg, 6-Month 45mg, 
+Lutrate Depot, Lupron Depot-Ped 3-Month (11.25mg and 30mg) and 6 month, Triptodur  
+Diagnosis 
+Gender dysphoria in adolescents less than 19 years old  
+
+
+--- PDF page 732 ---
+Page 732 
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Gonadotropin-Releasing Hormone Agonists used for gender dysphoria in adolescents less 
+than 19 years of age are no longer covered under Medicaid and will be denied as benefit 
+exclusion. If requested Gonadotropin-Releasing Hormone Agonist was started ON or 
+BEFORE October 13, 2026, patient will be grandfathered for 6 months.  
+Notes  
+Note: Gonadotropin-Releasing Hormone Agonists (e.g., Fensolvi, Lup
+ron) used for gender dysphoria in adolescents less than 19 years of a
+ge are no longer covered under Medicaid and will be denied as a ben
+efit exclusion. If requested Gonadotropin-Releasing Hormone Agonist 
+was started ON or BEFORE October 13, 2026, patients will be grandf
+athered for 6 months. 
+ 
+Product Name:Preferred: Fensolvi, Lupron Depot 3.75 mg, Lupron Depot 7.5mg, Lupron 
+Depot-Ped (1-month): 7.5 mg, 11.25 mg, or 15 mg; Non-Preferred: Leuprolide acetate inj kit 
+5mg/ml, Lupron Depot 3-Month (11.25mg and 22.5mg), 4-Month 30mg, 6-Month 45mg, 
+Lutrate Depot, Lupron Depot-Ped 3-Month (11.25mg and 30mg) and 6 month, Triptodur  
+Diagnosis 
+Adjunct for Gender-Affirming Hormonal Therapy for Transgender 
+Adults age 19 and older  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient is 19 years of age or older  
+ 
+AND 
+ 
+2 - Diagnosis of gender dysphoria, according to the current Diagnostic and Statistical Manual 
+of Mental Disorders (i.e., DSM-5) criteria, by a mental health professional  
+ 
+AND 
+
+
+--- PDF page 733 ---
+Page 733 
+ 
+3 - Medication is prescribed by or in consultation with an endocrinologist or a medical provider 
+experienced in transgender hormone therapy  
+ 
+AND 
+ 
+4 - Gonads (i.e., testes, ovaries) have not been removed and are functional (e.g., hormone 
+producing)  
+ 
+AND 
+ 
+5 - Patient is currently receiving hormonal therapy (e.g., testosterone, estrogens, 
+progesterones) to achieve the desired (e.g., non-natal) gender  
+ 
+AND 
+ 
+6 - Inability of cross sex hormone therapy to inhibit natal secondary sex characteristics, 
+luteinizing hormone (LH), or gonadotropins (e.g., menses, testosterone)  
+ 
+AND 
+ 
+7 - A letter from the prescriber and/or formal documentation stating all of the following:  
+ 
+ 7.1 Transgender patient has identified goals of gender-affirming hormone therapy  
+ 
+AND 
+ 
+ 7.2 Coexisting psychiatric and medical comorbidities or social problems that may interfere 
+with the diagnostic procedures or treatment have been addressed or removed  
+ 
+AND 
+ 
+ 7.3 Both of the following:  
+ 
+  7.3.1 Current enrollment, attendance, and active participation in psychological and social 
+support treatment program  
+
+
+--- PDF page 734 ---
+Page 734 
+ 
+AND 
+ 
+  7.3.2 Patient will continue enrollment, attendance and active participation in psychological 
+and social support throughout the course of treatment  
+ 
+AND 
+ 
+ 7.4 Patient demonstrates knowledge and understanding of the expected outcomes of 
+treatment and related transgender therapies  
+ 
+AND 
+ 
+8 - For Non-Preferred requests: History of failure, contraindication, or intolerance to one of the 
+following:  
+• 
+Fensolvi  
+• 
+Lupron Depot 3.75 mg or 7.5mg  
+• 
+Lupron Depot-Ped (1-month): 7.5 mg, 11.25 mg, or 15 mg  
+ 
+Product Name:Preferred: Fensolvi, Lupron Depot 3.75 mg, Lupron Depot 7.5mg, Lupron 
+Depot-Ped (1-month): 7.5 mg, 11.25 mg, or 15 mg; Non-Preferred: Leuprolide acetate inj kit 
+5mg/ml, Lupron Depot 3-Month (11.25mg and 22.5mg), 4-Month 30mg, 6-Month 45mg, 
+Lutrate Depot, Lupron Depot-Ped 3-Month (11.25mg and 30mg) and 6 month, Triptodur  
+Diagnosis 
+Adjunct for Gender-Affirming Hormonal Therapy for Transgender 
+Adults age 19 and older  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient is 19 years of age or older  
+
+
+--- PDF page 735 ---
+Page 735 
+ 
+AND 
+ 
+2 - One of the following:  
+• 
+Documentation (within the last 6 months) of appropriate luteinizing hormone (LH) 
+suppression  
+• 
+Change in dosing  
+ 
+AND 
+ 
+3 - Documented diagnosis of gender dysphoria, according to the current Diagnostic and 
+Statistical Manual of Mental Disorders (i.e., DSM-5) criteria, by a mental health professional  
+ 
+AND 
+ 
+4 - Medication is prescribed by or in consultation with an endocrinologist or a medical provider 
+experienced in transgender hormone therapy  
+ 
+AND 
+ 
+5 - Gonads (i.e., testes, ovaries) are intact  
+ 
+AND 
+ 
+6 - Patient is currently receiving hormonal therapy (e.g., testosterone, estrogens, 
+progesterones) to achieve the desired (e.g., non-natal) gender  
+ 
+AND 
+ 
+7 - Inability of cross sex hormone therapy to inhibit natal secondary sex characteristics, 
+luteinizing hormone (LH), or gonadotropins (e.g., menses, testosterone)  
+ 
+AND 
+
+
+--- PDF page 736 ---
+Page 736 
+ 
+8 - A letter from the prescriber and/or formal documentation stating all of the following:  
+ 
+ 8.1 Transgender patient continues to meet goals of gender-affirming hormone therapy  
+ 
+AND 
+ 
+ 8.2 Coexisting psychiatric and medical comorbidities or social problems that may interfere 
+with the diagnostic procedures or treatment continue to be addressed or removed  
+ 
+AND 
+ 
+ 8.3 Both of the following:  
+ 
+  8.3.1 Current enrollment, attendance, and active participation in psychological and social 
+support treatment program  
+ 
+AND 
+ 
+  8.3.2 Patient will continue enrollment, attendance and active participation in psychological 
+and social support throughout the course of treatment  
+ 
+AND 
+ 
+ 8.4 Patient demonstrates knowledge and understanding of the expected outcomes of 
+treatment and related transgender therapies  
+ 
+AND 
+ 
+9 - For Non-Preferred requests, One of the following:  
+ 
+ 9.1 For Lupron Depot 6-Month and Lupron Depot-Ped (3-Month and 6-Month) requests: 
+Continuation of prior therapy [Applies to requests for Lupron Depot 6-Month and Lupron 
+Depot-Ped (3-Month and 6-Month) ONLY]  
+ 
+OR 
+
+
+--- PDF page 737 ---
+Page 737 
+ 
+ 9.2 History of failure, contraindication, or intolerance to one of the following:  
+• 
+Fensolvi  
+• 
+Lupron Depot 3.75 mg or 7.5mg  
+• 
+Lupron Depot-Ped (1-month): 7.5 mg, 11.25 mg, or 15 mg  
+ 
+Product Name:Preferred: Fensolvi, Lupron Depot 3.75 mg, Lupron Depot 7.5mg, Lupron 
+Depot-Ped (1-month): 7.5 mg, 11.25 mg, or 15 mg; Non-Preferred: Leuprolide acetate inj kit 
+5mg/ml, Lupron Depot 3-Month (11.25mg and 22.5mg), 4-Month 30mg, 6-Month 45mg, 
+Lutrate Depot, Lupron Depot-Ped 3-Month (11.25mg and 30mg) and 6 month, Triptodur  
+Diagnosis 
+Fertility Preservation  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - For use in pre-menopausal women  
+ 
+AND 
+ 
+2 - Patient is receiving a cytotoxic agent that is associated with causing primary ovarian 
+insufficiency (premature ovarian failure) [e.g., Cytoxan (cyclophosphamide), procarbazine, 
+vinblastine, cisplatin]  
+ 
+AND 
+ 
+3 - For Non-Preferred requests: History of failure, contraindication, or intolerance to one of the 
+following:  
+• 
+Fensolvi  
+• 
+Lupron Depot 3.75 mg or 7.5mg  
+• 
+Lupron Depot-Ped (1-month): 7.5 mg, 11.25 mg, or 15 mg  
+ 
+
+
+--- PDF page 738 ---
+Page 738 
+Product Name:Preferred: Fensolvi, Lupron Depot 3.75 mg, Lupron Depot 7.5mg, Lupron 
+Depot-Ped (1-month): 7.5 mg, 11.25 mg, or 15 mg; Non-Preferred: Leuprolide acetate inj kit 
+5mg/ml, Lupron Depot 3-Month (11.25mg and 22.5mg), 4-Month 30mg, 6-Month 45mg, 
+Lutrate Depot, Lupron Depot-Ped 3-Month (11.25mg and 30mg) and 6 month, Triptodur  
+Diagnosis 
+Fertility Preservation  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient is currently receiving gonadotropin-releasing hormone (GnRH) analog therapy for 
+the purpose of fertility preservation  
+ 
+AND 
+ 
+2 - Patient continues to receive a cytotoxic agent that is associated with causing primary 
+ovarian insufficiency (premature ovarian failure) [e.g., Cytoxan (cyclophosphamide), 
+procarbazine, vinblastine, cisplatin]  
+ 
+AND 
+ 
+3 - For Non-Preferred requests, One of the following:  
+ 
+ 3.1 For Lupron Depot 6-Month and Lupron Depot-Ped (3-Month and 6-Month) requests: 
+Continuation of prior therapy [Applies to requests for Lupron Depot 6-Month and Lupron 
+Depot-Ped (3-Month and 6-Month) ONLY]  
+ 
+OR 
+ 
+ 3.2 History of failure, contraindication, or intolerance to one of the following:  
+• 
+Fensolvi  
+• 
+Lupron Depot 3.75 mg or 7.5mg  
+• 
+Lupron Depot-Ped (1-month): 7.5 mg, 11.25 mg, or 15 mg  
+ 
+
+
+--- PDF page 739 ---
+Page 739 
+Product Name:Preferred: Eligard, Leuprolide inj 3-month 22.5mg, Lupron Depot 7.5mg; Non-
+Preferred: Leuprolide acetate inj kit 5mg/ml, Lupron Depot 3-Month 22.5mg, 4-Month 30mg, 
+6-Month 45mg, Lutrate Depot, Vabrinty, Camcevi  
+Diagnosis 
+Advanced or Metastatic Prostate Cancer  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of advanced or metastatic prostate cancer  
+ 
+AND 
+ 
+2 - For Non-Preferred Requests, One of the following:  
+ 
+ 2.1 For Lupron Depot 6-Month requests: Continuation of prior therapy (Applies to requests for 
+Lupron Depot 6-Month ONLY)  
+ 
+OR 
+ 
+ 2.2 History of failure, contraindication, or intolerance to one of the following:  
+• 
+Eligard  
+• 
+Leuprolide Inj 3-month 22.5mg  
+• 
+Lupron Depot 7.5mg  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+9/23/2026  
+Gender dysphoria and gender-affirming hormonal therapy criteria up
+dated; indications no longer covered for patients less than 19 yo und
+er Medicaid.  
+ 

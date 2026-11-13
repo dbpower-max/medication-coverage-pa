@@ -1,0 +1,115 @@
+--- PDF page 1650 ---
+Page 1650 
+Somavert 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-99644  
+Guideline Name 
+Somavert  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+12/9/2021  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Somavert  
+Diagnosis 
+Acromegaly  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - All of the following:  
+ 
+ 1.1 Diagnosis of acromegaly by ONE of the following:  
+
+
+--- PDF page 1651 ---
+Page 1651 
+• 
+Serum GH (growth hormone) level greater than 1 ng/mL (nanograms per milliliter) after 
+a 2 hour oral glucose tolerance test (OGTT) at time of diagnosis  
+• 
+Elevated serum IGF-1 (Insulin-like growth factor-1) levels (above the age and gender 
+adjusted normal range as provided by the physician’s lab) at time of diagnosis  
+ 
+AND 
+ 
+ 1.2 One of the following:  
+ 
+  1.2.1 Inadequate response to one of the following:  
+• 
+Surgery  
+• 
+Radiation therapy  
+• 
+Dopamine agonist (e.g., bromocriptine, cabergoline) therapy  
+ 
+OR 
+ 
+  1.2.2 Not a candidate for all of the following:  
+• 
+Surgery  
+• 
+Radiation therapy  
+• 
+Dopamine agonist (e.g., bromocriptine, cabergoline) therapy  
+ 
+AND 
+ 
+ 1.3 Inadequate response, intolerance, or contraindication to one of the following somatostatin 
+analogs:  
+• 
+Sandostatin (octreotide) or Sandostatin LAR  
+• 
+Somatuline Depot (lanreotide)  
+ 
+OR 
+ 
+2 - Patient is currently on Somavert therapy for acromegaly  
+ 
+Product Name:Somavert  
+Diagnosis 
+Acromegaly  
+
+
+--- PDF page 1652 ---
+Page 1652 
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to Somavert therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/11/2021  
+Bulk Copy C&S Arizona Medicaid SP to Medicaid Arizona SP for 7/1  
+ 

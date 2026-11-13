@@ -1,0 +1,117 @@
+--- PDF page 1851 ---
+Page 1851 
+Trikafta (elexacaftor/tezacaftor/ivacaftor) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-589213  
+Guideline Name 
+Trikafta (elexacaftor/tezacaftor/ivacaftor)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+5/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Trikafta  
+Diagnosis 
+Cystic Fibrosis  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of cystic fibrosis (CF)  
+
+
+--- PDF page 1852 ---
+Page 1852 
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) or laboratory results confirming the 
+presence of at least one mutation in the cystic fibrosis transmembrane conductance regulator 
+(CFTR) gene  
+ 
+AND 
+ 
+3 - One of the following:  
+ 
+ 3.1 CFTR mutation is responsive based on clinical or in vitro data  
+ 
+OR 
+ 
+ 3.2 CFTR mutation results in the production of CFTR protein  
+ 
+AND 
+ 
+4 - One of the following:  
+• 
+For granule packets, patient is at least 2 to less than 6 years of age  
+• 
+For tablets, patient is 6 years of age or older  
+ 
+AND 
+ 
+5 - Prescribed by, or in consultation with, a specialist affiliated with a CF care center  
+ 
+Product Name:Trikafta  
+Diagnosis 
+Cystic Fibrosis  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 1853 ---
+Page 1853 
+ 
+ 
+Approval Criteria    
+ 
+1 - Provider attests that the patient has achieved a clinically meaningful response while on 
+Trikafta therapy to ONE of the following:  
+• 
+Lung function as demonstrated by percent predicted expiratory volume in 1 second 
+(ppFEV1)  
+• 
+Body mass index (BMI)  
+• 
+Pulmonary exacerbations  
+• 
+Quality of life as demonstrated by Cystic Fibrosis Questionnaire-Revised (CFQ-R) 
+respiratory domain score  
+ 
+AND 
+ 
+2 - Prescribed by, or in consultation with, a specialist affiliated with a cystic fibrosis (CF) care 
+center  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+4/30/2026  
+Updated dx confirmation criterion due to expanded indication, combi
+ned initial auths for tablets/granules.  
+ 

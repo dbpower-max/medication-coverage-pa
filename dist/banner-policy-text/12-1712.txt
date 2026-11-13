@@ -1,0 +1,83 @@
+=== PDF PAGE 1712 ===
+Page 1712 
+Syfovre (pegcetacoplan) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-124881  
+Guideline Name 
+Syfovre (pegcetacoplan)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+5/1/2023  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Syfovre  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a diagnosis of geographic 
+atrophy (GA) secondary to age-related macular degeneration (AMD) as confirmed by one of 
+the following:  
+• 
+Fundus photography (e.g. fundus autofluorescence [FAF])  
+
+
+=== PDF PAGE 1713 ===
+Page 1713 
+• 
+Optical coherence tomography (OCT)  
+• 
+Fluorescein angiography  
+ 
+AND 
+ 
+2 - GA is not secondary to any other conditions (e.g., Stargardt disease, cone rod dystrophy, 
+toxic maculopathies)  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with an ophthalmologist experienced in the treatment of 
+retinal diseases  
+ 
+Product Name:Syfovre  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting positive clinical response 
+to therapy (e.g., reduction in growth rate of GA lesion)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+4/20/2023  
+New Program  
+ 

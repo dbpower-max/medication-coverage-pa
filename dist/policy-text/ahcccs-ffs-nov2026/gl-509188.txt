@@ -1,0 +1,306 @@
+--- PDF page 2013 ---
+Page 2013 
+Wegovy (semaglutide) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-509188  
+Guideline Name 
+Wegovy (semaglutide)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+2/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Wegovy injection, Wegovy tablets  
+Diagnosis 
+Weight Loss  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Wegovy when used for the treatment of weight loss is excluded and is to be denied as a 
+benefit exclusion  
+ 
+Product Name:Wegovy injection, Wegovy tablets  
+Diagnosis 
+Reduction of risk of major adverse cardiovascular events  
+
+
+--- PDF page 2014 ---
+Page 2014 
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Treatment is being requested to reduce the risk of major adverse cardiovascular events  
+ 
+AND 
+ 
+2 - Patient is 45 years of age or older  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) documenting all the following:  
+ 
+ 3.1 BMI (body mass index) greater than or equal to 30 kg/m2 (kilograms per square meter)  
+ 
+AND 
+ 
+ 3.2 Established cardiovascular disease as evidenced by one of the following:  
+ 
+  3.2.1 Prior myocardial infarction (MI)  
+ 
+OR 
+ 
+  3.2.2 One of the following diagnoses/diagnosis codes:  
+• 
+I25.2 Old myocardial infarction  
+• 
+I46.2 Cardiac arrest due to underlying cardiac condition  
+• 
+I46.8 Cardiac arrest due to other underlying condition  
+• 
+I46.9 Cardiac arrest, cause unspecified  
+• 
+Z95.0 Presence of cardiac pacemaker  
+• 
+Z95.1 Presence of aortocoronary bypass graft  
+• 
+Z95.2 Presence of prosthetic heart valve  
+• 
+Z95.3 Presence of xenogenic heart valve  
+• 
+Z95.4 Presence of other heart-valve replacement  
+
+
+--- PDF page 2015 ---
+Page 2015 
+• 
+Z95.5 Presence of coronary angioplasty implant and graft  
+ 
+AND 
+ 
+4 - Used in combination with a reduced calorie diet and increased physical activity  
+ 
+AND 
+ 
+5 - For patients with a history of myocardial infarction, submission of medical records (e.g., 
+chart notes) or paid claims documenting one of the following:  
+ 
+ 5.1 Patient is on therapy from each of the following classes (as confirmed by claims history or 
+submission of medical records):  
+• 
+Cholesterol lowering medication (e.g., statin, PCSK9i)  
+• 
+Beta blocker (i.e., carvedilol, metoprolol, or bisoprolol)  
+• 
+Angiotensin-converting enzyme inhibitor (ACE-I)/angiotensin II receptor blocker 
+(ARB)/angiotensin II receptor blocker neprilysin inhibitor (ARNI)  
+• 
+Antiplatelet (e.g., aspirin, clopidogrel)  
+ 
+OR 
+ 
+ 5.2 Patient has a history of intolerance or contraindication to all of the following therapeutic 
+classes (please specify intolerance or contraindication):  
+• 
+Cholesterol lowering medication (e.g., statin, PCSK9i)  
+• 
+Beta blocker (i.e., carvedilol, metoprolol, or bisoprolol)  
+• 
+Angiotensin-converting enzyme inhibitor (ACE-I)/angiotensin II receptor blocker 
+(ARB)/angiotensin II receptor blocker neprilysin inhibitor (ARNI)  
+• 
+Antiplatelet (e.g., aspirin, clopidogrel)  
+ 
+AND 
+ 
+6 - Patient does NOT have diagnosis of diabetes or HgA1c greater than or equal to 6.5%  
+ 
+AND 
+ 
+7 - Patient does NOT have New York Heart Association class IV heart failure  
+
+
+--- PDF page 2016 ---
+Page 2016 
+ 
+AND 
+ 
+8 - Patient does NOT have end-stage renal disease  
+ 
+Product Name:Wegovy injection, Wegovy tablets  
+Diagnosis 
+Reduction of risk of major adverse cardiovascular events  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - BMI (body mass index) greater than or equal to 30 kg/m2 (kilograms per square meter)  
+ 
+AND 
+ 
+2 - Used in combination with a reduced calorie diet and increased physical activity  
+ 
+AND 
+ 
+3 - Patient does NOT have diagnosis of diabetes or HgA1c greater than or equal to 6.5%  
+ 
+AND 
+ 
+4 - Patient does NOT have New York Heart Association class IV heart failure  
+ 
+AND 
+ 
+5 - Patient does NOT have end-stage renal disease  
+ 
+
+
+--- PDF page 2017 ---
+Page 2017 
+Product Name:Wegovy injection  
+Diagnosis 
+Metabolic dysfunction-associated steatohepatitis (MASH)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of metabolic dysfunction-associated steatohepatitis (MASH), formerly known as 
+nonalcoholic steatohepatitis (NASH)  
+ 
+AND 
+ 
+2 - Patient does not have cirrhosis (e.g., decompensated cirrhosis)  
+ 
+AND 
+ 
+3 - Disease is fibrosis stage F2 or F3 as confirmed by one of the following:  
+• 
+Enhanced liver fibrosis (ELF) test  
+• 
+Liver stiffness measurement (LSM) by vibration-controlled transient elastography 
+(VCTE) (e.g., FibroScan)  
+• 
+FibroScan aspartate aminotransferase (FAST)  
+• 
+MRI aspartate aminotransferase (MAST)  
+• 
+Magnetic Resonance Elastography combined with fibrosis-4 index (MEFIB)  
+• 
+Liver biopsy within the past 12 months  
+ 
+AND 
+ 
+4 - Patient is 18 years of age or older  
+ 
+AND 
+ 
+5 - Used as an adjunct to lifestyle modification (e.g., dietary or caloric restriction, exercise, 
+behavioral support, community-based program)  
+
+
+--- PDF page 2018 ---
+Page 2018 
+ 
+AND 
+ 
+6 - Prescribed by or in consultation with one of the following:  
+• 
+Gastroenterologist  
+• 
+Hepatologist  
+• 
+Endocrinologist  
+ 
+AND 
+ 
+7 - Medication is not being co-administered with another GLP-1 receptor agonist (e.g., 
+Saxenda, Trulicity, Victoza)  
+ 
+AND 
+ 
+8 - Medication will not be used in combination with Rezdiffra (resmetirom) for the treatment of 
+MASH  
+ 
+Product Name:Wegovy injection  
+Diagnosis 
+Metabolic dysfunction-associated steatohepatitis (MASH)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive response to therapy (e.g., improvement in liver function 
+tests (LFTs), fibrosis stage improvement, improvement from baseline on MASH-specific 
+imaging [VCTE >/= 25%, MRE >/= 20%, etc.], etc.)  
+ 
+AND 
+ 
+2 - Patient has not progressed to cirrhosis  
+
+
+--- PDF page 2019 ---
+Page 2019 
+ 
+AND 
+ 
+3 - Used as an adjunct to lifestyle modification (e.g., dietary or caloric restriction, exercise, 
+behavioral support, community-based program)  
+ 
+AND 
+ 
+4 - Medication is not being co-administered with another GLP-1 receptor agonist (e.g., 
+Saxenda, Trulicity, Victoza)  
+ 
+AND 
+ 
+5 - Medication will not be used in combination with Rezdiffra (resmetirom) for the treatment of 
+MASH  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+1/28/2026  
+Added criteria for MASH indication. Added GPIs for tablet formulation
+.  
+ 

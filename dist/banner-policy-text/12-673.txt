@@ -1,0 +1,166 @@
+=== PDF PAGE 673 ===
+Page 673 
+Filsuvez (birch triterpenes) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-641219  
+Guideline Name 
+Filsuvez (birch triterpenes)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+7/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Filsuvez  
+Approval Length 
+3 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of one of the following:  
+• 
+Dystrophic epidermolysis bullosa (DEB)  
+• 
+Junctional epidermolysis bullosa (JEB)  
+
+
+=== PDF PAGE 674 ===
+Page 674 
+ 
+AND 
+ 
+2 - Disease is confirmed by one of the following:  
+ 
+ 2.1 Genetic testing confirms mutation in one of the following genes:  
+ 
+  2.1.1 For Dystrophic epidermolysis bullosa (DEB), collagen type VII (COL7A1)  
+ 
+OR 
+ 
+  2.1.2 For Junctional epidermolysis bullosa (JEB), one of the following:  
+• 
+ITGA6  
+• 
+ITGB4  
+• 
+collagen type XVII (COL17A1)  
+• 
+LAMA3  
+• 
+LAMB3  
+• 
+LAMC2  
+• 
+ITGA3  
+• 
+LAMA3A  
+ 
+OR 
+ 
+ 2.2 Skin biopsy  
+ 
+AND 
+ 
+3 - Patient is 6 months of age or older  
+ 
+AND 
+ 
+4 - Medication is being used for the treatment of wounds  
+ 
+AND 
+ 
+5 - DEB or JEB associated wounds are present for at least 21 days  
+
+
+=== PDF PAGE 675 ===
+Page 675 
+ 
+AND 
+ 
+6 - Patient does not have signs of infection for wound being treated  
+ 
+AND 
+ 
+7 - Patient has no evidence or history of basal or squamous cell carcinoma for wound being 
+treated  
+ 
+AND 
+ 
+8 - Patient does not have history of stem cell transplant  
+ 
+AND 
+ 
+9 - Medication is not being used concurrently with other FDA approved therapies 
+(e.g.,Vyjuvek) for the treatment of epidermolysis bullosa  
+ 
+AND 
+ 
+10 - Standard wound care management not adequate in healing wounds (e.g., daily wound 
+dressings, pain management, controlling infections)  
+ 
+AND 
+ 
+11 - Prescribed by or in consultation with a specialist with expertise in wound care  
+ 
+Product Name:Filsuvez  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+=== PDF PAGE 676 ===
+Page 676 
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy as evidenced by wound is 
+healing but not completely closed  
+ 
+AND 
+ 
+2 - Patient does not have signs of infection for wound being treated  
+ 
+AND 
+ 
+3 - Patient has no evidence or history of basal or squamous cell carcinoma for wound being 
+treated  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with a specialist with expertise in wound care  
+ 
+AND 
+ 
+5 - Medication is not being used concurrently with other FDA approved therapies 
+(e.g.,Vyjuvek) for the treatment of epidermolysis bullosa  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+6/25/2026  
+Updated concurrent use criterion verbiage, also added to reauth.  
+ 

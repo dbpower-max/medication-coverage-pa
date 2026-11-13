@@ -1,0 +1,66 @@
+=== PDF PAGE 1948 ===
+Page 1948 
+Vitamin D 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-547232  
+Guideline Name 
+Vitamin D  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+4/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Vitamin D  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) including lab values documenting a 
+Vitamin D deficiency  
+ 
+Product Name:Vitamin D  
+
+
+=== PDF PAGE 1949 ===
+Page 1949 
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) including lab values documenting 
+improvement in Vitamin D deficiency (e.g., Vitamin D levels within normal range)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/24/2026  
+Updated submission of records verbiage, added reauth criteria  
+ 

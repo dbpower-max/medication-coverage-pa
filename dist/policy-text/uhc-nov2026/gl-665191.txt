@@ -1,0 +1,513 @@
+--- PDF page 504 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 504 
+Eculizumab (Soliris, Bkemv, Epysqli) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-665191  
+Guideline Name 
+Eculizumab (Soliris, Bkemv, Epysqli)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Epysqli  
+Diagnosis 
+Paroxysmal Nocturnal Hemoglobinuria (PNH)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of paroxysmal 
+nocturnal hemoglobinuria (PNH)  
+
+
+--- PDF page 505 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 505 
+ 
+AND 
+ 
+2 - BOTH of the following:  
+ 
+ 2.1 Flow cytometry analysis confirming presence of PNH clones  
+ 
+AND 
+ 
+ 2.2 Laboratory results, signs, and/or symptoms attributed to PNH (e.g., abdominal pain, 
+anemia, dyspnea, extreme fatigue, smooth muscle dystonia, unexplained/unusual thrombosis, 
+hemolysis/hemoglobinuria, kidney disease, pulmonary hypertension, etc.)  
+ 
+AND 
+ 
+3 - Patient is treatment naïve with eculizumab therapy  
+ 
+AND 
+ 
+4 - Requested medication is dosed according to the United States Food and Drug 
+Administration (FDA) labeled dosing for PNH  
+ 
+AND 
+ 
+5 - Prescribed by, or in consultation with, ONE of the following:  
+• 
+Hematologist  
+• 
+Oncologist  
+ 
+Product Name:Epysqli  
+Diagnosis 
+Paroxysmal Nocturnal Hemoglobinuria (PNH)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 506 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 506 
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) demonstrating a positive clinical 
+response from baseline (e.g., increased or stabilization of hemoglobin levels, reduction in 
+transfusions, improvement in hemolysis, decrease in lactate dehydrogenase [LDH], increased 
+reticulocyte count, etc.)  
+ 
+AND 
+ 
+2 - Requested medication is dosed according to the United States Food and Drug 
+Administration (FDA) labeled dosing for paroxysmal nocturnal hemoglobinuria (PNH)  
+ 
+AND 
+ 
+3 - Prescribed by, or in consultation with, ONE of the following:  
+• 
+Hematologist  
+• 
+Oncologist  
+ 
+Product Name:Epysqli  
+Diagnosis 
+Atypical Hemolytic Uremic Syndrome (aHUS)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) supporting a diagnosis of atypical 
+hemolytic uremic syndrome (aHUS) by ruling out BOTH of the following:  
+• 
+Shiga toxin E. coli-related hemolytic uremic syndrome (STEC-HUS)*  
+• 
+Thrombotic thrombocytopenia purpura (TTP) (e.g., rule out ADAMTS13 deficiency)  
+
+
+--- PDF page 507 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 507 
+ 
+AND 
+ 
+2 - Laboratory results, signs, and/or symptoms attributed to aHUS (e.g., thrombocytopenia, 
+microangiopathic hemolysis, thrombotic microangiopathy, acute renal failure, etc.)  
+ 
+AND 
+ 
+3 - Patient is treatment naïve with eculizumab therapy  
+ 
+AND 
+ 
+4 - Requested medication is dosed according to the United States Food and Drug 
+Administration (FDA) labeled dosing for aHUS  
+ 
+AND 
+ 
+5 - Prescribed by, or in consultation with, a hematologist or nephrologist  
+ 
+Product Name:Epysqli  
+Diagnosis 
+Atypical Hemolytic Uremic Syndrome (aHUS)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) demonstrating a positive clinical 
+response from baseline (e.g., reduction of plasma exchanges, reduction of dialysis, increased 
+platelet count, reduction of hemolysis)  
+ 
+AND 
+
+
+--- PDF page 508 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 508 
+ 
+2 - Requested medication is dosed according to the United States Food and Drug 
+Administration (FDA) labeled dosing for atypical hemolytic uremic syndrome (aHUS)  
+ 
+AND 
+ 
+3 - Prescribed by, or in consultation with, a hematologist or nephrologist  
+ 
+Product Name:Epysqli  
+Diagnosis 
+Generalized Myasthenia Gravis (gMG)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming ALL of the following:  
+ 
+ 1.1 Diagnosis of generalized myasthenia gravis (gMG)  
+ 
+AND 
+ 
+ 1.2 Patient has not failed a previous course of eculizumab therapy  
+ 
+AND 
+ 
+ 1.3 Positive serologic test for anti-acetylcholine receptor (AChR) antibodies  
+ 
+AND 
+ 
+ 1.4 ONE of the following:  
+• 
+History of abnormal neuromuscular transmission test demonstrated by single-fiber 
+electromyography (SFEMG) or repetitive nerve stimulation  
+• 
+History of positive anticholinesterase test (e.g., edrophonium chloride test)  
+
+
+--- PDF page 509 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 509 
+• 
+Patient has demonstrated improvement in myasthenia gravis (MG) signs on oral 
+cholinesterase inhibitors, as assessed by the treating neurologist  
+ 
+AND 
+ 
+ 1.5 Patient has a Myasthenia Gravis Foundation of America (MGFA) Clinical Classification of 
+class II, III, or IV at initiation of therapy  
+ 
+AND 
+ 
+ 1.6 Patient has a Myasthenia Gravis-specific Activities of Daily Living scale (MG-ADL) total 
+score greater than or equal to 6 at initiation of therapy  
+ 
+AND 
+ 
+2 - Patient is 6 years of age or older  
+ 
+AND 
+ 
+3 - ONE of the following:  
+ 
+ 3.1 For patients between 6 and 17 years of age, trial and failure, contraindication, or 
+intolerance to ONE of the following:  
+• 
+Immunosuppressive therapy (e.g., glucocorticoids, azathioprine, cyclosporine, 
+mycophenolate mofetil, methotrexate, tacrolimus)  
+• 
+Chronic plasmapheresis or plasma exchange (PE)  
+• 
+Intravenous immunoglobulin (IVIG)  
+ 
+OR 
+ 
+ 3.2 For patients 18 years of age or older, BOTH of the following:  
+• 
+History of failure of at least TWO immunosuppressive agents over the course of at 
+least 12 months (e.g., azathioprine, methotrexate, cyclosporine, mycophenolate, etc.)  
+• 
+Patient has required TWO or more courses of plasmapheresis/plasma exchanges 
+and/or intravenous immune globulin for at least the previous 12 months without 
+symptom control  
+
+
+--- PDF page 510 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 510 
+ 
+AND 
+ 
+4 - Patient is currently on a stable therapeutic dose (at least 3 to 6 months) of 
+immunosuppressive therapy  
+ 
+AND 
+ 
+5 - Requested medication is initiated and titrated according to the United States Food and 
+Drug Administration (FDA) labeled dosing for gMG: up to a maximum of 1200 milligrams 
+every 2 weeks  
+ 
+AND 
+ 
+6 - Prescribed by, or in consultation, with a neurologist  
+ 
+AND 
+ 
+7 - Requested medication is NOT being used in combination with any of the following:  
+• 
+Neonatal Fc Receptor (FcRn) blocker (e.g., Imaavy, Rystiggo, Vyvgart, Vyvgart 
+Hytrulo)  
+• 
+Another complement inhibitor (e.g., Ultomiris, Zilbrysq)  
+• 
+Immune globulin (e.g., IVIG)  
+• 
+B-cell depletion therapy (e.g., Uplizna)  
+ 
+Product Name:Epysqli  
+Diagnosis 
+Generalized Myasthenia Gravis (gMG)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 511 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 511 
+ 
+1 - Submission of medical records (e.g., chart notes) demonstrating a positive clinical 
+response from baseline as evidenced by ALL of the following:  
+ 
+ 1.1 Improvement and/or maintenance of at least a 3 point improvement (reduction in score) in 
+the Myasthenia Gravis Activities of Daily Living (MG-ADL) score from pre-treatment baseline  
+ 
+AND 
+ 
+ 1.2 Reduction in signs and symptoms of myasthenia gravis  
+ 
+AND 
+ 
+ 1.3 Maintenance, reduction, or discontinuation of dose(s) of baseline immunosuppressive 
+therapy (IST) prior to starting eculizumab therapy (Note: Add on, dose escalation of IST, or 
+additional rescue therapy from baseline to treat myasthenia gravis or exacerbation of 
+symptoms while on eculizumab therapy will be considered as treatment failure)  
+ 
+AND 
+ 
+2 - Requested medication is dosed according to the United States Food and Drug 
+Administration (FDA) labeled dosing for generalized myasthenia gravis (gMG): up to a 
+maximum of 1200 milligrams every 2 weeks  
+ 
+AND 
+ 
+3 - Prescribed by, or in consultation, with a neurologist  
+ 
+AND 
+ 
+4 - Requested medication is NOT being used in combination with any of the following:  
+• 
+Neonatal Fc Receptor (FcRn) blocker (e.g., Imaavy, Rystiggo, Vyvgart, Vyvgart 
+Hytrulo)  
+• 
+Another complement inhibitor (e.g., Ultomiris, Zilbrysq)  
+• 
+Immune globulin (e.g., IVIG)  
+• 
+B-cell depletion therapy (e.g., Uplizna)  
+ 
+
+
+--- PDF page 512 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 512 
+Product Name:Epysqli  
+Diagnosis 
+Neuromyelitis Optica Spectrum Disorder (NMOSD)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming ALL of the following:  
+ 
+ 1.1 Diagnosis of neuromyelitis optica spectrum disorder (NMOSD)  
+ 
+AND 
+ 
+ 1.2 Past medical history of ONE of the following:  
+• 
+Optic neuritis  
+• 
+Acute myelitis  
+• 
+Area postrema syndrome: Episode of otherwise unexplained hiccups or nausea and 
+vomiting  
+• 
+Acute brainstem syndrome  
+• 
+Symptomatic narcolepsy or acute diencephalic clinical syndrome with NMOSD-typical 
+diencephalic MRI lesions  
+• 
+Symptomatic cerebral syndrome with NMOSD-typical brain lesions  
+ 
+AND 
+ 
+ 1.3 Positive serologic test for anti-aquaporin-4 immunoglobulin G (AQP4-IgG)/NMO-IgG 
+antibodies  
+ 
+AND 
+ 
+ 1.4 Diagnosis of multiple sclerosis or other diagnoses have been ruled out  
+ 
+AND 
+
+
+--- PDF page 513 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 513 
+ 
+2 - Patient has not failed a previous course of eculizumab therapy  
+ 
+AND 
+ 
+3 - History of failure of, contraindication, or intolerance to rituximab (Ruxience, Truxima) 
+therapy  
+ 
+AND 
+ 
+4 - ONE of the following:  
+ 
+ 4.1 History of at least two relapses during the previous 12 months prior to initiating 
+eculizumab therapy  
+ 
+OR 
+ 
+ 4.2 History of at least three relapses during the previous 24 months, at least one relapse 
+occurring within the past 12 months prior to initiating eculizumab therapy  
+ 
+AND 
+ 
+5 - Requested medication is initiated and titrated according to the United States Food and 
+Drug Administration (FDA) labeled dosing for NMOSD, up to a maximum of 1200 milligrams 
+every 2 weeks  
+ 
+AND 
+ 
+6 - Prescribed by, or in consultation with, a neurologist  
+ 
+Product Name:Epysqli  
+Diagnosis 
+Neuromyelitis Optica Spectrum Disorder (NMOSD)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 514 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 514 
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) demonstrating a positive clinical 
+response from baseline as evidenced by BOTH of the following:  
+ 
+ 1.1 Reduction in the number and/or severity of relapses or signs and symptoms of 
+neuromyelitis optica spectrum disorder (NMOSD)  
+ 
+AND 
+ 
+ 1.2 Maintenance, reduction, or discontinuation of dose(s) of any baseline 
+immunosuppressive therapy (IST) prior to starting eculizumab therapy. (Note: Add on, dose 
+escalation of IST, or additional rescue therapy from baseline to treat NMOSD or exacerbation 
+of symptoms while on eculizumab therapy will be considered as treatment failure)  
+ 
+AND 
+ 
+2 - Requested medication is dosed according to the United States Food and Drug 
+Administration (FDA) labeled dosing for NMOSD: up to a maximum of 1200 milligrams every 
+2 weeks  
+ 
+AND 
+ 
+3 - Prescribed by, or in consultation with, a neurologist  
+ 
+Product Name:Non-Preferred*: Soliris, Bkemv, and newly launched eculizumab products  
+Approval Length 
+Requests for non-preferred products are not approved at this time  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Per your health plan's criteria, the non-preferred drug is not approved for coverage 
+because the plan's preferred product is Epysqli (eculizumab-aagh)  
+Notes  
+*Patients must use preferred eculizumab biosimilar. 
+
+
+--- PDF page 515 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 515 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+7/17/2026  
+Added concomitant use criterion in initial and reauth sections for gen
+eralized myasthenia gravis (gMG).  
+ 

@@ -1,0 +1,124 @@
+=== PDF PAGE 2086 ===
+Page 2086 
+Yuviwel (navepegritide) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-620190  
+Guideline Name 
+Yuviwel (navepegritide)  
+Formulary 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+6/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Yuviwel  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a diagnosis of 
+achondroplasia as confirmed by one of the following:  
+ 
+ 1.1 Both of the following:  
+
+
+=== PDF PAGE 2087 ===
+Page 2087 
+ 
+  1.1.1 Patient has clinical manifestations characteristic of achondroplasia (e.g., 
+macrocephaly, frontal bossing, midface retrusion, disproportionate short stature with 
+rhizomelic shortening of the arms and the legs, brachydactyly, trident configuration of the 
+hands, thoracolumbar kyphosis, and accentuated lumbar lordosis)  
+ 
+AND 
+ 
+  1.1.2 Patient has radiographic findings characteristic of achondroplasia (e.g., large calvaria 
+and narrowing of the foramen magnum region, undertubulated, shortened long bones with 
+metaphyseal abnormalities, narrowing of the interpedicular distance of the caudal spine, 
+square ilia and horizontal acetabula, small sacrosciatic notches, proximal scooping of the 
+femoral metaphyses, and short and narrow chest)  
+ 
+OR 
+ 
+ 1.2 Disease is confirmed by the presence of c.1138G>A or c.1138G>C variant (i.e., 
+p.Gly380Arg mutation) in the fibroblast growth factor receptor-3 (FGFR3) gene as detected by 
+a FDA-approved test or a test performed at a facility approved by Clinical Laboratory 
+Improvement Amendments (CLIA)  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) confirming patient has open epiphyses  
+ 
+AND 
+ 
+3 - Patient is 2 years of age or older  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with one of the following:  
+Clinical geneticist  
+Endocrinologist  
+A physician who has specialized expertise in the management of achondroplasia  
+
+
+=== PDF PAGE 2088 ===
+Page 2088 
+ 
+Product Name:Yuviwel  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming patient continues to have 
+open epiphyses  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) documenting patient demonstrates 
+positive clinical response to therapy as evidenced by one of the following:  
+Improvement in annualized growth velocity (AGV) compared to baseline  
+Improvement in height Z-score compared to baseline  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with one of the following:  
+Clinical geneticist  
+Endocrinologist  
+A physician who has specialized expertise in the management of achondroplasia  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+5/27/2026  
+New Program  
+
+
+=== PDF PAGE 2089 ===
+Page 2089 
+ 

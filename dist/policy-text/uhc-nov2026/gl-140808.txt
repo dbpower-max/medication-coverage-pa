@@ -1,0 +1,136 @@
+--- PDF page 1399 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1399 
+Qutenza (capsaicin) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-140808  
+Guideline Name 
+Qutenza (capsaicin)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2023  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Qutenza  
+Diagnosis 
+Neuropathic pain associated with postherpetic neuralgia (PHN)  
+Approval Length 
+3 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming diagnosis of neuropathic pain 
+associated with postherpetic neuralgia (PHN)  
+
+
+--- PDF page 1400 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1400 
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes, paid claims history) documenting trial 
+and failure, contraindication, or intolerance to ALL of the following:  
+• 
+gabapentin  
+• 
+pregabalin  
+• 
+minimum 60-day trial of a tricyclic antidepressant (e.g., amitriptyline, nortriptyline, 
+desipramine)  
+• 
+generic lidocaine 5% patch  
+• 
+topical capsaicin cream  
+ 
+Product Name:Qutenza  
+Diagnosis 
+Neuropathic pain associated with diabetic peripheral neuropathy 
+(DPN) of the feet  
+Approval Length 
+3 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming diagnosis of neuropathic pain 
+associated with diabetic peripheral neuropathy (DPN) of the feet  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes, paid claims history) documenting trial 
+and failure, contraindication, or intolerance to ALL of the following:  
+• 
+gabapentin  
+• 
+pregabalin  
+• 
+minimum 60-day trial of a tricyclic antidepressant (e.g., amitriptyline, nortriptyline, 
+desipramine)  
+• 
+generic lidocaine 5% patch  
+• 
+topical capsaicin cream  
+• 
+duloxetine  
+
+
+--- PDF page 1401 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1401 
+ 
+Product Name:Qutenza  
+Diagnosis 
+Neuropathic pain associated with PHN, Neuropathic pain associated 
+with DPN of the feet  
+Approval Length 
+3 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - It has been at least 3 months since the last application/administration  
+ 
+AND 
+ 
+2 - Patient experienced pain relief with a prior course of therapy  
+ 
+AND 
+ 
+3 - Patient is experiencing a return of neuropathic pain  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/9/2023  
+New guideline  
+ 

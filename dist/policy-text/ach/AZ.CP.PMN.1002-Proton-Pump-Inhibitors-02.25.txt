@@ -1,0 +1,2200 @@
+PDF PAGE 1
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Clinical Policy: Proton Pump Inhibitors 
+Reference Number: AZ.CP.PMN.1002  
+ Effective Date: 11.16.16  
+ Last Review Date: 02.25 
+ Line of Business: Arizona Medicaid (AzCH-CCP) 
+Revision Log 
+See Important Reminder at the end of this policy for important regulatory and legal 
+information. 
+Description 
+The following are proton pump inhibitors (PPIs) requiring prior authorization: rabeprazole 
+(AcipHex®, AcipHex® Sprinkle), dexlansoprazole (Dexilant®), esomeprazole strontium (ES), 
+esomeprazole (Nexium® 24HR, Nexium® 24HR ClearMinisTM), omeprazole (Prilosec®  Packets), 
+omeprazole/sodium bicarbonate (Zegerid®, Zegerid® OTC). 
+AHCCCS preferred drugs in this class include (and are not limited to): esomeprazole capsule 
+(Nexium), lansoprazole capsule (Prevacid), omeprazole capsule (Prilosec), pantoprazole tablets 
+(Protonix), pantoprazole sodium packets (Protonix®  Packets).  See AHCCCS Drug List for 
+complete list. https://azahcccs.gov/PlansProviders/Pharmacy/ 
+NOTE: non-capsule/tablet formulations require a PA for members age >18 years
+**
+** 
+FDA approved indications: 
+Indication 
+Aciphex 
+Dexilant 
+Nexium 
+Prilosec 
+Prevacid 
+Zegerid 
+Aciphex 
+Sprinkle 
+ES 
+Duodenal ulcers 
+X 
+* 
+X 
+X 
+X 
+Duodenal ulcers, 
+maintenance 
+* 
+X 
+Duodenal ulcers, Giant 
+* 
+Erosive esophagitis 
+X 
+X 
+X 
+X 
+X 
+X 
+X 
+Erosive esophagitis, 
+Maintenance 
+X 
+X 
+X 
+X 
+X 
+X 
+X 
+Gastric ulcers 
+* 
+X 
+X 
+X 
+Nonsteroidal anti-
+inflammatory drug 
+(NSAID)-associated 
+gastric ulcer, risk 
+reduction 
+* 
+X 
+* 
+X 
+X 
+NSAID-associated 
+gastric ulcer, healing 
+of 
+* 
+* 
+X 
+Helicobacter pylori 
+Triple Therapy 
+X 
+X 
+X 
+X 
+X 
+Helicobacter pylori 
+Dual Therapy 
+X 
+X 
+Helicobacter pylori 
+Quadruple therapy 
+* 
+* 
+* 
+* 
+Pathological 
+hypersecretory 
+X 
+X 
+X 
+X 
+X 
+Page 1 of 16 
+
+
+PDF PAGE 2
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY
+Proton Pump Inhibitors 
+Indication 
+Aciphex 
+Dexilant 
+Nexium 
+Prilosec 
+Prevacid 
+Zegerid 
+Aciphex 
+Sprinkle 
+ES 
+conditions, including 
+Zollinger-Ellison 
+Syndrome 
+Symptomatic 
+gastroesophageal 
+reflux disease (GERD) 
+(erosive/ulcerative) 
+X 
+X^  
+X 
+X^  
+X 
+Xp 
+p Pediatric only 
+X 
+Symptomatic GERD, 
+maintenance 
+(erosive/ulcerative) 
+X 
+Symptomatic GERD 
+(non-erosive) 
+X 
+X 
+X 
+X 
+Indigestion 
+* 
+* 
+* 
+Drug-induced GI 
+disturbance 
+* 
+Esophageal stricture 
+* 
+Heartburn 
+X 
+* 
+Reduction of risk of 
+upper GI bleed in 
+critically ill patients 
+* 
+* 
+X 
+*Clinical trials have demonstrated the efficacy and safety for these indications, although not currently FDA-
+approved. 
+^ Includes adults and pediatrics 
+Policy/Criteria 
+Provider must submit documentation (which may include office chart notes and lab results) 
+supporting that member has met all approval criteria  
+It is the policy of Arizona Complete Health-Complete Care Plan that Aciphex/Aciphex Sprinkle, 
+Dexilant, esomeprazole strontium, Nexium/Nexium 24HR/Nexium 24HR ClearMinis, Prilosec 
+Packets, and Zegerid/Zegrid OTC are medically necessary when the following criteria are met: 
+I. Initial Approval Criteria 
+a) All indications (must meet all):
+1.  Prescribed for one of the following uses (a – e) :
+a.  Symptomatic GERD, including heartburn or laryngopharyngeal reflux;
+b.  Esophageal complications of GERD (e.g., erosive esophagitis, esophageal
+stricture, Barrett’s esophagus, and Schatzki’s ring);
+c.  Extra-esophageal complications (e.g., laryngopharyngeal reflux, vocal cord
+damage/nodules, asthma, laryngitis and pharyngitis);
+d.  Peptic ulcer disease (e.g., gastric ulcers, duodenal ulcers, H. pylori and Zollinger-
+Ellison Syndrome);
+e.  Gastrointestinal bleed prophylaxis for NSAID use and member meets at least one
+of the following (i, ii, or iii):
+Page 2 of 16 
+
+
+PDF PAGE 3
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Proton Pump Inhibitors 
+i.  History of peptic ulcer disease; 
+ii.  Age ≥ 60 years; 
+iii. Concurrent therapy with anticoagulants (e.g., warfarin, aspirin, clopidogrel) or 
+oral corticosteroids (e.g., prednisone); 
+2.  For AcipHex Sprinkle, age ≥ 1 year old; 
+3.  Member meets any of the following (a, b, c or d): 
+a.  Any age- Request is for AcipHex Sprinkle or Prilosec packets- failure of 
+esomeprazole packets, lansoprazole ODT AND pantoprazole packets, each at up 
+to maximally indicated doses, unless contraindicated or clinically significant  
+adverse effects are experienced; 
+b.  Age >18- Presence of G-tube or significant dysphagia and request is for 
+esomeprazole packets, lansoprazole disintegrating tablets, pantoprazole packets: 
+c.  Currently on clopidogrel and request is for Dexilant: Failure of a ≥ 4-week trial of 
+lansoprazole capsules at up to maximally indicated doses, unless contraindicated 
+or clinically significant adverse effects are experienced; 
+d.  If request is for any non-preferred tablet or capsule{dexlansoprazole (Dexilant®), 
+esomeprazole strontium (ES), esomeprazole (Nexium® 24HR, Nexium®  24HR 
+ClearMinisTM), omeprazole/sodium bicarbonate (Zegerid®, Zegerid® OTC)}: 
+i.  
+Failure of a minimum 4-week trial of ALL of the following preferred 
+generic PPI at up to maximally indicated doses unless contraindicated or 
+clinically significant adverse effects are experienced: omeprazole 
+capsules, lansoprazole capsules, and pantoprazole tablets (chart notes 
+and/or claims are required); 
+4.  For twice daily dosing requests of non-preferred agents for conditions other than H. 
+pylori or pathological hypersecretory conditions, including Zollinger-Ellison 
+Syndrome: member must be titrated up from once daily dosing; 
+5.  Dose does not exceed the FDA-approved maximum recommended dose (refer to 
+Section V). 
+Approval duration: 12 months 
+b) Other diagnoses/indications 
+1.  Refer to the off-label use policy for the relevant line of business if diagnosis is NOT 
+specifically listed under section III (Diagnoses/Indications for which coverage is 
+NOT authorized): AHCCCS FFS Prior Authorization Guideline- Coverage of Off-
+Label Non-FDA Approved Indications. 
+II. Continued Therapy 
+A. All indications in Section I (must meet all): 
+1.  Currently receiving medication via Centene benefit or member has previously met 
+initial approval criteria; 
+2.  Member is responding positively to therapy; 
+3.  If request is for a dose increase, new dose does not exceed the FDA-approved 
+maximum recommended dose (refer to Section V). 
+Page 3 of 16 
+
+
+PDF PAGE 4
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Proton Pump Inhibitors 
+Approval duration: 12 months 
+B. Other diagnoses/indications (must meet 1 or 2): 
+1.  Currently receiving medication via Centene benefit and documentation supports 
+positive response to therapy. 
+Approval duration: Duration of request or 12 months (whichever is less); or 
+2.  Refer to the off-label use policy for the relevant line of business if diagnosis is NOT 
+specifically listed under section III (Diagnoses/Indications for which coverage is 
+NOT authorized): AHCCCS FFS Prior Authorization Guideline- Coverage of Off-
+Label Non-FDA Approved Indications. 
+III. Diagnoses/Indications for which coverage is NOT authorized:  
+A.  Non-FDA approved indications, which are not addressed in this policy, unless there is 
+sufficient documentation of efficacy and safety according to the off-label use policy – 
+AHCCCS FFS Prior Authorization Guideline- Coverage of Off-Label Non-FDA 
+Approved Indications. 
+IV. Appendices/General Information 
+Appendix A: Abbreviation/Acronym Key 
+ES: esomeprazole strontium 
+FDA: Food and Drug Administration 
+GERD: gastroesophageal reflux disease 
+GI: gastrointestinal 
+H. pylori: Helicobacter pylori 
+NSAID: non-steroidal anti-inflammatory 
+drug 
+PPI: proton pump inhibitor 
+Appendix B: Therapeutic Alternatives  
+This table provides a listing of preferred alternative therapy recommended in the approval 
+criteria. The drugs listed here may not be a formulary agent for all relevant lines of business 
+and may require prior authorization.  
+Drug Name 
+Dosing Regimen 
+Dose Limit/ 
+Maximum Dose 
+pantoprazole 
+tablets and 
+suspension 
+(Protonix) 
+Short-term treatment of erosive 
+esophagitis associated with GERD 
+Adult and pediatric (age ≥ 5 years and 
+weight ≥ 40 kg): 40 mg PO QD 
+Pediatric (age ≥ 5 years and weight ≥ 15 
+kg to < 40 kg): 20 mg PO QD 
+Maintenance of healing of erosive 
+esophagitis 
+40 mg PO QD 
+Pathological hypersecretory conditions, 
+including Zollinger-Ellison Syndrome 
+40 mg/day (240 mg/day 
+for pathological 
+hypersecretory 
+conditions) 
+Page 4 of 16 
+
+
+PDF PAGE 5
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Proton Pump Inhibitors 
+Drug Name 
+Dosing Regimen 
+Dose Limit/ 
+Maximum Dose 
+40 mg PO BID 
+omeprazole 
+capsules 
+(Prilosec) 
+Duodenal ulcer 
+20 mg PO QD 
+Symptomatic GERD; Erosive 
+esophagitis (treatment and 
+maintenance) 
+Adult: 20 mg PO QD 
+Pediatric (age 1 to 16 years): 
+Weight 5 kg to < 10 kg: 5 mg 
+Weight 10 kg to < 20 kg: 10 mg 
+Weight ≥ 20 kg: 20 mg 
+Pediatric (age 1 month to < 1 year): 
+Weight 5 kg to < 10 kg: 5 mg 
+Weight ≥ 10 kg: 10 mg 
+H. pylori 
+Triple therapy: 20 mg PO BID for 10 days, 
+in combination with amoxicillin and 
+clarithromycin 
+Dual therapy: 40 mg PO QD for 14 days, 
+in combination with clarithromycin 40 
+mg/day 
+Gastric ulcer 
+40 mg PO QD 
+Pathological hypersecretory conditions, 
+including Zollinger-Ellison Syndrome 
+60 mg PO QD to 80 mg/day PO in divided 
+doses 
+40 mg/day (360 mg/day 
+for pathological 
+hypersecretory 
+conditions) 
+lansoprazole 
+capsules 
+(Prevacid) 
+Duodenal ulcers, risk reduction of 
+NSAID-associated gastric ulcer,  
+maintenance of healing of erosive 
+esophagitis 
+15 mg PO QD 
+Short-term treatment of symptomatic 
+GERD and erosive esophagitis 
+Adult: 15 to 30 mg PO QD 
+30 mg/day (180 mg/day 
+for pathological 
+hypersecretory 
+conditions) 
+Page 5 of 16 
+
+
+PDF PAGE 6
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Proton Pump Inhibitors 
+Drug Name 
+Dosing Regimen 
+Dose Limit/ 
+Maximum Dose 
+Pediatric (age 1 to 11 years): 
+Weight > 30 kg: 30 mg PO QD 
+Weight ≤ 30 kg: 15 mg PO QD 
+Pediatric (age 12 to 17 years): 
+Non-erosive GERD: 15 mg 
+Erosive esophagitis: 30 mg 
+H. pylori 
+Triple therapy: 30 mg PO BID for 10 or 14 
+days in combination with amoxicillin and 
+clarithromycin 
+Dual therapy: 30 mg PO TID for 14 days 
+in combination with amoxicillin 
+Benign gastric ulcer, healing of NSAID-
+associated gastric ulcer 
+30 mg PO QD 
+Pathological hypersecretory conditions, 
+including Zollinger-Ellison Syndrome 
+60 mg PO QD 
+Therapeutic alternatives are listed as Brand name®  (generic) when the drug is available by brand name only 
+and generic (Brand name®) when the drug is available by both brand and generic. 
+Appendix C: Contraindications/Boxed Warnings 
+•  Contraindication(s): 
+o  All agents: hypersensitivity (e.g., to drug or other PPIs, substituted benzimidazoles, or 
+to any components of the formulation) 
+o  AcipHex/Aciphex Sprinkle, Dexilant, and Prevacid: coadministration with rilpivirine­
+containing products 
+•  Boxed warning(s): none reported 
+Appendix D: General Information 
+•  Dexilant 60 mg vs. Prevacid 30 mg in EE was evaluated in two studies. Non-inferiority 
+was demonstrated in both studies, but superiority was demonstrated in only one study. 
+•  Dexilant 90 mg was studied and did not provide additional clinical benefit over Dexilant 
+60 mg in EE. 
+•  Patients with a platelet reactivity index (PRI) >50% is linked to sub-acute stent 
+thrombosis. 
+Page 6 of 16 
+
+
+PDF PAGE 7
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Proton Pump Inhibitors 
+•  In a study by Siller-Matula JM, et al., The PRI was similar in patients on Protonix or 
+Nexium (mean 51%; 95% CI 48-54%) and for patients on Plavix and Protonix the mean 
+was PRI = 50% and for Plavix and Nexium the mean PRI was 54%. 
+•  Over 90% of gastric and duodenal ulcers heal within 8 weeks of PPI therapy. 
+•  There have been models constructed to evaluate both the efficacy and cost-effectiveness 
+of “step-up” therapy (starting with H2 antagonists and titrating to symptom control) and 
+“step-down therapy” (starting with PPI therapy and decreasing therapy to the lowest form 
+of acid suppression that controls symptoms). Neither method has been proven superior. 
+•  Patients with PUD (DU or GU) should be tested for H. pylori and treated, if positive. 
+•  For Laryngopharyngeal reflux (LPR), the American Academy of Otolaryngology 
+recommends twice-daily dosing with PPIs for a minimum period of 6 months with the 
+possibility of chronic treatment. BID dosing of PPIs has been shown to be superior to QD 
+dosing in LPR. 
+•  Two capsules of Zegerid 20 mg are not interchangeable with one capsule of Zegerid 40 
+mg because each capsule or packet contains the same amount of sodium bicarbonate. 
+•  Pediatric patients: The safety and efficacy of Dexilant, Zegerid and Protonix in children 
+have not been established. The safety and efficacy of Prevacid have been established in 
+pediatric patients 1 to 17 years of age. The safety and efficacy of omeprazole have been 
+established in pediatric patients 1 to 16 years of age. The safety and efficacy of Nexium 
+have been established in pediatric patients 1 to 17 years of age for up to 8 weeks. The 
+safety and efficacy of Aciphex have been established in pediatric patients 1 year and 
+older for up to 36 weeks. 
+•  Safety and efficacy of proton pump inhibitors have not been established in patients less 
+than 1 year of age. Lansoprazole was no more effective than placebo in patients 1 month 
+to less than 1 year of age with symptomatic GERD in a multi-center, double-blind, 
+placebo controlled study (Orenstein et al, 2009). Studies with Aciphex Sprinkle do not 
+support its use for the treatment of GERD in pediatric patients younger than 1 
+year of age. 
+•  Prevacid has a non FDA-approved, Class IIa strength recommendation for giant duodenal 
+ulcer per Micromedex. Of 27 study patients with giant duodenal ulcer placed on Prilosec, 
+20 (71.4%) did not require operative intervention, and 8 (28.6%) required operation for 
+ulcer complications. 
+•  Prevacid has a non FDA-approved, Class IIa strength recommendation for heartburn and 
+H. pylori quadruple therapy per Micromedex. 
+•  Aciphex has a non FDA-approved, Class II a strength recommendation for gastric ulcers, 
+H. pylori quadruple therapy and indigestion per Micromedex. 
+•  Several published observational studies suggest that high-dose, defined as multiple daily 
+doses, and long-term PPI therapy (a year or longer) may be associated with an increased 
+risk for osteoporosis related fractures. Patients should use the lowest dose and shortest 
+duration of PPI therapy appropriate to the condition being treated. Patients at risk for 
+osteoporosis-related fractures should be managed according to established treatment 
+guidelines. 
+Page 7 of 16 
+
+
+PDF PAGE 8
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Proton Pump Inhibitors 
+•  According to their respective package inserts, concomitant administration of either 
+pantoprazole or dexlansoprazole with clopidogrel in healthy subjects had no clinically 
+important effect on exposure to the active metabolite of clopidogrel or clopidogrel­
+induced platelet inhibition. No dose adjustment of clopidogrel is necessary when 
+administered with an approved dose of Protonix or Dexilant. American Hospital 
+Formulary Service Drug Information further states, “If concomitant proton-pump 
+inhibitor therapy [with clopidogrel] is considered necessary, some clinicians suggest the 
+use of pantoprazole, which appears to be the weakest inhibitor of cytochrome P450 2C19 
+(CYP2C19) among proton-pump inhibitors.” 
+V. Dosage and Administration 
+Drug Name 
+Indication 
+Dosing Regimen 
+Maximum Dose 
+rabeprazole 
+(Aciphex) 
+Duodenal ulcers; 
+Erosive esophagitis; 
+H. pylori triple 
+therapy; 
+Symptomatic GERD 
+(erosive/ulcerative), 
+healing and 
+maintenance; 
+20 mg PO QD 
+(treatment duration 
+varies) 
+20 mg/day 
+Pathological 
+hypersecretory 
+conditions, including 
+Zollinger-Ellison 
+Syndrome 
+60 mg PO QD to 60 
+mg PO BID 
+120 mg/day 
+rabeprazole sodium 
+delayed-release 
+(Aciphex Sprinkle) 
+Symptomatic GERD 
+(erosive/ulcerative) 
+Pediatric 
+Age 1 to 11 years: 
+Weight <15 kg: 5 to 
+10 mg PO QD 
+Weight ≥15 kg: 10 
+mg PO QD 
+10 mg/day 
+dexlansoprazole 
+(Dexilant) 
+Healing of erosive 
+esophagitis 
+60 mg PO QD 
+60 mg/day 
+Maintenance of 
+healed erosive 
+esophagitis and 
+relief of heartburn; 
+Symptomatic non-
+erosive GERD 
+30 mg PO QD 
+30 mg/day 
+esomeprazole 
+GERD (including 
+erosive esophagitis, 
+symptomatic GERD) 
+Adult 
+20 to 40 mg PO QD 
+to BID 
+80 mg/day 
+Page 8 of 16 
+
+
+PDF PAGE 9
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Proton Pump Inhibitors 
+Drug Name 
+Indication 
+Dosing Regimen 
+Maximum Dose 
+(Nexium, Nexium 
+24HR, Nexium 
+24HR Clear Minis) 
+Pediatric 
+Age 1 to 11 years: 
+10 to 20 mg PO QD 
+Age 12 to 17 years: 
+20 to 40 mg PO QD 
+Age 1 month to < 1 
+year: 
+Weight 3 kg to 5 kg: 
+2.5 mg PO QD 
+Weight > 5 kg to 7.5 
+kg: 5 mg PO QD 
+Risk reduction of 
+NSAID-associated 
+gastric ulcer 
+20 mg to 40 mg PO 
+QD 
+40 mg/day 
+H. pylori triple 
+therapy 
+40 mg PO QD for 10 
+days, in combination 
+with amoxicillin and 
+clarithromycin 
+40 mg/day 
+Pathological 
+hypersecretory 
+conditions, including 
+Zollinger-Ellison 
+Syndrome 
+40 mg PO BID 
+240 mg/day 
+omeprazole 
+(Prilosec Packets) 
+Duodenal ulcer 
+20 mg PO QD 
+20 mg/day 
+Symptomatic 
+GERD; Erosive 
+esophagitis 
+(treatment and 
+maintenance) 
+Adult 
+20 mg PO QD 
+Pediatric 
+Age 1 to 16 years 
+Weight 5 kg to < 10 
+kg: 5 mg 
+Weight 10 kg to < 
+20 kg: 10 mg 
+Weight ≥ 20 kg: 20 
+mg 
+Age 1 month to < 1 
+year 
+Weight 5 kg to < 10 
+kg: 5 mg 
+20 mg/day 
+Page 9 of 16 
+
+
+PDF PAGE 10
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Proton Pump Inhibitors 
+Drug Name 
+Indication 
+Dosing Regimen 
+Maximum Dose 
+Weight ≥ 10 kg: 10 
+mg 
+H. pylori 
+Triple therapy: 20 
+mg PO BID for 10 
+days, in combination 
+with amoxicillin and 
+clarithromycin 
+Dual therapy: 40 mg 
+PO QD for 14 days, 
+in combination with 
+clarithromycin 
+40 mg/day 
+Gastric ulcer 
+40 mg PO QD 
+40 mg/day 
+Pathological 
+hypersecretory 
+conditions, including 
+Zollinger-Ellison 
+Syndrome 
+60 mg PO QD to 80 
+mg/day PO in 
+divided doses 
+360 mg/day 
+lansoprazole 
+(Prevacid SoluTab) 
+Duodenal ulcers 
+15 mg PO QD 
+90 mg/day 
+H. pylori 
+Triple therapy: 30 
+mg PO BID for 10 
+to 14 days, in 
+combination with 
+amoxicillin and 
+clarithromycin 
+Dual therapy: 30 mg 
+PO TID for 14 days, 
+in combination with 
+amoxicillin 
+90 mg/day 
+Gastric ulcer 
+(including benign 
+and healing of 
+NSAID-associated 
+gastric ulcers); 
+Treatment of erosive 
+esophagitis 
+Adult 
+30 mg PO QD 
+(treatment duration 
+varies) 
+Pediatric  
+Age 1-11 years 
+Weight ≤ 30 kg: 15 
+mg PO QD 
+Weight > 30 kg : 30 
+mg PO QD 
+30 mg/day 
+Page 10 of 16 
+
+
+PDF PAGE 11
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Proton Pump Inhibitors 
+Drug Name 
+Indication 
+Dosing Regimen 
+Maximum Dose 
+Age 12-17 years 
+15 to 30 mg PO QD 
+Risk reduction of 
+NSAID-associated 
+gastric ulcers; 
+Symptomatic 
+GERD; Maintenance 
+of healing of erosive 
+esophagitis 
+15 mg PO QD 
+(treatment duration 
+varies) 
+15 mg/day 
+Pathological 
+hypersecretory 
+conditions, including 
+Zollinger-Ellison 
+Syndrome 
+60 mg PO QD to 90 
+mg/day PO BID 
+180 mg/day 
+omeprazole/ 
+sodium bicarbonate 
+(Zegerid, Zegerid 
+OTC) 
+Duodenal ulcer; 
+Symptomatic 
+GERD; Erosive 
+esophagitis 
+(treatment and 
+maintenance) 
+20 mg PO QD 
+(treatment duration 
+varies) 
+40 mg/day 
+Benign gastric ulcer 
+40 mg PO QD 
+40 mg/day 
+Reduction of risk of 
+upper GI bleeding in 
+critically ill patients 
+40 mg oral 
+suspension only: 40 
+mg PO initially, 6 to 
+8 hours later, then 
+daily for 14 days 
+40 mg/day 
+esomeprazole 
+strontium 
+Treatment of erosive 
+esophagitis; Risk 
+reduction of NSAID-
+associated gastric 
+ulcers 
+24.65 to 49.3 mg PO 
+QD (treatment 
+duration varies) 
+49.3 mg/day 
+Symptomatic 
+GERD; Maintenance 
+of healing of erosive 
+esophagitis 
+24.65 mg PO QD 
+24.65 mg/day 
+H. pylori triple 
+therapy 
+49.3 mg PO QD for 
+10 days 
+49.3 mg/day 
+Pathological 
+hypersecretory 
+conditions, including 
+49.3 mg PO BID 
+240 mg/day 
+Page 11 of 16 
+
+
+PDF PAGE 12
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Proton Pump Inhibitors 
+Drug Name 
+Indication 
+Dosing Regimen 
+Maximum Dose 
+Zollinger-Ellison 
+Syndrome 
+VI. Product Availability 
+Drug Name 
+Availability 
+rabeprazole (Aciphex) 
+Tablets, delayed-release: 20 mg 
+rabeprazole (Aciphex 
+Sprinkle) 
+Capsules, delayed-release: 5 mg, 10 mg 
+dexlansoprazole (Dexilant) 
+Capsules, delayed-release: 30 mg, 60 mg 
+esomeprazole (Nexium) 
+• Capsules, delayed-release: 20 mg, 40 mg 
+• Packets, powder for delayed-release oral suspension: 
+2.5 mg, 5 mg, 10 mg, 20 mg, 40 mg 
+• ODT: 20mg 
+lansoprazole (Prevacid 
+Solutabs) 
+Tablets, delayed-release orally disintegrating: 15 mg, 30 
+mg 
+omeprazole (Prilosec Packets) 
+Packets, powder for delayed-release oral suspension: 2.5 
+mg, 10 mg 
+omeprazole/sodium 
+bicarbonate 
+(Zegerid) 
+• Capsules: 20 mg/1100 mg, 40 mg/1100 mg 
+• Unit-dose packets for oral suspension: 20 mg/1680 
+mg, 40 mg/1680 mg 
+esomeprazole strontium 
+Capsules, delayed-release: 24.65 mg (equivalent to 20 mg 
+esomeprazole), 49.3 mg (equivalent to 40 mg 
+esomeprazole) 
+Available OTC products 
+omeprazole/sodium 
+bicarbonate (Zegerid OTC) 
+Capsules: 20 mg/1100 mg 
+esomeprazole (Nexium 
+24HR) 
+Tablets, delayed-release: 20 mg 
+esomeprazole (Nexium 24HR 
+ClearMinis) 
+Capsules, delayed-release: 20 mg 
+lansoprazole (Prevacid 24 
+HR) 
+Capsules, delayed release: 15 mg 
+VII. References 
+1.  Bhatt DL, Scheiman J, Abraham NS, et al. ACCF/ACG/AHA 2008 expert consensus 
+document on reducing the gastrointestinal risks of antiplatelet therapy and NSAID use: a 
+report of the American College of Cardiology Foundation Task Force on Clinical Expert 
+Consensus Documents. J Am Coll Cardiol 2008;52(18):1502-1517. 
+2.  Laine L and Jensen DM. Management of patients with ulcer bleeding. Am J Gastroenterol 
+2012; 107:345-360. 
+Page 12 of 16 
+
+
+PDF PAGE 13
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Proton Pump Inhibitors 
+3.  Devault K, Castell D. Updated Guidelines for the Diagnosis and Treatment of 
+Gastroesophageal Reflux Disease. Am J Gastroenterol 2005;100:190-200. 
+4.  Wang K, Sampliner R. Updated Guidelines for the Diagnosis, Surveillance, and Therapy of 
+Barrett’s Esophagus. Am J Gastroenterol 2008;103:788-797. 
+5.  Laryngopharyngeal reflux: Position statement of the Committee on Speech, Voice, and 
+Swallowing Disorders of the American Academy of Otolaryngology-Head and Neck 
+Surgery. Otolaryngology-Head and Neck Surgery. 2002;127:30-35 
+6.  Laryngopharyngeal Reflux: Prospective Cohort Study Evaluating Optimal Dose of Proton-
+Pump Inhibitor Therapy and Pretherapy Predictors of Response. Laryngoscope. 2005; 115. 
+7.  Lanas A. Potent gastric acid inhibition in the management of Barrett's oesophagus. Drugs. 
+2005;65 Suppl 1:75-82. 
+8.  Spechler, S. Barrett’s Esophagus. N Engl J Med. 2002;346:836-842. 
+9.  Katz PO, Gerson L, Vela M. Guidelines for the diagnosis and management of 
+gastroesophageal reflux disease. American Journal of Gastroenterology. 2013;108(3):308­
+328. 
+10. Aciphex Prescribing Information. Woodcliff Lake, NJ: Eisai, Inc; July 2023. Available at: 
+https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/020973s043lbl.pdf Accessed 
+January 30, 2025. 
+11. Aciphex Sprinkle Prescribing Information. Research Triangle Park, NC: Eisai, Inc; Nov 
+2020. Available at: 
+https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/204736s012lbl.pdf . Accessed 
+January 30, 2025. 
+12. Dexilant Prescribing Information. Deerfield, IL: Takeda Pharmaceuticals; July 2023. 
+Available at: https://general.takedapharm.com/DEXILANTPI. Accessed January 30, 2025. 
+13. Nexium Prescribing Information. Wilmington, DE: AstraZeneca; July 2023. Available at: 
+https://www.azpicentral.com/nexium/nexium.pdf#page=1. Accessed January 30, 2025. 
+14. Prevacid Prescribing Information. Deerfield, IL: Takeda Pharmaceuticals; Sept 2021. 
+Available at:https://www.viatris.ca/-/media/project/common/viatrisca/pdf/brand-and­
+speciality/prevacid_pm_en.pdf. . Accessed January 30, 2025.  
+15. Prilosec Prescribing Information. Wilmington, DE: AstraZeneca; Dec 2016. Available at: 
+https://www.accessdata.fda.gov/drugsatfda_docs/label/2016/019810s102,022056s019lbl.pdf 
+Accessed January 30, 2025.  
+16. Zegerid Prescribing Information. Bridgewater, NJ: Valeant Pharmaceuticals; July 2023. 
+Available at: 
+https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/021849s020,021636s025lbl.pdf . 
+Accessed January 30, 2025.  
+17. Protonix Prescribing Information. Philadelphia, PA: Pfizer Inc.; July 2023. Available at: 
+https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplN 
+o=020987 . Accessed January 30, 2025. 
+Page 13 of 16 
+
+
+PDF PAGE 14
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Proton Pump Inhibitors 
+Reviews, Revisions, and Approvals 
+Date 
+P&T 
+Approval Date 
+Converted to new template. Minor changes to verbiage 
+and grammar. References updated. 
+06.12.17 
+11.17 
+Changed document to reflect coverage of compounded  
+Omeprazole and Lansoprazole by state Medicaid. 
+3.29.19 
+04.19 
+Added criteria for members age 1 month to less than 1 
+year old; Therapeutic Alternatives moved from Appendix 
+C to Appendix B; added Appendix C: 
+Contraindications/Boxed Warnings; updated Section V. 
+Dosage and Administration; references reviewed and 
+updated; AHCCCS preferred drugs section added; 
+Changed name from AZ.CP.PHAR.209 to 
+AZ.CP.PMN.1002 to align with Corporate naming 
+convention. 
+6.8.20 
+07.20 
+Updated to reflect AHCCCS preferred drug changes. 
+01.13.21 
+02.21 
+Added Care1st logo.  Added verbiage to specify that 
+criteria also applies to Care1st. 
+5.10.21 
+04.21 
+Annual review; Minor edits; References updated. 
+2.15.22 
+03.22 
+1Q 2023 Annual review; removed esomeprazole tablets 
+from the preferred PPI list; For non-preferred tablet or 
+capsule request, replaced esomeprazole tablets with 
+pantoprazole tablets as one of the 3 preferred alternatives; 
+references reviewed and updated. 
+02.09.23 
+02.23 
+1Q 2024 annual review: reviewed and updated 
+references. 
+01.30.24 
+1Q 2025 annual review; Removed esomeprazole packets, 
+lansoprazole ODT from preferred products. Added 
+instruction to refer to current AHCCCS Drug List for 
+preferred products. Removed reference to Care1st Health 
+plan and logos. Removed reference to retired policy 
+AZ.CP.PMN.53 Off-Label Use policy added AHCCCS 
+FFS Prior Authorization Guideline- Coverage of Off-
+Label Non-FDA Approved Indications. 
+02.10.25 
+Important Reminder 
+This clinical policy has been developed by appropriately experienced and licensed health care 
+professionals based on a review and consideration of currently available generally accepted 
+standards of medical practice; peer-reviewed medical literature; government agency/program 
+approval status; evidence-based guidelines and positions of leading national health professional 
+organizations; views of physicians practicing in relevant clinical areas affected by this clinical 
+policy; and other available clinical information. The Health Plan makes no representations and 
+Page 14 of 16 
+
+
+PDF PAGE 15
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Proton Pump Inhibitors 
+accepts no liability with respect to the content of any external information used or relied upon in 
+developing this clinical policy. This clinical policy is consistent with standards of medical practice 
+current at the time that this clinical policy was approved. “Health Plan” means a health plan that 
+has adopted this clinical policy and that is operated or administered, in whole or in part, by Centene 
+Management Company, LLC, or any of such health plan’s affiliates, as applicable. 
+The purpose of this clinical policy is to provide a guide to medical necessity, which is a component 
+of the guidelines used to assist in making coverage decisions and administering benefits. It does 
+not constitute a contract or guarantee regarding payment or results. Coverage decisions and the 
+administration of benefits are subject to all terms, conditions, exclusions and limitations of the 
+coverage documents (e.g., evidence of coverage, certificate of coverage, policy, contract of 
+insurance, etc.), as well as to state and federal requirements and applicable Health Plan-level 
+administrative policies and procedures.   
+This clinical policy is effective as of the date determined by the Health Plan. The date of posting 
+may not be the effective date of this clinical policy. This clinical policy may be subject to 
+applicable legal and regulatory requirements relating to provider notification. If there is a 
+discrepancy between the effective date of this clinical policy and any applicable legal or regulatory 
+requirement, the requirements of law and regulation shall govern. The Health Plan retains the right 
+to change, amend or withdraw this clinical policy, and additional clinical policies may be 
+developed and adopted as needed, at any time. 
+This clinical policy does not constitute medical advice, medical treatment or medical care. It is 
+not intended to dictate to providers how to practice medicine. Providers are expected to exercise 
+professional medical judgment in providing the most appropriate care, and are solely responsible 
+for the medical advice and treatment of members.  This clinical policy is not intended to 
+recommend treatment for members. Members should consult with their treating physician in 
+connection with diagnosis and treatment decisions.  
+Providers referred to in this clinical policy are independent contractors who exercise independent 
+judgment and over whom the Health Plan has no control or right of control.  Providers are not 
+agents or employees of the Health Plan. 
+This clinical policy is the property of the Health Plan. Unauthorized copying, use, and distribution 
+of this clinical policy or any information contained herein are strictly prohibited.  Providers, 
+members and their representatives are bound to the terms and conditions expressed herein through 
+the terms of their contracts.  Where no such contract exists, providers, members and their 
+representatives agree to be bound by such terms and conditions by providing services to members 
+and/or submitting claims for payment for such services.   
+Note: For Medicaid members, when state Medicaid coverage provisions conflict with the 
+coverage provisions in this clinical policy, state Medicaid coverage provisions take precedence. 
+Page 15 of 16 
+
+
+PDF PAGE 16
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Proton Pump Inhibitors 
+Please refer to the state Medicaid manual for any coverage provisions pertaining to this clinical 
+policy. 
+©2016 Centene Corporation. All rights reserved.  All materials are exclusively owned by Centene 
+Corporation and are protected by United States copyright law and international copyright law.  No 
+part of this publication may be reproduced, copied, modified, distributed, displayed, stored in a 
+retrieval system, transmitted in any form or by any means, or otherwise published without the prior 
+written permission of Centene Corporation. You may not alter or remove any trademark, copyright 
+or other notice contained herein. Centene®  and Centene Corporation®  are registered trademarks 
+exclusively owned by Centene Corporation. 
+Page 16 of 16 

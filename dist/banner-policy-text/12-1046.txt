@@ -1,0 +1,90 @@
+=== PDF PAGE 1046 ===
+Page 1046 
+Kygevvi (doxecitine/doxribtimine) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-620187  
+Guideline Name 
+Kygevvi (doxecitine/doxribtimine)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+6/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Kygevvi  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of thymidine 
+kinase 2 deficiency (TK2d)  
+
+
+=== PDF PAGE 1047 ===
+Page 1047 
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) confirming the presence of a mutation in 
+the TK2 gene as detected by a FDA-approved test or a test performed at a facility approved 
+by Clinical Laboratory Improvement Amendments (CLIA)  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) confirming the patient experienced 
+symptom onset on or before 12 years of age  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with a clinical specialist knowledgeable in the treatment of 
+TK2d (e.g., geneticist, neurologist)  
+ 
+Product Name:Kygevvi  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Provider attests the patient would benefit from continued therapy  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a clinical specialist knowledgeable in the treatment of 
+TK2d (e.g., geneticist, neurologist)  
+ 
+2 .  Revision History  
+ 
+
+
+=== PDF PAGE 1048 ===
+Page 1048 
+Date  
+Notes  
+5/27/2026  
+New program  
+ 

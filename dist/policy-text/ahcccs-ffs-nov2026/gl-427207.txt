@@ -1,0 +1,191 @@
+--- PDF page 622 ---
+Page 622 
+Evkeeza (evinacumab-dgnb) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-427207  
+Guideline Name 
+Evkeeza (evinacumab-dgnb)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+11/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Evkeeza  
+Diagnosis 
+Homozygous Familial Hypercholesterolemia [HoFH]  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient is 1 year of age or older  
+
+
+--- PDF page 623 ---
+Page 623 
+ 
+AND 
+ 
+2 - Submission of medical records (e.g. chart notes) documenting diagnosis of homozygous 
+familial hypercholesterolemia (HoFH) as confirmed by one of the following:  
+ 
+ 2.1 Genetic confirmation of two mutant alleles at the LDLR, APOB, PCSK9, or LDLRAP1 
+gene locus  
+ 
+OR 
+ 
+ 2.2 Both of the following:  
+ 
+  2.2.1 One of the following:  
+• 
+Untreated/pre-treatment LDL-C greater than 500 mg/dL  
+• 
+Treated LDL-C greater than 300 mg/dL  
+ 
+AND 
+ 
+  2.2.2 One of the following:  
+• 
+Xanthoma before 10 years of age  
+• 
+Evidence of heterozygous familial hypercholesterolemia in both parents  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) demonstrating that patient has failed to 
+achieve a low-density lipoprotein-cholesterol (LDL-C) goal of less than 100 mg/dL despite use 
+of both of the following: *Paid pharmacy claims may be used to confirm trial requirements  
+ 
+ 3.1 One of the following:  
+ 
+  3.1.1 Patient is currently treated with maximally tolerated statin therapy plus ezetimibe  
+ 
+OR 
+ 
+  3.1.2 Patient is unable to tolerate statin therapy as evidenced by one of the following 
+intolerable and persistent (i.e., more than 2 weeks) symptoms:  
+
+
+--- PDF page 624 ---
+Page 624 
+• 
+Myalgia (muscle symptoms without CK elevations)  
+• 
+Myositis (muscle symptoms with CK elevations less than 10 times upper limit of 
+normal [ULN])  
+ 
+OR 
+ 
+  3.1.3 Patient has a labeled contraindication to all statins  
+ 
+OR 
+ 
+  3.1.4 Patient has experienced rhabdomyolysis or muscle symptoms with statin treatment 
+with CK elevations greater than 10 times ULN  
+ 
+AND 
+ 
+ 3.2 One of the following:  
+• 
+Patient has been treated with PCSK9 therapy or did not respond to PCSK9 therapy  
+• 
+Physician attests that the patient is known to have two LDL-receptor negative alleles 
+(little to no residual function) and therefore would not respond to PCSK9 therapy  
+• 
+Patient has a history of intolerance or contraindication to PCSK9 therapy  
+• 
+Patient has previously been treated with Juxtapid (lomitapide)  
+• 
+Patient has previously been treated with lipoprotein apheresis  
+ 
+AND 
+ 
+4 - Patient will continue other traditional lipid-lowering therapies (e.g., maximally tolerated 
+statins, ezetimibe) in combination with Evkeeza  
+ 
+AND 
+ 
+5 - Dose will not exceed 15 milligrams per kilogram of bodyweight infused once every 4 
+weeks  
+ 
+AND 
+
+
+--- PDF page 625 ---
+Page 625 
+ 
+6 - Prescribed by one of the following:  
+• 
+Cardiologist  
+• 
+Endocrinologist  
+• 
+Lipid specialist  
+ 
+Product Name:Evkeeza  
+Diagnosis 
+Homozygous Familial Hypercholesterolemia [HoFH]  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting LDL-C reduction from 
+baseline while on Evkeeza therapy  
+ 
+AND 
+ 
+2 - Patient will continue other traditional lipid-lowering therapies (e.g., maximally tolerated 
+statins, ezetimibe) in combination with Evkeeza  
+ 
+AND 
+ 
+3 - Dose will not exceed 15 milligrams per kilogram of bodyweight infused once every 4 
+weeks  
+ 
+AND 
+ 
+4 - Prescribed by one of the following:  
+• 
+Cardiologist  
+• 
+Endocrinologist  
+
+
+--- PDF page 626 ---
+Page 626 
+• 
+Lipid specialist  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+10/29/2025  
+Updated age criterion due to expanded approval.  
+ 

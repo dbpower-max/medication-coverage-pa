@@ -1,0 +1,96 @@
+--- PDF page 1402 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1402 
+Radicava (edaravone) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-140940  
+Guideline Name 
+Radicava (edaravone)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+12/1/2022  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Radicava ORS  
+Diagnosis 
+Amyotrophic Lateral Sclerosis (ALS)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of documentation (e.g., chart notes) confirming diagnosis of “definite” or 
+“probable” amyotrophic lateral sclerosis (ALS) per the revised EL Escorial and Airlie House 
+diagnostic criteria  
+
+
+--- PDF page 1403 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1403 
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a neurologist with expertise in the diagnosis of ALS  
+ 
+AND 
+ 
+3 - Patient has scores greater than or equal to 2 in all items of the ALS Functional Rating 
+Scale-Revised (ALSFRS-R) criteria at the start of treatment  
+ 
+AND 
+ 
+4 - Patient has a percent forced vital capacity (%FVC) greater than or equal to 80% at the 
+start of treatment  
+ 
+Product Name:Radicava ORS  
+Diagnosis 
+Amyotrophic Lateral Sclerosis (ALS)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of documentation (e.g., chart notes) confirming positive clinical response to 
+therapy (e.g., slowing in the decline of functional abilities)  
+ 
+AND 
+ 
+2 - Patient is not dependent on invasive ventilation or tracheostomy  
+ 
+2 .  Revision History  
+ 
+
+
+--- PDF page 1404 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1404 
+Date  
+Notes  
+10/21/2022  
+Removed the Radicava-solution (Medical benefit)  
+ 

@@ -1,0 +1,163 @@
+=== PDF PAGE 697 ===
+Page 697 
+Gamifant (emapalumab-lzsg) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-396204  
+Guideline Name 
+Gamifant (emapalumab-lzsg)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Gamifant  
+Diagnosis 
+Primary Hemophagocytic Lymphohistiocytosis (HLH)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a diagnosis of primary 
+hemophagocytic lymphohistiocytosis (HLH)  
+
+
+=== PDF PAGE 698 ===
+Page 698 
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) or paid claims confirming one of the 
+following:  
+ 
+ 2.1 Disease is one of the following:  
+• 
+Refractory  
+• 
+Recurrent  
+• 
+Progressive  
+ 
+OR 
+ 
+ 2.2 Trial and failure, contraindication, or intolerance to conventional HLH therapy (e.g., 
+etoposide, dexamethasone, cyclosporine A, intrathecal methotrexate)  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with a hematologist/oncologist  
+ 
+AND 
+ 
+4 - Patient has not received hematopoietic stem cell transplantation (HSCT)  
+ 
+Product Name:Gamifant  
+Diagnosis 
+Primary Hemophagocytic Lymphohistiocytosis (HLH)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) demonstrating a positive clinical 
+
+
+=== PDF PAGE 699 ===
+Page 699 
+response to therapy (e.g., improvement in hemoglobin/lymphocyte/platelet counts, afebrile, 
+normalization of inflammatory factors/markers)  
+ 
+AND 
+ 
+2 - Patient has not received HSCT  
+ 
+Product Name:Gamifant  
+Diagnosis 
+Hemophagocytic Lymphohistiocytosis (HLH)/Macrophage Activation 
+Syndrome (MAS) in Still’s disease  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting BOTH of the following:  
+• 
+Diagnosis of active hemophagocytic lymphohistiocytosis (HLH)/macrophage activation 
+syndrome (MAS)  
+• 
+Disease occurs in known or suspected Still’s disease [e.g., systemic Juvenile 
+Idiopathic Arthritis (sJIA), adult onset Still’s disease (AOSD)]  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) or paid claims confirming one of the 
+following:  
+• 
+Trial and failure, contraindication, or intolerance to high-dose corticosteroids (e.g., 
+methylprednisolone, prednisone)  
+• 
+Patient experiences recurrent MAS  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with a rheumatologist/hematologist  
+ 
+
+
+=== PDF PAGE 700 ===
+Page 700 
+Product Name:Gamifant  
+Diagnosis 
+Hemophagocytic Lymphohistiocytosis (HLH)/Macrophage Activation 
+Syndrome (MAS) in Still’s disease  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) demonstrating a positive clinical 
+response to therapy (e.g., improvement in leukocyte/platelet counts, afebrile, normalization of 
+inflammatory factors/markers)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+9/25/2025  
+Added criteria for new indication  
+ 

@@ -1,0 +1,345 @@
+--- PDF page 843 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 843 
+Ilaris (canakinumab) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-324202  
+Guideline Name 
+Ilaris (canakinumab)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Ilaris  
+Diagnosis 
+Periodic Fever Syndromes [Cryopyrin-Associated Periodic Syndromes 
+(CAPS), Tumor Necrosis Factor Receptor Associated Periodic 
+Syndrome (TRAPS), Hyperimmunoglobulin D Syndrome 
+(HIDS)/Mevalonate Kinase Deficiency(MKD), Familial Mediterranean 
+Fever(FMF)]  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 844 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 844 
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of ONE of the 
+following periodic fever syndromes:  
+• 
+Cryopyrin-associated periodic syndromes (CAPS), including familial cold 
+autoinflammatory syndrome (FCAS) and Muckle-Wells syndrome (MWS)  
+• 
+Tumor necrosis factor (TNF) receptor associated periodic syndrome (TRAPS)  
+• 
+Hyperimmunoglobulin D (Hyper-IgD) syndrome (HIDS/mevalonate kinase deficiency 
+(MKD)  
+• 
+Familial Mediterranean Fever (FMF)  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with ONE of the following:  
+• 
+Rheumatologist  
+• 
+Immunologist  
+ 
+AND 
+ 
+3 - BOTH of the following:  
+• 
+Patient is not receiving concomitant treatment with Tumor Necrosis Factor (TNF) 
+inhibitors (e.g., Enbrel [etanercept], Humira [adalimumab], Remicade [infliximab])  
+• 
+Patient is not receiving concomitant treatment with Interleukin-1 inhibitor (e.g., Arcalyst 
+[rilonacept], Kineret [anakinra])  
+ 
+AND 
+ 
+4 - Patients diagnosed with Familial Mediterranean Fever (FMF) have a history of failure, 
+contraindication, or intolerance to colchicine (applies to diagnosis of FMF ONLY)  
+ 
+Product Name:Ilaris  
+Diagnosis 
+Periodic Fever Syndrome [CAPS, TRAPS, HIDS/MKD, FMF]  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 845 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 845 
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy [defined as a decrease in frequency 
+or severity of attacks, or a decrease in index disease flare or normalization of CRP (C-reactive 
+protein)]  
+ 
+AND 
+ 
+2 - BOTH of the following:  
+• 
+Patient is not receiving concomitant treatment with Tumor Necrosis Factor (TNF) 
+inhibitors (e.g., Enbrel [etanercept], Humira [adalimumab], Remicade [infliximab])  
+• 
+Patient is not receiving concomitant treatment with Interleukin-1 inhibitor (e.g., Arcalyst 
+[rilonacept], Kineret [anakinra])  
+ 
+Product Name:Ilaris  
+Diagnosis 
+Systemic Juvenile Idiopathic Arthritis (SJIA)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of active systemic 
+juvenile idiopathic arthritis (SJIA)  
+ 
+AND 
+ 
+2 - Paid claims or submission of medical records (e.g., chart notes) confirming a trial and 
+failure, contraindication, or intolerance to ONE of the following conventional therapies at 
+maximally tolerated doses:  
+• 
+Minimum duration of a 3-month trial and failure of methotrexate  
+
+
+--- PDF page 846 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 846 
+• 
+Minimum duration of a 1-month trial of a nonsteroidal anti-inflammatory drug (NSAID) 
+(e.g., ibuprofen, naproxen)  
+• 
+Minimum duration of a 2-week trial of a systemic glucocorticoid (e.g., prednisone)  
+ 
+AND 
+ 
+3 - Paid claims or submission of medical records (e.g., chart notes) confirming a trial and 
+failure, contraindication, or intolerance to a preferred^ tocilizumab biosimilar  
+ 
+AND 
+ 
+4 - BOTH of the following:  
+• 
+Patient is not receiving concomitant treatment with Tumor Necrosis Factor (TNF) 
+inhibitors (e.g., Enbrel [etanercept], Humira [adalimumab], Remicade [infliximab])  
+• 
+Patient is not receiving concomitant treatment with Interleukin-1 inhibitor (e.g., Arcalyst 
+[rilonacept], Kineret [anakinra])  
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with ONE of the following:  
+• 
+Rheumatologist  
+• 
+Immunologist  
+Notes  
+^PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP 
+ 
+Product Name:Ilaris  
+Diagnosis 
+Systemic Juvenile Idiopathic Arthritis (SJIA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 847 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 847 
+ 
+1 - Documentation of positive clinical response to therapy as evidenced by at least ONE of the 
+following:  
+• 
+Reduction in the total active (swollen and tender) joint count from baseline  
+• 
+Improvement in clinical features or symptoms (e.g., pain, fever, inflammation, rash, 
+lymphadenopathy, serositis) from baseline  
+ 
+AND 
+ 
+2 - BOTH of the following:  
+• 
+Patient is not receiving concomitant treatment with Tumor Necrosis Factor (TNF) 
+inhibitors (e.g., Enbrel [etanercept], Humira [adalimumab], Remicade [infliximab])  
+• 
+Patient is not receiving concomitant treatment with Interleukin-1 inhibitor (e.g., Arcalyst 
+[rilonacept], Kineret [anakinra])  
+ 
+Product Name:Ilaris  
+Diagnosis 
+Still's Disease  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of Still’s Disease, 
+including Adult-Onset Still’s Disease (AOSD)  
+ 
+AND 
+ 
+2 - Paid claims or submission of medical records (e.g., chart notes) confirming a trial and 
+failure, contraindication, or intolerance to ONE of the following:  
+• 
+Corticosteroids (e.g., prednisone)  
+• 
+Methotrexate  
+• 
+Nonsteroidal anti-inflammatory drugs (NSAIDs) (e.g., ibuprofen, naproxen)  
+
+
+--- PDF page 848 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 848 
+ 
+AND 
+ 
+3 - BOTH of the following:  
+• 
+Patient is not receiving concomitant treatment with Tumor Necrosis Factor (TNF) 
+inhibitors (e.g., Enbrel [etanercept], Humira [adalimumab], Remicade [infliximab])  
+• 
+Patient is not receiving concomitant treatment with Interleukin-1 inhibitor (e.g., Arcalyst 
+[rilonacept], Kineret [anakinra])  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with ONE of the following:  
+• 
+Rheumatologist  
+• 
+Immunologist  
+ 
+Product Name:Ilaris  
+Diagnosis 
+Still's Disease  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+2 - BOTH of the following:  
+• 
+Patient is not receiving concomitant treatment with Tumor Necrosis Factor (TNF) 
+inhibitors (e.g., Enbrel [etanercept], Humira [adalimumab], Remicade [infliximab])  
+• 
+Patient is not receiving concomitant treatment with Interleukin-1 inhibitor (e.g., Arcalyst 
+[rilonacept], Kineret [anakinra])  
+
+
+--- PDF page 849 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 849 
+ 
+Product Name:Ilaris  
+Diagnosis 
+Gout Flares  
+Approval Length 
+12 Week(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of gout flares  
+ 
+AND 
+ 
+2 - Paid claims or submission of medical records (e.g., chart notes) confirming a trial and 
+failure, contraindication, or intolerance to ALL of the following:  
+• 
+Nonsteroidal anti-inflammatory drugs (NSAIDs) (e.g., ibuprofen, naproxen)  
+• 
+Colchicine  
+• 
+Corticosteroids (e.g., prednisone)  
+ 
+AND 
+ 
+3 - Patient has not received Ilaris in the last 12 weeks  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with ONE of the following:  
+• 
+Rheumatologist  
+• 
+Nephrologist  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+
+
+--- PDF page 850 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 850 
+7/15/2025  
+In initial auth section for SJIA, added embedded step through preferr
+ed tocilizumab biosimilar and added PDL link in notes section. Minor 
+cosmetic updates.  
+ 

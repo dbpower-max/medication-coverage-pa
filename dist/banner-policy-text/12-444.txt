@@ -1,0 +1,106 @@
+=== PDF PAGE 444 ===
+Page 444 
+Daybue (trofinetide) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-508202  
+Guideline Name 
+Daybue (trofinetide)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+2/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Daybue, Daybue Stix  
+Approval Length 
+3 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of Rett syndrome  
+ 
+AND 
+
+
+=== PDF PAGE 445 ===
+Page 445 
+ 
+2 - One of the following:  
+ 
+ 2.1 Submission of medical records (e.g., chart notes) confirming presence of ALL of the 
+following clinical signs and symptoms:  
+• 
+A pattern of development, regression, then recovery or stabilization  
+• 
+Partial or complete loss of purposeful hand skills such as grasping with fingers, 
+reaching for things, or touching things on purpose  
+• 
+Partial or complete loss of spoken language  
+• 
+Repetitive hand movements, such as wringing the hands, washing, squeezing, 
+clapping, or rubbing  
+• 
+Gait abnormalities, including walking on toes or with an unsteady, wide-based, stiff-
+legged gait  
+ 
+OR 
+ 
+ 2.2 Submission of medical records (e.g., chart notes) documenting molecular genetic testing 
+confirms mutations in the MECP2 gene  
+ 
+AND 
+ 
+3 - Patient is 2 years of age or older  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with one of the following:  
+• 
+Geneticist  
+• 
+Neurologist  
+ 
+Product Name:Daybue, Daybue Stix  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+
+
+=== PDF PAGE 446 ===
+Page 446 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting positive clinical response 
+to therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+1/28/2026  
+Added new GPIs for Daybue Stix  
+ 

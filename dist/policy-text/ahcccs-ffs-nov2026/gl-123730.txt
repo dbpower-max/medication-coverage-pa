@@ -1,0 +1,146 @@
+--- PDF page 559 ---
+Page 559 
+Enjaymo (sutimlimab-jome) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-123730  
+Guideline Name 
+Enjaymo (sutimlimab-jome)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+4/1/2023  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Enjaymo  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming diagnosis of cold agglutinin 
+disease (CAD) based on ALL of the following:  
+
+
+--- PDF page 560 ---
+Page 560 
+• 
+Presence of chronic hemolysis (e.g., bilirubin level above the normal reference range, 
+elevated lactated dehydrogenase [LDH], decreased haptoglobin, increased 
+reticulocyte count)  
+• 
+Positive polyspecific direct antiglobulin test (DAT)  
+• 
+Monospecific DAT strongly positive for C3d  
+• 
+Cold agglutinin titer greater than or equal to 64 measured at 4 degree celsius  
+• 
+Direct antiglobulin test (DAT) result for Immunoglobulin G (IgG) of 1 plus or less  
+ 
+AND 
+ 
+2 - Patient does not have cold agglutinin syndrome secondary to other factors (e.g., overt 
+hematologic malignancy, primary immunodeficiency, infection, rheumatologic disease, 
+systemic lupus erythematosus or other autoimmune disorders)  
+ 
+AND 
+ 
+3 - Baseline hemoglobin level less than or equal to 10.0 gram per deciliter (g/dL)  
+ 
+AND 
+ 
+4 - One of the following:  
+• 
+Prescribed dose will not exceed 6,500 mg on day 0, 7, and every 14 days thereafter 
+for patients weighing between 39 kg to less than 75 kg  
+• 
+Prescribed dose will not exceed 7,500 mg on day 0, 7, and every 14 days thereafter 
+for patients for patients weighing 75 kg or greater  
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with a hematologist  
+ 
+Product Name:Enjaymo  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 561 ---
+Page 561 
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) demonstrating positive clinical response 
+to therapy as evidenced by ALL of the following:  
+• 
+The patient has not required any blood transfusions after the first 5 weeks of therapy 
+with Enjaymo  
+• 
+Hemoglobin level greater than or equal to 12 gram per deciliter (g/dL) or increased 
+greater than or equal to 2 g/dL from baseline  
+ 
+AND 
+ 
+2 - One of the following:  
+• 
+Prescribed dose will not exceed 6,500 mg on day 0, 7, and every 14 days thereafter 
+for patients weighing between 39 kg to less than 75 kg  
+• 
+Prescribed dose will not exceed 7,500 mg on day 0, 7, and every 14 days thereafter 
+for patients for patients weighing 75 kg or greater  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with a hematologist  
+ 
+ 
+2 .  Background  
+ 
+Clinical Practice Guidelines  
+Weight-Based Dosing  
+The dosing is 6,500mg or 7,500mg Enjaymo (based on body weight) 
+intravenously over approximately 60 minutes on Day 0, Day 7, and every 14 
+days thereafter 
+  
+Body Weight Range 
+Dose 
+39kg to less than 75kg 
+6,500 mg 
+
+
+--- PDF page 562 ---
+Page 562 
+75kg or greater 
+7,500 mg 
+ 
+3 .  Revision History  
+ 
+Date  
+Notes  
+3/23/2023  
+New program  
+ 

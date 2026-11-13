@@ -1,0 +1,181 @@
+=== PDF PAGE 2025 ===
+Page 2025 
+Xenazine (tetrabenazine) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-716192  
+Guideline Name 
+Xenazine (tetrabenazine)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Preferred: generic tetrabenazine; Non-Preferred: Brand Xenazine  
+Diagnosis 
+Chorea associated with Huntington’s Disease  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of chorea in patients with Huntington’s disease  
+ 
+AND 
+
+
+=== PDF PAGE 2026 ===
+Page 2026 
+ 
+2 - For Brand Xenazine requests ONLY: History of failure or intolerance to generic 
+tetrabenazine  
+ 
+Product Name:Preferred: generic tetrabenazine; Non-Preferred: Brand Xenazine  
+Diagnosis 
+Tardive Dyskinesia (Off Label)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of tardive dyskinesia  
+ 
+AND 
+ 
+2 - One of the following:  
+ 
+ 2.1 Patient has persistent symptoms of tardive dyskinesia despite a trial of dose reduction, 
+tapering, or discontinuation of the offending medication  
+ 
+OR 
+ 
+ 2.2 Patient is not a candidate for a trial of dose reduction, tapering, or discontinuation of the 
+offending medication  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with one of the following:  
+• 
+Neurologist  
+• 
+Psychiatrist  
+ 
+AND 
+
+
+=== PDF PAGE 2027 ===
+Page 2027 
+ 
+4 - For Brand Xenazine requests ONLY: History of failure or intolerance to generic 
+tetrabenazine  
+ 
+Product Name:Preferred: generic tetrabenazine; Non-Preferred: Brand Xenazine  
+Diagnosis 
+Tardive Dyskinesia (Off Label)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+2 - For Brand Xenazine requests ONLY: History of failure or intolerance to generic 
+tetrabenazine  
+ 
+Product Name:Preferred: generic tetrabenazine; Non-Preferred: Brand Xenazine  
+Diagnosis 
+Tourette’s syndrome (off-label)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient has tics associated with Tourette’s syndrome  
+ 
+AND 
+ 
+2 - History of failure, contraindication, or intolerance to Haldol (haloperidol)  
+
+
+=== PDF PAGE 2028 ===
+Page 2028 
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with one of the following:  
+• 
+Neurologist  
+• 
+Psychiatrist  
+ 
+AND 
+ 
+4 - For Brand Xenazine requests ONLY: History of failure or intolerance to generic 
+tetrabenazine  
+ 
+Product Name:Preferred: generic tetrabenazine; Non-Preferred: Brand Xenazine  
+Diagnosis 
+Tourette’s syndrome (off-label)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+2 - For Brand Xenazine requests ONLY: History of failure or intolerance to generic 
+tetrabenazine  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+
+
+=== PDF PAGE 2029 ===
+Page 2029 
+9/11/2026  
+Tetrabenazine to PDL, added step through generic tetrabenazine for 
+Brand Xenazine requests  
+ 

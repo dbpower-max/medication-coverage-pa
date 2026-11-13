@@ -1,0 +1,311 @@
+--- PDF page 565 ---
+Page 565 
+Entyvio (vedolizumab) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-300286  
+Guideline Name 
+Entyvio (vedolizumab)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Entyvio IV  
+Diagnosis 
+Crohn's Disease (CD)  
+Approval Length 
+14 Weeks  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of moderately to 
+severely active Crohn's disease  
+
+
+--- PDF page 566 ---
+Page 566 
+ 
+AND 
+ 
+2 - One of the following:  
+• 
+Frequent diarrhea and abdominal pain  
+• 
+At least 10% weight loss  
+• 
+Complications such as obstruction, fever, abdominal mass  
+• 
+Abnormal lab values (e.g., C-reactive protein [CRP])  
+• 
+CD Activity Index (CDAI) greater than 220  
+ 
+AND 
+ 
+3 - Paid claims or submission of medical records (e.g., chart notes) confirming a trial and 
+failure, contraindication, or intolerance to ONE of the following conventional therapies:  
+• 
+6-mercaptopurine  
+• 
+azathioprine  
+• 
+corticosteroids (e.g., prednisone)  
+• 
+methotrexate  
+ 
+AND 
+ 
+4 - One of the following:  
+ 
+ 4.1 Paid claims or submission of medical records (e.g., chart notes) confirming history of 
+failure, contraindication, or intolerance to ALL of the following :  
+• 
+A preferred adalimumab biosimilar  
+• 
+infliximab  
+• 
+A preferred ustekinumab biosimilar  
+ 
+OR 
+ 
+ 4.2 Paid claims or submission of medical records (e.g., chart notes) confirming continuation 
+of prior Entyvio therapy, defined as no more than a 45-day gap in therapy  
+ 
+AND 
+
+
+--- PDF page 567 ---
+Page 567 
+ 
+5 - Prescribed by or in consultation with a gastroenterologist  
+ 
+Product Name:Entyvio IV  
+Diagnosis 
+Crohn's Disease (CD)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy as evidenced by at least one of 
+the following:  
+• 
+Improvement in intestinal inflammation (e.g., mucosal healing, improvement of lab 
+values [platelet counts, erythrocyte sedimentation rate, C-reactive protein level]) from 
+baseline  
+• 
+Reversal of high fecal output state  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a gastroenterologist  
+ 
+Product Name:Entyvio IV  
+Diagnosis 
+Ulcerative Colitis (UC)  
+Approval Length 
+4 Week(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of moderately to 
+severely active ulcerative colitis  
+
+
+--- PDF page 568 ---
+Page 568 
+ 
+AND 
+ 
+2 - One of the following:  
+• 
+Greater than 6 stools per day  
+• 
+Frequent blood in the stools  
+• 
+Frequent urgency  
+• 
+Presence of ulcers  
+• 
+Abnormal lab values (e.g., hemoglobin, ESR, CRP)  
+• 
+Dependent on, or refractory to, corticosteroids  
+ 
+AND 
+ 
+3 - Paid claims or submission of medical records (e.g., chart notes) confirming a trial and 
+failure, contraindication, or intolerance to ONE of the following conventional therapies:  
+• 
+6-mercaptopurine  
+• 
+Aminosalicylate (e.g., mesalamine, olsalazine, sulfasalazine)  
+• 
+Azathioprine  
+• 
+Corticosteroids (e.g., prednisone)  
+ 
+AND 
+ 
+4 - One of the following:  
+ 
+ 4.1 Paid claims or submission of medical records (e.g., chart notes) confirming history of 
+failure, contraindication, or intolerance to ALL of the following:  
+• 
+A preferred adalimumab biosimilar  
+• 
+infliximab  
+• 
+Xeljanz (tofacitinib) oral tablet (IR or XR)  
+• 
+A preferred ustekinumab biosimilar  
+ 
+OR 
+ 
+ 4.2 Paid claims or submission of medical records (e.g., chart notes) confirming continuation 
+of prior Entyvio therapy, defined as no more than a 45-day gap in therapy  
+
+
+--- PDF page 569 ---
+Page 569 
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with a gastroenterologist  
+ 
+AND 
+ 
+6 - Entyvio IV formulation will be used for induction purposes only and patient will be switched 
+to the Entyvio SC (subcutaneous) formulation for week 6 dose  
+ 
+Product Name:Entyvio IV  
+Diagnosis 
+Ulcerative Colitis (UC)  
+Approval Length 
+N/A - Requests for Entyvio IV should be denied  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Requests for continuing Entyvio IV therapy should be denied. The plan’s preferred product 
+is Entyvio SC (SC will require PA)  
+Notes  
+Requests for continuing Entyvio IV therapy should be denied. The pla
+n’s preferred product for UC indication is Entyvio SC (SC will require 
+PA) 
+ 
+Product Name:Entyvio SC  
+Diagnosis 
+Crohn's Disease (CD), Ulcerative Colitis (UC)  
+Approval Length 
+14 Week(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 570 ---
+Page 570 
+ 
+1 - One of the following:  
+ 
+ 1.1 All of the following:  
+ 
+  1.1.1 Submission of medical records (e.g., chart notes) confirming a diagnosis of one of the 
+following:  
+• 
+Moderately to severely active Crohn's disease  
+• 
+Moderately to severely active ulcerative colitis  
+ 
+AND 
+ 
+  1.1.2 Paid claims or submission of medical records (e.g., chart notes) confirming ONE of the 
+following:  
+ 
+   1.1.2.1 Will be used as a maintenance dose following two doses of Entyvio IV* for induction 
+ 
+OR 
+ 
+   1.1.2.2 Patient is currently established on Entyvio IV* 
+ 
+AND 
+ 
+  1.1.3 Prescribed by or in consultation with a gastroenterologist  
+ 
+OR 
+ 
+ 1.2 Patient has received 2 doses of Entyvio IV* for induction  
+Notes  
+* This product will require prior authorization 
+ 
+Product Name:Entyvio SC  
+Diagnosis 
+Crohn's Disease (CD), Ulcerative Colitis (UC)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 571 ---
+Page 571 
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy as evidenced by at least one of 
+the following:  
+• 
+Improvement in intestinal inflammation (e.g., mucosal healing, improvement of lab 
+values [platelet counts, erythrocyte sedimentation rate, C-reactive protein level]) from 
+baseline  
+• 
+Reversal of high fecal output state  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+7/3/2025  
+Updated preferred agents/embedded steps, updated criteria through
+out.  
+ 

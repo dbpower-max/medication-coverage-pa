@@ -1,0 +1,103 @@
+=== PDF PAGE 986 ===
+Page 986 
+Isturisa (osilodrostat) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-269196  
+Guideline Name 
+Isturisa (osilodrostat)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+6/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Isturisa  
+Diagnosis 
+Cushing’s Syndrome  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of Cushing's syndrome  
+
+
+=== PDF PAGE 987 ===
+Page 987 
+ 
+AND 
+ 
+2 - Used for treatment of endogenous hypercortisolemia  
+ 
+AND 
+ 
+3 - One of the following:  
+• 
+Patient is not a candidate for surgery (e.g., adrenalectomy, transsphenoidal surgery)  
+• 
+Surgery has not been curative for the patient  
+ 
+Product Name:Isturisa  
+Diagnosis 
+Cushing’s Syndrome  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy (e.g., a clinically meaningful 
+reduction in 24-hour urinary free cortisol levels, improvement in signs or symptoms of the 
+disease)  
+ 
+Product Name:Isturisa  
+Diagnosis 
+NCCN Recommended Regimens  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Isturisa will be approved for uses supported by The National Comprehensive Cancer 
+
+
+=== PDF PAGE 988 ===
+Page 988 
+Network (NCCN) Drugs and Biologics Compendium with a Category of Evidence and 
+Consensus of 1, 2A, or 2B.  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+5/29/2025  
+Updated Cushing's syndrome criteria due to revised indication, remo
+ved reauth for NCCN approved indications section (NCCN auth is 12 
+months).  
+ 

@@ -1,0 +1,654 @@
+=== PDF PAGE 1257 ===
+Page 1257 
+Nucala (mepolizumab) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-642275  
+Guideline Name 
+Nucala (mepolizumab)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Nucala  
+Diagnosis 
+Severe Asthma  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient is 6 years of age or older  
+
+
+=== PDF PAGE 1258 ===
+Page 1258 
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting 
+diagnosis of severe asthma  
+ 
+AND 
+ 
+3 - Asthma is an eosinophilic phenotype as defined by one of the following:  
+• 
+Baseline (pre-treatment) peripheral blood eosinophil level is greater than or equal to 
+150 cells/microliter  
+• 
+Peripheral blood eosinophil levels were greater than or equal to 300 cells/microliter 
+within the past 12 months  
+ 
+AND 
+ 
+4 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting one of 
+the following:  
+ 
+ 4.1 Patient has had at least two or more asthma exacerbations requiring systemic 
+corticosteroids (e.g., prednisone) within the past 12 months  
+ 
+OR 
+ 
+ 4.2 Prior asthma-related hospitalization within the past 12 months  
+ 
+AND 
+ 
+5 - Patient is currently being treated with one of the following unless there is a contraindication 
+or intolerance to these medications (verified via paid pharmacy claims):  
+ 
+ 5.1 Both of the following:  
+• 
+High-dose inhaled corticosteroid (ICS) (e.g., greater than 500 mcg fluticasone 
+propionate equivalent/day)  
+• 
+Additional asthma controller medication (e.g., leukotriene receptor antagonist [e.g., 
+montelukast], long-acting beta-2 agonist [LABA] [e.g., salmeterol], tiotropium)  
+
+
+=== PDF PAGE 1259 ===
+Page 1259 
+ 
+OR 
+ 
+ 5.2 One maximally-dosed combination ICS/LABA product (e.g., Advair [fluticasone 
+propionate/salmeterol], Symbicort [budesonide/formoterol], Breo Ellipta [fluticasone/vilanterol]) 
+ 
+AND 
+ 
+6 - Paid claims or submission of documentation (e.g., chart notes) demonstrating history of 
+failure, contraindication, or intolerance to ALL of the following:  
+• 
+Dupixent (dupilumab)  
+• 
+Fasenra (benralizumab)  
+• 
+Xolair (omalizumab)  
+ 
+AND 
+ 
+7 - Prescribed by or in consultation with one of the following:  
+• 
+Pulmonologist  
+• 
+Allergist/Immunologist  
+ 
+Product Name:Nucala  
+Diagnosis 
+Severe Asthma  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting positive 
+clinical response to therapy (e.g., reduction in exacerbations, improvement in forced 
+expiratory volume in 1 second [FEV1], decreased use of rescue medications) [C]  
+
+
+=== PDF PAGE 1260 ===
+Page 1260 
+ 
+AND 
+ 
+2 - Patient continues to be treated with an inhaled corticosteroid (ICS) (e.g., fluticasone, 
+budesonide) with or without additional asthma controller medication (e.g., leukotriene receptor 
+antagonist [e.g., montelukast], long-acting beta-2 agonist [LABA] [e.g., salmeterol], tiotropium) 
+unless there is a contraindication or intolerance to these medications (verified via paid 
+pharmacy claims)  
+ 
+AND 
+ 
+3 - Paid claims or submission of documentation (e.g., chart notes) demonstrating history of 
+failure, contraindication, or intolerance to ALL of the following:  
+• 
+Dupixent (dupilumab)  
+• 
+Fasenra (benralizumab)  
+• 
+Xolair (omalizumab)  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with one of the following:  
+• 
+Pulmonologist  
+• 
+Allergist/Immunologist  
+ 
+Product Name:Nucala  
+Diagnosis 
+Chronic rhinosinusitis with nasal polyps (CRSwNP)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient is 18 years of age or older  
+
+
+=== PDF PAGE 1261 ===
+Page 1261 
+ 
+AND 
+ 
+2 - Submission of documentation (e.g., chart notes) confirming ALL of the following:  
+ 
+ 2.1 Diagnosis of chronic rhinosinusitis with nasal polyposis (CRSwNP) defined by ALL of the 
+following:  
+ 
+  2.1.1 TWO or more of the following symptoms for greater than or equal to 12 weeks 
+duration:  
+• 
+Mucopurulent discharge  
+• 
+Nasal obstruction and congestion  
+• 
+Decreased or absent sense of smell  
+• 
+Facial pressure or pain  
+ 
+AND 
+ 
+  2.1.2 ONE of the following:  
+• 
+Evidence of inflammation on paranasal sinus examination or computed tomography 
+(CT)  
+• 
+Evidence of purulence coming from paranasal sinuses or ostiomeatal complex  
+ 
+AND 
+ 
+  2.1.3 The presence of nasal polyps  
+ 
+AND 
+ 
+ 2.2 ONE of the following:  
+• 
+Patient has required prior sino-nasal surgery  
+• 
+Patient has required systemic corticosteroids in the previous 2 years  
+ 
+AND 
+ 
+ 2.3 Patient has been unable to obtain symptom relief after trial of ALL of the following 
+agents/classes of agents:  
+
+
+=== PDF PAGE 1262 ===
+Page 1262 
+• 
+Nasal saline irrigations  
+• 
+Intranasal corticosteroids (e.g. fluticasone, mometasone, triamcinolone, etc.)  
+• 
+Antileukotriene agents (e.g. montelukast, zafirlukast, zileuton)  
+ 
+AND 
+ 
+3 - Paid claims or submission of documentation (e.g., chart notes) demonstrating history of 
+failure, contraindication, or intolerance to BOTH of the following:  
+• 
+Dupixent (dupilumab)  
+• 
+Xolair (omalizumab)  
+ 
+AND 
+ 
+4 - Patient will receive Nucala as add-on maintenance therapy in combination with intranasal 
+corticosteroids  
+ 
+AND 
+ 
+5 - Patient is NOT receiving Nucala in combination with another biologic medication [e.g., 
+Xolair (omalizumab), Dupixent (dupilumab)]  
+ 
+AND 
+ 
+6 - Prescribed by or in consultation with one of the following:  
+• 
+Otolaryngologist  
+• 
+Allergist  
+• 
+Pulmonologist  
+ 
+Product Name:Nucala  
+Diagnosis 
+Chronic rhinosinusitis with nasal polyps (CRSwNP)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+=== PDF PAGE 1263 ===
+Page 1263 
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of documentation (e.g., chart notes) confirming positive clinical response to 
+Nucala therapy  
+ 
+AND 
+ 
+2 - Paid claims or submission of documentation (e.g., chart notes) demonstrating history of 
+failure, contraindication, or intolerance to BOTH of the following:  
+• 
+Dupixent (dupilumab)  
+• 
+Xolair (omalizumab)  
+ 
+AND 
+ 
+3 - Patient will continue to receive Nucala as add-on maintenance therapy in combination with 
+intranasal corticosteroids  
+ 
+AND 
+ 
+4 - Patient is NOT receiving Nucala in combination with another biologic medication [e.g., 
+Xolair (omalizumab), Dupixent (dupilumab)]  
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with one of the following:  
+• 
+Otolaryngologist  
+• 
+Allergist  
+• 
+Pulmonologist  
+ 
+Product Name:Nucala  
+Diagnosis 
+Eosinophilic Granulomatosis with Polyangiitis (EGPA)  
+Approval Length 
+6 month(s)  
+
+
+=== PDF PAGE 1264 ===
+Page 1264 
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting 
+diagnosis of eosinophilic granulomatosis with polyangiitis (EGPA)  
+ 
+AND 
+ 
+2 - Patient's disease has relapsed or is refractory to standard of care therapy (i.e., 
+corticosteroid treatment with or without immunosuppressive therapy)  
+ 
+AND 
+ 
+3 - Paid claims or submission of documentation (e.g., chart notes) demonstrating history of 
+failure, contraindication, or intolerance to Fasenra (benralizumab)  
+ 
+AND 
+ 
+4 - Patient is currently receiving corticosteroid therapy (e.g., prednisolone, prednisone)  
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with one of the following:  
+• 
+Pulmonologist  
+• 
+Rheumatologist  
+• 
+Allergist/Immunologist  
+ 
+Product Name:Nucala  
+Diagnosis 
+Eosinophilic Granulomatosis with Polyangiitis (EGPA)  
+Approval Length 
+6 month(s)  
+
+
+=== PDF PAGE 1265 ===
+Page 1265 
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting positive 
+clinical response to therapy (e.g., increase in remission time)  
+ 
+AND 
+ 
+2 - Paid claims or submission of documentation (e.g., chart notes) demonstrating history of 
+failure, contraindication, or intolerance to Fasenra (benralizumab)  
+ 
+Product Name:Nucala  
+Diagnosis 
+Hypereosinophilic Syndrome (HES)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting 
+diagnosis of hypereosinophilic syndrome (HES)  
+ 
+AND 
+ 
+2 - Patient has been diagnosed for at least 6 months  
+ 
+AND 
+ 
+3 - Verification that other non-hematologic secondary causes have been ruled out (e.g., drug 
+hypersensitivity, parasitic helminth infection, HIV infection, non-hematologic malignancy)  
+
+
+=== PDF PAGE 1266 ===
+Page 1266 
+ 
+AND 
+ 
+4 - Patient is Fip1-like1-platelet-derived growth factor receptor alpha (FIP1L1-PDGFRA)-
+negative  
+ 
+AND 
+ 
+5 - Patient has uncontrolled HES defined as both of the following:  
+• 
+History of 2 or more flares within the past 12 months [I]  
+• 
+Pre-treatment blood eosinophil count greater than or equal to 1000 cells/microliter  
+ 
+AND 
+ 
+6 - Trial and failure, contraindication, or intolerance to one of the following:  
+• 
+Corticosteroid therapy (e.g., prednisone)  
+• 
+Cytotoxic/immunosuppressive therapy (e.g., hydroxyurea, cyclosporine, imatinib)  
+ 
+AND 
+ 
+7 - Paid claims or submission of documentation (e.g., chart notes) demonstrating history of 
+failure, contraindication, or intolerance to Fasenra (benralizumab)  
+ 
+AND 
+ 
+8 - Prescribed by or in consultation with one of the following:  
+• 
+Allergist/Immunologist  
+• 
+Hematologist  
+ 
+Product Name:Nucala  
+Diagnosis 
+Hypereosinophilic Syndrome (HES)  
+Approval Length 
+12 Months  
+
+
+=== PDF PAGE 1267 ===
+Page 1267 
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting positive 
+clinical response to therapy (e.g., reduction in flares, decreased blood eosinophil count, 
+reduction in corticosteroid dose)  
+ 
+AND 
+ 
+2 - Paid claims or submission of documentation (e.g., chart notes) demonstrating history of 
+failure, contraindication, or intolerance to Fasenra (benralizumab)  
+ 
+Product Name:Nucala  
+Diagnosis 
+Chronic obstructive pulmonary disease (COPD)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient is 18 years of age or older  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) confirming diagnosis of chronic 
+obstructive pulmonary disease (COPD)  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) confirming the presence of Type 2 
+
+
+=== PDF PAGE 1268 ===
+Page 1268 
+inflammation evidenced by blood eosinophils greater than or equal to 300 cells per microliter 
+at baseline  
+ 
+AND 
+ 
+4 - Paid claims or submission of medical records (e.g., chart notes) confirming the patient is 
+receiving one of the following therapies at maximally tolerated doses:  
+• 
+Triple therapy (i.e., an inhaled corticosteroid (ICS), a long-acting muscarinic antagonist 
+(LAMA) and a long-acting beta agonist (LABA)  
+• 
+If ICS are contraindicated, a LAMA and a LABA  
+ 
+AND 
+ 
+5 - Patient must have post-bronchodilator forced expiratory volume [FEV1] / forced vital 
+capacity [FVC] ratio less than 0.70  
+ 
+AND 
+ 
+6 - Patient has had BOTH of the following within the past 12 months:  
+• 
+At least two exacerbations where systemic corticosteroids [intramuscular, intravenous, 
+or oral (e.g., prednisone)] were required at least once  
+• 
+A COPD-related hospitalization  
+ 
+AND 
+ 
+7 - Submission of medical records (e.g., chart notes) confirming the patient experiences 
+dyspnea during everyday activities (e.g., needs to stop for breath when walking on level 
+ground)  
+ 
+AND 
+ 
+8 - Paid claims or submission of documentation (e.g., chart notes) demonstrating history of 
+failure, contraindication, or intolerance to Dupixent (dupilumab)  
+ 
+Product Name:Nucala  
+
+
+=== PDF PAGE 1269 ===
+Page 1269 
+Diagnosis 
+Chronic obstructive pulmonary disease (COPD)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a positive clinical response to 
+therapy (e.g., improved lung function, a reduction in COPD exacerbations)  
+ 
+AND 
+ 
+2 - Paid claims or submission of medical records (e.g., chart notes) confirming the patient 
+continues to receive one of the following therapies:  
+• 
+Triple therapy (i.e., an inhaled corticosteroid (ICS), a long-acting muscarinic antagonist 
+(LAMA) and a long-acting beta agonist (LABA)  
+• 
+If ICS are contraindicated, a LAMA and a LABA  
+ 
+AND 
+ 
+3 - Paid claims or submission of documentation (e.g., chart notes) demonstrating history of 
+failure, contraindication, or intolerance to Dupixent (dupilumab)  
+ 
+ 
+2 .  Background  
+ 
+Clinical Practice Guidelines  
+The Global Initiative for Asthma Global Strategy for Asthma Management and 
+Prevention: Table 1. Low, medium and high daily doses of inhaled corticosteroids in 
+adolescents and adults 12 years and older [6]  
+  
+Inhaled corticosteroid 
+Total Daily ICS Dose (mcg) 
+
+
+=== PDF PAGE 1270 ===
+Page 1270 
+  
+Low 
+Medium 
+High 
+Beclometasone dipropionate (pMDI, 
+standard particle, HFA) 
+200-500 
+> 500-1000 
+> 1000 
+Beclometasone dipropionate (pMDI, 
+extrafine particle*, HFA) 
+100-200 
+> 200-400 
+> 400 
+Budesonide (DPI) 
+200-400 
+> 400-800 
+> 800 
+Ciclesonide (pMDI, extrafine 
+particle*, HFA) 
+80-160 
+> 160-320 
+> 320 
+Fluticasone furoate (DPI) 
+100 
+200 
+Fluticasone propionate (DPI) 
+100-250 
+> 250-500 
+> 500 
+Fluticasone propionate (pMDI, 
+standard particle, HFA) 
+100-250 
+> 250-500 
+> 500 
+Mometasone furoate (DPI) 
+200 
+400 
+Mometasone furoate (pMDI, 
+standard particle, HFA) 
+200-400 
+> 400 
+DPI: dry powder inhaler; HFA: hydrofluoroalkane propellant; ICS: inhaled 
+corticosteroid; N/A: not applicable; pMDI: pressurized metered dose inhaler 
+(non-chlorofluorocarbon formulations); ICS by pMDI should be preferably used 
+with a spacer *See product information.  
+This is not a table of equivalence, but instead, suggested total daily doses 
+for the ‘low’, ‘medium’ and ‘high’ dose ICS options for adults/adolescents, 
+based on available studies and product information. Data on comparative 
+potency are not readily available and therefore this table does NOT imply 
+potency equivalence. Doses may be country -specific depending on local 
+availability, regulatory labelling and clinical guidelines. 
+For new preparations, including generic ICS, the manufacturer’s information 
+should be reviewed carefully; products containing the same molecule may not 
+be clinically equivalent. 
+ 
+3 .  Revision History  
+ 
+Date  
+Notes  
+
+
+=== PDF PAGE 1271 ===
+Page 1271 
+6/24/2026  
+Dupixent Preferred 10/1/26: Added step through Dupixent for Asthma
+/CRSwNP/COPD. Added step through Fasenra (new indication) for H
+ES.  
+ 

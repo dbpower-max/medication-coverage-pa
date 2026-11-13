@@ -1,0 +1,248 @@
+=== PDF PAGE 47 ===
+Page 47 
+Adbry (tralokinumab-ldrm) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-150052  
+Guideline Name 
+Adbry (tralokinumab-ldrm)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2024  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Adbry  
+Diagnosis 
+Atopic Dermatitis  
+Approval Length 
+6 Months*  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of moderate to severe atopic dermatitis  
+
+
+=== PDF PAGE 48 ===
+Page 48 
+ 
+AND 
+ 
+2 - Submission of documentation (e.g., chart notes) demonstrating one of the following:  
+• 
+Involvement of at least 10% body surface area (BSA)  
+• 
+SCORing Atopic Dermatitis (SCORAD) index value of at least 25 [A]  
+ 
+AND 
+ 
+3 - Patient is 12 years of age or older  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with one of the following:  
+• 
+Dermatologist  
+• 
+Allergist/Immunologist  
+ 
+AND 
+ 
+5 - History of failure, contraindication, or intolerance to BOTH of the following topical 
+therapies: (document drug, date of trial, and/or contraindication to medication)**  
+• 
+One topical calcineurin inhibitor [e.g., Elidel (pimecrolimus), Protopic (tacrolimus)]  
+• 
+Eucrisa (crisaborole) ointment  
+Notes  
+*QL Override (For new starts only): Enter 2 PAs as follows: First PA: 
+Approve 6 syringes per 28 days for one month; Second PA: Approve 
+4 syringes per 28 days (no overrides needed) for the remaining 11 mo
+nths. (Adbry is hard-coded with a quantity of 4 syringes per 28 days). 
+**Note: Claims history may be used in conjunction as documentation 
+of drug, date, and/or contraindication to medication 
+ 
+Product Name:Adbry  
+Diagnosis 
+Atopic Dermatitis  
+Approval Length 
+12 month(s)  
+
+
+=== PDF PAGE 49 ===
+Page 49 
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of documentation (e.g., chart notes) demonstrating positive clinical response 
+to therapy as evidenced by at least ONE of the following:  
+• 
+Reduction in body surface area involvement from baseline  
+• 
+Reduction in SCORing Atopic Dermatitis (SCORAD) index value from baseline [A]  
+ 
+ 
+2 .  Background  
+ 
+Clinical Practice Guidelines  
+Table 1. Relative potencies of topical corticosteroids [2]  
+  
+Class 
+Drug 
+Dosage Form 
+Strength 
+(%) 
+Very high 
+potency 
+Augmented betamethasone 
+dipropionate  
+Ointment, gel 
+0.05 
+Clobetasol propionate  
+Cream, foam, ointment  
+0.05 
+Diflorasone diacetate  
+Ointment 
+0.05 
+Halobetasol propionate  
+Cream, ointment  
+0.05 
+High 
+Potency 
+Amcinonide 
+Cream, lotion, ointment  
+0.1 
+Augmented betamethasone 
+dipropionate  
+Cream, lotion 
+0.05 
+Betamethasone dipropionate  Cream, foam, ointment, 
+solution  
+0.05 
+Desoximetasone 
+Cream, ointment  
+0.25 
+
+
+=== PDF PAGE 50 ===
+Page 50 
+Desoximetasone  
+Gel 
+0.05 
+Diflorasone diacetate  
+Cream 
+0.05 
+Fluocinonide  
+Cream, gel, ointment, solution  
+0.05 
+Halcinonide 
+Cream, ointment  
+0.1 
+Mometasone furoate  
+Ointment  
+0.1 
+Triamcinolone acetonide  
+Cream, ointment  
+0.5 
+Medium 
+potency 
+Betamethasone valerate  
+Cream, foam, lotion, ointment  
+0.1 
+Clocortolone pivalate  
+Cream 
+0.1 
+Desoximetasone 
+Cream 
+0.05 
+Fluocinolone acetonide  
+Cream, ointment  
+0.025 
+Flurandrenolide  
+Cream, ointment, lotion 
+0.05 
+Fluticasone propionate  
+Cream 
+0.05 
+Fluticasone propionate  
+Ointment 
+0.005 
+Mometasone furoate  
+Cream, lotion 
+0.1 
+Triamcinolone acetonide  
+Cream, ointment, lotion  
+0.1 
+Lower-
+medium 
+potency 
+Hydrocortisone butyrate  
+Cream, ointment, solution  
+0.1 
+Hydrocortisone probutate  
+Cream 
+0.1 
+Hydrocortisone valerate  
+Cream, ointment  
+0.2 
+Prednicarbate 
+Cream 
+0.1 
+Low 
+potency 
+Alclometasone dipropionate  
+Cream, ointment  
+0.05 
+Desonide 
+Cream, gel, foam, ointment  
+0.05 
+Fluocinolone acetonide  
+Cream, solution  
+0.01 
+Lowest 
+potency 
+Dexamethasone 
+Cream 
+0.1 
+Hydrocortisone 
+Cream, lotion, ointment, 
+solution  
+0.25, 0.5, 1 
+Hydrocortisone acetate  
+Cream, ointment  
+0.5-1 
+
+
+=== PDF PAGE 51 ===
+Page 51 
+ 
+3 .  Revision History  
+ 
+Date  
+Notes  
+7/20/2024  
+Added new GPI  
+ 

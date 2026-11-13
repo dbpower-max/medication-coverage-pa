@@ -1,0 +1,156 @@
+--- PDF page 837 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 837 
+Icotyde (icotrokinra) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-605193  
+Guideline Name 
+Icotyde (icotrokinra)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+6/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Icotyde  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of moderate to 
+severe plaque psoriasis (PsO)  
+
+
+--- PDF page 838 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 838 
+ 
+AND 
+ 
+2 - BOTH of the following:  
+• 
+Patient is 12 years of age or older  
+• 
+Patient weighs at least 40 kg (kilograms)  
+ 
+AND 
+ 
+3 - ONE of the following:  
+• 
+Greater than or equal to 3% body surface area involvement  
+• 
+Severe scalp psoriasis  
+• 
+Palmoplantar (i.e., palms, soles), facial, or genital involvement  
+ 
+AND 
+ 
+4 - Paid claims or submission of medical records (e.g., chart notes) confirming a trial and 
+failure of a minimum 30-day supply (14-day supply for topical corticosteroids), 
+contraindication, or intolerance to ONE of the following topical therapies:  
+• 
+corticosteroids (e.g., betamethasone, clobetasol)  
+• 
+vitamin D analogs (e.g., calcitriol, calcipotriene)  
+• 
+tazarotene  
+• 
+calcineurin inhibitors (e.g., tacrolimus, pimecrolimus)  
+ 
+AND 
+ 
+5 - Submission of medical records (e.g., chart notes) or verification of paid claims confirming 
+ALL of the following:  
+ 
+ 5.1 History of failure to a 3 month trial of methotrexate at the maximally indicated dose within 
+the last 6 months, unless contraindicated or clinically significant adverse effects are 
+experienced  
+ 
+AND 
+
+
+--- PDF page 839 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 839 
+ 
+ 5.2 History of failure, contraindication, or intolerance to ONE of the following topical 
+therapies:  
+• 
+Vtama  
+• 
+Zoryve 0.3% cream  
+ 
+AND 
+ 
+ 5.3 History of failure, contraindication, or intolerance to ALL of the following:  
+• 
+A preferred^ adalimumab biosimilar or Enbrel (etanercept)  
+• 
+infliximab  
+• 
+Otezla (apremilast)  
+• 
+A preferred^ ustekinumab biosimilar  
+ 
+AND 
+ 
+6 - Prescribed by or in consultation with a dermatologist  
+Notes  
+^PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP 
+ 
+Product Name:Icotyde  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy as evidenced by ONE of the 
+following:  
+• 
+Reduction in the body surface area (BSA) involvement from baseline  
+• 
+Improvement in symptoms (e.g., pruritus, inflammation) from baseline  
+ 
+AND 
+
+
+--- PDF page 840 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 840 
+ 
+2 - Prescribed by or in consultation with a dermatologist  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+5/6/2026  
+New program.  
+ 

@@ -1,0 +1,80 @@
+--- PDF page 1933 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1933 
+Xermelo 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-140907  
+Guideline Name 
+Xermelo  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2022  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Xermelo  
+Diagnosis 
+Carcinoid Syndrome Diarrhea  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of carcinoid syndrome diarrhea  
+
+
+--- PDF page 1934 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1934 
+ 
+AND 
+ 
+2 - Diarrhea is inadequately controlled with somatostatin analog therapy (e.g., octreotide, 
+Sandostatin LAR, Somatuline Depot)  
+ 
+AND 
+ 
+3 - Used in combination with somatostatin analog therapy (e.g., octreotide, Sandostatin LAR, 
+Somatuline Depot)  
+ 
+Product Name:Xermelo  
+Diagnosis 
+Carcinoid Syndrome Diarrhea  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to Xermelo  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/4/2022  
+C&S to match AZM as of 10.1.22  
+ 

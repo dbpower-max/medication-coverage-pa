@@ -1,0 +1,96 @@
+--- PDF page 1846 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1846 
+Vijoice (alpelisib) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-149995  
+Guideline Name 
+Vijoice (alpelisib)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2024  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Vijoice tablets, Vijoice granules  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of PIK3CA-Related Overgrowth Spectrum (PROS)  
+ 
+AND 
+
+
+--- PDF page 1847 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1847 
+ 
+2 - Submission of documentation of mutation in the PIK3CA gene  
+ 
+AND 
+ 
+3 - Patient is 2 years of age or older  
+ 
+AND 
+ 
+4 - Submission of documentation of severe clinical manifestations (e.g., Congenital 
+Lipomatous Overgrowth, Vascular malformations, Epidermal nevi, Scoliosis/skeletal and 
+spinal [CLOVES], Facial Infiltrating Lipomatosis [FIL], Klippel-Trenaunay Syndrome [KTS], 
+Megalencephaly-Capillary Malformation Polymicrogyria [MCAP])  
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with a physician who specializes in the treatment of PROS  
+ 
+Product Name:Vijoice tablets, Vijoice granules  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of documentation of positive clinical response to therapy (e.g., radiological 
+response defined as a ≥ 20% reduction from baseline in the sum of target lesion volume)  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a physician who specializes in the treatment of PROS  
+ 
+2 .  Revision History  
+ 
+
+
+--- PDF page 1848 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1848 
+Date  
+Notes  
+7/18/2024  
+Added new Vijoice granule formulation as a target. Updated product 
+name list and GPI table accordingly. No changes to criteria.  
+ 

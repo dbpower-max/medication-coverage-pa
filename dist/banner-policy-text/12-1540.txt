@@ -1,0 +1,144 @@
+=== PDF PAGE 1540 ===
+Page 1540 
+Ryoncil (remestemcel-l-rknd) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-669274  
+Guideline Name 
+Ryoncil (remestemcel-l-rknd)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Ryoncil  
+Approval Length 
+1 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming diagnosis of acute graft 
+versus host disease (aGVHD)  
+
+
+=== PDF PAGE 1541 ===
+Page 1541 
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) confirming one of the following:  
+ 
+ 2.1 Patient has Grade C or D aGVHD involving the skin, liver, and/or GI tract  
+ 
+OR 
+ 
+ 2.2 Patient has Grade B aGVHD involving the liver and/or GI tract with or without 
+concomitant skin disease  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) confirming disease is steroid refractory 
+as defined by progression of aGVHD within 3 days or no improvement within 7 days of 
+consecutive treatment with 2 mg/kg/day methylprednisolone or equivalent  
+ 
+AND 
+ 
+4 - Patient is 2 months of age to less than or equal to 17 years of age  
+ 
+AND 
+ 
+5 - Patient has not received any second line therapy to treat aGVHD (e.g., Jakafi, 
+mycophenolate mofetil, etc.)  
+ 
+AND 
+ 
+6 - Both of the following;  
+ 
+ 6.1 Prescribed by a provider at a transplant center with expertise in gene therapy  
+ 
+AND 
+
+
+=== PDF PAGE 1542 ===
+Page 1542 
+ 
+ 6.2 Prescribed by one of the following:  
+• 
+Hematologist/oncologist  
+• 
+Bone marrow transplant specialist  
+• 
+Specialist with expertise in the diagnosis and management of steroid-refractory 
+aGvHD (SR-aGvHD)  
+ 
+Product Name:Ryoncil  
+Approval Length 
+1 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming one of the following:  
+ 
+ 1.1 Both of the following:  
+• 
+Patient has had a partial or mixed response to current Ryoncil treatment course  
+• 
+Patient has not received more than 12 infusions  
+ 
+OR 
+ 
+ 1.2 Patient is experiencing a recurrence of GvHD after complete response with Ryoncil 
+therapy  
+ 
+AND 
+ 
+2 - Both of the following:  
+ 
+ 2.1 Prescribed by a provider at a transplant center with expertise in gene therapy  
+ 
+AND 
+ 
+ 2.2 Prescribed by one of the following:  
+
+
+=== PDF PAGE 1543 ===
+Page 1543 
+• 
+Hematologist/oncologist  
+• 
+Bone marrow transplant specialist  
+• 
+Specialist with expertise in the diagnosis and management of steroid-refractory 
+aGvHD (SR-aGvHD)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+7/28/2026  
+New Program  
+ 

@@ -1,0 +1,74 @@
+=== PDF PAGE 133 ===
+Page 133 
+Antiglaucoma Agents - AZM 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-624204  
+Guideline Name 
+Antiglaucoma Agents - AZM  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+6/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:generic brinzolamide ophth susp, generic tafluprost ophth soln  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of elevated intraocular pressure due to ocular hypertension or open angle 
+glaucoma  
+ 
+Product Name:Omlonti, Zolymbus  
+Approval Length 
+12 month(s)  
+
+
+=== PDF PAGE 134 ===
+Page 134 
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of elevated intraocular pressure due to ocular hypertension or open angle 
+glaucoma  
+ 
+AND 
+ 
+2 - Trial and failure, contraindication, or intolerance to all of the following:  
+• 
+dorzolamide  
+• 
+bimatoprost  
+• 
+latanoprost  
+• 
+travoprost  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+5/27/2026  
+Added Zolymbus as target  
+ 

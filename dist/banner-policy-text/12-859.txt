@@ -1,0 +1,178 @@
+=== PDF PAGE 859 ===
+Page 859 
+Ilumya (tildrakizumab-asmn) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-152432  
+Guideline Name 
+Ilumya (tildrakizumab-asmn)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/20/2024  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Ilumya  
+Diagnosis 
+Chronic Moderate to Severe Plaque Psoriasis  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following:  
+ 
+ 1.1 ALL of the following:  
+
+
+=== PDF PAGE 860 ===
+Page 860 
+ 
+  1.1.1 Diagnosis of chronic moderate to severe plaque psoriasis  
+ 
+AND 
+ 
+  1.1.2 Greater than or equal to 3 percent body surface area involvement, palmoplantar, facial, 
+genital involvement, or severe scalp psoriasis  
+ 
+AND 
+ 
+  1.1.3 Submission of medical records (e.g., chart notes) or paid claims documenting history of 
+failure, to ONE of the following topical therapies, unless contraindicated or clinically significant 
+adverse effects are experienced:  
+• 
+Corticosteroids (e.g., betamethasone, clobetasol, desonide)  
+• 
+Vitamin D analogs (e.g., calcitriol, calcipotriene)  
+• 
+Tazarotene  
+• 
+Calcineurin inhibitors (e.g., tacrolimus, pimecrolimus)  
+• 
+Anthralin  
+• 
+Coal tar  
+ 
+AND 
+ 
+  1.1.4 Submission of medical records (e.g., chart notes) or paid claims documenting history of 
+failure to a 3 month trial of methotrexate at the maximally indicated dose within the last 6 
+months, unless contraindicated or clinically significant adverse effects are experienced  
+ 
+AND 
+ 
+  1.1.5 Submission of medical records (e.g., chart notes) or paid claims documenting history of 
+failure, contraindication, or intolerance to ALL of the following preferred biologic products:  
+• 
+A preferred adalimumab biosimilar  
+• 
+Enbrel (etanercept)  
+• 
+Otezla (apremilast)  
+ 
+AND 
+ 
+  1.1.6 Patient is NOT receiving Ilumya in combination with ONE of the following:  
+
+
+=== PDF PAGE 861 ===
+Page 861 
+• 
+Biologic DMARD (disease modifying anti-rheumatic drug) [e.g., Humira (adalimumab), 
+Cimzia (certolizumab), Simponi (golimumab), Cosentyx (secukinumab), Orencia 
+(abatacept)]  
+• 
+Janus kinase inhibitor [e.g., Xeljanz (tofacitinib)]  
+• 
+Phosphodiesterase 4 (PDE4) inhibitor [e.g. Otezla (apremilast)]  
+ 
+AND 
+ 
+  1.1.7 Prescribed by or in consultation with a dermatologist  
+ 
+OR 
+ 
+ 1.2 ALL of the following:  
+ 
+  1.2.1 Submission of medical records (e.g., chart notes) or paid claims documenting patient is 
+currently on the requested therapy  
+ 
+AND 
+ 
+  1.2.2 Diagnosis of chronic moderate to severe plaque psoriasis  
+ 
+AND 
+ 
+  1.2.3 Patient is NOT receiving Ilumya in combination with ONE of the following:  
+• 
+Biologic DMARD [e.g., Humira (adalimumab), Cimzia (certolizumab), Simponi 
+(golimumab), Cosentyx (secukinumab), Orencia (abatacept)]  
+• 
+Janus kinase inhibitor [e.g., Xeljanz (tofacitinib)]  
+• 
+Phosphodiesterase 4 (PDE4) inhibitor [e.g. Otezla (apremilast)]  
+ 
+AND 
+ 
+  1.2.4 Prescribed by or in consultation with a dermatologist  
+ 
+Product Name:Ilumya  
+Diagnosis 
+Chronic Moderate to Severe Plaque Psoriasis  
+
+
+=== PDF PAGE 862 ===
+Page 862 
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to Ilumya therapy  
+ 
+AND 
+ 
+2 - Patient is NOT receiving Ilumya in combination with ONE of the following:  
+• 
+Biologic DMARD (disease modifying anti-rheumatic drug) [e.g., Humira (adalimumab), 
+Cimzia (certolizumab), Simponi (golimumab), Cosentyx (secukinumab), Orencia 
+(abatacept)]  
+• 
+Janus kinase inhibitor [e.g., Xeljanz (tofacitinib)]  
+• 
+Phosphodiesterase 4 (PDE4) inhibitor [e.g. Otezla (apremilast)]  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with a dermatologist  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/20/2024  
+Updated submission of medical records verbiage in criteria  
+ 

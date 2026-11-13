@@ -1,0 +1,193 @@
+--- PDF page 1357 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1357 
+Preferred Non-Solid Dosage Forms 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-545275  
+Guideline Name 
+Preferred Non-Solid Dosage Forms  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+• 
+Medicaid - Community & State Colorado  
+• 
+Medicaid - Community & State Hawaii  
+• 
+Medicaid - Community & State Maryland  
+• 
+Medicaid - Community & State Michigan  
+• 
+Medicaid - Community & State New Jersey  
+• 
+Medicaid - Community & State New Mexico  
+• 
+Medicaid - Community & State North Carolina  
+• 
+Medicaid - Community & State Pennsylvania CHIP  
+• 
+Medicaid - Community & State Pennsylvania  
+• 
+Medicaid - Community & State Indiana  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+4/12/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Diagnosis 
+Requests for Non-Solid Dosage Forms  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Administrative  
+
+
+--- PDF page 1358 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1358 
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following:  
+ 
+ 1.1 Requested drug must be used for an FDA (Food and Drug Administration)-approved 
+indication  
+ 
+OR 
+ 
+ 1.2 The use of this drug is supported by information from ONE of the following appropriate 
+compendia of current literature:  
+• 
+American Hospital Formulary Service Drug Information  
+• 
+National Comprehensive Cancer Network Drugs and Biologics Compendium  
+• 
+Thomson Micromedex DrugDex  
+• 
+Clinical pharmacology  
+• 
+United States Pharmacopeia-National Formulary (USP-NF)  
+ 
+AND 
+ 
+2 - The drug is being prescribed for a medically accepted indication that is recognized as a 
+covered benefit by the applicable health plans’ program  
+ 
+AND 
+ 
+3 - ONE of the following:  
+ 
+ 3.1 BOTH of the following:  
+ 
+  3.1.1 The patient is able to swallow a solid dosage form  
+ 
+AND 
+ 
+  3.1.2 ONE of the following:  
+ 
+   3.1.2.1 History of failure to at least THREE preferred* solid oral dosage forms as confirmed 
+by claims history or submission of medical records. NOTE: In instances where there are fewer 
+
+
+--- PDF page 1359 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1359 
+than three preferred alternatives, the patient must have a history of failure to ALL of the 
+preferred products. 
+ 
+OR 
+ 
+   3.1.2.2 History of contraindication or intolerance to THREE preferred* solid oral dosage 
+forms (please specify contraindication or intolerance). NOTE: In instances where there are 
+fewer than three preferred alternatives, the patient must have a history of contraindication or 
+intolerance to ALL of the preferred products. 
+ 
+OR 
+ 
+   3.1.2.3 There are no preferred formulary alternatives for the requested drug 
+ 
+OR 
+ 
+ 3.2 Patient is unable to swallow a solid dosage form  
+ 
+OR 
+ 
+ 3.3 Patient utilizes a feeding tube for medication administration  
+ 
+OR 
+ 
+ 3.4 Request is for a nebulized formulation of an inhaled medication for a patient who has an 
+inability to effectively utilize an agent in an inhaler formulation due to neuromuscular or 
+cognitive disability, or other evidence of lack of response to the inhaled formulation supported 
+by clinical documentation  
+Notes  
+*See Table 1 in Background for PDL links. Prior trials of formulary/PD
+L alternatives must sufficiently demonstrate that the formulary/PDL alt
+ernatives are either ineffective or inappropriate at the time of the requ
+est. 
+ 
+ 
+2 .  Background  
+ 
+
+
+--- PDF page 1360 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1360 
+Benefit/Coverage/Program Information  
+Table 1. PDL Links  
+Arizona 
+https://www.uhcprovider.com/en/health-plans-by-state/arizona-
+health-plans/az-comm-plan-home/az-cp-
+pharmacy.html?rfid=UHCCP  
+Colorado 
+https://www.uhcprovider.com/en/health-plans-by-state/colorado-
+health-plans/co-comm-plan-home/co-cp-pharmacy.html 
+Hawaii 
+https://www.uhcprovider.com/en/health-plans-by-state/hawaii-
+health-plans/hi-comm-plan-home/hi-cp-pharmacy.html   
+ 
+Indiana 
+https://www.uhcprovider.com/en/health-plans-by-state/indiana-
+health-plans/in-comm-plan-home/in-cp-pharmacy.html 
+Maryland 
+https://www.uhcprovider.com/en/health-plans-by-state/maryland-
+health-plans/md-comm-plan-home/md-cp-pharmacy.html   
+Michigan 
+https://www.uhcprovider.com/en/health-plans-by-state/michigan-
+health-plans/mi-comm-plan-home/mi-cp-pharmacy.html 
+New Jersey 
+https://www.uhcprovider.com/en/health-plans-by-state/new-jersey-
+health-plans/nj-comm-plan-home/nj-cp-pharmacy.html   
+New Mexico 
+https://www.uhcprovider.com/en/health-plans-by-state/new-mexico-
+health-plans/nm-comm-plan-home/nm-cp-pharmacy.html 
+North Carolina https://www.uhcprovider.com/en/health-plans-by-state/north-
+carolina-health-plans/nc-comm-plan-home/nc-cp-pharmacy.html 
+Pennsylvania 
+CAID/CHIP 
+https://www.uhcprovider.com/en/health-plans-by-state/pennsylvania-
+health-plans/pa-comm-plan-home/pa-cp-
+pharmacy.html?rfid=UHCCP   
+ 
+3 .  Revision History  
+ 
+Date  
+Notes  
+3/13/2026  
+Removed NV from formularies and PDL link in background. No other 
+updates to guideline. (See GL-545274 for NV specific guideline).  
+ 

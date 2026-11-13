@@ -1,0 +1,87 @@
+--- PDF page 945 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 945 
+Inhaled Corticosteroids 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-605215  
+Guideline Name 
+Inhaled Corticosteroids  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+6/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Alvesco, Brand Arnuity Ellipta, generic fluticasone furoate ellipta, Asmanex 
+HFA/Twisthaler, Qvar Redihaler, Beclomethasone Dipropionate HFA  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of asthma  
+ 
+AND 
+
+
+--- PDF page 946 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 946 
+ 
+2 - If the request is non-preferred*, history of failure, contraindication, or intolerance to a 
+majority (not more than 3) of the following preferred inhaled corticosteroids:  
+• 
+Brand Arnuity Ellipta  
+• 
+Asmanex HFA/Twisthaler (mometasone)  
+• 
+Brand or generic Flovent Diskus (fluticasone)  
+• 
+Brand or generic Flovent HFA (fluticasone)  
+• 
+Pulmicort Flexhaler (budesonide)  
+• 
+budesonide respule (generic)  
+• 
+Qvar Redihaler (beclomethasone)  
+ 
+AND 
+ 
+3 - If the request is for generic fluticasone furoate ellipta, trial and failure or intolerance to 
+Brand Arnuity Ellipta  
+ 
+AND 
+ 
+4 - If the request is for Beclomethasone Dipropionate HFA, trial and failure or intolerance to 
+Qvar Redihaler  
+Notes  
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+5/8/2026  
+Added Beclomethasone Dipropionate HFA (MSC N) products as targ
+ets. Updated product name list and GPI table, accordingly. Updated c
+riteria.  
+ 

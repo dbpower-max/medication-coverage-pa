@@ -1,0 +1,81 @@
+=== PDF PAGE 695 ===
+Page 695 
+Galafold 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-99613  
+Guideline Name 
+Galafold  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+12/9/2021  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Galafold  
+Diagnosis 
+Fabry disease  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of Fabry disease  
+
+
+=== PDF PAGE 696 ===
+Page 696 
+ 
+AND 
+ 
+2 - Patient has an amenable galactosidase alpha gene (GLA) variant based on in vitro assay 
+data  
+ 
+AND 
+ 
+3 - Patient is not receiving Galafold in combination with Fabrazyme (agalsidase beta)  
+ 
+Product Name:Galafold  
+Diagnosis 
+Fabry disease  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to Galafold therapy  
+ 
+AND 
+ 
+2 - Patient is not receiving Galafold in combination with Fabrazyme (agalsidase beta)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/11/2021  
+Bulk Copy C&S Arizona SP to Medicaid Arizona SP for 7/1 eff  
+ 

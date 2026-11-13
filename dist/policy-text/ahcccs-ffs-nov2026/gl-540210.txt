@@ -1,0 +1,329 @@
+--- PDF page 1540 ---
+Page 1540 
+Rituximab 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-540210  
+Guideline Name 
+Rituximab  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+4/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:PREFERRED: Riabni, Ruxience  
+Diagnosis 
+Rheumatoid Arthritis (RA)  
+Approval Length 
+1 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming diagnosis of moderately- to 
+severely-active rheumatoid arthritis  
+
+
+--- PDF page 1541 ---
+Page 1541 
+ 
+AND 
+ 
+2 - Paid claims or submission of medical records (e.g., chart notes) confirming a minimum 
+duration of a 3-month trial and failure, contraindication, or intolerance to one of the following 
+conventional therapies at maximally tolerated doses:  
+• 
+methotrexate  
+• 
+leflunomide  
+• 
+sulfasalazine  
+ 
+AND 
+ 
+3 - Paid claims or submission of medical records (e.g., chart notes) confirming that medication 
+is used in combination with methotrexate  
+ 
+Product Name:PREFERRED: Riabni, Ruxience  
+Diagnosis 
+Rheumatoid Arthritis (RA)  
+Approval Length 
+1 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy as evidenced by at least one of 
+the following:  
+• 
+Reduction in the total active (swollen and tender) joint count from baseline  
+• 
+Improvement in symptoms (e.g., pain, stiffness, inflammation) from baseline  
+ 
+AND 
+ 
+2 - At least 16 weeks have elapsed since last course of therapy  
+ 
+Product Name:PREFERRED: Riabni, Ruxience  
+
+
+--- PDF page 1542 ---
+Page 1542 
+Diagnosis 
+Non-Hodgkin’s Lymphoma  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+ 
+ 1.1 Both of the following:  
+• 
+Diagnosis of diffuse large B-cell, CD20-positive, non-Hodgkin’s lymphoma  
+• 
+Used as first-line treatment in combination with CHOP (cyclophosphamide, 
+doxorubicin, vincristine, prednisone) or other anthracycline-based chemotherapy 
+regimens  
+ 
+OR 
+ 
+ 1.2 Both of the following:  
+• 
+Diagnosis of follicular, CD20-positive, B-cell non-Hodgkin's lymphoma  
+• 
+Used as first-line treatment in combination with chemotherapy  
+ 
+OR 
+ 
+ 1.3 All of the following:  
+• 
+Diagnosis of follicular, CD20-positive, B-cell non-Hodgkin's lymphoma  
+• 
+Patient achieved a complete or partial response to a rituximab product in combination 
+with chemotherapy  
+• 
+Followed by rituximab used as monotherapy for maintenance therapy  
+ 
+OR 
+ 
+ 1.4 Both of the following:  
+ 
+  1.4.1 Diagnosis of low-grade, CD20-positive, B-cell non-Hodgkin's lymphoma  
+
+
+--- PDF page 1543 ---
+Page 1543 
+ 
+AND 
+ 
+  1.4.2 One of the following:  
+• 
+Patient has stable disease following first-line treatment with CVP (cyclophosphamide, 
+vincristine, prednisolone/ prednisone) chemotherapy  
+• 
+Patient achieved a partial or complete response following first-line treatment with CVP 
+(cyclophosphamide, vincristine, prednisolone/ prednisone) chemotherapy  
+ 
+OR 
+ 
+ 1.5 Diagnosis of relapsed or refractory, low grade or follicular CD20-positive, B-cell non-
+Hodgkin’s lymphoma.  
+ 
+OR 
+ 
+ 1.6 All of the following (off-label for Riabni):  
+ 
+  1.6.1 Diagnosis of one of the following previously untreated, advanced stage indications:  
+• 
+CD-20-positive diffuse large B-cell lymphoma (DLBCL)  
+• 
+Burkitt lymphoma (BL)  
+• 
+Burkitt-like lymphoma (BLL)  
+• 
+Mature B-cell acute leukemia (B-AL)  
+ 
+AND 
+ 
+  1.6.2 Patient is 6 months of age or older  
+ 
+AND 
+ 
+  1.6.3 Used in combination with chemotherapy  
+ 
+Product Name:PREFERRED: Riabni, Ruxience  
+Diagnosis 
+Chronic Lymphocytic Leukemia  
+
+
+--- PDF page 1544 ---
+Page 1544 
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of chronic lymphocytic leukemia  
+ 
+AND 
+ 
+2 - Used in combination with fludarabine and cyclophosphamide  
+ 
+Product Name:PREFERRED: Riabni, Ruxience  
+Diagnosis 
+Wegener’s Granulomatosis and Microscopic Polyangiitis  
+Approval Length 
+3 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following diagnoses:  
+• 
+Granulomatosis with Polyangiitis (GPA) (Wegener’s Granulomatosis)  
+• 
+Microscopic Polyangiitis  
+ 
+AND 
+ 
+2 - Used in combination with glucocorticoids (e.g., prednisone) (NOTE: Duration of 
+glucocorticoid treatment to be determined by provider)  
+ 
+Product Name:PREFERRED: Riabni, Ruxience  
+Diagnosis 
+Pemphigus Vulgaris  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+
+
+--- PDF page 1545 ---
+Page 1545 
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of moderate to severe Pemphigus Vulgaris  
+ 
+Product Name:PREFERRED: Riabni, Ruxience  
+Diagnosis 
+Pemphigus Vulgaris  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy  
+ 
+Product Name:PREFERRED: Riabni, Ruxience  
+Diagnosis 
+Waldenstrom’s macroglobulinemia  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of relapsed/refractory Waldenstrom’s macroglobulinemia (off-label)  
+ 
+Product Name:PREFERRED: Riabni, Ruxience  
+Diagnosis 
+Immune or Idiopathic Thrombocytopenic Purpura (Off-Label)  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 1546 ---
+Page 1546 
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of immune or idiopathic thrombocytopenic purpura (off-label)  
+ 
+AND 
+ 
+2 - Paid claims or submission of medical records (e.g., chart notes) confirming a trial and 
+failure, contraindication, or intolerance to at least ONE of the following:  
+• 
+Glucocorticoids (e.g., prednisone, methylprednisolone)  
+• 
+Immunoglobulins (e.g., IVIg)  
+• 
+Splenectomy  
+ 
+AND 
+ 
+3 - Documented platelet count of less than 50 x 10^9 / L  
+ 
+Product Name:NON-PREFERRED*: Rituxan, Truxima, and newly launched rituximab 
+products  
+Approval Length 
+Requests for Non-Preferred biosimilars are not approved at this time  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Per your health plan's criteria, the non-preferred drug is not approved for coverage 
+because the plan's preferred products are Riabni and Ruxience. **Please note: The drug(s) 
+listed above may require additional review.  
+Notes  
+*Patients must use preferred rituximab products. 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+
+
+--- PDF page 1547 ---
+Page 1547 
+3/24/2026  
+GPA indication, add note to glucocorticoids req (duration to be deter
+mined by provider)  
+ 

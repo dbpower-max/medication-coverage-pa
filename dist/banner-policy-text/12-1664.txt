@@ -1,0 +1,422 @@
+=== PDF PAGE 1664 ===
+Page 1664 
+Spravato, ketamine - AZM 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-703318  
+Guideline Name 
+Spravato, ketamine - AZM  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Spravato, ketamine  
+Diagnosis 
+Major Depressive Disorder (Treatment-Resistant) as Monotherapy  
+Approval Length 
+N/A: Requests for the indication of Major Depressive Disorder 
+(Treatment-Resistant) as Monotherapy are excluded from coverage 
+and will not be approved.  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Requests for the indication of Major Depressive Disorder (Treatment-Resistant) as 
+Monotherapy are excluded from coverage and will not be approved.  
+
+
+=== PDF PAGE 1665 ===
+Page 1665 
+Notes  
+Requests for the indication of Major Depressive Disorder (Treatment-
+Resistant) as Monotherapy are excluded from coverage and will not b
+e approved. 
+ 
+Product Name:Spravato, ketamine  
+Diagnosis 
+Major Depressive Disorder (Treatment-Resistant) in conjunction with 
+an oral antidepressant  
+Approval Length 
+3 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient has a confirmed diagnosis of major depressive disorder as defined by the DSM-V 
+(Diagnostic and Statistical Manual of Mental Disorders) criteria and is treatment resistant  
+ 
+AND 
+ 
+2 - Patient is 18 years of age or older  
+ 
+AND 
+ 
+3 - Requested medication is prescribed by, or in consultation with, a psychiatric provider  
+ 
+AND 
+ 
+4 - ONE of the following:  
+ 
+ 4.1 Patient does not have an active substance use disorder (SUD)  
+ 
+OR 
+ 
+ 4.2 BOTH of the following:  
+• 
+Patient has an active substance use disorder  
+
+
+=== PDF PAGE 1666 ===
+Page 1666 
+• 
+Patient is currently receiving treatment  
+ 
+AND 
+ 
+5 - ONE of the following:  
+ 
+ 5.1 Patient has experienced an inadequate response during the current depressive episode 
+with BOTH of the following therapies:  
+ 
+  5.1.1 Two antidepressants from at least two different classes [must include one of each 
+AHCCCS (Arizona Health Care Cost Containment System) preferred agents: SSRI (selective 
+serotonin reuptake inhibitor), SNRI (serotonin-norepinephrine reuptake inhibitor), or 
+bupropion] having different mechanisms of action at the maximally tolerated labeled dose, 
+each used for at least 4-6 weeks  
+ 
+AND 
+ 
+  5.1.2 At least TWO augmentation therapies below for at least 4 weeks:  
+• 
+SSRI or SNRI, and a second-generation antipsychotic used concomitantly 
+(aripiprazole, quetiapine, risperidone, olanzapine)  
+• 
+SSRI or SNRI, and lithium used concomitantly  
+• 
+SSRI or SNRI, and liothyronine (T3) used concomitantly  
+• 
+SSRI or SNRI, and mirtazapine  
+• 
+SSRI and bupropion and buspirone  
+ 
+OR 
+ 
+ 5.2 Patient has active suicidal ideation and urgent symptom control is necessary  
+ 
+AND 
+ 
+6 - Requested medication is used in combination with an oral antidepressant (e.g., duloxetine, 
+escitalopram, sertraline, venlafaxine). Note: Requests for the indication of Major Depressive 
+Disorder (Treatment-Resistant) as Monotherapy are excluded from coverage and will not be 
+approved.  
+ 
+AND 
+
+
+=== PDF PAGE 1667 ===
+Page 1667 
+ 
+7 - Requested medication is administered under the direct supervision of a healthcare 
+provider  
+ 
+AND 
+ 
+8 - Provider is certified in the Spravato REMS (risk evaluation and mitigation strategy) 
+program (Applies to Spravato requests ONLY)  
+ 
+AND 
+ 
+9 - Patient must be monitored by a health care provider for at least 2 hours after 
+administration  
+ 
+Product Name:Spravato, ketamine  
+Diagnosis 
+Major Depressive Disorder (Treatment-Resistant) in conjunction with 
+an oral antidepressant  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Provider attests that the patient has documented improvement or sustained improvement 
+in depressive symptoms from baseline  
+ 
+AND 
+ 
+2 - Patient use of requested medication is in combination with an oral antidepressant. Note: 
+Requests for the indication of Major Depressive Disorder (Treatment-Resistant) as 
+Monotherapy are excluded from coverage and will not be approved.  
+ 
+AND 
+
+
+=== PDF PAGE 1668 ===
+Page 1668 
+ 
+3 - Patient administers requested medication under the direct supervision of a healthcare 
+provider  
+ 
+AND 
+ 
+4 - Provider is certified in the Spravato REMS (risk evaluation and mitigation strategy) 
+program (applies to Spravato requests ONLY)  
+ 
+AND 
+ 
+5 - Patient must continue to be monitored by a health care provider for at least 2 hours after 
+administration  
+ 
+Product Name:Spravato, ketamine  
+Diagnosis 
+Depressive symptoms in an adult with major depressive disorder 
+(MDD) with acute suicidal ideation or behavior  
+Approval Length 
+1 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of major depressive disorder according to the current Diagnostic and Statistical 
+Manual of Mental Disorders (DSM) (i.e., DSM-5) criteria  
+ 
+AND 
+ 
+2 - Patient is experiencing an acute suicidal ideation or behavior  
+ 
+AND 
+ 
+3 - Patient is receiving newly initiated or optimized oral antidepressant  
+
+
+=== PDF PAGE 1669 ===
+Page 1669 
+ 
+AND 
+ 
+4 - Provider and/or the provider’s healthcare setting is certified in the Spravato REMS (Risk 
+Evaluation and Mitigation Strategy) program (applies to Spravato requests ONLY)  
+ 
+ 
+2 .  Background  
+ 
+Benefit/Coverage/Program Information  
+HCPCS Codes  
+CODE DESCRIPTION 
+LAY DESCRIPTION 
+96360 
+Intravenous infusion, 
+hydration; initial, 31 
+minutes to 1 hour 
+A physician or an assistant under 
+direct physician supervision infuses a 
+hydration solution (prepackaged fluid 
+and electrolytes) for 31 minutes to 
+one hour through an intravenous 
+catheter inserted by needle into a 
+patient's vein or by infusion through 
+an existing indwelling intravascular 
+access catheter or port. 
+Report 96361 for each additional 
+hour beyond the first hour. 
+Intravenous infusion for hydration 
+lasting 30 minutes or less is not 
+reported. 
+96361 
+Intravenous infusion, 
+hydration; each 
+additional hour (List 
+separately in addition to 
+code for primary 
+procedure) 
+See 96360 
+96365 
+Intravenous infusion, 
+for therapy, prophylaxis, 
+or diagnosis (specify 
+A physician or an assistant under 
+direct physician supervision injects or 
+infuses a therapeutic, prophylactic 
+(preventive), or diagnostic 
+medication other than chemotherapy 
+
+
+=== PDF PAGE 1670 ===
+Page 1670 
+substance or drug); 
+initial, up to 1 hour 
+or other highly complex drugs or 
+biologic agents via intravenous route. 
+Infusions are administered through 
+an intravenous catheter inserted by 
+needle into a patient's vein or by 
+injection or infusion through an 
+existing indwelling intravascular 
+access catheter or port. 
+Report 96365 for the initial hour 
+and 96366 for each additional hour. 
+Report 96367 for each additional 
+sequential infusion of a different 
+substance or drug, up to one hour, 
+and 96368 for each concurrent 
+infusion of substances other than 
+chemotherapy or other highly 
+complex drugs or biologic agents. 
+96366 
+Intravenous infusion, 
+for therapy, prophylaxis, 
+or diagnosis (specify 
+substance or drug); 
+each additional hour 
+(List separately in 
+addition to code for 
+primary procedure) 
+See 96365 
+96367 
+Intravenous infusion, 
+for therapy, prophylaxis, 
+or diagnosis (specify 
+substance or drug); 
+additional sequential 
+infusion of a new 
+drug/substance, up to 1 
+hour (List separately in 
+addition to code for 
+primary procedure) 
+See 96365 
+96368 
+Intravenous infusion, 
+for therapy, prophylaxis, 
+or diagnosis (specify 
+substance or drug); 
+concurrent infusion 
+(List separately in 
+A physician or an assistant under 
+direct physician supervision injects or 
+infuses a therapeutic, prophylactic 
+(preventive), or diagnostic 
+medication other than chemotherapy 
+or other highly complex drugs or 
+
+
+=== PDF PAGE 1671 ===
+Page 1671 
+addition to code for 
+primary procedure) 
+biologic agents via intravenous route. 
+Infusions are administered through 
+an intravenous catheter inserted by 
+needle into a patient's vein or by 
+injection or infusion through an 
+existing indwelling intravascular 
+access catheter or port. 
+Report 96365 for the initial hour 
+and 96366 for each additional hour. 
+Report 96367 for each additional 
+sequential infusion of a different 
+substance or drug, up to one hour, 
+and 96368 for each concurrent 
+infusion of substances other than 
+chemotherapy or other highly 
+complex drugs or biologic agents. 
+96374  
+Therapeutic, 
+prophylactic, or 
+diagnostic injection 
+(specify substance or 
+drug); intravenous 
+push, single or initial 
+substance/drug 
+The physician or an assistant under 
+direct physician supervision 
+administers a therapeutic, 
+prophylactic, or diagnostic substance 
+by subcutaneous or intramuscular 
+injection (96372), intra-arterial 
+injection (96373), or by push into an 
+intravenous catheter or intravascular 
+access device (96374 for a single or 
+initial substance, 96375 for each 
+additional sequential IV push of a 
+new substance, and 96376 for each 
+additional sequential IV push of the 
+same substance after 30 minutes 
+have elapsed). The push technique 
+involves an infusion of less than 15 
+minutes. Code 96376 may be 
+reported only by facilities. 
+96375  
+Therapeutic, 
+prophylactic, or 
+diagnostic injection 
+(specify substance or 
+drug); each additional 
+sequential intravenous 
+push of a new 
+substance/drug (List 
+See 96374 
+
+
+=== PDF PAGE 1672 ===
+Page 1672 
+separately in addition to 
+code for primary 
+procedure) 
+96376  
+Therapeutic, 
+prophylactic, or 
+diagnostic injection 
+(specify substance or 
+drug); each additional 
+sequential intravenous 
+push of the same 
+substance/drug 
+provided in a facility 
+(List separately in 
+addition to code for 
+primary procedure) 
+See 96374 Code 96376 may be 
+reported only by facilities. 
+96379  
+Unlisted therapeutic, 
+prophylactic, or 
+diagnostic intravenous 
+or intra-arterial injection 
+or infusion 
+  
+  
+ 
+3 .  Revision History  
+ 
+Date  
+Notes  
+8/26/2026  
+Removed criteria for Requests for Patients less than 6 years of age  
+ 

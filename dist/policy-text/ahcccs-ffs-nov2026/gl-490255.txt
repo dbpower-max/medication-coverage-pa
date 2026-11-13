@@ -1,0 +1,128 @@
+--- PDF page 1004 ---
+Page 1004 
+Journavx (suzetrigine) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-490255  
+Guideline Name 
+Journavx (suzetrigine)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+2/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Journavx  
+Approval Length 
+14 Days (PTD of 28 tablets per 14 days)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient is 18 years of age or older  
+ 
+AND 
+ 
+2 - Patient is experiencing a new episode of moderate to severe pain  
+
+
+--- PDF page 1005 ---
+Page 1005 
+ 
+AND 
+ 
+3 - The request is not for chronic pain  
+ 
+AND 
+ 
+4 - One of the following:  
+ 
+ 4.1 Patient does not have severe hepatic impairment (Child-Pugh Class C)  
+ 
+OR 
+ 
+ 4.2 Both of the following:  
+• 
+Patient has moderate hepatic impairment  
+• 
+A lower dose will be prescribed  
+ 
+AND 
+ 
+5 - Both of the following:  
+• 
+Treatment duration request is for no longer than 14 days  
+• 
+Requested quantity does not exceed 28 tablets  
+ 
+AND 
+ 
+6 - Submission of medical records (e.g., chart notes) or verification of paid claims confirming 
+patient has tried and failed ALL of the following, at maximum doses, in the past 30 days:  
+• 
+Celecoxib  
+• 
+Diclofenac Sodium or Diclofenac Potassium  
+• 
+Ketorolac  
+ 
+AND 
+
+
+--- PDF page 1006 ---
+Page 1006 
+ 
+7 - Submission of medical records (e.g., chart notes) or verification of paid claims confirming 
+patient has tried and failed ONE of the following, at maximum doses, in the past 30 days:  
+• 
+Ibuprofen  
+• 
+Fenoprofen  
+• 
+Ketoprofen  
+• 
+Naproxen Sodium  
+ 
+AND 
+ 
+8 - Medication will not be used in combination with opioid products (e.g. oxycodone, 
+hydrocodone)  
+ 
+AND 
+ 
+9 - Medication will not be used in combination with strong CYP3A inhibitors (e.g., 
+clarithromycin, itraconazole, ketoconazole, mifepristone, ritonavir, darunavir)  
+ 
+AND 
+ 
+10 - For female patients with reproductive potential (aged 14-44 years), prescriber attests to 
+BOTH of the following:  
+• 
+Patient is not pregnant prior to initiation of therapy  
+• 
+Patients taking concomitant hormonal contraceptives containing progestins other than 
+levonorgestrel and norethindrone have been advised to use alternative contraceptives 
+during Journavx treatment and for 28 days after discontinuation of therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+1/28/2026  
+Updated step prerequisites  
+ 

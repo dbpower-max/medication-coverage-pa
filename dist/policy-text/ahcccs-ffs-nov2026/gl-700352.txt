@@ -1,0 +1,129 @@
+--- PDF page 696 ---
+Page 696 
+Furosemide injection products 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-700352  
+Guideline Name 
+Furosemide injection products  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Furoscix, Furoscix ReadyFlow  
+Approval Length 
+3 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting diagnosis of one of the 
+following:  
+• 
+chronic heart failure  
+• 
+chronic kidney disease  
+
+
+--- PDF page 697 ---
+Page 697 
+ 
+AND 
+ 
+2 - Drug will be used for the treatment of edema  
+ 
+AND 
+ 
+3 - Patient weighs at least 43 kg  
+ 
+AND 
+ 
+4 - Patient is currently on maintenance oral diuretic therapy (e.g., bumetanide, furosemide, 
+torsemide)  
+ 
+AND 
+ 
+5 - Provider attests that patient will be closely monitored for fluid, electrolyte, and metabolic 
+abnormalities throughout therapy (e.g., hypokalemia, hypovolemia, hyponatremia)  
+ 
+AND 
+ 
+6 - Submission of medical records (e.g., chart notes) or paid claims documenting one of the 
+following:  
+ 
+ 6.1 History of failure to intravenous furosemide (Lasix IV)  
+ 
+OR 
+ 
+ 6.2 Provider has submitted clinical rationale for why intravenous furosemide is inappropriate  
+ 
+Product Name:Lasix Onyu  
+Approval Length 
+3 month(s)  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 698 ---
+Page 698 
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting diagnosis of chronic heart 
+failure  
+ 
+AND 
+ 
+2 - Drug will be used for the treatment of edema  
+ 
+AND 
+ 
+3 - Patient is currently on maintenance oral diuretic therapy (e.g., bumetanide, furosemide, 
+torsemide)  
+ 
+AND 
+ 
+4 - Provider attests that patient will be closely monitored for fluid, electrolyte, and metabolic 
+abnormalities throughout therapy (e.g., hypokalemia, hypovolemia, hyponatremia)  
+ 
+AND 
+ 
+5 - Submission of medical records (e.g., chart notes) or paid claims documenting one of the 
+following:  
+ 
+ 5.1 History of failure to intravenous furosemide (Lasix IV)  
+ 
+OR 
+ 
+ 5.2 Provider has submitted clinical rationale for why intravenous furosemide is inappropriate  
+ 
+2 .  Revision History  
+ 
+
+
+--- PDF page 699 ---
+Page 699 
+Date  
+Notes  
+8/26/2026  
+Added new GPI for Furoscix ReadyFlow, added tx of edema to Furos
+cix criteria.  
+ 

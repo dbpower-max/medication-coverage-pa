@@ -1,0 +1,223 @@
+=== PDF PAGE 1162 ===
+Page 1162 
+Mitapivat Products 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-525289  
+Guideline Name 
+Mitapivat Products  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+3/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Pyrukynd  
+Diagnosis 
+Hemolytic Anemia with Pyruvate Kinase (PK) Deficiency  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting ALL of the following:  
+ 
+ 1.1 Diagnosis of hemolytic anemia confirmed by the presence of chronic hemolysis (e.g., 
+
+
+=== PDF PAGE 1163 ===
+Page 1163 
+increased indirect bilirubin, elevated lactated dehydrogenase [LDH], decreased haptoglobin, 
+increased reticulocyte count)  
+ 
+AND 
+ 
+ 1.2 Diagnosis of pyruvate kinase deficiency confirmed by molecular testing of ALL the 
+following mutations on the PKLR gene:  
+• 
+Presence of at least 2 variant alleles in the pyruvate kinase liver and red blood cell 
+(PKLR) gene, of which at least 1 was a missense variant  
+• 
+Patients is not homozygous for the c.1436G>A (p.R479H) variant  
+• 
+Patient does not have 2 non-missense variants (without the presence of another 
+missense variant) in the PKLR gene  
+ 
+AND 
+ 
+ 1.3 Hemoglobin is less than or equal to 10g/dL  
+ 
+AND 
+ 
+ 1.4 Patient has symptomatic anemia or is transfusion dependent  
+ 
+AND 
+ 
+ 1.5 Exclusion of other causes of hemolytic anemias (e. g., infections, toxins, drugs)  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a hematologist  
+ 
+Product Name:Pyrukynd  
+Diagnosis 
+Hemolytic Anemia with Pyruvate Kinase (PK) Deficiency  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+=== PDF PAGE 1164 ===
+Page 1164 
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting positive clinical response 
+to therapy [e.g., hemoglobin greater than or equal to 1.5g/dL from baseline, reduction in 
+transfusions of greater than or equal to 33% in the number of red blood cell units transfused 
+during the fixed dose period compared with the patient's historical transfusion burden, 
+improvement in markers of hemolysis from baseline (e.g., bilirubin, lactated dehydrogenase 
+[LDH], haptoglobin, reticulocyte count)]  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a hematologist  
+Notes  
+If the member does not meet the medical necessity reauthorization cri
+teria requirements, a denial should be issued and a 1-month authoriza
+tion should be issued one time for Pyrukynd gradual therapy discontin
+uation. 
+ 
+Product Name:Aqvesme  
+Diagnosis 
+Anemia with alpha- or beta-thalassemia  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting ALL of the following:  
+ 
+ 1.1 Diagnosis of anemia with alpha or beta-thalassemia  
+ 
+AND 
+ 
+ 1.2 Hemoglobin is less than or equal to 10g/dL  
+
+
+=== PDF PAGE 1165 ===
+Page 1165 
+ 
+AND 
+ 
+ 1.3 Patient has symptomatic anemia or is transfusion dependent  
+ 
+AND 
+ 
+ 1.4 Patient does not have liver disease (e.g., cirrhosis - Child Pugh Class A, B, or C, 
+Hepatitis B virus [HBV], Hepatitis C virus [HCV], Human Immunodeficiency virus [HIV -1 or 
+HIV-2])  
+ 
+AND 
+ 
+ 1.5 Both of the following:  
+• 
+Patient has not had prior exposure to gene therapy (e.g., Casgevy [exagamglogene 
+autotemcel], Zynteglo [betibeglogene autotemcel])  
+• 
+Patient has not had prior bone marrow or stem cell transplantation  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with one of the following:  
+• 
+hematologist  
+• 
+hepatologist  
+ 
+AND 
+ 
+3 - Patient is not on concurrent treatment with any of the following:  
+• 
+Reblozyl (luspatercept-aamt)  
+• 
+Hematopoietic stimulating agents (e.g., Epogen [epoetin alfa], Aranesp [darbepoetin 
+alfa])  
+• 
+Pyrukynd (mitapivat)  
+ 
+Product Name:Aqvesme  
+
+
+=== PDF PAGE 1166 ===
+Page 1166 
+Diagnosis 
+Anemia with alpha- or beta-thalassemia  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting positive clinical response 
+to therapy (e.g., reduction in RBC transfusion burden, improvement in fatigue, increase in Hb 
+concentration greater than or equal to 1g/dL from baseline)  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with one of the following:  
+• 
+hematologist  
+• 
+hepatologist  
+ 
+AND 
+ 
+3 - Patient is not on concurrent treatment with any of the following:  
+• 
+Reblozyl (luspatercept-aamt)  
+• 
+Hematopoietic stimulating agents (e.g., Epogen [epoetin alfa], Aranesp [darbepoetin 
+alfa])  
+• 
+Pyrukynd (mitapivat)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+2/26/2026  
+Added Aqvesme as target, updated guideline name, updated submis
+sion of records verbiage throughout.  
+ 

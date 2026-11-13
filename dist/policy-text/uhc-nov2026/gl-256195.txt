@@ -1,0 +1,205 @@
+--- PDF page 1369 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1369 
+Primary Hyperoxaluria (PH1) Agents [Oxlumo (lumasiran), Rivfloza (nedosiran)] 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-256195  
+Guideline Name 
+Primary Hyperoxaluria (PH1) Agents [Oxlumo (lumasiran), Rivfloza 
+(nedosiran)]  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+6/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Oxlumo  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of primary hyperoxaluria type 1 (PH1)  
+
+
+--- PDF page 1370 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1370 
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) documenting diagnosis has been 
+confirmed by BOTH of the following:  
+ 
+ 2.1 ONE of the following:  
+• 
+Elevated urinary oxalate excretion  
+• 
+Elevated plasma oxalate concentration  
+• 
+Spot urinary oxalate to creatinine molar ratio greater than normal for age  
+ 
+AND 
+ 
+ 2.2 ONE of the following:  
+• 
+Genetic testing demonstrating a mutation in the alanine:glyoxylate aminotransferase 
+(AGXT) gene  
+• 
+Liver biopsy demonstrating absence or reduced alanine:glyoxylate aminotransferase 
+(AGT) activity  
+ 
+AND 
+ 
+3 - Patient has NOT received a liver transplant  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with ONE of the following:  
+• 
+Hepatologist  
+• 
+Nephrologist  
+• 
+Urologist  
+• 
+Geneticist  
+• 
+Specialist with expertise in the treatment of PH1  
+ 
+Product Name:Rivfloza  
+Approval Length 
+12 month(s)  
+
+
+--- PDF page 1371 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1371 
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of primary hyperoxaluria type 1 (PH1)  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) documenting diagnosis has been 
+confirmed by BOTH of the following:  
+ 
+ 2.1 ONE of the following:  
+• 
+Elevated urinary oxalate excretion  
+• 
+Elevated plasma oxalate concentration  
+• 
+Spot urinary oxalate to creatinine molar ratio greater than normal for age  
+ 
+AND 
+ 
+ 2.2 ONE of the following:  
+• 
+Genetic testing demonstrating a mutation in the alanine:glyoxylate aminotransferase 
+(AGXT) gene  
+• 
+Liver biopsy demonstrating absence or reduced alanine:glyoxylate aminotransferase 
+(AGT) activity  
+ 
+AND 
+ 
+3 - Patient is 2 years of age or older  
+ 
+AND 
+ 
+4 - Patient has preserved kidney function [e.g., estimated glomerular filtration rate (eGFR) 
+greater than or equal to 30 mL/min/1.73 m^2]  
+
+
+--- PDF page 1372 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1372 
+ 
+AND 
+ 
+5 - Patient has NOT received a liver transplant  
+ 
+AND 
+ 
+6 - Prescribed by or in consultation with ONE of the following:  
+• 
+Hepatologist  
+• 
+Nephrologist  
+• 
+Urologist  
+• 
+Geneticist  
+• 
+Specialist with expertise in the treatment of PH1  
+ 
+Product Name:Oxlumo, Rivfloza  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming positive clinical response to 
+therapy (e.g., decreased urinary oxalate excretion, decreased plasma oxalate concentration)  
+ 
+AND 
+ 
+2 - Patient has NOT received a liver transplant  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with ONE of the following:  
+• 
+Hepatologist  
+
+
+--- PDF page 1373 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1373 
+• 
+Nephrologist  
+• 
+Urologist  
+• 
+Geneticist  
+• 
+Specialist with expertise in the treatment of PH1  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+5/6/2025  
+Updated min age for Rivfloza  
+ 

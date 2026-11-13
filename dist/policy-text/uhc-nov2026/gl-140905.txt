@@ -1,0 +1,143 @@
+--- PDF page 1636 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1636 
+Symdeko 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-140905  
+Guideline Name 
+Symdeko  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2022  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Symdeko  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of cystic fibrosis (CF)  
+ 
+AND 
+
+
+--- PDF page 1637 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1637 
+ 
+2 - Submission of laboratory result documenting ONE of the following:  
+ 
+ 2.1 The patient is homozygous for the F508del mutation in the cystic fibrosis transmembrane 
+conductance regulator (CFTR) gene  
+ 
+OR 
+ 
+ 2.2 The patient has at least ONE mutation in the CFTR gene that is responsive to Symdeko 
+(See Table in Background Section)  
+ 
+AND 
+ 
+3 - The patient is greater than or equal to 6 years of age  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with a specialist affiliated with a CF care center  
+ 
+Product Name:Symdeko  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Provider attests that the patient has achieved a clinically meaningful response while on 
+Symdeko therapy to ONE of the following:  
+• 
+Lung function as demonstrated by percent predicted expiratory volume in 1 second 
+(ppFEV1)  
+• 
+Body mass index (BMI)  
+• 
+Pulmonary exacerbations  
+• 
+Quality of life as demonstrated by Cystic Fibrosis Questionnaire-Revised (CFQ-R) 
+respiratory domain score  
+
+
+--- PDF page 1638 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1638 
+ 
+AND 
+ 
+2 - Prescribed by, or in consultation with, a specialist affiliated with a cystic fibrosis (CF) care 
+center  
+ 
+ 
+2 .  Background  
+ 
+Benefit/Coverage/Program Information  
+Table 1 CFTR Gene Mutations  
+A1067T 
+D1270N 
+F1052V 
+R1070W 
+S945L 
+3272-26A→G 
+A455E 
+D579G 
+F1074L 
+R117C 
+S977F 
+3849+10kbC→T 
+D110E 
+E193K 
+K1060T 
+R347H 
+  
+711+3A→G 
+D110H 
+E56K 
+L206W 
+R352Q 
+  
+2789+5G→A 
+D1152H 
+E831X 
+P67L 
+R74W 
+  
+  
+ 
+3 .  Revision History  
+ 
+Date  
+Notes  
+8/4/2022  
+C&S to match AZM as of 10.1.22  
+ 

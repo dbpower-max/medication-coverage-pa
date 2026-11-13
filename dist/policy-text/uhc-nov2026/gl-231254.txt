@@ -1,0 +1,115 @@
+--- PDF page 162 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 162 
+Apomorphine products (Apokyn, Onapgo) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-231254  
+Guideline Name 
+Apomorphine products (Apokyn, Onapgo)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+5/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Apokyn, generic apomorphine injection, Onapgo  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting all of the 
+following:  
+ 
+ 1.1 Diagnosis of Parkinson’s disease  
+
+
+--- PDF page 163 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 163 
+ 
+AND 
+ 
+ 1.2 Medication will be used as intermittent treatment for OFF episodes  
+ 
+AND 
+ 
+ 1.3 Patient is currently on a stable dose of a carbidopa/levodopa-containing medication and 
+will continue receiving treatment with a carbidopa/levodopa-containing medication while on 
+therapy  
+ 
+AND 
+ 
+ 1.4 Patient continues to experience greater than or equal to 2 hours of OFF time per day 
+despite optimal management of carbidopa/levodopa therapy including BOTH of the following:  
+• 
+Taking carbidopa/levodopa on an empty stomach or at least one half-hour or more 
+before or one hour after a meal or avoidance of high protein diet  
+• 
+Dose and dosing interval optimization  
+ 
+AND 
+ 
+ 1.5 History of failure, contraindication, or intolerance to TWO anti-Parkinson’s disease 
+therapies from the following adjunctive pharmacotherapy classes (trial must be from two 
+different classes):  
+• 
+Dopamine agonists (e.g., pramipexole, ropinirole)  
+• 
+Catechol-O-methyl transferase (COMT) inhibitors (e.g., entacapone)  
+• 
+Monoamine oxidase (MAO) B inhibitors (e.g., rasagiline, selegiline)  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a neurologist or specialist in the treatment of 
+Parkinson’s disease  
+ 
+Product Name:Brand Apokyn, generic apomorphine injection, Onapgo  
+Approval Length 
+12 month(s)  
+
+
+--- PDF page 164 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 164 
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+2 - Patient will continue to receive treatment with a carbidopa/levodopa-containing medication  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+4/1/2025  
+Added Onapgo, removed Kynmobi, updated guideline name.  
+ 
