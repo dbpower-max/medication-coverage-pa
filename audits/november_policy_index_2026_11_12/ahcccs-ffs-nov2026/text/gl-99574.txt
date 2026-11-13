@@ -1,0 +1,286 @@
+--- PDF page 1827 ---
+Page 1827 
+Topical NSAIDs 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-99574  
+Guideline Name 
+Topical NSAIDs  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+12/9/2021  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Flector Patch, generic diclofenac epolamine 1.3% patch  
+Approval Length 
+2 Week(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of acute pain due to minor strains, sprains, or contusions  
+ 
+AND 
+ 
+2 - ONE of the following:  
+
+
+--- PDF page 1828 ---
+Page 1828 
+ 
+ 2.1 The patient did not receive adequate pain relief when treated with at least three preferred 
+non-steroidal anti-inflammatory drugs (NSAIDs) (An inadequate response to treatment is 
+defined as pain and/or inflammatory symptoms not resolved after 14 days of therapy)  
+• 
+Diclofenac DR (Generic Voltaren)  
+• 
+Diclofenac ER (Generic Voltaren ER)  
+• 
+Etodolac (Generic Lodine)  
+• 
+Etodolac ER (Generic Lodine ER)  
+• 
+Fenoprofen (Generic Nalfon)  
+• 
+Flurbiprofen (Generic Ansaid)  
+• 
+Ibuprofen  
+• 
+Indomethacin (Generic Indocin)  
+• 
+Ketorolac (Generic Toradol)  
+• 
+Mefenamic (Generic Ponstel)  
+• 
+Meloxicam (Generic Mobic)  
+• 
+Nabumetone (Generic Relafen)  
+• 
+Nabumetone DS (Generic Relafen DS)  
+• 
+Naproxen (Generic Anaprox)  
+• 
+Naproxen DR (Generic Anaprox DR)  
+• 
+Naproxen EC (Generic Anaprox EC)  
+• 
+Oxaprozin (Generic Daypro)  
+• 
+Piroxicam (Generic Feldene)  
+• 
+Sulindac (Generic Clinoril)  
+ 
+OR 
+ 
+ 2.2 The patient has one of the following risk factors for NSAID-induced adverse GI 
+(gastrointestinal) events:  
+• 
+Patient is greater than or equal to 65 years of age  
+• 
+Prior history of peptic, gastric, or duodenal ulcer  
+• 
+History of NSAID-related ulcer  
+• 
+History of clinically significant GI (gastrointestinal) bleeding  
+• 
+Untreated or active H. Pylori gastritis  
+• 
+Concurrent use of oral corticosteroids (e.g. prednisone, prednisolone, 
+dexamethasone)  
+• 
+Concurrent use of anticoagulants (e.g. warfarin, heparin)  
+• 
+Concurrent use of antiplatelets (e.g. aspirin including low-dose, clopidogrel)  
+ 
+Product Name:Pennsaid 2%, diclofenac sodium soln 1.5%  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 1829 ---
+Page 1829 
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient has a diagnosis of pain due to osteoarthritis of the knee(s)  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 The patient did not receive adequate pain relief when treated with at least three preferred 
+non-steroidal anti-inflammatory drugs (NSAIDs) (An inadequate response to treatment is 
+defined as pain and/or inflammatory symptoms not resolved after 14 days of therapy)  
+• 
+Diclofenac DR (Generic Voltaren)  
+• 
+Diclofenac ER (Generic Voltaren ER)  
+• 
+Etodolac (Generic Lodine)  
+• 
+Etodolac ER (Generic Lodine ER)  
+• 
+Fenoprofen (Generic Nalfon)  
+• 
+Flurbiprofen (Generic Ansaid)  
+• 
+Ibuprofen  
+• 
+Indomethacin (Generic Indocin)  
+• 
+Ketorolac (Generic Toradol)  
+• 
+Mefenamic (Generic Ponstel)  
+• 
+Meloxicam (Generic Mobic)  
+• 
+Nabumetone (Generic Relafen)  
+• 
+Nabumetone DS (Generic Relafen DS)  
+• 
+Naproxen (Generic Anaprox)  
+• 
+Naproxen DR (Generic Anaprox DR)  
+• 
+Naproxen EC (Generic Anaprox EC)  
+• 
+Oxaprozin (Generic Daypro)  
+• 
+Piroxicam (Generic Feldene)  
+• 
+Sulindac (Generic Clinoril)  
+ 
+OR 
+ 
+ 2.2 The patient has one of the following risk factors for NSAID-induced adverse GI 
+(gastrointestinal) events:  
+• 
+Patient is greater than or equal to 65 years of age  
+• 
+Prior history of peptic, gastric, or duodenal ulcer  
+• 
+History of NSAID-related ulcer  
+• 
+History of clinically significant GI bleeding  
+• 
+Untreated or active H. Pylori gastritis  
+
+
+--- PDF page 1830 ---
+Page 1830 
+• 
+Concurrent use of oral corticosteroids (e.g. prednisone, prednisolone, 
+dexamethasone)  
+• 
+Concurrent use of anticoagulants (e.g. warfarin, heparin)  
+• 
+Concurrent use of antiplatelets (e.g. aspirin including low-dose, clopidogrel)  
+ 
+AND 
+ 
+3 - Patient has a history of failure, intolerance, or contraindication to diclofenac topical gel 1% 
+(Rx formulation), or Voltaren OTC (over the counter)  
+ 
+Product Name:generic diclofenac topical gel 1% (Rx formulation), Voltaren OTC  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - The patient has a diagnosis of pain due to osteoarthritis of joints amenable to topical 
+treatment, including but not limited to the hands, knees, ankles, elbows, feet, and wrists  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 The patient did not receive adequate pain relief when treated with at least three preferred 
+non-steroidal anti-inflammatory drugs (NSAIDs) (An inadequate response to treatment is 
+defined as pain and/or inflammatory symptoms not resolved after 14 days of therapy)  
+• 
+Diclofenac DR (Generic Voltaren)  
+• 
+Diclofenac ER (Generic Voltaren ER)  
+• 
+Etodolac (Generic Lodine)  
+• 
+Etodolac ER (Generic Lodine ER)  
+• 
+Fenoprofen (Generic Nalfon)  
+• 
+Flurbiprofen (Generic Ansaid)  
+• 
+Ibuprofen  
+• 
+Indomethacin (Generic Indocin)  
+• 
+Ketorolac (Generic Toradol)  
+• 
+Mefenamic (Generic Ponstel)  
+• 
+Meloxicam (Generic Mobic)  
+• 
+Nabumetone (Generic Relafen)  
+• 
+Nabumetone DS (Generic Relafen DS)  
+
+
+--- PDF page 1831 ---
+Page 1831 
+• 
+Naproxen (Generic Anaprox)  
+• 
+Naproxen DR (Generic Anaprox DR)  
+• 
+Naproxen EC (Generic Anaprox EC)  
+• 
+Oxaprozin (Generic Daypro)  
+• 
+Piroxicam (Generic Feldene)  
+• 
+Sulindac (Generic Clinoril)  
+ 
+OR 
+ 
+ 2.2 The patient has one of the following risk factors for NSAID-induced adverse GI 
+(gastrointestinal) events:  
+• 
+Patient is greater than or equal to 65 years of age  
+• 
+Prior history of peptic, gastric, or duodenal ulcer  
+• 
+History of NSAID-related ulcer  
+• 
+History of clinically significant GI bleeding  
+• 
+Untreated or active H. Pylori gastritis  
+• 
+Concurrent use of oral corticosteroids (e.g. prednisone, prednisolone, 
+dexamethasone)  
+• 
+Concurrent use of anticoagulants (e.g. warfarin, heparin)  
+• 
+Concurrent use of antiplatelets (e.g. aspirin including low-dose, clopidogrel)  
+ 
