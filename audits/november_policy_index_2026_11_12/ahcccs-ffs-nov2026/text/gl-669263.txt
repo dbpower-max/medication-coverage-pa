@@ -1,0 +1,86 @@
+--- PDF page 1518 ---
+Page 1518 
+Rhofade (oxymetazoline) cream 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-669263  
+Guideline Name 
+Rhofade (oxymetazoline) cream  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Rhofade, generic oxymetazoline cream  
+Diagnosis 
+Persistent erythema associated with rosacea  
+Approval Length 
+3 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of persistent erythema associated with rosacea  
+
+
+--- PDF page 1519 ---
+Page 1519 
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 History of a 30 day or longer trial and failure of one of the following:  
+• 
+metronidazole cream, gel, or lotion  
+• 
+azelaic acid gel  
+ 
+OR 
+ 
+ 2.2 Contraindication or intolerance to both of the following:  
+• 
+metronidazole cream, gel, or lotion  
+• 
+azelaic acid gel  
+ 
+Product Name:Brand Rhofade, generic oxymetazoline cream  
+Diagnosis 
+Persistent erythema associated with rosacea  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of a positive clinical response to therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+7/28/2026  
+Added generic oxymetazoline cream as target  
+ 

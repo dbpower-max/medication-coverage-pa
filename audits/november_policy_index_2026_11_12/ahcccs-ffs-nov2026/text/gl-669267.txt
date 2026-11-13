@@ -1,0 +1,383 @@
+--- PDF page 1868 ---
+Page 1868 
+Tryngolza (olezarsen sodium) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-669267  
+Guideline Name 
+Tryngolza (olezarsen sodium)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Tryngolza 80 mg*  
+Diagnosis 
+Familial chylomicronemia syndrome (FCS)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a diagnosis of familial 
+chylomicronemia syndrome (FCS) (type 1 hyperlipoproteinemia)  
+
+
+--- PDF page 1869 ---
+Page 1869 
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) documenting one of the following:  
+ 
+ 2.1 Genetic confirmation of biallelic pathogenic variants in FCS-causing genes (i.e., LPL, 
+GPIHBP1, APOA5, APOC2, or LMF1)  
+ 
+OR 
+ 
+ 2.2 A North American FCS (NAFCS) Score of greater than or equal to 45  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) documenting both of the following:  
+ 
+ 3.1 One of the following:  
+ 
+  3.1.1 Patient has tried or will receive treatment with standard of care triglyceride lowering 
+therapy (i.e., prescription omega-3 fatty acid and a fibrate)  
+ 
+OR 
+ 
+  3.1.2 Patient has an intolerance to standard of care triglyceride lowering therapy (i.e., 
+prescription omega-3 fatty acid and a fibrate)  
+ 
+AND 
+ 
+ 3.2 Baseline fasting triglyceride levels are greater than or equal to 880 mg/dL prior to 
+treatment with requested drug  
+ 
+AND 
+ 
+4 - Requested drug will be used as adjunct to a low-fat diet  
+
+
+--- PDF page 1870 ---
+Page 1870 
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with one of the following:  
+• 
+Cardiologist  
+• 
+Endocrinologist  
+• 
+Gastroenterologist  
+• 
+Lipid specialist (lipidologist)  
+Notes  
+*Approve at GPI-14 
+ 
+Product Name:Tryngolza 80 mg*  
+Diagnosis 
+Familial chylomicronemia syndrome (FCS)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting positive clinical response 
+to therapy (e.g., reduction in triglyceride levels from baseline)  
+Notes  
+*Approve at GPI-14 
+ 
+Product Name:Tryngolza 50 mg*  
+Diagnosis 
+Severe hypertriglyceridemia  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 1871 ---
+Page 1871 
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a diagnosis of severe 
+hypertriglyceridemia  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) confirming one of the following baseline 
+fasting triglyceride levels prior to treatment with requested drug:  
+• 
+Greater than or equal to 500 mg/dL and at high risk for acute pancreatitis not related to 
+alcohol use, biliary disease, or uncontrolled diabetes  
+• 
+Greater than or equal to 1000 mg/dL  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) or paid claims confirming one of the 
+following:  
+ 
+ 3.1 Both of the following:  
+ 
+  3.1.1 Patient has tried at least a 90-day trial of one of the following standard of care 
+triglyceride lowering therapy:  
+• 
+Prescription omega-3 fatty acid [e.g., Lovaza, Vascepa]  
+• 
+Fibrate [e.g., fenofibrate, gemfibrozil]  
+ 
+AND 
+ 
+  3.1.2 Patient has been unable to achieve treatment goals (i.e., triglyceride levels less than 
+500 mg/dL)  
+ 
+OR 
+ 
+ 3.2 Patient has an intolerance to standard of care triglyceride lowering therapy (i.e., 
+prescription omega-3 fatty acid [e.g. Lovaza, Vascepa] or a fibrate [e.g., fenofibrate, 
+gemfibrozil])  
+ 
+AND 
+
+
+--- PDF page 1872 ---
+Page 1872 
+ 
+4 - Requested drug will be used as adjunct to a low-fat diet (e.g., less than 5% calories from 
+added sugars, 20% to 25% calories from total fat)  
+ 
+AND 
+ 
+5 - One of the following:  
+• 
+Patient is receiving other lipid lowering (e.g., statins, ezetimibe) at the maximally 
+tolerated dose  
+• 
+Patient has a documented inability to take other lipid-lowering therapy  
+ 
+AND 
+ 
+6 - Prescribed by or in consultation with one of the following:  
+• 
+Cardiologist  
+• 
+Endocrinologist  
+• 
+Gastroenterologist  
+• 
+Lipid specialist (lipidologist)  
+Notes  
+*Approve at GPI-14 
+ 
+Product Name:Tryngolza 50 mg*  
+Diagnosis 
+Severe hypertriglyceridemia  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting positive clinical response 
+to therapy (e.g., reduction in triglyceride levels from baseline)  
+ 
+AND 
+
+
+--- PDF page 1873 ---
+Page 1873 
+ 
+2 - One of the following:  
+• 
+Patient is continuing to receive other lipid lowering therapy (e.g., statins, ezetimibe) at 
+the maximally tolerated dose  
+• 
+Patient has a documented inability to take other lipid-lowering therapy  
+ 
+AND 
+ 
+3 - Requested drug will continue to be used as adjunct to a low-fat diet (e.g., less than 5% 
+calories from added sugars, 20% to 25% calories from total fat)  
+Notes  
+*Approve at GPI-14 
+ 
+Product Name:Tryngolza 80 mg*  
+Diagnosis 
+Severe hypertriglyceridemia  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a diagnosis of severe 
+hypertriglyceridemia  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) confirming one of the following baseline 
+fasting triglyceride levels prior to treatment with requested drug:  
+• 
+Greater than or equal to 500 mg/dL and at high risk for acute pancreatitis not related to 
+alcohol use, biliary disease, or uncontrolled diabetes  
+• 
+Greater than or equal to 1000 mg/dL  
+ 
+AND 
+
+
+--- PDF page 1874 ---
+Page 1874 
+ 
+3 - Submission of medical records (e.g., chart notes) or paid claims confirming one of the 
+following:  
+ 
+ 3.1 Both of the following:  
+ 
+  3.1.1 Patient has tried at least a 90-day trial of one of the following standard of care 
+triglyceride lowering therapy:  
+• 
+Prescription omega-3 fatty acid [e.g., Lovaza, Vascepa]  
+• 
+Fibrate [e.g., fenofibrate, gemfibrozil]  
+ 
+AND 
+ 
+  3.1.2 Patient has been unable to achieve treatment goals (i.e., triglyceride levels less than 
+500 mg/dL)  
+ 
+OR 
+ 
+ 3.2 Patient has an intolerance to standard of care triglyceride lowering therapy (i.e., 
+prescription omega-3 fatty acid [e.g. Lovaza, Vascepa] or a fibrate [e.g., fenofibrate, 
+gemfibrozil])  
+ 
+AND 
+ 
+4 - Requested drug will be used as adjunct to a low-fat diet (e.g., less than 5% calories from 
+added sugars, 20% to 25% calories from total fat)  
+ 
+AND 
+ 
+5 - One of the following:  
+• 
+Patient is receiving other lipid lowering (e.g., statins, ezetimibe) at the maximally 
+tolerated dose  
+• 
+Patient has a documented inability to take other lipid-lowering therapy  
+ 
+AND 
+ 
+6 - Prescribed by or in consultation with one of the following:  
+
+
+--- PDF page 1875 ---
+Page 1875 
+• 
+Cardiologist  
+• 
+Endocrinologist  
+• 
+Gastroenterologist  
+• 
+Lipid specialist (lipidologist)  
+ 
+AND 
+ 
+7 - Submission of medical records (e.g., chart notes) or paid claims confirming patient has 
+tried Tryngolza 50 mg for at least 3 consecutive months and has failed to achieve treatment 
+goals  
+Notes  
+*Approve at GPI-14 
+ 
+Product Name:Tryngolza 80 mg*  
+Diagnosis 
+Severe hypertriglyceridemia  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting positive clinical response 
+to therapy (e.g., reduction in triglyceride levels from baseline)  
+ 
+AND 
+ 
+2 - One of the following:  
+• 
+Patient is continuing to receive other lipid lowering therapy (e.g., statins, ezetimibe) at 
+the maximally tolerated dose  
+• 
+Patient has a documented inability to take other lipid-lowering therapy  
+ 
+AND 
+ 
+3 - Requested drug will continue to be used as adjunct to a low-fat diet (e.g., less than 5% 
+calories from added sugars, 20% to 25% calories from total fat)  
+
+
+--- PDF page 1876 ---
+Page 1876 
+ 
+AND 
+ 
+4 - Submission of medical records (e.g., chart notes) or paid claims confirming patient has 
+tried Tryngolza 50 mg for at least 3 consecutive months and has failed to achieve treatment 
+goals  
+Notes  
+*Approve at GPI-14 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+7/28/2026  
+Added GPI for 50mg strength, added criteria for new indication of sev
+ere hypertriglyceridemia.  
+ 
