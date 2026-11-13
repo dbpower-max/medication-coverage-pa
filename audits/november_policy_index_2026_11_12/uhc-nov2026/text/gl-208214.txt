@@ -1,0 +1,117 @@
+--- PDF page 178 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 178 
+Attruby (acoramidis) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-208214  
+Guideline Name 
+Attruby (acoramidis)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+4/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Attruby  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a diagnosis of 
+transthyretin-mediated amyloidosis with cardiomyopathy (ATTR-CM)  
+
+
+--- PDF page 179 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 179 
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) documenting one of the following:  
+ 
+ 2.1 Presence of a transthyretin (TTR) mutation (e.g., V122I) as detected by an FDA-
+approved test or a test performed at a facility approved by Clinical Laboratory Improvement 
+Amendments (CLIA)  
+ 
+OR 
+ 
+ 2.2 Cardiac or noncardiac tissue biopsy demonstrating histologic confirmation of TTR 
+amyloid deposits  
+ 
+OR 
+ 
+ 2.3 Both of the following:  
+• 
+Cardiac magnetic resonance imaging or scintigraphy scan suggestive of amyloidosis  
+• 
+Absence of light-chain amyloidosis  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) documenting patient has New York 
+Heart Association (NYHA) Functional Class I, II, or III heart failure  
+ 
+AND 
+ 
+4 - Requested drug is not used in combination with a TTR silencer (e.g., Amvuttra) or a TTR 
+stabilizer (e.g., Diflunisal)  
+ 
+AND 
+ 
+5 - Prescribed by, or in consultation with, a cardiologist  
+ 
+
+
+--- PDF page 180 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 180 
+Product Name:Attruby  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting patient continues to have 
+New York Heart Association (NYHA) Functional Class I, II, or III heart failure  
+ 
+AND 
+ 
+2 - Requested drug is not used in combination with a TTR silencer (e.g., Amvuttra) or a TTR 
+stabilizer (e.g., Diflunisal)  
+ 
+AND 
+ 
+3 - Prescribed by, or in consultation with, a cardiologist  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/5/2025  
+New guideline  
+ 

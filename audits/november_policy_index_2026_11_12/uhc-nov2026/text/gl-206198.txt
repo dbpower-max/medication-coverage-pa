@@ -1,0 +1,222 @@
+--- PDF page 1623 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1623 
+Sunosi (solriamfetol) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-206198  
+Guideline Name 
+Sunosi (solriamfetol)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+3/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Sunosi  
+Diagnosis 
+Narcolepsy  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab values) documenting a diagnosis of 
+narcolepsy with BOTH of the following:  
+
+
+--- PDF page 1624 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1624 
+ 
+ 1.1 The patient has daily periods of irrepressible need to sleep or daytime lapses into sleep 
+occurring for at least three months  
+ 
+AND 
+ 
+ 1.2 A mean sleep latency of less than or equal to 8 minutes and two or more sleep onset 
+rapid eye movement (REM) periods (SOREMPs) are found on a multiple sleep latency test 
+(MSLT) performed according to standard techniques following a normal overnight 
+polysomnogram. A SOREMP (within 15 minutes of sleep onset) on the preceding nocturnal 
+polysomnogram may replace one of the SOREMPs on the MSLT.  
+ 
+AND 
+ 
+2 - Physician attestation that other causes of sleepiness have been ruled out or treated 
+(including but not limited to obstructive sleep apnea, insufficient sleep syndrome, shift work, 
+the effects of substances or medications or their withdrawal, sleep phase disorder, or other 
+sleep disorders)  
+ 
+AND 
+ 
+3 - History of failure, contraindication, or intolerance to BOTH of the following:  
+ 
+ 3.1 ONE of the following:  
+• 
+Amphetamine based stimulant (e.g., amphetamine, dextroamphetamine)  
+• 
+Methylphenidate based stimulant  
+ 
+AND 
+ 
+ 3.2 Armodafinil  
+ 
+AND 
+ 
+4 - Prescribed by ONE of the following:  
+• 
+Neurologist  
+• 
+Psychiatrist  
+
+
+--- PDF page 1625 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1625 
+• 
+Sleep Medicine Specialist  
+ 
+Product Name:Sunosi  
+Diagnosis 
+Narcolepsy  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Reduction in symptoms of excessive daytime sleepiness associated with Sunosi therapy  
+ 
+Product Name:Sunosi  
+Diagnosis 
+Obstructive Sleep Apnea  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab values) documenting a diagnosis of 
+obstructive sleep apnea with ONE of the following:  
+ 
+ 1.1 Fifteen or more obstructive respiratory events per hour of sleep confirmed by a sleep 
+study  
+ 
+OR 
+ 
+ 1.2 BOTH of the following:  
+ 
+  1.2.1 Five or more obstructive respiratory events per hour of sleep confirmed by a sleep 
+study  
+
+
+--- PDF page 1626 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1626 
+ 
+AND 
+ 
+  1.2.2 ONE or more of the following sign/symptoms are present:  
+• 
+Daytime sleepiness  
+• 
+Nonrestorative sleep  
+• 
+Fatigue  
+• 
+Insomnia  
+• 
+Waking up with breath holding, gasping, or choking  
+• 
+Habitual snoring noted by bed partner or other observer  
+• 
+Observed apnea  
+ 
+AND 
+ 
+2 - BOTH of the following:  
+ 
+ 2.1 Standard treatments for the underlying airway obstruction (e.g., continuous positive 
+airway pressure [CPAP], bi-level positive airway pressure [BiPAP]) have been used for one 
+month or longer  
+ 
+AND 
+ 
+ 2.2 Patient is fully compliant with ongoing treatment(s) for the underlying airway obstruction  
+ 
+AND 
+ 
+3 - History of failure, contraindication, or intolerance to armodafinil  
+ 
+AND 
+ 
+4 - Prescribed by ONE of the following:  
+• 
+Neurologist  
+• 
+Psychiatrist  
+• 
+Sleep Medicine Specialist  
+ 
+
+
+--- PDF page 1627 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1627 
+Product Name:Sunosi  
+Diagnosis 
+Obstructive Sleep Apnea  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Reduction in symptoms of excessive daytime sleepiness associated with Sunosi therapy  
+ 
+AND 
+ 
+2 - Patient continues to be fully compliant with ongoing treatment(s) for the underlying airway 
+obstruction (e.g., continuous positive airway pressure [CPAP], bi-level positive airway 
+pressure [BiPAP])  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+2/27/2025  
+Updated guideline name. For narcolepsy initial auth section, correcte
+d logic connector between criterion 1.1 and 1.2 and updated formatti
+ng of criterion 2 with no changes to clinical intent. Minor cosmetic up
+dates.  
+ 

@@ -1,0 +1,92 @@
+--- PDF page 1081 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1081 
+Lucemyra (lofexidine) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-157266  
+Guideline Name 
+Lucemyra (lofexidine)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+11/1/2024  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Lucemyra, generic lofexidine  
+Approval Length 
+14 Day(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - For symptoms of abrupt opioid withdrawal  
+ 
+AND 
+ 
+2 - Opioids have been discontinued  
+
+
+--- PDF page 1082 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1082 
+ 
+AND 
+ 
+3 - History of failure, contraindication, or intolerance to clonidine as verified by recent 
+clonidine claims history in the past 180 days  
+ 
+AND 
+ 
+4 - Prescriber must verify patient has been screened for hepatic and renal impairment and 
+that dosing is appropriate for the patient's degree of hepatic and renal function  
+ 
+AND 
+ 
+5 - Prescriber must verify patient's vital signs have been monitored and that the patient is 
+capable of and has been instructed on self-monitoring for hypotension, orthostasis, 
+bradycardia, and associated symptoms  
+ 
+AND 
+ 
+6 - Patient does NOT have severe coronary insufficiency, a recent myocardial infarction, 
+cerebrovascular disease, chronic renal failure, or marked bradycardia  
+ 
+AND 
+ 
+7 - Patient does NOT have congenital long QT syndrome  
+ 
+AND 
+ 
+8 - If the request is for Brand Lucemyra, history of failure or intolerance to generic lofexidine  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+
+
+--- PDF page 1083 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1083 
+10/9/2024  
+Updated guideline name. Added generic lofexidine as a target. Updat
+ed product name list and GPI table accordingly. Removed inpatient s
+etting bypass. For Brand Lucemyra, added step through generic lofe
+xidine. Minor cosmetic updates.  
+ 

@@ -1,0 +1,115 @@
+--- PDF page 1798 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1798 
+Upneeq 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-208217  
+Guideline Name 
+Upneeq  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+• 
+Medicaid - Community & State Colorado  
+• 
+Medicaid - Community & State Hawaii  
+• 
+Medicaid - Community & State Maryland  
+• 
+Medicaid - Community & State Nebraska  
+• 
+Medicaid - Community & State New Jersey  
+• 
+Medicaid - Community & State New Mexico  
+• 
+Medicaid - Community & State New York  
+• 
+Medicaid - Community & State New York EPP  
+• 
+Medicaid - Community & State Pennsylvania  
+• 
+Medicaid - Community & State Pennsylvania CHIP  
+• 
+Medicaid - Community & State Rhode Island  
+• 
+Medicaid - Community & State Virginia  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+3/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Upneeq  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+
+
+--- PDF page 1799 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1799 
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of acquired blepharoptosis  
+ 
+AND 
+ 
+2 - Patient has a functional impairment related to the position of the eyelid  
+ 
+AND 
+ 
+3 - ONE of the following:  
+• 
+Marginal reflex distance-1 (MRD-1) is less than or equal to 2 millimeters (mm) in 
+primary gaze  
+• 
+Marginal reflex distance-1 (MRD-1) is less than or equal to 2 mm in down gaze  
+• 
+Superior visual field loss of at least 12 degrees or 24 percent  
+ 
+AND 
+ 
+4 - Other treatable causes of blepharoptosis have been ruled out (e.g., recent botulinum toxin 
+injections, myasthenia gravis)  
+ 
+Product Name:Upneeq  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of a positive clinical response to therapy  
+ 
+
+
+--- PDF page 1800 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1800 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/5/2025  
+Added PA-CAID for 4/1 go-live. No change to criteria.  
+ 
