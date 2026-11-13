@@ -1,0 +1,403 @@
+--- PDF page 1176 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1176 
+Nemluvio (nemolizumab-ilto) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-716255  
+Guideline Name 
+Nemluvio (nemolizumab-ilto)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Nemluvio  
+Diagnosis 
+Prurigo Nodularis (PN)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming diagnosis of prurigo nodularis 
+(PN)  
+
+
+--- PDF page 1177 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1177 
+ 
+AND 
+ 
+2 - Patient has at least 20 nodular lesions  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) or paid claims confirming trial and 
+failure, contraindication, or intolerance to BOTH of the following*:  
+• 
+One medium or higher potency topical corticosteroid  
+• 
+Dupixent (dupilumab)^  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with ONE of the following:  
+• 
+Dermatologist  
+• 
+Allergist  
+• 
+Immunologist  
+Notes  
+*Claims history may be used in conjunction as documentation of drug,
+ date, and/or contraindication to medication.  
+^PA may be required. 
+ 
+Product Name:Nemluvio  
+Diagnosis 
+Prurigo Nodularis (PN)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting that patient demonstrates a 
+positive clinical response to therapy as evidenced by at least ONE of the following:  
+
+
+--- PDF page 1178 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1178 
+• 
+Reduction in the number of nodular lesions from baseline  
+• 
+Improvement in symptoms (e.g., pruritus, inflammation) from baseline  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) or paid claims confirming trial and 
+failure, contraindication, or intolerance to BOTH of the following*:  
+• 
+One medium or higher potency topical corticosteroid  
+• 
+Dupixent (dupilumab)^  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with ONE of the following:  
+• 
+Dermatologist  
+• 
+Allergist  
+• 
+Immunologist  
+Notes  
+*Claims history may be used in conjunction as documentation of drug,
+ date, and/or contraindication to medication.  
+^PA may be required. 
+ 
+Product Name:Nemluvio  
+Diagnosis 
+Atopic Dermatitis (AD)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming diagnosis of moderate to 
+severe atopic dermatitis (AD)  
+ 
+AND 
+
+
+--- PDF page 1179 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1179 
+ 
+2 - ONE of the following:  
+• 
+Involvement of at least 10% body surface area (BSA)  
+• 
+SCORing Atopic Dermatitis (SCORAD) index value of at least 25  
+ 
+AND 
+ 
+3 - Patient is 12 years of age or older  
+ 
+AND 
+ 
+4 - Submission of medical records (e.g., chart notes) or paid claims confirming history of 
+failure, contraindication, or intolerance to ALL of the following*:  
+• 
+One topical calcineurin inhibitor [e.g., Elidel (pimecrolimus), Protopic (tacrolimus)]  
+• 
+Eucrisa (crisaborole)  
+• 
+Opzelura (ruxolitinib)  
+• 
+Adbry (tralokinumab-ldrm)  
+• 
+Dupixent (dupilumab)  
+ 
+AND 
+ 
+5 - Will be used in combination with topical corticosteroids and/or calcineurin inhibitors (e.g., 
+tacrolimus ointment)  
+ 
+AND 
+ 
+6 - Prescribed by or in consultation with ONE of the following:  
+• 
+Dermatologist  
+• 
+Allergist  
+• 
+Immunologist  
+Notes  
+*Claims history may be used in conjunction as documentation of drug,
+ date, and/or contraindication to medication. 
+ 
+Product Name:Nemluvio  
+
+
+--- PDF page 1180 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1180 
+Diagnosis 
+Atopic Dermatitis (AD)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting that patient demonstrates a 
+positive clinical response to therapy as evidenced by at least ONE of the following:  
+• 
+Reduction in body surface area involvement from baseline  
+• 
+Reduction in SCORing Atopic Dermatitis (SCORAD) index value from baseline  
+ 
+AND 
+ 
+2 - Will be used in combination with topical corticosteroids and/or calcineurin inhibitors (e.g., 
+tacrolimus ointment)  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) or paid claims confirming history of 
+failure, contraindication, or intolerance to ALL of the following*:  
+• 
+One topical calcineurin inhibitor [e.g., Elidel (pimecrolimus), Protopic (tacrolimus)]  
+• 
+Eucrisa (crisaborole)  
+• 
+Opzelura (ruxolitinib)  
+• 
+Adbry (tralokinumab-ldrm)  
+• 
+Dupixent (dupilumab)  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with ONE of the following:  
+• 
+Dermatologist  
+• 
+Allergist  
+• 
+Immunologist  
+
+
+--- PDF page 1181 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1181 
+Notes  
+*Claims history may be used in conjunction as documentation of drug,
+ date, and/or contraindication to medication. 
+ 
+ 
+2 .  Background  
+ 
+Benefit/Coverage/Program Information  
+Table 1: Relative potencies of topical corticosteroids  
+  
+Class 
+Drug 
+Dosage Form 
+Strength 
+(%) 
+Very high 
+potency 
+Augmented betamethasone 
+dipropionate  
+Ointment 
+0.05 
+Clobetasol propionate  
+Cream, foam, ointment  
+0.05 
+Diflorasone diacetate  
+Ointment 
+0.05 
+Halobetasol propionate  
+Cream, ointment  
+0.05 
+High 
+Potency 
+Amcinonide 
+Cream, lotion, ointment  
+0.1 
+Augmented betamethasone 
+dipropionate  
+Cream 
+0.05 
+Betamethasone 
+dipropionate  
+Cream, foam, ointment, 
+solution  
+0.05 
+Desoximetasone 
+Cream, ointment  
+0.25 
+Desoximetasone  
+Gel 
+0.05 
+Diflorasone diacetate  
+Cream 
+0.05 
+Fluocinonide  
+Cream, gel, ointment, 
+solution  
+0.05 
+Halcinonide 
+Cream, ointment  
+0.1 
+Mometasone furoate  
+Ointment  
+0.1 
+
+
+--- PDF page 1182 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1182 
+Triamcinolone acetonide  
+Cream, ointment  
+0.5 
+Medium 
+potency 
+Betamethasone valerate  
+Cream, foam, lotion, 
+ointment  
+0.1 
+Clocortolone pivalate  
+Cream 
+0.1 
+Desoximetasone 
+Cream 
+0.05 
+Fluocinolone acetonide  
+Cream, ointment  
+0.025 
+Flurandrenolide  
+Cream, ointment 
+0.05 
+Fluticasone propionate  
+Cream 
+0.05 
+Fluticasone propionate  
+Ointment 
+0.005 
+Mometasone furoate  
+Cream 
+0.1 
+Triamcinolone acetonide  
+Cream, ointment 
+0.1 
+Lower-
+medium 
+potency 
+Hydrocortisone butyrate  
+Cream, ointment, solution  
+0.1 
+Hydrocortisone probutate  
+Cream 
+0.1 
+Hydrocortisone valerate  
+Cream, ointment  
+0.2 
+Prednicarbate 
+Cream 
+0.1 
+Low 
+potency 
+Alclometasone dipropionate  Cream, ointment  
+0.05 
+Desonide 
+Cream, gel, foam, ointment  
+0.05 
+Fluocinolone acetonide  
+Cream, solution  
+0.01 
+Lowest 
+potency 
+Dexamethasone 
+Cream 
+0.1 
+Hydrocortisone 
+Cream, lotion, ointment, 
+solution  
+0.25, 0.5, 1 
+Hydrocortisone acetate  
+Cream, ointment  
+0.5-1 
+ 
+3 .  Revision History  
+ 
+Date  
+Notes  
+
+
+--- PDF page 1183 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1183 
+9/9/2026  
+Reformatted initial auth criteria for PN. For PN (reauth), added embe
+dded step criterion and updated notes section. For AD (initial), reform
+atted criteria and updated embedded step criterion. For AD (reauth), 
+updated criteria and notes section.  
+ 

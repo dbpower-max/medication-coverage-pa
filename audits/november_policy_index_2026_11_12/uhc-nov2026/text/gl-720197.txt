@@ -1,0 +1,168 @@
+--- PDF page 1978 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1978 
+Zeposia (ozanimod) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-720197  
+Guideline Name 
+Zeposia (ozanimod)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/18/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Zeposia  
+Diagnosis 
+Multiple Sclerosis (MS)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of multiple sclerosis (MS)  
+
+
+--- PDF page 1979 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1979 
+ 
+AND 
+ 
+2 - If the request is non-preferred**, submission of medical records (e.g., chart notes) or 
+verification of paid claims confirming a history of failure, contraindication, or intolerance to a 
+trial of at least TWO preferred*^ alternatives  
+Notes  
+**PDL link: https://www.uhcprovider.com/en/health-plans-by-state/ariz
+ona-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UH
+CCP  
+ 
+*Preferred drugs may require PA.  
+ 
+^Preferred drugs include medical benefit drugs Briumvi and Tysabri. 
+ 
+Product Name:Zeposia  
+Diagnosis 
+Multiple Sclerosis (MS)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy (e.g., stability in radiologic 
+disease activity, clinical relapses, disease progression)  
+ 
+Product Name:Zeposia  
+Diagnosis 
+Ulcerative Colitis (UC)  
+Approval Length 
+12 Week(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of moderately to severely active ulcerative colitis (UC)  
+
+
+--- PDF page 1980 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1980 
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) or verification of paid claims 
+documenting BOTH of the following*:  
+ 
+ 2.1 Trial and failure, contraindication, or intolerance to ONE of the following conventional 
+therapies:  
+• 
+6-mercaptopurine  
+• 
+Aminosalicylate (e.g., mesalamine, olsalazine, sulfasalazine)  
+• 
+Azathioprine  
+• 
+Corticosteroids (e.g., prednisone)  
+ 
+AND 
+ 
+ 2.2 History of failure, contraindication, or intolerance to ALL of the following:  
+• 
+A preferred^ adalimumab biosimilar  
+• 
+infliximab  
+• 
+Xeljanz (tofacitinib) oral tablet (IR or XR)  
+• 
+A preferred^ ustekinumab biosimilar  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with a gastroenterologist  
+Notes  
+*PA may be required.  
+ 
+^PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP 
+ 
+Product Name:Zeposia  
+Diagnosis 
+Ulcerative Colitis (UC)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 1981 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1981 
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a gastroenterologist  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+9/18/2026  
+Updated notes in initial auth section for MS. No changes to clinical cri
+teria.  
+ 
