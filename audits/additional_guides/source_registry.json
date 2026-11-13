@@ -1,0 +1,53 @@
+[
+  {
+    "planId": "ambetter-az-essential-rx",
+    "officialFormulary": "https://www.ambetterhealth.com/content/dam/centene/ambetteraz/pdfs/2026-az-formulary.pdf",
+    "archivedFormulary": "/sources/ambetter-az-2026.pdf",
+    "sha256": "415a225c9465f04b5a878972b88d79dd194f3dc1b67c7d7780a5d29c24ee6d70",
+    "effective": "2026-01-01",
+    "revision": "2026-11",
+    "retrieved": "2026-11-11T03:03:12.212328+00:00",
+    "pharmacyHub": "https://www.ambetterhealth.com/en/az/provider-resources/pharmacy/",
+    "paCriteriaSource": null,
+    "paCriteriaStatus": "not_loaded",
+    "stepQuantitySource": "https://www.ambetterhealth.com/content/dam/centene/ambetteraz/pdfs/2026-az-formulary.pdf",
+    "epaSource": null,
+    "releaseCount": 2708,
+    "heldDuplicateGroups": 11,
+    "heldSourcePositions": 0
+  },
+  {
+    "planId": "azblue-standardized",
+    "officialFormulary": "https://fm.formularynavigator.com/FBO/68/AZ_Blue_2026_Formulary_Standardized.pdf",
+    "archivedFormulary": "/sources/azblue-standardized-2026.pdf",
+    "sha256": "77a6e8c26f6a21745b9b43d75798032ba8b18c317843caa68d02fd4ff7cda79e",
+    "effective": "2026-01-01",
+    "revision": "2026-11-05",
+    "retrieved": "2026-11-11T03:03:12.212328+00:00",
+    "pharmacyHub": "https://www.azblue.com/pharmacy/affordable-care-act-plans",
+    "paCriteriaSource": null,
+    "paCriteriaStatus": "not_loaded",
+    "stepQuantitySource": "https://fm.formularynavigator.com/FBO/68/AZ_Blue_2026_Formulary_Standardized.pdf",
+    "epaSource": null,
+    "releaseCount": 4000,
+    "heldDuplicateGroups": 9,
+    "heldSourcePositions": 27
+  },
+  {
+    "planId": "uhc-commercial-reference",
+    "officialFormulary": "https://www.uhcprovider.com/content/dam/provider/docs/public/resources/pharmacy/commercial-pdl-sept-2026.pdf",
+    "archivedFormulary": "/sources/uhc-commercial-sept-2026.pdf",
+    "sha256": "6720069558b471d72c352f1be1f680c53893b33655208160efbeec656c2b53f3",
+    "effective": "2026-09-01",
+    "revision": "",
+    "retrieved": "2026-11-11T03:03:12.212328+00:00",
+    "pharmacyHub": "https://www.uhcprovider.com/en/resource-library/drug-lists-pharmacy.html",
+    "paCriteriaSource": null,
+    "paCriteriaStatus": "not_loaded",
+    "stepQuantitySource": "https://www.uhcprovider.com/content/dam/provider/docs/public/resources/pharmacy/commercial-pdl-sept-2026.pdf",
+    "epaSource": null,
+    "releaseCount": 1865,
+    "heldDuplicateGroups": 5,
+    "heldSourcePositions": 0
+  }
+]

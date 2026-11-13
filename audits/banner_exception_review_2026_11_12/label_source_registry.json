@@ -1,0 +1,25 @@
+[
+  {
+    "filename": "glucotrol-xl-label.html",
+    "official_url": "https://labeling.pfizer.com/showlabeling.aspx?id=585",
+    "sha256": "bb6476bc5770641bd2fc642d430da213a398bdce9a7d726965493a27c68ffba9",
+    "retrieved": "2026-11-12"
+  },
+  {
+    "filename": "crestor-label.pdf",
+    "official_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/021366s048lbl.pdf",
+    "sha256": "6b20a96006baa4e95b5b617cd7b3ca90c6c0154052e535c779dde80262bcfd28",
+    "retrieved": "2026-11-12"
+  },
+  {
+    "filename": "humulin-n-label.pdf",
+    "official_url": "https://pi.lilly.com/us/HUMULIN-N-USPI.pdf",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "filename": "lantus-label.pdf",
+    "official_url": "https://products.sanofi.us/lantus/lantus.pdf",
+    "sha256": "48158be830403bf8b26afb130413ef88fa3e951c92c39cdc1d47ff900458e813",
+    "retrieved": "2026-11-12"
+  }
+]

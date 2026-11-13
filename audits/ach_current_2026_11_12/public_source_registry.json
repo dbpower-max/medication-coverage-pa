@@ -1,0 +1,1687 @@
+[
+  {
+    "label": "Arizona Complete Health-Complete Care Plan Integrated Drug List (JSON)",
+    "url": "https://www.azcompletehealth.com/content/dam/centene/az-complete-health/json/Drugs_FAB_CNCAZCH01_AZ_Medicaid_Integrated_Formulary_eff_9-1-22_07142026131014_AZ.json",
+    "kind": "historical_json",
+    "filename": "Drugs_FAB_CNCAZCH01_AZ_Medicaid_Integrated_Formulary_eff_9-1-22_07142026131014_AZ.json",
+    "sha256": "a0ac99ce01d27dd420cc591fc6bec422a0a54d715f4f0260ba3aab3e2d1790f2",
+    "bytes": 1245417,
+    "retrieved": "2026-11-12"
+  },
+  {
+    "label": "Arizona Complete Health-Complete Care Plan Behavioral Health Preferred Drug List - English (PDF)",
+    "url": "https://www.azcompletehealth.com/content/dam/centene/az-complete-health/pdf/provider/formulary/AzCH-CCP-BHPDL_1.09.2026-rev8.5.26.pdf",
+    "kind": "population_supplement",
+    "filename": "AzCH-CCP-BHPDL_1.09.2026-rev8.5.26.pdf",
+    "sha256": "c397beb3359aa1131bcecb4ab9a7631e25998b0fd1fdff8aab8a7c01d49f3989",
+    "bytes": 911115,
+    "retrieved": "2026-11-12",
+    "pages": 11,
+    "bookmarks": [
+      [
+        1,
+        "AHCCCS Drug List ",
+        1
+      ],
+      [
+        1,
+        "AHCCCS Drug List - Colors",
+        -1
+      ],
+      [
+        1,
+        "Update Summary",
+        -1
+      ]
+    ],
+    "first_page_text": "Behavioral Health Drug List\nDrug Class/Drug Name\nReference Brand Name\nBrand Only/Generic \nNotes\nPreferred Drug Status\nPA Status\nStep Therapy Requirements\nQuantity \nLimit (QL)\nQL Days \nADHD/ANTI-NARCOLEPSY\nAMPHETAMINE-DEXTROAMPHETAMINE CAPSULE 24-HOUR\nADDERALL XR\nPREFERRED DRUG\nPA REQUIRED for Ages < 6 years of age\n30\n30\nAMPHETAMINE-DEXTROAMPHETAMINE TABLETS\nADDERALL\nPREFERRED DRUG\nPA REQUIRED for Ages < 6 years of age\n60\n30\nDEXTROAMPHETAMINE SULFATE TABLETS\nVARIOUS\nPREFERRED DRUG\nPA REQUIRED for Ages < 6 years of age\n60\n30\nLISDEXAMFETAMINE DIMESYLATE CAPSULES\nVYVANSE\nPREFERRED DRUG\nPA REQUIRED for Ages < 6 years of age\n30\n30\nDEXMETHYLPHENIDATE HCL CAPSULE 24-HOUR\nFOCALIN XR\nPREFERRED DRUG\nPA REQUIRED for Ages < 6 years of age\n60\n30\nDEXMETHYLPHENIDATE HCL TABLETS\nVARIOUS\nPREFERRED DRUG\nPA REQUIRED for Ages < 6 years of age\n60\n30\nMETHYLPHENIDATE HCL CAPSULE 24-HOUR\nRITALIN LA 10MG\nPREFERRED DRUG\nPA REQUIRED for Ages < 6 years of age\n30\n30\nMETHYLPHENIDATE HCL CAPSULE CONTROLLED RELEASE CD\nVARIOUS\nPREFERRED DRUG\nPA REQUIRED for Ages < 6 years of age\n30\n30\nMETHYLPHENIDATE PATCH\nDAYTRANA\nPREFERRED DRUG\nPA REQUIRED for Ages < 6 years of age\n30\n30\nMETHYLPHENIDATE HCL SOLUTION\nMETHYLIN\nPREFERRED DRUG\nPA REQUIRED for Ages < 6 years of age\n300\n30\nMETHYLPHENIDATE HCL TABLETS\nVARIOUS\nPREFERRED DRUG\nPA REQUIRED for Ages < 6 years of age\n90\n30\nMETHYLPHENIDATE HCL TABLET EXTENDED RELEASE\nRITALIN LA \nPREFERRED DRUG\nPA REQUIRED for Ages < 6 years of age\n60\n30\nMETHYLPHENIDATE HCL TABLET CONTROLLED RELEASE\nCONCERTA\nPREFERRED DRUG\nPA REQUIRED for Ages < 6 years of age\n60\n30\nATOMOXETINE HCL CAPSULES\nVARIOUS\nPREFERRED DRUG\nPA REQUIRED for Ages < 6 years of age\n30\n30\nCLONIDINE HCL\nCATAPRES\nPA REQUIRED for Ages < 6 years of age\nCLONIDINE HCL TRANSDERMAL PATCH\nCATAPRES PATCHES\nPA REQUIRED for Ages < 6 years of age\n4\n28\nCLONIDINE HCL (ADHD) TABLET 12-HOUR\nCLONIDINE ER\nPREFERRED DRUG\nPA REQUIRED for Ages < 6 years of age\n120\n30\nGUANFACINE HCL (ADHD) TABLET 24-HOUR\nGUANFACINE ER\nPREFERRED DRUG\nPA REQUIRED for Ages < 6 years of age\n30\n30\nGUANFACINE HCL TABLET \nGUANFACINE HCL\nPA REQUIRED for Ages < 6 years of age\nMELATONIN TABS\nVARIOUS\nFLAX + DHA CAPS\nVARIOUS\nOMEGA 3-6-9 CAPS\nVARIOUS\nTRIPLE OMEGA 3-6-9 CAPS\nVARIOUS\nANTIDOTES\nOPIOID ANTAGONISTS\nNALOXONE HCL SOLUTION + SYRINGE\nNALOXONE HCL + SYRINGE\nPREFERRED DRUG\nNALOXONE HCL NASAL SPRAY\nNARCAN NASAL SPRAY\nOVER-THE-COUNTER & \nPRESCRIPTION ONLY\nPREFERRED DRUG\n2\n1\nNALOXONE HCL NASAL SPRAY 8mg\nKLOXXADO  NASAL SPRAY\nPREFERRED DRUG\n2\n1\nNALTREXONE HCL TABLETS\nNALTREXONE HCL\nPREFERRED DRUG\nNALTREXONE SUSPENSION\nVIVITROL\nPREFERRED DRUG\nOPIOID AGONISTS\nBUPRENORPHINE\nVARIOUS\nPA REQUIRED unless the member is pregnant or \nnursing. \nThe prescriber must note the following ICD-10 \ncodes on the prescription:\n1. O09.91- Supervision of high risk pregnancy, 1st\nTrimester.\n2. O09.92- Supervision of high risk pregnancy, 2nd \nTrimester.\n3. O09.93- Supervision of high risk pregnancy, 3rd \nTrimester.\n4. O09.91- Supervision of high risk pregnancy- use \nfor Postpartum Nursing Mothers.\nThe first digit of the diagnosis code is the Letter - O \nand the second is a Zero - 0\nBUPRENORPHINE HCL-NALOXONE HCL DIHYDRATE FILM\nSUBOXONE FILM\nPREFERRED DRUG\nBUPRENORPHINE HCL-NALOXONE HCL DIHYDRATE ORALLY DISINTEGRATING TABLETS\nVARIOUS\nGENERIC \nFORMULATIONS ONLY\nPREFERRED DRUG\nBUPRENORPHINE EXTENDED RELEASE INJECTION\nSUBLOCADE\nPREFERRED DRUG\nPA REQUIRED\nBUPRENORPHINE SOLN PREF SYR\nBRIXADI\nPREFERRED DRUG\nPA REQUIRED\nMISCELLANEOUS AGENTS\nACAMPROSATE\nVARIOUS\n\u2022 Generic Drugs Are Preferred Over Brand Name Drugs Unless The Drug Is Specified As BRAND ONLY \n\u2022 Federally Reimbursable Drugs Not Listed On The AHCCCS Drug List May Be Available Through Prior Authorization\nAmphetamines\nStimulants\nMiscellaneous Agents\nCentral Alpha-Agonists\nAlternative Medicine\nAlternative Medicine Combinations\n1\nLast Reviewed 1/9/2026\n",
+    "textFile": "audits/ach_current_2026_11_12/policy-text/AzCH-CCP-BHPDL_1.09.2026-rev8.5.26.txt"
+  },
+  {
+    "label": "Arizona Complete Health-Complete Care Plan Crisis Preferred Drug List (PDF)",
+    "url": "https://www.azcompletehealth.com/content/dam/centene/az-complete-health/pdf/508_PMA_%20Crisis%20list%20updated_1.09.2026.pdf",
+    "kind": "population_supplement",
+    "filename": "508_PMA_-Crisis-list-updated_1.09.2026.pdf",
+    "sha256": "e0c2216bd82c1018f02b0995df11484d04728ceaad73a4e78b57277fd4a5747c",
+    "bytes": 803315,
+    "retrieved": "2026-11-12",
+    "pages": 6,
+    "bookmarks": [
+      [
+        1,
+        "Pima & Yuma County Crisis Medication List ",
+        1
+      ],
+      [
+        1,
+        "Blank Page",
+        6
+      ]
+    ],
+    "first_page_text": " \n \n \n \n  \n \n  \n \n \n \n \n \n \n \n  \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n  \n \n \n \n \n  \n \n \n \n \n \nPima & Yuma County Crisis Medication List  \nThe Arizona Complete Health-Complete Care Plan Crisis Medication list includes medications \nthat offer clinical safety and efficacy in a behavioral health crisis. This list of medications is for \nuse in adults or children that are Non-title XIX/XXI and Non-SMI who present in crisis at the \nCRC Level 1 Subacute Behavioral Health Facility in PIMA County OR HHW Community \nObservation Unit in YUMA County. \nThe medications listed will help stabilize an individual in crisis and bridge them to a follow-up \noutpatient appointment. Medication quantity limits are noted. One additional 7 day supply of \nprescribed medication will be allowed. \nMEDICATION \nDOSE \nQUANTITY LIMIT \nADHD \natomoxetine hcl cap \n10 mg \n7 Day Supply \natomoxetine hcl cap \n18 mg \n7 Day Supply \natomoxetine hcl cap \n25 mg \n7 Day Supply \natomoxetine hcl cap \n40 mg \n7 Day Supply \natomoxetine hcl cap \n60 mg \n7 Day Supply \natomoxetine hcl cap \n80 mg \n7 Day Supply \natomoxetine hcl cap \n100 mg \n7 Day Supply \nclonidine hcl tab \n0.1 mg \n7 Day Supply \nclonidine hcl tab \n0.2 mg \n7 Day Supply \nclonidine hcl tab \n0.3 mg \n7 Day Supply \nguanfacine hcl tab \n1 mg \n7 Day Supply \nguanfacine hcl tab \n2 mg \n7 Day Supply \nANTIDEPRESSANTS \nbupropion hcl tab \n75 mg \n7 Day Supply \nbuproprion hcl tab \n100 mg \n7 Day Supply \nbupropion hcl tab SR 12 hr \n100 mg \n7 Day Supply \nbupropion hcl tab SR 12 hr \n150 mg \n7 Day Supply \nbupropion hcl tab SR 12 hr \n200 mg \n7 Day Supply \ncitalopram hydrobromide oral soln \n10 mg/5ml \n7 Day Supply \ncitalopram hydrobromide tab \n10 mg \n7 Day Supply \ncitalopram hydrobromide tab \n20 mg \n7 Day Supply \ncitalopram hydrobromide tab \n40 mg \n7 Day Supply \nfluoxetine hcl cap \n10 mg \n7 Day Supply \nfluoxetine hcl cap \n20 mg \n7 Day Supply \nfluoxetine hcl cap \n40 mg \n7 Day Supply \nfluoxetine hcl tab \n60 mg \n7 Day Supply \nfluoxetine hcl soln \n20 mg/5ml \n7 Day Supply \nfluvoxamine maleate tab \n25 mg \n7 Day Supply \nfluvoxamine maleate tab \n50 mg \n7 Day Supply \nfluvoxamine maleate tab \n100 mg \n7 Day Supply \nmirtazapine tab \n15 mg \n7 Day Supply \nmirtazapine tab \n30 mg \n7 Day Supply \nmirtazapine tab \n45 mg \n7 Day Supply \nparoxetine hcl tab \n10 mg \n7 Day Supply \nparoxetine hcl tab \n20 mg \n7 Day Supply \nPage 1 of 5 \nPIMA / YUMA County Crisis Medication List \nPMA_10-11-5 Effective 12/01/2015 \nUpdated 4/4/2019 Last Reviewed 1/9/2026\n",
+    "textFile": "audits/ach_current_2026_11_12/policy-text/508_PMA_-Crisis-list-updated_1.09.2026.txt"
+  },
+  {
+    "label": "Substance Abuse Block Grant (SABG) Medication List - English (PDF)",
+    "url": "https://www.azcompletehealth.com/content/dam/centene/az-complete-health/pdf/provider/formulary/508_AzCH-CCP%20SABG%20DRUGUpdates12-1-22.pdf",
+    "kind": "population_supplement",
+    "filename": "508_AzCH-CCP-SABG-DRUGUpdates12-1-22.pdf",
+    "sha256": "51094b5e0b6596befb16406813a19d3523f595d4732e8ec0584fdf48f859fd6e",
+    "bytes": 50710,
+    "retrieved": "2026-11-12",
+    "pages": 2,
+    "bookmarks": [
+      [
+        1,
+        "Substance Abuse Block Grant (SABG) Medication List ",
+        1
+      ],
+      [
+        2,
+        "ALCOHOL USE DISORDER ",
+        1
+      ],
+      [
+        2,
+        "BENZODIAZEPINE USE DISORDER ",
+        1
+      ],
+      [
+        2,
+        "OPIOID USE DISORDER ",
+        1
+      ],
+      [
+        2,
+        "SUPPORTIVE TREATMENTS ",
+        2
+      ]
+    ],
+    "first_page_text": " \nPage 1 of 2 \nUpdated 12/2022 \n \nSABG Medication List \n \nSubstance Abuse Block Grant (SABG) Medication List \n \nThe Arizona Complete Health-Complete Care Plan (AzCH-CCP) SABG Medication list \nincludes medications that offer clinical safety and efficacy for opioid, benzodiazepine and \nalcohol use disorders. If treating other substance use disorders please contact the AzCH-CCP \nPharmacy Department at 1-888-788-4408, extension 6031278. \n \nMEDICATION \nDOSE \nLIMITATIONS \nALCOHOL USE DISORDER                                                               \nAcamprosate Calcium DR Tablet \n333mg \n \nDisulfiram Tablet \n250mg, \n500mg \n \nNaltrexone HCL Tablet \n50mg \n \nVivitrol IM Suspension \n380mg \nBENZODIAZEPINE USE DISORDER \nClonazepam  \n0.5mg  \n1.0mg \n2.0mg \n Phenobarbital \n30mg \n60mg \nOPIOID USE DISORDER \nBuprenorphine/Naloxone HCl SL \nTablets  \n    2mg/0.5mg \n     8mg/2mg \n \nBuprenorphine SL Tablet \n2mg, 8mg \nPrior authorization is required unless the \nmember is pregnant or a postpartum \nnursing mother. The prescriber must note \nthe following ICD- 10 codes on the \nprescription:  \n1. O09.91- Supervision of high-risk \npregnancy, 1st Trimester.  \n2. O09.92- Supervision of high-risk \npregnancy, 2nd Trimester.  \n3. O09.93- Supervision of high-risk \npregnancy, 3rd Trimester.  \n4. O09.91- Supervision of high-risk  \nThe first digit of the diagnosis code is the \nLetter - O and the second is a Zero - 0 \nNaltrexone HCL Tablet \n50mg \n \nVivitrol IM Suspension \n380mg \n \nSublocade \n \n100mg/0.5ml \n300mg/1.5ml \nPrior authorization is required \n",
+    "textFile": "audits/ach_current_2026_11_12/policy-text/508_AzCH-CCP-SABG-DRUGUpdates12-1-22.txt"
+  },
+  {
+    "label": "Arizona Complete Health OTC Drug List for Dual Eligibles - English (PDF)",
+    "url": "https://www.azcompletehealth.com/content/dam/centene/az-complete-health/pdf/provider/formulary/508_AzCH-CCP%20OTC%20PDL%20for%20Dual%20MembersENG.pdf",
+    "kind": "population_supplement",
+    "filename": "508_AzCH-CCP-OTC-PDL-for-Dual-MembersENG.pdf",
+    "sha256": "cdf502a4e61ea69a7482b4b9724d73fadbfbcc1368779a4b6ce2cfb24cb014ac",
+    "bytes": 305035,
+    "retrieved": "2026-11-12",
+    "pages": 10,
+    "bookmarks": [
+      [
+        1,
+        " Arizona Complete Health-Complete Care Plan Dual Eligible Member Preferred Drug List ",
+        1
+      ],
+      [
+        2,
+        "ALTERNATIVE MEDICINES ",
+        1
+      ],
+      [
+        3,
+        "ALTERNATIVE MEDICINE \u2013 M\u2019s ",
+        1
+      ],
+      [
+        2,
+        "ANALGESICS - ANTI-INFLAMMATORY ",
+        1
+      ],
+      [
+        3,
+        "NONSTEROIDAL ANTI-INFLAMMATORY AGENTS (NSAIDS) ",
+        1
+      ],
+      [
+        2,
+        "ANALGESICS - NONNARCOTIC ",
+        1
+      ],
+      [
+        3,
+        "ANALGESICS OTHER ",
+        1
+      ],
+      [
+        3,
+        "SALICYLATES ",
+        2
+      ],
+      [
+        2,
+        "ANTACIDS ",
+        2
+      ],
+      [
+        3,
+        "ANTACIDS - CALCIUM SALTS ",
+        2
+      ],
+      [
+        3,
+        "ANTACID COMBINATIONS ",
+        2
+      ],
+      [
+        3,
+        "ANTACIDS - MAGNESIUM SALTS ",
+        2
+      ],
+      [
+        3,
+        "ANTACIDS - BICARBONATE ",
+        2
+      ],
+      [
+        2,
+        "ANTICOAGULANTS ",
+        2
+      ],
+      [
+        3,
+        "HEPARINS AND HEPARINOID-LIKE AGENTS ",
+        2
+      ],
+      [
+        2,
+        "ANTIDIARRHEALS ",
+        2
+      ],
+      [
+        3,
+        "ANTIPERISTALTIC AGENTS ",
+        2
+      ],
+      [
+        2,
+        "ANTIEMETICS ",
+        2
+      ],
+      [
+        3,
+        "ANTIEMETICS - ANTICHOLINERGIC** ",
+        2
+      ],
+      [
+        2,
+        "ANTIHISTAMINES ",
+        3
+      ],
+      [
+        3,
+        "ANTIHISTAMINES - ALKYLAMINES ",
+        3
+      ],
+      [
+        3,
+        "ANTIHISTAMINES - ETHANOLAMINES ",
+        3
+      ],
+      [
+        3,
+        "ANTIHISTAMINES - NON-SEDATING ",
+        3
+      ],
+      [
+        2,
+        "CONTRACEPTIVES ",
+        3
+      ],
+      [
+        3,
+        "EMERGENCY CONTRACEPTIVES** ",
+        3
+      ],
+      [
+        2,
+        "COUGH/COLD/ALLERGY ",
+        3
+      ],
+      [
+        3,
+        "COUGH/COLD/ALLERGY COMBINATIONS** ",
+        3
+      ],
+      [
+        3,
+        "EXPECTORANTS ",
+        4
+      ],
+      [
+        2,
+        "DERMATOLOGICALS ",
+        4
+      ],
+      [
+        3,
+        "ACNE PRODUCTS ",
+        4
+      ],
+      [
+        3,
+        "ANTI-INFLAMMATORY AGENTS - TOPICAL ",
+        5
+      ],
+      [
+        3,
+        "ANTIBIOTICS - TOPICAL ",
+        5
+      ],
+      [
+        3,
+        "ANTIFUNGALS - TOPICAL ",
+        5
+      ],
+      [
+        3,
+        "ANTIHISTAMINES-TOPICAL ",
+        5
+      ],
+      [
+        3,
+        "CORTICOSTEROIDS - TOPICAL ",
+        5
+      ],
+      [
+        3,
+        "EMOLLIENT/KERATOLYTIC AGENTS ",
+        5
+      ],
+      [
+        3,
+        "EMOLLIENTS ",
+        5
+      ],
+      [
+        3,
+        "LOCAL ANESTHETICS \u2013 TOPICAL ",
+        5
+      ],
+      [
+        3,
+        "MISC. TOPICAL ",
+        6
+      ],
+      [
+        3,
+        "SCABICIDES & PEDICULICIDES ",
+        6
+      ],
+      [
+        2,
+        "GASTROINTESTINAL AGENTS - MISCELLANEOUS ",
+        6
+      ],
+      [
+        3,
+        "ANTIFLATULENTS ",
+        6
+      ],
+      [
+        2,
+        "HEMATOPOIETIC AGENTS ",
+        6
+      ],
+      [
+        3,
+        "FOLIC ACID/FOLATES ",
+        6
+      ],
+      [
+        3,
+        "IRON ",
+        6
+      ],
+      [
+        2,
+        "HYPNOTICS/SEDATIVES/SLEEP DISORDER AGENT ",
+        6
+      ],
+      [
+        3,
+        "ANTIHISTAMINE HYPNOTICS ",
+        6
+      ],
+      [
+        2,
+        "LAXATIVES ",
+        6
+      ],
+      [
+        3,
+        "BULK LAXATIVES ",
+        6
+      ],
+      [
+        3,
+        "LAXATIVE COMBINATION ",
+        7
+      ],
+      [
+        3,
+        "LAXATIVES - MISCELLANEOUS ",
+        7
+      ],
+      [
+        3,
+        "SALINE LAXATIVES ",
+        7
+      ],
+      [
+        3,
+        "STIMULANT LAXATIVES ",
+        7
+      ],
+      [
+        3,
+        "SURFACTANT LAXATIVES ",
+        7
+      ],
+      [
+        2,
+        "MEDICAL DEVICES AND SUPPLIES ",
+        7
+      ],
+      [
+        3,
+        "CONTRACEPTIVES ",
+        7
+      ],
+      [
+        3,
+        "MISC. DEVICES ",
+        7
+      ],
+      [
+        3,
+        "PARENTERAL THERAPY SUPPLIES ",
+        7
+      ],
+      [
+        2,
+        "MINERALS & ELECTROLYTES ",
+        7
+      ],
+      [
+        3,
+        "CALCIUM ",
+        7
+      ],
+      [
+        3,
+        "CALCIUM COMBINATIONS ",
+        7
+      ],
+      [
+        3,
+        "FLUORIDE ",
+        7
+      ],
+      [
+        3,
+        "MAGNESIUM ",
+        8
+      ],
+      [
+        3,
+        "POTASSIUM ",
+        8
+      ],
+      [
+        2,
+        "MOUTH/THROAT/DENTAL AGENTS ",
+        8
+      ],
+      [
+        3,
+        "THROAT PRODUCTS \u2013 MISC ",
+        8
+      ],
+      [
+        2,
+        "MULTIVITAMINS ",
+        8
+      ],
+      [
+        3,
+        "MULTIPLE VITAMINS W/ MINERALS ",
+        8
+      ],
+      [
+        3,
+        "PEDIATRIC MULTIPLE VITAMINS ",
+        8
+      ],
+      [
+        3,
+        "PED MV W/ IRON ",
+        8
+      ],
+      [
+        3,
+        "PRENATAL VITAMINS ",
+        8
+      ],
+      [
+        2,
+        "NASAL AGENTS - SYSTEMIC AND TOPICAL ",
+        8
+      ],
+      [
+        3,
+        "NASAL AGENTS - MISCELLANEOUS ",
+        8
+      ],
+      [
+        3,
+        "NASAL STEROIDS ",
+        8
+      ],
+      [
+        3,
+        "SYMPATHOMIMETIC DECONGESTANTS ",
+        8
+      ],
+      [
+        2,
+        "OPHTHALMIC AGENTS ",
+        8
+      ],
+      [
+        3,
+        "ARTIFICIAL TEARS AND LUBRICANTS ",
+        8
+      ],
+      [
+        3,
+        "OPHTHALMIC DECONGESTANTS ",
+        9
+      ],
+      [
+        3,
+        "OPHTHALMICS - MISC. ",
+        9
+      ],
+      [
+        2,
+        "NUTRIENTS ",
+        9
+      ],
+      [
+        3,
+        "MISC. NUTRITIONAL SUBSTANCES ",
+        9
+      ],
+      [
+        2,
+        "PSYCHOTHERAPEUTIC AND NEUROLOGICAL AGENT ",
+        9
+      ],
+      [
+        3,
+        "SMOKING DETERRENTS ",
+        9
+      ],
+      [
+        2,
+        "ULCER DRUGS ",
+        9
+      ],
+      [
+        3,
+        "H-2 ANTAGONISTS ",
+        9
+      ],
+      [
+        3,
+        "PROTON PUMP INHIBITORS ",
+        10
+      ],
+      [
+        2,
+        "VAGINAL PRODUCTS ",
+        10
+      ],
+      [
+        3,
+        "SPERMICIDES ",
+        10
+      ],
+      [
+        3,
+        "VAGINAL ANTI-INFECTIVES ",
+        10
+      ],
+      [
+        2,
+        "VITAMINS ",
+        10
+      ],
+      [
+        3,
+        "OIL SOLUBLE VITAMINS ",
+        10
+      ],
+      [
+        3,
+        "WATER SOLUBLE VITAMINS ",
+        10
+      ]
+    ],
+    "first_page_text": " \n1 \n \n Arizona Complete Health-Complete Care Plan Dual Eligible \nMember Preferred Drug List  \nAzCH-CCP covers select drugs for AHCCCS recipients who are eligible for Medicare. These include drugs that are:  \n\u2022 \nOver-the-counter (OTC)    \n\u2022 \nExcluded from coverage under Medicare Part D \nDrugs must also be safe and cost effective.  This is not a complete list of all covered drugs.   \nIf you need a drug that is not on the drug list, your doctor may request prior authorization at https://www.covermymeds.com/epa/envolverx/  or \nyour doctor may fax a prior authorization form located at https://www.azcompletehealth.com/providers/pharmacy.html  \n\u2022  Generic Preferred Over Brand, Unless Specified as Brand Only                                                                                   AHCCCS DUAL Program Drug List Effective Date: 12/1/2022 \nDrug Class/Drug Name \nReference Brand Name \nPA Type \nQuantity Limit \nQL Days \nALTERNATIVE MEDICINES \n  \n  \n  \n  \nALTERNATIVE MEDICINE \u2013 M\u2019s \n  \n  \n  \n  \nMELATONIN TABLETS \nMELATONIN \n  \n  \n  \nANALGESICS - ANTI-INFLAMMATORY \n  \n  \n  \n  \nNONSTEROIDAL ANTI-INFLAMMATORY AGENTS (NSAIDS) \n  \n  \n  \n  \nIBUPROFEN CAPSULES \nADVIL \n \n \n \nIBUPROFEN CHEWABLE \nCHILDRENS MOTRIN \n  \n  \n  \nIBUPROFEN SUSPENSION \nCHILDRENS MOTRIN \n  \n  \n  \nIBUPROFEN TABLETS \nADVIL JUNIOR STRENGTH \n  \n  \n  \nANALGESICS - NONNARCOTIC \n  \n  \n  \n  \nANALGESICS OTHER \n  \n  \n  \n  \nACETAMINOPHEN CAPSULES \nVARIOUS \n  \n  \n  \nACETAMINOPHEN CHEWABLE \nVARIOUS \n  \n  \n  \nACETAMINOPHEN ELIXIR \nVARIOUS \n  \n  \n  \nACETAMINOPHEN LIQUID \nVARIOUS \n  \n  \n  \nACETAMINOPHEN PACK \nVARIOUS \n  \n  \n  \nACETAMINOPHEN SOLUTION \nVARIOUS \n  \n  \n  \n",
+    "textFile": "audits/ach_current_2026_11_12/policy-text/508_AzCH-CCP-OTC-PDL-for-Dual-MembersENG.txt"
+  },
+  {
+    "label": "Concomitant Antidepressant (PDF)",
+    "url": "https://www.azcompletehealth.com/content/dam/centene/az-complete-health/policies/pharm_pol/AZ.CP.PMN.11%20Concomitant%20Antidepressant%2002.25.pdf",
+    "kind": "policy",
+    "filename": "AZ.CP.PMN.11-Concomitant-Antidepressant-02.25.pdf",
+    "sha256": "597277b17f55083f5b2bdeed589262d7a1a2e99a97c167272e5d03a396a6f265",
+    "bytes": 282601,
+    "retrieved": "2026-11-12",
+    "pages": 9,
+    "bookmarks": [
+      [
+        1,
+        "Clinical Policy: Concomitant Antidepressant Treatment ",
+        1
+      ],
+      [
+        2,
+        "Description ",
+        1
+      ],
+      [
+        2,
+        "FDA approved indication",
+        1
+      ],
+      [
+        3,
+        "Limitation of use: ",
+        1
+      ],
+      [
+        2,
+        "Policy/Criteria ",
+        1
+      ],
+      [
+        3,
+        "I. \t Initial Approval Criteria  ",
+        1
+      ],
+      [
+        3,
+        "II. Continued Therapy ",
+        2
+      ],
+      [
+        3,
+        "III.  Diagnoses/Indications for which coverage is NOT authorized:  ",
+        2
+      ],
+      [
+        3,
+        "IV. Appendices/General Information ",
+        3
+      ],
+      [
+        4,
+        "Appendix A: Abbreviation/Acronym Key ",
+        3
+      ],
+      [
+        4,
+        "Appendix B: General Information ",
+        3
+      ],
+      [
+        4,
+        "Appendix C: Therapeutic Alternatives N/A ",
+        3
+      ],
+      [
+        3,
+        "V. Dosage and Administration* *Only Preferred or formulary antidepressants listed. ",
+        3
+      ],
+      [
+        3,
+        "VI. Product Availability ",
+        5
+      ],
+      [
+        3,
+        "VII. References ",
+        6
+      ],
+      [
+        3,
+        "Important Reminder ",
+        7
+      ]
+    ],
+    "first_page_text": " \n  \n \n \n \n \n \nClinical Policy: Concomitant Antidepressant Treatment \n Reference Number: AZ.CP.PMN.11 \n Effective Date: 07.16 \n Last Review Date: 02.25 \n Line of Business: Arizona Medicaid (AzCH-CCP)  \n \n \n \n \n \n \n  \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n  \n \n \n \n \n  \n \n \n \n \n \n \n \n  \n \n \n \n \n \n \n   \n \n \n  \n \nRevision Log \nSee Important Reminder at the end of this policy for important regulatory and legal \ninformation. \nDescription \nConcomitant use of more than one antidepressant to include the following:\n1. Two SSRIs\n2. An SSRI in combination with an SNRI\n3. Two SNRIs\nFDA approved indication\nTreatment Resistant Depression \nObsessive Compulsive Disorder (clomipramine with fluvoxamine)  \nLimitation of use: \n\u2022  Cross tapers will automatically be approved for 60 days. Providers must submit a prior\nauthorization request for continued utilization of concomitant use of any 2 antidepressants \nbeyond the 60 days allowed for cross tapering.  \n\u2022  Excluded from this policy are TCA\u2019s, trazadone, mirtazapine, bupropion which are often\nused as adjunctive therapy with other agents including other antidepressants. \nPolicy/Criteria \nProvider must submit documentation (including office chart notes and lab results) supporting \nthat member has met all approval criteria.  \nProvider must provide supporting documentation that adherence to the treatment regimen has \nnot been a contributing factor to the lack of response in the medication trial. \nIt is the policy of Arizona Complete Health-Complete Care Plan that concomitant use of more \nthan one antidepressant is medically necessary when the following criteria are met: \nI. Initial Approval Criteria \nA. FDA approved diagnosis for use of antidepressant (must meet all): \n1.  Diagnosis of treatment resistant depression;\n2.  Evidence of adequate trials of at least three (3) individual antidepressants listed on the\nAHCCCS Behavioral Health Drug Lists, from at least two (2) different therapeutic\nclasses for 4-6 weeks at maximum tolerated doses;\n3.  Failure to previous trials of single agent antidepressants is due to (a, b, or c):\na. Inadequate response to maximum tolerated dose;\nb. Adverse reaction(s);\nPage 1 of 9 \n",
+    "textFile": "audits/ach_current_2026_11_12/policy-text/AZ.CP.PMN.11-Concomitant-Antidepressant-02.25.txt",
+    "printedPolicyCodes": [
+      "AZ.CP.PMN.11"
+    ],
+    "dateStatements": [
+      "Effective Date: 07.16 ",
+      "Last Review Date: 02.25 ",
+      "Revision Log "
+    ]
+  },
+  {
+    "label": "Concomitant Antipsychotic (PDF)",
+    "url": "https://www.azcompletehealth.com/content/dam/centene/az-complete-health/policies/pharm_pol/AZ.CP.PMN.10%20Concomitant%20Antipsychotic%2002.25.pdf",
+    "kind": "policy",
+    "filename": "AZ.CP.PMN.10-Concomitant-Antipsychotic-02.25.pdf",
+    "sha256": "74500023778e0b59d8ff759388f63104562f8df5de19a8f5a10fe2d07995963d",
+    "bytes": 302721,
+    "retrieved": "2026-11-12",
+    "pages": 10,
+    "bookmarks": [
+      [
+        1,
+        "Clinical Policy: Concomitant Antipsychotic Treatment ",
+        1
+      ],
+      [
+        2,
+        "Description ",
+        1
+      ],
+      [
+        2,
+        "Policy/Criteria ",
+        1
+      ],
+      [
+        3,
+        "I. \t Initial Approval Criteria  ",
+        1
+      ],
+      [
+        3,
+        "II. Continued Therapy ",
+        2
+      ],
+      [
+        3,
+        "III.  Diagnoses/Indications for which coverage is NOT authorized:  ",
+        3
+      ],
+      [
+        3,
+        "IV. Appendices/General Information ",
+        3
+      ],
+      [
+        4,
+        "Appendix A: Abbreviation/Acronym Key ",
+        3
+      ],
+      [
+        4,
+        "Appendix B: Therapeutic Alternatives N/A ",
+        3
+      ],
+      [
+        4,
+        "Appendix C: Contraindications/Boxed Warnings See individual Package Inserts. ",
+        3
+      ],
+      [
+        4,
+        "Appendix D: General Information N/A ",
+        3
+      ],
+      [
+        3,
+        "V. Dosage and Administration **Only Preferred or formulary atypical antipsychotics listed. ",
+        3
+      ],
+      [
+        3,
+        "VI. Product Availability ",
+        7
+      ],
+      [
+        3,
+        "VII. References ",
+        8
+      ],
+      [
+        3,
+        "Important Reminder ",
+        9
+      ]
+    ],
+    "first_page_text": " \n \n \n \n \n \n \n \n \n \n \n \n \n  \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n  \n \n \n \n \n \n \n  \n \n \n \n  \n \n \n \n \n \nClinical Policy: Concomitant Antipsychotic Treatment \nReference Number: AZ.CP.PMN.10 \nEffective Date: 07.16 \nLast Review Date: 02.25 \nLine of Business: Arizona Medicaid (AzCH-CCP) \nRevision Log \nSee Important Reminder at the end of this policy for important regulatory and legal \ninformation. \nDescription \nConcomitant use of more than one second-generation (atypical) antipsychotic \nAHCCCS preferred drugs \u2013 multiple\u2014refer to AHCCCS Drug List. \nAHCCCS non-preferred drugs in this class include (but not limited to) - Abilify MyCite, \nSeroquel ER (quetiapine ER), Saphris. \n\u2022  Cross tapers will automatically be approved for 60 days at the Point of Sale (POS).\nProviders must submit a prior authorization request for continued concomitant use of any\n2 atypical antipsychotics beyond the 60 days allowed for cross tapering.  The\nconcomitant use of any 2 atypical antipsychotics includes oral dosage forms in\ncombination with injectable dosage forms of the same agent. (i.e. Abilify and Abilify\nMaintena; risperidone and Risperdal Consta).\n\u2022  In case of concomitant use of a long-acting injectable (LAI) second-generation\nantipsychotic and oral second-generation antipsychotic, use the AHCCCS FFS PA\nCriteria on Antipsychotics for the LAI antipsychotic, and use this policy AZ.CP.PMN.10\nConcomitant Antipsychotic Treatment to review the oral antipsychotic.\n\u2022  Prescribers must be contracted behavioral health professionals (BHMP).\n\u2022  For Age Limit review, refer to AHCCCS FFS PA Criteria on Antipsychotics.\nPolicy/Criteria \nProvider must submit documentation (such as office chart notes, lab results or other clinical \ninformation) supporting that member has met all approval criteria.  \nProvider must provide supporting documentation that adherence to the treatment regimen \nhas not been a contributing factor to the lack of response in the medication trial. \nIt is the policy of Arizona Complete Health-Complete Care Plan that Concomitant is medically \nnecessary when the following criteria are met: \nI. Initial Approval Criteria \nPage 1 of 10 \n",
+    "textFile": "audits/ach_current_2026_11_12/policy-text/AZ.CP.PMN.10-Concomitant-Antipsychotic-02.25.txt",
+    "printedPolicyCodes": [
+      "AZ.CP.PMN.10"
+    ],
+    "dateStatements": [
+      "Effective Date: 07.16 ",
+      "Last Review Date: 02.25 ",
+      "Revision Log "
+    ]
+  },
+  {
+    "label": "EPSDT Benefit for Pediatric Members (PDF)",
+    "url": "https://www.care1staz.com/content/dam/centene/az-complete-health/policies/payment-policies/AZ.CP.PMN.234%20EPSDT%20Benefit%20for%20Pediatric%20Members-05.23.pdf",
+    "kind": "policy",
+    "filename": "AZ.CP.PMN.234-EPSDT-Benefit-for-Pediatric-Members-05.23.pdf",
+    "sha256": "71a45c930a9017475ff91c2ff804754e9a1e03acac3216ad9a33c2022489cc5b",
+    "bytes": 355581,
+    "retrieved": "2026-11-12",
+    "pages": 6,
+    "bookmarks": [
+      [
+        1,
+        "Clinical Policy: Early and Periodic Screening, Diagnostic, and Treatment Benefits for Pediatric Members ",
+        1
+      ],
+      [
+        2,
+        "Description ",
+        1
+      ],
+      [
+        2,
+        "FDA approved indications ",
+        1
+      ],
+      [
+        2,
+        "Policy/Criteria ",
+        1
+      ],
+      [
+        2,
+        "I.\t Initial Approval Criteria ",
+        2
+      ],
+      [
+        3,
+        "A. Medication Request Through EPSDT Benefit (must meet all): ",
+        2
+      ],
+      [
+        2,
+        "II. Continued Therapy ",
+        2
+      ],
+      [
+        3,
+        "A. Medication Request Through EPSDT Benefit (must meet all): ",
+        2
+      ],
+      [
+        2,
+        "III. Diagnoses/Indications for which coverage is NOT authorized: Not applicable ",
+        3
+      ],
+      [
+        3,
+        "IV. Appendices/General Information ",
+        3
+      ],
+      [
+        2,
+        "V. Dosage and Administration ",
+        4
+      ],
+      [
+        2,
+        "VI. Product Availability ",
+        4
+      ],
+      [
+        2,
+        "VII. References ",
+        4
+      ],
+      [
+        2,
+        "Important Reminder ",
+        4
+      ]
+    ],
+    "first_page_text": " \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n  \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nClinical Policy: Early and Periodic Screening, Diagnostic, \nand Treatment Benefits for Pediatric Members \nReference Number: AZ.CP.PMN.234 \nEffective Date: 05.01.22 \nLast Review Date: 04.23 \nLine of Business: Arizona Medicaid (AzCH-CCP and Care1st) \nRevision Log \nSee Important Reminder at the end of this policy for important regulatory and legal \ninformation. \nDescription \nThe purpose of EPSDT is to ensure the availability and accessibility of health care resources as \nwell as to assist members in effectively utilizing these resources. EPSDT services provide \ncomprehensive health care through primary prevention, early intervention, diagnosis, medically \nnecessary treatment, and follow-up care of physical and behavioral health conditions for \nmembers under the age of 21 years. EPSDT covered services include services that correct or \nameliorate physical and behavioral conditions and illnesses discovered by the screening process, \nwhen those services fall within one of the optional and mandatory categories of \u201cMedical \nAssistance\u201d, as defined in the Medicaid Act. Refer to Attachment E for the AHCCCS EPSDT \nClinical Sample Templates (or Contractor/Provider\u2019s electronic equivalent) for required \ninformation related to EPSDT screenings and visits. The EPSDT Program provides \ncomprehensive treatment and preventive health care services for Title XIX members under the \nage of 21. EPSDT, which is comprised of Screening, Diagnostic, and Treatment services, is \ncritical for ensuring that children and adolescents receive appropriate preventive, dental, physical \nhealth, behavioral health, developmental, and specialty services. Under EPSDT, federal law \nrequires that Title XIX cover all Medicaid-covered services listed in 42 USC 1396d(a) for \nmembers under the age of 21 when medically necessary and cost effective and even when the \nservices are not listed as covered services in the AHCCCS State Plan, AHCCCS statutes, rules, \nor policies. This means that Contractors shall cover all physical and behavioral health services \ndescribed within all 30 categories of Medicaid covered services listed in 42 USC 1396d(a) if the \ntreatment or service is necessary to \u201ccorrect or ameliorate\u201d defects or physical and behavioral \nillnesses or conditions. Medical necessity is determined on a case-by-case basis. \nFDA approved indications \nRefer to the prescribing information for the requested agent. \nPolicy/Criteria \nProvider must submit documentation (such as office chart notes, lab results or other clinical \ninformation) supporting that member has met all approval criteria.  \nIt is the policy of Arizona Complete Health-Complete Care Plan and Care1st that the requested \nagent is medically necessary when the following criteria are met: \nPage 1 of 6 \n",
+    "textFile": "audits/ach_current_2026_11_12/policy-text/AZ.CP.PMN.234-EPSDT-Benefit-for-Pediatric-Members-05.23.txt",
+    "printedPolicyCodes": [
+      "AZ.CP.PMN.234"
+    ],
+    "dateStatements": [
+      "Effective Date: 05.01.22 ",
+      "Last Review Date: 04.23 ",
+      "Revision Log ",
+      "effectively utilizing these resources. EPSDT services provide ",
+      "effective and even when the "
+    ]
+  },
+  {
+    "label": "Herceptin Biosimilars Trastuzumab-Hyaluronidase (PDF)",
+    "url": "https://www.azcompletehealth.com/content/dam/centene/az-complete-health/policies/pharmacy-policies/AZ.CP.PHAR.228%20Herceptin%20Biosimilars%20Trastuzumab-Hyaluronidase-05.23.pdf",
+    "kind": "policy",
+    "filename": "AZ.CP.PHAR.228-Herceptin-Biosimilars-Trastuzumab-Hyaluronidase-05.23.pdf",
+    "sha256": "1bd309623c0936ee29b4395d5880acc4a66c000e27b99a02b8989ef82a8fa356",
+    "bytes": 481389,
+    "retrieved": "2026-11-12",
+    "pages": 13,
+    "bookmarks": [
+      [
+        1,
+        "Clinical Policy: Herceptin/Biosimilars, Trastuzumab-Hyaluronidase ",
+        1
+      ],
+      [
+        2,
+        "Description ",
+        1
+      ],
+      [
+        3,
+        "FDA Approved Indication(s) ",
+        1
+      ],
+      [
+        2,
+        "Policy/Criteria ",
+        2
+      ],
+      [
+        3,
+        "I.Initial Approval Criteria  ",
+        2
+      ],
+      [
+        4,
+        "A. Breast Cancer (must meet all): ",
+        2
+      ],
+      [
+        4,
+        "B. Gastric, Esophageal and Esophagogastric Junction Cancer (must meet all): ",
+        3
+      ],
+      [
+        4,
+        "C. Endometrial Carcinoma (off-label) (must meet all): ",
+        3
+      ],
+      [
+        4,
+        "D. Colorectal Cancer (off-label) (must meet all): ",
+        4
+      ],
+      [
+        4,
+        "E. Salivary Gland Tumor (off-label) (must meet all): ",
+        4
+      ],
+      [
+        3,
+        "II. Continued Approval ",
+        5
+      ],
+      [
+        4,
+        "A. All Indications in Section I (must meet all): ",
+        5
+      ],
+      [
+        4,
+        "B. Other diagnoses/indications (must meet all): ",
+        6
+      ],
+      [
+        3,
+        "III.Diagnoses/Indications for which coverage is NOT authorized: ",
+        6
+      ],
+      [
+        3,
+        "IV. Appendices/General Information ",
+        6
+      ],
+      [
+        4,
+        "Appendix A: Abbreviation/Acronym Key ",
+        6
+      ],
+      [
+        4,
+        "Appendix B: Therapeutic Alternatives ",
+        7
+      ],
+      [
+        4,
+        "Appendix C: Contraindications/Boxed Warnings ",
+        7
+      ],
+      [
+        4,
+        "Appendix D: Dose Rounding Guidelines ",
+        7
+      ],
+      [
+        3,
+        "V. Dosage and Administration ",
+        7
+      ],
+      [
+        3,
+        "VI. Product Availability ",
+        9
+      ],
+      [
+        3,
+        "VII. References ",
+        9
+      ],
+      [
+        2,
+        "Coding Implications ",
+        10
+      ],
+      [
+        3,
+        "Important Reminder ",
+        11
+      ]
+    ],
+    "first_page_text": " \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n  \n \n \n \n \n \n  \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n  \n \n \n \n \n \n  \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n  \n \n \nClinical Policy: Herceptin/Biosimilars, Trastuzumab-Hyaluronidase \nReference Number: AZ.CP.PHAR.228 \nEffective Date: 04.15.2020 \nLast Review Date: 05.23  \nCoding Implications \nLine of Business: Arizona Medicaid (AzCH-CCP and Care1st) \nRevision Log \nSee Important Reminder at the end of this policy for important regulatory and legal \ninformation. \nDescription \n\u2022\nTrastuzumab (Herceptin\u00ae) is a human epidermal growth factor receptor 2 (HER2)/neu \nreceptor antagonist. \n\u2022\nTrastuzumab-dkst (Ogivri\u2122), trastuzumab-pkrb (Herzuma\u00ae), trastuzumab-dttb (Ontruzant\u00ae), \ntrastuzumab-qyyp (Trazimera\u2122), and trastuzumab-anns (Kanjinti\u2122) are Herceptin \nbiosimilars. \n\u2022\nTrastuzumab-hyaluronidase-oysk (Herceptin Hylecta\u2122) is a combination of trastuzumab and \nhyaluronidase, an endoglycosidase. \nAHCCCS preferred drugs in this class include Herzuma\u00ae (trastuzumab-pkrb), Kanjinti\u2122 \n(trastuzumab-anns), Ogivri\u2122 (trastuzumab-dkst), Trazimera\u2122 ( trastuzumab-qyyp). \nAHCCCS non-preferred drugs in this class include Herceptin\u00ae (trastuzumab), Ontruzant\u00ae \n(trastuzumab-dttb), and Herceptin Hylecta\u2122 (trastuzumab-hyaluronidase-oysk). \nFDA Approved Indication(s) \nIndications* Description \nHerceptin, Herzuma, \nOgivri, Ontruzant, \nTrazimera, Kanjinti \nHerceptin \nHylecta \nAdjuvant \nbreast cancer \nFor adjuvant \ntreatment of \nHER2\u00ad\noverexpressing \nnode positive \nor node \nnegative \n(ER/PR \nnegative or \nwith one high \nrisk feature) \nbreast cancer: \nAs part of a treatment \nregimen consisting of \ndoxorubicin, \ncyclophosphamide, \nand either paclitaxel \nor docetaxel \nX \nX \nAs part of a treatment \nregimen with \ndocetaxel and \ncarboplatin \nX \nX \nAs a single agent \nfollowing multi-\nmodality \nanthracycline based \ntherapy \nX \nX \nMetastatic \nbreast cancer \nIn combination with paclitaxel for first-\nline treatment of HER2-overexpressing \nmetastatic breast cancer \nX \nX \nPage 1 of 13 \n",
+    "textFile": "audits/ach_current_2026_11_12/policy-text/AZ.CP.PHAR.228-Herceptin-Biosimilars-Trastuzumab-Hyaluronidase-05.23.txt",
+    "printedPolicyCodes": [
+      "AZ.CP.PHAR.228"
+    ],
+    "dateStatements": [
+      "Effective Date: 04.15.2020 ",
+      "Last Review Date: 05.23  ",
+      "Revision Log "
+    ]
+  },
+  {
+    "label": "Infusion Site of Care Optimization (PDF)",
+    "url": "https://www.azcompletehealth.com/content/dam/centene/az-complete-health/policies/clinical-policies/508_AZ.CP.PHAR.493%20Infusion%20SOC%20Optimization%20final.pdf",
+    "kind": "policy",
+    "filename": "508_AZ.CP.PHAR.493-Infusion-SOC-Optimization-final.pdf",
+    "sha256": "327eefc2fe7ce904cb21b6c7d3c305d4894997f64a9c46c01fedc00b4a857980",
+    "bytes": 414969,
+    "retrieved": "2026-11-12",
+    "pages": 10,
+    "bookmarks": [
+      [
+        1,
+        "Clinical Policy: Infusion Therapy Site of Care Optimization ",
+        1
+      ],
+      [
+        2,
+        "Description ",
+        1
+      ],
+      [
+        2,
+        "FDA Approved Indication(s) ",
+        1
+      ],
+      [
+        2,
+        "Policy/Criteria ",
+        1
+      ],
+      [
+        3,
+        "I. Initial Approval Criteria ",
+        1
+      ],
+      [
+        3,
+        "II. Continued Approval",
+        2
+      ],
+      [
+        3,
+        "III.Diagnoses/Indications for which coverage is NOT authorized:",
+        2
+      ],
+      [
+        3,
+        "IV. Appendices/General Information",
+        2
+      ],
+      [
+        3,
+        "V. Dosage and Administration ",
+        8
+      ],
+      [
+        3,
+        "VI. Product Availability ",
+        8
+      ],
+      [
+        3,
+        "VII. References ",
+        8
+      ],
+      [
+        3,
+        "Important Reminder ",
+        9
+      ]
+    ],
+    "first_page_text": " \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n  \n \n \n \n \n  \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n  \n \n \n  \nClinical Policy: Infusion Therapy Site of Care Optimization \nReference Number: AZ. CP.PHAR.493 \nEffective Date: 02.01.2022 \nLast Review Date: 01.01.2025 \nLine of Business: Arizona Medicaid and \nArizona HIM \nCoding Implications \nRevision Log \nSee Important Reminder at the end of this policy for important regulatory and legal \ninformation. \nDescription \nSpecialty infusion therapy is the intravenous or injectable administration of medication that helps \nmembers manage complex and often chronic conditions. Site of Care is defined as the redirection \nof administration and/or dispensing of specialty drugs in outpatient facilities. Place of Service \ncodes are listed below: \nPlace of Service Name \nPlace of Service \nCode(s) \nPharmacy \n01 \nOffice \n11 \nHome \n12 \nOff Campus-Outpatient Hospital \n19 \nOn Campus-Outpatient Hospital \n22 \nEnd-Stage Renal Disease Treatment Facility \n65 \nFDA Approved Indication(s) \nVaries \nPolicy/Criteria \nIt is the policy of health plans affiliated with Centene Corporation that medically necessary services must \nbe rendered in the least intensive setting that is appropriate for the delivery of the services and supplies. \nWhere applicable, the plan may compare the cost-effectiveness of alternative services, setting or supplies \nwhen determining least intensive setting. Alternative less intensive site of care facilities include non-\nhospital affiliated outpatient infusion (e.g., ambulatory infusion center or physician office), Home \nInfusion. An injectable medication must meet applicable medical necessity criteria for coverage. When \ncoverage criteria are met for the injectable medication, this coverage policy is used to determine the \nmedical necessity of the requested site of care. \nProvider must submit documentation (such as office chart notes, lab results or other clinical information) \nsupporting that member has met all approval criteria. \nIt is the policy of health plans affiliated with Centene Corporation\u00ae that patient intravenous (IV) \nor injectable therapy service is medically necessary when the following criteria are met: \nI. Initial Approval Criteria \nA. In-network outpatient hospital or non-hospital outpatient office or facility for \nIntravenous or Injectable Therapy \n1. Request is for a drug applicable for alternative site of care (see Appendix B).\nPage 1 of 10 \n",
+    "textFile": "audits/ach_current_2026_11_12/policy-text/508_AZ.CP.PHAR.493-Infusion-SOC-Optimization-final.txt",
+    "printedPolicyCodes": [],
+    "dateStatements": [
+      "Effective Date: 02.01.2022 ",
+      "Last Review Date: 01.01.2025 ",
+      "Revision Log ",
+      "effectiveness of alternative services, setting or supplies "
+    ]
+  },
+  {
+    "label": "Multiple Sclerosis Drugs (Lemtrada, mitoxantrone) (PDF)",
+    "url": "https://www.azcompletehealth.com/content/dam/centene/az-complete-health/policies/clinical-policies/508_AZ.CP.PHAR.1020%20Multiple%20Sclerosis%20Drugs%20(Lemtrada%20mitoxantrone)%2002.25.pdf",
+    "kind": "policy",
+    "filename": "508_AZ.CP.PHAR.1020-Multiple-Sclerosis-Drugs-Lemtrada-mitoxantrone-02.25.pdf",
+    "sha256": "19dae5161241c04f2ae9ec0fa3f5d7a4a9456a69805f8f5993ca2ff5bc92cf9e",
+    "bytes": 378562,
+    "retrieved": "2026-11-12",
+    "pages": 10,
+    "bookmarks": [
+      [
+        1,
+        "Clinical Policy: Multiple Sclerosis Drugs (Lemtrada, mitoxantrone) ",
+        1
+      ],
+      [
+        2,
+        "Description ",
+        1
+      ],
+      [
+        2,
+        "Policy/Criteria ",
+        1
+      ],
+      [
+        3,
+        "I. Initial Approval Criteria ",
+        1
+      ],
+      [
+        3,
+        "II. Continued Therapy ",
+        2
+      ],
+      [
+        3,
+        "III.Diagnoses/Indications for which coverage is NOT authorized: ",
+        3
+      ],
+      [
+        3,
+        "IV. Appendices/General Information ",
+        3
+      ],
+      [
+        4,
+        "Appendix A: Abbreviation/Acronym Key ",
+        3
+      ],
+      [
+        4,
+        "Appendix B: Therapeutic Alternatives  ",
+        3
+      ],
+      [
+        4,
+        "Appendix C: Contraindications/Boxed Warnings ",
+        4
+      ],
+      [
+        4,
+        "Appendix D: General Information ",
+        4
+      ],
+      [
+        3,
+        "V. Dosage and Administration ",
+        5
+      ],
+      [
+        3,
+        "VI. Product Availability ",
+        5
+      ],
+      [
+        3,
+        "VII. References ",
+        5
+      ],
+      [
+        2,
+        "Coding Implications ",
+        6
+      ],
+      [
+        3,
+        "Important Reminder ",
+        9
+      ]
+    ],
+    "first_page_text": " \n \n \n \n \n \n \n \n \n \n \n \n \n  \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n  \n \n \n  \n \n \n \n \n \n \n \n \n \n \n \n \n \nClinical Policy: Multiple Sclerosis Drugs (Lemtrada, \nmitoxantrone) \nReference Number: AZ.CP.PHAR.1020 \n \nEffective Date: 11.20.19 \nLast Review Date: 02.25 \nLine of Business: Arizona Medicaid (AzCH-CCP) \nRevision Log \nIf reviewing a request for Aubagio, Avonex, Bafiertam, Betaseron, Copaxone, Gilenya, \nGlatopa, Kesimpta, Mavenclad, Mayzent, Ocrevus, Plegridy, Rebif, Tascenso ODT, \nTecfidera, Tysabri, Vumerity, Zeposia, Ponvory must use AHCCCS FFS PA \ncriteria: https://www.azahcccs.gov/Resources/Downloads/PharmacyUpdates/FFS_Pharma \nPriorAuthCriteria.pdf \nSee Important Reminder at the end of this policy for important regulatory and legal \ninformation. \nDescription \nThe following disease-modifying therapies for multiple sclerosis requiring prior authorization are \ncovered in this policy: alemtuzumab (Lemtrada\u00ae), mitoxantrone. \nAHCCCS preferred drugs in this class include fingolimod (Gilenya\u00ae), Copaxone\u00ae (glatiramer \nacetate), dalfampridine (Ampyra\u00ae), Avonex\u00ae, Rebif Rebidose\u00ae (interferon beta-1a), \nteriflunomide (Aubagio\u00ae), Kesimpta\u00ae (ofatumumab), Ocrevus\u00ae (ocrelizumab), dimethyl \nfumarate (Tecfidera\u00ae) \nAHCCCS non-preferred drugs in this class include alemtuzumab (Lemtrada\u00ae), Betaseron\u00ae  \n(interferon beta-1b), cladribine (Mavenclad\u00ae), diroximel fumarate (Vumerity\u00ae), Glatopa\u00ae  \n(glatiramer acetate), interferon beta-1b (Extavia\u00ae), mitoxantrone, monomethyl fumarate  \n(BafiertamTM), ozanimod (Zeposia\u00ae), peginterferon beta-1a (Plegridy\u00ae), siponimod  \n(Mayzent\u00ae), ponesimod (Ponvory\u00ae), and fingolimod lauryl sulfate (Tascenso ODT\u2122)  \nBrand Ampyra, Brand Aubagio, Bafiertam, Betaseron, Briumvi, Brand Gilenya, generic  \nglatiramer acetate, Tascenso ODT, Brand Tecfidera capsules, Brand Tecfidera starter packs,  \ngeneric dimethyl fumarate starter packs  \nPolicy/Criteria \nProvider must submit documentation (such as office chart notes, lab results or other clinical \ninformation) supporting that member has met all approval criteria.  \nIt is the policy of Arizona Complete Health-Complete Care Plan that Lemtrada, mitoxantrone are \nmedically necessary when the following criteria are met: \nI. Initial Approval Criteria \nA. Lemtrada, mitoxantrone (must meet all): \n*If member is currently on Lemtrada or mitoxantrone, as documented by claims history or medical records \n(document drug, date, and duration of therapy), refer to Section II. Continued Therapy; \n1. Diagnosis of multiple sclerosis (MS); \nPage 1 of 10 \n",
+    "textFile": "audits/ach_current_2026_11_12/policy-text/508_AZ.CP.PHAR.1020-Multiple-Sclerosis-Drugs-Lemtrada-mitoxantrone-02.25.txt",
+    "printedPolicyCodes": [
+      "AZ.CP.PHAR.1020"
+    ],
+    "dateStatements": [
+      "Effective Date: 11.20.19 ",
+      "Last Review Date: 02.25 ",
+      "Revision Log "
+    ]
+  },
+  {
+    "label": "Proton Pump Inhibitors (PDF)",
+    "url": "https://www.azcompletehealth.com/content/dam/centene/az-complete-health/policies/pharm_pol/AZ.CP.PMN.1002%20Proton%20Pump%20Inhibitors%2002.25.pdf",
+    "kind": "policy",
+    "filename": "AZ.CP.PMN.1002-Proton-Pump-Inhibitors-02.25.pdf",
+    "sha256": "22d51b95ecf26bcae39bedb3345370034815506bab590e15708c5aee64398dec",
+    "bytes": 437737,
+    "retrieved": "2026-11-12",
+    "pages": 16,
+    "bookmarks": [
+      [
+        1,
+        "Clinical Policy: Proton Pump Inhibitors ",
+        1
+      ],
+      [
+        2,
+        "Description ",
+        1
+      ],
+      [
+        2,
+        "FDA approved indications: ",
+        1
+      ],
+      [
+        2,
+        "Policy/Criteria ",
+        2
+      ],
+      [
+        3,
+        "I. \t Initial Approval Criteria  ",
+        2
+      ],
+      [
+        3,
+        "II. Continued Therapy ",
+        3
+      ],
+      [
+        3,
+        "III. Diagnoses/Indications for which coverage is NOT authorized:  ",
+        4
+      ],
+      [
+        3,
+        "IV. Appendices/General Information ",
+        4
+      ],
+      [
+        4,
+        "Appendix A: Abbreviation/Acronym Key ",
+        4
+      ],
+      [
+        4,
+        "Appendix B: Therapeutic Alternatives  ",
+        4
+      ],
+      [
+        4,
+        "Appendix C: Contraindications/Boxed Warnings ",
+        6
+      ],
+      [
+        4,
+        "Appendix D: General Information ",
+        6
+      ],
+      [
+        3,
+        "V. Dosage and Administration ",
+        8
+      ],
+      [
+        3,
+        "VI. Product Availability ",
+        12
+      ],
+      [
+        3,
+        "VII. References ",
+        12
+      ],
+      [
+        3,
+        "Important Reminder ",
+        14
+      ]
+    ],
+    "first_page_text": " \n \n \n \n \n  \n \n \n \n \n \n \n \n \n  \n \n  \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n  \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nClinical Policy: Proton Pump Inhibitors \nReference Number: AZ.CP.PMN.1002  \n Effective Date: 11.16.16  \n Last Review Date: 02.25 \n Line of Business: Arizona Medicaid (AzCH-CCP) \nRevision Log \nSee Important Reminder at the end of this policy for important regulatory and legal \ninformation. \nDescription \nThe following are proton pump inhibitors (PPIs) requiring prior authorization: rabeprazole \n(AcipHex\u00ae, AcipHex\u00ae Sprinkle), dexlansoprazole (Dexilant\u00ae), esomeprazole strontium (ES), \nesomeprazole (Nexium\u00ae 24HR, Nexium\u00ae 24HR ClearMinisTM), omeprazole (Prilosec\u00ae  Packets), \nomeprazole/sodium bicarbonate (Zegerid\u00ae, Zegerid\u00ae OTC). \nAHCCCS preferred drugs in this class include (and are not limited to): esomeprazole capsule \n(Nexium), lansoprazole capsule (Prevacid), omeprazole capsule (Prilosec), pantoprazole tablets \n(Protonix), pantoprazole sodium packets (Protonix\u00ae  Packets).  See AHCCCS Drug List for \ncomplete list. https://azahcccs.gov/PlansProviders/Pharmacy/ \nNOTE: non-capsule/tablet formulations require a PA for members age >18 years\n**\n** \nFDA approved indications: \nIndication \nAciphex \nDexilant \nNexium \nPrilosec \nPrevacid \nZegerid \nAciphex \nSprinkle \nES \nDuodenal ulcers \nX \n* \nX \nX \nX \nDuodenal ulcers, \nmaintenance \n* \nX \nDuodenal ulcers, Giant \n* \nErosive esophagitis \nX \nX \nX \nX \nX \nX \nX \nErosive esophagitis, \nMaintenance \nX \nX \nX \nX \nX \nX \nX \nGastric ulcers \n* \nX \nX \nX \nNonsteroidal anti-\ninflammatory drug \n(NSAID)-associated \ngastric ulcer, risk \nreduction \n* \nX \n* \nX \nX \nNSAID-associated \ngastric ulcer, healing \nof \n* \n* \nX \nHelicobacter pylori \nTriple Therapy \nX \nX \nX \nX \nX \nHelicobacter pylori \nDual Therapy \nX \nX \nHelicobacter pylori \nQuadruple therapy \n* \n* \n* \n* \nPathological \nhypersecretory \nX \nX \nX \nX \nX \nPage 1 of 16 \n",
+    "textFile": "audits/ach_current_2026_11_12/policy-text/AZ.CP.PMN.1002-Proton-Pump-Inhibitors-02.25.txt",
+    "printedPolicyCodes": [
+      "AZ.CP.PMN.1002"
+    ],
+    "dateStatements": [
+      "Effective Date: 11.16.16  ",
+      "Last Review Date: 02.25 ",
+      "Revision Log "
+    ]
+  },
+  {
+    "label": "Rifapentine (Priftin) (PDF)",
+    "url": "https://www.azcompletehealth.com/content/dam/centene/az-complete-health/policies/pharm_pol/AZ.CP.PMN.05-%20Rifapentine%20(Priftin)%2002.25.pdf",
+    "kind": "policy",
+    "filename": "AZ.CP.PMN.05--Rifapentine-Priftin-02.25.pdf",
+    "sha256": "ba12474a78b7721fce364535c9825eb1f32b92bdb2f7bd7691e1d996caee0402",
+    "bytes": 304500,
+    "retrieved": "2026-11-12",
+    "pages": 8,
+    "bookmarks": [
+      [
+        1,
+        "Clinical Policy: Rifapentine (Priftin) ",
+        1
+      ],
+      [
+        2,
+        "Description ",
+        1
+      ],
+      [
+        2,
+        "FDA Approved Indication(s) ",
+        1
+      ],
+      [
+        2,
+        "Policy/Criteria ",
+        1
+      ],
+      [
+        3,
+        "I.\t Initial Approval Criteria ",
+        2
+      ],
+      [
+        3,
+        "II. Continued Therapy ",
+        3
+      ],
+      [
+        3,
+        "III.Diagnoses/Indications for which coverage is NOT authorized: ",
+        3
+      ],
+      [
+        3,
+        "IV. Appendices/General Information ",
+        4
+      ],
+      [
+        4,
+        "Appendix A: Abbreviation/Acronym Key ",
+        4
+      ],
+      [
+        4,
+        "Appendix B: Therapeutic Alternatives ",
+        4
+      ],
+      [
+        4,
+        "Appendix C: Contraindications/Boxed Warnings ",
+        4
+      ],
+      [
+        3,
+        "V. Dosage and Administration ",
+        4
+      ],
+      [
+        3,
+        "VI. Product Availability ",
+        5
+      ],
+      [
+        3,
+        "VII. References ",
+        5
+      ],
+      [
+        3,
+        "Important Reminder ",
+        7
+      ]
+    ],
+    "first_page_text": " \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n  \n \n \n \n \n \n \n \n \n  \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nClinical Policy: Rifapentine (Priftin) \n Reference Number: AZ.CP.PMN.05 \nEffective Date: 01.20.2020 \n Last Review Date: 02.25 \nLine of Business: Arizona Medicaid (AzCH-CCP) \nRevision Log \nSee Important Reminder at the end of this policy for important regulatory and legal \ninformation. \nDescription \nRifapentine (Priftin\u00ae) is a cyclopentyl rifamycin antimycobacterial agent. \nAHCCCS preferred drugs in this class include: rifampin. \nAHCCCS non-preferred drugs in this class include: rifabutin, rifapentine. \nFDA Approved Indication(s) \nPriftin is indicated for: \n\u2022  Patients 12 years of age and older for the treatment of active pulmonary tuberculosis (TB) \ncaused by Mycobacterium tuberculosis (M. tuberculosis) in combination with one or more \nanti-tuberculosis drugs to which the isolate is susceptible \n\u2022  The treatment of latent tuberculosis infection (LTBI) caused by M. tuberculosis in \ncombination with isoniazid in patients 2 years of age and older at high risk of progression to \nTB disease. \nLimitation(s) of use: \n\u2022  Do not use Priftin monotherapy in either the initial or the continuation phases of active \nantituberculous treatment. Priftin should not be used once-weekly in the continuation phase \nregimen in combination with isoniazid in HIV-infected patients with active TB because of a \nhigher rate of failure and/or relapse with rifampin-resistant organisms. Priftin has not been \nstudied as part of the initial phase treatment regimen in HIV-infected patients with active \npulmonary tuberculosis \n\u2022  Active tuberculosis disease should be ruled out before initiating treatment for latent \ntuberculosis infection. Priftin must always be used in combination with isoniazid as a 12\u00ad\nweek once-weekly regimen for the treatment of latent tuberculosis infection. Priftin in \ncombination with isoniazid is not recommended for individuals presumed to be exposed to \nrifamycin- or - isoniazid resistant M. tuberculosis. \nPolicy/Criteria \nProvider must submit documentation (such as office chart notes, lab results or other clinical \ninformation) supporting that member has met all approval criteria.  \nIt is the policy of Arizona Complete Health-Complete Care Plan that Priftin is medically \nnecessary when the following criteria are met: \nPage 1 of 8 \n",
+    "textFile": "audits/ach_current_2026_11_12/policy-text/AZ.CP.PMN.05--Rifapentine-Priftin-02.25.txt",
+    "printedPolicyCodes": [
+      "AZ.CP.PMN.05"
+    ],
+    "dateStatements": [
+      "Effective Date: 01.20.2020 ",
+      "Last Review Date: 02.25 ",
+      "Revision Log "
+    ]
+  },
+  {
+    "label": "SABG Non PDL drug (PDF)",
+    "url": "https://www.azcompletehealth.com/content/dam/centene/az-complete-health/policies/pharm_pol/AZ.CP.PMN.1009%20%20SABG%20Non%20PDL%20drug%2002.25.pdf",
+    "kind": "policy",
+    "filename": "AZ.CP.PMN.1009-SABG-Non-PDL-drug-02.25.pdf",
+    "sha256": "c04661e95f16a452444fe929f79b2048a7d719be53809a46a83a27aae396c3b1",
+    "bytes": 310001,
+    "retrieved": "2026-11-12",
+    "pages": 6,
+    "bookmarks": [
+      [
+        1,
+        "Clinical Policy: SABG Drug List Exception Requests ",
+        1
+      ],
+      [
+        2,
+        "Description ",
+        1
+      ],
+      [
+        2,
+        "FDA Approved Indication(s) ",
+        1
+      ],
+      [
+        2,
+        "Policy/Criteria ",
+        1
+      ],
+      [
+        3,
+        "I. \t Initial Approval Criteria ",
+        1
+      ],
+      [
+        3,
+        "II. Continued Therapy ",
+        2
+      ],
+      [
+        3,
+        "III.Diagnoses/Indications for which coverage is NOT authorized: ",
+        2
+      ],
+      [
+        3,
+        "IV. Appendices/General Information ",
+        3
+      ],
+      [
+        4,
+        "Appendix A: Abbreviation/Acronym Key ",
+        3
+      ],
+      [
+        4,
+        "Appendix B: Therapeutic Alternatives ",
+        3
+      ],
+      [
+        4,
+        "Appendix C: Contraindications/Boxed Warnings ",
+        3
+      ],
+      [
+        4,
+        "Appendix D: General Information ",
+        3
+      ],
+      [
+        3,
+        "V. Dosage and Administration ",
+        4
+      ],
+      [
+        3,
+        "VI. Product Availability ",
+        4
+      ],
+      [
+        3,
+        "VII. References ",
+        4
+      ],
+      [
+        3,
+        "Important Reminder ",
+        4
+      ]
+    ],
+    "first_page_text": " \n \n \n  \n  \n \n \n \n \n \n \n \n \n  \n \n \n \n \n   \n \n \n \n \n \n \n \n \n \n \n \n \n \n  \n \n  \n \n \n \n \n \n  \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nClinical Policy: SABG Drug List Exception Requests \nReference Number: AZ.CP.PMN.1009 \nEffective Date: 10.01.19 \nLast Review Date: 02.25 \nLine of Business: Arizona Medicaid (AzCH-CCP) \nRevision Log \nSee Important Reminder at the end of this policy for important regulatory and legal \ninformation. \nDescription \nThe intent of the criteria is to ensure that members follow selection elements established by \nAzCH-CCP for drugs used for Substance Use Disorder (SUD) treatment when not on the \nSubstance Abuse Block Grant (SABG) preferred drug list (PDL). \nFDA Approved Indication(s) \nVaries by drug product. \nPolicy/Criteria \nProvider must submit documentation (such as office chart notes, lab results or other clinical \ninformation) supporting that member has met all approval criteria.  \nIt is the policy of Arizona Complete Health-Complete Care Plan that SABG Drug List Exception \nRequests are medically necessary when the following criteria are met: \nI.  Initial Approval Criteria \nA. Request for a Brand Name or Non-Formulary Drug (must meet all): \n1.  Prescribed indication meets one of the following (a or b). \na.  Requested indication is for a Substance Use Disorder (e.g. including alcohol, opioid, \nbenzodiazepine, stimulant or other drug use disorder) \nb.  Request is for the supportive treatment of withdrawal symptoms for a Substance Use \nDisorder \n2.  Prescribed indication is FDA-approved or supported by standard pharmacopeias or \ntreatment guidelines (see Appendix D); \n3.  One of the following: \na.  If there are at least three preferred alternatives, history of trial per member's \npharmacy claims resulting in a therapeutic failure, contraindication, or intolerance to \nat least THREE preferred alternatives (Prior trials of formulary/preferred drug list \n(PDL) alternatives must sufficiently demonstrate that the formulary/PDL alternatives \nare either ineffective or inappropriate at the time of the request); \nb.  If there are fewer than three preferred alternatives, the patient must have a history of \ntrial per member's pharmacy claims resulting in a therapeutic failure, \ncontraindication, or intolerance to ALL of the preferred products (Prior trials of \nformulary/preferred drug list (PDL) alternatives must sufficiently demonstrate that \nthe formulary/PDL alternatives are either ineffective or inappropriate at the time of \nthe request); \nPage 1 of 6 \n",
+    "textFile": "audits/ach_current_2026_11_12/policy-text/AZ.CP.PMN.1009-SABG-Non-PDL-drug-02.25.txt",
+    "printedPolicyCodes": [
+      "AZ.CP.PMN.1009"
+    ],
+    "dateStatements": [
+      "Effective Date: 10.01.19 ",
+      "Last Review Date: 02.25 ",
+      "Revision Log ",
+      "effective or inappropriate at the time of the request); ",
+      "effective or inappropriate at the time of "
+    ]
+  },
+  {
+    "label": "Skin Substitutes (PDF)",
+    "url": "https://www.azcompletehealth.com/content/dam/centene/az-complete-health/policies/clinical-policies/508_AZ.CP.MP.185%20Skin%20and%20Soft%20Tissue%20Substitutes%20for%20Chronic%20Wounds_07.25.pdf",
+    "kind": "policy",
+    "filename": "508_AZ.CP.MP.185-Skin-and-Soft-Tissue-Substitutes-for-Chronic-Wounds_07.25.pdf",
+    "sha256": "a55ff7145a5e6fb1a6f16c546e8d1df56af54387719151601c5acb39290f3dcf",
+    "bytes": 455538,
+    "retrieved": "2026-11-12",
+    "pages": 20,
+    "bookmarks": [
+      [
+        1,
+        "Clinical Policy: Skin and Soft Tissue Substitutes for Chronic Wounds ",
+        1
+      ],
+      [
+        2,
+        "Description ",
+        1
+      ],
+      [
+        2,
+        "Policy/Criteria ",
+        1
+      ],
+      [
+        2,
+        "Background ",
+        4
+      ],
+      [
+        2,
+        "Coding Implications ",
+        6
+      ],
+      [
+        2,
+        "HCPCS codes that support medical necessity criteria ",
+        6
+      ],
+      [
+        2,
+        "HCPCS codes that do not support medical necessity criteria ",
+        7
+      ],
+      [
+        2,
+        "References ",
+        16
+      ],
+      [
+        3,
+        "Important Reminder ",
+        19
+      ]
+    ],
+    "first_page_text": " \n \n \n \n \n  \n  \n \n \n \n     \n \n \n \n \n \n \n \n \n \n  \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n  \n \n \n \n \n \n \n \n  \n \n  \n \n \n  \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nClinical Policy: Skin and Soft Tissue Substitutes for Chronic \nWounds \nReference Number: AZ.CP.MP.185 \nDate of Last Revision: 07/25 \nCoding Implications \nRevision Log \nSee Important Reminder at the end of this policy for important regulatory and legal \ninformation. \nDescription \nPatients receiving treatment with a skin substitute graft should be under the care of a wound care \nphysician or surgeon and systemic disease should be monitored/treated to ensure adequate \nhealing of the wound site. This policy addresses the medical necessity criteria for skin substitutes \nin the treatment of chronic wounds. \nSkin substitutes range widely in terms of origin, additives, and processing. Processing variations \nlead to broad differences between products within the same class, with a need for more \ncomparative product studies. The result is that products within the same class vary significantly \nand the impact on the product\u2019s function is indeterminant in many cases.31 A 2024 systematic \nreview/meta-analysis concluded that \u201cenough evidence is still lacking to determine a statistical \ndifference between broad categories of CAMPs [cellular, acellular and matrix-like products]; \nhence decision-makers should consider published head-head comparative st\n udies, real-world \nevidence, and cost-effectiveness evidence between individual CAMPs to decide on which to use \nin practice.\u201d32\nMedical necessity determinations regarding preferred products when deemed medically \nnecessary are applicable to FDA-labeled indications. Preferred products are subject to change \nbased on new product launches, product approvals, product withdrawals and other market \nchanges. \nNote: \n\u2022  This policy only applies to skin and soft tissue substitute requests for diabetic foot ulcers\nand venous leg ulcers.\nPolicy/Criteria \nI. It is the policy of non-Medicare health plans affiliated with Centene Corporation\u00ae  that skin \nand soft tissue substitutes/cellular and tissue-based products (CTPs) are medically necessary \nfor diabetic foot ulcers (DFU) or venous leg ulcers (VLU) when all of the following criteria \nare met: \nA. Presence of a non-infected wound and one of the following: \n1.  For patients with a DFU, documentation of all the following:\na.  Failure to achieve at least 50% ulcer area reduction, despite compliance with\nstandard of care (SOC) wound treatment for a minimum of 4 weeks, as noted in\nI.C.;\nb.  Assessment of type 1 or type 2 diabetes and management history with attention to\ncertain comorbidities (e.g., vascular disease, neuropathy, osteomyelitis);\nc.  Review of current blood glucose levels/hemoglobin A1c (HbA1c);\nPage 1 of 20 \n",
+    "textFile": "audits/ach_current_2026_11_12/policy-text/508_AZ.CP.MP.185-Skin-and-Soft-Tissue-Substitutes-for-Chronic-Wounds_07.25.txt",
+    "printedPolicyCodes": [
+      "AZ.CP.MP.185"
+    ],
+    "dateStatements": [
+      "Revision: 07/25 ",
+      "Revision Log ",
+      "effectiveness evidence between individual CAMPs to decide on which to use "
+    ]
+  },
+  {
+    "label": "Quantity and High Dollar Limits- Lancets and Alcohol Swabs (PDF)",
+    "url": "https://www.azcompletehealth.com/content/dam/centene/az-complete-health/policies/pharm_pol/AZ.CP.PMN.1018%20Quantity%20Limits-%20Alcohol%20Swabs%20Lancets%2012.25_R.pdf",
+    "kind": "policy",
+    "filename": "AZ.CP.PMN.1018-Quantity-Limits--Alcohol-Swabs-Lancets-12.25_R.pdf",
+    "sha256": "e12337cddd2bdbccbd4d0e8c0b385f8113643195de7b3549a9b38d5ac9a94cfc",
+    "bytes": 215327,
+    "retrieved": "2026-11-12",
+    "pages": 3,
+    "bookmarks": [
+      [
+        1,
+        "Clinical Policy: Quantity and High Dollar Limits-Lancets and Alcohol Swabs ",
+        1
+      ],
+      [
+        2,
+        "Description ",
+        1
+      ],
+      [
+        2,
+        "Indication(s) ",
+        1
+      ],
+      [
+        2,
+        "Policy/Criteria ",
+        1
+      ],
+      [
+        3,
+        "I. \t \t Initial Approval Criteria  ",
+        1
+      ],
+      [
+        4,
+        "A. Lancets: ",
+        1
+      ],
+      [
+        4,
+        "B. Alcohol swabs: ",
+        1
+      ],
+      [
+        3,
+        "II. Continued Therapy ",
+        1
+      ],
+      [
+        4,
+        "A. Lancets: ",
+        1
+      ],
+      [
+        4,
+        "B. Alcohol swabs: ",
+        2
+      ],
+      [
+        3,
+        "III. Appendices/General Information ",
+        2
+      ],
+      [
+        3,
+        "IV. References ",
+        2
+      ],
+      [
+        4,
+        "Important Reminder ",
+        2
+      ]
+    ],
+    "first_page_text": " \n  \n \n \n \n \n \n \n \n \n \n \n \n \n \n  \n \n  \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n  \n  \n  \n  \n  \n  \n  \n  \n  \nClinical Policy: Quantity and High Dollar Limits- Lancets  \nand Alcohol Swabs  \nReference Number: AZ.CP.PMN.1018 \nEffective Date: 12.1.25 \nLast Review Date: 12.30.25 \nLine of Business: Arizona Medicaid \nRevision Log \nSee Important Reminder at the end of this policy for important regulatory and legal \ninformation. \nDescription \nThe intent of this policy is to implement quantity limits on products \nIndication(s) \nVarious \nPolicy/Criteria \nProvider must submit documentation (which may include office chart notes and lab results) \nsupporting that member has met all approval criteria  \nIt is the policy of Arizona Complete Health that the following items have quantity limits: \nI.    Initial Approval Criteria  \nA. Lancets:  \n1.  An approval on file for blood glucose testing strips of more than 100 per 30 days. \n2.  And medical necessity documented for requests greater than the current limit of 7 \nlancets per day. \n3.  No overrides for high dollar limit of $26.00. \nApproval duration: 1 year \nB. Alcohol swabs: \n1.  An approval on file that requires injections or blood glucose testing more than 100 \nper 30 days. \n2.  And medical necessity documented for requests greater than the current limit of 7 \nalcohol swabs per day. \n3.  No overrides for high dollar limit of $15.00. \nApproval duration: 1 year \nII. Continued Therapy \nA. Lancets:  \n1.  Currently receiving lancets via a previous review and authorization. \nApproval duration: 1 year \nPage 1 of 3 \n",
+    "textFile": "audits/ach_current_2026_11_12/policy-text/AZ.CP.PMN.1018-Quantity-Limits--Alcohol-Swabs-Lancets-12.25_R.txt",
+    "printedPolicyCodes": [
+      "AZ.CP.PMN.1018"
+    ],
+    "dateStatements": [
+      "Effective Date: 12.1.25 ",
+      "Last Review Date: 12.30.25 ",
+      "Revision Log "
+    ]
+  },
+  {
+    "kind": "supporting_adoption_source",
+    "filename": "provider-pharmacy.html",
+    "url": "https://www.azcompletehealth.com/providers/pharmacy.html",
+    "sha256": "b9adf511bf89f846150fa1112e8dc0e1cfdc162220ab5bebf4aaa8a19b2e8318",
+    "bytes": 147992,
+    "retrieved": "2026-11-12"
+  },
+  {
+    "kind": "supporting_adoption_source",
+    "filename": "provider-manual-section4.html",
+    "url": "https://www.azcompletehealth.com/providers/resources/provider-manual/pm_section_4.html",
+    "sha256": "79640462fec700eeab4503b0dc54566de26d6bcc8704e1e25ee505db2eb88de9",
+    "bytes": 273257,
+    "retrieved": "2026-11-12"
+  },
+  {
+    "kind": "supporting_adoption_source",
+    "filename": "member-pharmacy.html",
+    "url": "https://www.azcompletehealth.com/members/medicaid/benefits-services/pharmacy.html",
+    "sha256": "8321919c5c87680f8c610340d5e1edc58d214bf595adeb161592a1703157cf96",
+    "bytes": 143695,
+    "retrieved": "2026-11-12"
+  },
+  {
+    "kind": "supporting_adoption_source",
+    "filename": "current-acc-rbha-handbook.pdf",
+    "url": "https://www.azcompletehealth.com/content/dam/centene/az-complete-health/pdf/member/handbooks/6608356_AZ7CADMHBENG_M_0CCP_Final.pdf",
+    "sha256": "f860f6b151fd34d42b280a05113f619d9e0a5bfef3b8883b907f2dc0714b03d6",
+    "bytes": 3071059,
+    "retrieved": "2026-11-12",
+    "pages": 132,
+    "adoptionPassagePdfPage": 78,
+    "effectivePeriod": "2026-10-01 through2027-09-30"
+  }
+]

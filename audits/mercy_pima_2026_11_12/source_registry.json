@@ -1,0 +1,354 @@
+{
+  "retrieved": "2026-11-12",
+  "source_hub": "https://www.mercycareaz.org/providers/pharmacy.html",
+  "applicability_evidence": "Formulary for Mercy Care ACC-RBHA, DCS CHP, Long Term Care and Developmental Disabilities You can download the formulary/preferred drug list or PDL (PDF) or check it online with the formulary search tool. You can also see a list of over-the-counter products (PDF) we cover with a prescription. In emergencies, we may be able to provide a limited supply for medications that aren’t on these lists. Preferred Drug Lists for Mercy Care ACC-RBHA with SMI These lists are based on the Arizona Health Care Cost Containment System (AHCCCS)-approved drug list. The medications are generally covered under the plan when medically necessary. Members can fill their prescriptions at any network pharmacy. You’ll want to review these preferred drug lists for any restrictions or recommendations before prescribing medication to members of Mercy Care ACC-RBHA with SMI. Behavioral Health Preferred Drug List (PDF) (updated quarterly): behavioral health medications for members who qualify under: Non-Title 19/21 d",
+  "applicable_products": [
+    "Mercy Care Long Term Care (ALTCS)",
+    "Mercy Care Developmental Disabilities",
+    "Mercy Care DCS Comprehensive Health Plan"
+  ],
+  "out_of_area_excluded": [
+    "Mercy Care general ACC-RBHA"
+  ],
+  "policies": [
+    {
+      "title": "AHCCCS Fee-For-Service Prior Authorization Criteria for Non-Preferred Drugs (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/GL-104403_Non-Preferred-Drugs-Arizona-ua.pdf",
+      "filename": "GL-104403_Non-Preferred-Drugs-Arizona-ua.pdf",
+      "sha256": "0f2729bfd95c0a5978a13c5bb4a4e9a6db82dc267907bcb5853c3354e1d917ee",
+      "pages": 5,
+      "text_file": "GL-104403_Non-Preferred-Drugs-Arizona-ua.txt",
+      "scope": "Mercy Care Medicaid policy linked by common provider pharmacy hub; review exact policy terms and product population",
+      "effective_statements": [
+        "Effective Date: ",
+        "either ineffective or inappropriate at the time of the request)* ",
+        "alternatives are either ineffective or inappropriate at the time of the request)* ",
+        "•  Peer-reviewed medical literature, including randomized clinical trials, outcomes, ",
+        "2 . Revision History  "
+      ],
+      "printed_effective_date": "2022-03-04",
+      "printed_revision_dates": []
+    },
+    {
+      "title": "AHCCCS Fee-For-Service Prior Authorization Criteria for Preferred Drugs (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/GL-99538_Preferred%20Drugs-Arizona-ua.pdf",
+      "filename": "GL-99538_Preferred Drugs-Arizona-ua.pdf",
+      "sha256": "b25ad5648bb372fa794d3f30d6ffb969ab4ca50aad2a9089832ed41d6d1a4869",
+      "pages": 3,
+      "text_file": "GL-99538_Preferred Drugs-Arizona-ua.txt",
+      "scope": "Mercy Care Medicaid policy linked by common provider pharmacy hub; review exact policy terms and product population",
+      "effective_statements": [
+        "Effective Date: ",
+        "2 .  Revision History  "
+      ],
+      "printed_effective_date": "2021-12-09",
+      "printed_revision_dates": []
+    },
+    {
+      "title": "Botox (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Botox-Mercy-Care-Medicaid-Policy-ua.pdf",
+      "filename": "Botox-Mercy-Care-Medicaid-Policy-ua.pdf",
+      "sha256": "c359d2fde80fb50d979cd954a6302ee6b181e9914530001e3c68e4e53afc08e1",
+      "pages": 9,
+      "text_file": "Botox-Mercy-Care-Medicaid-Policy-ua.txt",
+      "scope": "Mercy Care Medicaid policy linked by common provider pharmacy hub; review exact policy terms and product population",
+      "effective_statements": [
+        "Effective Date: ",
+        "Effective Date: ",
+        "Effective Date: ",
+        "Effective Date: ",
+        "Effective Date: ",
+        "Effective Date: ",
+        "Effective Date: ",
+        "Effective Date: ",
+        "Effective Date: "
+      ],
+      "printed_effective_date": "2026-04-06",
+      "printed_revision_dates": [
+        "3/2026"
+      ]
+    },
+    {
+      "title": "Concomitant Antipsychotic Under Age 18 (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Mercy_Care_Concomitant_Antipsychotic_Treatment_for_Children_less_than_18_years_of_Age_GL-ua.pdf",
+      "filename": "Mercy_Care_Concomitant_Antipsychotic_Treatment_for_Children_less_than_18_years_of_Age_GL-ua.pdf",
+      "sha256": "f1dbc2b5a0c94019fc5c31dd6079b9d6ef54960d8e80e007c6a7a22cf4206b78",
+      "pages": 2,
+      "text_file": "Mercy_Care_Concomitant_Antipsychotic_Treatment_for_Children_less_than_18_years_of_Age_GL-ua.txt",
+      "scope": "Mercy Care Medicaid policy linked by common provider pharmacy hub; review exact policy terms and product population",
+      "effective_statements": [
+        "Previous Version Effective: 2/4/2019, 3/1/2019, 4/1/2019, 6/3/2019, 6/17/2019, 8/1/2019, 9/9/2019, 10/1/2019, ",
+        "Current Version Effective: 10.1.2022 ",
+        "Previous Version Effective: 2/4/2019, 3/1/2019, 4/1/2019, 6/3/2019, 6/17/2019, 8/1/2019, 9/9/2019, 10/1/2019, ",
+        "Current Version Effective: 10.1.2022 "
+      ],
+      "printed_effective_date": "2022-10-01",
+      "printed_revision_dates": []
+    },
+    {
+      "title": "Disposable Insulin Pumps (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Disposable-Insulin-Pumps-Mercy-Care-Medicaid-Policy-ua.pdf",
+      "filename": "Disposable-Insulin-Pumps-Mercy-Care-Medicaid-Policy-ua.pdf",
+      "sha256": "815cb20ed1a49da18744eeb1436698fd28239f5086061dd54e499e9d93e8479d",
+      "pages": 4,
+      "text_file": "Disposable-Insulin-Pumps-Mercy-Care-Medicaid-Policy-ua.txt",
+      "scope": "Mercy Care Medicaid policy linked by common provider pharmacy hub; review exact policy terms and product population",
+      "effective_statements": [
+        "Effective Date: ",
+        "Effective Date: ",
+        "Effective Date: ",
+        "Effective Date: "
+      ],
+      "printed_effective_date": "2025-11-05",
+      "printed_revision_dates": [
+        "10/16/2025"
+      ]
+    },
+    {
+      "title": "Dysport (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Dysport-Mercy-Care-Medicaid-Policy-ua.pdf",
+      "filename": "Dysport-Mercy-Care-Medicaid-Policy-ua.pdf",
+      "sha256": "259fe11910c94ebefe01a5b3cd32124bc3fd609f4ced8304a19940309178fea5",
+      "pages": 3,
+      "text_file": "Dysport-Mercy-Care-Medicaid-Policy-ua.txt",
+      "scope": "Mercy Care Medicaid policy linked by common provider pharmacy hub; review exact policy terms and product population",
+      "effective_statements": [
+        "Effective Date: ",
+        "Effective Date: ",
+        "Effective Date: "
+      ],
+      "printed_effective_date": "2025-12-17",
+      "printed_revision_dates": [
+        "11/19/2025"
+      ]
+    },
+    {
+      "title": "Hyaluronates (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Hyaluronates-Mercy-Care-Medicaid-Policy-ua.pdf",
+      "filename": "Hyaluronates-Mercy-Care-Medicaid-Policy-ua.pdf",
+      "sha256": "dafeebb2740566c13e560021a96d29775d3cd2b6494f009817aa3b7cea543896",
+      "pages": 3,
+      "text_file": "Hyaluronates-Mercy-Care-Medicaid-Policy-ua.txt",
+      "scope": "Mercy Care Medicaid policy linked by common provider pharmacy hub; review exact policy terms and product population",
+      "effective_statements": [
+        "Effective Date: ",
+        "Effective Date: ",
+        "Effective Date: "
+      ],
+      "printed_effective_date": "2026-01-28",
+      "printed_revision_dates": [
+        "1/2026"
+      ]
+    },
+    {
+      "title": "Metronidazole topical gel 1 percent (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Metronidazole-Topical-Gel-1-Percent-ST-Mercy-Care-Medicaid-Policy-ua.pdf",
+      "filename": "Metronidazole-Topical-Gel-1-Percent-ST-Mercy-Care-Medicaid-Policy-ua.pdf",
+      "sha256": "4862a73a9bff372f7df6d582910e4f7c9a22497676d733dd62177c1911393c5a",
+      "pages": 1,
+      "text_file": "Metronidazole-Topical-Gel-1-Percent-ST-Mercy-Care-Medicaid-Policy-ua.txt",
+      "scope": "Mercy Care Medicaid policy linked by common provider pharmacy hub; review exact policy terms and product population",
+      "effective_statements": [
+        "Effective Date: "
+      ],
+      "printed_effective_date": "2026-11-04",
+      "printed_revision_dates": [
+        "9/29/2026"
+      ]
+    },
+    {
+      "title": "Myobloc (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Myobloc-Mercy-Care-Medicaid-Policy-ua.pdf",
+      "filename": "Myobloc-Mercy-Care-Medicaid-Policy-ua.pdf",
+      "sha256": "9b3a21f6220b7c670ddf7f70dc06141704c1d3711b14667e75b5b604742ac717",
+      "pages": 2,
+      "text_file": "Myobloc-Mercy-Care-Medicaid-Policy-ua.txt",
+      "scope": "Mercy Care Medicaid policy linked by common provider pharmacy hub; review exact policy terms and product population",
+      "effective_statements": [
+        "Effective Date: ",
+        "Effective Date: "
+      ],
+      "printed_effective_date": "2025-12-17",
+      "printed_revision_dates": [
+        "11/19/2025"
+      ]
+    },
+    {
+      "title": "Opioids 5-Day Supply Limit (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/5-DAY-SUPPLY-LIMIT-OF-PRESCRIPTION-OPIOID-MEDICATIONS_MC-UA.pdf",
+      "filename": "5-DAY-SUPPLY-LIMIT-OF-PRESCRIPTION-OPIOID-MEDICATIONS_MC-UA.pdf",
+      "sha256": "e94d0bc450093f28171b72e76f276228687ba4eff71e6472771da29a2fa9bea3",
+      "pages": 5,
+      "text_file": "5-DAY-SUPPLY-LIMIT-OF-PRESCRIPTION-OPIOID-MEDICATIONS_MC-UA.txt",
+      "scope": "Mercy Care Medicaid policy linked by common provider pharmacy hub; review exact policy terms and product population",
+      "effective_statements": [],
+      "printed_effective_date": null,
+      "printed_revision_dates": []
+    },
+    {
+      "title": "Smoking cessation (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Smoking-Cessation-ua.pdf",
+      "filename": "Smoking-Cessation-ua.pdf",
+      "sha256": "bce93bb0f8682771f8fddc10af5d681e446e19b172c00f0c64901bb33fd38f4d",
+      "pages": 5,
+      "text_file": "Smoking-Cessation-ua.txt",
+      "scope": "Mercy Care Medicaid policy linked by common provider pharmacy hub; review exact policy terms and product population",
+      "effective_statements": [
+        "Revision Date: 03/01/2012 ",
+        "Initial Effective Date: 06/01/2009 ",
+        "Revision Date: 03/01/2012 ",
+        "Initial Effective Date: 06/01/2009 ",
+        "Minimum effective dose is 16 sprays ",
+        "Revision Date: 03/01/2012 ",
+        "Initial Effective Date: 06/01/2009 ",
+        "Revision Date: 03/01/2012 ",
+        "Initial Effective Date: 06/01/2009 ",
+        "Revision Date: 03/01/2012 ",
+        "Initial Effective Date:  06/01/2009 "
+      ],
+      "printed_effective_date": "2009-06-01",
+      "printed_revision_dates": [
+        "03/01/2012"
+      ]
+    },
+    {
+      "title": "Step Therapy (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Step-Therapy-Drugs-Aetna-Medicaid-Policy-Mercy-Care-ua.pdf",
+      "filename": "Step-Therapy-Drugs-Aetna-Medicaid-Policy-Mercy-Care-ua.pdf",
+      "sha256": "779150f5a850aaa5bd2aba9d55070bfce0f1fdca3ffc73bf7b03046d440dc439",
+      "pages": 2,
+      "text_file": "Step-Therapy-Drugs-Aetna-Medicaid-Policy-Mercy-Care-ua.txt",
+      "scope": "Mercy Care Medicaid policy linked by common provider pharmacy hub; review exact policy terms and product population",
+      "effective_statements": [
+        "Effective Date: ",
+        "Effective Date: "
+      ],
+      "printed_effective_date": "2025-10-01",
+      "printed_revision_dates": [
+        "9/2025"
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "title": "Universal Pharmacy Prior Authorization Request Form (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Universal-Pharmacy-Prior-Authorization-Request-Form-MCAZ-ua.pdf",
+      "applicability": "MCAZ common Medicaid form linked under product-specific official sections; verify exact product section before submission",
+      "included_for_three_products": true
+    },
+    {
+      "title": "Concomitant Antipsychotic Under Age 18 (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Concomitant-Antipsychotic-Request-Form-MCAZ-ua.pdf",
+      "applicability": "MCAZ common Medicaid form linked under product-specific official sections; verify exact product section before submission",
+      "included_for_three_products": true
+    },
+    {
+      "title": "Dupixent (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Dupixent-Request-Form-MCAZ-ua.pdf",
+      "applicability": "MCAZ common Medicaid form linked under product-specific official sections; verify exact product section before submission",
+      "included_for_three_products": true
+    },
+    {
+      "title": "Hepatitis C (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Hepatitis-C-Request-Form-MCAZ-ua.pdf",
+      "applicability": "MCAZ common Medicaid form linked under product-specific official sections; verify exact product section before submission",
+      "included_for_three_products": true
+    },
+    {
+      "title": "Opioids Long and Short Acting (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Opioids-Long-and-Short-Acting-Request-Form-MCAZ-ua.pdf",
+      "applicability": "MCAZ common Medicaid form linked under product-specific official sections; verify exact product section before submission",
+      "included_for_three_products": true
+    },
+    {
+      "title": "Sublocade-Brixadi (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Sublocade-Brixadi-Request-Form-MCAZ.pdf",
+      "applicability": "LTC/DD common Medicaid section; DCS CHP has a different specific form",
+      "included_for_three_products": true
+    },
+    {
+      "title": "Xolair (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Xolair-Request-Form-MCAZ-ua.pdf",
+      "applicability": "MCAZ common Medicaid form linked under product-specific official sections; verify exact product section before submission",
+      "included_for_three_products": true
+    },
+    {
+      "title": "Universal Pharmacy Prior Authorization Request Form (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Universal-Pharmacy-Prior-Authorization-Request-Form-MCAZRBHA-ua.pdf",
+      "applicability": "Mercy Care ACC-RBHA with SMI; excluded from ALTCS/DD/DCS dataset",
+      "included_for_three_products": false
+    },
+    {
+      "title": "Concomitant Antipsychotic Under Age 18 (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Concomitant-Antipsychotic-Request-Form-MCAZRBHA-ua.pdf",
+      "applicability": "Mercy Care ACC-RBHA with SMI; excluded from ALTCS/DD/DCS dataset",
+      "included_for_three_products": false
+    },
+    {
+      "title": "Dupixent (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Dupixent-Request-Form-MCAZRBHA-ua.pdf",
+      "applicability": "Mercy Care ACC-RBHA with SMI; excluded from ALTCS/DD/DCS dataset",
+      "included_for_three_products": false
+    },
+    {
+      "title": "Hepatitis C (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Hepatitis-C-Request-Form-MCAZRBHA-ua.pdf",
+      "applicability": "Mercy Care ACC-RBHA with SMI; excluded from ALTCS/DD/DCS dataset",
+      "included_for_three_products": false
+    },
+    {
+      "title": "Opioids Long and Short Acting (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Opioids-Long-and-Short-Acting-Request-Form-MCAZRBHA-ua.pdf",
+      "applicability": "Mercy Care ACC-RBHA with SMI; excluded from ALTCS/DD/DCS dataset",
+      "included_for_three_products": false
+    },
+    {
+      "title": "Sublocade-Brixadi (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Sublocade-Brixadi-Request-Form-MCAZRBHA.pdf",
+      "applicability": "Mercy Care ACC-RBHA with SMI; excluded from ALTCS/DD/DCS dataset",
+      "included_for_three_products": false
+    },
+    {
+      "title": "Xolair (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Xolair-Request-Form-MCAZRBHA-ua.pdf",
+      "applicability": "Mercy Care ACC-RBHA with SMI; excluded from ALTCS/DD/DCS dataset",
+      "included_for_three_products": false
+    },
+    {
+      "title": "Universal Pharmacy Prior Authorization Request Form (PDF)",
+      "url": "https://www.mercycareaz.org/assets/pdf/rbha-members/pharmacy/faxforms/Universal-Pharmacy-Prior-Authorization-Request-Form-MCAZRBHA-ua.pdf",
+      "applicability": "Mercy Care ACC-RBHA with SMI; excluded from ALTCS/DD/DCS dataset",
+      "included_for_three_products": false
+    },
+    {
+      "title": "Concomitant Antipsychotic Under Age 18 (PDF)",
+      "url": "https://www.mercycareaz.org/assets/pdf/rbha-members/pharmacy/faxforms/Concomitant-Antipsychotic-Request-Form-MCAZRBHA-ua.pdf",
+      "applicability": "Mercy Care ACC-RBHA with SMI; excluded from ALTCS/DD/DCS dataset",
+      "included_for_three_products": false
+    },
+    {
+      "title": "Sublocade-Brixadi (PDF)",
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/Sublocade-Brixadi-Request-Form-MCAZ-DCSCHP.pdf",
+      "applicability": "DCS CHP only; specific Sublocade/Brixadi form",
+      "included_for_three_products": true
+    }
+  ],
+  "machine_feed_limitations": [
+    {
+      "url": "https://www.mercycareaz.org/content/dam/mercycare/pdf/mercycare_formulary.json",
+      "status": "Prior retrieval truncated mid-record; invalid JSON, not ingested"
+    },
+    {
+      "url": "https://fm.formularynavigator.com/FBO/111/RBHA_Formulary.json",
+      "status": "Prior valid version79 feed effective2026-10-01 omits current PDF additions including Mounjaro/Ajovy/Dupixent/Incruse/Starjemza. Not used to override source PDF."
+    }
+  ],
+  "ffs_fallback": "Official common pharmacy hub links AHCCCS FFS guidelines for medications without Mercy-specific guideline; preserve exact applicability and policy precedence, do not automatically map every FFS policy to every drug.",
+  "policy_precedence_evidence": "Some prescriptions require PA from Mercy Care. Review is based on PA guidelines and criteria for that medication. The common provider hub links AHCCCS FFS nonpreferred criteria for medications not on formulary without a specific PA guideline, and preferred criteria for medications on formulary without a specific PA guideline. Specific Mercy Care guidelines are listed separately; source fallback does not establish drug coverage.",
+  "epa_source": "https://www.covermymeds.com/",
+  "bin": "610591",
+  "pcn": "ADV",
+  "rxgroup": "RX8805",
+  "excluded_smi_rxgroup": "RX8822",
+  "retrieved_policy_pages": 44
+}

@@ -1,0 +1,29 @@
+{
+  "planId": "ahcccs-ffs-aihp",
+  "product": "AHCCCS Fee-For-Service / American Indian Health Program",
+  "effectiveDate": "2026-11-01",
+  "retrieved": "2026-11-12",
+  "officialFormulary": "https://www.azahcccs.gov/Resources/Downloads/PharmacyUpdates/2026/AHCCCSFFSDrugList_11_1_2026.pdf",
+  "archivedFormulary": "/sources/ahcccs-ffs-aihp-2026-11-01.pdf",
+  "sha256": "200e6ec3274c65b16d9344b314a4b4c97c634c7bca691812f12d666bdc7c3c0f",
+  "pageCount": 48,
+  "pharmacyHub": "https://www.azahcccs.gov/Resources/GuidesManualsPolicies/pharmacyupdates.html",
+  "paCriteriaSource": "https://www.azahcccs.gov/Resources/Downloads/PharmacyUpdates/2026/AZMFileseff110126AllGuidelines.pdf",
+  "stepQuantitySource": "https://www.azahcccs.gov/Resources/Downloads/PharmacyUpdates/2026/AHCCCSFFSDrugList_11_1_2026.pdf",
+  "epaSource": null,
+  "adoptionSources": [
+    {
+      "url": "https://www.azahcccs.gov/PlansProviders/RatesAndBilling/FFS/formulary.html",
+      "evidence": "Official page defines FFS formulary for FFS program members; explicitly not applicable to health-plan members."
+    },
+    {
+      "url": "https://www.azahcccs.gov/Resources/GuidesManualsPolicies/pharmacyupdates.html",
+      "evidence": "Official AIHP Drug Lists section links the exact November1,2026 FFS PDF as AHCCCS American Indian Health Plan Drug List."
+    },
+    {
+      "url": "https://www.azahcccs.gov/AmericanIndians/Providers/",
+      "evidence": "AIHP is acute FFS. Official FAQ identifies Tribal ALTCS, including Pascua Yaqui and Tohono Oodham, as FFS programs, subject to member enrollment and service/billing context."
+    }
+  ],
+  "scopeCaveat": "This FFS list must not substitute for an MCO formulary. Medicare dual-eligible/PartD benefits and Tribal/IHS dispensing/billing require applicable program rules; no automatic MCO or PartD mapping."
+}

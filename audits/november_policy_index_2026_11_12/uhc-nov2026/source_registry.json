@@ -1,0 +1,24 @@
+{
+  "key": "uhc-nov2026",
+  "filename": "uhc-az-clinical-pharmacy-2026-11-01.pdf",
+  "planId": "uhc-community-az",
+  "title": "UnitedHealthcare Community Plan of Arizona Clinical Pharmacy Program Guidelines",
+  "url": "https://www.uhcprovider.com/content/dam/provider/docs/public/commplan/az/pharmacy/AZ-Clinical-Pharmacy.pdf",
+  "hub": "https://www.uhcprovider.com/en/health-plans-by-state/arizona-health-plans/az-comm-plan-home/az-cp-pharmacy/az-cp-pa-criteria.html",
+  "applicability": [
+    "Arizona AHCCCS Complete Care / Medicaid",
+    "Arizona Developmentally Disabled (DD) Program",
+    "Arizona Long-Term Care"
+  ],
+  "sha256": "7559a098f3f8c5d74aac534fbc75b356e23707de95066e65658f715e1b06b3dd",
+  "sourceSnapshotEffective": "2026-11-01",
+  "retrieved": "2026-11-12",
+  "pageCount": 2018,
+  "policySectionCount": 449,
+  "bookmarkCount": 449,
+  "printedTOCCount": 449,
+  "guidelineHeaderStartCount": 449,
+  "allPolicyPositionsAccounted": true,
+  "sha256TextAlgorithm": "SHA-256 of original PDF bytes",
+  "warning": "Index and verbatim source text only; no generated approval algorithm or patient benefit determination."
+}
