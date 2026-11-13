@@ -1,0 +1,220 @@
+--- PDF page 1125 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1125 
+Mitapivat Products 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-537202  
+Guideline Name 
+Mitapivat Products  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+4/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Pyrukynd  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting ALL of the following:  
+ 
+ 1.1 Diagnosis of hemolytic anemia confirmed by the presence of chronic hemolysis (e.g., 
+increased indirect bilirubin, elevated lactated dehydrogenase [LDH], decreased haptoglobin, 
+increased reticulocyte count)  
+
+
+--- PDF page 1126 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1126 
+ 
+AND 
+ 
+ 1.2 Diagnosis of pyruvate kinase deficiency confirmed by molecular testing of ALL the 
+following mutations on the PKLR gene:  
+• 
+Presence of at least 2 variant alleles in the pyruvate kinase liver and red blood cell 
+(PKLR) gene, of which at least 1 was a missense variant  
+• 
+Patient is NOT homozygous for the c.1436G>A (p.R479H) variant  
+• 
+Patient does NOT have 2 non-missense variants (without the presence of another 
+missense variant) in the PKLR gene  
+ 
+AND 
+ 
+ 1.3 Hemoglobin is less than or equal to 10 g/dL  
+ 
+AND 
+ 
+ 1.4 Patient has symptomatic anemia or is transfusion dependent  
+ 
+AND 
+ 
+ 1.5 Exclusion of other causes of hemolytic anemias (e.g., infections, toxins, drugs)  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a hematologist  
+ 
+Product Name:Pyrukynd  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+
+
+--- PDF page 1127 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1127 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting positive clinical response 
+to therapy [e.g., hemoglobin greater than or equal to 1.5 g/dL from baseline, reduction in 
+transfusions of greater than or equal to 33% in the number of red blood cell units transfused 
+during the fixed dose period compared with the patient's historical transfusion burden, 
+improvement in markers of hemolysis from baseline (e.g., bilirubin, lactated dehydrogenase 
+[LDH], haptoglobin, reticulocyte count)]  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a hematologist  
+Notes  
+If the member does not meet the medical necessity reauthorization cri
+teria requirements, a denial should be issued and a 1-month authoriza
+tion should be issued one time for Pyrukynd gradual therapy discontin
+uation. 
+ 
+Product Name:Aqvesme  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting ALL of the following:  
+ 
+ 1.1 Diagnosis of anemia with alpha or beta-thalassemia  
+ 
+AND 
+ 
+ 1.2 Hemoglobin is less than or equal to 10 g/dL  
+ 
+AND 
+ 
+ 1.3 Patient has symptomatic anemia or is transfusion dependent  
+
+
+--- PDF page 1128 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1128 
+ 
+AND 
+ 
+ 1.4 Patient does NOT have liver disease (e.g., cirrhosis - Child Pugh Class A, B, or C, 
+Hepatitis B virus [HBV], Hepatitis C virus [HCV], Human Immunodeficiency virus [HIV-1 or 
+HIV-2])  
+ 
+AND 
+ 
+ 1.5 BOTH of the following:  
+• 
+Patient has NOT had prior exposure to gene therapy (e.g., Casgevy [exagamglogene 
+autotemcel], Zynteglo [betibeglogene autotemcel])  
+• 
+Patient has NOT had prior bone marrow or stem cell transplantation  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with ONE of the following:  
+• 
+Hematologist  
+• 
+Hepatologist  
+ 
+AND 
+ 
+3 - Patient is NOT on concurrent treatment with any of the following:  
+• 
+Reblozyl (luspatercept-aamt)  
+• 
+Hematopoietic stimulating agents (e.g., Epogen [epoetin alfa], Aranesp [darbepoetin 
+alfa])  
+• 
+Pyrukynd (mitapivat)  
+ 
+Product Name:Aqvesme  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 1129 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1129 
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting positive clinical response 
+to therapy (e.g., reduction in RBC transfusion burden, improvement in fatigue, increase in Hb 
+concentration greater than or equal to 1 g/dL from baseline)  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with ONE of the following:  
+• 
+Hematologist  
+• 
+Hepatologist  
+ 
+AND 
+ 
+3 - Patient is NOT on concurrent treatment with any of the following:  
+• 
+Reblozyl (luspatercept-aamt)  
+• 
+Hematopoietic stimulating agents (e.g., Epogen [epoetin alfa], Aranesp [darbepoetin 
+alfa])  
+• 
+Pyrukynd (mitapivat)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/3/2026  
+Updated guideline name. Updated initial/reauth criteria sections for P
+yrukynd. Added criteria for new target drug, Aqvesme.  
+ 

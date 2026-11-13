@@ -1,0 +1,224 @@
+--- PDF page 697 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 697 
+Gaucher Disease Agents 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-555233  
+Guideline Name 
+Gaucher Disease Agents  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+4/12/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Cerdelga  
+Diagnosis 
+Type 1 Gaucher Disease  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of Type 1 Gaucher disease  
+
+
+--- PDF page 698 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 698 
+ 
+AND 
+ 
+2 - Patient is ONE of the following as detected by a Food and Drug Administration (FDA)-
+cleared test:  
+• 
+CYP2D6 extensive metabolizer  
+• 
+CYP2D6 intermediate metabolizer  
+• 
+CYP2D6 poor metabolizer  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) or paid claims confirming a history of 
+failure or intolerance to generic miglustat (AG [authorized generic] is preferred)  
+ 
+Product Name:Elelyso, Vpriv  
+Diagnosis 
+Type 1 Gaucher Disease  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of Type 1 Gaucher disease  
+ 
+AND 
+ 
+2 - If the request is for Vpriv, submission of medical records (e.g., chart notes) or paid claims 
+confirming a history of failure or intolerance to BOTH of the following:  
+• 
+generic miglustat (AG [authorized generic] preferred)  
+• 
+Elelyso  
+ 
+
+
+--- PDF page 699 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 699 
+Product Name:Yargesa, Brand Zavesca, generic miglustat, miglustat (authorized generic of 
+Zavesca)  
+Diagnosis 
+Type 1 Gaucher Disease  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of mild to moderate Type 1 Gaucher disease  
+ 
+AND 
+ 
+2 - If the request is non-preferred*, submission of medical records (e.g., chart notes) or paid 
+claims confirming a history of failure or intolerance to generic miglustat (AG [authorized 
+generic] is preferred)  
+Notes  
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP 
+ 
+Product Name:Cerdelga, Elelyso, Vpriv, Yargesa, Brand Zavesca, generic miglustat, miglustat 
+(authorized generic of Zavesca)  
+Diagnosis 
+Type 1 Gaucher Disease  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+Product Name:Cerezyme  
+Diagnosis 
+Type 1 Gaucher Disease  
+
+
+--- PDF page 700 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 700 
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of Type 1 Gaucher disease that results in one or more of the following 
+conditions:  
+• 
+Anemia  
+• 
+Thrombocytopenia  
+• 
+Bone disease  
+• 
+Hepatomegaly or splenomegaly  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) or paid claims confirming a history of 
+failure or intolerance to BOTH of the following:  
+• 
+generic miglustat (AG [authorized generic] preferred)  
+• 
+Elelyso  
+ 
+Product Name:Cerezyme  
+Diagnosis 
+Type 3 Gaucher Disease  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of Type 3 Gaucher disease  
+ 
+AND 
+
+
+--- PDF page 701 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 701 
+ 
+2 - Presence of a non-central nervous system (CNS) manifestation (e.g., moderate to severe 
+anemia, thrombocytopenia, bone disease, hepatomegaly, or splenomegaly)  
+ 
+Product Name:Cerezyme  
+Diagnosis 
+Type 1 Gaucher Disease, Type 3 Gaucher Disease  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/20/2026  
+Updated guideline name. Added new criteria for Type 3 Gaucher Dis
+ease for Cerezyme. Added Yargesa as a target. Updated dx check cri
+terion and embedded step criterion in initial auth sections, where app
+licable. Updated product name lists and GPI tables. Added PDL link i
+n notes section, where applicable.  
+ 

@@ -1,0 +1,1080 @@
+--- PDF page 26 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 26 
+Adalimumab 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-541212  
+Guideline Name 
+Adalimumab  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+4/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Humira, Abrilada, Amjevita, Cyltezo, Brand Adalimumab-adbm^, Hadlima^^, 
+Brand Adalimumab-bwwd, Hulio, Brand Adalimumab-fkjp^^^, Hyrimoz, Brand Adalimumab-
+adaz, Idacio, Brand Adalimumab-aacf, Simlandi, Brand Adalimumab-ryvk, Yuflyma, Brand 
+Adalimumab-aaty, Yusimry, newly launched adalimumab products  
+Diagnosis 
+Rheumatoid Arthritis (RA)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of moderately to severely active rheumatoid arthritis (RA)  
+
+
+--- PDF page 27 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 27 
+ 
+AND 
+ 
+2 - Paid claims or submission of medical records (e.g., chart notes) documenting history of 
+failure to a 3 month trial of ONE non-biologic disease modifying anti-rheumatic drug (DMARD) 
+[e.g., methotrexate, leflunomide, sulfasalazine, hydroxychloroquine] at maximally indicated 
+doses within the last 6 months, unless contraindicated or clinically significant adverse effects 
+are experienced  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with a rheumatologist  
+ 
+AND 
+ 
+4 - If the request is non-preferred*, history of failure to ALL preferred* adalimumab biosimilars  
+Notes  
+Approval Length: 12 months. If approving a preferred adalimumab,  
+please enter the group authorization AZADALIMUM. If approving a  
+non-preferred adalimumab, please enter the following:  
+1) The group authorization AZADALIMUM  
+2) An authorization for the non-preferred adalimumab at GPI-12 level  
+ 
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP  
+ 
+^The following NDC for Brand Adalimumab-adbm is preferred: 00597
+058589.  
+The following NDCs for Brand Adalimumab-adbm are non-preferred: 0
+0597057540, 00597057550, 00597057560, 82009014422, 00597054
+522, 00597054544, 00597054566, 82009014822, 00597055580, 005
+97056520, 82009014622, 00597059520, 82009015022.  
+ 
+^^The following NDCs for Hadlima products are preferred: 782060187
+01, 78206018401, 78206018601, 78206018301.  
+The following NDCs for Hadlima products are non-preferred: 5009067
+0700, 50090670600, 50090670400, 50090670500.  
+ 
+^^^The following NDCs for Brand Adalimumab-fkjp products are prefe
+rred: 49502041602, 83257002232, 49502041702, 83257002042, 495
+02041802, 83257002142.  
+The following NDCs for Brand Adalimumab-fkjp products are non-pref
+erred: 49502041606, 49502041706, 49502041806. 
+
+
+--- PDF page 28 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 28 
+ 
+Product Name:Humira, Abrilada, Amjevita, Cyltezo, Brand Adalimumab-adbm^, Hadlima^^, 
+Brand Adalimumab-bwwd, Hulio, Brand Adalimumab-fkjp^^^, Hyrimoz, Brand Adalimumab-
+adaz, Idacio, Brand Adalimumab-aacf, Simlandi, Brand Adalimumab-ryvk, Yuflyma, Brand 
+Adalimumab-aaty, Yusimry, newly launched adalimumab products  
+Diagnosis 
+Polyarticular Juvenile Idiopathic Arthritis (PJIA)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of moderately to severely active polyarticular juvenile idiopathic arthritis (PJIA)  
+ 
+AND 
+ 
+2 - Paid claims or submission of medical records (e.g., chart notes) confirming a history of 
+failure to a minimum duration of a 6-week trial, contraindication, or intolerance to ONE of the 
+following conventional therapies at maximally tolerated doses:  
+• 
+leflunomide  
+• 
+methotrexate  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with a rheumatologist  
+ 
+AND 
+ 
+4 - If the request is non-preferred*, history of failure to ALL preferred* adalimumab biosimilars  
+Notes  
+Approval Length: 12 months. If approving a preferred adalimumab,  
+please enter the group authorization AZADALIMUM. If approving a  
+non-preferred adalimumab, please enter the following:  
+1) The group authorization AZADALIMUM  
+2) An authorization for the non-preferred adalimumab at GPI-12 level  
+ 
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+
+
+--- PDF page 29 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 29 
+CP  
+ 
+^The following NDC for Brand Adalimumab-adbm is preferred: 00597
+058589.  
+The following NDCs for Brand Adalimumab-adbm are non-preferred: 0
+0597057540, 00597057550, 00597057560, 82009014422, 00597054
+522, 00597054544, 00597054566, 82009014822, 00597055580, 005
+97056520, 82009014622, 00597059520, 82009015022.  
+ 
+^^The following NDCs for Hadlima products are preferred: 782060187
+01, 78206018401, 78206018601, 78206018301.  
+The following NDCs for Hadlima products are non-preferred: 5009067
+0700, 50090670600, 50090670400, 50090670500.  
+ 
+^^^The following NDCs for Brand Adalimumab-fkjp products are prefe
+rred: 49502041602, 83257002232, 49502041702, 83257002042, 495
+02041802, 83257002142.  
+The following NDCs for Brand Adalimumab-fkjp products are non-pref
+erred: 49502041606, 49502041706, 49502041806. 
+ 
+Product Name:Humira, Abrilada, Amjevita, Cyltezo, Brand Adalimumab-adbm^, Hadlima^^, 
+Brand Adalimumab-bwwd, Hulio, Brand Adalimumab-fkjp^^^, Hyrimoz, Brand Adalimumab-
+adaz, Idacio, Brand Adalimumab-aacf, Simlandi, Brand Adalimumab-ryvk, Yuflyma, Brand 
+Adalimumab-aaty, Yusimry, newly launched adalimumab products  
+Diagnosis 
+Ankylosing Spondylitis (AS)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of active ankylosing spondylitis (AS)  
+ 
+AND 
+ 
+2 - Paid claims or submission of medical records (e.g., chart notes) documenting history of 
+failure to TWO NSAIDs (non-steroidal anti-inflammatory drugs) (e.g., ibuprofen, naproxen) at 
+maximally indicated doses, each used for at least 4 weeks within the last 3 months, unless 
+contraindicated or clinically significant adverse effects are experienced  
+ 
+AND 
+
+
+--- PDF page 30 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 30 
+ 
+3 - Prescribed by or in consultation with a rheumatologist  
+ 
+AND 
+ 
+4 - If the request is non-preferred*, history of failure to ALL preferred* adalimumab biosimilars  
+Notes  
+Approval Length: 12 months. If approving a preferred adalimumab,  
+please enter the group authorization AZADALIMUM. If approving a  
+non-preferred adalimumab, please enter the following:  
+1) The group authorization AZADALIMUM  
+2) An authorization for the non-preferred adalimumab at GPI-12 level  
+ 
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP  
+ 
+^The following NDC for Brand Adalimumab-adbm is preferred: 00597
+058589.  
+The following NDCs for Brand Adalimumab-adbm are non-preferred: 0
+0597057540, 00597057550, 00597057560, 82009014422, 00597054
+522, 00597054544, 00597054566, 82009014822, 00597055580, 005
+97056520, 82009014622, 00597059520, 82009015022.  
+ 
+^^The following NDCs for Hadlima products are preferred: 782060187
+01, 78206018401, 78206018601, 78206018301.  
+The following NDCs for Hadlima products are non-preferred: 5009067
+0700, 50090670600, 50090670400, 50090670500.  
+ 
+^^^The following NDCs for Brand Adalimumab-fkjp products are prefe
+rred: 49502041602, 83257002232, 49502041702, 83257002042, 495
+02041802, 83257002142.  
+The following NDCs for Brand Adalimumab-fkjp products are non-pref
+erred: 49502041606, 49502041706, 49502041806. 
+ 
+Product Name:Humira, Abrilada, Amjevita, Cyltezo, Brand Adalimumab-adbm^, Hadlima^^, 
+Brand Adalimumab-bwwd, Hulio, Brand Adalimumab-fkjp^^^, Hyrimoz, Brand Adalimumab-
+adaz, Idacio, Brand Adalimumab-aacf, Simlandi, Brand Adalimumab-ryvk, Yuflyma, Brand 
+Adalimumab-aaty, Yusimry, newly launched adalimumab products  
+Diagnosis 
+Rheumatoid Arthritis (RA), Polyarticular Juvenile Idiopathic Arthritis 
+(PJIA), Ankylosing Spondylitis (AS)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 31 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 31 
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a rheumatologist  
+ 
+AND 
+ 
+3 - If the request is non-preferred*, history of failure to ALL preferred* adalimumab biosimilars  
+Notes  
+Approval Length: 12 months. If approving a preferred adalimumab,  
+please enter the group authorization AZADALIMUM. If approving a  
+non-preferred adalimumab, please enter the following:  
+1) The group authorization AZADALIMUM  
+2) An authorization for the non-preferred adalimumab at GPI-12 level  
+ 
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP  
+ 
+^The following NDC for Brand Adalimumab-adbm is preferred: 00597
+058589.  
+The following NDCs for Brand Adalimumab-adbm are non-preferred: 0
+0597057540, 00597057550, 00597057560, 82009014422, 00597054
+522, 00597054544, 00597054566, 82009014822, 00597055580, 005
+97056520, 82009014622, 00597059520, 82009015022.  
+ 
+^^The following NDCs for Hadlima products are preferred: 782060187
+01, 78206018401, 78206018601, 78206018301.  
+The following NDCs for Hadlima products are non-preferred: 5009067
+0700, 50090670600, 50090670400, 50090670500.  
+ 
+^^^The following NDCs for Brand Adalimumab-fkjp products are prefe
+rred: 49502041602, 83257002232, 49502041702, 83257002042, 495
+02041802, 83257002142.  
+The following NDCs for Brand Adalimumab-fkjp products are non-pref
+erred: 49502041606, 49502041706, 49502041806. 
+ 
+
+
+--- PDF page 32 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 32 
+Product Name:Humira, Abrilada, Amjevita, Cyltezo, Brand Adalimumab-adbm^, Hadlima^^, 
+Brand Adalimumab-bwwd, Hulio, Brand Adalimumab-fkjp^^^, Hyrimoz, Brand Adalimumab-
+adaz, Idacio, Brand Adalimumab-aacf, Simlandi, Brand Adalimumab-ryvk, Yuflyma, Brand 
+Adalimumab-aaty, Yusimry, newly launched adalimumab products  
+Diagnosis 
+Psoriatic Arthritis (PsA)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of active psoriatic arthritis (PsA)  
+ 
+AND 
+ 
+2 - Paid claims or submission of medical records (e.g., chart notes) documenting history of 
+failure to a 3 month trial of methotrexate at the maximally indicated dose within the last 6 
+months, unless contraindicated or clinically significant adverse effects are experienced  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with ONE of the following:  
+• 
+Rheumatologist  
+• 
+Dermatologist  
+ 
+AND 
+ 
+4 - If the request is non-preferred*, history of failure to ALL preferred* adalimumab biosimilars  
+Notes  
+Approval Length: 12 months. If approving a preferred adalimumab,  
+please enter the group authorization AZADALIMUM. If approving a  
+non-preferred adalimumab, please enter the following:  
+1) The group authorization AZADALIMUM  
+2) An authorization for the non-preferred adalimumab at GPI-12 level  
+ 
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP  
+ 
+
+
+--- PDF page 33 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 33 
+^The following NDC for Brand Adalimumab-adbm is preferred: 00597
+058589.  
+The following NDCs for Brand Adalimumab-adbm are non-preferred: 0
+0597057540, 00597057550, 00597057560, 82009014422, 00597054
+522, 00597054544, 00597054566, 82009014822, 00597055580, 005
+97056520, 82009014622, 00597059520, 82009015022.  
+ 
+^^The following NDCs for Hadlima products are preferred: 782060187
+01, 78206018401, 78206018601, 78206018301.  
+The following NDCs for Hadlima products are non-preferred: 5009067
+0700, 50090670600, 50090670400, 50090670500.  
+ 
+^^^The following NDCs for Brand Adalimumab-fkjp products are prefe
+rred: 49502041602, 83257002232, 49502041702, 83257002042, 495
+02041802, 83257002142.  
+The following NDCs for Brand Adalimumab-fkjp products are non-pref
+erred: 49502041606, 49502041706, 49502041806. 
+ 
+Product Name:Humira, Abrilada, Amjevita, Cyltezo, Brand Adalimumab-adbm^, Hadlima^^, 
+Brand Adalimumab-bwwd, Hulio, Brand Adalimumab-fkjp^^^, Hyrimoz, Brand Adalimumab-
+adaz, Idacio, Brand Adalimumab-aacf, Simlandi, Brand Adalimumab-ryvk, Yuflyma, Brand 
+Adalimumab-aaty, Yusimry, newly launched adalimumab products  
+Diagnosis 
+Psoriatic Arthritis (PsA)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with ONE of the following:  
+• 
+Rheumatologist  
+• 
+Dermatologist  
+ 
+AND 
+ 
+3 - If the request is non-preferred*, history of failure to ALL preferred* adalimumab biosimilars  
+
+
+--- PDF page 34 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 34 
+Notes  
+Approval Length: 12 months. If approving a preferred adalimumab,  
+please enter the group authorization AZADALIMUM. If approving a  
+non-preferred adalimumab, please enter the following:  
+1) The group authorization AZADALIMUM  
+2) An authorization for the non-preferred adalimumab at GPI-12 level  
+ 
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP  
+ 
+^The following NDC for Brand Adalimumab-adbm is preferred: 00597
+058589.  
+The following NDCs for Brand Adalimumab-adbm are non-preferred: 0
+0597057540, 00597057550, 00597057560, 82009014422, 00597054
+522, 00597054544, 00597054566, 82009014822, 00597055580, 005
+97056520, 82009014622, 00597059520, 82009015022.  
+ 
+^^The following NDCs for Hadlima products are preferred: 782060187
+01, 78206018401, 78206018601, 78206018301.  
+The following NDCs for Hadlima products are non-preferred: 5009067
+0700, 50090670600, 50090670400, 50090670500.  
+ 
+^^^The following NDCs for Brand Adalimumab-fkjp products are prefe
+rred: 49502041602, 83257002232, 49502041702, 83257002042, 495
+02041802, 83257002142.  
+The following NDCs for Brand Adalimumab-fkjp products are non-pref
+erred: 49502041606, 49502041706, 49502041806. 
+ 
+Product Name:Humira, Abrilada, Amjevita, Cyltezo, Brand Adalimumab-adbm^, Hadlima^^, 
+Brand Adalimumab-bwwd, Hulio, Brand Adalimumab-fkjp^^^, Hyrimoz, Brand Adalimumab-
+adaz, Idacio, Brand Adalimumab-aacf, Simlandi, Brand Adalimumab-ryvk, Yuflyma, Brand 
+Adalimumab-aaty, Yusimry, newly launched adalimumab products  
+Diagnosis 
+Plaque Psoriasis (PsO)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of moderate to severe chronic plaque psoriasis (PsO)  
+ 
+AND 
+
+
+--- PDF page 35 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 35 
+ 
+2 - Greater than or equal to 3% body surface area involvement, palmoplantar, facial, or genital 
+involvement, or severe scalp psoriasis  
+ 
+AND 
+ 
+3 - BOTH of the following:  
+ 
+ 3.1 Paid claims or submission of medical records (e.g., chart notes) documenting history of 
+failure to ONE of the following topical therapies, unless contraindicated or clinically significant 
+adverse effects are experienced:  
+• 
+Corticosteroids (e.g., betamethasone, clobetasol, desonide)  
+• 
+Vitamin D analogs (e.g., calcitriol, calcipotriene)  
+• 
+Tazarotene  
+• 
+Calcineurin inhibitors (e.g., tacrolimus, pimecrolimus)  
+• 
+Vtama  
+• 
+Zoryve 0.3% cream  
+ 
+AND 
+ 
+ 3.2 Paid claims or submission of medical records (e.g., chart notes) documenting history of 
+failure to a 3 month trial of methotrexate at the maximally indicated dose within the last 6 
+months, unless contraindicated or clinically significant adverse effects are experienced  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with a dermatologist  
+ 
+AND 
+ 
+5 - If the request is non-preferred*, history of failure to ALL preferred* adalimumab biosimilars  
+Notes  
+Approval Length: 12 months. If approving a preferred adalimumab,  
+please enter the group authorization AZADALIMUM. If approving a  
+non-preferred adalimumab, please enter the following:  
+1) The group authorization AZADALIMUM  
+2) An authorization for the non-preferred adalimumab at GPI-12 level  
+ 
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP  
+
+
+--- PDF page 36 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 36 
+ 
+^The following NDC for Brand Adalimumab-adbm is preferred: 00597
+058589.  
+The following NDCs for Brand Adalimumab-adbm are non-preferred: 0
+0597057540, 00597057550, 00597057560, 82009014422, 00597054
+522, 00597054544, 00597054566, 82009014822, 00597055580, 005
+97056520, 82009014622, 00597059520, 82009015022.  
+ 
+^^The following NDCs for Hadlima products are preferred: 782060187
+01, 78206018401, 78206018601, 78206018301.  
+The following NDCs for Hadlima products are non-preferred: 5009067
+0700, 50090670600, 50090670400, 50090670500.  
+ 
+^^^The following NDCs for Brand Adalimumab-fkjp products are prefe
+rred: 49502041602, 83257002232, 49502041702, 83257002042, 495
+02041802, 83257002142.  
+The following NDCs for Brand Adalimumab-fkjp products are non-pref
+erred: 49502041606, 49502041706, 49502041806. 
+ 
+Product Name:Humira, Abrilada, Amjevita, Cyltezo, Brand Adalimumab-adbm^, Hadlima^^, 
+Brand Adalimumab-bwwd, Hulio, Brand Adalimumab-fkjp^^^, Hyrimoz, Brand Adalimumab-
+adaz, Idacio, Brand Adalimumab-aacf, Simlandi, Brand Adalimumab-ryvk, Yuflyma, Brand 
+Adalimumab-aaty, Yusimry, newly launched adalimumab products  
+Diagnosis 
+Hidradenitis Suppurativa (HS)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of moderate to severe hidradenitis suppurativa (HS) (i.e., Hurley Stage II or III)  
+ 
+AND 
+ 
+2 - Paid claims or submission of medical records (e.g., chart notes) documenting history of 
+failure to at least ONE oral antibiotic (e.g., doxycycline, clindamycin, rifampin) at maximally 
+indicated doses within the last 3 months, unless contraindicated or clinically significant 
+adverse effects are experienced  
+ 
+AND 
+
+
+--- PDF page 37 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 37 
+ 
+3 - Prescribed by or in consultation with a dermatologist  
+ 
+AND 
+ 
+4 - If the request is non-preferred*, history of failure to ALL preferred* adalimumab biosimilars  
+Notes  
+Approval Length: 12 months. If approving a preferred adalimumab,  
+please enter the group authorization AZADALIMUM. If approving a  
+non-preferred adalimumab, please enter the following:  
+1) The group authorization AZADALIMUM  
+2) An authorization for the non-preferred adalimumab at GPI-12 level  
+ 
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP  
+ 
+^The following NDC for Brand Adalimumab-adbm is preferred: 00597
+058589.  
+The following NDCs for Brand Adalimumab-adbm are non-preferred: 0
+0597057540, 00597057550, 00597057560, 82009014422, 00597054
+522, 00597054544, 00597054566, 82009014822, 00597055580, 005
+97056520, 82009014622, 00597059520, 82009015022.  
+ 
+^^The following NDCs for Hadlima products are preferred: 782060187
+01, 78206018401, 78206018601, 78206018301.  
+The following NDCs for Hadlima products are non-preferred: 5009067
+0700, 50090670600, 50090670400, 50090670500.  
+ 
+^^^The following NDCs for Brand Adalimumab-fkjp products are prefe
+rred: 49502041602, 83257002232, 49502041702, 83257002042, 495
+02041802, 83257002142.  
+The following NDCs for Brand Adalimumab-fkjp products are non-pref
+erred: 49502041606, 49502041706, 49502041806. 
+ 
+Product Name:Humira, Abrilada, Amjevita, Cyltezo, Brand Adalimumab-adbm^, Hadlima^^, 
+Brand Adalimumab-bwwd, Hulio, Brand Adalimumab-fkjp^^^, Hyrimoz, Brand Adalimumab-
+adaz, Idacio, Brand Adalimumab-aacf, Simlandi, Brand Adalimumab-ryvk, Yuflyma, Brand 
+Adalimumab-aaty, Yusimry, newly launched adalimumab products  
+Diagnosis 
+Plaque Psoriasis (PsO), Hidradenitis Suppurativa (HS)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 38 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 38 
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a dermatologist  
+ 
+AND 
+ 
+3 - If the request is non-preferred*, history of failure to ALL preferred* adalimumab biosimilars  
+Notes  
+Approval Length: 12 months. If approving a preferred adalimumab,  
+please enter the group authorization AZADALIMUM. If approving a  
+non-preferred adalimumab, please enter the following:  
+1) The group authorization AZADALIMUM  
+2) An authorization for the non-preferred adalimumab at GPI-12 level  
+ 
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP  
+ 
+^The following NDC for Brand Adalimumab-adbm is preferred: 00597
+058589.  
+The following NDCs for Brand Adalimumab-adbm are non-preferred: 0
+0597057540, 00597057550, 00597057560, 82009014422, 00597054
+522, 00597054544, 00597054566, 82009014822, 00597055580, 005
+97056520, 82009014622, 00597059520, 82009015022.  
+ 
+^^The following NDCs for Hadlima products are preferred: 782060187
+01, 78206018401, 78206018601, 78206018301.  
+The following NDCs for Hadlima products are non-preferred: 5009067
+0700, 50090670600, 50090670400, 50090670500.  
+ 
+^^^The following NDCs for Brand Adalimumab-fkjp products are prefe
+rred: 49502041602, 83257002232, 49502041702, 83257002042, 495
+02041802, 83257002142.  
+The following NDCs for Brand Adalimumab-fkjp products are non-pref
+erred: 49502041606, 49502041706, 49502041806. 
+ 
+
+
+--- PDF page 39 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 39 
+Product Name:Humira, Abrilada, Amjevita, Cyltezo, Brand Adalimumab-adbm^, Hadlima^^, 
+Brand Adalimumab-bwwd, Hulio, Brand Adalimumab-fkjp^^^, Hyrimoz, Brand Adalimumab-
+adaz, Idacio, Brand Adalimumab-aacf, Simlandi, Brand Adalimumab-ryvk, Yuflyma, Brand 
+Adalimumab-aaty, Yusimry, newly launched adalimumab products  
+Diagnosis 
+Adult Crohn’s Disease (CD)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of moderately to severely active Crohn’s disease (CD)  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 Paid claims or submission of medical records (e.g., chart notes) documenting history of 
+failure to ONE of the following conventional therapies at maximally indicated doses within the 
+last 3 months, unless contraindicated or clinically significant adverse effects are experienced:  
+• 
+Corticosteroids (e.g., prednisone, methylprednisolone, budesonide)  
+• 
+Azathioprine (Imuran)  
+• 
+6-mercaptopurine (Purinethol)  
+• 
+Methotrexate (Rheumatrex, Trexall)  
+ 
+OR 
+ 
+ 2.2 Patient has lost response or intolerant to infliximab (e.g., Remicade, Inflectra, Renflexis)  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with a gastroenterologist  
+ 
+AND 
+ 
+4 - If the request is non-preferred*, history of failure to ALL preferred* adalimumab biosimilars  
+
+
+--- PDF page 40 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 40 
+Notes  
+Approval Length: 12 months. If approving a preferred adalimumab,  
+please enter the group authorization AZADALIMUM. If approving a  
+non-preferred adalimumab, please enter the following:  
+1) The group authorization AZADALIMUM  
+2) An authorization for the non-preferred adalimumab at GPI-12 level  
+ 
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP  
+ 
+^The following NDC for Brand Adalimumab-adbm is preferred: 00597
+058589.  
+The following NDCs for Brand Adalimumab-adbm are non-preferred: 0
+0597057540, 00597057550, 00597057560, 82009014422, 00597054
+522, 00597054544, 00597054566, 82009014822, 00597055580, 005
+97056520, 82009014622, 00597059520, 82009015022.  
+ 
+^^The following NDCs for Hadlima products are preferred: 782060187
+01, 78206018401, 78206018601, 78206018301.  
+The following NDCs for Hadlima products are non-preferred: 5009067
+0700, 50090670600, 50090670400, 50090670500.  
+ 
+^^^The following NDCs for Brand Adalimumab-fkjp products are prefe
+rred: 49502041602, 83257002232, 49502041702, 83257002042, 495
+02041802, 83257002142.  
+The following NDCs for Brand Adalimumab-fkjp products are non-pref
+erred: 49502041606, 49502041706, 49502041806. 
+ 
+Product Name:Humira, Abrilada, Amjevita, Cyltezo, Brand Adalimumab-adbm^, Hadlima^^, 
+Brand Adalimumab-bwwd, Hulio, Brand Adalimumab-fkjp^^^, Hyrimoz, Brand Adalimumab-
+adaz, Idacio, Brand Adalimumab-aacf, Simlandi, Brand Adalimumab-ryvk, Yuflyma, Brand 
+Adalimumab-aaty, Yusimry, newly launched adalimumab products  
+Diagnosis 
+Pediatric Crohn’s Disease (CD)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of moderately to severely active Crohn’s disease (CD)  
+ 
+AND 
+
+
+--- PDF page 41 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 41 
+ 
+2 - Paid claims or submission of medical records (e.g., chart notes) documenting history of 
+failure to ONE of the following conventional therapies at maximally indicated doses within the 
+last 3 months, unless contraindicated or clinically significant adverse effects are experienced:  
+• 
+Corticosteroids (e.g., prednisone, methylprednisolone, budesonide)  
+• 
+Azathioprine (Imuran)  
+• 
+6-mercaptopurine (Purinethol)  
+• 
+Methotrexate (Rheumatrex, Trexall)  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with a gastroenterologist  
+ 
+AND 
+ 
+4 - If the request is non-preferred*, history of failure to ALL preferred* adalimumab biosimilars  
+Notes  
+Approval Length: 12 months. If approving a preferred adalimumab,  
+please enter the group authorization AZADALIMUM. If approving a  
+non-preferred adalimumab, please enter the following:  
+1) The group authorization AZADALIMUM  
+2) An authorization for the non-preferred adalimumab at GPI-12 level  
+ 
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP  
+ 
+^The following NDC for Brand Adalimumab-adbm is preferred: 00597
+058589.  
+The following NDCs for Brand Adalimumab-adbm are non-preferred: 0
+0597057540, 00597057550, 00597057560, 82009014422, 00597054
+522, 00597054544, 00597054566, 82009014822, 00597055580, 005
+97056520, 82009014622, 00597059520, 82009015022.  
+ 
+^^The following NDCs for Hadlima products are preferred: 782060187
+01, 78206018401, 78206018601, 78206018301.  
+The following NDCs for Hadlima products are non-preferred: 5009067
+0700, 50090670600, 50090670400, 50090670500.  
+ 
+^^^The following NDCs for Brand Adalimumab-fkjp products are prefe
+rred: 49502041602, 83257002232, 49502041702, 83257002042, 495
+02041802, 83257002142.  
+The following NDCs for Brand Adalimumab-fkjp products are non-pref
+erred: 49502041606, 49502041706, 49502041806. 
+ 
+
+
+--- PDF page 42 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 42 
+Product Name:Humira, Abrilada, Amjevita, Cyltezo, Brand Adalimumab-adbm^, Hadlima^^, 
+Brand Adalimumab-bwwd, Hulio, Brand Adalimumab-fkjp^^^, Hyrimoz, Brand Adalimumab-
+adaz, Idacio, Brand Adalimumab-aacf, Simlandi, Brand Adalimumab-ryvk, Yuflyma, Brand 
+Adalimumab-aaty, Yusimry, newly launched adalimumab products  
+Diagnosis 
+Ulcerative Colitis (UC)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of moderately to severely active ulcerative colitis (UC)  
+ 
+AND 
+ 
+2 - Paid claims or submission of medical records (e.g., chart notes) documenting history of 
+failure to ONE of the following conventional therapies at maximally indicated doses within the 
+last 3 months, unless contraindicated or clinically significant adverse effects are experienced:  
+• 
+Corticosteroids (e.g., prednisone, methylprednisolone, budesonide)  
+• 
+6-mercaptopurine (Purinethol)  
+• 
+Azathioprine (Imuran)  
+• 
+Aminosalicylates (e.g., mesalamine, sulfasalazine)  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with a gastroenterologist  
+ 
+AND 
+ 
+4 - If the request is non-preferred*, history of failure to ALL preferred* adalimumab biosimilars  
+Notes  
+Approval Length: 12 months. If approving a preferred adalimumab,  
+please enter the group authorization AZADALIMUM. If approving a  
+non-preferred adalimumab, please enter the following:  
+1) The group authorization AZADALIMUM  
+2) An authorization for the non-preferred adalimumab at GPI-12 level  
+ 
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+
+
+--- PDF page 43 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 43 
+CP  
+ 
+^The following NDC for Brand Adalimumab-adbm is preferred: 00597
+058589.  
+The following NDCs for Brand Adalimumab-adbm are non-preferred: 0
+0597057540, 00597057550, 00597057560, 82009014422, 00597054
+522, 00597054544, 00597054566, 82009014822, 00597055580, 005
+97056520, 82009014622, 00597059520, 82009015022.  
+ 
+^^The following NDCs for Hadlima products are preferred: 782060187
+01, 78206018401, 78206018601, 78206018301.  
+The following NDCs for Hadlima products are non-preferred: 5009067
+0700, 50090670600, 50090670400, 50090670500.  
+ 
+^^^The following NDCs for Brand Adalimumab-fkjp products are prefe
+rred: 49502041602, 83257002232, 49502041702, 83257002042, 495
+02041802, 83257002142.  
+The following NDCs for Brand Adalimumab-fkjp products are non-pref
+erred: 49502041606, 49502041706, 49502041806. 
+ 
+Product Name:Humira, Abrilada, Amjevita, Cyltezo, Brand Adalimumab-adbm^, Hadlima^^, 
+Brand Adalimumab-bwwd, Hulio, Brand Adalimumab-fkjp^^^, Hyrimoz, Brand Adalimumab-
+adaz, Idacio, Brand Adalimumab-aacf, Simlandi, Brand Adalimumab-ryvk, Yuflyma, Brand 
+Adalimumab-aaty, Yusimry, newly launched adalimumab products  
+Diagnosis 
+Adult Crohn’s Disease (CD), Pediatric Crohn’s Disease (CD), 
+Ulcerative Colitis (UC)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a gastroenterologist  
+ 
+AND 
+ 
+3 - If the request is non-preferred*, history of failure to ALL preferred* adalimumab biosimilars  
+
+
+--- PDF page 44 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 44 
+Notes  
+Approval Length: 12 months. If approving a preferred adalimumab,  
+please enter the group authorization AZADALIMUM. If approving a  
+non-preferred adalimumab, please enter the following:  
+1) The group authorization AZADALIMUM  
+2) An authorization for the non-preferred adalimumab at GPI-12 level  
+ 
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP  
+ 
+^The following NDC for Brand Adalimumab-adbm is preferred: 00597
+058589.  
+The following NDCs for Brand Adalimumab-adbm are non-preferred: 0
+0597057540, 00597057550, 00597057560, 82009014422, 00597054
+522, 00597054544, 00597054566, 82009014822, 00597055580, 005
+97056520, 82009014622, 00597059520, 82009015022.  
+ 
+^^The following NDCs for Hadlima products are preferred: 782060187
+01, 78206018401, 78206018601, 78206018301.  
+The following NDCs for Hadlima products are non-preferred: 5009067
+0700, 50090670600, 50090670400, 50090670500.  
+ 
+^^^The following NDCs for Brand Adalimumab-fkjp products are prefe
+rred: 49502041602, 83257002232, 49502041702, 83257002042, 495
+02041802, 83257002142.  
+The following NDCs for Brand Adalimumab-fkjp products are non-pref
+erred: 49502041606, 49502041706, 49502041806. 
+ 
+Product Name:Humira, Abrilada, Amjevita, Cyltezo, Brand Adalimumab-adbm^, Hadlima^^, 
+Brand Adalimumab-bwwd, Hulio, Brand Adalimumab-fkjp^^^, Hyrimoz, Brand Adalimumab-
+adaz, Idacio, Brand Adalimumab-aacf, Simlandi, Brand Adalimumab-ryvk, Yuflyma, Brand 
+Adalimumab-aaty, Yusimry, newly launched adalimumab products  
+Diagnosis 
+Uveitis (UV)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of non-infectious uveitis (UV)  
+ 
+AND 
+
+
+--- PDF page 45 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 45 
+ 
+2 - Uveitis is classified as ONE of the following:  
+• 
+intermediate  
+• 
+posterior  
+• 
+panuveitis  
+ 
+AND 
+ 
+3 - Paid claims or submission of medical records (e.g., chart notes) documenting history of 
+failure to at least ONE corticosteroid (e.g., prednisolone, prednisone) at maximally indicated 
+dose within the last 3 months, unless contraindicated or clinically significant adverse effects 
+are experienced  
+ 
+AND 
+ 
+4 - Paid claims or submission of medical records (e.g., chart notes) documenting history of 
+failure to at least ONE systemic non-biologic immunosuppressant (e.g., methotrexate, 
+cyclosporine, azathioprine, mycophenolate) at a maximally indicated dose within the last 3 
+months, unless contraindicated or clinically significant adverse effects are experienced  
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with ONE of the following:  
+• 
+Rheumatologist  
+• 
+Ophthalmologist  
+ 
+AND 
+ 
+6 - If the request is non-preferred*, history of failure to ALL preferred* adalimumab biosimilars  
+Notes  
+Approval Length: 12 months. If approving a preferred adalimumab,  
+please enter the group authorization AZADALIMUM. If approving a  
+non-preferred adalimumab, please enter the following:  
+1) The group authorization AZADALIMUM  
+2) An authorization for the non-preferred adalimumab at GPI-12 level  
+ 
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP  
+
+
+--- PDF page 46 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 46 
+ 
+^The following NDC for Brand Adalimumab-adbm is preferred: 00597
+058589.  
+The following NDCs for Brand Adalimumab-adbm are non-preferred: 0
+0597057540, 00597057550, 00597057560, 82009014422, 00597054
+522, 00597054544, 00597054566, 82009014822, 00597055580, 005
+97056520, 82009014622, 00597059520, 82009015022.  
+ 
+^^The following NDCs for Hadlima products are preferred: 782060187
+01, 78206018401, 78206018601, 78206018301.  
+The following NDCs for Hadlima products are non-preferred: 5009067
+0700, 50090670600, 50090670400, 50090670500.  
+ 
+^^^The following NDCs for Brand Adalimumab-fkjp products are prefe
+rred: 49502041602, 83257002232, 49502041702, 83257002042, 495
+02041802, 83257002142.  
+The following NDCs for Brand Adalimumab-fkjp products are non-pref
+erred: 49502041606, 49502041706, 49502041806. 
+ 
+Product Name:Humira, Abrilada, Amjevita, Cyltezo, Brand Adalimumab-adbm^, Hadlima^^, 
+Brand Adalimumab-bwwd, Hulio, Brand Adalimumab-fkjp^^^, Hyrimoz, Brand Adalimumab-
+adaz, Idacio, Brand Adalimumab-aacf, Simlandi, Brand Adalimumab-ryvk, Yuflyma, Brand 
+Adalimumab-aaty, Yusimry, newly launched adalimumab products  
+Diagnosis 
+Uveitis (UV)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with ONE of the following:  
+• 
+Rheumatologist  
+• 
+Ophthalmologist  
+ 
+AND 
+
+
+--- PDF page 47 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 47 
+ 
+3 - If the request is non-preferred*, history of failure to ALL preferred* adalimumab biosimilars  
+Notes  
+Approval Length: 12 months. If approving a preferred adalimumab,  
+please enter the group authorization AZADALIMUM. If approving a  
+non-preferred adalimumab, please enter the following:  
+1) The group authorization AZADALIMUM  
+2) An authorization for the non-preferred adalimumab at GPI-12 level  
+ 
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP  
+ 
+^The following NDC for Brand Adalimumab-adbm is preferred: 00597
+058589.  
+The following NDCs for Brand Adalimumab-adbm are non-preferred: 0
+0597057540, 00597057550, 00597057560, 82009014422, 00597054
+522, 00597054544, 00597054566, 82009014822, 00597055580, 005
+97056520, 82009014622, 00597059520, 82009015022.  
+ 
+^^The following NDCs for Hadlima products are preferred: 782060187
+01, 78206018401, 78206018601, 78206018301.  
+The following NDCs for Hadlima products are non-preferred: 5009067
+0700, 50090670600, 50090670400, 50090670500.  
+ 
+^^^The following NDCs for Brand Adalimumab-fkjp products are prefe
+rred: 49502041602, 83257002232, 49502041702, 83257002042, 495
+02041802, 83257002142.  
+The following NDCs for Brand Adalimumab-fkjp products are non-pref
+erred: 49502041606, 49502041706, 49502041806. 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/4/2026  
+Added new GPI for Adalimumab-ryvk 80mg/0.8mL auto-injector as a 
+target. No changes to clinical criteria.  
+ 

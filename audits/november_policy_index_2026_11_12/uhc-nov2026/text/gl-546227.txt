@@ -1,0 +1,208 @@
+--- PDF page 801 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 801 
+Hereditary Angioedema (HAE) Agents 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-546227  
+Guideline Name 
+Hereditary Angioedema (HAE) Agents  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+4/12/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Andembry, Cinryze, Dawnzera, Haegarda, Orladeyo, Takhzyro  
+Diagnosis 
+Prophylaxis of HAE attacks  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting diagnosis of hereditary 
+angioedema (HAE) confirmed by ONE of the following:  
+ 
+ 1.1 C1 inhibitor (C1-INH) deficiency or dysfunction (Type I or II HAE) as documented by ONE 
+of the following (per laboratory standard):  
+
+
+--- PDF page 802 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 802 
+• 
+C1-INH antigenic level below the lower limit of normal  
+• 
+C1-INH functional level below the lower limit of normal  
+ 
+OR 
+ 
+ 1.2 HAE with normal C1 inhibitor levels and ONE of the following:  
+• 
+Confirmed presence of a FXII (factor XII), angiopoietin-1, or plasminogen gene 
+mutation  
+• 
+Recurring angioedema attacks that are refractory to high-dose antihistamines with 
+confirmed family history of angioedema  
+ 
+AND 
+ 
+2 - For prophylaxis against HAE attacks  
+ 
+AND 
+ 
+3 - ONE of the following:  
+• 
+If the request is for Orladeyo pellets or Takhzyro, patient is 2 years of age or older  
+• 
+If the request is for Cinryze or Haegarda, patient is 6 years of age or older  
+• 
+If the request is for Andembry, Dawnzera, or Orladeyo capsules, patient is 12 years of 
+age or older  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with ONE of the following:  
+• 
+Immunologist  
+• 
+Allergist  
+ 
+AND 
+ 
+5 - If the request is for Andembry, Dawnzera, Orladeyo, or Takhzyro, ONE of the following:  
+ 
+ 5.1 Submission of medical records documenting a history of failure, contraindication, or 
+intolerance to Cinryze or Haegarda  
+
+
+--- PDF page 803 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 803 
+ 
+OR 
+ 
+ 5.2 Submission of medical records documenting that the patient is currently on Andembry, 
+Dawnzera, Orladeyo, or Takhzyro therapy  
+Notes  
+Please note: Preferred agents are Cinryze and Haegarda. 
+ 
+Product Name:Berinert, Cinryze (off-label), Ekterly, Brand Firazyr, generic icatibant, Kalbitor, 
+Ruconest, Sajazir  
+Diagnosis 
+Treatment of acute HAE attacks  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting diagnosis of hereditary 
+angioedema (HAE) confirmed by ONE of the following:  
+ 
+ 1.1 C1 inhibitor (C1-INH) deficiency or dysfunction (Type I or II HAE) as documented by ONE 
+of the following (per laboratory standard):  
+• 
+C1-INH antigenic level below the lower limit of normal  
+• 
+C1-INH functional level below the lower limit of normal  
+ 
+OR 
+ 
+ 1.2 HAE with normal C1 inhibitor levels and ONE of the following:  
+• 
+Confirmed presence of a FXII, angiopoietin-1, or plasminogen gene mutation  
+• 
+Recurring angioedema attacks that are refractory to high-dose antihistamines with 
+confirmed family history of angioedema  
+ 
+AND 
+ 
+2 - For the treatment of acute HAE attacks  
+
+
+--- PDF page 804 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 804 
+ 
+AND 
+ 
+3 - NOT used in combination with other approved treatments for acute HAE attacks  
+ 
+AND 
+ 
+4 - ONE of the following:  
+• 
+If the request is for Cinryze, patient is 6 years of age or older  
+• 
+If the request is for Ekterly or Kalbitor, patient is 12 years of age or older  
+• 
+If the request is for Brand Firazyr, generic icatibant, or Sajazir, patient is 18 years of 
+age or older  
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with ONE of the following:  
+• 
+Immunologist  
+• 
+Allergist  
+ 
+AND 
+ 
+6 - If the request is for Ekterly, Brand Firazyr, Ruconest, or Sajazir, ONE of the following:  
+ 
+ 6.1 Submission of medical records documenting a history of failure, contraindication, or 
+intolerance to ALL of the following preferred HAE agents:  
+• 
+Berinert  
+• 
+Cinryze  
+• 
+generic icatibant  
+• 
+Kalbitor  
+ 
+OR 
+ 
+ 6.2 Submission of medical records or paid claims documenting that the patient is currently on 
+Ekterly, Brand Firazyr, Ruconest, or Sajazir therapy  
+
+
+--- PDF page 805 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 805 
+Notes  
+Please note: Preferred HAE agents are Berinert, Cinryze, generic icati
+bant, and Kalbitor. 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/12/2026  
+Added GPIs for Orladeyo pellet formulation as targets. Updated age 
+criterion to specify Oraldeyo pellets applies to 2 years or older and O
+rladeyo capsules applies to 12 years or older. Updated embedded st
+ep criterion to reflect Haegarda moving to preferred status. Updated 
+notes section, where applicable.  
+ 
