@@ -1,0 +1,63 @@
+--- PDF page 1512 ---
+Page 1512 
+Rezzayo (rezafungin) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-700348  
+Guideline Name 
+Rezzayo (rezafungin)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Rezzayo  
+Approval Length 
+1 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a diagnosis of candidemia 
+or invasive candidiasis with limited or no alternative options  
+ 
+AND 
+
+
+--- PDF page 1513 ---
+Page 1513 
+ 
+2 - Patient is 12 years of age or older  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) or paid pharmacy claims confirming trial 
+and failure, contraindication or intolerance to one of the following:  
+• 
+generic caspofungin  
+• 
+generic micafungin  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/26/2026  
+Updated age criterion due to expanded indication  
+ 

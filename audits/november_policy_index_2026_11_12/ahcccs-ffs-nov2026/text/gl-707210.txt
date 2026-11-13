@@ -1,0 +1,754 @@
+--- PDF page 1182 ---
+Page 1182 
+Monoclonal Antibody Agents for Alzheimer's Disease 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-707210  
+Guideline Name 
+Monoclonal Antibody Agents for Alzheimer's Disease  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Aduhelm  
+Diagnosis 
+Alzheimer's Disease  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Both of the following:  
+ 
+ 1.1 Based on the National Institute on Aging and the Alzheimer's Association (NIA-AA) 
+criteria, one of the following:  
+
+
+--- PDF page 1183 ---
+Page 1183 
+• 
+Diagnosis of mild cognitive impairment due to Alzheimer's disease  
+• 
+Diagnosis of probable Alzheimer's disease dementia  
+ 
+AND 
+ 
+ 1.2 Submission of medical records (e.g., chart notes) confirming both of the following:  
+• 
+Clinical Dementia Rating-Global (CDR-G) score of 0.5 or Clinical Dementia Rating 
+Sum of Boxes (CDR-SB) score of 0.5-4  
+• 
+Mini-Mental State Examination score of 24-30  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) confirming the presence of beta-amyloid 
+protein deposition, as evidenced by one of the following:  
+ 
+ 2.1 Positive amyloid positron emission tomography (PET) scan  
+ 
+OR 
+ 
+ 2.2 Both of the following:  
+• 
+Attestation that the patient does not have access to amyloid PET scanning  
+• 
+Cerebrospinal fluid (CSF) biomarker or blood testing documents abnormalities 
+suggestive of beta-amyloid accumulation (e.g., Aβ42 level, Aβ42:Aβ40 ratio)  
+ 
+AND 
+ 
+3 - Provider attests that the patient's ApoE e4 carrier status is known prior to initiating 
+treatment and a shared decision-making conversation regarding the results has been 
+completed  
+ 
+AND 
+ 
+4 - Other differential diagnoses (e.g., dementia with Lewy bodies (DLB), frontotemporal 
+dementia (FTD), vascular dementia, pseudodementia due to mood disorder, vitamin B12 
+deficiency, encephalopathy, etc.) have been ruled out  
+
+
+--- PDF page 1184 ---
+Page 1184 
+ 
+AND 
+ 
+5 - Both of the following:  
+• 
+Patient is not currently taking an anticoagulant or antiplatelet agent (unless aspirin 325 
+mg/day or less)  
+• 
+Patient has no history of transient ischemic attack (TIA) or stroke within previous year 
+prior to initiating treatment  
+ 
+AND 
+ 
+6 - Counseling has been provided on the risk of amyloid-related imaging abnormalities (ARIA-
+E and ARIA-H) and patient and/or caregiver are aware to monitor for headache, dizziness, 
+visual disturbances, nausea, and vomiting  
+ 
+AND 
+ 
+7 - Submission of medical records (e.g., chart notes) confirming a baseline brain magnetic 
+resonance imaging (MRI) has been completed within 12 months prior to initiating treatment  
+ 
+AND 
+ 
+8 - Not used in combination with other Aβ monoclonal antibodies (mAbs) for Alzheimer's 
+Disease (e.g., Leqembi)  
+ 
+AND 
+ 
+9 - Prescribed by a neurologist, geriatrician, or geriatric psychiatrist  
+ 
+Product Name:Aduhelm  
+Diagnosis 
+Alzheimer's Disease  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 1185 ---
+Page 1185 
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient is benefitting from therapy as defined by both of the following:  
+ 
+ 1.1 Based on the National Institute on Aging and the Alzheimer's Association (NIA-AA) 
+criteria, one of the following:  
+• 
+Patient continues to have a diagnosis of mild cognitive impairment due to Alzheimer's 
+disease  
+• 
+Patient continues to have a diagnosis of probable Alzheimer's disease dementia  
+ 
+AND 
+ 
+ 1.2 Submission of medical records (e.g., chart notes) confirming both of the following:  
+• 
+Clinical Dementia Rating-Global (CDR-G) score of 0.5 or Clinical Dementia Rating 
+Sum of Boxes (CDR-SB) score of 0.5-4  
+• 
+Mini-Mental State Examination score of 24-30  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) confirming follow-up brain magnetic 
+resonance imaging (MRI) has been completed after the initiation of therapy prior to the 5th 
+infusion treatment to show one of the following:  
+ 
+ 2.1 Both of the following:  
+• 
+Less than 10 new incident microhemorrhages  
+• 
+2 or less focal areas of superficial siderosis  
+ 
+OR 
+ 
+ 2.2 If 10 or more new incident microhemorrhages or greater than 2 focal areas of superficial 
+siderosis are present then both of the following:  
+• 
+Patient has been clinically evaluated for ARIA related signs or symptoms (e.g., 
+dizziness, visual disturbances)  
+• 
+Follow-up MRI demonstrates radiographic stabilization (i.e., no increase in size or 
+number of ARIA-H)  
+
+
+--- PDF page 1186 ---
+Page 1186 
+ 
+AND 
+ 
+3 - Not used in combination with other Aβ monoclonal antibodies (mAbs) for Alzheimer's 
+Disease (e.g., Leqembi)  
+ 
+AND 
+ 
+4 - Prescribed by a neurologist, geriatrician, or geriatric psychiatrist  
+ 
+Product Name:Kisunla  
+Diagnosis 
+Alzheimer's Disease  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Both of the following:  
+ 
+ 1.1 Diagnosis of one of the following, based on the National Institute on Aging and the 
+Alzheimer's Association (NIA-AA) criteria:  
+• 
+Mild cognitive impairment due to Alzheimer's disease  
+• 
+Mild dementia due to Alzheimer's disease  
+ 
+AND 
+ 
+ 1.2 Submission of medical records (e.g., chart notes) confirming Mini-Mental State 
+Examination score of 20-28  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) confirming the presence of beta-amyloid 
+protein deposition, as evidenced by one of the following:  
+
+
+--- PDF page 1187 ---
+Page 1187 
+• 
+Positive amyloid positron emission tomography (PET) scan  
+• 
+Attestation that patient does not have access to amyloid PET scanning and 
+cerebrospinal fluid (CSF) biomarker testing documents abnormalities suggestive of 
+beta-amyloid accumulation (e.g., Aβ42 level, Aβ42:Aβ40 ratio, Tau, p-Tau)  
+ 
+AND 
+ 
+3 - Both of the following:  
+• 
+Provider attests that testing regarding the patient's ApoE e4 carrier status has been 
+performed prior to initiating treatment  
+• 
+Prior to testing, a shared decision-making conversation has occurred, regarding the 
+risk of amyloid-related imaging abnormalities (ARIA), across genotypes, and the 
+implications of genetic testing results  
+ 
+AND 
+ 
+4 - Submission of medical records (e.g., chart notes) confirming a baseline brain magnetic 
+resonance imaging (MRI) has been completed within 12 months prior to initiating treatment  
+ 
+AND 
+ 
+5 - Other differential diagnoses (e.g., dementia with Lewy bodies (DLB), frontotemporal 
+dementia (FTD), vascular dementia, pseudodementia due to mood disorder, vitamin B12 
+deficiency, encephalopathy) have been ruled out  
+ 
+AND 
+ 
+6 - Both of the following:  
+• 
+Patient is not currently taking an anticoagulant (e.g., warfarin, dabigatran)  
+• 
+Patient has no history of intracerebral hemorrhage (e.g., transient ischemic attack 
+[TIA], stroke) prior to initiating treatment  
+ 
+AND 
+ 
+7 - Not used in combination with other Aβ monoclonal antibodies (mAbs) for Alzheimer's 
+Disease (e.g., Aduhelm, Leqembi)  
+
+
+--- PDF page 1188 ---
+Page 1188 
+ 
+AND 
+ 
+8 - Counseling has been provided on the risk of amyloid-related imaging abnormalities (ARIA-
+E and ARIA-H) and patient and/or caregiver are aware to monitor for headache, dizziness, 
+visual disturbances, nausea, and vomiting  
+ 
+AND 
+ 
+9 - Provider will enroll patient in a registry [e.g., Alzheimer's Network for Treatment and 
+Diagnostics (ALZ-Net)]  
+ 
+AND 
+ 
+10 - Patient is not being treated with Kisunla as part of a clinical trial  
+ 
+AND 
+ 
+11 - Prescribed by a neurologist, geriatrician, or geriatric psychiatrist  
+ 
+Product Name:Kisunla  
+Diagnosis 
+Alzheimer's Disease  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Both of the following:  
+ 
+ 1.1 Patient continues to have one of the following diagnoses based on the National Institute 
+on Aging and the Alzheimer's Association (NIA-AA) criteria:  
+• 
+Mild cognitive impairment due to Alzheimer's disease  
+
+
+--- PDF page 1189 ---
+Page 1189 
+• 
+Mild dementia due to Alzheimer's disease  
+ 
+AND 
+ 
+ 1.2 Submission of medical records (e.g., chart notes) confirming Mini-Mental State 
+Examination score of 20-28  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) confirming that at least one amyloid PET 
+brain scan is performed every 6 months and the result is positive for amyloid based on visual 
+read  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) confirming follow-up brain magnetic 
+resonance imaging (MRI) has been completed after the initiation of therapy prior to the 5th 
+and 7th infusion treatment to show one of the following radiographic evidence of amyloid 
+related imaging abnormalities (i.e, ARIA-E, ARIA-H):  
+• 
+Patient has mild radiographic severity of Aria – E on MRI and is asymptomatic  
+• 
+Patient has mild radiographic severity of Aria – E on MRI and has mild clinical 
+symptoms  
+• 
+Patient has mild radiographic severity of Aria-H on MRI and is asymptomatic  
+• 
+ARIA (i.e. ARIA E, ARIA H) has not been observed on MRI  
+ 
+AND 
+ 
+4 - Not used in combination with other Aβ monoclonal antibodies (mAbs) for Alzheimer's 
+Disease (e.g., Aduhelm, Leqembi)  
+ 
+AND 
+ 
+5 - Patient is not being treated with Kisunla as part of a clinical trial  
+ 
+AND 
+
+
+--- PDF page 1190 ---
+Page 1190 
+ 
+6 - Prescribed by a neurologist, geriatrician, or geriatric psychiatrist  
+ 
+Product Name:Leqembi Intravenous solution, Leqembi IQLIK 250mg/1.25mL subcutaneous 
+solution*  
+Diagnosis 
+Alzheimer's Disease  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Both of the following:  
+ 
+ 1.1 Submission of medical records (e.g., chart notes) confirming diagnosis of one of the 
+following, based on the National Institute on Aging and the Alzheimer's Association (NIA-AA) 
+criteria:  
+• 
+Mild cognitive impairment due to Alzheimer's disease  
+• 
+Mild dementia due to Alzheimer's disease  
+ 
+AND 
+ 
+ 1.2 Submission of medical records (e.g., chart notes) confirming all of the following:  
+• 
+Global Clinical Dementia Rating (CDR) score of 0.5 or 1.0  
+• 
+CDR Memory Box score of 0.5 or greater  
+• 
+Mini-Mental State Examination score of 22 or greater  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) confirming the presence of beta-amyloid 
+protein deposition, as evidenced by one of the following:  
+• 
+Positive amyloid positron emission tomography (PET) scan  
+• 
+Attestation that patient does not have access to amyloid PET scanning and 
+cerebrospinal fluid (CSF) biomarker testing documents abnormalities suggestive of 
+beta-amyloid accumulation (e.g., Aβ42 level, Aβ42:Aβ40 ratio, Tau, p-Tau)  
+
+
+--- PDF page 1191 ---
+Page 1191 
+ 
+AND 
+ 
+3 - Both of the following:  
+• 
+Provider attests that testing regarding the patient's ApoE e4 (apolipoproteinE e4) 
+carrier status has been performed prior to initiating treatment  
+• 
+Prior to testing, a shared decision-making conversation has occurred, regarding the 
+risk of amyloid-related imaging abnormalities (ARIA), across genotypes, and the 
+implications of genetic testing results  
+ 
+AND 
+ 
+4 - Submission of medical records (e.g., chart notes) confirming a baseline brain magnetic 
+resonance imaging (MRI) has been completed within 12 months prior to initiating treatment  
+ 
+AND 
+ 
+5 - Other differential diagnoses (e.g., dementia with Lewy bodies (DLB), frontotemporal 
+dementia (FTD), vascular dementia, pseudodementia due to mood disorder, vitamin B12 
+deficiency, encephalopathy) have been ruled out  
+ 
+AND 
+ 
+6 - Both of the following:  
+• 
+Patient is not currently taking an anticoagulant (e.g., warfarin, dabigatran)  
+• 
+Patient has no history of intracerebral hemorrhage (e.g., transient ischemic attack 
+[TIA], stroke) prior to initiating treatment  
+ 
+AND 
+ 
+7 - Not used in combination with other Aβ monoclonal antibodies (mAbs) for Alzheimer's 
+Disease (e.g., Aduhelm, Kisunla)  
+ 
+AND 
+ 
+8 - Counseling has been provided on the risk of amyloid-related imaging abnormalities (ARIA-
+
+
+--- PDF page 1192 ---
+Page 1192 
+E and ARIA-H) and patient and/or caregiver are aware to monitor for headache, confusion, 
+dizziness, visual changes, nausea, and gait difficulty  
+ 
+AND 
+ 
+9 - Provider will enroll patient in a registry [e.g., Alzheimer's Network for Treatment and 
+Diagnostics (ALZ-Net)]  
+ 
+AND 
+ 
+10 - Patient is not being treated with Leqembi as part of a clinical trial  
+ 
+AND 
+ 
+11 - Prescribed by a neurologist, geriatrician, or geriatric psychiatrist  
+Notes  
+* If patient meets criteria above, please approve at GPI-14 
+ 
+Product Name:Leqembi Intravenous solution, Leqembi IQLIK 250mg/1.25mL subcutaneous 
+solution*  
+Diagnosis 
+Alzheimer's Disease  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Both of the following:  
+ 
+ 1.1 Submission of medical records (e.g., chart notes) confirming patient continues to have 
+one of the following diagnoses based on the National Institute on Aging and the Alzheimer's 
+Association (NIA-AA) criteria:  
+• 
+Mild cognitive impairment due to Alzheimer's disease  
+• 
+Mild dementia due to Alzheimer's disease  
+
+
+--- PDF page 1193 ---
+Page 1193 
+ 
+AND 
+ 
+ 1.2 Submission of medical records (e.g., chart notes) confirming all of the following:  
+• 
+Global Clinical Dementia Rating (CDR) score of 0.5 or 1.0  
+• 
+CDR Memory Box score of 0.5 or greater  
+• 
+Mini-Mental State Examination score of 22 or greater  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) confirming follow-up brain magnetic 
+resonance imaging (MRI) has been completed after the initiation of therapy prior to the 5th 
+and 7th infusion treatment to show one of the following radiographic evidence of amyloid 
+related imaging abnormalities (i.e, ARIA-E, ARIA-H):  
+• 
+Patient has mild radiographic severity of Aria – E on MRI and is asymptomatic  
+• 
+Patient has mild radiographic severity of Aria – E on MRI and has mild clinical 
+symptoms  
+• 
+Patient has mild radiographic severity of Aria-H on MRI and is asymptomatic  
+• 
+ARIA (i.e. ARIA E, ARIA H) has not been observed on MRI  
+ 
+AND 
+ 
+3 - Not used in combination with other Aβ monoclonal antibodies (mAbs) for Alzheimer's 
+Disease (e.g., Aduhelm, Kisunla)  
+ 
+AND 
+ 
+4 - For Leqembi IQLIK 250mg/1.25mL subcutaneous solution: Will be used only for 
+completion of 18 month induction phase  
+ 
+AND 
+ 
+5 - Patient is not being treated with Leqembi as part of a clinical trial  
+ 
+AND 
+
+
+--- PDF page 1194 ---
+Page 1194 
+ 
+6 - Prescribed by a neurologist, geriatrician, or geriatric psychiatrist  
+Notes  
+* If patient meets criteria above, please approve at GPI-14 
+ 
+Product Name:Leqembi IQLIK 360mg/1.8mL subcutaneous solution*  
+Diagnosis 
+Alzheimer's Disease  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Both of the following:  
+ 
+ 1.1 Submission of medical records (e.g., chart notes) confirming diagnosis of one of the 
+following, based on the National Institute on Aging and the Alzheimer's Association (NIA-AA) 
+criteria:  
+• 
+Mild cognitive impairment due to Alzheimer's disease  
+• 
+Mild dementia due to Alzheimer's disease  
+ 
+AND 
+ 
+ 1.2 Submission of medical records (e.g., chart notes) confirming all of the following:  
+• 
+Global Clinical Dementia Rating (CDR) score of 0.5 or 1.0  
+• 
+CDR Memory Box score of 0.5 or greater  
+• 
+Mini-Mental State Examination score of 22 or greater  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) confirming the presence of beta-amyloid 
+protein deposition, as evidenced by one of the following:  
+• 
+Positive amyloid positron emission tomography (PET) scan  
+
+
+--- PDF page 1195 ---
+Page 1195 
+• 
+Attestation that patient does not have access to amyloid PET scanning and 
+cerebrospinal fluid (CSF) biomarker testing documents abnormalities suggestive of 
+beta-amyloid accumulation (e.g., Aβ42 level, Aβ42:Aβ40 ratio, Tau, p-Tau)  
+ 
+AND 
+ 
+3 - Both of the following:  
+• 
+Provider attests that testing regarding the patient's ApoE e4 (apolipoproteinE e4) 
+carrier status has been performed prior to initiating treatment  
+• 
+Prior to testing, a shared decision-making conversation has occurred, regarding the 
+risk of amyloid-related imaging abnormalities (ARIA), across genotypes, and the 
+implications of genetic testing results  
+ 
+AND 
+ 
+4 - Submission of medical records (e.g., chart notes) confirming a baseline brain magnetic 
+resonance imaging (MRI) has been completed within 12 months prior to initiating treatment  
+ 
+AND 
+ 
+5 - Other differential diagnoses (e.g., dementia with Lewy bodies (DLB), frontotemporal 
+dementia (FTD), vascular dementia, pseudodementia due to mood disorder, vitamin B12 
+deficiency, encephalopathy) have been ruled out  
+ 
+AND 
+ 
+6 - Both of the following:  
+• 
+Patient is not currently taking an anticoagulant (e.g., warfarin, dabigatran)  
+• 
+Patient has no history of intracerebral hemorrhage (e.g., transient ischemic attack 
+[TIA], stroke) prior to initiating treatment  
+ 
+AND 
+ 
+7 - Not used in combination with other Aβ monoclonal antibodies (mAbs) for Alzheimer's 
+Disease (e.g., Aduhelm, Kisunla)  
+
+
+--- PDF page 1196 ---
+Page 1196 
+ 
+AND 
+ 
+8 - Counseling has been provided on the risk of amyloid-related imaging abnormalities (ARIA-
+E and ARIA-H) and patient and/or caregiver are aware to monitor for headache, confusion, 
+dizziness, visual changes, nausea, and gait difficulty  
+ 
+AND 
+ 
+9 - Provider will enroll patient in a registry [e.g., Alzheimer's Network for Treatment and 
+Diagnostics (ALZ-Net)]  
+ 
+AND 
+ 
+10 - Patient is not being treated with Leqembi as part of a clinical trial  
+ 
+AND 
+ 
+11 - Will be used as a maintenance dose following completion of 18 months with either 
+Leqembi intravenous or Leqembi Iqlik 250mg/1.25mL subcutaneous solution  
+ 
+AND 
+ 
+12 - Prescribed by a neurologist, geriatrician, or geriatric psychiatrist  
+Notes  
+* If patient meets criteria above, please approve at GPI-14 
+ 
+Product Name:Leqembi IQLIK 360mg/1.8mL subcutaneous solution*  
+Diagnosis 
+Alzheimer's Disease  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+
+
+--- PDF page 1197 ---
+Page 1197 
+Approval Criteria    
+ 
+1 - Both of the following:  
+ 
+ 1.1 Submission of medical records (e.g., chart notes) confirming patient continues to have 
+one of the following diagnoses based on the National Institute on Aging and the Alzheimer's 
+Association (NIA-AA) criteria:  
+• 
+Mild cognitive impairment due to Alzheimer's disease  
+• 
+Mild dementia due to Alzheimer's disease  
+ 
+AND 
+ 
+ 1.2 Submission of medical records (e.g., chart notes) confirming all of the following:  
+• 
+Global Clinical Dementia Rating (CDR) score of 0.5 or 1.0  
+• 
+CDR Memory Box score of 0.5 or greater  
+• 
+Mini-Mental State Examination score of 22 or greater  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) confirming follow-up brain magnetic 
+resonance imaging (MRI) has been completed after the initiation of therapy prior to the 5th 
+and 7th infusion treatment to show one of the following radiographic evidence of amyloid 
+related imaging abnormalities (i.e, ARIA-E, ARIA-H):  
+• 
+Patient has mild radiographic severity of Aria – E on MRI and is asymptomatic  
+• 
+Patient has mild radiographic severity of Aria – E on MRI and has mild clinical 
+symptoms  
+• 
+Patient has mild radiographic severity of Aria-H on MRI and is asymptomatic  
+• 
+ARIA (i.e. ARIA E, ARIA H) has not been observed on MRI  
+ 
+AND 
+ 
+3 - Not used in combination with other Aβ monoclonal antibodies (mAbs) for Alzheimer's 
+Disease (e.g., Aduhelm, Kisunla)  
+ 
+AND 
+ 
+4 - Will be used as a maintenance dose following completion of 18 months with either 
+Leqembi intravenous or Leqembi Iqlik 250mg/1.25mL subcutaneous solution  
+
+
+--- PDF page 1198 ---
+Page 1198 
+ 
+AND 
+ 
+5 - Patient is not being treated with Leqembi as part of a clinical trial  
+ 
+AND 
+ 
+6 - Prescribed by a neurologist, geriatrician, or geriatric psychiatrist  
+Notes  
+* If patient meets criteria above, please approve at GPI-14 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/26/2026  
+Leqembi: Added new 250mg IQLIK formulation, updated criteria thro
+ughout due to revised indication.  
+ 
