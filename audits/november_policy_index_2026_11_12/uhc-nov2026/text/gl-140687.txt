@@ -1,0 +1,129 @@
+--- PDF page 962 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 962 
+Irritable Bowel Syndrome-Diarrhea 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-140687  
+Guideline Name 
+Irritable Bowel Syndrome-Diarrhea  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2022  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Lotronex, generic alosetron  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of severe diarrhea-predominant irritable bowel syndrome (IBS)  
+ 
+AND 
+
+
+--- PDF page 963 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 963 
+ 
+2 - Symptoms for at least 6 months  
+ 
+AND 
+ 
+3 - Patient was female at birth  
+ 
+AND 
+ 
+4 - Age greater than or equal to 18 years  
+ 
+AND 
+ 
+5 - History of failure, contraindication, or intolerance to TWO of the following:  
+• 
+Antispasmodic agent (e.g. dicyclomine)  
+• 
+Antidiarrheal agents (e.g. loperamide)  
+• 
+Tricyclic antidepressant (e.g. amitriptyline)  
+ 
+Product Name:Brand Lotronex, generic alosetron  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to Lotronex therapy  
+ 
+Product Name:Viberzi  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 964 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 964 
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of irritable bowel syndrome with diarrhea (IBS-D)  
+ 
+AND 
+ 
+2 - History of failure, contraindication, or intolerance to TWO of the following:  
+• 
+Antispasmodic agent (e.g. dicyclomine)  
+• 
+Antidiarrheal agents (e.g. loperamide)  
+• 
+Tricyclic antidepressant (e.g. amitriptyline)  
+ 
+Product Name:Viberzi  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to Viberzi therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/4/2022  
+C&S to match AZM as of 10.1.22  
+ 
