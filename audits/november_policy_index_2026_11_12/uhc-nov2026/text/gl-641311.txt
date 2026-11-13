@@ -1,0 +1,192 @@
+--- PDF page 1270 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1270 
+Onureg 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-641311  
+Guideline Name 
+Onureg  
+Formulary 
+• 
+Medicaid - Community & State Colorado  
+• 
+Medicaid - Community & State Hawaii  
+• 
+Medicaid - Community & State Maryland  
+• 
+Medicaid - Community & State New Jersey  
+• 
+Medicaid - Community & State New York  
+• 
+Medicaid - Community & State New York EPP  
+• 
+Medicaid - Community & State Pennsylvania CHIP  
+• 
+Medicaid - Community & State Rhode Island  
+• 
+Medicaid - Community & State Arizona  
+• 
+Medicaid - Community & State Nebraska  
+• 
+Medicaid - Community & State New Mexico  
+• 
+Medicaid - Community & State Virginia  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Onureg  
+Diagnosis 
+Acute Myeloid Leukemia  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+
+
+--- PDF page 1271 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1271 
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of acute myeloid leukemia  
+ 
+AND 
+ 
+2 - Achieved first complete remission (CR) or complete remission with incomplete blood count 
+recovery (CRi) following intensive induction chemotherapy  
+ 
+AND 
+ 
+3 - Patient is not able to complete intensive curative therapy (e.g., transplant-ineligible)  
+ 
+Product Name:Onureg  
+Diagnosis 
+Peripheral T-cell Lymphoma  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of ONE of the following T-cell lymphomas:  
+• 
+Angioimmunoblastic T-cell lymphoma (AITL)  
+• 
+Nodal peripheral T-cell lymphoma with TFH phenotype (PTCL, TFH)  
+• 
+Follicular T-cell lymphoma (FTCL)  
+ 
+AND 
+ 
+2 - ONE of the following:  
+• 
+Used as initial palliative intent therapy  
+
+
+--- PDF page 1272 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1272 
+• 
+Used as second-line and subsequent therapy  
+ 
+Product Name:Onureg  
+Diagnosis 
+Acute Lymphoblastic Leukemia  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of T-cell acute lymphoblastic leukemia/lymphoma (T-ALL/T-LBL)  
+ 
+AND 
+ 
+2 - Used with Venclexta (venetoclax) – containing regimens as part of relapsed/refractory 
+therapy  
+ 
+Product Name:Onureg  
+Diagnosis 
+Acute Myeloid Leukemia, Peripheral T-cell Lymphoma, Acute 
+Lymphoblastic Leukemia  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient does not show evidence of progressive disease while on Onureg therapy  
+ 
+Product Name:Onureg  
+Diagnosis 
+NCCN Recommended Regimens  
+Approval Length 
+12 month(s)  
+
+
+--- PDF page 1273 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1273 
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Use is supported by The National Comprehensive Cancer Network (NCCN) Drugs and 
+Biologics Compendium  
+ 
+Product Name:Onureg  
+Diagnosis 
+NCCN Recommended Regimens  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - There is documentation of positive clinical response to Onureg therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+6/26/2026  
+Removed WA.  
+ 

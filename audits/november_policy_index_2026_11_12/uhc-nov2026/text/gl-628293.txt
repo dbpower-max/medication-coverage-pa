@@ -1,0 +1,76 @@
+--- PDF page 127 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 127 
+Antiglaucoma Agents 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-628293  
+Guideline Name 
+Antiglaucoma Agents  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+7/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:generic brinzolamide ophth susp, generic tafluprost ophth soln  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of elevated intraocular pressure due to ocular hypertension or open angle 
+glaucoma  
+ 
+Product Name:Omlonti, Zolymbus  
+Approval Length 
+12 month(s)  
+
+
+--- PDF page 128 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 128 
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of elevated intraocular pressure due to ocular hypertension or open angle 
+glaucoma  
+ 
+AND 
+ 
+2 - Trial and failure, contraindication, or intolerance to ALL of the following:  
+• 
+dorzolamide  
+• 
+bimatoprost  
+• 
+latanoprost  
+• 
+travoprost  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+6/4/2026  
+Added Zolymbus  
+ 
