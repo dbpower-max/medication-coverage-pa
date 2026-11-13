@@ -21,6 +21,11 @@ for name in ("index.html", "app.js", "styles.css", "favicon.svg"):
     shutil.copy2(SRC / name, OUT / name)
 (OUT / ".nojekyll").touch()
 seen = set()
+# Large PDF remains on its official payer host; indexed full policy text is bundled.
+EXTERNAL_SOURCES = {
+    "sources/prov-bufc_pharmacy-pa-criteria_eff11012026_en.pdf":
+    "https://www.bannerhealth.com/bhpprovider/-/media/files/project/bhpprovider/pharmacy/medicaid/prov-bufc_pharmacy-pa-criteria_eff11012026_en.pdf?hash=383206F074F0B301767EC09CEC9F35FA&sc_lang=en"
+}
 def copy_asset(url):
     path = unquote(urlsplit(url).path).removeprefix("./").lstrip("/")
     if not path or path in seen:
@@ -40,8 +45,12 @@ def visit(value):
             if isinstance(item, str) and ("url" in key.lower() or key in ("file", "path")):
                 parts = urlsplit(item)
                 if not parts.scheme and not parts.netloc and parts.path.startswith(("/sources/", "/policy-text/", "/banner-policy-text/", "./sources/", "./policy-text/", "./banner-policy-text/", "sources/", "policy-text/", "banner-policy-text/")):
-                    copy_asset(item)
-                    value[key] = "./" + item.lstrip("/").removeprefix("./")
+                    local_path = parts.path.lstrip("/").removeprefix("./")
+                    if local_path in EXTERNAL_SOURCES:
+                        value[key] = EXTERNAL_SOURCES[local_path] + ("#" + parts.fragment if parts.fragment else "")
+                    else:
+                        copy_asset(item)
+                        value[key] = "./" + item.lstrip("/").removeprefix("./")
             else:
                 visit(item)
     elif isinstance(value, list):
