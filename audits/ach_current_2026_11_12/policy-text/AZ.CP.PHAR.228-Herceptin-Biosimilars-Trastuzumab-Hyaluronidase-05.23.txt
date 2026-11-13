@@ -1,0 +1,1507 @@
+PDF PAGE 1
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+Clinical Policy: Herceptin/Biosimilars, Trastuzumab-Hyaluronidase 
+Reference Number: AZ.CP.PHAR.228 
+Effective Date: 04.15.2020 
+Last Review Date: 05.23  
+Coding Implications 
+Line of Business: Arizona Medicaid (AzCH-CCP and Care1st) 
+Revision Log 
+See Important Reminder at the end of this policy for important regulatory and legal 
+information. 
+Description 
+•
+Trastuzumab (Herceptin®) is a human epidermal growth factor receptor 2 (HER2)/neu 
+receptor antagonist. 
+•
+Trastuzumab-dkst (Ogivri™), trastuzumab-pkrb (Herzuma®), trastuzumab-dttb (Ontruzant®), 
+trastuzumab-qyyp (Trazimera™), and trastuzumab-anns (Kanjinti™) are Herceptin 
+biosimilars. 
+•
+Trastuzumab-hyaluronidase-oysk (Herceptin Hylecta™) is a combination of trastuzumab and 
+hyaluronidase, an endoglycosidase. 
+AHCCCS preferred drugs in this class include Herzuma® (trastuzumab-pkrb), Kanjinti™ 
+(trastuzumab-anns), Ogivri™ (trastuzumab-dkst), Trazimera™ ( trastuzumab-qyyp). 
+AHCCCS non-preferred drugs in this class include Herceptin® (trastuzumab), Ontruzant® 
+(trastuzumab-dttb), and Herceptin Hylecta™ (trastuzumab-hyaluronidase-oysk). 
+FDA Approved Indication(s) 
+Indications* Description 
+Herceptin, Herzuma, 
+Ogivri, Ontruzant, 
+Trazimera, Kanjinti 
+Herceptin 
+Hylecta 
+Adjuvant 
+breast cancer 
+For adjuvant 
+treatment of 
+HER2­
+overexpressing 
+node positive 
+or node 
+negative 
+(ER/PR 
+negative or 
+with one high 
+risk feature) 
+breast cancer: 
+As part of a treatment 
+regimen consisting of 
+doxorubicin, 
+cyclophosphamide, 
+and either paclitaxel 
+or docetaxel 
+X 
+X 
+As part of a treatment 
+regimen with 
+docetaxel and 
+carboplatin 
+X 
+X 
+As a single agent 
+following multi-
+modality 
+anthracycline based 
+therapy 
+X 
+X 
+Metastatic 
+breast cancer 
+In combination with paclitaxel for first-
+line treatment of HER2-overexpressing 
+metastatic breast cancer 
+X 
+X 
+Page 1 of 13 
+
+
+PDF PAGE 2
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+CLINICAL POLICY 
+Herceptin/Biosimilars, Trastuzumab-Hyaluronidase 
+Indications* Description 
+Herceptin, Herzuma, 
+Ogivri, Ontruzant, 
+Trazimera, Kanjinti 
+Herceptin 
+Hylecta 
+As a single agent for treatment of 
+HER2-overexpressing breast cancer in 
+patients who have received one or more 
+chemotherapy regimens for metastatic 
+disease 
+X 
+X 
+Gastric 
+cancer 
+In combination with cisplatin and 
+capecitabine or 5-fluorouracil for the 
+treatment of patients with HER2­
+overexpressing metastatic gastric or 
+gastroesophageal junction 
+(esophagogastric junction; EGJ) 
+adenocarcinoma who have not received 
+prior treatment for metastatic disease 
+X 
+-
+*Select patients for therapy based on an FDA-approved companion diagnostic for trastuzumab.  
+** High-risk is defined as ER/PR positive with one of the following features: tumor size > 2 cm, age < 35 years, or  
+tumor grade 2 or 3>  
+Policy/Criteria 
+Provider must submit documentation (such as office chart notes, lab results or other clinical 
+information) supporting that member has met all approval criteria.  
+It is the policy of Arizona Complete Health-Complete Care Plan and Care1st that 
+Herceptin/biosimilars and Herceptin Hylecta are medically necessary when the following 
+criteria are met: 
+I.
+Initial Approval Criteria  
+A. Breast Cancer (must meet all): 
+1. Diagnosis of HER2-positive breast cancer or leptomeningeal metastases from HER2­
+positive breast cancer; 
+2. Prescribed by or in consultation with an oncologist; 
+3. Age ≥ 18 years; 
+4. If request is for Herceptin or Ontruzant, member must use ALL of the following, 
+unless clinically significant adverse effects are experienced or all are contraindicated: 
+Herzuma, Kanjinti, Ogivri, Trazimera; 
+*Prior authorization is required 
+5. Request meets one of the following (a, b, c, or d):* 
+a.
+Herceptin, Ogivri, Herzuma, Ontruzant, Trazimera, Kanjinti: Dose does not 
+exceed 8 mg/kg IV for adjuvant therapy or 4 mg/kg IV for treatment of metastatic 
+disease (see Appendix D for dose rounding guidelines); 
+Page 2 of 13 
+
+
+PDF PAGE 3
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Herceptin/Biosimilars, Trastuzumab-Hyaluronidase 
+b. Herceptin, Ogivri, Herzuma, Ontruzant, Trazimera, Kanjinti: Intrathecal 
+administration for leptomeningeal metastasis; 
+c.
+Herceptin Hylecta: Dose does not exceed 600 mg/10,000 units SC every 3 weeks 
+(see Appendix D for dose rounding guidelines); 
+d. Dose/product is supported by practice guidelines or peer-reviewed literature for 
+the relevant off-label use (prescriber must submit supporting evidence). 
+*Prescribed regimen must be FDA-approved or recommended by NCCN 
+Approval duration: 6 months 
+B. Gastric, Esophageal and Esophagogastric Junction Cancer (must meet all): 
+1. Diagnosis of HER2-positive advanced, recurrent, or metastatic gastric, esophageal, or 
+EGJ adenocarcinoma; 
+2. Prescribed by or in consultation with an oncologist; 
+3. Age ≥ 18 years; 
+4. Prescribed in combination with a plantinum agent (i.e., either cisplatin or oxaplatin) 
+and either capecitabine or 5-fluorouracil;*  
+*Prior authorization may be required. 
+5. If request is for Herceptin or Ontruzant, member must use ALL of the following, 
+unless clinically significant adverse effects are experienced or all are contraindicated: 
+Herzuma, Kanjinti, Ogivri, Trazimera; 
+*Prior authorization is required 
+6. Request meets one of the following (a or b):* 
+*Prescribed regimen must be FDA-approved or recommended by NCCN 
+a.
+Herceptin, Herzuma, Ogivri, Ontruzant, Trazimera, Kanjinti: Dose does not 
+exceed 8 mg/kg IV (see Appendix D for dose rounding guidelines); 
+b. Dose/product is supported by practice guidelines or peer-reviewed literature for 
+the relevant off-label use (prescriber must submit supporting evidence). 
+Approval duration: 6 months 
+C. Endometrial Carcinoma (off-label) (must meet all): 
+1. Diagnosis of HER2-positive endometrial carcinoma with serous histology; 
+2. Prescribed by or in consultation with an oncologist; 
+3. Age ≥ 18 years; 
+4. Disease is advanced (i.e., stage III/IV) or recurrent; 
+5. Prescribed in combination with carboplatin and paclitaxel;* 
+*Prior authorization may be required. 
+6. If request is for Herceptin or Ontruzant, member must use ALL of the following, 
+unless clinically significant adverse effects are experienced or all are contraindicated: 
+Herzuma, Kanjinti, Ogivri, Trazimera; 
+*Prior authorization is required 
+7. Dose is within FDA maximum limit for any FDA-approved indication or is supported 
+by practice guidelines or peer-reviewed literature for the relevant off-label use 
+(prescriber must submit supporting evidence).* 
+Page 3 of 13 
+
+
+PDF PAGE 4
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Herceptin/Biosimilars, Trastuzumab-Hyaluronidase 
+*Prescribed regimen must be FDA-approved or recommended by NCCN 
+Approval duration: 6 months 
+D. Colorectal Cancer (off-label) (must meet all): 
+1. Diagnosis of advanced or metastatic colorectal cancer and all of the following (a, b, 
+and c): 
+a.
+Disease is HER2 positive; 
+b. Disease is wild-type RAS (defined as wild-type in both KRAS and NRAS as 
+determined by an FDA-approved test for this use); 
+c.
+Wild-type BRAF; 
+2. Prescribed by or in consultation with an oncologist; 
+3. Age ≥ 18 years; 
+4. No previous use of a HER2 inhibitor therapy (e.g., trastuzumab, Kadcyla®, Tykerb®, 
+Perjeta®); 
+5. Prescribed in combination with Perjeta (pertuzumab) or Tykerb (lapatinib);* 
+*Prior authorization is required 
+6. If request is for Herceptin or Ontruzant, member must use ALL of the following, 
+unless clinically significant adverse effects are experienced or all are contraindicated: 
+Herzuma, Kanjinti, Ogivri, Trazimera; 
+*Prior authorization is required 
+7. Dose is within FDA maximum limit for any FDA-approved indication or is supported 
+by practice guidelines or peer-reviewed literature for the relevant off-label use 
+(prescriber must submit supporting evidence).* 
+*Prescribed regimen must be FDA-approved or recommended by NCCN 
+Approval duration: 6 months 
+E. Salivary Gland Tumor (off-label) (must meet all): 
+1. Diagnosis of HER2-positive salivary gland tumor; 
+2. Prescribed by or in consultation with an oncologist; 
+3. Age ≥ 18 years; 
+4. Disease is recurrent; 
+5. Prescribed in one of the following manners (a, b, or c): 
+a.
+Single agent; 
+b. Combination with docetaxel;* 
+c.
+Combination with Perjeta;* 
+*Prior authorization may be required. 
+6. If request is for Herceptin or Ontruzant, member must use ALL of the following, 
+unless clinically significant adverse effects are experienced or all are contraindicated: 
+Herzuma, Kanjinti, Ogivri, Trazimera; 
+*Prior authorization is required 
+7. Dose is within FDA maximum limit for any FDA-approved indication or is supported 
+by practice guidelines or peer-reviewed literature for the relevant off-label use 
+(prescriber must submit supporting evidence).* 
+Page 4 of 13 
+
+
+PDF PAGE 5
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Herceptin/Biosimilars, Trastuzumab-Hyaluronidase 
+*Prescribed regimen must be FDA-approved or recommended by NCCN 
+Approval duration: 6 months 
+F. Gallbladder Cancer or Cholangiocarcinoma (off-label) (must meet all):  
+1. Diagnosis of HER2-positive gallbladder cancer or cholangiocarcinoma; 
+2. Prescribed by or in consultation with an oncologist; 
+3. Age ≥ 18 years; 
+4. Disease is unresectable or metastatic; 
+5. Prescribed in combination with Perjeta*; 
+*Prior authorization may be required. 
+6. If request is for Herceptin or Ontruzant, member must use ALL of the following, 
+unless clinically significant adverse effects are experienced or all are contraindicated: 
+Herzuma, Kanjinti, Ogivri, Trazimera; 
+*Prior authorization is required 
+7. Dose is within FDA maximum limit for any FDA-approved indication or is supported 
+by practice guidelines or peer-reviewed literature for the relevant off-label use 
+(prescriber must submit supporting evidence).* 
+*Prescribed regimen must be FDA-approved or recommended by NCCN 
+Approval duration: 6 months 
+G. Other diagnoses/indications (must meet all): 
+1. Refer to the off-label use policy for the relevant line of business if diagnosis is NOT 
+specifically listed under section III (Diagnoses/Indications for which coverage is 
+NOT authorized): AZ.CP.PMN.53 for Arizona Medicaid; 
+2. If request is for Herceptin or Ontruzant, member must use ALL of the following, 
+unless clinically significant adverse effects are experienced or all are contraindicated: 
+Herzuma, Kanjinti, Ogivri, Trazimera. 
+*Prior authorization is required 
+II. Continued Approval  
+A. All Indications in Section I (must meet all): 
+1. Currently receiving medication via Centene benefit, or documentation supports that 
+member is currently receiving the requested agent for a covered indication and has 
+received this medication for at least 30 days; 
+2. Member is responding positively to therapy; 
+3. If request is for Herceptin or Ontruzant, member must use ALL of the following, 
+unless clinically significant adverse effects are experienced or all are contraindicated: 
+Herzuma, Kanjinti, Ogivri, Trazimera; 
+*Prior authorization is required 
+4. If request is for a dose increase, request meets one of the following (a, b, or c):* 
+a.
+Breast cancer (i, ii, or iii): 
+Page 5 of 13 
+
+
+PDF PAGE 6
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+CLINICAL POLICY 
+Herceptin/Biosimilars, Trastuzumab-Hyaluronidase 
+i.
+Herceptin, Ogivri, Herzuma, Ontruzant, Trazimera, Kanjinti: New dose does 
+not exceed 8 mg/kg IV for adjuvant therapy or 4 mg/kg IV for treatment of 
+metastatic disease (see Appendix D for dose rounding guidelines); 
+ii. Herceptin, Ogivri, Herzuma, Ontruzant, Trazimera, Kanjinti: Intrathecal 
+administration for leptomeningeal metastases; 
+iii. Herceptin Hylecta: New dose does not exceed 600 mg/10,000 units SC every 
+3 weeks (see Appendix D for dose rounding guidelines); 
+b. Gastric, esophageal, EGJ cancer: Herceptin, Herzuma, Ogivri, Ontruzant, 
+Trazimera, Kanjinti: New dose does not exceed 8 mg/kg IV (see Appendix D for 
+dose rounding guidelines); 
+c.
+New dose/product is supported by practice guidelines or peer-reviewed literature 
+for the relevant off-label use (prescriber must submit supporting evidence). 
+*Prescribed regimen must be FDA-approved or recommended by NCCN 
+Approval duration: 12 months 
+B. Other diagnoses/indications (must meet all): 
+1. Member meets one of the following (a or b): 
+a.
+Currently receiving medication via Centene benefit and documentation supports 
+positive response to therapy.  
+Approval duration: Duration of request or 6 months (whichever is less); or 
+b. Refer to the off-label use policy for the relevant line of business if diagnosis is 
+NOT specifically listed under section III (Diagnoses/Indications for which 
+coverage is NOT authorized): AZ.CP.PMN.53 for Arizona Medicaid. 
+2. If request is for Herceptin or Ontruzant, member must use ALL of the following, 
+unless clinically significant adverse effects are experienced or all are contraindicated: 
+Herzuma, Kanjinti, Ogivri, Trazimera. 
+*Prior authorization is required 
+III.Diagnoses/Indications for which coverage is NOT authorized: 
+A. Non-FDA approved indications, which are not addressed in this policy, unless there is 
+sufficient documentation of efficacy and safety according to the off label use policies – 
+AZ.CP.PMN.53 for Arizona Medicaid or evidence of coverage documents. 
+IV. Appendices/General Information 
+Appendix A: Abbreviation/Acronym Key 
+AHCCCS: Arizona Health Care Cost 
+Containment System 
+FDA: Food and Drug Administration 
+EGJ: esophagogastric junction 
+HER2: human epidermal growth factor   
+receptor 2 
+KRAS: Kirsten rat sarcoma 2 viral 
+oncogene homologue   
+NRAS: neuroblastoma RAS viral   
+oncogene homologue   
+Page 6 of 13 
+
+
+PDF PAGE 7
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Appendix B: Therapeutic Alternatives 
+Not applicable 
+Appendix C: Contraindications/Boxed Warnings 
+•
+Contraindication(s): none reported 
+•
+Boxed warning(s): 
+o
+Herceptin, Ogivri, Herzuma, Ontruzant, Trazimera, Kanjinti: cardiomyopathy, 
+infusion reactions, embryo-fetal toxicity, pulmonary toxicity 
+o
+Herceptin Hylecta: cardiomyopathy, embryo-fetal toxicity, pulmonary toxicity 
+Appendix D: Dose Rounding Guidelines 
+Weight-based Dose Range 
+Vial Quantity Recommendation 
+≤ 157.49 mg 
+1 vial of 150 mg 
+157.5 mg to 314.99 mg 
+2 vials of 150 mg 
+315 mg to 440.99 mg 
+1 vial of 420 mg 
+441 mg to 598.49 mg 
+1 vial of 150 mg and 1 vial 420 mg 
+598.5 mg to 881.99 mg 
+2 vials of 420 mg 
+882 mg to 1,039.49 mg 
+1 vial of 150 mg and 2 vials of 420 mg 
+1,039.5 mg to 1,322.99 mg 
+3 vials of 420 mg 
+V. Dosage and Administration  
+Drug Name 
+Indication 
+Dosing Regimen 
+Maximum 
+Dose 
+Trastuzumab 
+(Herceptin), 
+Trastuzumab
+dkst (Ogivri), 
+Trastuzumab-
+dttb 
+(Ontruzant), 
+Trastuzumab
+pkrb 
+(Herzuma),  
+Trastuzumab
+qyyp 
+(Trazimera), 
+Trastuzumab
+hyaluronidase 
+-oysk 
+(Herceptin 
+Hylecta), 
+Trastuzumab-
+anns 
+(Kanjinti) 
+Adjuvant 
+treatment, 
+breast 
+cancer  
+Administer according to one of the following 
+doses and schedules for a total of 52 weeks: 
+Herceptin, Ogivri, Herzuma, Ontruzant, 
+Trazimera, Kanjinti: 
+8 mg/kg 
+­
+During and following paclitaxel, docetaxel, or 
+docetaxel/carboplatin:  
+• Initial dose of 4 mg/kg as an IV infusion 
+over 90 minutes then at 2 mg/kg as an IV 
+infusion over 30 minutes weekly during 
+chemotherapy for the first 12 weeks 
+(paclitaxel or docetaxel) or 18 weeks 
+(docetaxel/carboplatin).  
+• One week following the last weekly dose 
+of the trastuzumab product, administer 
+trastuzumab product at 6 mg/kg as an IV 
+infusion over 30 to 90 minutes every 3 
+weeks.  
+­
+­
+­
+Herceptin, Ogivri, Herzuma, Ontruzant, 
+Trazimera, Kanjinti: 
+As a single agent within 3 weeks following 
+completion of multi-modality, anthracycline 
+based chemotherapy regimens:  
+Page 7 of 13 
+
+
+PDF PAGE 8
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Herceptin/Biosimilars, Trastuzumab-Hyaluronidase 
+Drug Name 
+Indication 
+Dosing Regimen 
+Maximum 
+Dose 
+• Initial dose: 8 mg/kg as an IV infusion 
+over 90 minutes. 
+• Subsequent doses: 6 mg/kg as an IV 
+infusion over 30 to 90 minutes every 3 
+weeks 
+Herceptin Hylecta (subcutaneous product): 
+As part of a treatment regimen consisting of 
+doxorubicin, cyclophosphamide, and either 
+paclitaxel or docetaxel; as part of a treatment 
+regimen with docetaxel and carboplatin; as a 
+single agent following multi-modality 
+anthracycline based therapy: 600 mg 
+trastuzumab and 10,000 units hyaluronidase 
+administered subcutaneously over 
+approximately 2-5 minutes once every 3 
+weeks 
+600 
+mg/10,000 
+units every 
+3 weeks 
+Trastuzumab 
+(Herceptin), 
+Trastuzumab­
+dkst (Ogivri), 
+Trastuzumab­
+dttb 
+(Ontruzant), 
+Trastuzumab­
+pkrb 
+(Herzuma), 
+Trastuzumab­
+qyyp 
+(Trazimera), 
+Trastuzumab­
+hyaluronidase 
+-oysk 
+(Herceptin 
+Hylecta), 
+Metastatic 
+treatment, 
+breast 
+cancer 
+Herceptin, Ogivri, Herzuma, Ontruzant, 
+Trazimera, Kanjinti: 
+As a single agent, or in combination with 
+paclitaxel, at an initial dose of 4 mg/kg as a 
+90-minute intravenous infusion followed by 
+subsequent once weekly doses of 2 mg/kg as 
+30-minute intravenous infusions until disease 
+progression. 
+4 mg/kg 
+Herceptin Hylecta (subcutaneous product): 
+As a single agent or in combination with 
+paclitaxel: 600 mg trastuzumab and 10,000 
+units hyaluronidase administered 
+subcutaneously over approximately 2-5 
+minutes once every 3 weeks. 
+600 
+mg/10,000 
+units every 
+3 weeks 
+Page 8 of 13 
+
+
+PDF PAGE 9
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Herceptin/Biosimilars, Trastuzumab-Hyaluronidase 
+Drug Name 
+Indication 
+Dosing Regimen 
+Maximum 
+Dose 
+Trastuzumab­
+anns 
+(Kanjinti) 
+Trastuzumab 
+(Herceptin), 
+Trastuzumab­
+dkst (Ogivri), 
+Trastuzumab­
+dttb 
+(Ontruzant), 
+Trastuzumab­
+qyyp 
+(Trazimera), 
+Trastuzumab­
+anns 
+(Kanjinti) 
+Metastatic 
+gastric 
+cancer 
+Herceptin, Herzuma, Ogivri, Ontruzant, 
+Trazimera, Kanjinti: 
+Administer at an initial dose of 8 mg/kg as a 
+90 minute intravenous infusion followed by 
+subsequent doses of 6 mg/kg as an 
+intravenous infusion over 30 to 90 minutes 
+every three weeks until disease progression. 
+8 mg/kg 
+VI. Product Availability 
+Drug Name 
+Availability* 
+*All products are supplied as a powder for reconstitution with the exception of Herceptin Hylecta which is 
+supplied as a solution. 
+Trastuzumab (Herceptin) 
+Single-dose vial: 150 mg 
+Trastuzumab-dkst (Ogivri) 
+Multi-dose vial: 420 mg 
+Single-dose vial: 150 mg 
+Trastuzumab-pkrb (Herzuma) 
+Multi-dose vial: 420 mg 
+Single-dose vial: 150 mg 
+Trastuzumab-dttb (Ontruzant) 
+Multi-dose vial: 420 mg 
+Single-dose vial: 150 mg 
+Trastuzumab-qyyp (Trazimera) 
+Multi-dose vial: 420 mg 
+Single-dose vial: 150 mg 
+Trastuzumab-hyaluronidase­
+oysk (Herceptin Hylecta) 
+Single-dose vial: 600 mg (trastuzumab)/10,000 units 
+(hyaluronidase)/5 mL 
+Trastuzumab-anns (Kanjinti) 
+Multi-dose vial: 420 mg 
+Single-dose vial: 150 mg 
+VII. References 
+Page 9 of 13 
+
+
+PDF PAGE 10
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Herceptin/Biosimilars, Trastuzumab-Hyaluronidase 
+1. Herceptin Prescribing Information. South San Francisco, CA: Genentech, Inc.; February 
+2021. Available at https://www.gene.com/download/pdf/herceptin_prescribing.pdf. Accessed 
+January 20, 2023. 
+2. Ogivri Prescribing Information. Morgantown, WV: Mylan GmbH.; February 2021. Available 
+at https://www.ogivrihcp.com/en/about/about-
+ogivri?gclid=EAIaIQobChMIrZTvxp3X_AIVXRXUAR3weggDEAAYASAAEgJfI_D_Bw 
+E&gclsrc=aw.ds. Accessed January 20, 2023. 
+3. Herzuma Prescribing Information. North Wales, PA: Teva Pharmaceuticals USA, Inc.; May 
+2019. https://www.herzuma.com/. Accessed January 20, 2023. 
+4. Ontruzant Prescribing Information. Jersey City, NJ: Organon; June 2021. 
+https://www.organon.com/product/usa/pi_circulars/o/ontruzant/Ontruzant-pi.pdf. 
+Accessed January 20, 2023. 
+5. Trazimera Prescribing Information. New York, NY: Pfizer Labs; November 2020. Available 
+at http://labeling.pfizer.com/ShowLabeling.aspx?id=12725. Accessed January 20, 2023. 
+6. Herceptin Hylecta Prescribing Information. South San Francisco, CA: Genentech, Inc.; 
+February 2019. Available at 
+https://www.gene.com/download/pdf/herceptin_hylecta_prescribing.pdf. Accessed January 
+20, 2023. 
+7. Kanjinti Prescribing Information. Thousand Oaks, CA: Amgen, Inc.; October 2022. 
+Available at https://www.pi.amgen.com/~/media/amgen/repositorysites/pi-amgen­
+com/kanjinti/kanjinti_pi.ashx. Accessed January 20, 2023. 
+8. National Comprehensive Cancer Network Drugs and Biologics Compendium. Available at: 
+http://www.nccn.org/professionals/drug_compendium. Accessed February 7, 2023. 
+9. Fahrenbruch R, Kintzel P, Bott AM., et al. Dose rounding of biologic and cytotoxic 
+anticancer agents: a position statement of the hematology/oncology pharmacy association. 
+Journal of Oncology Practice. 2018;14(3)e130-e136. 
+10. National Comprehensive Cancer Network. Breast Cancer Version 2.2023. Available at: 
+https://www.nccn.org/professionals/physician_gls/pdf/breast.pdf. Accessed February 7, 2023. 
+11. National Comprehensive Cancer Network. Gastric Cancer Version 2.2022. Available at: 
+https://www.nccn.org/professionals/physician_gls/pdf/gastric.pdf. Accessed January 10, 
+2023. 
+12. National Comprehensive Cancer Network. Esophageal and Esophagogastric Junction 
+Version 5.2022. Available at: 
+https://www.nccn.org/professionals/physician_gls/pdf/esophageal.pdf. Accessed January 10, 
+2023. 
+Coding Implications 
+Codes referenced in this clinical policy are for informational purposes only.  Inclusion or 
+exclusion of any codes does not guarantee coverage.  Providers should reference the most up-to­
+date sources of professional coding guidance prior to the submission of claims for 
+reimbursement of covered services. 
+Page 10 of 13 
+
+
+PDF PAGE 11
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Herceptin/Biosimilars, Trastuzumab-Hyaluronidase 
+HCPCS 
+Codes 
+Description 
+J9355 
+Injection, trastuzumab, 10 mg 
+J9356 
+Injection, trastuzumab, 10 mg and hyaluronidase-oysk 
+Q5112 
+Injection, trastuzumab-dttb, biosimilar, (Ontruzant), 10 mg 
+Q5113 
+Injection, trastuzumab-pkrb, biosimilar, (Herzuma), 10 mg 
+Q5114 
+Injection, trastuzumab-dkst, biosimilar, (Ogivri), 10 mg 
+Q5116 
+Injection, trastuzumab-qyyp, biosimilar, (Trazimera), 10 mg 
+Q5117 
+Injection, trastuzumab-anns, biosimilar, (Kanjinti), 10 mg 
+Reviews, Revisions, and Approvals 
+Date 
+P&T 
+Approval 
+Date 
+Policy created to specify Herceptin is the preferred product. 
+04.20 
+04.20 
+2Q 2021 annual review: added choice of oxaliplatin, in addition to 
+cisplatin, for combination treatment of gastric cancers per NCCN; 
+references reviewed and updated 
+04.21 
+04.21 
+Added Care1st logo.  Added verbiage to specify that criteria also 
+applies to Care1st.  
+5.10.21 
+04.21 
+2Q 2022 annual review: added qualifiers of “advanced” and 
+“recurrent” for gastric, esophageal, or EGJ adenocarcinoma; added 
+criteria for salivary gland tumor criteria for Herceptin as it is a NCCN-
+supported off-label indication; per NCCN support, added wild-type 
+BRAF criterion for colorectal cancer; updated product availability for 
+Herceptin, Kanjinti, and Trazimera; added list of AHCCCS 
+preferred/non-preferred trastuzumab products; references reviewed and 
+updated. 
+04.08.22 
+05.22 
+Effective 9/1: updated policy to reflect biosimilar update - Herceptin 
+will be non-preferred and the Biosimilars listed below will be 
+preferred.  Grandfathering does not apply.   
+a. 
+Herzuma 
+b. 
+Kanjinti 
+c. 
+Ogivri 
+d. 
+Trazimera 
+09.18.22 
+10.22 
+2Q 2023 annual review: added gallbladder cancer and 
+cholagiocarcinoma as NCCN supported off-label indication; references 
+reviewed and updated 
+04.05.23 
+05.23 
+Important Reminder 
+This clinical policy has been developed by appropriately experienced and licensed health care 
+professionals based on a review and consideration of currently available generally accepted 
+Page 11 of 13 
+
+
+PDF PAGE 12
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Herceptin/Biosimilars, Trastuzumab-Hyaluronidase 
+standards of medical practice; peer-reviewed medical literature; government agency/program 
+approval status; evidence-based guidelines and positions of leading national health professional 
+organizations; views of physicians practicing in relevant clinical areas affected by this clinical 
+policy; and other available clinical information. The Health Plan makes no representations and 
+accepts no liability with respect to the content of any external information used or relied upon in 
+developing this clinical policy. This clinical policy is consistent with standards of medical 
+practice current at the time that this clinical policy was approved. “Health Plan” means a health 
+plan that has adopted this clinical policy and that is operated or administered, in whole or in part, 
+by Centene Management Company, LLC, or any of such health plan’s affiliates, as applicable. 
+The purpose of this clinical policy is to provide a guide to medical necessity, which is a 
+component of the guidelines used to assist in making coverage decisions and administering 
+benefits. It does not constitute a contract or guarantee regarding payment or results. Coverage 
+decisions and the administration of benefits are subject to all terms, conditions, exclusions and 
+limitations of the coverage documents (e.g., evidence of coverage, certificate of coverage, policy, 
+contract of insurance, etc.), as well as to state and federal requirements and applicable Health 
+Plan-level administrative policies and procedures. 
+This clinical policy is effective as of the date determined by the Health Plan. The date of posting 
+may not be the effective date of this clinical policy. This clinical policy may be subject to 
+applicable legal and regulatory requirements relating to provider notification. If there is a 
+discrepancy between the effective date of this clinical policy and any applicable legal or 
+regulatory requirement, the requirements of law and regulation shall govern. The Health Plan 
+retains the right to change, amend or withdraw this clinical policy, and additional clinical 
+policies may be developed and adopted as needed, at any time. 
+This clinical policy does not constitute medical advice, medical treatment or medical care. It is 
+not intended to dictate to providers how to practice medicine. Providers are expected to exercise 
+professional medical judgment in providing the most appropriate care, and are solely responsible 
+for the medical advice and treatment of members.  This clinical policy is not intended to 
+recommend treatment for members. Members should consult with their treating physician in 
+connection with diagnosis and treatment decisions.  
+Providers referred to in this clinical policy are independent contractors who exercise independent 
+judgment and over whom the Health Plan has no control or right of control.  Providers are not 
+agents or employees of the Health Plan. 
+This clinical policy is the property of the Health Plan. Unauthorized copying, use, and 
+distribution of this clinical policy or any information contained herein are strictly prohibited.  
+Providers, members and their representatives are bound to the terms and conditions expressed 
+herein through the terms of their contracts.  Where no such contract exists, providers, members 
+Page 12 of 13 
+
+
+PDF PAGE 13
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+Herceptin/Biosimilars, Trastuzumab-Hyaluronidase 
+and their representatives agree to be bound by such terms and conditions by providing services to 
+members and/or submitting claims for payment for such services. 
+Note: For Medicaid members, when state Medicaid coverage provisions conflict with the 
+coverage provisions in this clinical policy, state Medicaid coverage provisions take precedence. 
+Please refer to the state Medicaid manual for any coverage provisions pertaining to this clinical 
+policy. 
+©2020 Centene Corporation. All rights reserved.  All materials are exclusively owned by 
+Centene Corporation and are protected by United States copyright law and international 
+copyright law.  No part of this publication may be reproduced, copied, modified, distributed, 
+displayed, stored in a retrieval system, transmitted in any form or by any means, or otherwise 
+published without the prior written permission of Centene Corporation. You may not alter or 
+remove any trademark, copyright or other notice contained herein. Centene®  and Centene 
+Corporation® are registered trademarks exclusively owned by Centene Corporation. 
+Page 13 of 13 

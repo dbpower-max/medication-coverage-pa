@@ -1,0 +1,142 @@
+--- PDF page 419 ---
+Page 419 
+Cough and Cold Products 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-104889  
+Guideline Name 
+Cough and Cold Products  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+3/28/2022  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Hydromet, generic Tussigon, Z-Tuss AC, Tuzistra XR, Tussicaps, generic 
+Tussionex, M-END PE, Poly-Tussin AC, Capcof, Pro-Red AC, Histex-AC, Maxi-Tuss, generic 
+promethazine w/codeine, generic promethazine-phenylephrine-codeine, Rydex, Mar-Cof 
+BP/Mar-Cof GG, Ninjacof-XG, Coditussin AC/Coditussin DAC, generic guaifenesin-codeine, 
+generic pseudoephedrine w/codeine-guaifenesin, Tuxarin ER  
+Diagnosis 
+Under the Age of 18 Years for Cough and Cold Products  
+Approval Length 
+30 Day(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Prescriber attests they are aware of Food and Drug Administration (FDA) labeled 
+
+
+--- PDF page 420 ---
+Page 420 
+contraindications regarding use of opioid containing cough and cold products in patients less 
+than 18 years of age and feels the treatment with the requested product is medically 
+necessary (Document rationale for use)  
+ 
+AND 
+ 
+2 - Patient does not have a comorbid condition that may impact respiratory depression (e.g., 
+asthma or other chronic lung disease, sleep apnea, body mass index greater than 30)  
+ 
+AND 
+ 
+3 - Patient has tried and failed at least one non-opioid containing cough and cold remedy  
+ 
+Product Name:Hydromet, generic Tussigon, Z-Tuss AC, Tuzistra XR, Tussicaps, generic 
+Tussionex, M-END PE, Poly-Tussin AC, Capcof, Pro-Red AC, Histex-AC, Maxi-Tuss, generic 
+promethazine w/codeine, generic promethazine-phenylephrine-codeine, Rydex, Mar-Cof 
+BP/Mar-Cof GG, Ninjacof-XG, Coditussin AC/Coditussin DAC, generic guaifenesin-codeine, 
+generic pseudoephedrine w/codeine-guaifenesin, Tuxarin ER  
+Diagnosis 
+Quantity Limit  
+Approval Length 
+30 Day(s)  
+Guideline Type 
+Quantity Limit*  
+ 
+ 
+Approval Criteria    
+ 
+1 - Prescriber attests that a larger quantity is medically necessary  
+ 
+AND 
+ 
+2 - The requested dose is within the Food and Drug Administration (FDA) maximum dose per 
+day, where an FDA maximum dose per day exists (See table in background section)  
+Notes  
+*Authorization will be issued for up to 30 days. The authorization shou
+ld be entered for the quantity requested. 
+ 
+ 
+2 .  Background  
+
+
+--- PDF page 421 ---
+Page 421 
+ 
+Benefit/Coverage/Program Information  
+CDC Recommended Opioid Maximum Morphine Milligram Equivalents per Day*  
+Active Ingredient 
+FDA Label Max Daily Doses 
+Morphine 
+None 
+Hydromorphone 
+None 
+Hydrocodone 
+None 
+Tapentadol 
+600mg IR products 
+Oxymorphone 
+None 
+Oxycodone 
+None 
+Codeine 
+360mg 
+Pentazocine 
+None 
+Tramadol 
+400mg IR products 
+Meperidine 
+600mg 
+Butorphanol nasal 
+None 
+Opium 
+4 suppositories/day 
+Deodorized tincture: 24mg/day 
+Camphorated tincture: 16mg/day 
+Acetaminophen 
+4g/day 
+Aspirin 
+2080mg/day 
+Ibuprofen 
+3200mg/day 
+Benzhydrocodone** 
+None 
+ 
+3 .  Revision History  
+ 
+Date  
+Notes  
+
+
+--- PDF page 422 ---
+Page 422 
+3/28/2022  
+Updated product list, no changes to criteria.  
+ 

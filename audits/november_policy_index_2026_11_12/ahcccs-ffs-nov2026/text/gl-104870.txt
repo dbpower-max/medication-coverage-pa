@@ -1,0 +1,158 @@
+--- PDF page 981 ---
+Page 981 
+Iron Chelators 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-104870  
+Guideline Name 
+Iron Chelators  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+3/17/2022  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Exjade, Brand Jadenu, generic deferasirox  
+Diagnosis 
+Chronic Iron Overload due to Blood Transfusion  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of chronic iron overload (e.g., sickle cell anemia, thalassemia, etc.) due to blood 
+transfusion  
+ 
+
+
+--- PDF page 982 ---
+Page 982 
+Product Name:Brand Exjade, Brand Jadenu, generic deferasirox  
+Diagnosis 
+Chronic Iron Overload due to Blood Transfusion  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+Product Name:Brand Ferriprox, generic deferiprone  
+Diagnosis 
+Chronic Iron Overload due to Blood Transfusion  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - BOTH of the following  
+ 
+ 1.1 Diagnosis of transfusional iron overload due to thalassemia syndromes  
+ 
+AND 
+ 
+ 1.2 Current chelation therapy is inadequate [e.g., Desferal (deferoxamine), Exjade 
+(deferasirox)]  
+ 
+Product Name:Brand Ferriprox, generic deferiprone  
+Diagnosis 
+Chronic Iron Overload due to Blood Transfusion  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 983 ---
+Page 983 
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+Product Name:Brand Exjade, Brand Jadenu, generic deferasirox  
+Diagnosis 
+Chronic Iron Overload in Non-Transfusion Dependent Thalassemia 
+Syndrome  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ALL of the following:  
+ 
+ 1.1 Diagnosis of chronic iron overload in non-transfusion dependent thalassemia syndrome  
+ 
+AND 
+ 
+ 1.2 Patient has liver iron (Fe) concentration (LIC) levels consistently greater than or equal to 
+5 mg Fe per gram of dry weight prior to initiation of treatment with Exjade or Jadenu  
+ 
+AND 
+ 
+ 1.3 Patient has serum ferritin levels consistently greater than 300 micrograms per liter prior to 
+initiation of treatment with Exjade or Jadenu  
+ 
+Product Name:Brand Exjade, Brand Jadenu, generic deferasirox  
+Diagnosis 
+Chronic Iron Overload in Non-Transfusion Dependent Thalassemia 
+Syndrome  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+
+
+--- PDF page 984 ---
+Page 984 
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/16/2022  
+Added new generic deferiprone tabs  
+ 
