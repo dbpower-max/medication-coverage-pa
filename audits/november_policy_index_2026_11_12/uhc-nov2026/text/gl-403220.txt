@@ -1,0 +1,171 @@
+--- PDF page 531 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 531 
+Empaveli (pegcetacoplan) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-403220  
+Guideline Name 
+Empaveli (pegcetacoplan)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+11/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Empaveli  
+Diagnosis 
+Paroxysmal Nocturnal Hemoglobinuria (PNH)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of paroxysmal nocturnal hemoglobinuria (PNH)  
+
+
+--- PDF page 532 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 532 
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with ONE of the following:  
+• 
+Hematologist  
+• 
+Oncologist  
+ 
+Product Name:Empaveli  
+Diagnosis 
+Paroxysmal Nocturnal Hemoglobinuria (PNH)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy (e.g., improvement in 
+hemoglobin level, hemoglobin stabilization, decrease in the number of red blood cell 
+transfusions)  
+ 
+Product Name:Empaveli  
+Diagnosis 
+Complement 3 Glomerulopathy (C3G) or Primary Immune-Complex 
+Membranoproliferative Glomerulonephritis (IC-MPGN)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following diagnoses:  
+• 
+Complement 3 glomerulopathy (C3G)  
+
+
+--- PDF page 533 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 533 
+• 
+Primary immune-complex membranoproliferative glomerulonephritis (IC-MPGN)  
+ 
+AND 
+ 
+2 - For primary IC-MPGN, patient has NOT had a kidney transplant  
+ 
+AND 
+ 
+3 - Used to reduce proteinuria  
+ 
+AND 
+ 
+4 - Patient is 12 years of age or older  
+ 
+AND 
+ 
+5 - Patient is currently being treated with a maximally tolerated dose of ONE of the following 
+for at least 12 weeks prior to initiating treatment:  
+• 
+Angiotensin-converting enzyme inhibitors (e.g., benazepril, lisinopril)  
+• 
+Angiotensin receptor blockers (e.g., losartan, valsartan)  
+• 
+Sodium-glucose cotransporter-2 (SGLT2) inhibitors (e.g., Farxiga [dapagliflozin], 
+Jardiance [empagliflozin])  
+ 
+AND 
+ 
+6 - Prescribed by or in consultation with a nephrologist  
+ 
+Product Name:Empaveli  
+Diagnosis 
+Complement 3 Glomerulopathy (C3G) or Primary Immune-Complex 
+Membranoproliferative Glomerulonephritis (IC-MPGN)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 534 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 534 
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy (e.g., reduction in urine protein-
+to-creatinine ratio [UPCR], stable or improved estimated glomerular filtration rate [eGFR] 
+compared to baseline)  
+ 
+AND 
+ 
+2 - For primary IC-MPGN, patient has NOT had a kidney transplant  
+ 
+AND 
+ 
+3 - Patient continues to be treated with a maximally tolerated dose of ONE of the following:  
+• 
+Angiotensin-converting enzyme inhibitors (e.g., benazepril, lisinopril)  
+• 
+Angiotensin receptor blockers (e.g., losartan, valsartan)  
+• 
+Sodium-glucose cotransporter-2 (SGLT2) inhibitors (e.g., Farxiga [dapagliflozin], 
+Jardiance [empagliflozin])  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+10/2/2025  
+New program for ACUAZ/ACUAZEC.  
+ 

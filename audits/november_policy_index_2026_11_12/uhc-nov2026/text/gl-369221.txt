@@ -1,0 +1,111 @@
+--- PDF page 1686 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1686 
+Test Strips 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-369221  
+Guideline Name 
+Test Strips  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Non-preferred Test Strip Products  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - History of failure, contraindication, or intolerance to ALL preferred* products  
+ 
+OR 
+ 
+2 - Patient is on an insulin pump  
+
+
+--- PDF page 1687 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1687 
+ 
+OR 
+ 
+3 - Patient is visually impaired  
+Notes  
+*PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP 
+ 
+Product Name:Preferred or Non-preferred Test Strip Products  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Quantity Limit  
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following:  
+ 
+ 1.1 For insulin dependent or pregnant patients, the physician must confirm the patient 
+requires a greater quantity because of more frequent blood glucose testing (e.g., patients on 
+intravenous insulin infusions)  
+ 
+OR 
+ 
+ 1.2 For non-insulin dependent patients, ONE the following:  
+ 
+  1.2.1 The patient is experiencing or is prone to hypoglycemia or hyperglycemia and requires 
+additional testing to achieve glycemic control  
+ 
+OR 
+ 
+  1.2.2 The patient’s physician is adjusting medications and the patient requires additional 
+blood glucose testing during this time  
+ 
+OR 
+
+
+--- PDF page 1688 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1688 
+ 
+  1.2.3 The patient’s physician is adjusting MNT (medical nutrition therapy) and the patient 
+requires additional blood glucose testing during this time  
+ 
+OR 
+ 
+  1.2.4 The patient requires additional testing due to fluctuations in blood glucose due to 
+physical activity or exercise  
+ 
+OR 
+ 
+  1.2.5 Other circumstances where prescribing physician confirms that the patient requires a 
+greater quantity because of more frequent blood glucose testing (clinical review required by 
+reviewing pharmacist and/or medical director)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/14/2025  
+Replaced CORE criteria with FFS/state criteria.  
+ 
