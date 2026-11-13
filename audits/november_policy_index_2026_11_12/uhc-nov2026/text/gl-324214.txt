@@ -1,0 +1,270 @@
+--- PDF page 1009 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1009 
+Kineret (anakinra) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-324214  
+Guideline Name 
+Kineret (anakinra)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Kineret  
+Diagnosis 
+Rheumatoid Arthritis (RA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) or verification of paid claims confirming 
+ALL of the following:  
+ 
+ 1.1 Diagnosis of moderately to severely active rheumatoid arthritis (RA)  
+
+
+--- PDF page 1010 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1010 
+ 
+AND 
+ 
+ 1.2 History of failure to a 3 month trial of ONE non-biologic disease modifying anti-rheumatic 
+drug (DMARD) [e.g., methotrexate, leflunomide, sulfasalazine, hydroxychloroquine] at 
+maximally indicated doses within the last 6 months, unless contraindicated or clinically 
+significant adverse effects are experienced  
+ 
+AND 
+ 
+ 1.3 History of failure, contraindication, or intolerance to ALL of the following:  
+• 
+A preferred^ adalimumab biosimilar or Enbrel (etanercept)  
+• 
+infliximab  
+• 
+Orencia (abatacept)  
+• 
+Xeljanz (tofacitinib) oral tablet (IR or XR)  
+• 
+A preferred^ tocilizumab biosimilar  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a rheumatologist  
+Notes  
+^PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP 
+ 
+Product Name:Kineret  
+Diagnosis 
+Rheumatoid Arthritis (RA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+
+
+--- PDF page 1011 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1011 
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a rheumatologist  
+ 
+Product Name:Kineret  
+Diagnosis 
+Systemic Juvenile Idiopathic Arthritis (SJIA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming the diagnosis of active 
+systemic juvenile idiopathic arthritis  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a rheumatologist  
+ 
+AND 
+ 
+3 - Paid claims or submission of medical records (e.g., chart notes) confirming trial and failure, 
+contraindication, or intolerance to ONE of the following:  
+• 
+Nonsteroidal anti-inflammatory drug (NSAID) (e.g., Motrin [ibuprofen], Naprosyn 
+[naproxen])  
+• 
+Systemic glucocorticoid (e.g., prednisone)  
+ 
+AND 
+ 
+4 - Paid claims or submission of medical records (e.g., chart notes) confirming trial and failure, 
+contraindication, or intolerance to a preferred^ tocilizumab biosimilar  
+
+
+--- PDF page 1012 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1012 
+Notes  
+^PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP 
+ 
+Product Name:Kineret  
+Diagnosis 
+Systemic Juvenile Idiopathic Arthritis (SJIA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a rheumatologist  
+ 
+Product Name:Kineret  
+Diagnosis 
+Neonatal-Onset Multisystem Inflammatory Disease (NOMID)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming the diagnosis of neonatal-
+onset multisystem inflammatory disease (NOMID)  
+ 
+AND 
+ 
+2 - Diagnosis of NOMID has been confirmed by ONE of the following:  
+
+
+--- PDF page 1013 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1013 
+ 
+ 2.1 NLRP-3 (nucleotide-binding domain, leucine rich family (NLR), pyrin domain containing 3-
+gene (also known as Cold-Induced Auto-inflammatory Syndrome-1 [CIAS1]) mutation  
+ 
+OR 
+ 
+ 2.2 BOTH of the following:  
+ 
+  2.2.1 TWO of the following clinical symptoms:  
+• 
+Urticaria-like rash  
+• 
+Cold/stress triggered episodes  
+• 
+Sensorineural hearing loss  
+• 
+Musculoskeletal symptoms (e.g., arthralgia, arthritis, myalgia)  
+• 
+Chronic aseptic meningitis  
+• 
+Skeletal abnormalities (e.g., epiphyseal overgrowth, frontal bossing)  
+ 
+AND 
+ 
+  2.2.2 Elevated acute phase reactants (e.g., erythrocyte sedimentation rate [ESR], C-reactive 
+protein [CRP], serum amyloid A [SAA])  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with ONE of the following:  
+• 
+Allergist/Immunologist  
+• 
+Rheumatologist  
+• 
+Pediatrician  
+ 
+Product Name:Kineret  
+Diagnosis 
+Neonatal-Onset Multisystem Inflammatory Disease (NOMID)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+
+
+--- PDF page 1014 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1014 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+Product Name:Kineret  
+Diagnosis 
+Deficiency of Interleukin-1 Receptor Antagonist (DIRA)  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming the diagnosis of deficiency of 
+interleukin-1 receptor antagonist (DIRA)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+7/15/2025  
+Updated formatting of criteria sections. Updated initial and reauth sec
+tions for RA and SJIA.  
+ 

@@ -1,0 +1,298 @@
+--- PDF page 1663 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1663 
+Taltz (ixekizumab) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-329199  
+Guideline Name 
+Taltz (ixekizumab)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Taltz  
+Diagnosis 
+Plaque Psoriasis (PsO)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) or verification of paid claims 
+documenting ALL of the following:  
+ 
+ 1.1 Diagnosis of chronic moderate to severe plaque psoriasis (PsO)  
+
+
+--- PDF page 1664 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1664 
+ 
+AND 
+ 
+ 1.2 Greater than or equal to 3 percent body surface area involvement, palmoplantar, facial, or 
+genital involvement, or severe scalp psoriasis  
+ 
+AND 
+ 
+ 1.3 History of failure to ONE of the following topical therapies, unless contraindicated or 
+clinically significant adverse effects are experienced:  
+• 
+corticosteroids (e.g., betamethasone, clobetasol, desonide)  
+• 
+vitamin D analogs (e.g., calcitriol, calcipotriene)  
+• 
+tazarotene  
+• 
+calcineurin inhibitors (e.g., tacrolimus, pimecrolimus)  
+ 
+AND 
+ 
+ 1.4 History of failure to a 3 month trial of methotrexate at the maximally indicated dose within 
+the last 6 months, unless contraindicated or clinically significant adverse effects are 
+experienced  
+ 
+AND 
+ 
+ 1.5 History of failure, contraindication, or intolerance to ONE of the following topical 
+therapies:  
+• 
+Vtama  
+• 
+Zoryve 0.3% cream  
+ 
+AND 
+ 
+ 1.6 History of failure, contraindication, or intolerance to ALL of the following:  
+• 
+A preferred^ adalimumab biosimilar or Enbrel (etanercept)  
+• 
+infliximab  
+• 
+Otezla (apremilast)  
+• 
+A preferred^ ustekinumab biosimilar  
+
+
+--- PDF page 1665 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1665 
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a dermatologist  
+Notes  
+^PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP 
+ 
+Product Name:Taltz  
+Diagnosis 
+Plaque Psoriasis (PsO)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a dermatologist  
+ 
+Product Name:Taltz  
+Diagnosis 
+Psoriatic Arthritis (PsA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) or verification of paid claims 
+documenting ALL of the following:  
+
+
+--- PDF page 1666 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1666 
+ 
+ 1.1 Diagnosis of active psoriatic arthritis (PsA)  
+ 
+AND 
+ 
+ 1.2 History of failure to a 3 month trial of methotrexate at the maximally indicated dose within 
+the last 6 months, unless contraindicated or clinically significant adverse effects are 
+experienced  
+ 
+AND 
+ 
+ 1.3 History of failure, contraindication, or intolerance to ALL of the following:  
+• 
+A preferred^ adalimumab biosimilar or Enbrel (etanercept)  
+• 
+infliximab  
+• 
+Orencia (abatacept)  
+• 
+Otezla (apremilast)  
+• 
+Xeljanz (tofacitinib) oral tablet (IR or XR)  
+• 
+A preferred^ ustekinumab biosimilar  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with ONE of the following:  
+• 
+Rheumatologist  
+• 
+Dermatologist  
+Notes  
+^PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP 
+ 
+Product Name:Taltz  
+Diagnosis 
+Psoriatic Arthritis (PsA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 1667 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1667 
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with ONE of the following:  
+• 
+Rheumatologist  
+• 
+Dermatologist  
+ 
+Product Name:Taltz  
+Diagnosis 
+Ankylosing Spondylitis (AS), Non-Radiographic Axial Spondyloarthritis 
+(nr-axSpA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) or verification of paid claims 
+documenting ALL of the following:  
+ 
+ 1.1 ONE of the following diagnoses:  
+• 
+Active ankylosing spondylitis (AS)  
+• 
+Active non-radiographic axial spondyloarthritis (nr-axSpA)  
+ 
+AND 
+ 
+ 1.2 History of failure to TWO nonsteroidal anti-inflammatory drugs (NSAIDs) (e.g., ibuprofen, 
+naproxen) at maximally indicated doses, each used for at least 4 weeks within the last 3 
+months, unless contraindicated or clinically significant adverse effects are experienced  
+
+
+--- PDF page 1668 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1668 
+ 
+AND 
+ 
+ 1.3 History of failure, contraindication, or intolerance to ALL of the following:  
+• 
+A preferred^ adalimumab biosimilar or Enbrel (etanercept)  
+• 
+infliximab  
+• 
+Xeljanz (tofacitinib) oral tablet (IR or XR)  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a rheumatologist  
+Notes  
+^PDL link: https://www.uhcprovider.com/en/health-plans-by-state/arizo
+na-health-plans/az-comm-plan-home/az-cp-pharmacy.html?rfid=UHC
+CP 
+ 
+Product Name:Taltz  
+Diagnosis 
+Ankylosing Spondylitis (AS), Non-Radiographic Axial Spondyloarthritis 
+(nr-axSpA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a rheumatologist  
+ 
+2 .  Revision History  
+ 
+
+
+--- PDF page 1669 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1669 
+Date  
+Notes  
+7/16/2025  
+Updates to initial and reauth sections for all indications. Consolidated
+ AS and nr-axSpA criteria sections.  
+ 
