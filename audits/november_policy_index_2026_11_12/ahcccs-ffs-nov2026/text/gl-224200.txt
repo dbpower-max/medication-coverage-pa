@@ -1,0 +1,242 @@
+--- PDF page 627 ---
+Page 627 
+Evrysdi (risdiplam) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-224200  
+Guideline Name 
+Evrysdi (risdiplam)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+4/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Evrysdi  
+Diagnosis 
+Spinal Muscular Atrophy (SMA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of spinal muscular atrophy (SMA)  
+
+
+--- PDF page 628 ---
+Page 628 
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes, laboratory values) confirming the 
+mutation or deletion of genes in chromosome 5q resulting in ONE of the following:  
+ 
+ 2.1 Homozygous gene deletion or mutation of SMN1 gene (e.g., homozygous deletion of 
+exon 7 at locus 5q13)  
+ 
+OR 
+ 
+ 2.2 Compound heterozygous mutation of SMN1 gene [e.g., deletion of SMN1 exon 7 (allele 
+1) and mutation of SMN1 (allele 2)]  
+ 
+AND 
+ 
+3 - Patient is not dependent on invasive ventilation or tracheostomy  
+ 
+AND 
+ 
+4 - Patient is not dependent on the use of non-invasive ventilation beyond use for naps and 
+nighttime sleep  
+ 
+AND 
+ 
+5 - Patient is not receiving concomitant chronic survival motor neuron (SMN)-modifying 
+therapy [e.g., Spinraza (nusinersen)]  
+ 
+AND 
+ 
+6 - Patient has not previously received gene replacement therapy for the treatment of SMA 
+[e.g., Zolgensma (onasemnogene abeparvovec-xioi)]  
+ 
+AND 
+
+
+--- PDF page 629 ---
+Page 629 
+ 
+7 - Submission of medical records (e.g., chart notes, laboratory values) documenting the 
+baseline assessment of at least ONE of the following exams (based on patient age and motor 
+ability) to establish baseline motor ability (baseline motor function analysis could include 
+assessments evaluated prior to receipt of previous chronic SMN-modifying therapy if 
+transitioning therapy)*:  
+• 
+Children’s Hospital of Philadelphia Infant Test of Neuromuscular Disorders (CHOP 
+INTEND)  
+• 
+Hammersmith Infant Neurological Exam Part 2 (HINE-2)  
+• 
+Hammersmith Functional Motor Scale Expanded (HFMSE)  
+• 
+Upper Limb Module (ULM) Test  
+• 
+Motor Function Measure 32 (MFM-32) Scale  
+ 
+AND 
+ 
+8 - Prescribed by a neurologist with expertise in the treatment of SMA  
+Notes  
+*Baseline assessments for patients less than 2 months of age request
+ing Evrysdi are not necessary in order not to delay access to initial the
+rapy in recently diagnosed infants. Initial assessments shortly post-the
+rapy can serve as baseline with respect to efficacy reauthorization ass
+essment. 
+ 
+Product Name:Evrysdi  
+Diagnosis 
+Spinal Muscular Atrophy (SMA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, laboratory values) with the most recent 
+results documenting a positive clinical response to Evrysdi compared to pretreatment baseline 
+status [inclusive of baseline assessments prior to receipt of previous chronic survival motor 
+neuron (SMN)-modifying therapy] as demonstrated by at least ONE of the following exams:  
+ 
+ 1.1 Children’s Hospital of Philadelphia Infant Test of Neuromuscular Disorders (CHOP 
+INTEND) with ONE of the following:  
+ 
+  1.1.1 Improvement or maintenance of previous improvement of at least a 4-point increase in 
+score from pretreatment baseline  
+
+
+--- PDF page 630 ---
+Page 630 
+ 
+OR 
+ 
+  1.1.2 Patient has achieved and maintained any new motor milestone from pretreatment 
+baseline when they would otherwise be unexpected to do so  
+ 
+OR 
+ 
+ 1.2 Hammersmith Infant Neurological Exam Part 2 (HINE-2) with ONE of the following:  
+ 
+  1.2.1 Improvement or maintenance of previous improvement of at least a 2-point (or maximal 
+score) increase in ability to kick  
+ 
+OR 
+ 
+  1.2.2 Improvement or maintenance of previous improvement of at least a 1-point increase in 
+any other HINE-2 milestone (e.g., head control, rolling, sitting, crawling, etc.), excluding 
+voluntary grasp  
+ 
+OR 
+ 
+  1.2.3 The patient exhibited improvement, or maintenance of previous improvement, in more 
+HINE motor milestones than worsening, from pretreatment baseline (net positive 
+improvement)  
+ 
+OR 
+ 
+  1.2.4 Patient has achieved and maintained any new motor milestones when they would 
+otherwise be unexpected to do so  
+ 
+OR 
+ 
+ 1.3 Hammersmith Functional Motor Scale Expanded (HFMSE) with ONE of the following:  
+ 
+  1.3.1 Improvement or maintenance of previous improvement of at least a 3-point increase in 
+score from pretreatment baseline  
+
+
+--- PDF page 631 ---
+Page 631 
+ 
+OR 
+ 
+  1.3.2 Patient has achieved and maintained any new motor milestone from pretreatment 
+baseline when they would otherwise be unexpected to do so  
+ 
+OR 
+ 
+ 1.4 Upper Limb Module (ULM) with ONE of the following:  
+ 
+  1.4.1 Improvement or maintenance of previous improvement of at least a 2-point increase in 
+score from pretreatment baseline  
+ 
+OR 
+ 
+  1.4.2 Patient has achieved and maintained any new motor milestone from pretreatment 
+baseline when they would otherwise be unexpected to do so  
+ 
+OR 
+ 
+ 1.5 Motor Function Measure 32 (MFM-32) with ONE of the following:  
+ 
+  1.5.1 Improvement or maintenance of previous improvement of at least a 3-point increase in 
+score from pretreatment baseline  
+ 
+OR 
+ 
+  1.5.2 Patient has achieved and maintained any new motor milestone from pretreatment 
+baseline when they would otherwise be unexpected to do so  
+ 
+AND 
+ 
+2 - Patient is not dependent on invasive ventilation or tracheostomy  
+ 
+AND 
+
+
+--- PDF page 632 ---
+Page 632 
+ 
+3 - Patient is not dependent on the use of non-invasive ventilation beyond use for naps and 
+nighttime sleep  
+ 
+AND 
+ 
+4 - Patient is not receiving concomitant chronic SMN-modifying therapy [e.g., Spinraza 
+(nusinersen)]  
+ 
+AND 
+ 
+5 - Patient has not previously received gene replacement therapy for the treatment of spinal 
+muscular atrophy (SMA) [e.g., Zolgensma (onasemnogene abeparvovec-xioi)]  
+ 
+AND 
+ 
+6 - Prescribed by a neurologist with expertise in the treatment of SMA  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/26/2025  
+Added new GPI for Evrysdi tablet  
+ 
