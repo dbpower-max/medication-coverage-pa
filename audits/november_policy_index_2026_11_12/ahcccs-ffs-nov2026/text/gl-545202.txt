@@ -1,0 +1,808 @@
+--- PDF page 107 ---
+Page 107 
+Anticonvulsants - AZM 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-545202  
+Guideline Name 
+Anticonvulsants - AZM  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+4/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:PREFERRED: Brand Briviact, generic lacosamide, Xcopri; NON-
+PREFERRED: Brand Aptiom, generic brivaracetam, generic eslicarbazepine, Brand Vimpat  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting ONE of 
+the following:  
+ 
+ 1.1 All of the following:  
+ 
+  1.1.1 One of the following diagnoses:  
+
+
+--- PDF page 108 ---
+Page 108 
+• 
+partial-onset seizures  
+• 
+primary generalized tonic-clonic seizures (Applies to Brand Vimpat and generic 
+lacosamide only)  
+ 
+AND 
+ 
+  1.1.2 History of greater than or equal to 8 week trial of at least TWO of the following (any 
+release formulation qualifies)*: (APPLIES TO BRAND APTIOM, GENERIC BRIVARACETAM, 
+GENERIC ESLICARBAZEPINE, AND BRAND VIMPAT ONLY)  
+• 
+Brand Briviact  
+• 
+Carbamazepine  
+• 
+Divalproex  
+• 
+Gabapentin  
+• 
+Fycompa  
+• 
+generic lacosamide  
+• 
+Lamotrigine  
+• 
+Levetiracetam  
+• 
+Oxcarbazepine  
+• 
+Phenytoin  
+• 
+Pregabalin  
+• 
+Topiramate  
+• 
+Valproic acid  
+• 
+Xcopri  
+• 
+Zonisamide  
+ 
+AND 
+ 
+  1.1.3 One of the following: APPLIES TO BRAND APTIOM, GENERIC BRIVARACETAM, 
+GENERIC ESLICARBAZEPINE, AND BRAND VIMPAT ONLY)  
+ 
+   1.1.3.1 Both of the following: 
+• 
+Documented history of persisting seizures after titration to the highest tolerated dose 
+with each medication trial of preferred formulary alternatives  
+• 
+Lack of compliance as a reason for treatment failure has been ruled out  
+ 
+OR 
+ 
+   1.1.3.2 Both of the following: 
+
+
+--- PDF page 109 ---
+Page 109 
+• 
+Documentation of failure of preferred formulary alternatives due to intolerable side 
+effects  
+• 
+Reasonable efforts were made to minimize the side effect (e.g. change timing of 
+dosing, divide dose out for more frequent but smaller doses, etc.)  
+ 
+AND 
+ 
+  1.1.4 Trial and failure, contraindication, or intolerance to generic lacosamide (APPLIES TO 
+BRAND VIMPAT ONLY)  
+ 
+OR 
+ 
+ 1.2 For continuation of prior therapy for a seizure disorder  
+Notes  
+*Preferred Drugs may require PA 
+ 
+Product Name:Motpoly XR  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting ONE of 
+the following:  
+ 
+ 1.1 Both of the following:  
+ 
+  1.1.1 Diagnosis of one of the following:  
+• 
+partial-onset seizures  
+• 
+primary generalized tonic-clonic seizures  
+ 
+AND 
+ 
+  1.1.2 Patient weighs at least 50 kg  
+
+
+--- PDF page 110 ---
+Page 110 
+ 
+OR 
+ 
+ 1.2 For continuation of prior therapy for a seizure disorder  
+ 
+Product Name:PREFERRED: Brand Fycompa; NON-PREFERRED: generic perampanel  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting ONE of 
+the following:  
+ 
+ 1.1 BOTH of the following:  
+• 
+Diagnosis of partial-onset or primary generalized tonic-clonic seizures  
+• 
+Trial and failure, contraindication, or intolerance to Brand Fycompa (APPLIES TO 
+GENERIC PERAMPANEL REQUESTS ONLY)  
+ 
+OR 
+ 
+ 1.2 For continuation of prior therapy for a seizure disorder  
+ 
+Product Name:Epidiolex  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting ONE of 
+the following:  
+ 
+ 1.1 Diagnosis of seizures associated with Dravet syndrome  
+
+
+--- PDF page 111 ---
+Page 111 
+ 
+OR 
+ 
+ 1.2 Diagnosis of seizures associated with Lennox-Gastaut syndrome  
+ 
+OR 
+ 
+ 1.3 Diagnosis of seizures associated with tuberous sclerosis complex (TSC)  
+ 
+OR 
+ 
+ 1.4 For continuation of prior therapy for a seizure disorder  
+Notes  
+*Drug may require PA 
+ 
+Product Name:Diacomit  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting 
+diagnosis of Dravet syndrome and currently taking clobazam  
+ 
+OR 
+ 
+2 - For continuation of prior therapy for a seizure disorder  
+ 
+Product Name:Fintepla  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 112 ---
+Page 112 
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting ALL of 
+the following:  
+ 
+ 1.1 Diagnosis of seizures associated with Dravet syndrome  
+ 
+AND 
+ 
+ 1.2 History of greater than or equal to 8-week trial of at least TWO of the following (any 
+release formulation qualifies)*:  
+• 
+Divalproex (e.g., generic Depakote)  
+• 
+Epidiolex  
+• 
+Levetiracetam (e.g., generic Keppra)  
+• 
+Topiramate (e.g., generic Topamax)  
+• 
+Valproic acid (e.g., generic Depakene)  
+• 
+Zonisamide (generic Zonegran)  
+ 
+AND 
+ 
+ 1.3 ONE of the following:  
+ 
+  1.3.1 BOTH of the following:  
+ 
+   1.3.1.1 Documented history of persisting seizures after titration to the highest tolerated dose 
+with each medication trial of preferred formulary alternatives 
+ 
+AND 
+ 
+   1.3.1.2 Lack of compliance as a reason for treatment failure has been ruled out 
+ 
+OR 
+ 
+  1.3.2 BOTH of the following:  
+ 
+   1.3.2.1 Documentation of failure of preferred formulary alternatives due to intolerable side 
+effects 
+
+
+--- PDF page 113 ---
+Page 113 
+ 
+AND 
+ 
+   1.3.2.2 Reasonable efforts were made to minimize the side effect (e.g., change timing of 
+dosing, divide dose out for more frequent but smaller doses, etc.) 
+ 
+OR 
+ 
+2 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting ALL of 
+the following:  
+ 
+ 2.1 Diagnosis of seizures associated with Lennox-Gastaut syndrome  
+ 
+AND 
+ 
+ 2.2 History of greater than or equal to 8 week trial, contraindication or intolerance of at least 
+TWO of the following (any release formulation qualifies)*:  
+• 
+Banzel (rufinamide)  
+• 
+Clobazam  
+• 
+Divalproex  
+• 
+Epidiolex  
+• 
+Felbamate  
+• 
+Lamotrigine  
+• 
+Topiramate  
+• 
+Valproic Acid  
+ 
+AND 
+ 
+ 2.3 ONE of the following:  
+ 
+  2.3.1 BOTH of the following:  
+• 
+Documented history of persisting seizures after titration to the highest tolerated dose 
+with each medication trial of preferred formulary alternatives  
+• 
+Lack of compliance as a reason for treatment failure has been ruled out  
+ 
+OR 
+
+
+--- PDF page 114 ---
+Page 114 
+ 
+  2.3.2 BOTH of the following:  
+• 
+Documentation of failure of preferred formulary alternatives due to intolerable side 
+effects  
+• 
+Lack of compliance as a reason for treatment failure has been ruled out  
+ 
+OR 
+ 
+3 - For continuation of prior therapy for a seizure disorder  
+Notes  
+*Drug may require PA 
+ 
+Product Name:PREFERRED: generic rufinamide tablets, generic rufinamide solution; NON-
+PREFERRED: Brand Banzel tablets and suspension  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+ 
+ 1.1 Submission of medical records (e.g., chart notes, lab work, imaging) documenting both of 
+the following:  
+ 
+  1.1.1 Diagnosis of seizures associated with Lennox-Gastaut syndrome  
+ 
+AND 
+ 
+  1.1.2 Trial and failure, contraindication, or intolerance to generic rufinamide (APPLIES TO 
+BRAND BANZEL REQUESTS ONLY)  
+ 
+OR 
+ 
+ 1.2 For continuation of prior therapy for a seizure disorder  
+ 
+Product Name:PREFERRED: generic clobazam; NON-PREFERRED: Brand Onfi  
+
+
+--- PDF page 115 ---
+Page 115 
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting one of 
+the following:  
+ 
+ 1.1 Both of the following:  
+• 
+Diagnosis of seizures associated with Lennox-Gastaut syndrome  
+• 
+Trial and failure, contraindication, or intolerance to generic clobazam (APPLIES TO 
+BRAND ONFI ONLY)  
+ 
+OR 
+ 
+ 1.2 All of the following:  
+• 
+Diagnosis of Dravet syndrome  
+• 
+Patient is currently taking Diacomit  
+• 
+Trial and failure, contraindication, or intolerance to generic clobazam (APPLIES TO 
+BRAND ONFI ONLY)  
+ 
+OR 
+ 
+2 - For continuation of prior therapy for a seizure disorder  
+ 
+Product Name:Sympazan  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting ONE of 
+the following:  
+ 
+ 1.1 ALL of the following:  
+
+
+--- PDF page 116 ---
+Page 116 
+ 
+  1.1.1 Diagnosis of seizures associated with Lennox-Gastaut syndrome (LGS)  
+ 
+AND 
+ 
+  1.1.2 BOTH of the following:  
+• 
+Used as adjunctive therapy (defined as accessory treatment used in combination to 
+enhance primary treatment.)  
+• 
+Not used as primary treatment  
+ 
+AND 
+ 
+  1.1.3 History of greater than or equal to 8 week trial, contraindication or intolerance of at 
+least TWO of the following (any release formulation qualifies)*:  
+• 
+Brand Banzel suspension/tablets or runfinamide tablets  
+• 
+Divalproex  
+• 
+Felbamate  
+• 
+Lamotrigine  
+• 
+Topiramate  
+• 
+Valproic acid  
+ 
+AND 
+ 
+  1.1.4 Prescriber provides a reason or special circumstance the patient cannot use generic 
+clobazam tablets or suspension  
+ 
+OR 
+ 
+ 1.2 ALL of the following:  
+ 
+  1.2.1 Diagnosis of refractory partial onset seizures (four or more uncontrolled seizures per 
+month after an adequate trial of at least two antiepileptic drugs)  
+ 
+AND 
+ 
+  1.2.2 BOTH of the following:  
+
+
+--- PDF page 117 ---
+Page 117 
+• 
+Used as adjunctive therapy (defined as accessory treatment used in combination to 
+enhance primary treatment.)  
+• 
+Not used as primary treatment  
+ 
+AND 
+ 
+  1.2.3 History of greater than or equal to 8 week trial of at least TWO of the following (any 
+release formulation qualifies)*:  
+• 
+Carbamazepine  
+• 
+Divalproex  
+• 
+Fycompa  
+• 
+Gabapentin  
+• 
+Lacosamide  
+• 
+Lamotrigine  
+• 
+Levetiracetam  
+• 
+Oxcarbazepine  
+• 
+Phenytoin  
+• 
+Pregabalin  
+• 
+Topiramate  
+• 
+Valproic acid  
+• 
+Xcopri  
+• 
+Zonisamide  
+ 
+AND 
+ 
+  1.2.4 Prescriber provides a reason or special circumstance the patient cannot use generic 
+clobazam tablets or suspension  
+ 
+OR 
+ 
+ 1.3 ALL of the following:  
+ 
+  1.3.1 Diagnosis of Dravet syndrome  
+ 
+AND 
+ 
+  1.3.2 Patient is currently taking Diacomit  
+
+
+--- PDF page 118 ---
+Page 118 
+ 
+AND 
+ 
+  1.3.3 Prescriber provides a reason or special circumstance the patient cannot use generic 
+clobazam tablets or suspension  
+ 
+OR 
+ 
+ 1.4 For continuation of prior therapy for a seizure disorder  
+Notes  
+*Drug may require PA 
+ 
+Product Name:PREFERRED: generic tiagabine  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting ONE of 
+the following:  
+ 
+ 1.1 All of the following:  
+ 
+  1.1.1 Diagnosis of partial-onset seizures  
+ 
+AND 
+ 
+  1.1.2 Used as adjunctive therapy (defined as accessory treatment used in combination to 
+enhance primary treatment)  
+ 
+AND 
+ 
+  1.1.3 Not used as primary treatment  
+
+
+--- PDF page 119 ---
+Page 119 
+ 
+OR 
+ 
+ 1.2 For continuation of prior therapy for a seizure disorder  
+ 
+Product Name:Brand Sabril Tablets, generic vigabatrin tablets, vigadrone tablets  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting ONE of 
+the following:  
+ 
+ 1.1 All of the following:  
+ 
+  1.1.1 Diagnosis of complex partial seizures  
+ 
+AND 
+ 
+  1.1.2 Used as adjunctive therapy (defined as accessory treatment used in combination to 
+enhance primary treatment)  
+ 
+AND 
+ 
+  1.1.3 Not used as primary treatment  
+ 
+AND 
+ 
+  1.1.4 History of greater than or equal to 8 week trial of at least TWO of the following (any 
+release formulation qualifies)*:  
+• 
+Carbamazepine  
+• 
+Divalproex  
+• 
+Fycompa  
+• 
+Gabapentin  
+
+
+--- PDF page 120 ---
+Page 120 
+• 
+Lacosamide  
+• 
+Lamotrigine  
+• 
+Levetiracetam  
+• 
+Oxcarbazepine  
+• 
+Phenytoin  
+• 
+Pregabalin  
+• 
+Topiramate  
+• 
+Valproic acid  
+• 
+Xcopri  
+• 
+Zonisamide  
+ 
+OR 
+ 
+ 1.2 For continuation of prior therapy for a seizure disorder  
+Notes  
+*Drug may require PA 
+ 
+Product Name:Brand Sabril Oral Solution, generic vigabatrin oral solution, generic vigadrone 
+oral solution, Vigafyde  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting 
+diagnosis of infantile spasms  
+ 
+OR 
+ 
+2 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting all of the 
+following:  
+ 
+ 2.1 Diagnosis of complex partial seizures  
+ 
+AND 
+ 
+ 2.2 Used as adjunctive therapy (defined as accessory treatment used in combination to 
+enhance primary treatment)  
+
+
+--- PDF page 121 ---
+Page 121 
+ 
+AND 
+ 
+ 2.3 Not used as primary treatment  
+ 
+AND 
+ 
+ 2.4 History of greater than or equal to 8 week trial of at least TWO of the following (any 
+release formulation qualifies)*:  
+• 
+Carbamazepine  
+• 
+Divalproex  
+• 
+Fycompa  
+• 
+Gabapentin  
+• 
+Lacosamide  
+• 
+Lamotrigine  
+• 
+Levetiracetam  
+• 
+Oxcarbazepine  
+• 
+Phenytoin  
+• 
+Pregabalin  
+• 
+Topiramate  
+• 
+Valproic acid  
+• 
+Xcopri  
+• 
+Zonisamide  
+ 
+OR 
+ 
+3 - For continuation of prior therapy for a seizure disorder  
+Notes  
+*Drug may require PA 
+ 
+Product Name:PREFERRED: Brand Trokendi XR; NON-PREFERRED: generic topiramate 
+ER, generic topiramate 50 mg sprinkle, Brand Qudexy XR, generic topiramate ER sprinkle  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 122 ---
+Page 122 
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting ONE of 
+the following:  
+ 
+ 1.1 All of the following:  
+ 
+  1.1.1 Diagnosis of partial-onset seizures  
+ 
+AND 
+ 
+  1.1.2 Trial and failure, contraindication, or intolerance to generic topiramate immediate-
+release (IR) tablet or preferred topiramate IR sprinkle capsule (APPLIES TO GENERIC 
+TOPIRAMATE ER, GENERIC TOPIRAMATE 50 MG SPRINKLE, BRAND QUDEXY XR, AND 
+GENERIC TOPIRAMATE ER SPRINKLE ONLY)  
+ 
+AND 
+ 
+  1.1.3 Trial and failure, contraindication, or intolerance to Brand Trokendi XR (APPLIES TO 
+GENERIC TOPIRAMATE ER, BRAND QUDEXY XR, AND GENERIC TOPIRAMATE ER 
+SPRINKLE ONLY)  
+ 
+OR 
+ 
+ 1.2 For continuation of prior therapy for a seizure disorder  
+ 
+Product Name:Gabarone  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+ 
+ 1.1 All of the following:  
+• 
+Patient is 3 years of age or older  
+• 
+Submission of medical records (e.g., chart notes) documenting diagnosis of partial 
+onset seizures  
+
+
+--- PDF page 123 ---
+Page 123 
+• 
+Trial and failure or intolerance to generic immediate-release gabapentin (generic for 
+Neurontin)  
+ 
+OR 
+ 
+ 1.2 All of the following  
+• 
+Patient is 18 years of age or older  
+• 
+Submission of medical records (e.g., chart notes) documenting diagnosis of 
+postherpetic neuralgia (PHN)  
+• 
+Trial and failure or intolerance to generic immediate-release gabapentin (generic for 
+Neurontin)  
+• 
+Trial and failure or intolerance to Brand Gralise*  
+Notes  
+*Drug may require PA 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/24/2026  
+Added generic Briviact (tabs/soln) as NP target (Brand Preferred)  
+ 
