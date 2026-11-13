@@ -1,0 +1,2007 @@
+[
+  {
+    "record_id": "uhc-oct-complete-f597c1c77d71c7d1",
+    "name": "albuterol sulfate nebulization solution (5 mg/ml) 0.5% inhalation",
+    "kinds": [
+      "tiers",
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 106,
+        "y": 346.82000732421875,
+        "end_y": 373.427490234375,
+        "column": "preferred",
+        "class_name": "Bronchodilators, Sympathomimetic - Asthma/Lung Drugs / Respiratory Tract/Pulmonary Agents - Drugs to Treat Allergies, / Cough, Cold and Lung Conditions",
+        "source_text": "albuterol sulfate nebulization solution (5 mg/ml) 0.5% inhalation - Tier 1; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 346.82000732421875,
+            "bottom": 359.9375,
+            "size": 11.25,
+            "text": "albuterol sulfate nebulization solution (5 mg/ml) 0.5% inhalation - Tier",
+            "page": 106
+          },
+          {
+            "x": 34.0,
+            "y": 360.30999755859375,
+            "bottom": 373.427490234375,
+            "size": 11.25,
+            "text": "1; QL",
+            "page": 106
+          }
+        ],
+        "name": "albuterol sulfate nebulization solution (5 mg/ml) 0.5% inhalation",
+        "tier": "1",
+        "raw_restrictions": "Tier 1; QL",
+        "codes": [
+          "QL"
+        ],
+        "position_id": 967
+      },
+      {
+        "page": 106,
+        "y": 373.95751953125,
+        "end_y": 400.4075012207031,
+        "column": "preferred",
+        "class_name": "Bronchodilators, Sympathomimetic - Asthma/Lung Drugs / Respiratory Tract/Pulmonary Agents - Drugs to Treat Allergies, / Cough, Cold and Lung Conditions",
+        "source_text": "ALBUTEROL SULFATE NEBULIZATION SOLUTION (5 MG/ML) 0.5% INHALATION - Tier 2; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 373.95751953125,
+            "bottom": 386.9175109863281,
+            "size": 11.25,
+            "text": "ALBUTEROL SULFATE NEBULIZATION SOLUTION (5 MG/ML)",
+            "page": 106
+          },
+          {
+            "x": 34.0,
+            "y": 387.447509765625,
+            "bottom": 400.4075012207031,
+            "size": 11.25,
+            "text": "0.5% INHALATION - Tier 2; QL",
+            "page": 106
+          }
+        ],
+        "name": "ALBUTEROL SULFATE NEBULIZATION SOLUTION (5 MG/ML) 0.5% INHALATION",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; QL",
+        "codes": [
+          "QL"
+        ],
+        "position_id": 968
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-cbe335d8e93b76c3",
+    "name": "aripiprazole solution 1 mg/ml oral",
+    "kinds": [
+      "preferred/nonpreferred columns",
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 58,
+        "y": 135.17999267578125,
+        "end_y": 148.2974853515625,
+        "column": "preferred",
+        "class_name": "2nd Generation/Atypical - Mood Disorder Drugs / Antipsychotics - Drugs to Treat Mood Disorders",
+        "source_text": "aripiprazole solution 1 mg/ml oral - Tier 1; *; QL; AL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 135.17999267578125,
+            "bottom": 148.2974853515625,
+            "size": 11.25,
+            "text": "aripiprazole solution 1 mg/ml oral - Tier 1; *; QL; AL",
+            "page": 58
+          }
+        ],
+        "name": "aripiprazole solution 1 mg/ml oral",
+        "tier": "1",
+        "raw_restrictions": "Tier 1; *; QL; AL",
+        "codes": [
+          "*",
+          "QL",
+          "AL"
+        ],
+        "position_id": 16
+      },
+      {
+        "page": 58,
+        "y": 94.70999145507812,
+        "end_y": 107.8274917602539,
+        "column": "non_preferred",
+        "class_name": "2nd Generation/Atypical - Mood Disorder Drugs / Antipsychotics - Drugs to Treat Mood Disorders",
+        "source_text": "aripiprazole solution 1 mg/ml oral - Tier 1; PA; *; QL; AL",
+        "lines": [
+          {
+            "x": 389.25,
+            "y": 94.70999145507812,
+            "bottom": 107.8274917602539,
+            "size": 11.25,
+            "text": "aripiprazole solution 1 mg/ml oral - Tier 1; PA; *; QL; AL",
+            "page": 58
+          }
+        ],
+        "name": "aripiprazole solution 1 mg/ml oral",
+        "tier": "1",
+        "raw_restrictions": "Tier 1; PA; *; QL; AL",
+        "codes": [
+          "PA",
+          "*",
+          "QL",
+          "AL"
+        ],
+        "position_id": 29
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-3b25d168e772f4bb",
+    "name": "BD AUTOSHIELD DUO PEN NEEDLES (brand for pen needles)",
+    "kinds": [
+      "preferred/nonpreferred columns",
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 118,
+        "y": 79.31002807617188,
+        "end_y": 105.91748809814453,
+        "column": "preferred",
+        "class_name": "Diabetes - Glucose Monitoring",
+        "source_text": "BD AUTOSHIELD DUO PEN NEEDLES (brand for pen needles) - Tier 2; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 79.31002807617188,
+            "bottom": 92.42752838134766,
+            "size": 11.25,
+            "text": "BD AUTOSHIELD DUO PEN NEEDLES (brand for pen needles) -",
+            "page": 118
+          },
+          {
+            "x": 34.0,
+            "y": 92.79998779296875,
+            "bottom": 105.91748809814453,
+            "size": 11.25,
+            "text": "Tier 2; QL",
+            "page": 118
+          }
+        ],
+        "name": "BD AUTOSHIELD DUO PEN NEEDLES (brand for pen needles)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; QL",
+        "codes": [
+          "QL"
+        ],
+        "position_id": 1219
+      },
+      {
+        "page": 182,
+        "y": 235.92001342773438,
+        "end_y": 262.5274963378906,
+        "column": "non_preferred",
+        "class_name": "Miscellaneous Therapeutic Agents",
+        "source_text": "BD AUTOSHIELD DUO PEN NEEDLES (brand for pen needles) - Tier 2; PA; QL",
+        "lines": [
+          {
+            "x": 389.25,
+            "y": 235.92001342773438,
+            "bottom": 249.03750610351562,
+            "size": 11.25,
+            "text": "BD AUTOSHIELD DUO PEN NEEDLES (brand for pen needles) - Tier 2;",
+            "page": 182
+          },
+          {
+            "x": 389.25,
+            "y": 249.41000366210938,
+            "bottom": 262.5274963378906,
+            "size": 11.25,
+            "text": "PA; QL",
+            "page": 182
+          }
+        ],
+        "name": "BD AUTOSHIELD DUO PEN NEEDLES (brand for pen needles)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; PA; QL",
+        "codes": [
+          "PA",
+          "QL"
+        ],
+        "position_id": 2732
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-c4e9ac46f2349955",
+    "name": "BD ULTRA-FINE INSULIN SYRINGES",
+    "kinds": [
+      "preferred/nonpreferred columns",
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 118,
+        "y": 133.427490234375,
+        "end_y": 146.38748168945312,
+        "column": "preferred",
+        "class_name": "Diabetes - Glucose Monitoring",
+        "source_text": "BD ULTRA-FINE INSULIN SYRINGES - Tier 2; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 133.427490234375,
+            "bottom": 146.38748168945312,
+            "size": 11.25,
+            "text": "BD ULTRA-FINE INSULIN SYRINGES - Tier 2; QL",
+            "page": 118
+          }
+        ],
+        "name": "BD ULTRA-FINE INSULIN SYRINGES",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; QL",
+        "codes": [
+          "QL"
+        ],
+        "position_id": 1221
+      },
+      {
+        "page": 182,
+        "y": 317.01751708984375,
+        "end_y": 329.9775085449219,
+        "column": "non_preferred",
+        "class_name": "Miscellaneous Therapeutic Agents",
+        "source_text": "BD ULTRA-FINE INSULIN SYRINGES - Tier 2; PA; QL",
+        "lines": [
+          {
+            "x": 389.25,
+            "y": 317.01751708984375,
+            "bottom": 329.9775085449219,
+            "size": 11.25,
+            "text": "BD ULTRA-FINE INSULIN SYRINGES - Tier 2; PA; QL",
+            "page": 182
+          }
+        ],
+        "name": "BD ULTRA-FINE INSULIN SYRINGES",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; PA; QL",
+        "codes": [
+          "PA",
+          "QL"
+        ],
+        "position_id": 2735
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-22070f6565eaddd7",
+    "name": "BD ULTRA-FINE INSULIN SYRINGES 31G X 5/16\" 0.3 ML (brand for careone insulin syringe)",
+    "kinds": [
+      "preferred/nonpreferred columns",
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 182,
+        "y": 411.2799987792969,
+        "end_y": 437.8874816894531,
+        "column": "preferred",
+        "class_name": "Mineralocorticoid Receptor Antagonists / Cardiovascular Agents / Miscellaneous Therapeutic Agents",
+        "source_text": "BD ULTRA-FINE INSULIN SYRINGES 31G X 5/16\" 0.3 ML (brand for careone insulin syringe) - Tier 2; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 411.2799987792969,
+            "bottom": 424.3974914550781,
+            "size": 11.25,
+            "text": "BD ULTRA-FINE INSULIN SYRINGES 31G X 5/16\" 0.3 ML (brand for",
+            "page": 182
+          },
+          {
+            "x": 34.0,
+            "y": 424.7699890136719,
+            "bottom": 437.8874816894531,
+            "size": 11.25,
+            "text": "careone insulin syringe) - Tier 2; QL",
+            "page": 182
+          }
+        ],
+        "name": "BD ULTRA-FINE INSULIN SYRINGES 31G X 5/16\" 0.3 ML (brand for careone insulin syringe)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; QL",
+        "codes": [
+          "QL"
+        ],
+        "position_id": 2728
+      },
+      {
+        "page": 182,
+        "y": 289.8800048828125,
+        "end_y": 316.48748779296875,
+        "column": "non_preferred",
+        "class_name": "Miscellaneous Therapeutic Agents",
+        "source_text": "BD ULTRA-FINE INSULIN SYRINGES 31G X 5/16\" 0.3 ML (brand for careone insulin syringe) - Tier 2; PA; QL",
+        "lines": [
+          {
+            "x": 389.25,
+            "y": 289.8800048828125,
+            "bottom": 302.99749755859375,
+            "size": 11.25,
+            "text": "BD ULTRA-FINE INSULIN SYRINGES 31G X 5/16\" 0.3 ML (brand for",
+            "page": 182
+          },
+          {
+            "x": 389.25,
+            "y": 303.3699951171875,
+            "bottom": 316.48748779296875,
+            "size": 11.25,
+            "text": "careone insulin syringe) - Tier 2; PA; QL",
+            "page": 182
+          }
+        ],
+        "name": "BD ULTRA-FINE INSULIN SYRINGES 31G X 5/16\" 0.3 ML (brand for careone insulin syringe)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; PA; QL",
+        "codes": [
+          "PA",
+          "QL"
+        ],
+        "position_id": 2734
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-be916cf5ebe9501f",
+    "name": "budesonide-formoterol fumarate aerosol 160-4.5 mcg/act inhalation (generic for SYMBICORT)",
+    "kinds": [
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 213,
+        "y": 311.739990234375,
+        "end_y": 338.3475036621094,
+        "column": "preferred",
+        "class_name": "Respiratory Tract Agents, Other - Asthma/Lung Drugs / Respiratory Tract/Pulmonary Agents - Drugs to Treat Allergies, / Cough, Cold and Lung Conditions",
+        "source_text": "budesonide-formoterol fumarate aerosol 160-4.5 mcg/act inhalation (generic for SYMBICORT) - Tier 1; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 311.739990234375,
+            "bottom": 324.85748291015625,
+            "size": 11.25,
+            "text": "budesonide-formoterol fumarate aerosol 160-4.5 mcg/act inhalation",
+            "page": 213
+          },
+          {
+            "x": 34.0,
+            "y": 325.2300109863281,
+            "bottom": 338.3475036621094,
+            "size": 11.25,
+            "text": "(generic for SYMBICORT) - Tier 1; QL",
+            "page": 213
+          }
+        ],
+        "name": "budesonide-formoterol fumarate aerosol 160-4.5 mcg/act inhalation (generic for SYMBICORT)",
+        "tier": "1",
+        "raw_restrictions": "Tier 1; QL",
+        "codes": [
+          "QL"
+        ],
+        "position_id": 3388
+      },
+      {
+        "page": 214,
+        "y": 52.329986572265625,
+        "end_y": 78.9374771118164,
+        "column": "preferred",
+        "class_name": "Respiratory Tract Agents, Other - Asthma/Lung Drugs / Respiratory Tract/Pulmonary Agents - Drugs to Treat Allergies, / Cough, Cold and Lung Conditions",
+        "source_text": "budesonide-formoterol fumarate aerosol 160-4.5 mcg/act inhalation (generic for SYMBICORT) - Tier 1; ST; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 52.329986572265625,
+            "bottom": 65.4474868774414,
+            "size": 11.25,
+            "text": "budesonide-formoterol fumarate aerosol 160-4.5 mcg/act inhalation",
+            "page": 214
+          },
+          {
+            "x": 34.0,
+            "y": 65.81997680664062,
+            "bottom": 78.9374771118164,
+            "size": 11.25,
+            "text": "(generic for SYMBICORT) - Tier 1; ST; QL",
+            "page": 214
+          }
+        ],
+        "name": "budesonide-formoterol fumarate aerosol 160-4.5 mcg/act inhalation (generic for SYMBICORT)",
+        "tier": "1",
+        "raw_restrictions": "Tier 1; ST; QL",
+        "codes": [
+          "ST",
+          "QL"
+        ],
+        "position_id": 3397
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-d286297ad03ac6d9",
+    "name": "budesonide-formoterol fumarate aerosol 80-4.5 mcg/act inhalation (generic for SYMBICORT)",
+    "kinds": [
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 214,
+        "y": 79.31002807617188,
+        "end_y": 105.91748809814453,
+        "column": "preferred",
+        "class_name": "Respiratory Tract Agents, Other - Asthma/Lung Drugs / Respiratory Tract/Pulmonary Agents - Drugs to Treat Allergies, / Cough, Cold and Lung Conditions",
+        "source_text": "budesonide-formoterol fumarate aerosol 80-4.5 mcg/act inhalation (generic for SYMBICORT) - Tier 1; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 79.31002807617188,
+            "bottom": 92.42752838134766,
+            "size": 11.25,
+            "text": "budesonide-formoterol fumarate aerosol 80-4.5 mcg/act inhalation",
+            "page": 214
+          },
+          {
+            "x": 34.0,
+            "y": 92.79998779296875,
+            "bottom": 105.91748809814453,
+            "size": 11.25,
+            "text": "(generic for SYMBICORT) - Tier 1; QL",
+            "page": 214
+          }
+        ],
+        "name": "budesonide-formoterol fumarate aerosol 80-4.5 mcg/act inhalation (generic for SYMBICORT)",
+        "tier": "1",
+        "raw_restrictions": "Tier 1; QL",
+        "codes": [
+          "QL"
+        ],
+        "position_id": 3398
+      },
+      {
+        "page": 214,
+        "y": 106.29000854492188,
+        "end_y": 132.89749145507812,
+        "column": "preferred",
+        "class_name": "Respiratory Tract Agents, Other - Asthma/Lung Drugs / Respiratory Tract/Pulmonary Agents - Drugs to Treat Allergies, / Cough, Cold and Lung Conditions",
+        "source_text": "budesonide-formoterol fumarate aerosol 80-4.5 mcg/act inhalation (generic for SYMBICORT) - Tier 1; ST; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 106.29000854492188,
+            "bottom": 119.40750885009766,
+            "size": 11.25,
+            "text": "budesonide-formoterol fumarate aerosol 80-4.5 mcg/act inhalation",
+            "page": 214
+          },
+          {
+            "x": 34.0,
+            "y": 119.77999877929688,
+            "bottom": 132.89749145507812,
+            "size": 11.25,
+            "text": "(generic for SYMBICORT) - Tier 1; ST; QL",
+            "page": 214
+          }
+        ],
+        "name": "budesonide-formoterol fumarate aerosol 80-4.5 mcg/act inhalation (generic for SYMBICORT)",
+        "tier": "1",
+        "raw_restrictions": "Tier 1; ST; QL",
+        "codes": [
+          "ST",
+          "QL"
+        ],
+        "position_id": 3399
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-4de408fad3af28c5",
+    "name": "CLINITEST RAPID COVID-19 TEST KIT IN VITRO (brand for covid- 19 at home antigen test)",
+    "kinds": [
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 183,
+        "y": 254.67001342773438,
+        "end_y": 281.2774963378906,
+        "column": "preferred",
+        "class_name": "Miscellaneous Therapeutic Agents",
+        "source_text": "CLINITEST RAPID COVID-19 TEST KIT IN VITRO (brand for covid- 19 at home antigen test) - Tier 2",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 254.67001342773438,
+            "bottom": 267.7875061035156,
+            "size": 11.25,
+            "text": "CLINITEST RAPID COVID-19 TEST KIT IN VITRO (brand for covid-",
+            "page": 183
+          },
+          {
+            "x": 34.0,
+            "y": 268.1600036621094,
+            "bottom": 281.2774963378906,
+            "size": 11.25,
+            "text": "19 at home antigen test) - Tier 2",
+            "page": 183
+          }
+        ],
+        "name": "CLINITEST RAPID COVID-19 TEST KIT IN VITRO (brand for covid- 19 at home antigen test)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2",
+        "codes": [],
+        "position_id": 2750
+      },
+      {
+        "page": 183,
+        "y": 281.6499938964844,
+        "end_y": 308.25750732421875,
+        "column": "preferred",
+        "class_name": "Miscellaneous Therapeutic Agents",
+        "source_text": "CLINITEST RAPID COVID-19 TEST KIT IN VITRO (brand for covid- 19 at home antigen test) - Tier 2; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 281.6499938964844,
+            "bottom": 294.7674865722656,
+            "size": 11.25,
+            "text": "CLINITEST RAPID COVID-19 TEST KIT IN VITRO (brand for covid-",
+            "page": 183
+          },
+          {
+            "x": 34.0,
+            "y": 295.1400146484375,
+            "bottom": 308.25750732421875,
+            "size": 11.25,
+            "text": "19 at home antigen test) - Tier 2; QL",
+            "page": 183
+          }
+        ],
+        "name": "CLINITEST RAPID COVID-19 TEST KIT IN VITRO (brand for covid- 19 at home antigen test)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; QL",
+        "codes": [
+          "QL"
+        ],
+        "position_id": 2751
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-fe3ff8d27057990e",
+    "name": "CONTOUR NEXT EZ KIT W/DEVICE (brand for blood glucose monitor system)",
+    "kinds": [
+      "preferred/nonpreferred columns",
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 117,
+        "y": 154.45999145507812,
+        "end_y": 181.0675048828125,
+        "column": "non_preferred",
+        "class_name": "Diabetes - Glucose Monitoring",
+        "source_text": "CONTOUR NEXT EZ KIT W/DEVICE (brand for blood glucose monitor system) - Tier 2; PA; QL",
+        "lines": [
+          {
+            "x": 389.25,
+            "y": 154.45999145507812,
+            "bottom": 167.57748413085938,
+            "size": 11.25,
+            "text": "CONTOUR NEXT EZ KIT W/DEVICE (brand for blood glucose monitor",
+            "page": 117
+          },
+          {
+            "x": 389.25,
+            "y": 167.95001220703125,
+            "bottom": 181.0675048828125,
+            "size": 11.25,
+            "text": "system) - Tier 2; PA; QL",
+            "page": 117
+          }
+        ],
+        "name": "CONTOUR NEXT EZ KIT W/DEVICE (brand for blood glucose monitor system)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; PA; QL",
+        "codes": [
+          "PA",
+          "QL"
+        ],
+        "position_id": 1212
+      },
+      {
+        "page": 118,
+        "y": 367.5899963378906,
+        "end_y": 394.1974792480469,
+        "column": "preferred",
+        "class_name": "Diabetes - Glucose Monitoring",
+        "source_text": "CONTOUR NEXT EZ KIT W/DEVICE (brand for blood glucose monitor system) - Tier 2; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 367.5899963378906,
+            "bottom": 380.7074890136719,
+            "size": 11.25,
+            "text": "CONTOUR NEXT EZ KIT W/DEVICE (brand for blood glucose",
+            "page": 118
+          },
+          {
+            "x": 34.0,
+            "y": 381.0799865722656,
+            "bottom": 394.1974792480469,
+            "size": 11.25,
+            "text": "monitor system) - Tier 2; QL",
+            "page": 118
+          }
+        ],
+        "name": "CONTOUR NEXT EZ KIT W/DEVICE (brand for blood glucose monitor system)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; QL",
+        "codes": [
+          "QL"
+        ],
+        "position_id": 1234
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-5cc8dca197dd0e7c",
+    "name": "CONTOUR NEXT GEN MONITOR KIT W/DEVICE (brand for blood glucose monitor system)",
+    "kinds": [
+      "preferred/nonpreferred columns",
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 117,
+        "y": 181.42999267578125,
+        "end_y": 208.03750610351562,
+        "column": "non_preferred",
+        "class_name": "Diabetes - Glucose Monitoring",
+        "source_text": "CONTOUR NEXT GEN MONITOR KIT W/DEVICE (brand for blood glucose monitor system) - Tier 2; PA; QL",
+        "lines": [
+          {
+            "x": 389.25,
+            "y": 181.42999267578125,
+            "bottom": 194.5474853515625,
+            "size": 11.25,
+            "text": "CONTOUR NEXT GEN MONITOR KIT W/DEVICE (brand for blood",
+            "page": 117
+          },
+          {
+            "x": 389.25,
+            "y": 194.92001342773438,
+            "bottom": 208.03750610351562,
+            "size": 11.25,
+            "text": "glucose monitor system) - Tier 2; PA; QL",
+            "page": 117
+          }
+        ],
+        "name": "CONTOUR NEXT GEN MONITOR KIT W/DEVICE (brand for blood glucose monitor system)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; PA; QL",
+        "codes": [
+          "PA",
+          "QL"
+        ],
+        "position_id": 1213
+      },
+      {
+        "page": 118,
+        "y": 394.57000732421875,
+        "end_y": 421.1675109863281,
+        "column": "preferred",
+        "class_name": "Diabetes - Glucose Monitoring",
+        "source_text": "CONTOUR NEXT GEN MONITOR KIT W/DEVICE (brand for blood glucose monitor system) - Tier 2; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 394.57000732421875,
+            "bottom": 407.6875,
+            "size": 11.25,
+            "text": "CONTOUR NEXT GEN MONITOR KIT W/DEVICE (brand for blood",
+            "page": 118
+          },
+          {
+            "x": 34.0,
+            "y": 408.0500183105469,
+            "bottom": 421.1675109863281,
+            "size": 11.25,
+            "text": "glucose monitor system) - Tier 2; QL",
+            "page": 118
+          }
+        ],
+        "name": "CONTOUR NEXT GEN MONITOR KIT W/DEVICE (brand for blood glucose monitor system)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; QL",
+        "codes": [
+          "QL"
+        ],
+        "position_id": 1235
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-b1c1c0d0058a712f",
+    "name": "CONTOUR NEXT TEST STRIP IN VITRO (brand for blood glucose test)",
+    "kinds": [
+      "preferred/nonpreferred columns",
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 117,
+        "y": 248.8800048828125,
+        "end_y": 275.48748779296875,
+        "column": "non_preferred",
+        "class_name": "Diabetes - Glucose Monitoring",
+        "source_text": "CONTOUR NEXT TEST STRIP IN VITRO (brand for blood glucose test) - Tier 2; PA; QL",
+        "lines": [
+          {
+            "x": 389.25,
+            "y": 248.8800048828125,
+            "bottom": 261.99749755859375,
+            "size": 11.25,
+            "text": "CONTOUR NEXT TEST STRIP IN VITRO (brand for blood glucose test) -",
+            "page": 117
+          },
+          {
+            "x": 389.25,
+            "y": 262.3699951171875,
+            "bottom": 275.48748779296875,
+            "size": 11.25,
+            "text": "Tier 2; PA; QL",
+            "page": 117
+          }
+        ],
+        "name": "CONTOUR NEXT TEST STRIP IN VITRO (brand for blood glucose test)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; PA; QL",
+        "codes": [
+          "PA",
+          "QL"
+        ],
+        "position_id": 1216
+      },
+      {
+        "page": 118,
+        "y": 448.5199890136719,
+        "end_y": 475.1274719238281,
+        "column": "preferred",
+        "class_name": "Diabetes - Glucose Monitoring",
+        "source_text": "CONTOUR NEXT TEST STRIP IN VITRO (brand for blood glucose test) - Tier 2; ST; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 448.5199890136719,
+            "bottom": 461.6374816894531,
+            "size": 11.25,
+            "text": "CONTOUR NEXT TEST STRIP IN VITRO (brand for blood glucose",
+            "page": 118
+          },
+          {
+            "x": 34.0,
+            "y": 462.0099792480469,
+            "bottom": 475.1274719238281,
+            "size": 11.25,
+            "text": "test) - Tier 2; ST; QL",
+            "page": 118
+          }
+        ],
+        "name": "CONTOUR NEXT TEST STRIP IN VITRO (brand for blood glucose test)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; ST; QL",
+        "codes": [
+          "ST",
+          "QL"
+        ],
+        "position_id": 1237
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-30d30a1af87b546e",
+    "name": "CONTOUR TEST STRIP IN VITRO (brand for blood glucose test)",
+    "kinds": [
+      "preferred/nonpreferred columns",
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 117,
+        "y": 275.8600158691406,
+        "end_y": 302.4674987792969,
+        "column": "non_preferred",
+        "class_name": "Diabetes - Glucose Monitoring",
+        "source_text": "CONTOUR TEST STRIP IN VITRO (brand for blood glucose test) - Tier 2; PA; QL",
+        "lines": [
+          {
+            "x": 389.25,
+            "y": 275.8600158691406,
+            "bottom": 288.9775085449219,
+            "size": 11.25,
+            "text": "CONTOUR TEST STRIP IN VITRO (brand for blood glucose test) - Tier 2;",
+            "page": 117
+          },
+          {
+            "x": 389.25,
+            "y": 289.3500061035156,
+            "bottom": 302.4674987792969,
+            "size": 11.25,
+            "text": "PA; QL",
+            "page": 117
+          }
+        ],
+        "name": "CONTOUR TEST STRIP IN VITRO (brand for blood glucose test)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; PA; QL",
+        "codes": [
+          "PA",
+          "QL"
+        ],
+        "position_id": 1217
+      },
+      {
+        "page": 119,
+        "y": 79.31002807617188,
+        "end_y": 105.91748809814453,
+        "column": "preferred",
+        "class_name": "Diabetes - Glucose Monitoring",
+        "source_text": "CONTOUR TEST STRIP IN VITRO (brand for blood glucose test) - Tier 2; ST; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 79.31002807617188,
+            "bottom": 92.42752838134766,
+            "size": 11.25,
+            "text": "CONTOUR TEST STRIP IN VITRO (brand for blood glucose test) -",
+            "page": 119
+          },
+          {
+            "x": 34.0,
+            "y": 92.79998779296875,
+            "bottom": 105.91748809814453,
+            "size": 11.25,
+            "text": "Tier 2; ST; QL",
+            "page": 119
+          }
+        ],
+        "name": "CONTOUR TEST STRIP IN VITRO (brand for blood glucose test)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; ST; QL",
+        "codes": [
+          "ST",
+          "QL"
+        ],
+        "position_id": 1259
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-68d7ca7f971d686d",
+    "name": "COVID-19 AT-HOME TEST KIT IN VITRO (brand for covid-19 at home antigen test)",
+    "kinds": [
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 183,
+        "y": 416.5400085449219,
+        "end_y": 443.1474914550781,
+        "column": "preferred",
+        "class_name": "Miscellaneous Therapeutic Agents",
+        "source_text": "COVID-19 AT-HOME TEST KIT IN VITRO (brand for covid-19 at home antigen test) - Tier 2",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 416.5400085449219,
+            "bottom": 429.6575012207031,
+            "size": 11.25,
+            "text": "COVID-19 AT-HOME TEST KIT IN VITRO (brand for covid-19 at",
+            "page": 183
+          },
+          {
+            "x": 34.0,
+            "y": 430.0299987792969,
+            "bottom": 443.1474914550781,
+            "size": 11.25,
+            "text": "home antigen test) - Tier 2",
+            "page": 183
+          }
+        ],
+        "name": "COVID-19 AT-HOME TEST KIT IN VITRO (brand for covid-19 at home antigen test)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2",
+        "codes": [],
+        "position_id": 2758
+      },
+      {
+        "page": 183,
+        "y": 443.5199890136719,
+        "end_y": 470.1274719238281,
+        "column": "preferred",
+        "class_name": "Miscellaneous Therapeutic Agents",
+        "source_text": "COVID-19 AT-HOME TEST KIT IN VITRO (brand for covid-19 at home antigen test) - Tier 2; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 443.5199890136719,
+            "bottom": 456.6374816894531,
+            "size": 11.25,
+            "text": "COVID-19 AT-HOME TEST KIT IN VITRO (brand for covid-19 at",
+            "page": 183
+          },
+          {
+            "x": 34.0,
+            "y": 457.0099792480469,
+            "bottom": 470.1274719238281,
+            "size": 11.25,
+            "text": "home antigen test) - Tier 2; QL",
+            "page": 183
+          }
+        ],
+        "name": "COVID-19 AT-HOME TEST KIT IN VITRO (brand for covid-19 at home antigen test)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; QL",
+        "codes": [
+          "QL"
+        ],
+        "position_id": 2759
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-54d557b57f0fd561",
+    "name": "dorzolamide hcl solution 2 % ophthalmic",
+    "kinds": [
+      "tiers",
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 200,
+        "y": 135.17999267578125,
+        "end_y": 148.2974853515625,
+        "column": "preferred",
+        "class_name": "Ophthalmic Antiglaucoma Agents - Glaucoma Drugs / Ophthalmic Agents - Drugs to Treat Eye Conditions",
+        "source_text": "dorzolamide hcl solution 2 % ophthalmic - Tier 1; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 135.17999267578125,
+            "bottom": 148.2974853515625,
+            "size": 11.25,
+            "text": "dorzolamide hcl solution 2 % ophthalmic - Tier 1; QL",
+            "page": 200
+          }
+        ],
+        "name": "dorzolamide hcl solution 2 % ophthalmic",
+        "tier": "1",
+        "raw_restrictions": "Tier 1; QL",
+        "codes": [
+          "QL"
+        ],
+        "position_id": 3159
+      },
+      {
+        "page": 200,
+        "y": 148.8275146484375,
+        "end_y": 161.78750610351562,
+        "column": "preferred",
+        "class_name": "Ophthalmic Antiglaucoma Agents - Glaucoma Drugs / Ophthalmic Agents - Drugs to Treat Eye Conditions",
+        "source_text": "DORZOLAMIDE HCL SOLUTION 2 % OPHTHALMIC - Tier 2; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 148.8275146484375,
+            "bottom": 161.78750610351562,
+            "size": 11.25,
+            "text": "DORZOLAMIDE HCL SOLUTION 2 % OPHTHALMIC - Tier 2; QL",
+            "page": 200
+          }
+        ],
+        "name": "DORZOLAMIDE HCL SOLUTION 2 % OPHTHALMIC",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; QL",
+        "codes": [
+          "QL"
+        ],
+        "position_id": 3160
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-9a605f6f7577f349",
+    "name": "ketorolac tromethamine solution 30 mg/ml injection",
+    "kinds": [
+      "tiers",
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 194,
+        "y": 119.77999877929688,
+        "end_y": 132.89749145507812,
+        "column": "preferred",
+        "class_name": "Nonsteroidal Anti-Inflammatory Drugs - Pain/Anti-Inflammatory / Drugs / Analgesics - Drugs to Treat Pain, Inflammation, and Muscle and / Joint Conditions",
+        "source_text": "ketorolac tromethamine solution 30 mg/ml injection - Tier 1; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 119.77999877929688,
+            "bottom": 132.89749145507812,
+            "size": 11.25,
+            "text": "ketorolac tromethamine solution 30 mg/ml injection - Tier 1; QL",
+            "page": 194
+          }
+        ],
+        "name": "ketorolac tromethamine solution 30 mg/ml injection",
+        "tier": "1",
+        "raw_restrictions": "Tier 1; QL",
+        "codes": [
+          "QL"
+        ],
+        "position_id": 3022
+      },
+      {
+        "page": 194,
+        "y": 133.427490234375,
+        "end_y": 159.87750244140625,
+        "column": "preferred",
+        "class_name": "Nonsteroidal Anti-Inflammatory Drugs - Pain/Anti-Inflammatory / Drugs / Analgesics - Drugs to Treat Pain, Inflammation, and Muscle and / Joint Conditions",
+        "source_text": "KETOROLAC TROMETHAMINE SOLUTION 30 MG/ML INJECTION - Tier 2; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 133.427490234375,
+            "bottom": 146.38748168945312,
+            "size": 11.25,
+            "text": "KETOROLAC TROMETHAMINE SOLUTION 30 MG/ML INJECTION",
+            "page": 194
+          },
+          {
+            "x": 34.0,
+            "y": 146.91751098632812,
+            "bottom": 159.87750244140625,
+            "size": 11.25,
+            "text": "- Tier 2; QL",
+            "page": 194
+          }
+        ],
+        "name": "KETOROLAC TROMETHAMINE SOLUTION 30 MG/ML INJECTION",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; QL",
+        "codes": [
+          "QL"
+        ],
+        "position_id": 3023
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-1648922bcbfb41de",
+    "name": "lubiprostone capsule 24 mcg oral (generic for AMITIZA)",
+    "kinds": [
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 173,
+        "y": 122.8900146484375,
+        "end_y": 149.48748779296875,
+        "column": "preferred",
+        "class_name": "Irritable Bowel Syndrome Agents - Bowel Treatment Drugs / Gastrointestinal Agents - Drugs to Treat Bowel, Intestine and / Stomach Conditions",
+        "source_text": "lubiprostone capsule 24 mcg oral (generic for AMITIZA) - Tier 1; PA; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 122.8900146484375,
+            "bottom": 136.00750732421875,
+            "size": 11.25,
+            "text": "lubiprostone capsule 24 mcg oral (generic for AMITIZA) - Tier 1; PA;",
+            "page": 173
+          },
+          {
+            "x": 34.0,
+            "y": 136.3699951171875,
+            "bottom": 149.48748779296875,
+            "size": 11.25,
+            "text": "QL",
+            "page": 173
+          }
+        ],
+        "name": "lubiprostone capsule 24 mcg oral (generic for AMITIZA)",
+        "tier": "1",
+        "raw_restrictions": "Tier 1; PA; QL",
+        "codes": [
+          "PA",
+          "QL"
+        ],
+        "position_id": 2505
+      },
+      {
+        "page": 173,
+        "y": 149.86001586914062,
+        "end_y": 176.46749877929688,
+        "column": "preferred",
+        "class_name": "Irritable Bowel Syndrome Agents - Bowel Treatment Drugs / Gastrointestinal Agents - Drugs to Treat Bowel, Intestine and / Stomach Conditions",
+        "source_text": "lubiprostone capsule 24 mcg oral (generic for AMITIZA) - Tier 1; PA; ST; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 149.86001586914062,
+            "bottom": 162.97750854492188,
+            "size": 11.25,
+            "text": "lubiprostone capsule 24 mcg oral (generic for AMITIZA) - Tier 1; PA;",
+            "page": 173
+          },
+          {
+            "x": 34.0,
+            "y": 163.35000610351562,
+            "bottom": 176.46749877929688,
+            "size": 11.25,
+            "text": "ST; QL",
+            "page": 173
+          }
+        ],
+        "name": "lubiprostone capsule 24 mcg oral (generic for AMITIZA)",
+        "tier": "1",
+        "raw_restrictions": "Tier 1; PA; ST; QL",
+        "codes": [
+          "PA",
+          "ST",
+          "QL"
+        ],
+        "position_id": 2506
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-62acb905190fdbd1",
+    "name": "lubiprostone capsule 8 mcg oral (generic for AMITIZA)",
+    "kinds": [
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 173,
+        "y": 176.83999633789062,
+        "end_y": 203.44747924804688,
+        "column": "preferred",
+        "class_name": "Irritable Bowel Syndrome Agents - Bowel Treatment Drugs / Gastrointestinal Agents - Drugs to Treat Bowel, Intestine and / Stomach Conditions",
+        "source_text": "lubiprostone capsule 8 mcg oral (generic for AMITIZA) - Tier 1; PA; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 176.83999633789062,
+            "bottom": 189.95748901367188,
+            "size": 11.25,
+            "text": "lubiprostone capsule 8 mcg oral (generic for AMITIZA) - Tier 1; PA;",
+            "page": 173
+          },
+          {
+            "x": 34.0,
+            "y": 190.32998657226562,
+            "bottom": 203.44747924804688,
+            "size": 11.25,
+            "text": "QL",
+            "page": 173
+          }
+        ],
+        "name": "lubiprostone capsule 8 mcg oral (generic for AMITIZA)",
+        "tier": "1",
+        "raw_restrictions": "Tier 1; PA; QL",
+        "codes": [
+          "PA",
+          "QL"
+        ],
+        "position_id": 2507
+      },
+      {
+        "page": 173,
+        "y": 203.82000732421875,
+        "end_y": 230.427490234375,
+        "column": "preferred",
+        "class_name": "Irritable Bowel Syndrome Agents - Bowel Treatment Drugs / Gastrointestinal Agents - Drugs to Treat Bowel, Intestine and / Stomach Conditions",
+        "source_text": "lubiprostone capsule 8 mcg oral (generic for AMITIZA) - Tier 1; PA; ST; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 203.82000732421875,
+            "bottom": 216.9375,
+            "size": 11.25,
+            "text": "lubiprostone capsule 8 mcg oral (generic for AMITIZA) - Tier 1; PA;",
+            "page": 173
+          },
+          {
+            "x": 34.0,
+            "y": 217.30999755859375,
+            "bottom": 230.427490234375,
+            "size": 11.25,
+            "text": "ST; QL",
+            "page": 173
+          }
+        ],
+        "name": "lubiprostone capsule 8 mcg oral (generic for AMITIZA)",
+        "tier": "1",
+        "raw_restrictions": "Tier 1; PA; ST; QL",
+        "codes": [
+          "PA",
+          "ST",
+          "QL"
+        ],
+        "position_id": 2508
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-fda008f4a380e9be",
+    "name": "ONETOUCH ULTRA STRIP IN VITRO (brand for blood glucose test)",
+    "kinds": [
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 118,
+        "y": 254.67001342773438,
+        "end_y": 294.7674865722656,
+        "column": "non_preferred",
+        "class_name": "Diabetes - Glucose Monitoring",
+        "source_text": "ONETOUCH ULTRA STRIP IN VITRO (brand for blood glucose test) - Tier 2; PA; QL for non-insulin dependent members: allow twice daily testing; QL",
+        "lines": [
+          {
+            "x": 389.25,
+            "y": 254.67001342773438,
+            "bottom": 267.7875061035156,
+            "size": 11.25,
+            "text": "ONETOUCH ULTRA STRIP IN VITRO (brand for blood glucose test) -",
+            "page": 118
+          },
+          {
+            "x": 389.25,
+            "y": 268.1600036621094,
+            "bottom": 281.2774963378906,
+            "size": 11.25,
+            "text": "Tier 2; PA; QL for non-insulin dependent members: allow twice daily",
+            "page": 118
+          },
+          {
+            "x": 389.25,
+            "y": 281.6499938964844,
+            "bottom": 294.7674865722656,
+            "size": 11.25,
+            "text": "testing; QL",
+            "page": 118
+          }
+        ],
+        "name": "ONETOUCH ULTRA STRIP IN VITRO (brand for blood glucose test)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; PA; QL for non-insulin dependent members: allow twice daily testing; QL",
+        "codes": [
+          "PA",
+          "QL"
+        ],
+        "position_id": 1249
+      },
+      {
+        "page": 118,
+        "y": 300.1400146484375,
+        "end_y": 326.74749755859375,
+        "column": "non_preferred",
+        "class_name": "Diabetes - Glucose Monitoring",
+        "source_text": "ONETOUCH ULTRA STRIP IN VITRO (brand for blood glucose test) - Tier 2; PA; ST; QL",
+        "lines": [
+          {
+            "x": 389.25,
+            "y": 300.1400146484375,
+            "bottom": 313.25750732421875,
+            "size": 11.25,
+            "text": "ONETOUCH ULTRA STRIP IN VITRO (brand for blood glucose test) -",
+            "page": 118
+          },
+          {
+            "x": 389.25,
+            "y": 313.6300048828125,
+            "bottom": 326.74749755859375,
+            "size": 11.25,
+            "text": "Tier 2; PA; ST; QL",
+            "page": 118
+          }
+        ],
+        "name": "ONETOUCH ULTRA STRIP IN VITRO (brand for blood glucose test)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; PA; ST; QL",
+        "codes": [
+          "PA",
+          "ST",
+          "QL"
+        ],
+        "position_id": 1250
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-b63e51cd8be09d8d",
+    "name": "ONETOUCH VERIO TEST STRIPS (brand for blood glucose test)",
+    "kinds": [
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 118,
+        "y": 381.07000732421875,
+        "end_y": 421.1675109863281,
+        "column": "non_preferred",
+        "class_name": "Diabetes - Glucose Monitoring",
+        "source_text": "ONETOUCH VERIO TEST STRIPS (brand for blood glucose test) - Tier 2; PA; QL for non-insulin dependent members: allow twice daily testing; QL",
+        "lines": [
+          {
+            "x": 389.25,
+            "y": 381.07000732421875,
+            "bottom": 394.1875,
+            "size": 11.25,
+            "text": "ONETOUCH VERIO TEST STRIPS (brand for blood glucose test) - Tier",
+            "page": 118
+          },
+          {
+            "x": 389.25,
+            "y": 394.55999755859375,
+            "bottom": 407.677490234375,
+            "size": 11.25,
+            "text": "2; PA; QL for non-insulin dependent members: allow twice daily testing;",
+            "page": 118
+          },
+          {
+            "x": 389.25,
+            "y": 408.0500183105469,
+            "bottom": 421.1675109863281,
+            "size": 11.25,
+            "text": "QL",
+            "page": 118
+          }
+        ],
+        "name": "ONETOUCH VERIO TEST STRIPS (brand for blood glucose test)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; PA; QL for non-insulin dependent members: allow twice daily testing; QL",
+        "codes": [
+          "PA",
+          "QL"
+        ],
+        "position_id": 1253
+      },
+      {
+        "page": 118,
+        "y": 421.5400085449219,
+        "end_y": 448.1474914550781,
+        "column": "non_preferred",
+        "class_name": "Diabetes - Glucose Monitoring",
+        "source_text": "ONETOUCH VERIO TEST STRIPS (brand for blood glucose test) - Tier 2; PA; ST; QL",
+        "lines": [
+          {
+            "x": 389.25,
+            "y": 421.5400085449219,
+            "bottom": 434.6575012207031,
+            "size": 11.25,
+            "text": "ONETOUCH VERIO TEST STRIPS (brand for blood glucose test) - Tier",
+            "page": 118
+          },
+          {
+            "x": 389.25,
+            "y": 435.0299987792969,
+            "bottom": 448.1474914550781,
+            "size": 11.25,
+            "text": "2; PA; ST; QL",
+            "page": 118
+          }
+        ],
+        "name": "ONETOUCH VERIO TEST STRIPS (brand for blood glucose test)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; PA; ST; QL",
+        "codes": [
+          "PA",
+          "ST",
+          "QL"
+        ],
+        "position_id": 1254
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-8e6412598dc3cc82",
+    "name": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 12.5 MG INTRAMUSCULAR (brand for risperidone microspheres er)",
+    "kinds": [
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 59,
+        "y": 160.25,
+        "end_y": 200.33749389648438,
+        "column": "preferred",
+        "class_name": "2nd Generation/Atypical - Mood Disorder Drugs / Antipsychotics - Drugs to Treat Mood Disorders",
+        "source_text": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 12.5 MG INTRAMUSCULAR (brand for risperidone microspheres er) - Tier 2; DX2RX; ST; *; QL; AL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 160.25,
+            "bottom": 173.36749267578125,
+            "size": 11.25,
+            "text": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 12.5",
+            "page": 59
+          },
+          {
+            "x": 34.0,
+            "y": 173.73001098632812,
+            "bottom": 186.84750366210938,
+            "size": 11.25,
+            "text": "MG INTRAMUSCULAR (brand for risperidone microspheres er) - Tier",
+            "page": 59
+          },
+          {
+            "x": 34.0,
+            "y": 187.22000122070312,
+            "bottom": 200.33749389648438,
+            "size": 11.25,
+            "text": "2; DX2RX; ST; *; QL; AL",
+            "page": 59
+          }
+        ],
+        "name": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 12.5 MG INTRAMUSCULAR (brand for risperidone microspheres er)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; DX2RX; ST; *; QL; AL",
+        "codes": [
+          "DX2RX",
+          "ST",
+          "*",
+          "QL",
+          "AL"
+        ],
+        "position_id": 44
+      },
+      {
+        "page": 59,
+        "y": 200.70999145507812,
+        "end_y": 240.8074951171875,
+        "column": "preferred",
+        "class_name": "2nd Generation/Atypical - Mood Disorder Drugs / Antipsychotics - Drugs to Treat Mood Disorders",
+        "source_text": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 12.5 MG INTRAMUSCULAR (brand for risperidone microspheres er) - Tier 2; PA; ST; *; QL; AL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 200.70999145507812,
+            "bottom": 213.82748413085938,
+            "size": 11.25,
+            "text": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 12.5",
+            "page": 59
+          },
+          {
+            "x": 34.0,
+            "y": 214.20001220703125,
+            "bottom": 227.3175048828125,
+            "size": 11.25,
+            "text": "MG INTRAMUSCULAR (brand for risperidone microspheres er) - Tier",
+            "page": 59
+          },
+          {
+            "x": 34.0,
+            "y": 227.69000244140625,
+            "bottom": 240.8074951171875,
+            "size": 11.25,
+            "text": "2; PA; ST; *; QL; AL",
+            "page": 59
+          }
+        ],
+        "name": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 12.5 MG INTRAMUSCULAR (brand for risperidone microspheres er)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; PA; ST; *; QL; AL",
+        "codes": [
+          "PA",
+          "ST",
+          "*",
+          "QL",
+          "AL"
+        ],
+        "position_id": 45
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-86a272013762dd71",
+    "name": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 25 MG INTRAMUSCULAR (brand for risperidone microspheres er)",
+    "kinds": [
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 59,
+        "y": 241.17999267578125,
+        "end_y": 281.2774963378906,
+        "column": "preferred",
+        "class_name": "2nd Generation/Atypical - Mood Disorder Drugs / Antipsychotics - Drugs to Treat Mood Disorders",
+        "source_text": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 25 MG INTRAMUSCULAR (brand for risperidone microspheres er) - Tier 2; DX2RX; ST; *; QL; AL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 241.17999267578125,
+            "bottom": 254.2974853515625,
+            "size": 11.25,
+            "text": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 25 MG",
+            "page": 59
+          },
+          {
+            "x": 34.0,
+            "y": 254.67001342773438,
+            "bottom": 267.7875061035156,
+            "size": 11.25,
+            "text": "INTRAMUSCULAR (brand for risperidone microspheres er) - Tier 2;",
+            "page": 59
+          },
+          {
+            "x": 34.0,
+            "y": 268.1600036621094,
+            "bottom": 281.2774963378906,
+            "size": 11.25,
+            "text": "DX2RX; ST; *; QL; AL",
+            "page": 59
+          }
+        ],
+        "name": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 25 MG INTRAMUSCULAR (brand for risperidone microspheres er)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; DX2RX; ST; *; QL; AL",
+        "codes": [
+          "DX2RX",
+          "ST",
+          "*",
+          "QL",
+          "AL"
+        ],
+        "position_id": 46
+      },
+      {
+        "page": 59,
+        "y": 281.6499938964844,
+        "end_y": 321.73748779296875,
+        "column": "preferred",
+        "class_name": "2nd Generation/Atypical - Mood Disorder Drugs / Antipsychotics - Drugs to Treat Mood Disorders",
+        "source_text": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 25 MG INTRAMUSCULAR (brand for risperidone microspheres er) - Tier 2; PA; ST; *; QL; AL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 281.6499938964844,
+            "bottom": 294.7674865722656,
+            "size": 11.25,
+            "text": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 25 MG",
+            "page": 59
+          },
+          {
+            "x": 34.0,
+            "y": 295.1400146484375,
+            "bottom": 308.25750732421875,
+            "size": 11.25,
+            "text": "INTRAMUSCULAR (brand for risperidone microspheres er) - Tier 2;",
+            "page": 59
+          },
+          {
+            "x": 34.0,
+            "y": 308.6199951171875,
+            "bottom": 321.73748779296875,
+            "size": 11.25,
+            "text": "PA; ST; *; QL; AL",
+            "page": 59
+          }
+        ],
+        "name": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 25 MG INTRAMUSCULAR (brand for risperidone microspheres er)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; PA; ST; *; QL; AL",
+        "codes": [
+          "PA",
+          "ST",
+          "*",
+          "QL",
+          "AL"
+        ],
+        "position_id": 47
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-4a432871483f8345",
+    "name": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 37.5 MG INTRAMUSCULAR (brand for risperidone microspheres er)",
+    "kinds": [
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 59,
+        "y": 322.1100158691406,
+        "end_y": 362.2074890136719,
+        "column": "preferred",
+        "class_name": "2nd Generation/Atypical - Mood Disorder Drugs / Antipsychotics - Drugs to Treat Mood Disorders",
+        "source_text": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 37.5 MG INTRAMUSCULAR (brand for risperidone microspheres er) - Tier 2; DX2RX; ST; *; QL; AL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 322.1100158691406,
+            "bottom": 335.2275085449219,
+            "size": 11.25,
+            "text": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 37.5",
+            "page": 59
+          },
+          {
+            "x": 34.0,
+            "y": 335.6000061035156,
+            "bottom": 348.7174987792969,
+            "size": 11.25,
+            "text": "MG INTRAMUSCULAR (brand for risperidone microspheres er) - Tier",
+            "page": 59
+          },
+          {
+            "x": 34.0,
+            "y": 349.0899963378906,
+            "bottom": 362.2074890136719,
+            "size": 11.25,
+            "text": "2; DX2RX; ST; *; QL; AL",
+            "page": 59
+          }
+        ],
+        "name": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 37.5 MG INTRAMUSCULAR (brand for risperidone microspheres er)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; DX2RX; ST; *; QL; AL",
+        "codes": [
+          "DX2RX",
+          "ST",
+          "*",
+          "QL",
+          "AL"
+        ],
+        "position_id": 48
+      },
+      {
+        "page": 59,
+        "y": 362.5799865722656,
+        "end_y": 402.677490234375,
+        "column": "preferred",
+        "class_name": "2nd Generation/Atypical - Mood Disorder Drugs / Antipsychotics - Drugs to Treat Mood Disorders",
+        "source_text": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 37.5 MG INTRAMUSCULAR (brand for risperidone microspheres er) - Tier 2; PA; ST; *; QL; AL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 362.5799865722656,
+            "bottom": 375.6974792480469,
+            "size": 11.25,
+            "text": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 37.5",
+            "page": 59
+          },
+          {
+            "x": 34.0,
+            "y": 376.07000732421875,
+            "bottom": 389.1875,
+            "size": 11.25,
+            "text": "MG INTRAMUSCULAR (brand for risperidone microspheres er) - Tier",
+            "page": 59
+          },
+          {
+            "x": 34.0,
+            "y": 389.55999755859375,
+            "bottom": 402.677490234375,
+            "size": 11.25,
+            "text": "2; PA; ST; *; QL; AL",
+            "page": 59
+          }
+        ],
+        "name": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 37.5 MG INTRAMUSCULAR (brand for risperidone microspheres er)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; PA; ST; *; QL; AL",
+        "codes": [
+          "PA",
+          "ST",
+          "*",
+          "QL",
+          "AL"
+        ],
+        "position_id": 49
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-e60cf4ef12c45d4c",
+    "name": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 50 MG INTRAMUSCULAR (brand for risperidone microspheres er)",
+    "kinds": [
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 59,
+        "y": 403.0500183105469,
+        "end_y": 443.1474914550781,
+        "column": "preferred",
+        "class_name": "2nd Generation/Atypical - Mood Disorder Drugs / Antipsychotics - Drugs to Treat Mood Disorders",
+        "source_text": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 50 MG INTRAMUSCULAR (brand for risperidone microspheres er) - Tier 2; DX2RX; ST; *; QL; AL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 403.0500183105469,
+            "bottom": 416.1675109863281,
+            "size": 11.25,
+            "text": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 50 MG",
+            "page": 59
+          },
+          {
+            "x": 34.0,
+            "y": 416.5400085449219,
+            "bottom": 429.6575012207031,
+            "size": 11.25,
+            "text": "INTRAMUSCULAR (brand for risperidone microspheres er) - Tier 2;",
+            "page": 59
+          },
+          {
+            "x": 34.0,
+            "y": 430.0299987792969,
+            "bottom": 443.1474914550781,
+            "size": 11.25,
+            "text": "DX2RX; ST; *; QL; AL",
+            "page": 59
+          }
+        ],
+        "name": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 50 MG INTRAMUSCULAR (brand for risperidone microspheres er)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; DX2RX; ST; *; QL; AL",
+        "codes": [
+          "DX2RX",
+          "ST",
+          "*",
+          "QL",
+          "AL"
+        ],
+        "position_id": 50
+      },
+      {
+        "page": 59,
+        "y": 443.5199890136719,
+        "end_y": 483.6075134277344,
+        "column": "preferred",
+        "class_name": "2nd Generation/Atypical - Mood Disorder Drugs / Antipsychotics - Drugs to Treat Mood Disorders",
+        "source_text": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 50 MG INTRAMUSCULAR (brand for risperidone microspheres er) - Tier 2; PA; ST; *; QL; AL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 443.5199890136719,
+            "bottom": 456.6374816894531,
+            "size": 11.25,
+            "text": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 50 MG",
+            "page": 59
+          },
+          {
+            "x": 34.0,
+            "y": 457.0,
+            "bottom": 470.11749267578125,
+            "size": 11.25,
+            "text": "INTRAMUSCULAR (brand for risperidone microspheres er) - Tier 2;",
+            "page": 59
+          },
+          {
+            "x": 34.0,
+            "y": 470.4900207519531,
+            "bottom": 483.6075134277344,
+            "size": 11.25,
+            "text": "PA; ST; *; QL; AL",
+            "page": 59
+          }
+        ],
+        "name": "RISPERDAL CONSTA SUSPENSION RECONSTITUTED ER 50 MG INTRAMUSCULAR (brand for risperidone microspheres er)",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; PA; ST; *; QL; AL",
+        "codes": [
+          "PA",
+          "ST",
+          "*",
+          "QL",
+          "AL"
+        ],
+        "position_id": 51
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-3a61ac9c932595a2",
+    "name": "risperidone solution 1 mg/ml oral (generic for RISPERDAL)",
+    "kinds": [
+      "preferred/nonpreferred columns",
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 59,
+        "y": 79.31002807617188,
+        "end_y": 146.37750244140625,
+        "column": "non_preferred",
+        "class_name": "2nd Generation/Atypical - Mood Disorder Drugs / Antipsychotics - Drugs to Treat Mood Disorders",
+        "source_text": "risperidone solution 1 mg/ml oral (generic for RISPERDAL) - Tier 1; PA; Members >= 8 years of age will require PA||Prior Authorization is not required for ages 6 and greater when prescribed by a psychiatric clinician, a behavioral health pediatrician, or other behavioral health provider; *; QL; AL",
+        "lines": [
+          {
+            "x": 389.25,
+            "y": 79.31002807617188,
+            "bottom": 92.42752838134766,
+            "size": 11.25,
+            "text": "risperidone solution 1 mg/ml oral (generic for RISPERDAL) - Tier 1; PA;",
+            "page": 59
+          },
+          {
+            "x": 389.25,
+            "y": 92.79998779296875,
+            "bottom": 105.91748809814453,
+            "size": 11.25,
+            "text": "Members >= 8 years of age will require PA||Prior Authorization is not",
+            "page": 59
+          },
+          {
+            "x": 389.25,
+            "y": 106.29000854492188,
+            "bottom": 119.40750885009766,
+            "size": 11.25,
+            "text": "required for ages 6 and greater when prescribed by a psychiatric clinician,",
+            "page": 59
+          },
+          {
+            "x": 389.25,
+            "y": 119.77999877929688,
+            "bottom": 132.89749145507812,
+            "size": 11.25,
+            "text": "a behavioral health pediatrician, or other behavioral health provider; *; QL;",
+            "page": 59
+          },
+          {
+            "x": 389.25,
+            "y": 133.260009765625,
+            "bottom": 146.37750244140625,
+            "size": 11.25,
+            "text": "AL",
+            "page": 59
+          }
+        ],
+        "name": "risperidone solution 1 mg/ml oral (generic for RISPERDAL)",
+        "tier": "1",
+        "raw_restrictions": "Tier 1; PA; Members >= 8 years of age will require PA||Prior Authorization is not required for ages 6 and greater when prescribed by a psychiatric clinician, a behavioral health pediatrician, or other behavioral health provider; *; QL; AL",
+        "codes": [
+          "PA",
+          "*",
+          "QL",
+          "AL"
+        ],
+        "position_id": 55
+      },
+      {
+        "page": 60,
+        "y": 52.329986572265625,
+        "end_y": 119.40750885009766,
+        "column": "preferred",
+        "class_name": "2nd Generation/Atypical - Mood Disorder Drugs / Antipsychotics - Drugs to Treat Mood Disorders",
+        "source_text": "risperidone solution 1 mg/ml oral (generic for RISPERDAL) - Tier 1; Members >= 8 years of age will require PA||Prior Authorization is not required for ages 6 and greater when prescribed by a psychiatric clinician, a behavioral health pediatrician, or other behavioral health provider; *; QL; AL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 52.329986572265625,
+            "bottom": 65.4474868774414,
+            "size": 11.25,
+            "text": "risperidone solution 1 mg/ml oral (generic for RISPERDAL) - Tier 1;",
+            "page": 60
+          },
+          {
+            "x": 34.0,
+            "y": 65.81997680664062,
+            "bottom": 78.9374771118164,
+            "size": 11.25,
+            "text": "Members >= 8 years of age will require PA||Prior Authorization is not",
+            "page": 60
+          },
+          {
+            "x": 34.0,
+            "y": 79.31002807617188,
+            "bottom": 92.42752838134766,
+            "size": 11.25,
+            "text": "required for ages 6 and greater when prescribed by a psychiatric",
+            "page": 60
+          },
+          {
+            "x": 34.0,
+            "y": 92.79998779296875,
+            "bottom": 105.91748809814453,
+            "size": 11.25,
+            "text": "clinician, a behavioral health pediatrician, or other behavioral health",
+            "page": 60
+          },
+          {
+            "x": 34.0,
+            "y": 106.29000854492188,
+            "bottom": 119.40750885009766,
+            "size": 11.25,
+            "text": "provider; *; QL; AL",
+            "page": 60
+          }
+        ],
+        "name": "risperidone solution 1 mg/ml oral (generic for RISPERDAL)",
+        "tier": "1",
+        "raw_restrictions": "Tier 1; Members >= 8 years of age will require PA||Prior Authorization is not required for ages 6 and greater when prescribed by a psychiatric clinician, a behavioral health pediatrician, or other behavioral health provider; *; QL; AL",
+        "codes": [
+          "*",
+          "QL",
+          "AL"
+        ],
+        "position_id": 61
+      }
+    ]
+  },
+  {
+    "record_id": "uhc-oct-complete-daf39dbb5aa3d6ba",
+    "name": "sodium chloride solution 0.9 % intravenous",
+    "kinds": [
+      "tiers",
+      "restrictions"
+    ],
+    "rows": [
+      {
+        "page": 129,
+        "y": 483.989990234375,
+        "end_y": 497.10748291015625,
+        "column": "preferred",
+        "class_name": "Electrolyte/Mineral Replacement - Vitamin, Mineral and Body / Fluid Deficiency Drugs / Electrolytes/Minerals/Metals/Vitamins",
+        "source_text": "sodium chloride solution 0.9 % intravenous - Tier 1; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 483.989990234375,
+            "bottom": 497.10748291015625,
+            "size": 11.25,
+            "text": "sodium chloride solution 0.9 % intravenous - Tier 1; QL",
+            "page": 129
+          }
+        ],
+        "name": "sodium chloride solution 0.9 % intravenous",
+        "tier": "1",
+        "raw_restrictions": "Tier 1; QL",
+        "codes": [
+          "QL"
+        ],
+        "position_id": 1473
+      },
+      {
+        "page": 129,
+        "y": 497.63751220703125,
+        "end_y": 510.5975036621094,
+        "column": "preferred",
+        "class_name": "Electrolyte/Mineral Replacement - Vitamin, Mineral and Body / Fluid Deficiency Drugs / Electrolytes/Minerals/Metals/Vitamins",
+        "source_text": "SODIUM CHLORIDE SOLUTION 0.9 % INTRAVENOUS - Tier 2; QL",
+        "lines": [
+          {
+            "x": 34.0,
+            "y": 497.63751220703125,
+            "bottom": 510.5975036621094,
+            "size": 11.25,
+            "text": "SODIUM CHLORIDE SOLUTION 0.9 % INTRAVENOUS - Tier 2; QL",
+            "page": 129
+          }
+        ],
+        "name": "SODIUM CHLORIDE SOLUTION 0.9 % INTRAVENOUS",
+        "tier": "2",
+        "raw_restrictions": "Tier 2; QL",
+        "codes": [
+          "QL"
+        ],
+        "position_id": 1474
+      }
+    ]
+  }
+]
