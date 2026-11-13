@@ -1,0 +1,702 @@
+--- PDF page 828 ---
+Page 828 
+High Cost Oral Atypical Antipsychotics (Bysanti, Caplyta, Cobenfy, Fanapt, Lybalvi, Rexulti, 
+Vraylar) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-715196  
+Guideline Name 
+High Cost Oral Atypical Antipsychotics (Bysanti, Caplyta, Cobenfy, 
+Fanapt, Lybalvi, Rexulti, Vraylar)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Preferred: Vraylar  
+Diagnosis 
+Schizophrenia  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of schizophrenia  
+
+
+--- PDF page 829 ---
+Page 829 
+ 
+AND 
+ 
+2 - Patient is 13 years of age or older  
+ 
+AND 
+ 
+3 - One of the following:  
+ 
+ 3.1 Inadequate response (minimum 30 day trial) or adverse reaction to ONE, or 
+contraindication to ALL of the following:  
+• 
+Aripiprazole  
+• 
+Clozapine  
+• 
+Olanzapine  
+• 
+Quetiapine  
+• 
+Risperidone  
+• 
+Ziprasidone  
+ 
+OR 
+ 
+ 3.2 One of the following:  
+ 
+  3.2.1 The patient has been receiving treatment with the requested medication, and is new to 
+the plan (enrollment effective date within the past 90 days)  
+ 
+OR 
+ 
+  3.2.2 The patient is currently receiving treatment with the requested medication in the 
+hospital and must continue upon discharge  
+ 
+Product Name:Non-Preferred: Bysanti, Caplyta, Fanapt, Lybalvi, Rexulti  
+Diagnosis 
+Schizophrenia  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 830 ---
+Page 830 
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of schizophrenia  
+ 
+AND 
+ 
+2 - One of the following:  
+• 
+For Rexulti requests: Patient is 13 years of age or older  
+• 
+For Bysanti, Caplyta, Fanapt, and Lybalvi requests: Patient is 18 years of age or older  
+ 
+AND 
+ 
+3 - One of the following:  
+ 
+ 3.1 Inadequate response (minimum 30 day trial) or adverse reaction to TWO, or 
+contraindication to ALL of the following:  
+• 
+Aripiprazole  
+• 
+Clozapine  
+• 
+Olanzapine  
+• 
+Quetiapine  
+• 
+Risperidone  
+• 
+Ziprasidone  
+ 
+OR 
+ 
+ 3.2 One of the following:  
+ 
+  3.2.1 The patient has been receiving treatment with the requested medication, and is new to 
+the plan (enrollment effective date within the past 90 days)  
+ 
+OR 
+ 
+  3.2.2 The patient is currently receiving treatment with the requested medication in the 
+hospital and must continue upon discharge  
+
+
+--- PDF page 831 ---
+Page 831 
+ 
+AND 
+ 
+4 - For Lybalvi requests ONLY, One of the following:  
+• 
+Patient has a BMI of 30 kg/m2 or greater  
+• 
+Patient has a BMI of 27 kg/m2 or greater with a weight-related comorbidity (e.g., 
+dyslipidemia, hypertension, type 2 diabetes, sleep apnea)  
+• 
+Patient has a documented history of weight gain of greater than or equal to 10% of 
+their baseline weight after initiating antipsychotic medication  
+• 
+Physician has provided clinical rationale for requiring samidorphan in addition to 
+olanzapine therapy  
+ 
+AND 
+ 
+5 - For Bysanti requests ONLY, history of failure to Fanapt  
+ 
+Product Name:Non-Preferred: Cobenfy  
+Diagnosis 
+Schizophrenia  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of schizophrenia  
+ 
+AND 
+ 
+2 - One of the following:  
+ 
+ 2.1 BOTH of the following:  
+ 
+  2.1.1 Inadequate response (minimum 30 day trial), adverse reaction, or contraindication to 
+aripiprazole  
+
+
+--- PDF page 832 ---
+Page 832 
+ 
+AND 
+ 
+  2.1.2 Inadequate response (minimum 30 day trial) or adverse reaction to ONE, or 
+contraindication to ALL of the following:  
+• 
+Clozapine  
+• 
+Olanzapine  
+• 
+Quetiapine  
+• 
+Risperidone  
+• 
+Ziprasidone  
+ 
+OR 
+ 
+ 2.2 One of the following:  
+ 
+  2.2.1 The patient has been receiving treatment with the requested medication, and is new to 
+the plan (enrollment effective date within the past 90 days)  
+ 
+OR 
+ 
+  2.2.2 The patient is currently receiving treatment with the requested medication in the 
+hospital and must continue upon discharge  
+ 
+Product Name:Preferred: Vraylar  
+Diagnosis 
+Bipolar I Disorder  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of bipolar I disorder  
+ 
+AND 
+
+
+--- PDF page 833 ---
+Page 833 
+ 
+2 - Patient is 10 years of age or older  
+ 
+AND 
+ 
+3 - ONE of the following:  
+ 
+ 3.1 Inadequate response (minimum 30 day trial) or adverse reaction to ONE, or 
+contraindication to ALL of the following:  
+• 
+Aripiprazole  
+• 
+Lamotrigine  
+• 
+Lithium  
+• 
+Lurasidone  
+• 
+Olanzapine  
+• 
+Risperidone  
+• 
+Valproate  
+ 
+OR 
+ 
+ 3.2 One of the following:  
+ 
+  3.2.1 The patient has been receiving treatment with the requested medication, and is new to 
+the plan (enrollment effective date within the past 90 days)  
+ 
+OR 
+ 
+  3.2.2 The patient is currently receiving treatment with requested medication in the hospital 
+and must continue upon discharge  
+ 
+Product Name:Non-Preferred: Bysanti, Fanapt, Lybalvi  
+Diagnosis 
+Bipolar I Disorder  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 834 ---
+Page 834 
+ 
+1 - Diagnosis of bipolar I disorder  
+ 
+AND 
+ 
+2 - Patient is 18 years of age or older  
+ 
+AND 
+ 
+3 - ONE of the following:  
+ 
+ 3.1 Inadequate response (minimum 30 day trial) or adverse reaction to THREE, or 
+contraindication to ALL of the following:  
+• 
+Aripiprazole  
+• 
+Lamotrigine  
+• 
+Lithium  
+• 
+Lurasidone  
+• 
+Olanzapine  
+• 
+Risperidone  
+• 
+Valproate  
+ 
+OR 
+ 
+ 3.2 One of the following:  
+ 
+  3.2.1 The patient has been receiving treatment with the requested medication, and is new to 
+the plan (enrollment effective date within the past 90 days)  
+ 
+OR 
+ 
+  3.2.2 The patient is currently receiving treatment with requested medication in the hospital 
+and must continue upon discharge  
+ 
+AND 
+ 
+4 - For Lybalvi requests ONLY, One of the following:  
+• 
+Patient has a BMI of 30 kg/m2 or greater  
+
+
+--- PDF page 835 ---
+Page 835 
+• 
+Patient has a BMI of 27 kg/m2 or greater with a weight-related comorbidity (e.g., 
+dyslipidemia, hypertension, type 2 diabetes, sleep apnea)  
+• 
+Patient has a documented history of weight gain of greater than or equal to 10% of 
+their baseline weight after initiating antipsychotic medication  
+• 
+Physician has provided clinical rationale for requiring samidorphan in addition to 
+olanzapine therapy  
+ 
+AND 
+ 
+5 - For Bysanti requests ONLY, history of failure to Fanapt  
+ 
+Product Name:Preferred: Vraylar  
+Diagnosis 
+Bipolar Depression  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of bipolar depression  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 Inadequate response (minimum 30 day trial) or adverse reaction to ONE, or 
+contraindication to ALL of the following:  
+• 
+Lurasidone  
+• 
+Quetiapine  
+• 
+Olanzapine plus fluoxetine  
+• 
+Valproate monotherapy  
+• 
+Combination therapy (i.e., lithium plus lamotrigine/valproate, lurasidone plus 
+lithium/valproate, quetiapine plus lithium/valproate)  
+ 
+OR 
+ 
+ 2.2 One of the following:  
+
+
+--- PDF page 836 ---
+Page 836 
+ 
+  2.2.1 The patient has been receiving treatment with the requested medication, and is new to 
+the plan (enrollment effective date within the past 90 days)  
+ 
+OR 
+ 
+  2.2.2 The patient is currently receiving treatment with requested medication in the hospital 
+and must continue upon discharge  
+ 
+Product Name:Non-Preferred: Caplyta  
+Diagnosis 
+Bipolar Depression  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of bipolar depression  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 Inadequate response (minimum 30 day trial) or adverse reaction to THREE, or 
+contraindication to ALL of the following:  
+• 
+Lurasidone  
+• 
+Quetiapine  
+• 
+Olanzapine plus fluoxetine  
+• 
+Valproate monotherapy  
+• 
+Combination therapy (i.e., lithium plus lamotrigine/valproate, lurasidone plus 
+lithium/valproate, quetiapine plus lithium/valproate)  
+ 
+OR 
+ 
+ 2.2 One of the following:  
+
+
+--- PDF page 837 ---
+Page 837 
+ 
+  2.2.1 The patient has been receiving treatment with the requested medication, and is new to 
+the plan (enrollment effective date within the past 90 days)  
+ 
+OR 
+ 
+  2.2.2 The patient is currently receiving treatment with requested medication in the hospital 
+and must continue upon discharge  
+ 
+Product Name:Preferred: Vraylar  
+Diagnosis 
+Major Depressive Disorder (MDD)  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of one of the following:  
+• 
+Major depressive disorder (MDD)  
+• 
+Treatment resistant depression  
+ 
+AND 
+ 
+2 - One of the following:  
+ 
+ 2.1 Inadequate response (minimum 30 day trial) or adverse reaction to TWO different 
+antidepressants from the following classes (antidepressants MUST be from TWO different 
+classes):  
+• 
+Selective Serotonin Reuptake Inhibitors (SSRIs)  
+• 
+Serotonin Norepinephrine Reuptake Inhibitors (SNRIs)  
+• 
+New Generation Antidepressants (e.g., bupropion, mirtazapine, etc)  
+• 
+Tricyclic Antidepressants (TCAs)  
+ 
+OR 
+ 
+ 2.2 One of the following:  
+
+
+--- PDF page 838 ---
+Page 838 
+ 
+  2.2.1 The patient has been receiving treatment with the requested medication, and is new to 
+the plan (enrollment effective date within the past 90 days)  
+ 
+OR 
+ 
+  2.2.2 The patient is currently receiving treatment with the requested medication in the 
+hospital and must continue upon discharge  
+ 
+Product Name:Non-Preferred: Caplyta, Rexulti  
+Diagnosis 
+Major Depressive Disorder (MDD)  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of Major depressive disorder (MDD)  
+ 
+AND 
+ 
+2 - One of the following:  
+ 
+ 2.1 BOTH of the following:  
+ 
+  2.1.1 Inadequate response (minimum 30 day trial) or adverse reaction to TWO different 
+antidepressants from the following classes (antidepressants MUST be from TWO different 
+classes):  
+• 
+Selective Serotonin Reuptake Inhibitors (SSRIs)  
+• 
+Serotonin Norepinephrine Reuptake Inhibitors (SNRIs)  
+• 
+New Generation Antidepressants (e.g., bupropion, mirtazapine, etc)  
+• 
+Tricyclic Antidepressants (TCAs)  
+ 
+AND 
+ 
+  2.1.2 Inadequate response (minimum 30 day trial) or adverse reaction to TWO of the 
+following:  
+
+
+--- PDF page 839 ---
+Page 839 
+• 
+aripiprazole  
+• 
+quetiapine ER  
+• 
+risperidone  
+• 
+Augmented therapy (e.g., addition of lithium, another antidepressant from a different 
+class, thyroid hormone to current antidepressant regimen)  
+ 
+OR 
+ 
+ 2.2 One of the following:  
+ 
+  2.2.1 The patient has been receiving treatment with the requested medication, and is new to 
+the plan (enrollment effective date within the past 90 days)  
+ 
+OR 
+ 
+  2.2.2 The patient is currently receiving treatment with the requested medication in the 
+hospital and must continue upon discharge  
+ 
+Product Name:Non-Preferred: Rexulti  
+Diagnosis 
+Agitation Associated With Dementia Due To Alzheimer's Disease  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - The requested medication is being used for treatment of agitation associated with 
+dementia due to Alzheimer's disease  
+ 
+Product Name:Preferred: Vraylar; Non-Preferred: Bysanti, Caplyta, Cobenfy, Fanapt, Lybalvi, 
+Rexulti  
+Diagnosis 
+Requests Exceeding Quantity Limit*  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Quantity Limit  
+
+
+--- PDF page 840 ---
+Page 840 
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following:  
+ 
+ 1.1 The requested drug must be used for a Food and Drug Administration (FDA)-approved 
+indication  
+ 
+OR 
+ 
+ 1.2 The use of this drug is supported by information from one of the following appropriate 
+compendia of current literature:  
+• 
+Food and Drug Administration (FDA) approved indications and limits  
+• 
+Published practice guidelines and treatment protocols  
+• 
+Comparative data evaluating the efficacy, type and frequency of side effects and 
+potential drug interactions among alternative products as well as the risks, benefits 
+and potential member outcomes  
+• 
+Drug Facts and Comparisons  
+• 
+American Hospital Formulary Service Drug Information  
+• 
+United States Pharmacopeia – Drug Information  
+• 
+DRUGDEX Information System  
+• 
+UpToDate  
+• 
+MicroMedex  
+• 
+Peer-reviewed medical literature, including randomized clinical trials, outcomes, 
+research data and pharmacoeconomic studies  
+• 
+Other drug reference resources  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 The drug is being prescribed within the manufacturer’s published dosing guidelines  
+ 
+OR 
+ 
+ 2.2 The requested dose falls within dosing guidelines found in one of the following 
+compendia of current literature:  
+• 
+Food and Drug Administration (FDA) approved indications and limits  
+• 
+Published practice guidelines and treatment protocols  
+
+
+--- PDF page 841 ---
+Page 841 
+• 
+Comparative data evaluating the efficacy, type and frequency of side effects and 
+potential drug interactions among alternative products as well as the risks, benefits 
+and potential member outcomes  
+• 
+Drug Facts and Comparisons  
+• 
+American Hospital Formulary Service Drug Information  
+• 
+United States Pharmacopeia – Drug Information  
+• 
+DRUGDEX Information System  
+• 
+UpToDate  
+• 
+MicroMedex  
+• 
+Peer-reviewed medical literature, including randomized clinical trials, outcomes, 
+research data and pharmacoeconomic studies  
+• 
+Other drug reference resources  
+ 
+AND 
+ 
+3 - The requested dosage cannot be achieved using the plan accepted quantity limit of a 
+different dose or formulation  
+ 
+AND 
+ 
+4 - The drug is being prescribed for a medically accepted indication that is recognized as a 
+covered benefit by the applicable health plans’ program  
+ 
+AND 
+ 
+5 - Physician has provided rationale for needing to exceed the quantity limit (QL) of one of the 
+following:  
+• 
+For Caplyta requests, QL of 1 capsule/day  
+• 
+For Cobenfy capsule requests, QL of 2 capsules/day  
+• 
+For Cobenfy starter pack requests, QL of 2 packs/365 days  
+• 
+For Bysanti and Fanapt tablet requests, QL of 2 tablets/day  
+• 
+For Bysanti and Fanapt titration pack requests, QL of 1 pack/180 days  
+• 
+For Lybalvi requests, QL of 1 tablet/day  
+• 
+For Rexulti requests, QL of 1 tablet/day  
+• 
+For Vraylar 0.5 mg, 0.75 mg, 4.5 mg and 6 mg requests, QL of 1 capsule/day  
+• 
+For Vraylar 1.5 mg and 3 mg requests, QL of 2 capsules/day  
+• 
+For Vraylar therapy pack requests, 2 packs/365 days  
+Notes  
+*Prior authorization requests should be reviewed using the above crite
+ria. This section is for quantity limit requests only. 
+ 
+
+
+--- PDF page 842 ---
+Page 842 
+2 .  Revision History  
+ 
+Date  
+Notes  
+9/11/2026  
+Vraylar to PDL, updated criteria throughout  
+ 

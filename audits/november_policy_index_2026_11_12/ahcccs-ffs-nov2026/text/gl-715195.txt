@@ -1,0 +1,842 @@
+--- PDF page 140 ---
+Page 140 
+Antipsychotics - AZM 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-715195  
+Guideline Name 
+Antipsychotics - AZM  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Abilify tablets, generic aripiprazole tablets and oral solution, Brand 
+Geodon capsules, generic ziprasidone capsules, Brand Latuda, generic lurasidone, lithium 
+carbonate (capsules, tablets, ER tablets, oral solution), Brand Lithobid, Brand Risperdal 
+(tablets, solution) generic risperidone (tablets, ODT, solution), Brand Seroquel (IR), generic 
+quetiapine (IR/ER), Brand Zyprexa, Brand Zyprexa Zydis, generic olanzapine (tablets, ODT)  
+Diagnosis 
+PA Required for Patients < 6 years of age  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 141 ---
+Page 141 
+ 
+1 - The patient has been diagnosed per current DSM (Diagnostic and Statistical Manual of 
+Mental Disorders) criteria with one of the following disorders:  
+• 
+Bipolar Spectrum Disorder  
+• 
+Schizophrenic Spectrum Disorder  
+• 
+Tourette’s or other tic disorder  
+• 
+Autism Spectrum Disorder  
+ 
+AND 
+ 
+2 - The requesting clinician has documented that psychosocial issues have been evaluated 
+before request for antipsychotic medications  
+ 
+AND 
+ 
+3 - The requesting clinician has documented non-medication alternatives that have been 
+attempted before request for antipsychotic medications  
+ 
+AND 
+ 
+4 - The above documentation includes information on the expected outcomes and an 
+evaluation of potential adverse events  
+ 
+AND 
+ 
+5 - The patient does not have a known hypersensitivity to the requested agent  
+ 
+Product Name:chlorpromazine tablets, fluphenazine (tablets, oral concentrate, elixir), 
+haloperidol tablets and oral concentrate, loxapine, molindone, generic paliperidone ER 
+tablets, perphenazine, pimozide, thioridazine, thiothixene, trifluoperazine  
+Diagnosis 
+PA Required for Patients < 12 years of age  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+
+
+--- PDF page 142 ---
+Page 142 
+Approval Criteria    
+ 
+1 - The patient has been diagnosed per current DSM (Diagnostic and Statistical Manual of 
+Mental Disorders) criteria with one of the following disorders:  
+• 
+Bipolar Spectrum Disorder  
+• 
+Schizophrenic Spectrum Disorder  
+• 
+Tourette’s or other tic disorder  
+• 
+Autism Spectrum Disorder  
+ 
+AND 
+ 
+2 - The requesting clinician has documented that psychosocial issues have been evaluated 
+before request for antipsychotic medications  
+ 
+AND 
+ 
+3 - The requesting clinician has documented non-medication alternatives that have been 
+attempted before request for antipsychotic medications  
+ 
+AND 
+ 
+4 - The above documentation includes information on the expected outcomes and an 
+evaluation of potential adverse events  
+ 
+AND 
+ 
+5 - The patient does not have a known hypersensitivity to the requested agent  
+ 
+Product Name:chlorpromazine injection, Brand Clozaril, generic clozapine (tablets, ODT), 
+fluphenazine decanoate, Brand Haldol decanoate injection, generic haloperidol decanoate, 
+Brand Haldol lactate injection, generic haloperidol lactate injection  
+Diagnosis 
+PA Required for Patients < 18 years of age  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 143 ---
+Page 143 
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following:  
+ 
+ 1.1 BOTH of the following:  
+ 
+  1.1.1 ONE of the following:  
+ 
+   1.1.1.1 The requested medication must be used for an FDA (Food and Drug Administration) 
+approved indication 
+ 
+OR 
+ 
+   1.1.1.2 The use of the drug is supported by information in ONE of the following appropriate 
+compendia of literature: 
+• 
+Food and Drug Administration (FDA) approved indications and limits  
+• 
+Published practice guidelines and treatment protocols  
+• 
+Comparative data evaluating the efficacy, type and frequency of side effects and 
+potential drug interactions among alternative products as well as the risks, benefits 
+and potential member outcomes  
+• 
+Drug Facts and Comparisons  
+• 
+American Hospital Formulary Service Drug Information  
+• 
+United States Pharmacopeia – Drug Information  
+• 
+DRUGDEX Information System  
+• 
+UpToDate  
+• 
+MicroMedex  
+• 
+Peer-reviewed medical literature, including randomized clinical trials, outcomes, 
+research data and pharmacoeconomic studies  
+• 
+Other drug reference resources  
+ 
+AND 
+ 
+  1.1.2 The patient meets the FDA minimum age limit or the prescriber attests they are aware 
+of FDA labeling regarding the use of the antipsychotic medication and feels the treatment with 
+the requested medication is medically necessary (Document rationale for use)  
+ 
+OR 
+ 
+ 1.2 The patient is currently on the requested medication  
+
+
+--- PDF page 144 ---
+Page 144 
+ 
+Product Name:Abilify Asimtufii, Abilify Maintena  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient has ONE of the following diagnoses:  
+• 
+Schizophrenia or schizoaffective disorder  
+• 
+Bipolar disorder  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 BOTH of the following:  
+• 
+Patient is non-adherent with oral atypical antipsychotic dosage forms  
+• 
+Patient has established tolerability with aripiprazole  
+ 
+OR 
+ 
+ 2.2 Patient is unable to take oral solid alternatives  
+ 
+AND 
+ 
+3 - If the patient is less than 18 years of age, the prescriber attests they are aware of FDA 
+(Food and Drug Administration) labeling regarding use of long acting injectable antipsychotic 
+products in patients less than 18 years of age and feels the treatment with the requested 
+product is medically necessary (Document rationale for use)  
+ 
+Product Name:Abilify Mycite  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+
+
+--- PDF page 145 ---
+Page 145 
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+ 
+ 1.1 All of the following:  
+ 
+  1.1.1 Patient is 18 years of age or older  
+ 
+AND 
+ 
+  1.1.2 Patient has ONE of the following:  
+• 
+Schizophrenia or schizoaffective disorder  
+• 
+Bipolar disorder  
+• 
+Autism  
+• 
+Major depressive disorder  
+• 
+Tourette’s  
+ 
+AND 
+ 
+  1.1.3 Submission of medical records or claims history documenting the patient is currently 
+prescribed aripiprazole and tolerates the medication  
+ 
+AND 
+ 
+  1.1.4 Submission of medical records or claims history documenting the patient’s adherence 
+to aripiprazole is less than 80 percent within the past 6 months (medication adherence 
+percentage is defined as the number of pills absent in a given time period divided by the 
+number of pills prescribed during that same time, multiplied by 100)  
+ 
+AND 
+ 
+  1.1.5 ALL of the following strategies (if applicable to the patient) to improve patient 
+adherence have been tried without success:  
+• 
+Utilization of a pill box  
+
+
+--- PDF page 146 ---
+Page 146 
+• 
+Utilization of a smart phone reminder (ex. alarm, application, or text reminder)  
+• 
+Involving family members or friends to assist  
+• 
+Coordinating timing of dose to coincide with dosing of another daily medication  
+ 
+AND 
+ 
+  1.1.6 Submission of medical records or claims history documenting patient has experienced 
+life-threatening or potentially life-threatening symptoms, or has experienced a severe 
+worsening of symptoms leading to a hospitalization which was attributed to the lack of 
+adherence to aripiprazole  
+ 
+AND 
+ 
+  1.1.7 Prescriber acknowledges that Abilify MyCite has not been shown to improve patient 
+adherence and attests that Abilify MyCite is medically necessary for the patient to maintain 
+compliance, avoid life-threatening worsening of symptoms, and reduce healthcare resources 
+utilized due to lack of adherence  
+ 
+AND 
+ 
+  1.1.8 Prescriber agrees to track and document adherence of Abilify MyCite through software 
+provided by the manufacturer  
+ 
+AND 
+ 
+  1.1.9 The patient has a history of failure, contraindication, or intolerance or reason or special 
+circumstance they cannot use TWO of the following: (Drug may require PA)  
+• 
+Abilify Maintena  
+• 
+Invega Sustenna  
+• 
+Risperdal Consta or Uzedy  
+• 
+Aristada  
+ 
+OR 
+ 
+ 1.2 ONE of the following:  
+ 
+  1.2.1 The patient has been receiving treatment with the requested non-preferred behavioral 
+health medication and is new to the plan (enrollment effective date within the past 90 days)  
+
+
+--- PDF page 147 ---
+Page 147 
+ 
+OR 
+ 
+  1.2.2 The patient is currently receiving treatment with the requested non-preferred 
+behavioral health medication in the hospital and must continue upon discharge  
+ 
+Product Name:Abilify Mycite  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation that patient is clinically stable on Abilify MyCite  
+ 
+AND 
+ 
+2 - Submission of medical records or claims history documenting that the use of Abilify MyCite 
+has increased adherence to 80 percent or more  
+ 
+AND 
+ 
+3 - Prescriber attests that the patient requires the continued use of Abilify MyCite to remain 
+adherent  
+ 
+Product Name:Aristada, Aristada Initio  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient has a diagnosis of schizophrenia or schizoaffective disorder  
+
+
+--- PDF page 148 ---
+Page 148 
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 BOTH of the following:  
+• 
+Patient is non-adherent with oral atypical antipsychotic dosage forms  
+• 
+Patient has established tolerability with oral aripiprazole  
+ 
+OR 
+ 
+ 2.2 Patient is unable to take oral solid alternatives  
+ 
+AND 
+ 
+3 - If the patient is less than 18 years of age, the prescriber attests they are aware of FDA 
+(Food and Drug Administration) labeling regarding use of long acting injectable antipsychotic 
+products in patients less than 18 years of age and feels the treatment with the requested 
+product is medically necessary (Document rationale for use)  
+ 
+Product Name:Erzofri, Invega Sustenna  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient has a diagnosis of schizophrenia or schizoaffective disorder  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 BOTH of the following:  
+• 
+Patient is non-adherent with oral atypical antipsychotic dosage forms  
+
+
+--- PDF page 149 ---
+Page 149 
+• 
+Patient has established tolerability with oral paliperidone or oral risperidone  
+ 
+OR 
+ 
+ 2.2 Patient is unable to take oral solid alternatives  
+ 
+AND 
+ 
+3 - If the patient is less than 18 years of age, the prescriber attests they are aware of FDA 
+(Food and Drug Administration) labeling regarding use of long acting injectable antipsychotic 
+products in patients less than 18 years of age and feels the treatment with the requested 
+product is medically necessary (Document rationale for use)  
+ 
+AND 
+ 
+4 - For Erzofri requests ONLY: History of failure or adverse reaction to Invega Sustenna 
+(Applies to Erzofri requests only)  
+ 
+Product Name:Invega Trinza  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient has a diagnosis of schizophrenia or schizoaffective disorder  
+ 
+AND 
+ 
+2 - Patient has been treated with Invega Sustenna for at least 4 months  
+ 
+AND 
+ 
+3 - If the patient is less than 18 years of age, the prescriber attests they are aware of FDA 
+(Food and Drug Administration) labeling regarding use of long acting injectable antipsychotic 
+
+
+--- PDF page 150 ---
+Page 150 
+products in patients less than 18 years of age and feels the treatment with the requested 
+product is medically necessary (Document rationale for use)  
+ 
+Product Name:Invega Hafyera  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient has a diagnosis of schizophrenia or schizoaffective disorder  
+ 
+AND 
+ 
+2 - Patient has been treated with Invega Sustenna or Invega Trinza for at least 6 months  
+ 
+AND 
+ 
+3 - If the patient is less than 18 years of age, the prescriber attests they are aware of FDA 
+(Food and Drug Administration) labeling regarding use of long acting injectable antipsychotic 
+products in patients less than 18 years of age and feels the treatment with the requested 
+product is medically necessary (Document rationale for use)  
+ 
+Product Name:Opipza  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following:  
+ 
+ 1.1 Both of the following:  
+• 
+Patient is 13 years of age or older  
+
+
+--- PDF page 151 ---
+Page 151 
+• 
+Diagnosis of schizoprenia  
+ 
+OR 
+ 
+ 1.2 Both of the following:  
+• 
+Patient is 18 years of age or older  
+• 
+Diagnosis of major depressive disorder (MDD)  
+ 
+OR 
+ 
+ 1.3 Both of the following:  
+• 
+Patient is 6 years of age or older  
+• 
+Diagnosis of autistic disorder  
+ 
+OR 
+ 
+ 1.4 Both of the following:  
+• 
+Patient is 6 years of age or older  
+• 
+Diagnosis of Tourette's disorder  
+ 
+AND 
+ 
+2 - BOTH of the following:  
+ 
+ 2.1 ONE of the following:  
+• 
+History of failure or intolerance to aripiprazole oral tablets  
+• 
+History of failure or intolerance to aripiprazole oral solution  
+ 
+AND 
+ 
+ 2.2 Provider submits clinical rationale documenting why patient is unable to take aripiprazole 
+ODT formulation  
+
+
+--- PDF page 152 ---
+Page 152 
+ 
+AND 
+ 
+3 - If the patient is less than 18 years of age, the prescriber attests they are aware of FDA 
+(Food and Drug Administration) labeling regarding use of long acting injectable antipsychotic 
+products in patients less than 18 years of age and feels the treatment with the requested 
+product is medically necessary (Document rationale for use)  
+ 
+Product Name:Risperdal Consta, Uzedy  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient has ONE of the following diagnoses:  
+• 
+Schizophrenia or schizoaffective disorder  
+• 
+Bipolar disorder  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 BOTH of the following:  
+• 
+Patient is non-adherent with oral atypical antipsychotic dosage forms  
+• 
+Patient has established tolerability with oral risperidone  
+ 
+OR 
+ 
+ 2.2 Patient is unable to take oral solid alternatives  
+ 
+AND 
+ 
+3 - If the patient is less than 18 years of age, the prescriber attests they are aware of FDA 
+(Food and Drug Administration) labeling regarding use of long acting injectable antipsychotic 
+
+
+--- PDF page 153 ---
+Page 153 
+products in patients less than 18 years of age and feels the treatment with the requested 
+product is medically necessary (Document rationale for use)  
+ 
+Product Name:Perseris, Rykindo, generic risperidone ER IM  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient has ONE of the following diagnoses:  
+• 
+Schizophrenia or schizoaffective disorder  
+• 
+Bipolar disorder (Applies to Rykindo and generic risperidone ER IM ONLY)  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 BOTH of the following:  
+• 
+Patient is non-adherent with oral atypical antipsychotic dosage forms  
+• 
+Patient has established tolerability with oral risperidone  
+ 
+OR 
+ 
+ 2.2 Patient is unable to take oral solid alternatives  
+ 
+AND 
+ 
+3 - History of failure, contraindication or intolerance to ALL of the following:  
+• 
+Risperdal Consta  
+• 
+Uzedy  
+ 
+AND 
+
+
+--- PDF page 154 ---
+Page 154 
+ 
+4 - If the patient is less than 18 years of age, the prescriber attests they are aware of FDA 
+(Food and Drug Administration) labeling regarding use of long acting injectable antipsychotic 
+products in patients less than 18 years of age and feels the treatment with the requested 
+product is medically necessary (Document rationale for use)  
+ 
+Product Name:Brand Abilify tablets, Adasuve, aripiprazole ODT, chlorpromazine tablets, 
+Brand Clozaril, fluphenazine (injection, tablets), Brand Geodon (capsules, injection) generic 
+ziprasidone (capsules, injection), Brand Haldol decanoate injection, generic haloperidol 
+injection, Brand Invega tablets, Brand Latuda, Brand Lithobid, loxapine, perphenazine-
+amitriptyline, prochlorperazine injection, Brand Risperdal (tablets, solution), generic 
+risperidone solution, Brand Saphris, generic asenapine sublingual tablets, Secuado, Brand 
+Seroquel, Brand Seroquel XR, Brand Symbyax, generic fluoxetine-olanzapine, Versacloz, 
+Brand Zyprexa (tablets, injection), Zyprexa Relprevv, Brand Zyprexa Zydis  
+Diagnosis 
+Non-Preferred Drugs  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - One of the following:  
+ 
+ 1.1 All of the following:  
+ 
+  1.1.1 ONE of the following:  
+ 
+   1.1.1.1 Patient has a history of failure, contraindication or intolerance to at least FOUR of 
+the following: 
+• 
+Aripiprazole oral (generic Abilify)  
+• 
+Aripiprazole injectable formulations (Abilify Maintena, Aristada, Aristada Initio)  
+• 
+Clozapine/clozapine ODT  
+• 
+Lurasidone  
+• 
+Olanzapine/olanzapine ODT  
+• 
+Paliperidone oral tablet  
+• 
+Paliperidone injectable formulations (Invega Sustenna, Invega Trinza, Hafyera)  
+• 
+Quetiapine IR or ER  
+• 
+Risperidone/risperidone ODT  
+• 
+Risperidone injectable formulations (Risperdal Consta, Uzedy)  
+ 
+OR 
+
+
+--- PDF page 155 ---
+Page 155 
+ 
+   1.1.1.2 There are no preferred formulary alternatives for the requested drug 
+ 
+AND 
+ 
+  1.1.2 If the request is for a multi-source brand medication (i.e., MSC O), ONE of the 
+following:  
+ 
+   1.1.2.1 BOTH of the following: 
+• 
+The brand is being requested because of an adverse reaction, allergy or sensitivity to 
+the generic and the prescriber must attest to submitting the FDA MedWatch Form for 
+allergic reactions to the medications  
+• 
+If there are generic product(s), the member has tried at least three (if available)  
+ 
+OR 
+ 
+   1.1.2.2 ONE of the following: 
+• 
+The brand is being requested due to a therapeutic failure with the generic (please 
+provide reason for therapeutic failure)  
+• 
+The brand is being requested because transition to the generic could result in 
+destabilization of the patient (rationale must be provided)  
+• 
+Special clinical circumstances exist that preclude the use of the generic equivalent of 
+the multi-source brand medication for the patient (rationale must be provided)  
+ 
+AND 
+ 
+  1.1.3 ONE of the following:  
+ 
+   1.1.3.1 The requested drug must be used for an FDA (Food and Drug Administration)-
+approved indication 
+ 
+OR 
+ 
+   1.1.3.2 The use of this drug is supported by information from ONE of the following 
+appropriate compendia of current literature: 
+• 
+Food and Drug Administration (FDA) approved indications and limits  
+• 
+Published practice guidelines and treatment protocols  
+
+
+--- PDF page 156 ---
+Page 156 
+• 
+Comparative data evaluating the efficacy, type and frequency of side effects and 
+potential drug interactions among alternative products as well as the risks, benefits 
+and potential member outcomes  
+• 
+Drug Facts and Comparisons  
+• 
+American Hospital Formulary Service Drug Information  
+• 
+United States Pharmacopeia – Drug Information  
+• 
+DRUGDEX Information System  
+• 
+UpToDate  
+• 
+MicroMedex  
+• 
+Peer-reviewed medical literature, including randomized clinical trials, outcomes, 
+research data and pharmacoeconomic studies  
+• 
+Other drug reference resources  
+ 
+AND 
+ 
+  1.1.4 ONE of the following:  
+ 
+   1.1.4.1 The drug is being prescribed within the manufacturer’s published dosing guidelines 
+ 
+OR 
+ 
+   1.1.4.2 The drug falls within dosing guidelines found in ONE of the following compendia of 
+current literature: 
+• 
+Food and Drug Administration (FDA) approved indications and limits  
+• 
+Published practice guidelines and treatment protocols  
+• 
+Comparative data evaluating the efficacy, type and frequency of side effects and 
+potential drug interactions among alternative products as well as the risks, benefits 
+and potential member outcomes  
+• 
+Drug Facts and Comparisons  
+• 
+American Hospital Formulary Service Drug Information  
+• 
+United States Pharmacopeia – Drug Information  
+• 
+DRUGDEX Information System  
+• 
+UpToDate  
+• 
+MicroMedex  
+• 
+Peer-reviewed medical literature, including randomized clinical trials, outcomes, 
+research data and pharmacoeconomic studies  
+• 
+Other drug reference resources  
+ 
+AND 
+ 
+  1.1.5 The drug is being prescribed for a medically accepted indication that is recognized as a 
+covered benefit by the applicable health plans’ program*  
+
+
+--- PDF page 157 ---
+Page 157 
+ 
+OR 
+ 
+ 1.2 The requested medication is a behavioral health medication and ONE of the following:  
+ 
+  1.2.1 The patient has been receiving treatment with the requested non-preferred behavioral 
+health medication and is new to the plan (enrollment effective date within the past 90 days)  
+ 
+OR 
+ 
+  1.2.2 The patient is currently receiving treatment with the requested non-preferred 
+behavioral health medication in the hospital and must continue upon discharge  
+Notes  
+*Note: Medications used for anti-obesity/weight loss, cosmetic (e.g., al
+opecia, actinic keratosis, vitiligo), erectile dysfunction, and sexual dysf
+unction purposes are NOT medically accepted indications and are NO
+T recognized as a covered benefit. Erectile dysfunction drugs (Cialis/T
+adalafil) are covered for clinical diagnoses other than ED. 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+9/11/2026  
+10/1 changes: Generic paliperidone oral tablet and generic quetiapin
+e ER to PDL, Perseris to NPD. Updated preferred prerequisites acco
+rdingly.  
+ 
