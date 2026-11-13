@@ -1,0 +1,95 @@
+--- PDF page 285 ---
+Page 285 
+Cablivi 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-502258  
+Guideline Name 
+Cablivi  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+2/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Cablivi  
+Diagnosis 
+Acquired thrombotic thrombocytopenic purpura (aTTP)  
+Approval Length 
+2 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient is 12 years of age or older  
+
+
+--- PDF page 286 ---
+Page 286 
+ 
+AND 
+ 
+2 - Diagnosis of acquired thrombotic thrombocytopenic purpura (aTTP)  
+ 
+AND 
+ 
+3 - Cablivi was initiated in the inpatient setting in combination with plasma exchange therapy  
+ 
+AND 
+ 
+4 - Cablivi will be used in combination with immunosuppressive therapy (e.g., corticosteroids)  
+ 
+AND 
+ 
+5 - Total treatment duration will be limited to 58 days beyond the last therapeutic plasma 
+exchange  
+ 
+Product Name:Cablivi  
+Diagnosis 
+Acquired thrombotic thrombocytopenic purpura (aTTP)  
+Approval Length 
+2 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Request is for a new (different) episode requiring the re-initiation of plasma exchange for 
+the treatment of acquired thrombotic thrombocytopenic purpura (aTTP) (Documentation of 
+date of prior episode and documentation date of new episode required)  
+ 
+AND 
+
+
+--- PDF page 287 ---
+Page 287 
+ 
+2 - Patient is 12 years of age or older  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+1/28/2026  
+Added age criterion due to expanded approval.  
+ 
