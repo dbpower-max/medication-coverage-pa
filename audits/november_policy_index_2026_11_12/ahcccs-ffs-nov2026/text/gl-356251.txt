@@ -1,0 +1,88 @@
+--- PDF page 1407 ---
+Page 1407 
+Preferred Drugs - AZM 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-356251  
+Guideline Name 
+Preferred Drugs - AZM  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Preferred Drugs  
+Diagnosis 
+Prior Authorization Administrative Guideline for Preferred Drugs 
+Without Drug-Specific Criteria  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Administrative  
+ 
+ 
+Approval Criteria    
+ 
+1 - ALL of the following:  
+ 
+ 1.1 ONE of the following:  
+
+
+--- PDF page 1408 ---
+Page 1408 
+ 
+  1.1.1 The requested drug must be used for a Food and Drug Administration (FDA)-approved 
+indication  
+ 
+OR 
+ 
+  1.1.2 The use of this drug is supported by information from ONE of the following appropriate 
+compendia of current literature:  
+• 
+American Hospital Formulary Service Drug Information  
+• 
+National Comprehensive Cancer Network Drugs and Biologics Compendium  
+• 
+Thomson Micromedex DrugDex  
+• 
+Clinical pharmacology  
+ 
+AND 
+ 
+ 1.2 The drug is being prescribed for a medically accepted indication that is recognized as a 
+covered benefit by the applicable health plans’ program  
+ 
+AND 
+ 
+ 1.3 If the patient is less than FDA minimum age, the prescriber attests they are aware of FDA 
+labeling and feels the treatment with the requested product is medically necessary. 
+(Document rationale for use)  
+Notes  
+Medications used for anti-obesity/weight loss, cosmetic (e.g., alopecia
+, actinic keratosis, vitiligo), erectile dysfunction, and sexual dysfunctio
+n purposes are NOT medically accepted indications and are NOT rec
+ognized as a covered benefit. Erectile dysfunction drugs (Cialis/Tadal
+afil) are covered for clinical diagnoses other than ED. 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/28/2025  
+Removed the word "solely" from notes section, no change to clinical i
+ntent.  
+ 

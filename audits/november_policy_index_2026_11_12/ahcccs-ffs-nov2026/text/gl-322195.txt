@@ -1,0 +1,104 @@
+--- PDF page 1639 ---
+Page 1639 
+Sofdra (sofpironium) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-322195  
+Guideline Name 
+Sofdra (sofpironium)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Sofdra  
+Diagnosis 
+Primary Axillary Hyperhidrosis  
+Approval Length 
+6 Week(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of primary axillary hyperhidrosis  
+
+
+--- PDF page 1640 ---
+Page 1640 
+ 
+AND 
+ 
+2 - Patient has experienced symptoms of disease for a duration of at least 6 months  
+ 
+AND 
+ 
+3 - Patient is 9 years of age or older  
+ 
+AND 
+ 
+4 - Provider attests other causes of axillary hyperhidrosis have been ruled out (e.g., 
+menopause, medications)  
+ 
+AND 
+ 
+5 - Disease frequently interferes with daily activities (e.g., lower productivity at work, lower 
+psychosocial wellbeing)  
+ 
+AND 
+ 
+6 - Trial and failure (minimum 6 weeks supply), contraindication, or intolerance to a topical 
+prescription strength drying agent [e.g., Drysol, Xerac AC (aluminum chloride hexahydrate)]  
+ 
+AND 
+ 
+7 - Trial and failure, contraindication, or intolerance to Botox  
+ 
+AND 
+ 
+8 - Prescribed by or in consultation with a dermatologist  
+ 
+Product Name:Sofdra  
+
+
+--- PDF page 1641 ---
+Page 1641 
+Diagnosis 
+Primary Axillary Hyperhidrosis  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy (e.g., improvement in 
+productivity, improvement in psychosocial wellbeing)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+7/16/2025  
+Removed Qbrexza as prerequisite.  
+ 
