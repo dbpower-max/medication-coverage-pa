@@ -1,0 +1,92 @@
+--- PDF page 1767 ---
+Page 1767 
+Tarpeyo (budesonide) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-113527  
+Guideline Name 
+Tarpeyo (budesonide)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/8/2022  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Tarpeyo  
+Approval Length 
+9 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting 
+diagnosis of primary immunoglobulin A nephropathy (IgAN) as confirmed by a kidney biopsy  
+ 
+AND 
+
+
+--- PDF page 1768 ---
+Page 1768 
+ 
+2 - Patient is at risk of rapid disease progression [e.g., generally a urine protein-to-creatinine 
+ratio (UPCR) greater than or equal to 1.5 g/g, or by other criteria such as clinical risk scoring 
+using the International IgAN Prediction Tool]  
+ 
+AND 
+ 
+3 - Used to reduce proteinuria  
+ 
+AND 
+ 
+4 - Estimated glomerular filtration rate (eGFR) greater than or equal to 35 mL/min/1.73 m2  
+ 
+AND 
+ 
+5 - One of the following:  
+ 
+ 5.1 Patient has been on a minimum 90-day trial of a maximally tolerated dose and will 
+continue to receive therapy with one of the following:  
+• 
+An angiotensin-converting enzyme (ACE) inhibitor (e.g., benazepril, lisinopril)  
+• 
+An angiotensin II receptor blocker (ARB) (e.g., losartan, valsartan)  
+ 
+OR 
+ 
+ 5.2 Patient has a contraindication or intolerance to both ACE inhibitors and ARBs  
+ 
+AND 
+ 
+6 - Trial and failure, contraindication, or intolerance to another glucocorticoid (e.g., 
+methylprednisolone, prednisone)  
+ 
+AND 
+ 
+7 - Prescribed by or in consultation with a nephrologist  
+ 
+
+
+--- PDF page 1769 ---
+Page 1769 
+2 .  Revision History  
+ 
+Date  
+Notes  
+9/8/2022  
+Removed references, no clinical criteria changes.  
+ 
