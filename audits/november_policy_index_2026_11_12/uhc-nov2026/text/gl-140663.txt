@@ -1,0 +1,101 @@
+--- PDF page 1197 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1197 
+Nocdurna 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-140663  
+Guideline Name 
+Nocdurna  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+5/1/2021  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Nocdurna  
+Approval Length 
+3 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of nocturia due to nocturnal polyuria (as defined by nighttime urine production 
+that exceeds one-third of the 24-hour urine production)  
+
+
+--- PDF page 1198 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1198 
+ 
+AND 
+ 
+2 - Patient wakes at least twice per night on a reoccurring basis to void  
+ 
+AND 
+ 
+3 - Documented serum sodium level is currently within normal limits of the normal laboratory 
+reference range and has been within normal limits over the previous six months  
+ 
+AND 
+ 
+4 - The patient has been evaluated for other medical causes and has either not responded to, 
+tolerated, or has a contraindication to treatments for identifiable medical causes [e.g., 
+overactive bladder, benign prostatic hyperplasia/lower urinary tract symptoms (BPH/LUTS), 
+elevated post-void residual urine, and heart failure]  
+ 
+AND 
+ 
+5 - Prescriber attests that the risks have been assessed and benefits outweigh the risks  
+ 
+Product Name:Nocdurna  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+2 - Patient has routine monitoring for serum sodium levels  
+
+
+--- PDF page 1199 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1199 
+ 
+AND 
+ 
+3 - Prescriber attests that the risks of hyponatremia have been assessed and benefits 
+outweigh the risks  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/1/2021  
+Noctiva removed from the guideline  
+ 

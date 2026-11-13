@@ -1,0 +1,82 @@
+--- PDF page 454 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 454 
+Dofetilide   
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-140682  
+Guideline Name 
+Dofetilide    
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2022  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:: Brand Tikosyn, generic dofetilide  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of ONE of the following:  
+• 
+Atrial fibrillation  
+• 
+Atrial flutter  
+
+
+--- PDF page 455 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 455 
+ 
+AND 
+ 
+2 - Patient requires ONE of the following:  
+• 
+Conversion to normal sinus rhythm  
+• 
+Maintenance of normal sinus rhythm  
+ 
+AND 
+ 
+3 - Verification that the patient has already started on dofetilide while in the hospital for a 
+minimum of 3 days  
+ 
+AND 
+ 
+4 - Patient does NOT have severe renal impairment [Creatinine Clearance (CrCl) less than 20 
+milliliters per minute]  
+ 
+AND 
+ 
+5 - Patient does NOT have congenital or acquired long QT syndromes  
+ 
+AND 
+ 
+6 - Patient is NOT concurrently using cimetidine, hydrochlorothiazide, ketoconazole, 
+megestrol, prochlorperazine, trimethoprim, dolutegravir or verapamil  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/4/2022  
+C&S to match AZM as of 10.1.22  
+ 
