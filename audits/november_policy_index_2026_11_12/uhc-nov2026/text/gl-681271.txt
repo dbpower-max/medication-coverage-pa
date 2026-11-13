@@ -1,0 +1,87 @@
+--- PDF page 1460 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1460 
+Rhofade (oxymetazoline) cream 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-681271  
+Guideline Name 
+Rhofade (oxymetazoline) cream  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Rhofade, generic oxymetazoline cream  
+Approval Length 
+3 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of persistent erythema associated with rosacea  
+ 
+AND 
+
+
+--- PDF page 1461 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1461 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 History of a 30 day or longer trial and failure of ONE of the following:  
+• 
+metronidazole cream, gel, or lotion  
+• 
+azelaic acid gel  
+ 
+OR 
+ 
+ 2.2 Contraindication or intolerance to BOTH of the following:  
+• 
+metronidazole cream, gel, or lotion  
+• 
+azelaic acid gel  
+ 
+Product Name:Brand Rhofade, generic oxymetazoline cream  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of a positive clinical response to therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/5/2026  
+Updated guideline name. Removed dx headers. Added generic oxym
+etazoline cream as a target. Updated product name lists and GPI tabl
+es accordingly. Updated language in reauth section. Minor cosmetic 
+updates.  
+ 

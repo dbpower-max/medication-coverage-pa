@@ -1,0 +1,692 @@
+--- PDF page 1425 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1425 
+Repatha (evolocumab) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-683419  
+Guideline Name 
+Repatha (evolocumab)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Repatha  
+Diagnosis 
+Atherosclerotic Cardiovascular Disease (ASCVD), Prevention of 
+Cardiovascular (CV) Events in Patients at Increased Risk for a Major 
+Adverse Cardiovascular Event  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient is 18 years of age or older  
+
+
+--- PDF page 1426 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1426 
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 Diagnosis of Atherosclerotic Cardiovascular Disease (ASCVD) defined as acute coronary 
+syndrome, history of myocardial infarction (MI), stable or unstable angina, coronary or arterial 
+revascularization (e.g., percutaneous coronary intervention or coronary artery bypass graft 
+surgery), stroke, transient ischemic attack, and/or peripheral arterial disease presumed to be 
+of atherosclerotic origin  
+ 
+OR 
+ 
+ 2.2 Patient is at increased risk for a major adverse cardiovascular (CV) event  
+ 
+AND 
+ 
+3 - Prescribed by, or in consultation with, a cardiologist, endocrinologist, or lipid specialist  
+ 
+AND 
+ 
+4 - Submission of medical records (e.g., chart notes) or verification of paid claims confirming 
+ONE of the following:  
+ 
+ 4.1 Patient has had an inadequate response to a high-intensity statin therapy as documented 
+by ALL of the following:  
+• 
+Inadequate response with a high-intensity statin (i.e., atorvastatin 40-80 mg or 
+rosuvastatin 20-40 mg) at the maximally tolerated dose for at least three consecutive 
+months  
+• 
+Patient must be adherent to high-intensity statin, as evidenced by consistent 
+pharmacy claims over the past three months  
+• 
+Statin therapy will be continued with Repatha therapy  
+ 
+OR 
+ 
+ 4.2 Patient has had an inadequate response to a moderate-intensity statin therapy as 
+documented by ALL of the following:  
+
+
+--- PDF page 1427 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1427 
+• 
+Patient has a documented intolerance or contraindication to at least one high-intensity 
+statin therapy  
+• 
+Inadequate response with a moderate-intensity statin (i.e., atorvastatin 10-20 mg, 
+rosuvastatin 5-10 mg, simvastatin 20-40 mg, pravastatin 40-80 mg, lovastatin 40 mg, 
+fluvastatin XL 80 mg, fluvastatin 40 mg twice daily, or pitavastatin 2-4 mg) at the 
+maximally tolerated dose for at least three consecutive months  
+• 
+Patient must be adherent to moderate-intensity statin, as evidenced by consistent 
+pharmacy claims over the past three months  
+• 
+Statin therapy will be continued with Repatha therapy  
+ 
+OR 
+ 
+ 4.3 Patient has had an inadequate response to a low-intensity statin therapy as documented 
+by ALL of the following:  
+• 
+Patient has a documented intolerance or contraindication to at least one high-intensity 
+and at least one moderate-intensity statin therapy  
+• 
+Inadequate response with a low-intensity statin (i.e., simvastatin 10 mg, pravastatin 
+10-20 mg, lovastatin 20 mg, fluvastatin 20-40 mg, pitavastatin 1 mg) at the maximally 
+tolerated dose for at least three consecutive months  
+• 
+Patient must be adherent to low-intensity statin, as evidenced by consistent pharmacy 
+claims over the past three months  
+• 
+Statin therapy will be continued with Repatha therapy  
+ 
+OR 
+ 
+ 4.4 Patient is statin intolerant (inability to tolerate any dose or increase the dose above the 
+smallest tablet strength) or has a contraindication to all statins as documented by ONE of the 
+following:  
+• 
+Patient experienced statin-related rhabdomyolysis with CK elevations greater than or 
+equal to 10 times the upper limit of normal (ULN)  
+• 
+Patient experienced intolerable skeletal-related muscle symptoms (e.g., myopathy or 
+myalgia) to at least two different statins at the lowest dose (one of the statin trials must 
+include pravastatin or rosuvastatin) and the skeletal-related muscle symptoms (e.g., 
+myopathy or myalgia) resolved upon discontinuation of each respective therapy  
+• 
+Patient has a labeled contraindication to all statins  
+ 
+AND 
+ 
+5 - Submission of medical records (e.g., chart notes) or verification of paid claims confirming 
+ONE of the following:  
+
+
+--- PDF page 1428 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1428 
+ 
+ 5.1 BOTH of the following:  
+• 
+Patient had an inadequate response with maximally tolerated statin plus ezetimibe (or 
+ezetimibe therapy alone if statin intolerant) for at least three consecutive months  
+• 
+Patient must be adherent to maximally tolerated statin plus ezetimibe therapy (or 
+ezetimibe therapy alone, if statin intolerant), as evidenced by consistent pharmacy 
+claims over the past three months  
+ 
+OR 
+ 
+ 5.2 Patient has a documented intolerance or contraindication to ezetimibe  
+ 
+AND 
+ 
+6 - Medication will be used as adjunct to low-fat diet and exercise  
+ 
+AND 
+ 
+7 - Patient's documented current LDL-C (low-density lipoprotein cholesterol) is greater than or 
+equal to 55 mg/dL (within the last 30 days)  
+ 
+AND 
+ 
+8 - Repatha (evolocumab) will NOT be used in combination with another proprotein 
+convertase subtilisin/kexin type 9 (PCSK9) inhibitor (such as Praluent) or Juxtapid  
+ 
+Product Name:Repatha  
+Diagnosis 
+Heterozygous Familial Hypercholesterolemia (HeFH)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 1429 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1429 
+ 
+1 - Patient is 10 years of age or older  
+ 
+AND 
+ 
+2 - Diagnosis of heterozygous familial hypercholesterolemia (HeFH) confirmed by ONE of the 
+following:  
+ 
+ 2.1 Genetic confirmation of a mutation in the LDL-receptor, apoB, or PCSK9  
+ 
+OR 
+ 
+ 2.2 BOTH of the following:  
+• 
+Tendon xanthomas are present in the patient, first degree relative (parent, sibling, 
+child), or second degree relative (grandparent, uncle, aunt)  
+• 
+Patient has a pretreatment/untreated total cholesterol (TC) greater than 290 mg/dL or 
+low-density lipoprotein cholesterol (LDL-C) greater than 190 mg/dL  
+ 
+OR 
+ 
+ 2.3 WHO/Dutch Lipid Clinic Network Criteria with a score greater than 8 points  
+ 
+AND 
+ 
+3 - Prescribed by, or in consultation with, a cardiologist, endocrinologist, or lipid specialist  
+ 
+AND 
+ 
+4 - Submission of medical records (e.g., chart notes) or verification of paid claims confirming 
+ONE of the following:  
+ 
+ 4.1 Patient has had an inadequate response to a high-intensity statin therapy as documented 
+by ALL of the following:  
+• 
+Inadequate response with a high-intensity statin (i.e., atorvastatin 40-80 mg or 
+rosuvastatin 20-40 mg) at the maximally tolerated dose for at least three consecutive 
+months  
+
+
+--- PDF page 1430 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1430 
+• 
+Patient must be adherent to high-intensity statin, as evidenced by consistent 
+pharmacy claims over the past three months  
+• 
+Statin therapy will be continued with Repatha therapy  
+ 
+OR 
+ 
+ 4.2 Patient has had an inadequate response to a moderate-intensity statin therapy as 
+documented by ALL of the following:  
+• 
+Patient has a documented intolerance or contraindication to at least one high-intensity 
+statin therapy  
+• 
+Inadequate response with a moderate-intensity statin (i.e., atorvastatin 10-20 mg, 
+rosuvastatin 5-10 mg, simvastatin 20-40 mg, pravastatin 40-80 mg, lovastatin 40 mg, 
+fluvastatin XL 80 mg, fluvastatin 40 mg twice daily, or pitavastatin 2-4 mg) at the 
+maximally tolerated dose for at least three consecutive months  
+• 
+Patient must be adherent to moderate-intensity statin, as evidenced by consistent 
+pharmacy claims over the past three months  
+• 
+Statin therapy will be continued with Repatha therapy  
+ 
+OR 
+ 
+ 4.3 Patient has had an inadequate response to a low-intensity statin therapy as documented 
+by ALL of the following:  
+• 
+Patient has a documented intolerance or contraindication to at least one high-intensity 
+and at least one moderate-intensity statin therapy  
+• 
+Inadequate response with a low-intensity statin (i.e., simvastatin 10 mg, pravastatin 
+10-20 mg, lovastatin 20 mg, fluvastatin 20-40 mg, pitavastatin 1 mg) at the maximally 
+tolerated dose for at least three consecutive months  
+• 
+Patient must be adherent to low-intensity statin, as evidenced by consistent pharmacy 
+claims over the past three months  
+• 
+Statin therapy will be continued with Repatha therapy  
+ 
+OR 
+ 
+ 4.4 Patient is statin intolerant (inability to tolerate any dose or increase the dose above the 
+smallest tablet strength) or has a contraindication to all statins as documented by ONE of the 
+following:  
+• 
+Patient experienced statin-related rhabdomyolysis with CK elevations greater than or 
+equal to 10 times the upper limit of normal (ULN)  
+• 
+Patient experienced intolerable skeletal-related muscle symptoms (e.g., myopathy or 
+myalgia) to at least two different statins at the lowest dose (one of the statin trials must 
+
+
+--- PDF page 1431 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1431 
+include pravastatin or rosuvastatin) and the skeletal-related muscle symptoms (e.g., 
+myopathy or myalgia) resolved upon discontinuation of each respective therapy  
+• 
+Patient has a labeled contraindication to all statins  
+ 
+AND 
+ 
+5 - Submission of medical records (e.g., chart notes) or verification of paid claims confirming 
+ONE of the following:  
+ 
+ 5.1 BOTH of the following:  
+• 
+Patient had an inadequate response with maximally tolerated statin plus ezetimibe (or 
+ezetimibe therapy alone if statin intolerant) for at least three consecutive months  
+• 
+Patient must be adherent to maximally tolerated statin plus ezetimibe therapy (or 
+ezetimibe therapy alone, if statin intolerant), as evidenced by consistent pharmacy 
+claims over the past three months  
+ 
+OR 
+ 
+ 5.2 Patient has a documented intolerance or contraindication to ezetimibe  
+ 
+AND 
+ 
+6 - Medication will be used as adjunct to low-fat diet and exercise  
+ 
+AND 
+ 
+7 - Patient's documented current LDL-C is greater than or equal to 70 mg/dL (within the last 
+30 days)  
+ 
+AND 
+ 
+8 - Repatha (evolocumab) will NOT be used in combination with another proprotein 
+convertase subtilisin/kexin type 9 (PCSK9) inhibitor (such as Praluent) or Juxtapid  
+ 
+Product Name:Repatha  
+Diagnosis 
+Homozygous Familial Hypercholesterolemia (HoFH)  
+
+
+--- PDF page 1432 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1432 
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient is 10 years of age or older  
+ 
+AND 
+ 
+2 - Diagnosis of homozygous familial hypercholesterolemia (HoFH) confirmed by ONE of the 
+following:  
+ 
+ 2.1 History of genetic testing confirming two mutant alleles at the LDLR, apoB, PCSK9, or 
+ARH adapter gene locus  
+ 
+OR 
+ 
+ 2.2 Documented history of untreated LDL-C (low-density lipoprotein cholesterol) greater than 
+400 mg/dL and at least ONE of the following:  
+• 
+Tendon and/or cutaneous xanthoma prior to 10 years of age  
+• 
+Untreated LDL-C levels consistent with heterozygous familial hypercholesterolemia in 
+both parents (LDL-C greater than or equal to 190 mg/dL)  
+ 
+AND 
+ 
+3 - Prescribed by, or in consultation with, a cardiologist, endocrinologist, or lipid specialist  
+ 
+AND 
+ 
+4 - Submission of medical records (e.g., chart notes) or verification of paid claims confirming 
+ONE of the following:  
+ 
+ 4.1 Patient has had an inadequate response to a high-intensity statin therapy as documented 
+by ALL of the following:  
+
+
+--- PDF page 1433 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1433 
+• 
+Inadequate response with a high-intensity statin (i.e., atorvastatin 40-80 mg or 
+rosuvastatin 20-40 mg) at the maximally tolerated dose for at least three consecutive 
+months  
+• 
+Patient must be adherent to high-intensity statin, as evidenced by consistent 
+pharmacy claims over the past three months  
+• 
+Statin therapy will be continued with Repatha therapy  
+ 
+OR 
+ 
+ 4.2 Patient has had an inadequate response to a moderate-intensity statin therapy as 
+documented by ALL of the following:  
+• 
+Patient has a documented intolerance or contraindication to at least one high-intensity 
+statin therapy  
+• 
+Inadequate response with a moderate-intensity statin (i.e., atorvastatin 10-20 mg, 
+rosuvastatin 5-10 mg, simvastatin 20-40 mg, pravastatin 40-80 mg, lovastatin 40 mg, 
+fluvastatin XL 80 mg, fluvastatin 40 mg twice daily, or pitavastatin 2-4 mg) at the 
+maximally tolerated dose for at least three consecutive months  
+• 
+Patient must be adherent to moderate-intensity statin, as evidenced by consistent 
+pharmacy claims over the past three months  
+• 
+Statin therapy will be continued with Repatha therapy  
+ 
+OR 
+ 
+ 4.3 Patient has had an inadequate response to a low-intensity statin therapy as documented 
+by ALL of the following:  
+• 
+Patient has a documented intolerance or contraindication to at least one high-intensity 
+and at least one moderate-intensity statin therapy  
+• 
+Inadequate response with a low-intensity statin (i.e., simvastatin 10 mg, pravastatin 
+10-20 mg, lovastatin 20 mg, fluvastatin 20-40 mg, pitavastatin 1 mg) at the maximally 
+tolerated dose for at least three consecutive months  
+• 
+Patient must be adherent to low-intensity statin, as evidenced by consistent pharmacy 
+claims over the past three months  
+• 
+Statin therapy will be continued with Repatha therapy  
+ 
+OR 
+ 
+ 4.4 Patient is statin intolerant (inability to tolerate any dose or increase the dose above the 
+smallest tablet strength) or has a contraindication to all statins as documented by ONE of the 
+following:  
+
+
+--- PDF page 1434 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1434 
+• 
+Patient experienced statin-related rhabdomyolysis with CK elevations greater than or 
+equal to 10 times the upper limit of normal (ULN)  
+• 
+Patient experienced intolerable skeletal-related muscle symptoms (e.g., myopathy or 
+myalgia) to at least two different statins at the lowest dose (one of the statin trials must 
+include pravastatin or rosuvastatin) and the skeletal-related muscle symptoms (e.g., 
+myopathy or myalgia) resolved upon discontinuation of each respective therapy  
+• 
+Patient has a labeled contraindication to all statins  
+ 
+AND 
+ 
+5 - Submission of medical records (e.g., chart notes) or verification of paid claims confirming 
+ONE of the following:  
+ 
+ 5.1 BOTH of the following:  
+• 
+Patient had an inadequate response with maximally tolerated statin plus ezetimibe (or 
+ezetimibe therapy alone if statin intolerant) for at least three consecutive months  
+• 
+Patient must be adherent to maximally tolerated statin plus ezetimibe therapy (or 
+ezetimibe therapy alone, if statin intolerant), as evidenced by consistent pharmacy 
+claims over the past three months  
+ 
+OR 
+ 
+ 5.2 Patient has a documented intolerance or contraindication to ezetimibe  
+ 
+AND 
+ 
+6 - Medication will be used as adjunct to low-fat diet and exercise  
+ 
+AND 
+ 
+7 - Patient's documented current LDL-C is greater than or equal to 70 mg/dL (within the last 
+30 days)  
+ 
+AND 
+ 
+8 - Repatha (evolocumab) will NOT be used in combination with another proprotein 
+convertase subtilisin/kexin type 9 (PCSK9) inhibitor (such as Praluent) or Juxtapid  
+
+
+--- PDF page 1435 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1435 
+ 
+Product Name:Repatha  
+Diagnosis 
+Primary Hyperlipidemia or Hypercholesterolemia  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient is 18 years of age or older  
+ 
+AND 
+ 
+2 - Diagnosis of primary hyperlipidemia or hypercholesterolemia  
+ 
+AND 
+ 
+3 - ONE of the following:  
+ 
+ 3.1 Patient has a coronary artery calcium or calcification score greater than or equal to 300 
+Agatston units  
+ 
+OR 
+ 
+ 3.2 Patient has diabetes  
+ 
+AND 
+ 
+4 - Prescribed by, or in consultation with, a cardiologist, endocrinologist, or lipid specialist  
+ 
+AND 
+
+
+--- PDF page 1436 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1436 
+ 
+5 - Submission of medical records (e.g., chart notes) or verification of paid claims confirming 
+ONE of the following:  
+ 
+ 5.1 Patient has had an inadequate response to a high-intensity statin therapy as documented 
+by ALL of the following:  
+• 
+Inadequate response with a high-intensity statin (i.e., atorvastatin 40-80 mg or 
+rosuvastatin 20-40 mg) at the maximally tolerated dose for at least three consecutive 
+months  
+• 
+Patient must be adherent to high-intensity statin, as evidenced by consistent 
+pharmacy claims over the past three months  
+• 
+Statin therapy will be continued with Repatha therapy  
+ 
+OR 
+ 
+ 5.2 Patient has had an inadequate response to a moderate-intensity statin therapy as 
+documented by ALL of the following:  
+• 
+Patient has a documented intolerance or contraindication to at least one high-intensity 
+statin therapy  
+• 
+Inadequate response with a moderate-intensity statin (i.e., atorvastatin 10-20 mg, 
+rosuvastatin 5-10 mg, simvastatin 20-40 mg, pravastatin 40-80 mg, lovastatin 40 mg, 
+fluvastatin XL 80 mg, fluvastatin 40 mg twice daily, or pitavastatin 2-4 mg) at the 
+maximally tolerated dose for at least three consecutive months  
+• 
+Patient must be adherent to moderate-intensity statin, as evidenced by consistent 
+pharmacy claims over the past three months  
+• 
+Statin therapy will be continued with Repatha therapy  
+ 
+OR 
+ 
+ 5.3 Patient has had an inadequate response to a low-intensity statin therapy as documented 
+by ALL of the following:  
+• 
+Patient has a documented intolerance or contraindication to at least one high-intensity 
+and at least one moderate-intensity statin therapy  
+• 
+Inadequate response with a low-intensity statin (i.e., simvastatin 10 mg, pravastatin 
+10-20 mg, lovastatin 20 mg, fluvastatin 20-40 mg, pitavastatin 1 mg) at the maximally 
+tolerated dose for at least three consecutive months  
+• 
+Patient must be adherent to low-intensity statin, as evidenced by consistent pharmacy 
+claims over the past three months  
+• 
+Statin therapy will be continued with Repatha therapy  
+
+
+--- PDF page 1437 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1437 
+ 
+OR 
+ 
+ 5.4 Patient is statin intolerant (inability to tolerate any dose or increase the dose above the 
+smallest tablet strength) or has a contraindication to all statins as documented by ONE of the 
+following:  
+• 
+Patient experienced statin-related rhabdomyolysis with CK elevations greater than or 
+equal to 10 times the upper limit of normal (ULN)  
+• 
+Patient experienced intolerable skeletal-related muscle symptoms (e.g., myopathy or 
+myalgia) to at least two different statins at the lowest dose (one of the statin trials must 
+include pravastatin or rosuvastatin) and the skeletal-related muscle symptoms (e.g., 
+myopathy or myalgia) resolved upon discontinuation of each respective therapy  
+• 
+Patient has a labeled contraindication to all statins  
+ 
+AND 
+ 
+6 - Submission of medical records (e.g., chart notes) or verification of paid claims confirming 
+ONE of the following:  
+ 
+ 6.1 BOTH of the following:  
+• 
+Patient had an inadequate response with maximally tolerated statin plus ezetimibe (or 
+ezetimibe therapy alone if statin intolerant) for at least three consecutive months  
+• 
+Patient must be adherent to maximally tolerated statin plus ezetimibe therapy (or 
+ezetimibe therapy alone, if statin intolerant), as evidenced by consistent pharmacy 
+claims over the past three months  
+ 
+OR 
+ 
+ 6.2 Patient has a documented intolerance or contraindication to ezetimibe  
+ 
+AND 
+ 
+7 - Medication will be used as adjunct to low-fat diet and exercise  
+ 
+AND 
+ 
+8 - Patient's documented current LDL-C (low-density lipoprotein cholesterol) is greater than or 
+equal to 70 mg/dL (within the last 30 days)  
+
+
+--- PDF page 1438 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1438 
+ 
+AND 
+ 
+9 - Repatha (evolocumab) will NOT be used in combination with another proprotein 
+convertase subtilisin/kexin type 9 (PCSK9) inhibitor (such as Praluent) or Juxtapid  
+ 
+Product Name:Repatha  
+Diagnosis 
+All Indications  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient is 10 years of age or older  
+ 
+AND 
+ 
+2 - Prescribed by, or in consultation with, a cardiologist, endocrinologist, or lipid specialist  
+ 
+AND 
+ 
+3 - Patient continues to receive statin at maximally tolerated dose (unless unable to take 
+statin)  
+ 
+AND 
+ 
+4 - Verification of paid claims confirming patient has remained adherent to therapy, as 
+evidenced by consistent pharmacy claims over the past three months  
+ 
+AND 
+
+
+--- PDF page 1439 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1439 
+ 
+5 - Patient had a documented sustained reduction in LDL-C (low-density lipoprotein 
+cholesterol) levels from pre-treatment baseline (i.e., prior to Repatha therapy)  
+ 
+AND 
+ 
+6 - Repatha (evolocumab) will NOT be used in combination with another proprotein 
+convertase subtilisin/kexin type 9 (PCSK9) inhibitor (such as Praluent) or Juxtapid  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/11/2026  
+Updated guideline name. Updated criteria throughout guideline to ali
+gn with expanded/updated indications and treatment recommendatio
+ns.  
+ 

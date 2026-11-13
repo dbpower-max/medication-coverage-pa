@@ -1,0 +1,349 @@
+--- PDF page 2000 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 2000 
+Zoryve (roflumilast) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-681261  
+Guideline Name 
+Zoryve (roflumilast)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Zoryve 0.3% cream, Zoryve foam  
+Diagnosis 
+Plaque Psoriasis (PsO)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a diagnosis of plaque 
+psoriasis (PsO)  
+
+
+--- PDF page 2001 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 2001 
+ 
+AND 
+ 
+2 - ONE of the following:  
+• 
+If the request is for Zoryve 0.3% cream, patient is 2 years of age or older  
+• 
+If the request is for Zoryve foam, patient is 12 years of age or older  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) or paid claims history documenting a 
+minimum duration of a 4 week trial and failure, contraindication, or intolerance to ONE of the 
+following topical therapies:  
+• 
+Corticosteroids (e.g., betamethasone, clobetasol)  
+• 
+Vitamin D analogs (e.g., calcitriol, calcipotriene)  
+• 
+Tazarotene  
+• 
+Calcineurin inhibitors (e.g., tacrolimus, pimecrolimus)  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with a dermatologist  
+ 
+Product Name:Zoryve 0.3% cream, Zoryve foam  
+Diagnosis 
+Plaque Psoriasis (PsO)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting positive clinical response 
+to therapy as evidenced by ONE of the following:  
+• 
+Reduction in the body surface area (BSA) involvement from baseline  
+
+
+--- PDF page 2002 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 2002 
+• 
+Improvement in symptoms (e.g., pruritus, inflammation) from baseline  
+ 
+Product Name:Zoryve 0.05% cream, Zoryve 0.15% cream  
+Diagnosis 
+Atopic Dermatitis  
+Approval Length 
+6 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a diagnosis of mild to 
+moderate atopic dermatitis  
+ 
+AND 
+ 
+2 - ONE of the following:  
+• 
+If the request is for Zoryve 0.05% cream, patient is between 2 and 5 years of age  
+• 
+If the request is for Zoryve 0.15% cream, patient is 6 years of age or older  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) or paid claims history documenting trial 
+and failure of a minimum 30-day supply (14-day supply for topical corticosteroids), 
+contraindication, or intolerance to TWO of the following:  
+• 
+Medium or higher potency topical corticosteroid  
+• 
+Elidel (pimecrolimus) cream  
+• 
+Tacrolimus ointment  
+• 
+Eucrisa (crisaborole) ointment  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with a dermatologist  
+ 
+Product Name:Zoryve foam  
+
+
+--- PDF page 2003 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 2003 
+Diagnosis 
+Seborrheic Dermatitis  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a diagnosis of seborrheic 
+dermatitis  
+ 
+AND 
+ 
+2 - Patient is 9 years of age or older  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g., chart notes) or paid claims history documenting a 
+minimum duration of a 4 week trial and failure, contraindication, or intolerance to TWO of the 
+following topical therapies (trial must be from two different classes):  
+• 
+Corticosteroids (e.g., betamethasone, clobetasol)  
+• 
+Antifungals (e.g., ciclopirox, ketoconazole)  
+• 
+Calcineurin inhibitors (e.g., tacrolimus, pimecrolimus)  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with a dermatologist  
+ 
+Product Name:Zoryve foam  
+Diagnosis 
+Seborrheic Dermatitis  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 2004 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 2004 
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting positive clinical response 
+to therapy as evidenced by improvement from baseline for ONE of the following:  
+• 
+Scaling  
+• 
+Erythema  
+• 
+Pruritis  
+• 
+Body surface area (BSA) involvement  
+ 
+ 
+2 .  Background  
+ 
+Clinical Practice Guidelines  
+Relative potencies of topical corticosteroids  
+Class 
+Drug 
+Dosage Form 
+Strength 
+(%) 
+Very high 
+potency 
+Augmented betamethasone 
+dipropionate  
+Ointment 
+0.05 
+Clobetasol propionate  
+Cream, foam, ointment  
+0.05 
+Diflorasone diacetate  
+Ointment 
+0.05 
+Halobetasol propionate  
+Cream, ointment  
+0.05 
+High 
+Potency 
+Amcinonide 
+Cream, lotion, ointment  
+0.1 
+Augmented betamethasone 
+dipropionate  
+Cream 
+0.05 
+Betamethasone dipropionate  Cream, foam, ointment, 
+solution  
+0.05 
+Desoximetasone 
+Cream, ointment  
+0.25 
+Desoximetasone  
+Gel 
+0.05 
+Diflorasone diacetate  
+Cream 
+0.05 
+Fluocinonide  
+Cream, gel, ointment, solution  
+0.05 
+Halcinonide 
+Cream, ointment  
+0.1 
+Mometasone furoate  
+Ointment  
+0.1 
+Triamcinolone acetonide  
+Cream, ointment  
+0.5 
+Betamethasone valerate  
+Cream, foam, lotion, ointment  
+0.1 
+
+
+--- PDF page 2005 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 2005 
+Medium 
+potency 
+Clocortolone pivalate  
+Cream 
+0.1 
+Desoximetasone 
+Cream 
+0.05 
+Fluocinolone acetonide  
+Cream, ointment  
+0.025 
+Flurandrenolide  
+Cream, ointment 
+0.05 
+Fluticasone propionate  
+Cream 
+0.05 
+Fluticasone propionate  
+Ointment 
+0.005 
+Mometasone furoate  
+Cream 
+0.1 
+Triamcinolone acetonide  
+Cream, ointment 
+0.1 
+Lower-
+medium 
+potency 
+Hydrocortisone butyrate  
+Cream, ointment, solution  
+0.1 
+Hydrocortisone probutate  
+Cream 
+0.1 
+Hydrocortisone valerate  
+Cream, ointment  
+0.2 
+Prednicarbate 
+Cream 
+0.1 
+Low 
+potency 
+Alclometasone dipropionate  
+Cream, ointment  
+0.05 
+Desonide 
+Cream, gel, foam, ointment  
+0.05 
+Fluocinolone acetonide  
+Cream, solution  
+0.01 
+Lowest 
+potency 
+Dexamethasone 
+Cream 
+0.1 
+Hydrocortisone 
+Cream, lotion, ointment, 
+solution  
+0.25, 0.5, 1 
+Hydrocortisone acetate  
+Cream, ointment  
+0.5-1 
+ 
+3 .  Revision History  
+ 
+Date  
+Notes  
+8/4/2026  
+Added age criterion in PsO (initial auth section). Updated age criterio
+n in AD criteria section.  
+ 

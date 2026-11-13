@@ -1,0 +1,109 @@
+--- PDF page 992 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 992 
+Kebilidi (eladocagene exuparvovec-tneq) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-687190  
+Guideline Name 
+Kebilidi (eladocagene exuparvovec-tneq)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+9/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Kebilidi  
+Approval Length 
+1 Time Authorization in Lifetime  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a diagnosis of aromatic L-
+amino acid decarboxylase (AADC) deficiency  
+ 
+AND 
+
+
+--- PDF page 993 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 993 
+ 
+2 - Submission of medical records (e.g., chart notes) confirming diagnosis by ONE of the 
+following:  
+ 
+ 2.1 Presence of mutations in the DDC (DOPA decarboxylase) gene as detected by an FDA 
+(Food and Drug Administration)-approved test or a test performed at a facility approved by 
+Clinical Laboratory Improvement Amendments (CLIA)  
+ 
+OR 
+ 
+ 2.2 CSF (cerebrospinal fluid) analysis showing a pattern of ALL of the following:  
+• 
+Reduced levels of 5-hydroxyindoleacetic acid (5-HIAA), homovanillic acid (HVA), and 
+3-methoxy-4-hydroxyphenylglycol (MHPG)  
+• 
+High concentrations of 3-O-methyldopa (3-OMD), L-Dopa, and 5-OH-tryptophan (5-
+HTP)  
+• 
+Normal pterins (e.g., neopterin, biopterin)  
+ 
+OR 
+ 
+ 2.3 Analysis of plasma showing reduced aromatic L-amino acid decarboxylase (AADC) 
+activity  
+ 
+AND 
+ 
+3 - Patient presents with the clinical signs and symptoms of the disease (e.g., hypotonia, 
+oculogyric crises, developmental delays)  
+ 
+AND 
+ 
+4 - Assess skull maturity prior to the administration of Kebilidi  
+ 
+AND 
+ 
+5 - Prescribed by a provider in a medical treatment center with expertise in gene therapy  
+ 
+AND 
+
+
+--- PDF page 994 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 994 
+ 
+6 - Prescribed by ONE of the following:  
+• 
+Neurologist  
+• 
+Specialist with expertise in the diagnosis and management of aromatic L-amino acid 
+decarboxylase (AADC) deficiency  
+ 
+AND 
+ 
+7 - Patient has never received Kebilidi treatment in their lifetime  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+8/10/2026  
+New program.  
+ 
