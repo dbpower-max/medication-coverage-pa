@@ -1,0 +1,125 @@
+--- PDF page 1878 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1878 
+Vyjuvek (beremagene geperpavec-svdt) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-646209  
+Guideline Name 
+Vyjuvek (beremagene geperpavec-svdt)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Vyjuvek  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a diagnosis of dystrophic 
+epidermolysis bullosa (DEB)  
+
+
+--- PDF page 1879 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1879 
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) confirming patient has mutation(s) in the 
+collagen type VII alpha 1 chain (COL7A1) gene  
+ 
+AND 
+ 
+3 - Medication is being used for the treatment of wounds  
+ 
+AND 
+ 
+4 - Medication will be applied by a healthcare professional  
+ 
+AND 
+ 
+5 - Submission of medical records (e.g., chart notes) confirming wound(s) being treated meet 
+ALL of the following criteria:  
+• 
+Adequate granulation tissue  
+• 
+Excellent vascularization  
+• 
+No evidence of active wound infection in the wound being treated  
+• 
+No evidence or history of squamous cell carcinoma in the wound being treated  
+ 
+AND 
+ 
+6 - Prescribed by or in consultation with a dermatologist  
+ 
+AND 
+ 
+7 - Medication is NOT being used concurrently with other FDA approved therapies (e.g., 
+Filsuvez) for the treatment of epidermolysis bullosa  
+ 
+Product Name:Vyjuvek  
+Approval Length 
+6 month(s)  
+
+
+--- PDF page 1880 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1880 
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting positive clinical response 
+(e.g., decrease in wound size, increase in granulation tissue, complete wound closure)  
+ 
+AND 
+ 
+2 - Wound(s) being treated meet ALL of the following criteria:  
+• 
+Adequate granulation tissue  
+• 
+Excellent vascularization  
+• 
+No evidence of active wound infection in the wound being treated  
+• 
+No evidence or history of squamous cell carcinoma in the wound being treated  
+ 
+AND 
+ 
+3 - Medication is NOT being used concurrently with other FDA approved therapies (e.g., 
+Filsuvez) for the treatment of epidermolysis bullosa  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+7/7/2026  
+Updated concurrent use criterion verbiage for initial and reauth  
+ 
