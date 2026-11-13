@@ -1,0 +1,110 @@
+--- PDF page 1274 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1274 
+Opfolda 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-143582  
+Guideline Name 
+Opfolda  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+3/17/2024  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Opfolda  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting all of the following:  
+ 
+ 1.1 Diagnosis of late-onset Pompe disease (lysosomal acid alpha-glucosidase [GAA] 
+deficiency)  
+
+
+--- PDF page 1275 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1275 
+ 
+AND 
+ 
+ 1.2 Disease is confirmed by one of the following:  
+• 
+Absence or deficiency (less than 40% of the lab specific normal mean) of GAA 
+enzyme activity in lymphocytes, fibroblasts, or muscle tissues as confirmed by an 
+enzymatic assay  
+• 
+Molecular genetic testing confirms mutations in the GAA gene  
+ 
+AND 
+ 
+ 1.3 Presence of clinical signs and symptoms of the disease (e.g., respiratory distress, 
+skeletal muscle weakness, etc.)  
+ 
+AND 
+ 
+ 1.4 Medication is used in combination with Pombiliti (cipaglucosidase alfa-atga)  
+ 
+AND 
+ 
+ 1.5 Patient's weight is greater than or equal to 40 kg  
+ 
+AND 
+ 
+2 - Opfolda is not substituted with other miglustat products (i.e., Zavesca, Yargesa)  
+ 
+Product Name:Opfolda  
+Approval Length 
+24 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 1276 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1276 
+ 
+1 - Patient demonstrates positive clinical response to therapy (e.g., improvement in FVC, 
+improvement in 6-minute walk distance [6MWD])  
+ 
+AND 
+ 
+2 - Medication is used in combination with Pombiliti (cipaglucosidase alfa-atga)  
+ 
+AND 
+ 
+3 - Opfolda is not substituted with other miglustat products (i.e., Zavesca, Yargesa)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+2/26/2024  
+New  
+ 

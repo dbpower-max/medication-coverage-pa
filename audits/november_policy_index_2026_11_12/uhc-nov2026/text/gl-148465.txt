@@ -1,0 +1,219 @@
+--- PDF page 1188 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1188 
+Nexletol (bempedoic acid) and Nexlizet (bempedoic acid-ezetimibe) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-148465  
+Guideline Name 
+Nexletol (bempedoic acid) and Nexlizet (bempedoic acid-ezetimibe)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+7/1/2024  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Nexletol, Nexlizet  
+Diagnosis 
+Heterozygous familial hypercholesterolemia (HeFH) or primary 
+hyperlipidemia  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following diagnoses:  
+• 
+Heterozygous familial hypercholesterolemia (HeFH)  
+
+
+--- PDF page 1189 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1189 
+• 
+Primary Hyperlipidemia  
+ 
+AND 
+ 
+2 - ONE of the following:  
+• 
+Patient has been receiving at least 12 consecutive weeks of highest tolerable dose of 
+statin therapy  
+• 
+Patient is statin intolerant as evidenced by an inability to tolerate at least two statins, 
+with at least one started at the lowest starting daily dose, due to intolerable symptoms 
+or clinically significant biomarker changes of liver function or muscle function (e.g., 
+creatine kinase)  
+• 
+Patient has an FDA (Food and Drug Administration) labeled contraindication to all 
+statins  
+ 
+AND 
+ 
+3 - ONE of the following LDL-C (low-density lipoprotein cholesterol) values while on maximally 
+tolerated statin therapy within the last 120 days:  
+• 
+LDL-C greater than or equal to 55 mg/dL (milligrams/deciliter) with ASCVD 
+(atherosclerotic cardiovascular disease)  
+• 
+LDL-C greater than or equal to 100 mg/dL without ASCVD  
+ 
+AND 
+ 
+4 - ONE of the following:  
+ 
+ 4.1 For Nexletol, ONE of the following:  
+• 
+Patient has been receiving at least 12 consecutive weeks of generic ezetimibe therapy 
+as adjunct to maximally tolerated statin therapy  
+• 
+Patient has a history of contraindication or intolerance to ezetimibe  
+ 
+OR 
+ 
+ 4.2 For Nexlizet, patient has been receiving at least 12 consecutive weeks of generic 
+ezetimibe therapy as adjunct to maximally tolerated statin therapy  
+ 
+
+
+--- PDF page 1190 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1190 
+Product Name:Nexletol, Nexlizet  
+Diagnosis 
+Heterozygous familial hypercholesterolemia (HeFH) or primary 
+hyperlipidemia  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy as evidenced by a reduction in 
+LDL-C (low-density lipoprotein cholesterol) levels from baseline while on therapy  
+ 
+AND 
+ 
+2 - ONE of the following:  
+• 
+Patient continues to receive other lipid-lowering therapy (e.g., statins, ezetimibe) at the 
+maximally tolerated dose  
+• 
+Patient has a documented inability to take other lipid-lowering therapy (e.g., statins, 
+ezetimibe)  
+ 
+Product Name:Nexletol, Nexlizet  
+Diagnosis 
+Established cardiovascular disease (CVD) or high risk for a CVD 
+event but without established CVD  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following diagnoses:  
+• 
+Established cardiovascular disease (CVD) (e.g., coronary artery disease, symptomatic 
+peripheral arterial disease, cerebrovascular atherosclerotic disease)  
+
+
+--- PDF page 1191 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1191 
+• 
+A high risk for a CVD event but without established CVD [e.g., diabetes mellitus (type 
+1 or type 2) in females over 65 years of age or males over 60 years of age]  
+ 
+AND 
+ 
+2 - ONE of the following:  
+• 
+Patient is statin intolerant as evidenced by an inability to tolerate at least two statins, 
+with at least one started at the lowest starting daily dose, due to intolerable symptoms 
+or clinically significant biomarker changes of liver function or muscle function (e.g., 
+creatine kinase)  
+• 
+Patient has an FDA (Food and Drug Administration) labeled contraindication to all 
+statins  
+ 
+AND 
+ 
+3 - ONE of the following LDL-C (low-density lipoprotein cholesterol) values within the last 120 
+days:  
+• 
+LDL-C greater than or equal to 55 mg/dL (milligrams/deciliter) with ASCVD 
+(atherosclerotic cardiovascular disease)  
+• 
+LDL-C greater than or equal to 100 mg/dL without ASCVD  
+ 
+AND 
+ 
+4 - ONE of the following:  
+ 
+ 4.1 For Nexletol, ONE of the following:  
+• 
+Patient has been receiving at least 12 consecutive weeks of generic ezetimibe therapy  
+• 
+Patient has a history of contraindication or intolerance to ezetimibe  
+ 
+OR 
+ 
+ 4.2 For Nexlizet, patient has been receiving at least 12 consecutive weeks of generic 
+ezetimibe therapy  
+ 
+Product Name:Nexletol, Nexlizet  
+
+
+--- PDF page 1192 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1192 
+Diagnosis 
+Established cardiovascular disease (CVD) or high risk for a CVD 
+event but without established CVD  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+6/14/2024  
+Updated criteria due to indication updates in prescribing information. 
+Added criteria for the new FDA approved indication.  
+ 

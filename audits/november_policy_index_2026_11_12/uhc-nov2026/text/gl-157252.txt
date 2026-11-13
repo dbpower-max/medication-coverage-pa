@@ -1,0 +1,111 @@
+--- PDF page 1833 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1833 
+Veltassa 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-157252  
+Guideline Name 
+Veltassa  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+11/1/2024  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Veltassa  
+Diagnosis 
+Non-Life Threatening Hyperkalemia  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of non-life threatening hyperkalemia  
+
+
+--- PDF page 1834 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1834 
+ 
+AND 
+ 
+2 - Patient is 12 years of age or older  
+ 
+AND 
+ 
+3 - Where clinically appropriate, medications known to cause hyperkalemia (e.g. angiotensin-
+converting enzyme inhibitor, angiotensin II receptor blocker, aldosterone antagonist, non-
+steroidal anti-inflammatory drugs [NSAIDs]) have been discontinued or reduced to the lowest 
+effective dose  
+ 
+AND 
+ 
+4 - Where clinically appropriate, loop or thiazide diuretic therapy for potassium removal has 
+failed  
+ 
+AND 
+ 
+5 - Patient follows a low potassium diet (less than or equal to 3 grams per day)  
+ 
+AND 
+ 
+6 - History of failure, intolerance, or contraindication to Lokelma  
+ 
+Product Name:Veltassa  
+Diagnosis 
+Non-Life Threatening Hyperkalemia  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 1835 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1835 
+ 
+1 - Patient has a positive clinical response to Veltassa therapy  
+ 
+AND 
+ 
+2 - Patient continues to require treatment for hyperkalemia  
+ 
+AND 
+ 
+3 - Where clinically appropriate, medications known to cause hyperkalemia (e.g. angiotensin-
+converting enzyme inhibitor, angiotensin II receptor blocker, aldosterone antagonist, non-
+steroidal anti-inflammatory drugs [NSAIDs])) have been discontinued or reduced to the lowest 
+effective dose  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+10/9/2024  
+Added new GPI for Veltassa 1 gm strength and added age criterion i
+n initial auth section.  
+ 

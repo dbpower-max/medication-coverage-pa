@@ -1,0 +1,102 @@
+--- PDF page 1836 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1836 
+Vemlidy 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-147124  
+Guideline Name 
+Vemlidy  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+6/1/2024  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Vemlidy  
+Diagnosis 
+Treatment-Naïve Chronic Hepatitis B Infection  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient has a contraindication to entecavir therapy  
+ 
+AND 
+
+
+--- PDF page 1837 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1837 
+ 
+2 - BOTH of the following:  
+• 
+Patient is 6 years of age or older  
+• 
+Patient weighs at least 25 kg (kilograms)  
+ 
+Product Name:Vemlidy  
+Diagnosis 
+Treatment-Experienced Chronic Hepatitis B Infection  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ALL of the following:  
+ 
+ 1.1 Patient is currently on Viread therapy  
+ 
+AND 
+ 
+ 1.2 ONE of the following:  
+• 
+Patient has a creatinine clearance less than 60 mL (milliliters) per minute  
+• 
+Patient has a diagnosis of osteoporosis  
+ 
+AND 
+ 
+ 1.3 BOTH of the following:  
+• 
+Patient is 6 years of age or older  
+• 
+Patient weighs at least 25 kg (kilograms)  
+ 
+OR 
+ 
+2 - Patient is currently on Vemlidy therapy  
+ 
+
+
+--- PDF page 1838 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1838 
+2 .  Revision History  
+ 
+Date  
+Notes  
+5/7/2024  
+Updated age criterion and added weight requirement due to expande
+d indication.  
+ 

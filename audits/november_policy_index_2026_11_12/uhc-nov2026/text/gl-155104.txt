@@ -1,0 +1,190 @@
+--- PDF page 170 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 170 
+Arcalyst (rilonacept) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-155104  
+Guideline Name 
+Arcalyst (rilonacept)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+10/1/2024  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Arcalyst  
+Diagnosis 
+Cryopyrin-Associated Periodic Syndromes (CAPS)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, lab work, imaging) documenting a 
+diagnosis of Cryopyrin-Associated Periodic Syndromes (CAPS) [including Familial Cold Auto-
+inflammatory Syndrome (FCAS), Muckle-Wells Syndrome (MWS)]  
+
+
+--- PDF page 171 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 171 
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with ONE of the following:  
+• 
+Immunologist  
+• 
+Allergist  
+• 
+Dermatologist  
+• 
+Rheumatologist  
+• 
+Neurologist  
+• 
+Specialist with expertise in the management of CAPS  
+ 
+AND 
+ 
+3 - The medication will NOT be used in combination with another biologic agent  
+ 
+Product Name:Arcalyst  
+Diagnosis 
+Cryopyrin-Associated Periodic Syndromes (CAPS)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting patient has experienced 
+disease stability or improvement in clinical symptoms while on therapy as evidenced by ONE 
+of the following:  
+• 
+Improvement in rash, fever, joint pain, headache, or conjunctivitis  
+• 
+Decreased number of disease flare days  
+• 
+Normalization of inflammatory markers (C-reactive protein [CRP], erythrocyte 
+sedimentation rate [ESR], serum amyloid A [SAA])  
+• 
+Corticosteroid dose reduction  
+• 
+Improvement in MD global score or active joint count  
+ 
+Product Name:Arcalyst  
+
+
+--- PDF page 172 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 172 
+Diagnosis 
+Deficiency of Interleukin-1 Receptor Antagonist (DIRA)  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting ALL of the following:  
+ 
+ 1.1 Diagnosis of deficiency of interleukin-1 receptor antagonist (DIRA)  
+ 
+AND 
+ 
+ 1.2 Patient weighs at least 10 kg (kilograms)  
+ 
+AND 
+ 
+ 1.3 Patient is currently in remission (e.g., no fever, skin rash, and bone pain; no radiological 
+evidence of active bone lesions; C-reactive protein [CRP] less than 5 mg/L [milligrams per 
+liter])  
+ 
+Product Name:Arcalyst  
+Diagnosis 
+Recurrent Pericarditis  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) or paid claims documenting BOTH of the 
+following:  
+ 
+ 1.1 Diagnosis of recurrent pericarditis as evidenced by at least 2 episodes that occur a 
+minimum of 4 to 6 weeks apart  
+
+
+--- PDF page 173 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 173 
+ 
+AND 
+ 
+ 1.2 History of failure, contraindication, or intolerance to ALL of the following:  
+• 
+nonsteroidal anti-inflammatory drugs (e.g., ibuprofen, naproxen)  
+• 
+colchicine  
+• 
+corticosteroids (e.g., prednisone)  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a cardiologist  
+ 
+Product Name:Arcalyst  
+Diagnosis 
+Recurrent Pericarditis  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting positive clinical response 
+to therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+9/17/2024  
+Updated guideline name. Updated CAPS criteria. Added new criteria 
+for DIRA and recurrent pericarditis.  
+ 
