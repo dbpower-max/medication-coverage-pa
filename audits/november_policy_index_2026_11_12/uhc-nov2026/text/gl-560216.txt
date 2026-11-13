@@ -1,0 +1,120 @@
+--- PDF page 1321 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1321 
+Palynziq (pegvaliase-pqpz) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-560216  
+Guideline Name 
+Palynziq (pegvaliase-pqpz)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+5/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Palynziq  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of phenylketonuria (PKU)  
+ 
+AND 
+
+
+--- PDF page 1322 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1322 
+ 
+2 - Patient is 12 years of age or older  
+ 
+AND 
+ 
+3 - Patient is actively on a phenylalanine-restricted diet  
+ 
+AND 
+ 
+4 - Physician attestation that the patient will not be receiving Palynziq in combination with 
+Kuvan (sapropterin dihydrochloride)  
+ 
+AND 
+ 
+5 - Submission of medical records (e.g. chart notes, laboratory values) documenting that the 
+patient has a blood phenylalanine concentration greater than 600 micromoles per liter  
+ 
+Product Name:Palynziq  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient is actively on a phenylalanine-restricted diet  
+ 
+AND 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 Submission of medical records (e.g. chart notes, laboratory values) documenting that the 
+patient has a blood phenylalanine concentration less than 600 micromoles per liter  
+
+
+--- PDF page 1323 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1323 
+ 
+OR 
+ 
+ 2.2 Submission of medical records (e.g. chart notes, laboratory values) documenting that the 
+patient has achieved a 20% reduction in blood phenylalanine concentration from pre-
+treatment baseline  
+ 
+OR 
+ 
+ 2.3 BOTH of the following:  
+ 
+  2.3.1 Patient is in initial titration/maintenance phase of dosing regimen (week 1-33)  
+ 
+AND 
+ 
+  2.3.2 Patient will receive maximum labeled dosage of 40 milligrams (mg) once daily if 
+response has not been obtained after 24 weeks of 20 mg once daily maintenance dosing  
+ 
+AND 
+ 
+3 - Submission of medical records (e.g. chart notes, laboratory values) documenting that the 
+patient is not receiving Palynziq in combination with Kuvan (sapropterin dihydrochloride) 
+[Prescription claim history that does not show any concomitant Kuvan claim within 60 days of 
+reauthorization request may be used as documentation]  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/30/2026  
+Updated title. Added age to initial auth  
+ 

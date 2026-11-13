@@ -1,0 +1,164 @@
+--- PDF page 1193 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1193 
+Nitisinone Products 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-572200  
+Guideline Name 
+Nitisinone Products  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+5/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Nityr, Brand Orfadin caps, generic nitisinone caps, Orfadin susp  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of hereditary tyrosinemia type 1 (HT-1)  
+ 
+AND 
+
+
+--- PDF page 1194 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1194 
+ 
+2 - Diagnosis confirmed by the presence of succinylacetone in the plasma or urine  
+ 
+AND 
+ 
+3 - Used in combination with dietary restriction of tyrosine and phenylalanine  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with ONE of the following:  
+• 
+Gastroenterologist  
+• 
+Hepatologist  
+• 
+Other specialist with experience in treating inborn errors of metabolism  
+ 
+AND 
+ 
+5 - If the request is for Nityr, trial and intolerance to Orfadin (nitisinone) capsules or 
+suspension  
+ 
+Product Name:Nityr, Brand Orfadin caps, generic nitisinone caps, Orfadin susp  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates a positive clinical response to therapy  
+ 
+AND 
+ 
+2 - If the request is for Nityr, trial and intolerance to Orfadin (nitisinone) capsules or 
+suspension  
+ 
+
+
+--- PDF page 1195 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1195 
+Product Name:Harliku  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of alkaptonuria (AKU)  
+ 
+AND 
+ 
+2 - Used for the reduction of urine homogentisic acid (HGA)  
+ 
+AND 
+ 
+3 - Disease is confirmed by ONE of the following:  
+• 
+Presence of a mutation in the homogentisate 1,2-dioxygenase (HGD) gene  
+• 
+Presence of elevated homogentisic acid (HGA) levels in urine greater than 0.4 g/24h  
+ 
+AND 
+ 
+4 - Trial (of a minimum 30-day supply) or intolerance to generic nitisinone 2 mg capsules  
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with ONE of the following:  
+• 
+Rheumatologist  
+• 
+Geneticist  
+• 
+Specialist experienced in the treatment of inborn errors of metabolism  
+ 
+Product Name:Harliku  
+
+
+--- PDF page 1196 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1196 
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy [e.g., reduced levels of urinary 
+homogentisic acid (HGA)]  
+ 
+AND 
+ 
+2 - Trial (of a minimum 30-day supply) or intolerance to generic nitisinone 2 mg capsules  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+4/10/2026  
+Updated guideline name. Added Nityr products as targets to this clas
+s guideline (Nityr will no longer be a standalone GL). Updated criteria
+ for Nityr and Orfadin (nitisinone) caps/susp products. Added criteria f
+or new target drug, Harliku.  
+ 

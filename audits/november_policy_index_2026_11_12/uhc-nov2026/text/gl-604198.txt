@@ -1,0 +1,285 @@
+--- PDF page 1507 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1507 
+SGLT-2 Inhibitors 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-604198  
+Guideline Name 
+SGLT-2 Inhibitors  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+6/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Farxiga, generic dapagliflozin  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following:  
+ 
+ 1.1 ALL of the following:  
+• 
+Patient is 10 years of age or older  
+• 
+Diagnosis of type 2 diabetes mellitus  
+
+
+--- PDF page 1508 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1508 
+• 
+History of failure to metformin at a minimum dose of 1500 mg daily for 90 days, or 
+contraindication or intolerance to metformin  
+ 
+OR 
+ 
+ 1.2 ONE of the following:  
+• 
+Diagnosis of chronic kidney disease (CKD)  
+• 
+Diagnosis of heart failure (NYHA class II-IV) with reduced ejection fraction  
+• 
+Diagnosis of heart failure (NYHA class II-IV) with preserved ejection fraction  
+ 
+AND 
+ 
+2 - If the request is for generic dapagliflozin, history of failure, intolerance, or contraindication 
+to Brand Farxiga  
+ 
+Product Name:Jardiance  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ALL of the following:  
+• 
+Patient is 10 years of age or older  
+• 
+Diagnosis of type 2 diabetes mellitus  
+• 
+History of failure to metformin at a minimum dose of 1500 mg daily for 90 days, or 
+contraindication or intolerance to metformin  
+ 
+OR 
+ 
+2 - BOTH of the following:  
+• 
+Requested medication is being used to reduce the risk of cardiovascular death in 
+adults with type 2 diabetes mellitus and established cardiovascular disease  
+• 
+History of failure to metformin at a minimum dose of 1500 mg daily for 90 days, or 
+contraindication or intolerance to metformin  
+
+
+--- PDF page 1509 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1509 
+ 
+OR 
+ 
+3 - Requested medication is being used for ONE of the following:  
+• 
+To reduce the risk of cardiovascular death and hospitalization for heart failure in adults 
+with heart failure  
+• 
+To reduce the risk of sustained decline in eGFR, end-stage kidney disease, 
+cardiovascular death, and hospitalization in adults with chronic kidney disease at risk 
+of progression  
+ 
+Product Name:Synjardy, Synjardy XR  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ALL of the following:  
+• 
+Patient is 10 years of age or older  
+• 
+Diagnosis of type 2 diabetes mellitus  
+• 
+History of failure to metformin at a minimum dose of 1500 mg daily for 90 days, or 
+contraindication or intolerance to metformin  
+ 
+AND 
+ 
+2 - If the request is for Synjardy XR, history of failure, intolerance, or contraindication to BOTH 
+of the following:  
+• 
+Brand Farxiga  
+• 
+Jardiance  
+ 
+Product Name:Invokana, Invokamet, Invokamet XR, Segluromet, Steglatro, Trijardy XR  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 1510 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1510 
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of type 2 diabetes mellitus  
+ 
+AND 
+ 
+2 - History of failure to metformin at a minimum dose of 1500 mg daily for 90 days, or 
+contraindication or intolerance to metformin  
+ 
+AND 
+ 
+3 - History of failure, intolerance, or contraindication to BOTH of the following:  
+• 
+Brand Farxiga  
+• 
+Jardiance  
+ 
+AND 
+ 
+4 - If the request is for Invokana, Invokamet, or Invokamet XR, patient is 10 years of age or 
+older  
+ 
+Product Name:Brand Xigduo XR, generic dapagliflozin-metformin ER  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - ONE of the following:  
+ 
+ 1.1 ALL of the following:  
+• 
+Patient is 10 years of age or older  
+• 
+Diagnosis of type 2 diabetes mellitus  
+
+
+--- PDF page 1511 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1511 
+• 
+History of failure to metformin at a minimum dose of 1500 mg daily for 90 days, or 
+contraindication or intolerance to metformin  
+ 
+OR 
+ 
+ 1.2 ONE of the following:  
+• 
+Diagnosis of chronic kidney disease (CKD)  
+• 
+Diagnosis of heart failure (NYHA class II-IV) with reduced ejection fraction  
+ 
+AND 
+ 
+2 - If the request is for generic dapagliflozin-metformin, history of failure, intolerance, or 
+contraindication to Brand Xigduo XR  
+ 
+Product Name:Brand Bexagliflozin, Brenzavvy, Glyxambi, Qtern, Dapagliflozin-Saxagliptin, 
+Steglujan  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of type 2 diabetes mellitus  
+ 
+AND 
+ 
+2 - History of failure to metformin at a minimum dose of 1500 mg daily for 90 days, or 
+contraindication or intolerance to metformin  
+ 
+AND 
+ 
+3 - History of failure, intolerance, or contraindication to ALL of the following:  
+• 
+Janumet or Janumet XR  
+• 
+Januvia  
+• 
+Jentadueto  
+
+
+--- PDF page 1512 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1512 
+• 
+Onglyza  
+• 
+Tradjenta  
+• 
+Trijardy XR  
+• 
+Brand Farxiga  
+• 
+Jardiance  
+ 
+Product Name:Inpefa  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Requested medication is being used to reduce the risk of cardiovascular death, 
+hospitalization for heart failure, and urgent heart failure visit in adults with ONE of the 
+following:  
+• 
+Heart failure  
+• 
+Type 2 diabetes mellitus, chronic kidney disease, and other cardiovascular risk factors  
+ 
+AND 
+ 
+2 - History of failure, intolerance, or contraindication to Brand Farxiga  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+5/7/2026  
+Added Dapagliflozin-Saxagliptin (MSC N) as a target (same criteria s
+ection as Qtern). Updated GPI entries for Farxiga/dapagliflozin and X
+igduo XR/dapagliflozin-metformin ER products. Updated prerequisite 
+from "Farxiga" to "Brand Farxiga" throughout guideline, where applic
+able. Minor cosmetic updates.  
+ 
