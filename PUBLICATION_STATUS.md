@@ -27,3 +27,5 @@ Verification: compare all uploaded Git blob hashes against local file bytes and 
 5G: Twenty additional November AHCCCS FFS policy audit text files uploaded (31,628 bytes). All source blob hashes verified. Remaining source PDFs, detailed audits, database archives and hosting verification remain pending.
 
 5H: Twenty additional November AHCCCS FFS policy audit text files uploaded (57,666 bytes). All source blob hashes verified. Remaining source PDFs, detailed audits, database archives and hosting verification remain pending.
+
+5I: Twenty additional November AHCCCS FFS policy audit text files uploaded (44,496 bytes). All source blob hashes verified. Audit files still missing from the archived audits directory: 957. Remaining source PDFs, database archives and hosting verification are separate pending work.

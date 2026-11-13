@@ -1,0 +1,132 @@
+--- PDF page 1446 ---
+Page 1446 
+Qutenza (capsaicin) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-129071  
+Guideline Name 
+Qutenza (capsaicin)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+8/1/2023  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Qutenza  
+Diagnosis 
+Neuropathic pain associated with postherpetic neuralgia (PHN)  
+Approval Length 
+3 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming diagnosis of neuropathic pain 
+associated with postherpetic neuralgia (PHN)  
+
+
+--- PDF page 1447 ---
+Page 1447 
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes, paid claims history) documenting trial 
+and failure, contraindication, or intolerance to ALL of the following:  
+• 
+gabapentin  
+• 
+pregabalin  
+• 
+minimum 60-day trial of a tricyclic antidepressant (e.g., amitriptyline, nortriptyline, 
+desipramine)  
+• 
+generic lidocaine 5% patch  
+• 
+topical capsaicin cream  
+ 
+Product Name:Qutenza  
+Diagnosis 
+Neuropathic pain associated with diabetic peripheral neuropathy 
+(DPN) of the feet  
+Approval Length 
+3 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming diagnosis of neuropathic pain 
+associated with diabetic peripheral neuropathy (DPN) of the feet  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes, paid claims history) documenting trial 
+and failure, contraindication, or intolerance to ALL of the following:  
+• 
+gabapentin  
+• 
+pregabalin  
+• 
+minimum 60-day trial of a tricyclic antidepressant (e.g., amitriptyline, nortriptyline, 
+desipramine)  
+• 
+generic lidocaine 5% patch  
+• 
+topical capsaicin cream  
+• 
+duloxetine  
+
+
+--- PDF page 1448 ---
+Page 1448 
+ 
+Product Name:Qutenza  
+Diagnosis 
+All indications  
+Approval Length 
+3 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - It has been at least 3 months since the last application/administration [B]  
+ 
+AND 
+ 
+2 - Patient experienced pain relief with a prior course of therapy  
+ 
+AND 
+ 
+3 - Patient is experiencing a return of neuropathic pain  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+7/28/2023  
+New program  
+ 
