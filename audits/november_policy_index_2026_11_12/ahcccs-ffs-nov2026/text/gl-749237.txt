@@ -1,0 +1,255 @@
+--- PDF page 871 ---
+Page 871 
+Imaavy (nipocalimab) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-749237  
+Guideline Name 
+Imaavy (nipocalimab)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+11/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Imaavy  
+Diagnosis 
+Generalized Myasthenia Gravis (gMG)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a diagnosis of generalized 
+myasthenia gravis (gMG)  
+
+
+--- PDF page 872 ---
+Page 872 
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) or verification of paid claims 
+documenting ONE of the following:  
+ 
+ 2.1 Both of the following:  
+ 
+  2.1.1 Patient is anti-acetylcholine receptor (AChR) antibody positive  
+ 
+AND 
+ 
+  2.1.2 One of the following:  
+ 
+   2.1.2.1 Trial and failure, contraindication, or intolerance to two immunosuppressive 
+therapies (e.g., glucocorticoids, azathioprine, cyclosporine, mycophenolate mofetil, 
+methotrexate, tacrolimus) 
+ 
+OR 
+ 
+   2.1.2.2 Both of the following: 
+ 
+    2.1.2.2.1 Trial and failure, contraindication, or intolerance to one immunosuppressive 
+therapy (e.g., glucocorticoids, azathioprine, cyclosporine, mycophenolate mofetil, 
+methotrexate, tacrolimus) 
+ 
+AND 
+ 
+    2.1.2.2.2 Trial and failure, contraindication, or intolerance to one of the following: 
+• 
+Chronic plasmapheresis or plasma exchange (PE)  
+• 
+Intravenous immunoglobulin (IVIG)  
+ 
+OR 
+ 
+ 2.2 Submission of medical records (e.g., chart notes) or verification of paid claims 
+documenting BOTH of the following:  
+ 
+  2.2.1 Patient is anti-muscle-specific tyrosine kinase (MuSK) antibody positive  
+
+
+--- PDF page 873 ---
+Page 873 
+ 
+AND 
+ 
+  2.2.2 One of the following:  
+ 
+   2.2.2.1 Trial and failure, contraindication, or intolerance to two immunosuppressive 
+therapies (e.g., glucocorticoids, azathioprine, cyclosporine, mycophenolate mofetil, 
+methotrexate, tacrolimus) 
+ 
+OR 
+ 
+   2.2.2.2 Both of the following: 
+ 
+    2.2.2.2.1 Trial and failure, contraindication, or intolerance to one immunosuppressive 
+therapy (e.g., glucocorticoids, azathioprine, cyclosporine, mycophenolate mofetil, 
+methotrexate, tacrolimus) 
+ 
+AND 
+ 
+    2.2.2.2.2 Trial and failure, contraindication, or intolerance to one of the following: 
+• 
+Chronic plasmapheresis or plasma exchange (PE)  
+• 
+Intravenous immunoglobulin (IVIG)  
+• 
+Rituximab  
+ 
+AND 
+ 
+3 - Patient is 12 years of age or older  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with a neurologist  
+ 
+AND 
+ 
+5 - Requested medication is not being used in combination with any one of the following:  
+
+
+--- PDF page 874 ---
+Page 874 
+• 
+Another neonatal Fc Receptor (FcRn) blocker (e.g., Rystiggo, Vyvgart, Vyvgart 
+Hytrulo)  
+• 
+Complement inhibitor (e.g., eculizumab, Ultomiris, Zilbrysq)  
+• 
+Immune globulin (e.g., IVIG)  
+• 
+B-cell depletion therapy (e.g., Uplizna)  
+ 
+Product Name:Imaavy  
+Diagnosis 
+Generalized Myasthenia Gravis (gMG)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy  
+ 
+AND 
+ 
+2 - Requested medication is not being used in combination with any one of the following:  
+• 
+Another neonatal Fc Receptor (FcRn) blocker (e.g., Rystiggo, Vyvgart, Vyvgart 
+Hytrulo)  
+• 
+Complement inhibitor (e.g., eculizumab, Ultomiris, Zilbrysq)  
+• 
+Immune globulin (e.g., IVIG)  
+• 
+B-cell depletion therapy (e.g., Uplizna)  
+ 
+Product Name:Imaavy  
+Diagnosis 
+warm Autoimmune Hemolytic Anemia (wAIHA)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+
+
+--- PDF page 875 ---
+Page 875 
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming ALL of the following:  
+ 
+ 1.1 Diagnosis of warm autoimmune hemolytic anemia (wAIHA)  
+ 
+AND 
+ 
+ 1.2 wAIHA has been present for at least 3 months  
+ 
+AND 
+ 
+ 1.3 Patient has evidence of hemolysis (e.g., elevated lactate dehydrogenase (LDH), bilirubin 
+level above the normal reference range, increased reticulocyte count, decreased haptoglobin 
+levels)  
+ 
+AND 
+ 
+ 1.4 Patient has a hemoglobin level less than or equal to 10.0 gram per deciliter (g/dL) prior to 
+treatment initiation  
+ 
+AND 
+ 
+ 1.5 Patient has a positive monospecific direct antiglobulin test (DAT)  
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) or verification of paid claims confirming 
+patient is currently receiving or has previously received treatment with a corticosteroid (e.g., 
+prednisone)  
+ 
+AND 
+ 
+3 - Patient is 12 years of age or older  
+
+
+--- PDF page 876 ---
+Page 876 
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with one of the following:  
+• 
+hematologist  
+• 
+hematologist/oncologist  
+ 
+Product Name:Imaavy  
+Diagnosis 
+warm Autoimmune Hemolytic Anemia (wAIHA)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy (e.g., hemoglobin level greater 
+than or equal to 10 gram per deciliter (g/dL) or an increase of at least 2g/dL from baseline)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+10/28/2026  
+Added criteria for new indication of wAIHA  
+ 

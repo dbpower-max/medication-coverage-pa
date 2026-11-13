@@ -1,0 +1,116 @@
+--- PDF page 1001 ---
+Page 1001 
+Joenja (leniolisib) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-749240  
+Guideline Name 
+Joenja (leniolisib)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+11/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Joenja  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes, laboratory values) documenting ALL of 
+the following:  
+ 
+ 1.1 Diagnosis of activated phosphoinositide 3-kinase delta syndrome (APDS)  
+
+
+--- PDF page 1002 ---
+Page 1002 
+ 
+AND 
+ 
+ 1.2 Molecular genetic testing confirms mutations in the PIK3CD or PIK3R1 gene  
+ 
+AND 
+ 
+ 1.3 Both of the following:  
+• 
+Presence of nodal and/or extranodal proliferation (e.g., lymphadenopathy, 
+splenomegaly, hepatomegaly)  
+• 
+Presence of other clinical findings and manifestations consistent with APDS (e.g., 
+recurrent sino-pulmonary infections, bronchiectasis, enteropathy)  
+ 
+AND 
+ 
+ 1.4 Trial and failure, contraindication, or intolerance to at least one standard of care treatment 
+for APDS (e.g., Immunoglobulin replacement therapy, antimicrobial prophylaxis [e.g., 
+azithromycin, bactrim], rituximab, tacrolimus, etc.)  
+ 
+AND 
+ 
+2 - One of the following:  
+ 
+ 2.1 Patient is 12 years of age or older  
+ 
+OR 
+ 
+ 2.2 Both of the following:  
+• 
+Patient is 4 years of age or older but less than 12 years of age  
+• 
+Patient weighs greater than or equal to 27kg  
+ 
+AND 
+ 
+3 - Prescribed by or in consultation with one of the following:  
+
+
+--- PDF page 1003 ---
+Page 1003 
+• 
+Hematologist  
+• 
+Immunologist  
+ 
+Product Name:Joenja  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy (e.g., reduced lymph node size, 
+increased naïve B-cell percentage, decreased severity or frequency of 
+infections/hospitalizations)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+10/28/2026  
+Added new GPIs and updated age/weight criterion due to expanded i
+ndication  
+ 
