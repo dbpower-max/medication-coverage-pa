@@ -348,7 +348,7 @@
     el.planStatus.className = `plan-status ${plan.status}`;
     const statewideDate = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' })
       .format(new Date(`${state.data.meta.drugListEffective}T00:00:00Z`));
-    el.planStatus.innerHTML = `<strong>${escapeHtml(plan.name)} · ${labels[plan.status]}</strong><p>${escapeHtml(plan.detail)}</p>${plan.id === 'az-complete-health' ? `<button type="button" class="state-reference-button" data-open-state-reference>Search the ${escapeHtml(statewideDate)} AHCCCS statewide reference</button><p class="reference-caveat">Statewide listing is not exact-plan or patient-specific coverage.</p>` : ''}`;
+    el.planStatus.innerHTML = `<strong>${escapeHtml(plan.name)} · ${labels[plan.status]}</strong><p>${escapeHtml(plan.detail)}</p>;
 
     const evidence = state.data.planEvidence.filter((item) => item.planId === plan.id);
     el.planEvidence.hidden = evidence.length === 0;
@@ -557,8 +557,8 @@
       resetLimitAndRender();
     });
     el.clearFilters.addEventListener('click', () => {
-      Object.assign(state, { planId: 'ahcccs-statewide', term: '', category: '', subcategory: '', coverage: '', limit: PAGE_SIZE });
-      el.planInput.value = state.data.plans[0].name;
+      Object.assign(state, { planId: 'az-complete-health', term: '', category: '', subcategory: '', coverage: '', limit: PAGE_SIZE });
+      el.planInput.value = state.data.plans.find((plan) => plan.id === state.planId).name;
       el.medicationInput.value = '';
       el.categoryInput.value = '';
       el.subcategoryInput.value = '';
@@ -632,6 +632,12 @@
         ? await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text()
         : new TextDecoder().decode(bytes);
       state.data = JSON.parse(text);
+      const providerPlans = new Set(['az-complete-health', 'banner-ufc', 'uhc-community-az']);
+      state.data.plans = state.data.plans.filter((plan) => providerPlans.has(plan.id));
+      state.data.medications = state.data.medications.filter((record) => providerPlans.has(record.planId));
+      state.data.policies = state.data.policies.filter((record) => providerPlans.has(record.planId));
+      state.data.planEvidence = state.data.planEvidence.filter((record) => providerPlans.has(record.planId));
+      state.data.planDataFiles = Object.fromEntries(Object.entries(state.data.planDataFiles || {}).filter(([id]) => providerPlans.has(id)));
       el.asOf.textContent = state.data.meta.asOf;
       populateControls();
       bindEvents();
