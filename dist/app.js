@@ -625,9 +625,13 @@
   async function init() {
     ids.forEach((id) => { el[id] = document.getElementById(id); });
     try {
-      const response = await fetch('./data.json');
+      const response = await fetch('./data.json.gz');
       if (!response.ok) throw new Error(`Data request failed: ${response.status}`);
-      state.data = await response.json();
+      const bytes = new Uint8Array(await response.arrayBuffer());
+      const text = bytes[0] === 0x1f && bytes[1] === 0x8b
+        ? await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text()
+        : new TextDecoder().decode(bytes);
+      state.data = JSON.parse(text);
       el.asOf.textContent = state.data.meta.asOf;
       populateControls();
       bindEvents();
