@@ -1,0 +1,126 @@
+--- PDF page 371 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 371 
+Combination Basal Insulin-GLP-1 Receptor Agonist 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-421252  
+Guideline Name 
+Combination Basal Insulin-GLP-1 Receptor Agonist  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+11/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Soliqua  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of type 2 diabetes mellitus  
+ 
+AND 
+
+
+--- PDF page 372 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 372 
+ 
+2 - Inadequately controlled on BOTH of the following  
+• 
+GLP-1 (glucagon-like peptide-1) receptor agonist [e.g., Adlyxin (lixisenatide), Trulicity 
+(dulaglutide), Victoza (liraglutide), Bydureon (exenatide extended-release), Byetta 
+(exenatide)]  
+• 
+Basal insulin (e.g., insulin glargine, insulin degludec, insulin detemir)  
+ 
+AND 
+ 
+3 - Provider attests that the requested medication will NOT be used concurrently with a DPP-4 
+inhibitor-containing agent [e.g., Januvia (sitagliptin), Jentadueto (linagliptin-metformin), 
+Tradjenta (linagliptin)] or a plan has been developed to address concomitant use  
+ 
+Product Name:Xultophy  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of type 2 diabetes mellitus  
+ 
+AND 
+ 
+2 - Inadequately controlled on BOTH of the following:  
+• 
+GLP-1 (glucagon-like peptide-1) receptor agonist [e.g., Adlyxin (lixisenatide), Trulicity 
+(dulaglutide), Victoza (liraglutide), Bydureon (exenatide extended-release), Byetta 
+(exenatide)]  
+• 
+Basal insulin (e.g., insulin glargine, insulin degludec, insulin detemir)  
+ 
+AND 
+ 
+3 - History of failure, intolerance, or contraindication to Soliqua  
+
+
+--- PDF page 373 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 373 
+ 
+AND 
+ 
+4 - Provider attests that the requested medication will NOT be used concurrently with a DPP-4 
+inhibitor-containing agent [e.g., Januvia (sitagliptin), Jentadueto (linagliptin-metformin), 
+Tradjenta (linagliptin)] or a plan has been developed to address concomitant use  
+ 
+Product Name:Soliqua, Xultophy  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+2 - Provider attests that the requested medication will NOT be used concurrently with a DPP-4 
+inhibitor-containing agent [e.g., Januvia (sitagliptin), Jentadueto (linagliptin-metformin), 
+Tradjenta (linagliptin)] or a plan has been developed to address concomitant use  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+10/13/2025  
+Added dx and reauth criteria for Soliqua  
+ 

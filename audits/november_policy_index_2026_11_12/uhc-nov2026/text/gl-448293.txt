@@ -1,0 +1,241 @@
+--- PDF page 1307 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1307 
+Otezla (apremilast) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-448293  
+Guideline Name 
+Otezla (apremilast)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+12/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Otezla, Otezla XR  
+Diagnosis 
+Psoriatic Arthritis  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of active psoriatic arthritis  
+
+
+--- PDF page 1308 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1308 
+ 
+AND 
+ 
+2 - Patient is 6 years of age or older  
+ 
+AND 
+ 
+3 - ONE of the following:  
+• 
+If the request is for Otezla, patient weighs at least 20 kg (kilograms)  
+• 
+If the request is for Otezla XR, patient weighs at least 50 kg  
+ 
+AND 
+ 
+4 - History of failure to a 3 month trial of methotrexate at the maximally indicated dose within 
+the last 6 months, unless contraindicated or clinically significant adverse effects are 
+experienced (document drug, date, and duration of trial)*  
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with ONE of the following:  
+• 
+Rheumatologist  
+• 
+Dermatologist  
+Notes  
+*Claims history may be used in conjunction as documentation of drug,
+ date, and duration of trial. 
+ 
+Product Name:Otezla, Otezla XR  
+Diagnosis 
+Behcet’s Disease  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+
+
+--- PDF page 1309 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1309 
+Approval Criteria    
+ 
+1 - Diagnosis of Behcet’s Disease  
+ 
+AND 
+ 
+2 - Patient has active oral ulcers  
+ 
+AND 
+ 
+3 - History of failure, contraindication, or intolerance to one non-biologic (e.g., corticosteroids, 
+colchicine) within the last 3 months, unless contraindicated or clinically significant adverse 
+effects are experienced (document drug, date, and duration of trial)*  
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with ONE of the following:  
+• 
+Rheumatologist  
+• 
+Dermatologist  
+Notes  
+*Claims history may be used in conjunction as documentation of drug,
+ date, and duration of trial. 
+ 
+Product Name:Otezla, Otezla XR  
+Diagnosis 
+Psoriatic Arthritis, Behcet’s Disease  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+
+
+--- PDF page 1310 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1310 
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with ONE of the following:  
+• 
+Rheumatologist  
+• 
+Dermatologist  
+ 
+Product Name:Otezla, Otezla XR  
+Diagnosis 
+Plaque Psoriasis  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of plaque psoriasis  
+ 
+AND 
+ 
+2 - Patient is 6 years of age or older  
+ 
+AND 
+ 
+3 - ONE of the following:  
+• 
+If the request is for Otezla, patient weighs at least 20 kg (kilograms)  
+• 
+If the request is for Otezla XR, patient weighs at least 50 kg  
+ 
+AND 
+ 
+4 - BOTH of the following:  
+
+
+--- PDF page 1311 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1311 
+ 
+ 4.1 History of failure to ONE of the following topical therapies, unless contraindicated or 
+clinically significant adverse effects are experienced (document drug, date, and duration of 
+trial):*  
+• 
+Corticosteroids (e.g., betamethasone, clobetasol, desonide)  
+• 
+Vitamin D analogs (e.g., calcitriol, calcipotriene)  
+• 
+Tazarotene  
+• 
+Calcineurin inhibitors (e.g., tacrolimus, pimecrolimus)  
+ 
+AND 
+ 
+ 4.2 History of failure to a 3 month trial of methotrexate at the maximally indicated dose within 
+the last 6 months, unless contraindicated or clinically significant adverse effects are 
+experienced (document drug, date, and duration of trial)*  
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with a dermatologist  
+Notes  
+*Claims history may be used in conjunction as documentation of drug,
+ date, and duration of trial. 
+ 
+Product Name:Otezla, Otezla XR  
+Diagnosis 
+Plaque Psoriasis  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy  
+ 
+AND 
+ 
+2 - Prescribed by or in consultation with a dermatologist  
+ 
+
+
+--- PDF page 1312 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1312 
+2 .  Revision History  
+ 
+Date  
+Notes  
+11/12/2025  
+Added Otezla XR as a target to all indications. Updated weight requir
+ements in PsA and PsO initial auth sections to account for Otezla XR
+. Updated embedded step criterion for PsO (initial auth section). Rem
+oved reference to "Otezla" in reauth sections for PsA and PsO.  
+ 

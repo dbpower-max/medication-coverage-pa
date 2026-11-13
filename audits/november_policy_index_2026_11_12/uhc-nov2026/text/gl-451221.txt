@@ -1,0 +1,199 @@
+--- PDF page 272 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 272 
+Bylvay (odevixibat) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-451221  
+Guideline Name 
+Bylvay (odevixibat)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+12/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Bylvay  
+Diagnosis 
+Progressive Familial Intrahepatic Cholestasis (PFIC)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming a molecular diagnosis of 
+progressive familial intrahepatic cholestasis (PFIC)  
+
+
+--- PDF page 273 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 273 
+ 
+AND 
+ 
+2 - Patient does NOT have a ABCB11 variant resulting in non-functional or complete absence 
+of bile salt export pump protein (BSEP-3)  
+ 
+AND 
+ 
+3 - Patient is experiencing BOTH of the following:  
+• 
+Moderate to severe pruritus  
+• 
+Patient has a serum bile acid concentration above the upper limit of the normal 
+reference for the reporting laboratory  
+ 
+AND 
+ 
+4 - Patient is 3 months of age or older  
+ 
+AND 
+ 
+5 - Patient has had an inadequate response to at least TWO of the following treatments used 
+for the relief of pruritus:  
+• 
+Ursodeoxycholic acid (e.g., Ursodiol)  
+• 
+Antihistamines (e.g., diphenhydramine, hydroxyzine)  
+• 
+Rifampin  
+• 
+Bile acid sequestrants (e.g., Questran, Colestid, Welchol)  
+ 
+AND 
+ 
+6 - Prescribed dose is consistent with FDA (Food and Drug Administration)-approved package 
+labeling and does not exceed a total daily dose of 6 mg (milligrams)  
+ 
+AND 
+ 
+7 - Prescribed by or in consultation with a hepatologist or gastroenterologist  
+ 
+
+
+--- PDF page 274 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 274 
+Product Name:Bylvay  
+Diagnosis 
+Progressive Familial Intrahepatic Cholestasis (PFIC)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy (e.g., reduced serum bile acids, 
+improved pruritus)  
+ 
+AND 
+ 
+2 - Prescribed dose is consistent with FDA-approved package labeling and does not exceed a 
+total daily dose of 6 mg  
+ 
+Product Name:Bylvay  
+Diagnosis 
+Alagille Syndrome (ALGS)  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) confirming both of the following:  
+ 
+ 1.1 Diagnosis of Alagille Syndrome (ALGS)  
+ 
+AND 
+ 
+ 1.2 Molecular genetic testing confirms mutations in the JAG1 or NOTCH2 gene  
+
+
+--- PDF page 275 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 275 
+ 
+AND 
+ 
+2 - Patient is experiencing BOTH of the following:  
+• 
+Moderate to severe pruritus  
+• 
+Patient has a serum bile acid concentration above the upper limit of the normal 
+reference for the reporting laboratory  
+ 
+AND 
+ 
+3 - Patient is 12 months of age or older  
+ 
+AND 
+ 
+4 - Patient has had an inadequate response to at least TWO of the following treatments used 
+for the relief of pruritus:  
+• 
+Ursodeoxycholic acid (e.g., Ursodiol)  
+• 
+Antihistamines (e.g., diphenhydramine, hydroxyzine)  
+• 
+Rifampin  
+• 
+Bile acid sequestrants (e.g., Questran, Colestid, Welchol)  
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with a hepatologist or gastroenterologist  
+ 
+Product Name:Bylvay  
+Diagnosis 
+Alagille Syndrome (ALGS)  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 276 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 276 
+ 
+1 - Documentation of positive clinical response to therapy (e.g., reduced bile acids, reduced 
+pruritus severity score)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+11/12/2025  
+Updated diagnostic criteria for PFIC  
+ 
