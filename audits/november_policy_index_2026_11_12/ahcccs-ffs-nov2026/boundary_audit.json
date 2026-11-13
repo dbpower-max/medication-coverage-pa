@@ -1,0 +1,5301 @@
+{
+  "printedTOC": [
+    {
+      "title": "Acetaminophen (Dose > 4 gm)",
+      "page": 18,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Acthar Gel, Cortrophin Gel",
+      "page": 20,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Actimmune",
+      "page": 23,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Adacel TDAP vaccine",
+      "page": 27,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Adakveo (crizanlizumab-tmca)",
+      "page": 29,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Adalimumab",
+      "page": 32,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Adbry (tralokinumab-ldrm)",
+      "page": 46,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "ADHD Agents - AZM",
+      "page": 49,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Adquey (difamilast)",
+      "page": 57,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Adzynma (ADAMTS13, recombinant-krhn)",
+      "page": 62,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Aemcolo",
+      "page": 64,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Afrezza",
+      "page": 66,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Agamree (vamorolone)",
+      "page": 69,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Aldurazyme - AZM",
+      "page": 73,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Alinia",
+      "page": 75,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Alkindi Sprinkle, Khindivi Oral Solution (hydrocortisone)",
+      "page": 77,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Alpha Interferons - AZM",
+      "page": 80,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Alpha-1 Proteinase Inhibitors",
+      "page": 84,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Alyftrek (vanzacaftor/tezacaftor/deutivacaftor)",
+      "page": 86,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Alzheimer's Agents - AZM",
+      "page": 89,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Amondys 45 (casimersen)",
+      "page": 92,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Amvuttra (vutrisiran)",
+      "page": 95,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Anthelmintics - Arizona",
+      "page": 100,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Anti-Parkinson’s Agents (Crexont, Duopa, Rytary, Vyalev)",
+      "page": 103,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Anticonvulsants - AZM",
+      "page": 107,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Antidepressants - AZM",
+      "page": 124,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Antiemetics - AZM",
+      "page": 131,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Antiglaucoma Agents - AZM",
+      "page": 135,
+      "tocPhysicalPage": 1
+    },
+    {
+      "title": "Antipsoriatic Agents",
+      "page": 137,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Antipsychotics - AZM",
+      "page": 140,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Anxiolytics - AZM",
+      "page": 158,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Anzupgo (delgocitinib)",
+      "page": 161,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Apomorphine products (Apokyn, Onapgo)",
+      "page": 166,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Aqneursa (levacetylleucine)",
+      "page": 169,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Aquadeks",
+      "page": 174,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Arcalyst (rilonacept)",
+      "page": 176,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Arikayce",
+      "page": 180,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Attruby (acoramidis)",
+      "page": 184,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Austedo (deutetrabenazine)",
+      "page": 187,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Avlayah (tividenofusp alfa-eknm)",
+      "page": 192,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Awiqli (insulin icodec-abae)",
+      "page": 195,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Azole Antifungals",
+      "page": 198,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Baclofen products (Fleqsuvy, Lyvispah, Ozobax/Ozobax DS)",
+      "page": 213,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Baxdela",
+      "page": 215,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Baxfendy (baxdrostat)",
+      "page": 220,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Belbuca, Butrans - AZM",
+      "page": 224,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Benlysta (belimumab)",
+      "page": 232,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Benznidazole",
+      "page": 236,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Besremi (ropeginterferon alfa-2b-njft)",
+      "page": 238,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Bevacizumab Products",
+      "page": 242,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Bimzelx (bimekizumab-bkzx)",
+      "page": 244,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Blood Glucose Monitors",
+      "page": 253,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Blujepa (gepotidacin)",
+      "page": 257,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Bonjesta and Diclegis",
+      "page": 260,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Brand Over Generic Not Covered",
+      "page": 262,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Breast Cancer - Arizona",
+      "page": 264,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Brexafemme (ibrexafungerp)",
+      "page": 268,
+      "tocPhysicalPage": 2
+    },
+    {
+      "title": "Breztri, Trelegy Ellipta - AZM",
+      "page": 270,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Brinsupri (brensocatib)",
+      "page": 273,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Buprenorphine Sublingual Tablet",
+      "page": 277,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Bylvay (odevixibat)",
+      "page": 280,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Cablivi",
+      "page": 285,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Cabotegravir Containing Agents",
+      "page": 288,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Calcium/Vitamin D",
+      "page": 293,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Camzyos (mavacamten)",
+      "page": 295,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Carbaglu (carglumic acid)",
+      "page": 298,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Casgevy (exagamglogene autotemcel injection)",
+      "page": 302,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Cayston",
+      "page": 308,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "CGRP Inhibitors - AZM",
+      "page": 310,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Chenodiol Products",
+      "page": 330,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Cholbam",
+      "page": 334,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Cialis for BPH - AZM",
+      "page": 337,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Cibinqo (abrocitinib)",
+      "page": 339,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Cimzia (certolizumab)",
+      "page": 344,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Clotic (clotrimazole otic solution)",
+      "page": 354,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "CMV and Herpes Virus Agents - AZM",
+      "page": 356,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Colony Stimulating Factors - AZM",
+      "page": 362,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Combination Basal Insulin/GLP-1 Receptor Agonist",
+      "page": 370,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Compounds and Bulk Powders",
+      "page": 373,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Constipation Agents - AZM",
+      "page": 384,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Continuous Blood Glucose Monitoring Devices (CGM)",
+      "page": 392,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Copper Chelating Agents",
+      "page": 403,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Corlanor",
+      "page": 407,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Cosentyx (secukinumab)",
+      "page": 410,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Cough and Cold Products",
+      "page": 419,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Coverage of Off-Label Non-FDA Approved Indications",
+      "page": 423,
+      "tocPhysicalPage": 3
+    },
+    {
+      "title": "Crenessity (crinecerfont)",
+      "page": 432,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Cuvrior (trientine hydrochloride)",
+      "page": 435,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Cystaran, Cystadrops",
+      "page": 438,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Daliresp (roflumilast)",
+      "page": 440,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Daraprim",
+      "page": 442,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Daxxify (botulinum toxin type a injection)",
+      "page": 446,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Daybue (trofinetide)",
+      "page": 449,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "DDAVP, Desmoda (desmopressin)",
+      "page": 452,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Declomycin - Arizona",
+      "page": 454,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Deflazacort products",
+      "page": 457,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Dificid (fidaxomicin)",
+      "page": 460,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Dofetilide - Arizona",
+      "page": 462,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Dojolvi (triheptanoin)",
+      "page": 464,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "DPP-4 Inhibitors - AZM",
+      "page": 467,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Drugs for Compassionate Use",
+      "page": 471,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Dry Eye Disease - AZM",
+      "page": 473,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Duexis and Vimovo - Arizona",
+      "page": 477,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Dupixent (dupilumab)",
+      "page": 482,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Durezol",
+      "page": 502,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Duvyzat (givinostat)",
+      "page": 504,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Ebglyss (lebrikizumab-lbkz)",
+      "page": 508,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Ecoza (econazole)",
+      "page": 513,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Eculizumab (Soliris, Bkemv, Epysqli)",
+      "page": 515,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Effient (prasurgel)",
+      "page": 526,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Egrifta",
+      "page": 528,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Elaprase - Arizona",
+      "page": 530,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Elevidys (delandistrogene moxeparvovec-rokl)",
+      "page": 532,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Elidel (pimecrolimus) cream, tacrolimus ointment",
+      "page": 536,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Elmiron",
+      "page": 539,
+      "tocPhysicalPage": 4
+    },
+    {
+      "title": "Empaveli (pegcetacoplan)",
+      "page": 541,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Emrosi (minocycline)",
+      "page": 545,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Enbrel (etanercept)",
+      "page": 547,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Encelto (revakinagene taroretcel-lwey)",
+      "page": 555,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Endari",
+      "page": 557,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Enjaymo (sutimlimab-jome)",
+      "page": 559,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Entocort EC",
+      "page": 563,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Entyvio (vedolizumab)",
+      "page": 565,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Eohilia (budesonide)",
+      "page": 572,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Epaned",
+      "page": 575,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Epinephrine Products",
+      "page": 577,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Eplerenone- Arizona",
+      "page": 579,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Epsolay (benzoyl peroxide) cream",
+      "page": 581,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Ergot Alkaloids",
+      "page": 583,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Erythropoietic Agents - AZM",
+      "page": 586,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Esbriet, Jascayd, Ofev",
+      "page": 594,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Estrogens- Arizona",
+      "page": 602,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Eucrisa",
+      "page": 604,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Everolimus Products (Afinitor, Torpenz, Yulithira)",
+      "page": 606,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Evkeeza (evinacumab-dgnb)",
+      "page": 622,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Evrysdi (risdiplam)",
+      "page": 627,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Exdensur (depemokimab)",
+      "page": 633,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Exondys 51 (eteplirsen)",
+      "page": 638,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Ezallor Sprinkle (rosuvastatin)",
+      "page": 641,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Fabhalta (iptacopan)",
+      "page": 644,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Fabry Disease Agents",
+      "page": 649,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Fasenra (benralizumab)",
+      "page": 652,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Fecal Microbiota Agents",
+      "page": 662,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Fentanyl IR",
+      "page": 666,
+      "tocPhysicalPage": 5
+    },
+    {
+      "title": "Fexmid (cyclobenzaprine 7.5mg)- Arizona",
+      "page": 670,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Filspari (sparsentan)",
+      "page": 672,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Filsuvez (birch triterpenes)",
+      "page": 678,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Firdapse",
+      "page": 682,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Flucytosine- Arizona",
+      "page": 684,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Forteo and Teriparatide Products, Prolia and Denosumab 60mg Products, Tymlos",
+      "page": 686,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Forzinity (elamipretide)",
+      "page": 693,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Furosemide injection products",
+      "page": 696,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Galafold",
+      "page": 700,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Gamifant (emapalumab-lzsg)",
+      "page": 702,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Gattex (teduglutide)",
+      "page": 706,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Gaucher's Disease Agents - AZM",
+      "page": 709,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Global Quantity Limits",
+      "page": 714,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "GLP-1 Agonists - AZM",
+      "page": 718,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Glycopyrrolate Products",
+      "page": 724,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Gonadotropin-Releasing Hormone Agonists",
+      "page": 726,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Gralise, Horizant - AZM",
+      "page": 740,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Growth Hormone, Growth Stimulating Agents - AZM",
+      "page": 742,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "HCG",
+      "page": 773,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Hemangeol (propranolol oral solution)",
+      "page": 775,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Hemgenix (etranacogene dezaparvovec-drlb)",
+      "page": 777,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Hemophilia Clotting Factors",
+      "page": 781,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Hepatitis C - AZM",
+      "page": 803,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Hepcludex (bulevirtide-gmod)",
+      "page": 813,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Hereditary Angioedema (HAE) Agents - AZM",
+      "page": 816,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Hetlioz, Hetlioz LQ (tasimelteon)",
+      "page": 821,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Rexulti, Vraylar)",
+      "page": 828,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "HIV (Fuzeon, Selzentry)",
+      "page": 843,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Hydroxychloroquine",
+      "page": 846,
+      "tocPhysicalPage": 6
+    },
+    {
+      "title": "Hyftor (sirolimus) topical gel",
+      "page": 848,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Icotyde (icotrokinra)",
+      "page": 850,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Igalmi (dexmedetomidine)",
+      "page": 854,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Ilaris (canakinumab)",
+      "page": 856,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Ilumya (tildrakizumab-asmn)",
+      "page": 864,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Iluvien (fluocinolone implant)",
+      "page": 868,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Imaavy (nipocalimab)",
+      "page": 871,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Imcivree (setmelanotide)",
+      "page": 877,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Immune Globulins - AZM",
+      "page": 884,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Inbrija",
+      "page": 949,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Infliximab Products",
+      "page": 952,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Ingrezza (valbenazine)",
+      "page": 964,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Inhaled Corticosteroids - AZM",
+      "page": 968,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Injectable Oncology Agents",
+      "page": 970,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Inlyta",
+      "page": 972,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Insulins, Concentrated- Arizona",
+      "page": 976,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Iqirvo (elafibranor)",
+      "page": 978,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Iron Chelators",
+      "page": 981,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Irritable Bowel Syndrome-Diarrhea",
+      "page": 985,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Isotretinoin - AZM",
+      "page": 988,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Isturisa (osilodrostat)",
+      "page": 993,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Izervay (avacincaptad pegol)",
+      "page": 996,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Jesduvroq (daprodustat)",
+      "page": 998,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Joenja (leniolisib)",
+      "page": 1001,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Journavx (suzetrigine)",
+      "page": 1004,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Juxtapid - AZM",
+      "page": 1007,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Jynarque (tolvaptan)",
+      "page": 1011,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Kalydeco (ivacaftor)",
+      "page": 1013,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Kebilidi (eladocagene exuparvovec-tneq)",
+      "page": 1017,
+      "tocPhysicalPage": 7
+    },
+    {
+      "title": "Kepivance (palifermin)",
+      "page": 1020,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Kerendia (finerenone)",
+      "page": 1022,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Keveyis",
+      "page": 1028,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Kevzara (sarilumab)",
+      "page": 1030,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Kimmtrak (tebentafusp-tebn)",
+      "page": 1036,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Kineret (anakinra)",
+      "page": 1038,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Korlym",
+      "page": 1044,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Korsuva (difelikefalin)",
+      "page": 1047,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Krystexxa (pegloticase)",
+      "page": 1050,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Kygevvi (doxecitine/doxribtimine)",
+      "page": 1053,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "LAMA, LABA - AZM",
+      "page": 1056,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Lamzede (velmanase alfa-tycv)",
+      "page": 1058,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Lantidra (donislecel-jujn)",
+      "page": 1060,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Lenmeldy (atidarsagene autotemcel)",
+      "page": 1063,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Leqvio (inclisiran)",
+      "page": 1066,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Lerochol (lerodalcibep-liga)",
+      "page": 1074,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Leucovorin - AZM",
+      "page": 1078,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Libervant, Nayzilam, Valtoco",
+      "page": 1080,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Lidoderm (lidocaine) 5% patches",
+      "page": 1083,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Lipfendra (enlicitide)",
+      "page": 1085,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Livdelzi (seladelpar)",
+      "page": 1089,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Livmarli (maralixibat)",
+      "page": 1092,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Livtencity (maribavir)",
+      "page": 1096,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Loargys (pegzilarginase-nbln)",
+      "page": 1099,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Lodoco (colchicine)",
+      "page": 1102,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Long-Acting Opioid Products - AZM",
+      "page": 1106,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Lucemyra (lofexidine)",
+      "page": 1126,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Lumizyme -Arizona",
+      "page": 1129,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Lumvoa (veligrotug-vvze)",
+      "page": 1131,
+      "tocPhysicalPage": 8
+    },
+    {
+      "title": "Lupkynis (voclosporin)",
+      "page": 1133,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Lyfgenia (lovotibeglogene autotemcel)",
+      "page": 1137,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Lynavoy (linerixibat)",
+      "page": 1140,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Lyrica",
+      "page": 1143,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Lysteda",
+      "page": 1149,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Makena- AZM",
+      "page": 1151,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Marinol (dronabinol)",
+      "page": 1153,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Mepron",
+      "page": 1158,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Metformin products - AZM",
+      "page": 1160,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Mimrylo (rusfertide)",
+      "page": 1165,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Miplyffa (arimoclomol)",
+      "page": 1168,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Mitapivat Products",
+      "page": 1172,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Molluscum Contagiosum Agents",
+      "page": 1177,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Monoclonal Antibody Agents for Alzheimer's Disease",
+      "page": 1182,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Monurol",
+      "page": 1199,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Mozobil",
+      "page": 1201,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "MS Agents - AZM",
+      "page": 1203,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Multaq",
+      "page": 1206,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Myalept",
+      "page": 1208,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "and norethindrone acetate capsules; elagolix capsules)",
+      "page": 1211,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Myqorzo (aficamten)",
+      "page": 1215,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Mytesi",
+      "page": 1218,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Nadolol",
+      "page": 1220,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Namzaric (memantine/donepezil)",
+      "page": 1222,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Natpara",
+      "page": 1224,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Nemluvio (nemolizumab-ilto)",
+      "page": 1227,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Nereus (tradipitant)",
+      "page": 1234,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Nexiclon XR (clonidine ER)",
+      "page": 1236,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Nexletol (bempedoic acid) and Nexlizet (bempedoic acid-ezetimibe)",
+      "page": 1238,
+      "tocPhysicalPage": 9
+    },
+    {
+      "title": "Niktimvo (axatilimab-csfr)",
+      "page": 1243,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Nitisinone Products",
+      "page": 1245,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Nocdurna",
+      "page": 1249,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Non-hormonal Therapies for Vasomotor Symptoms",
+      "page": 1252,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Non-Preferred Drugs - AZM",
+      "page": 1254,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Non-Solid Oral Dosage Forms",
+      "page": 1258,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Northera",
+      "page": 1262,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Nourianz",
+      "page": 1265,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Nucala (mepolizumab)",
+      "page": 1267,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Nuedexta (dextromethorphan HBr/quinidine)",
+      "page": 1282,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Nuplazid",
+      "page": 1284,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Nuzyra",
+      "page": 1286,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "OAB - Overactive Bladder Agents - AZM",
+      "page": 1291,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Ocaliva",
+      "page": 1293,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Octreotide Products - AZM",
+      "page": 1296,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Ohtuvayre (ensifentrine)",
+      "page": 1302,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Ojjaara (momelotinib)",
+      "page": 1307,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Olumiant (baricitinib)",
+      "page": 1309,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Omisirge (omidubicel-onlv)",
+      "page": 1313,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Omvoh (mirikizumab-mrkz)",
+      "page": 1316,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Opfolda (miglustat)",
+      "page": 1322,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Opzelura (ruxolitinib)",
+      "page": 1325,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Oral Oncology Agents",
+      "page": 1331,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Orencia (abatacept)",
+      "page": 1334,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Orilissa",
+      "page": 1339,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Orkambi - AZM",
+      "page": 1343,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Orlynvah (sulopenem etzadroxil and probenecid)",
+      "page": 1346,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Osphena - Arizona",
+      "page": 1348,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Otarmeni (lunsotogene parvec-cwha)",
+      "page": 1350,
+      "tocPhysicalPage": 10
+    },
+    {
+      "title": "Otezla (apremilast)",
+      "page": 1353,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Oxervate (cenegermin-bkbj)",
+      "page": 1359,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Palforzia [Peanut (Arachis hypogaea)]",
+      "page": 1361,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Palsonify (paltusotine)",
+      "page": 1365,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Palynziq (pegvaliase-pqpz)",
+      "page": 1367,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Panretin",
+      "page": 1370,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Papzimeos (zopapogene imadenovec-drba)",
+      "page": 1373,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Pasatru (garetosmab-grts)",
+      "page": 1375,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Pediculicides - AZM",
+      "page": 1378,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Pedmark (sodium thiosulfate injection, solution)",
+      "page": 1380,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Piasky (crovalimab)",
+      "page": 1382,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Pivya (pivmecillinam)",
+      "page": 1385,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Pombiliti (cipaglucosidase alfa-atga)",
+      "page": 1387,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Pradaxa Pellet Packs",
+      "page": 1390,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Praluent (alirocumab)",
+      "page": 1392,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Preferred Drugs - AZM",
+      "page": 1407,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Presbyopia Agents",
+      "page": 1409,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Pretomanid",
+      "page": 1412,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Prevymis (letermovir)",
+      "page": 1414,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Primary Hyperoxaluria (PH1) Agents [Oxlumo (lumasiran), Rivfloza (nedosiran)]",
+      "page": 1417,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Procysbi",
+      "page": 1422,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Progesterone - Non-Oral",
+      "page": 1424,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Proton Pump Inhibitors (PPIs)",
+      "page": 1426,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Provigil, Nuvigil",
+      "page": 1428,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Pulmonary Arterial Hypertension (PAH) Agents",
+      "page": 1435,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Pulmozyme",
+      "page": 1441,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Qalsody (tofersen)",
+      "page": 1443,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Qutenza (capsaicin)",
+      "page": 1446,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Radicava (edaravone)",
+      "page": 1449,
+      "tocPhysicalPage": 11
+    },
+    {
+      "title": "Ranolazine products",
+      "page": 1452,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Rayos",
+      "page": 1455,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Reblozyl (luspatercept-aamt)",
+      "page": 1458,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Recorlev (levoketoconazole)",
+      "page": 1463,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Rectiv",
+      "page": 1466,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Redemplo (plozasiran)",
+      "page": 1468,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Regranex",
+      "page": 1472,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Repatha (evolocumab)",
+      "page": 1474,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Respiratory Syncytial Virus (RSV) Vaccines",
+      "page": 1489,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Retinal Vascular Disease Agents",
+      "page": 1492,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Revcovi - AZ",
+      "page": 1498,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Reyvow - Arizona",
+      "page": 1501,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Rezdiffra (resmetirom)",
+      "page": 1505,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Rezurock (belumosudil)",
+      "page": 1509,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Rezzayo (rezafungin)",
+      "page": 1512,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Rhapsido (remibrutinib)",
+      "page": 1514,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Rhofade (oxymetazoline) cream",
+      "page": 1518,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Rinvoq (upadacitinib)",
+      "page": 1520,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Rituximab",
+      "page": 1540,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Ryaltris (olopatadine-mometasone) nasal spray",
+      "page": 1548,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Ryoncil (remestemcel-l-rknd)",
+      "page": 1550,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Rystiggo (rozanolixizumab)",
+      "page": 1554,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Rytelo (imetelstat)",
+      "page": 1558,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Samsca",
+      "page": 1561,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Saphnelo (anifrolumab-fnia)",
+      "page": 1563,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Sapropterin products",
+      "page": 1565,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Sedative Hypnotics - AZM",
+      "page": 1567,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Sephience (sepiapterin)",
+      "page": 1571,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "Serevent Diskus - Arizona",
+      "page": 1574,
+      "tocPhysicalPage": 12
+    },
+    {
+      "title": "SGLT-2 Inhibitors - AZM",
+      "page": 1577,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Shingrix (zoster vaccine recombinant, adjuvanted)",
+      "page": 1584,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Short-Acting Opioid Products - AZM",
+      "page": 1586,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Signifor",
+      "page": 1600,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Simponi, Simponi Aria (golimumab)",
+      "page": 1602,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Sivextro (tedizolid)",
+      "page": 1611,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Skyclarys (omaveloxolone)",
+      "page": 1616,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Skyrizi (risankizumab-rzaa)",
+      "page": 1618,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Skysona (elivaldogene autotemcel suspension)",
+      "page": 1629,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Sodium Oxybate Products (Lumryz, Xyrem, Xywav)",
+      "page": 1632,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Sofdra (sofpironium)",
+      "page": 1639,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Sohonos (palovarotene)",
+      "page": 1642,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Somatuline Depot (lanreotide)",
+      "page": 1645,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Somavert",
+      "page": 1650,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Soriatane",
+      "page": 1653,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Sotyktu (deucravacitinib)",
+      "page": 1656,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Spevigo (spesolimab-sbzo)",
+      "page": 1662,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Spinraza - AZM",
+      "page": 1666,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Spravato, ketamine - AZM",
+      "page": 1674,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Strensiq",
+      "page": 1683,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Sublingual Immunotherapy (SLIT)",
+      "page": 1688,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Sublocade, Brixadi - AZM",
+      "page": 1696,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Suboxone - AZM",
+      "page": 1700,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Sucraid",
+      "page": 1704,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Sunlenca (lenacapavir sodium)",
+      "page": 1707,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Sunosi (solriamfetol)",
+      "page": 1709,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Sutent",
+      "page": 1714,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Syfovre (pegcetacoplan)",
+      "page": 1722,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Symdeko",
+      "page": 1724,
+      "tocPhysicalPage": 13
+    },
+    {
+      "title": "Symlin",
+      "page": 1727,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Synagis",
+      "page": 1729,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Systane, Refresh, Gonak, Genteal, Tears Naturale",
+      "page": 1743,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Talicia and rifabutin",
+      "page": 1745,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Taltz (ixekizumab)",
+      "page": 1751,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Tarceva",
+      "page": 1757,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Targretin",
+      "page": 1764,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Tarpeyo (budesonide)",
+      "page": 1767,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Tasigna",
+      "page": 1770,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Tegsedi",
+      "page": 1775,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Tepezza (teprotumumab-trbw)",
+      "page": 1779,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Test Strips",
+      "page": 1781,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Testosterone - AZM",
+      "page": 1785,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Tezspire (tezepelumab-ekko)",
+      "page": 1792,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Thalomid",
+      "page": 1799,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Thrombopoiesis Stimulating Agents",
+      "page": 1808,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Tobramycin Inhalation - ARIZONA",
+      "page": 1815,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Tocilizumab",
+      "page": 1818,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Topical Capsaicin Products",
+      "page": 1825,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Topical NSAIDs",
+      "page": 1827,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Trastuzumab Products",
+      "page": 1832,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Tremfya (guselkumab)",
+      "page": 1834,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Tretinoin Capsules - ARIZONA",
+      "page": 1846,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Tretinoin Topical",
+      "page": 1849,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Trikafta (elexacaftor/tezacaftor/ivacaftor)",
+      "page": 1851,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Triptans - AZM",
+      "page": 1854,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Trutakna (atacicept-vymj)",
+      "page": 1865,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Tryngolza (olezarsen sodium)",
+      "page": 1868,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Tryvio (aprocitentan)",
+      "page": 1877,
+      "tocPhysicalPage": 14
+    },
+    {
+      "title": "Twyneo (tretinoin-benzoyl peroxide 0.1-3% cream)",
+      "page": 1881,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Tysabri (natalizumab)",
+      "page": 1883,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Tzield (teplizumab - mzwv)",
+      "page": 1887,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Uloric",
+      "page": 1892,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Ultomiris (ravulizumab-cwvz)",
+      "page": 1894,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Uplizna (inebilizumab-cdon)",
+      "page": 1900,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Urea Cycle Disorder Agents",
+      "page": 1906,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Ustekinumab",
+      "page": 1910,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Vafseo (vadadustat)",
+      "page": 1917,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Valchlor",
+      "page": 1921,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Valsartan oral solution",
+      "page": 1924,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Vanrafia (atrasentan)",
+      "page": 1926,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Vecamyl",
+      "page": 1929,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Velphoro (sucroferric oxyhydroxide), Auryxia (ferric citrate)",
+      "page": 1931,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Velsipity (etrasimod)",
+      "page": 1933,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Veltassa",
+      "page": 1936,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Vemlidy",
+      "page": 1939,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Veopoz (pozelimab)",
+      "page": 1942,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Verkazia (cyclosporine ophthalmic emulsion 0.1%)",
+      "page": 1945,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Vijoice (alpelisib)",
+      "page": 1948,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Viltepso (viltolarsen)",
+      "page": 1951,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Vitamin B-12",
+      "page": 1954,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Vitamin C",
+      "page": 1956,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Vitamin D",
+      "page": 1958,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Vivjoa (oteseconazole)",
+      "page": 1960,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Vonjo (pacritinib)",
+      "page": 1963,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Vonoprazan Containing Agents",
+      "page": 1966,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Voxzogo (vosoritide)",
+      "page": 1971,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Voydeya (danicopan)",
+      "page": 1975,
+      "tocPhysicalPage": 15
+    },
+    {
+      "title": "Voyxact (sibeprenlimab-szsi)",
+      "page": 1978,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Vtama (tapinarof)",
+      "page": 1981,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Vyjuvek (beremagene geperpavec-svdt)",
+      "page": 1986,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Vykat XR (diazoxide choline)",
+      "page": 1989,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Vyndaqel and Vyndamax",
+      "page": 1992,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Vyondys 53 (golodirsen)",
+      "page": 1997,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Vyvgart (efgartigimod alfa-fcab)",
+      "page": 2000,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Wainua (eplontersen)",
+      "page": 2006,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Wakix (pitolisant)",
+      "page": 2009,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Wegovy (semaglutide)",
+      "page": 2013,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Xalkori",
+      "page": 2020,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Xdemvy (lotilaner)",
+      "page": 2025,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Xeljanz, Xeljanz XR (tofacitinib)",
+      "page": 2027,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Xenazine (tetrabenazine)",
+      "page": 2035,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Xenleta",
+      "page": 2040,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Xenpozyme (olipudase alfa)",
+      "page": 2043,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Xeomin (incobotulinumtoxinA)",
+      "page": 2046,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Xermelo",
+      "page": 2051,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Xgeva and Denosumab 120mg products",
+      "page": 2053,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Xhance (fluticasone nasal spray)",
+      "page": 2055,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Xocova (ensitrelvir)",
+      "page": 2057,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Xolair and Omalizumab products",
+      "page": 2059,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Xolremdi (mavorixafor)",
+      "page": 2073,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Xopenex Respules",
+      "page": 2076,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Xphozah (tenapanor)",
+      "page": 2078,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Xromi (hydroxyurea)",
+      "page": 2081,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Xtoro (finafloxacin) otic suspension",
+      "page": 2084,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Xuriden",
+      "page": 2086,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Yartemlea (narsoplimab-wuug)",
+      "page": 2088,
+      "tocPhysicalPage": 16
+    },
+    {
+      "title": "Yeztugo (lenacapavir)",
+      "page": 2091,
+      "tocPhysicalPage": 17
+    },
+    {
+      "title": "Yorvipath (palopegteriparatide)",
+      "page": 2094,
+      "tocPhysicalPage": 17
+    },
+    {
+      "title": "Yuviwel (navepegritide)",
+      "page": 2096,
+      "tocPhysicalPage": 17
+    },
+    {
+      "title": "Zeposia (ozanimod)",
+      "page": 2100,
+      "tocPhysicalPage": 17
+    },
+    {
+      "title": "Zevaskyn (prademagene zamikeracel)",
+      "page": 2104,
+      "tocPhysicalPage": 17
+    },
+    {
+      "title": "Zilbrysq (zilucoplan injection)",
+      "page": 2106,
+      "tocPhysicalPage": 17
+    },
+    {
+      "title": "Zimhi (naloxone)",
+      "page": 2110,
+      "tocPhysicalPage": 17
+    },
+    {
+      "title": "Zinplava (bezlotoxumab)",
+      "page": 2112,
+      "tocPhysicalPage": 17
+    },
+    {
+      "title": "brve)",
+      "page": 2114,
+      "tocPhysicalPage": 17
+    },
+    {
+      "title": "Zontivity",
+      "page": 2120,
+      "tocPhysicalPage": 17
+    },
+    {
+      "title": "Zortress - ARIZONA",
+      "page": 2122,
+      "tocPhysicalPage": 17
+    },
+    {
+      "title": "Zoryve (roflumilast)",
+      "page": 2124,
+      "tocPhysicalPage": 17
+    },
+    {
+      "title": "Ztalmy (ganaxolone)",
+      "page": 2131,
+      "tocPhysicalPage": 17
+    },
+    {
+      "title": "Zunveyl (benzgalantamine)",
+      "page": 2134,
+      "tocPhysicalPage": 17
+    },
+    {
+      "title": "Zurzuvae (zuranolone)",
+      "page": 2136,
+      "tocPhysicalPage": 17
+    },
+    {
+      "title": "Zycubo (copper histidinate)",
+      "page": 2138,
+      "tocPhysicalPage": 17
+    },
+    {
+      "title": "Zynteglo (betibeglogene autotemcel)",
+      "page": 2141,
+      "tocPhysicalPage": 17
+    },
+    {
+      "title": "Zyvox (linezolid)",
+      "page": 2145,
+      "tocPhysicalPage": 17
+    }
+  ],
+  "bookmarks": [
+    [
+      1,
+      "Acetaminophen (Dose > 4 gm)",
+      18
+    ],
+    [
+      1,
+      "Acthar Gel, Cortrophin Gel",
+      20
+    ],
+    [
+      1,
+      "Actimmune",
+      23
+    ],
+    [
+      1,
+      "Adacel TDAP vaccine",
+      27
+    ],
+    [
+      1,
+      "Adakveo (crizanlizumab-tmca)",
+      29
+    ],
+    [
+      1,
+      "Adalimumab",
+      32
+    ],
+    [
+      1,
+      "Adbry (tralokinumab-ldrm)",
+      46
+    ],
+    [
+      1,
+      "ADHD Agents - AZM",
+      49
+    ],
+    [
+      1,
+      "Adquey (difamilast)",
+      57
+    ],
+    [
+      1,
+      "Adzynma (ADAMTS13, recombinant-krhn)",
+      62
+    ],
+    [
+      1,
+      "Aemcolo",
+      64
+    ],
+    [
+      1,
+      "Afrezza",
+      66
+    ],
+    [
+      1,
+      "Agamree (vamorolone)",
+      69
+    ],
+    [
+      1,
+      "Aldurazyme - AZM",
+      73
+    ],
+    [
+      1,
+      "Alinia",
+      75
+    ],
+    [
+      1,
+      "Alkindi Sprinkle, Khindivi Oral Solution (hydrocortisone)",
+      77
+    ],
+    [
+      1,
+      "Alpha Interferons - AZM",
+      80
+    ],
+    [
+      1,
+      "Alpha-1 Proteinase Inhibitors",
+      84
+    ],
+    [
+      1,
+      "Alyftrek (vanzacaftor/tezacaftor/deutivacaftor)",
+      86
+    ],
+    [
+      1,
+      "Alzheimer's Agents - AZM",
+      89
+    ],
+    [
+      1,
+      "Amondys 45 (casimersen)",
+      92
+    ],
+    [
+      1,
+      "Amvuttra (vutrisiran)",
+      95
+    ],
+    [
+      1,
+      "Anthelmintics - Arizona",
+      100
+    ],
+    [
+      1,
+      "Anti-Parkinson’s Agents (Crexont, Duopa, Rytary, Vyalev)",
+      103
+    ],
+    [
+      1,
+      "Anticonvulsants - AZM",
+      107
+    ],
+    [
+      1,
+      "Antidepressants - AZM",
+      124
+    ],
+    [
+      1,
+      "Antiemetics - AZM",
+      131
+    ],
+    [
+      1,
+      "Antiglaucoma Agents - AZM",
+      135
+    ],
+    [
+      1,
+      "Antipsoriatic Agents",
+      137
+    ],
+    [
+      1,
+      "Antipsychotics - AZM",
+      140
+    ],
+    [
+      1,
+      "Anxiolytics - AZM",
+      158
+    ],
+    [
+      1,
+      "Anzupgo (delgocitinib)",
+      161
+    ],
+    [
+      1,
+      "Apomorphine products (Apokyn, Onapgo)",
+      166
+    ],
+    [
+      1,
+      "Aqneursa (levacetylleucine)",
+      169
+    ],
+    [
+      1,
+      "Aquadeks",
+      174
+    ],
+    [
+      1,
+      "Arcalyst (rilonacept)",
+      176
+    ],
+    [
+      1,
+      "Arikayce",
+      180
+    ],
+    [
+      1,
+      "Attruby (acoramidis)",
+      184
+    ],
+    [
+      1,
+      "Austedo (deutetrabenazine)",
+      187
+    ],
+    [
+      1,
+      "Avlayah (tividenofusp alfa-eknm)",
+      192
+    ],
+    [
+      1,
+      "Awiqli (insulin icodec-abae)",
+      195
+    ],
+    [
+      1,
+      "Azole Antifungals",
+      198
+    ],
+    [
+      1,
+      "Baclofen products (Fleqsuvy, Lyvispah, Ozobax/Ozobax DS)",
+      213
+    ],
+    [
+      1,
+      "Baxdela",
+      215
+    ],
+    [
+      1,
+      "Baxfendy (baxdrostat)",
+      220
+    ],
+    [
+      1,
+      "Belbuca, Butrans - AZM",
+      224
+    ],
+    [
+      1,
+      "Benlysta (belimumab)",
+      232
+    ],
+    [
+      1,
+      "Benznidazole",
+      236
+    ],
+    [
+      1,
+      "Besremi (ropeginterferon alfa-2b-njft)",
+      238
+    ],
+    [
+      1,
+      "Bevacizumab Products",
+      242
+    ],
+    [
+      1,
+      "Bimzelx (bimekizumab-bkzx)",
+      244
+    ],
+    [
+      1,
+      "Blood Glucose Monitors",
+      253
+    ],
+    [
+      1,
+      "Blujepa (gepotidacin)",
+      257
+    ],
+    [
+      1,
+      "Bonjesta and Diclegis",
+      260
+    ],
+    [
+      1,
+      "Brand Over Generic Not Covered",
+      262
+    ],
+    [
+      1,
+      "Breast Cancer - Arizona",
+      264
+    ],
+    [
+      1,
+      "Brexafemme (ibrexafungerp)",
+      268
+    ],
+    [
+      1,
+      "Breztri, Trelegy Ellipta - AZM",
+      270
+    ],
+    [
+      1,
+      "Brinsupri (brensocatib)",
+      273
+    ],
+    [
+      1,
+      "Buprenorphine Sublingual Tablet",
+      277
+    ],
+    [
+      1,
+      "Bylvay (odevixibat)",
+      280
+    ],
+    [
+      1,
+      "Cablivi",
+      285
+    ],
+    [
+      1,
+      "Cabotegravir Containing Agents",
+      288
+    ],
+    [
+      1,
+      "Calcium/Vitamin D",
+      293
+    ],
+    [
+      1,
+      "Camzyos (mavacamten)",
+      295
+    ],
+    [
+      1,
+      "Carbaglu (carglumic acid)",
+      298
+    ],
+    [
+      1,
+      "Casgevy (exagamglogene autotemcel injection)",
+      302
+    ],
+    [
+      1,
+      "Cayston",
+      308
+    ],
+    [
+      1,
+      "CGRP Inhibitors - AZM",
+      310
+    ],
+    [
+      1,
+      "Chenodiol Products",
+      330
+    ],
+    [
+      1,
+      "Cholbam",
+      334
+    ],
+    [
+      1,
+      "Cialis for BPH - AZM",
+      337
+    ],
+    [
+      1,
+      "Cibinqo (abrocitinib)",
+      339
+    ],
+    [
+      1,
+      "Cimzia (certolizumab)",
+      344
+    ],
+    [
+      1,
+      "Clotic (clotrimazole otic solution)",
+      354
+    ],
+    [
+      1,
+      "CMV and Herpes Virus Agents - AZM",
+      356
+    ],
+    [
+      1,
+      "Colony Stimulating Factors - AZM",
+      362
+    ],
+    [
+      1,
+      "Combination Basal Insulin/GLP-1 Receptor Agonist",
+      370
+    ],
+    [
+      1,
+      "Compounds and Bulk Powders",
+      373
+    ],
+    [
+      1,
+      "Constipation Agents - AZM",
+      384
+    ],
+    [
+      1,
+      "Continuous Blood Glucose Monitoring Devices (CGM)",
+      392
+    ],
+    [
+      1,
+      "Copper Chelating Agents",
+      403
+    ],
+    [
+      1,
+      "Corlanor",
+      407
+    ],
+    [
+      1,
+      "Cosentyx (secukinumab)",
+      410
+    ],
+    [
+      1,
+      "Cough and Cold Products",
+      419
+    ],
+    [
+      1,
+      "Coverage of Off-Label Non-FDA Approved Indications",
+      423
+    ],
+    [
+      1,
+      "Crenessity (crinecerfont)",
+      432
+    ],
+    [
+      1,
+      "Cuvrior (trientine hydrochloride)",
+      435
+    ],
+    [
+      1,
+      "Cystaran, Cystadrops",
+      438
+    ],
+    [
+      1,
+      "Daliresp (roflumilast)",
+      440
+    ],
+    [
+      1,
+      "Daraprim",
+      442
+    ],
+    [
+      1,
+      "Daxxify (botulinum toxin type a injection)",
+      446
+    ],
+    [
+      1,
+      "Daybue (trofinetide)",
+      449
+    ],
+    [
+      1,
+      "DDAVP, Desmoda (desmopressin)",
+      452
+    ],
+    [
+      1,
+      "Declomycin - Arizona",
+      454
+    ],
+    [
+      1,
+      "Deflazacort products",
+      457
+    ],
+    [
+      1,
+      "Dificid (fidaxomicin)",
+      460
+    ],
+    [
+      1,
+      "Dofetilide - Arizona",
+      462
+    ],
+    [
+      1,
+      "Dojolvi (triheptanoin)",
+      464
+    ],
+    [
+      1,
+      "DPP-4 Inhibitors - AZM",
+      467
+    ],
+    [
+      1,
+      "Drugs for Compassionate Use",
+      471
+    ],
+    [
+      1,
+      "Dry Eye Disease - AZM",
+      473
+    ],
+    [
+      1,
+      "Duexis and Vimovo - Arizona",
+      477
+    ],
+    [
+      1,
+      "Dupixent (dupilumab)",
+      482
+    ],
+    [
+      1,
+      "Durezol",
+      502
+    ],
+    [
+      1,
+      "Duvyzat (givinostat)",
+      504
+    ],
+    [
+      1,
+      "Ebglyss (lebrikizumab-lbkz)",
+      508
+    ],
+    [
+      1,
+      "Ecoza (econazole)",
+      513
+    ],
+    [
+      1,
+      "Eculizumab (Soliris, Bkemv, Epysqli)",
+      515
+    ],
+    [
+      1,
+      "Effient (prasurgel)",
+      526
+    ],
+    [
+      1,
+      "Egrifta",
+      528
+    ],
+    [
+      1,
+      "Elaprase - Arizona",
+      530
+    ],
+    [
+      1,
+      "Elevidys (delandistrogene moxeparvovec-rokl)",
+      532
+    ],
+    [
+      1,
+      "Elidel (pimecrolimus) cream, tacrolimus ointment",
+      536
+    ],
+    [
+      1,
+      "Elmiron",
+      539
+    ],
+    [
+      1,
+      "Empaveli (pegcetacoplan)",
+      541
+    ],
+    [
+      1,
+      "Emrosi (minocycline)",
+      545
+    ],
+    [
+      1,
+      "Enbrel (etanercept)",
+      547
+    ],
+    [
+      1,
+      "Encelto (revakinagene taroretcel-lwey)",
+      555
+    ],
+    [
+      1,
+      "Endari",
+      557
+    ],
+    [
+      1,
+      "Enjaymo (sutimlimab-jome)",
+      559
+    ],
+    [
+      1,
+      "Entocort EC",
+      563
+    ],
+    [
+      1,
+      "Entyvio (vedolizumab)",
+      565
+    ],
+    [
+      1,
+      "Eohilia (budesonide)",
+      572
+    ],
+    [
+      1,
+      "Epaned",
+      575
+    ],
+    [
+      1,
+      "Epinephrine Products",
+      577
+    ],
+    [
+      1,
+      "Eplerenone- Arizona",
+      579
+    ],
+    [
+      1,
+      "Epsolay (benzoyl peroxide) cream",
+      581
+    ],
+    [
+      1,
+      "Ergot Alkaloids",
+      583
+    ],
+    [
+      1,
+      "Erythropoietic Agents - AZM",
+      586
+    ],
+    [
+      1,
+      "Esbriet, Jascayd, Ofev",
+      594
+    ],
+    [
+      1,
+      "Estrogens- Arizona",
+      602
+    ],
+    [
+      1,
+      "Eucrisa",
+      604
+    ],
+    [
+      1,
+      "Everolimus Products (Afinitor, Torpenz, Yulithira)",
+      606
+    ],
+    [
+      1,
+      "Evkeeza (evinacumab-dgnb)",
+      622
+    ],
+    [
+      1,
+      "Evrysdi (risdiplam)",
+      627
+    ],
+    [
+      1,
+      "Exdensur (depemokimab)",
+      633
+    ],
+    [
+      1,
+      "Exondys 51 (eteplirsen)",
+      638
+    ],
+    [
+      1,
+      "Ezallor Sprinkle (rosuvastatin)",
+      641
+    ],
+    [
+      1,
+      "Fabhalta (iptacopan)",
+      644
+    ],
+    [
+      1,
+      "Fabry Disease Agents",
+      649
+    ],
+    [
+      1,
+      "Fasenra (benralizumab)",
+      652
+    ],
+    [
+      1,
+      "Fecal Microbiota Agents",
+      662
+    ],
+    [
+      1,
+      "Fentanyl IR",
+      666
+    ],
+    [
+      1,
+      "Fexmid (cyclobenzaprine 7.5mg)- Arizona",
+      670
+    ],
+    [
+      1,
+      "Filspari (sparsentan)",
+      672
+    ],
+    [
+      1,
+      "Filsuvez (birch triterpenes)",
+      678
+    ],
+    [
+      1,
+      "Firdapse",
+      682
+    ],
+    [
+      1,
+      "Flucytosine- Arizona",
+      684
+    ],
+    [
+      1,
+      "Forteo and Teriparatide Products, Prolia and Denosumab 60mg Products, Tymlos",
+      686
+    ],
+    [
+      1,
+      "Forzinity (elamipretide)",
+      693
+    ],
+    [
+      1,
+      "Furosemide injection products",
+      696
+    ],
+    [
+      1,
+      "Galafold",
+      700
+    ],
+    [
+      1,
+      "Gamifant (emapalumab-lzsg)",
+      702
+    ],
+    [
+      1,
+      "Gattex (teduglutide)",
+      706
+    ],
+    [
+      1,
+      "Gaucher's Disease Agents -  AZM",
+      709
+    ],
+    [
+      1,
+      "Global Quantity Limits",
+      714
+    ],
+    [
+      1,
+      "GLP-1 Agonists - AZM",
+      718
+    ],
+    [
+      1,
+      "Glycopyrrolate Products",
+      724
+    ],
+    [
+      1,
+      "Gonadotropin-Releasing Hormone Agonists",
+      726
+    ],
+    [
+      1,
+      "Gralise, Horizant - AZM",
+      740
+    ],
+    [
+      1,
+      "Growth Hormone, Growth Stimulating Agents - AZM",
+      742
+    ],
+    [
+      1,
+      "HCG",
+      773
+    ],
+    [
+      1,
+      "Hemangeol (propranolol oral solution)",
+      775
+    ],
+    [
+      1,
+      "Hemgenix (etranacogene dezaparvovec-drlb)",
+      777
+    ],
+    [
+      1,
+      "Hemophilia Clotting Factors",
+      781
+    ],
+    [
+      1,
+      "Hepatitis C - AZM",
+      803
+    ],
+    [
+      1,
+      "Hepcludex (bulevirtide-gmod)",
+      813
+    ],
+    [
+      1,
+      "Hereditary Angioedema (HAE) Agents - AZM",
+      816
+    ],
+    [
+      1,
+      "Hetlioz, Hetlioz LQ (tasimelteon)",
+      821
+    ],
+    [
+      1,
+      "High Cost Oral Atypical Antipsychotics (Bysanti, Caplyta, Cobenfy, Fanapt, Lybalvi, Rexulti, Vraylar)",
+      828
+    ],
+    [
+      1,
+      "HIV (Fuzeon, Selzentry)",
+      843
+    ],
+    [
+      1,
+      "Hydroxychloroquine",
+      846
+    ],
+    [
+      1,
+      "Hyftor (sirolimus) topical gel",
+      848
+    ],
+    [
+      1,
+      "Icotyde (icotrokinra)",
+      850
+    ],
+    [
+      1,
+      "Igalmi (dexmedetomidine)",
+      854
+    ],
+    [
+      1,
+      "Ilaris (canakinumab)",
+      856
+    ],
+    [
+      1,
+      "Ilumya (tildrakizumab-asmn)",
+      864
+    ],
+    [
+      1,
+      "Iluvien (fluocinolone implant)",
+      868
+    ],
+    [
+      1,
+      "Imaavy (nipocalimab)",
+      871
+    ],
+    [
+      1,
+      "Imcivree (setmelanotide)",
+      877
+    ],
+    [
+      1,
+      "Immune Globulins - AZM",
+      884
+    ],
+    [
+      1,
+      "Inbrija",
+      949
+    ],
+    [
+      1,
+      "Infliximab Products",
+      952
+    ],
+    [
+      1,
+      "Ingrezza (valbenazine)",
+      964
+    ],
+    [
+      1,
+      "Inhaled Corticosteroids - AZM",
+      968
+    ],
+    [
+      1,
+      "Injectable Oncology Agents",
+      970
+    ],
+    [
+      1,
+      "Inlyta",
+      972
+    ],
+    [
+      1,
+      "Insulins, Concentrated- Arizona",
+      976
+    ],
+    [
+      1,
+      "Iqirvo (elafibranor)",
+      978
+    ],
+    [
+      1,
+      "Iron Chelators",
+      981
+    ],
+    [
+      1,
+      "Irritable Bowel Syndrome-Diarrhea",
+      985
+    ],
+    [
+      1,
+      "Isotretinoin - AZM",
+      988
+    ],
+    [
+      1,
+      "Isturisa (osilodrostat)",
+      993
+    ],
+    [
+      1,
+      "Izervay (avacincaptad pegol)",
+      996
+    ],
+    [
+      1,
+      "Jesduvroq (daprodustat)",
+      998
+    ],
+    [
+      1,
+      "Joenja (leniolisib)",
+      1001
+    ],
+    [
+      1,
+      "Journavx (suzetrigine)",
+      1004
+    ],
+    [
+      1,
+      "Juxtapid - AZM",
+      1007
+    ],
+    [
+      1,
+      "Jynarque (tolvaptan)",
+      1011
+    ],
+    [
+      1,
+      "Kalydeco (ivacaftor)",
+      1013
+    ],
+    [
+      1,
+      "Kebilidi (eladocagene exuparvovec-tneq)",
+      1017
+    ],
+    [
+      1,
+      "Kepivance (palifermin)",
+      1020
+    ],
+    [
+      1,
+      "Kerendia (finerenone)",
+      1022
+    ],
+    [
+      1,
+      "Keveyis",
+      1028
+    ],
+    [
+      1,
+      "Kevzara (sarilumab)",
+      1030
+    ],
+    [
+      1,
+      "Kimmtrak (tebentafusp-tebn)",
+      1036
+    ],
+    [
+      1,
+      "Kineret (anakinra)",
+      1038
+    ],
+    [
+      1,
+      "Korlym",
+      1044
+    ],
+    [
+      1,
+      "Korsuva (difelikefalin)",
+      1047
+    ],
+    [
+      1,
+      "Krystexxa (pegloticase)",
+      1050
+    ],
+    [
+      1,
+      "Kygevvi (doxecitine/doxribtimine)",
+      1053
+    ],
+    [
+      1,
+      "LAMA, LABA - AZM",
+      1056
+    ],
+    [
+      1,
+      "Lamzede (velmanase alfa-tycv)",
+      1058
+    ],
+    [
+      1,
+      "Lantidra (donislecel-jujn)",
+      1060
+    ],
+    [
+      1,
+      "Lenmeldy (atidarsagene autotemcel)",
+      1063
+    ],
+    [
+      1,
+      "Leqvio (inclisiran)",
+      1066
+    ],
+    [
+      1,
+      "Lerochol (lerodalcibep-liga)",
+      1074
+    ],
+    [
+      1,
+      "Leucovorin - AZM",
+      1078
+    ],
+    [
+      1,
+      "Libervant, Nayzilam, Valtoco",
+      1080
+    ],
+    [
+      1,
+      "Lidoderm (lidocaine) 5% patches",
+      1083
+    ],
+    [
+      1,
+      "Lipfendra (enlicitide)",
+      1085
+    ],
+    [
+      1,
+      "Livdelzi (seladelpar)",
+      1089
+    ],
+    [
+      1,
+      "Livmarli (maralixibat)",
+      1092
+    ],
+    [
+      1,
+      "Livtencity (maribavir)",
+      1096
+    ],
+    [
+      1,
+      "Loargys (pegzilarginase-nbln)",
+      1099
+    ],
+    [
+      1,
+      "Lodoco (colchicine)",
+      1102
+    ],
+    [
+      1,
+      "Long-Acting Opioid Products - AZM",
+      1106
+    ],
+    [
+      1,
+      "Lucemyra (lofexidine)",
+      1126
+    ],
+    [
+      1,
+      "Lumizyme -Arizona",
+      1129
+    ],
+    [
+      1,
+      "Lumvoa (veligrotug-vvze)",
+      1131
+    ],
+    [
+      1,
+      "Lupkynis (voclosporin)",
+      1133
+    ],
+    [
+      1,
+      "Lyfgenia (lovotibeglogene autotemcel)",
+      1137
+    ],
+    [
+      1,
+      "Lynavoy (linerixibat)",
+      1140
+    ],
+    [
+      1,
+      "Lyrica",
+      1143
+    ],
+    [
+      1,
+      "Lysteda",
+      1149
+    ],
+    [
+      1,
+      "Makena- AZM",
+      1151
+    ],
+    [
+      1,
+      "Marinol (dronabinol)",
+      1153
+    ],
+    [
+      1,
+      "Mepron",
+      1158
+    ],
+    [
+      1,
+      "Metformin products - AZM",
+      1160
+    ],
+    [
+      1,
+      "Mimrylo (rusfertide)",
+      1165
+    ],
+    [
+      1,
+      "Miplyffa (arimoclomol)",
+      1168
+    ],
+    [
+      1,
+      "Mitapivat Products",
+      1172
+    ],
+    [
+      1,
+      "Molluscum Contagiosum Agents",
+      1177
+    ],
+    [
+      1,
+      "Monoclonal Antibody Agents for Alzheimer's Disease",
+      1182
+    ],
+    [
+      1,
+      "Monurol",
+      1199
+    ],
+    [
+      1,
+      "Mozobil",
+      1201
+    ],
+    [
+      1,
+      "MS Agents - AZM",
+      1203
+    ],
+    [
+      1,
+      "Multaq",
+      1206
+    ],
+    [
+      1,
+      "Myalept",
+      1208
+    ],
+    [
+      1,
+      "Myfembree (relugolix, estradiol, and norethindrone acetate), Oriahnn (elagolix, estradiol, and norethindrone acetate capsules; elagolix capsules)",
+      1211
+    ],
+    [
+      1,
+      "Myqorzo (aficamten)",
+      1215
+    ],
+    [
+      1,
+      "Mytesi",
+      1218
+    ],
+    [
+      1,
+      "Nadolol",
+      1220
+    ],
+    [
+      1,
+      "Namzaric (memantine/donepezil)",
+      1222
+    ],
+    [
+      1,
+      "Natpara",
+      1224
+    ],
+    [
+      1,
+      "Nemluvio (nemolizumab-ilto)",
+      1227
+    ],
+    [
+      1,
+      "Nereus (tradipitant)",
+      1234
+    ],
+    [
+      1,
+      "Nexiclon XR (clonidine ER)",
+      1236
+    ],
+    [
+      1,
+      "Nexletol (bempedoic acid) and Nexlizet (bempedoic acid-ezetimibe)",
+      1238
+    ],
+    [
+      1,
+      "Niktimvo (axatilimab-csfr)",
+      1243
+    ],
+    [
+      1,
+      "Nitisinone Products",
+      1245
+    ],
+    [
+      1,
+      "Nocdurna",
+      1249
+    ],
+    [
+      1,
+      "Non-hormonal Therapies for Vasomotor Symptoms",
+      1252
+    ],
+    [
+      1,
+      "Non-Preferred Drugs - AZM",
+      1254
+    ],
+    [
+      1,
+      "Non-Solid Oral Dosage Forms",
+      1258
+    ],
+    [
+      1,
+      "Northera",
+      1262
+    ],
+    [
+      1,
+      "Nourianz",
+      1265
+    ],
+    [
+      1,
+      "Nucala (mepolizumab)",
+      1267
+    ],
+    [
+      1,
+      "Nuedexta (dextromethorphan HBr/quinidine)",
+      1282
+    ],
+    [
+      1,
+      "Nuplazid",
+      1284
+    ],
+    [
+      1,
+      "Nuzyra",
+      1286
+    ],
+    [
+      1,
+      "OAB - Overactive Bladder Agents - AZM",
+      1291
+    ],
+    [
+      1,
+      "Ocaliva",
+      1293
+    ],
+    [
+      1,
+      "Octreotide Products - AZM",
+      1296
+    ],
+    [
+      1,
+      "Ohtuvayre (ensifentrine)",
+      1302
+    ],
+    [
+      1,
+      "Ojjaara (momelotinib)",
+      1307
+    ],
+    [
+      1,
+      "Olumiant (baricitinib)",
+      1309
+    ],
+    [
+      1,
+      "Omisirge (omidubicel-onlv)",
+      1313
+    ],
+    [
+      1,
+      "Omvoh (mirikizumab-mrkz)",
+      1316
+    ],
+    [
+      1,
+      "Opfolda (miglustat)",
+      1322
+    ],
+    [
+      1,
+      "Opzelura (ruxolitinib)",
+      1325
+    ],
+    [
+      1,
+      "Oral Oncology Agents",
+      1331
+    ],
+    [
+      1,
+      "Orencia (abatacept)",
+      1334
+    ],
+    [
+      1,
+      "Orilissa",
+      1339
+    ],
+    [
+      1,
+      "Orkambi - AZM",
+      1343
+    ],
+    [
+      1,
+      "Orlynvah (sulopenem etzadroxil and probenecid)",
+      1346
+    ],
+    [
+      1,
+      "Osphena - Arizona",
+      1348
+    ],
+    [
+      1,
+      "Otarmeni (lunsotogene parvec-cwha)",
+      1350
+    ],
+    [
+      1,
+      "Otezla (apremilast)",
+      1353
+    ],
+    [
+      1,
+      "Oxervate (cenegermin-bkbj)",
+      1359
+    ],
+    [
+      1,
+      "Palforzia [Peanut (Arachis hypogaea)]",
+      1361
+    ],
+    [
+      1,
+      "Palsonify (paltusotine)",
+      1365
+    ],
+    [
+      1,
+      "Palynziq (pegvaliase-pqpz)",
+      1367
+    ],
+    [
+      1,
+      "Panretin",
+      1370
+    ],
+    [
+      1,
+      "Papzimeos (zopapogene imadenovec-drba)",
+      1373
+    ],
+    [
+      1,
+      "Pasatru (garetosmab-grts)",
+      1375
+    ],
+    [
+      1,
+      "Pediculicides - AZM",
+      1378
+    ],
+    [
+      1,
+      "Pedmark (sodium thiosulfate injection, solution)",
+      1380
+    ],
+    [
+      1,
+      "Piasky (crovalimab)",
+      1382
+    ],
+    [
+      1,
+      "Pivya (pivmecillinam)",
+      1385
+    ],
+    [
+      1,
+      "Pombiliti (cipaglucosidase alfa-atga)",
+      1387
+    ],
+    [
+      1,
+      "Pradaxa Pellet Packs",
+      1390
+    ],
+    [
+      1,
+      "Praluent (alirocumab)",
+      1392
+    ],
+    [
+      1,
+      "Preferred Drugs - AZM",
+      1407
+    ],
+    [
+      1,
+      "Presbyopia Agents",
+      1409
+    ],
+    [
+      1,
+      "Pretomanid",
+      1412
+    ],
+    [
+      1,
+      "Prevymis (letermovir)",
+      1414
+    ],
+    [
+      1,
+      "Primary Hyperoxaluria (PH1) Agents [Oxlumo (lumasiran), Rivfloza (nedosiran)]",
+      1417
+    ],
+    [
+      1,
+      "Procysbi",
+      1422
+    ],
+    [
+      1,
+      "Progesterone - Non-Oral",
+      1424
+    ],
+    [
+      1,
+      "Proton Pump Inhibitors (PPIs)",
+      1426
+    ],
+    [
+      1,
+      "Provigil, Nuvigil",
+      1428
+    ],
+    [
+      1,
+      "Pulmonary Arterial Hypertension (PAH) Agents",
+      1435
+    ],
+    [
+      1,
+      "Pulmozyme",
+      1441
+    ],
+    [
+      1,
+      "Qalsody (tofersen)",
+      1443
+    ],
+    [
+      1,
+      "Qutenza (capsaicin)",
+      1446
+    ],
+    [
+      1,
+      "Radicava (edaravone)",
+      1449
+    ],
+    [
+      1,
+      "Ranolazine products",
+      1452
+    ],
+    [
+      1,
+      "Rayos",
+      1455
+    ],
+    [
+      1,
+      "Reblozyl (luspatercept-aamt)",
+      1458
+    ],
+    [
+      1,
+      "Recorlev (levoketoconazole)",
+      1463
+    ],
+    [
+      1,
+      "Rectiv",
+      1466
+    ],
+    [
+      1,
+      "Redemplo (plozasiran)",
+      1468
+    ],
+    [
+      1,
+      "Regranex",
+      1472
+    ],
+    [
+      1,
+      "Repatha (evolocumab)",
+      1474
+    ],
+    [
+      1,
+      "Respiratory Syncytial Virus (RSV) Vaccines",
+      1489
+    ],
+    [
+      1,
+      "Retinal Vascular Disease Agents",
+      1492
+    ],
+    [
+      1,
+      "Revcovi - AZ",
+      1498
+    ],
+    [
+      1,
+      "Reyvow - Arizona",
+      1501
+    ],
+    [
+      1,
+      "Rezdiffra (resmetirom)",
+      1505
+    ],
+    [
+      1,
+      "Rezurock (belumosudil)",
+      1509
+    ],
+    [
+      1,
+      "Rezzayo (rezafungin)",
+      1512
+    ],
+    [
+      1,
+      "Rhapsido (remibrutinib)",
+      1514
+    ],
+    [
+      1,
+      "Rhofade (oxymetazoline) cream",
+      1518
+    ],
+    [
+      1,
+      "Rinvoq (upadacitinib)",
+      1520
+    ],
+    [
+      1,
+      "Rituximab",
+      1540
+    ],
+    [
+      1,
+      "Ryaltris (olopatadine-mometasone) nasal spray",
+      1548
+    ],
+    [
+      1,
+      "Ryoncil (remestemcel-l-rknd)",
+      1550
+    ],
+    [
+      1,
+      "Rystiggo (rozanolixizumab)",
+      1554
+    ],
+    [
+      1,
+      "Rytelo (imetelstat)",
+      1558
+    ],
+    [
+      1,
+      "Samsca",
+      1561
+    ],
+    [
+      1,
+      "Saphnelo (anifrolumab-fnia)",
+      1563
+    ],
+    [
+      1,
+      "Sapropterin products",
+      1565
+    ],
+    [
+      1,
+      "Sedative Hypnotics - AZM",
+      1567
+    ],
+    [
+      1,
+      "Sephience (sepiapterin)",
+      1571
+    ],
+    [
+      1,
+      "Serevent Diskus - Arizona",
+      1574
+    ],
+    [
+      1,
+      "SGLT-2 Inhibitors - AZM",
+      1577
+    ],
+    [
+      1,
+      "Shingrix (zoster vaccine recombinant, adjuvanted)",
+      1584
+    ],
+    [
+      1,
+      "Short-Acting Opioid Products - AZM",
+      1586
+    ],
+    [
+      1,
+      "Signifor",
+      1600
+    ],
+    [
+      1,
+      "Simponi, Simponi Aria (golimumab)",
+      1602
+    ],
+    [
+      1,
+      "Sivextro (tedizolid)",
+      1611
+    ],
+    [
+      1,
+      "Skyclarys (omaveloxolone)",
+      1616
+    ],
+    [
+      1,
+      "Skyrizi (risankizumab-rzaa)",
+      1618
+    ],
+    [
+      1,
+      "Skysona (elivaldogene autotemcel suspension)",
+      1629
+    ],
+    [
+      1,
+      "Sodium Oxybate Products (Lumryz, Xyrem, Xywav)",
+      1632
+    ],
+    [
+      1,
+      "Sofdra (sofpironium)",
+      1639
+    ],
+    [
+      1,
+      "Sohonos (palovarotene)",
+      1642
+    ],
+    [
+      1,
+      "Somatuline Depot (lanreotide)",
+      1645
+    ],
+    [
+      1,
+      "Somavert",
+      1650
+    ],
+    [
+      1,
+      "Soriatane",
+      1653
+    ],
+    [
+      1,
+      "Sotyktu (deucravacitinib)",
+      1656
+    ],
+    [
+      1,
+      "Spevigo (spesolimab-sbzo)",
+      1662
+    ],
+    [
+      1,
+      "Spinraza - AZM",
+      1666
+    ],
+    [
+      1,
+      "Spravato, ketamine - AZM",
+      1674
+    ],
+    [
+      1,
+      "Strensiq",
+      1683
+    ],
+    [
+      1,
+      "Sublingual Immunotherapy (SLIT)",
+      1688
+    ],
+    [
+      1,
+      "Sublocade, Brixadi - AZM",
+      1696
+    ],
+    [
+      1,
+      "Suboxone - AZM",
+      1700
+    ],
+    [
+      1,
+      "Sucraid",
+      1704
+    ],
+    [
+      1,
+      "Sunlenca (lenacapavir sodium)",
+      1707
+    ],
+    [
+      1,
+      "Sunosi (solriamfetol)",
+      1709
+    ],
+    [
+      1,
+      "Sutent",
+      1714
+    ],
+    [
+      1,
+      "Syfovre (pegcetacoplan)",
+      1722
+    ],
+    [
+      1,
+      "Symdeko",
+      1724
+    ],
+    [
+      1,
+      "Symlin",
+      1727
+    ],
+    [
+      1,
+      "Synagis",
+      1729
+    ],
+    [
+      1,
+      "Systane, Refresh, Gonak, Genteal, Tears Naturale",
+      1743
+    ],
+    [
+      1,
+      "Talicia and rifabutin",
+      1745
+    ],
+    [
+      1,
+      "Taltz (ixekizumab)",
+      1751
+    ],
+    [
+      1,
+      "Tarceva",
+      1757
+    ],
+    [
+      1,
+      "Targretin",
+      1764
+    ],
+    [
+      1,
+      "Tarpeyo (budesonide)",
+      1767
+    ],
+    [
+      1,
+      "Tasigna",
+      1770
+    ],
+    [
+      1,
+      "Tegsedi",
+      1775
+    ],
+    [
+      1,
+      "Tepezza (teprotumumab-trbw)",
+      1779
+    ],
+    [
+      1,
+      "Test Strips",
+      1781
+    ],
+    [
+      1,
+      "Testosterone - AZM",
+      1785
+    ],
+    [
+      1,
+      "Tezspire (tezepelumab-ekko)",
+      1792
+    ],
+    [
+      1,
+      "Thalomid",
+      1799
+    ],
+    [
+      1,
+      "Thrombopoiesis Stimulating Agents",
+      1808
+    ],
+    [
+      1,
+      "Tobramycin Inhalation - ARIZONA",
+      1815
+    ],
+    [
+      1,
+      "Tocilizumab",
+      1818
+    ],
+    [
+      1,
+      "Topical Capsaicin Products",
+      1825
+    ],
+    [
+      1,
+      "Topical NSAIDs",
+      1827
+    ],
+    [
+      1,
+      "Trastuzumab Products",
+      1832
+    ],
+    [
+      1,
+      "Tremfya (guselkumab)",
+      1834
+    ],
+    [
+      1,
+      "Tretinoin Capsules - ARIZONA",
+      1846
+    ],
+    [
+      1,
+      "Tretinoin Topical",
+      1849
+    ],
+    [
+      1,
+      "Trikafta (elexacaftor/tezacaftor/ivacaftor)",
+      1851
+    ],
+    [
+      1,
+      "Triptans - AZM",
+      1854
+    ],
+    [
+      1,
+      "Trutakna (atacicept-vymj)",
+      1865
+    ],
+    [
+      1,
+      "Tryngolza (olezarsen sodium)",
+      1868
+    ],
+    [
+      1,
+      "Tryvio (aprocitentan)",
+      1877
+    ],
+    [
+      1,
+      "Twyneo (tretinoin-benzoyl peroxide 0.1-3% cream)",
+      1881
+    ],
+    [
+      1,
+      "Tysabri (natalizumab)",
+      1883
+    ],
+    [
+      1,
+      "Tzield (teplizumab - mzwv)",
+      1887
+    ],
+    [
+      1,
+      "Uloric",
+      1892
+    ],
+    [
+      1,
+      "Ultomiris (ravulizumab-cwvz)",
+      1894
+    ],
+    [
+      1,
+      "Uplizna (inebilizumab-cdon)",
+      1900
+    ],
+    [
+      1,
+      "Urea Cycle Disorder Agents",
+      1906
+    ],
+    [
+      1,
+      "Ustekinumab",
+      1910
+    ],
+    [
+      1,
+      "Vafseo (vadadustat)",
+      1917
+    ],
+    [
+      1,
+      "Valchlor",
+      1921
+    ],
+    [
+      1,
+      "Valsartan oral solution",
+      1924
+    ],
+    [
+      1,
+      "Vanrafia (atrasentan)",
+      1926
+    ],
+    [
+      1,
+      "Vecamyl",
+      1929
+    ],
+    [
+      1,
+      "Velphoro (sucroferric oxyhydroxide), Auryxia (ferric citrate)",
+      1931
+    ],
+    [
+      1,
+      "Velsipity (etrasimod)",
+      1933
+    ],
+    [
+      1,
+      "Veltassa",
+      1936
+    ],
+    [
+      1,
+      "Vemlidy",
+      1939
+    ],
+    [
+      1,
+      "Veopoz (pozelimab)",
+      1942
+    ],
+    [
+      1,
+      "Verkazia (cyclosporine ophthalmic emulsion 0.1%)",
+      1945
+    ],
+    [
+      1,
+      "Vijoice (alpelisib)",
+      1948
+    ],
+    [
+      1,
+      "Viltepso (viltolarsen)",
+      1951
+    ],
+    [
+      1,
+      "Vitamin B-12",
+      1954
+    ],
+    [
+      1,
+      "Vitamin C",
+      1956
+    ],
+    [
+      1,
+      "Vitamin D",
+      1958
+    ],
+    [
+      1,
+      "Vivjoa (oteseconazole)",
+      1960
+    ],
+    [
+      1,
+      "Vonjo (pacritinib)",
+      1963
+    ],
+    [
+      1,
+      "Vonoprazan Containing Agents",
+      1966
+    ],
+    [
+      1,
+      "Voxzogo (vosoritide)",
+      1971
+    ],
+    [
+      1,
+      "Voydeya (danicopan)",
+      1975
+    ],
+    [
+      1,
+      "Voyxact (sibeprenlimab-szsi)",
+      1978
+    ],
+    [
+      1,
+      "Vtama (tapinarof)",
+      1981
+    ],
+    [
+      1,
+      "Vyjuvek (beremagene geperpavec-svdt)",
+      1986
+    ],
+    [
+      1,
+      "Vykat XR (diazoxide choline)",
+      1989
+    ],
+    [
+      1,
+      "Vyndaqel and Vyndamax",
+      1992
+    ],
+    [
+      1,
+      "Vyondys 53 (golodirsen)",
+      1997
+    ],
+    [
+      1,
+      "Vyvgart (efgartigimod alfa-fcab)",
+      2000
+    ],
+    [
+      1,
+      "Wainua (eplontersen)",
+      2006
+    ],
+    [
+      1,
+      "Wakix (pitolisant)",
+      2009
+    ],
+    [
+      1,
+      "Wegovy (semaglutide)",
+      2013
+    ],
+    [
+      1,
+      "Xalkori",
+      2020
+    ],
+    [
+      1,
+      "Xdemvy (lotilaner)",
+      2025
+    ],
+    [
+      1,
+      "Xeljanz, Xeljanz XR (tofacitinib)",
+      2027
+    ],
+    [
+      1,
+      "Xenazine (tetrabenazine)",
+      2035
+    ],
+    [
+      1,
+      "Xenleta",
+      2040
+    ],
+    [
+      1,
+      "Xenpozyme (olipudase alfa)",
+      2043
+    ],
+    [
+      1,
+      "Xeomin (incobotulinumtoxinA)",
+      2046
+    ],
+    [
+      1,
+      "Xermelo",
+      2051
+    ],
+    [
+      1,
+      "Xgeva and Denosumab 120mg products",
+      2053
+    ],
+    [
+      1,
+      "Xhance (fluticasone nasal spray)",
+      2055
+    ],
+    [
+      1,
+      "Xocova (ensitrelvir)",
+      2057
+    ],
+    [
+      1,
+      "Xolair and Omalizumab products",
+      2059
+    ],
+    [
+      1,
+      "Xolremdi (mavorixafor)",
+      2073
+    ],
+    [
+      1,
+      "Xopenex Respules",
+      2076
+    ],
+    [
+      1,
+      "Xphozah (tenapanor)",
+      2078
+    ],
+    [
+      1,
+      "Xromi (hydroxyurea)",
+      2081
+    ],
+    [
+      1,
+      "Xtoro (finafloxacin) otic suspension",
+      2084
+    ],
+    [
+      1,
+      "Xuriden",
+      2086
+    ],
+    [
+      1,
+      "Yartemlea (narsoplimab-wuug)",
+      2088
+    ],
+    [
+      1,
+      "Yeztugo (lenacapavir)",
+      2091
+    ],
+    [
+      1,
+      "Yorvipath (palopegteriparatide)",
+      2094
+    ],
+    [
+      1,
+      "Yuviwel (navepegritide)",
+      2096
+    ],
+    [
+      1,
+      "Zeposia (ozanimod)",
+      2100
+    ],
+    [
+      1,
+      "Zevaskyn (prademagene zamikeracel)",
+      2104
+    ],
+    [
+      1,
+      "Zilbrysq (zilucoplan injection)",
+      2106
+    ],
+    [
+      1,
+      "Zimhi (naloxone)",
+      2110
+    ],
+    [
+      1,
+      "Zinplava (bezlotoxumab)",
+      2112
+    ],
+    [
+      1,
+      "Zolgensma (onasemnogene abeparvovec-xioi), Itvisma (onasemnogene abeparvovec-brve)",
+      2114
+    ],
+    [
+      1,
+      "Zontivity",
+      2120
+    ],
+    [
+      1,
+      "Zortress - ARIZONA",
+      2122
+    ],
+    [
+      1,
+      "Zoryve (roflumilast)",
+      2124
+    ],
+    [
+      1,
+      "Ztalmy (ganaxolone)",
+      2131
+    ],
+    [
+      1,
+      "Zunveyl (benzgalantamine)",
+      2134
+    ],
+    [
+      1,
+      "Zurzuvae (zuranolone)",
+      2136
+    ],
+    [
+      1,
+      "Zycubo (copper histidinate)",
+      2138
+    ],
+    [
+      1,
+      "Zynteglo (betibeglogene autotemcel)",
+      2141
+    ],
+    [
+      1,
+      "Zyvox (linezolid)",
+      2145
+    ]
+  ],
+  "headerStarts": [
+    18,
+    20,
+    23,
+    27,
+    29,
+    32,
+    46,
+    49,
+    57,
+    62,
+    64,
+    66,
+    69,
+    73,
+    75,
+    77,
+    80,
+    84,
+    86,
+    89,
+    92,
+    95,
+    100,
+    103,
+    107,
+    124,
+    131,
+    135,
+    137,
+    140,
+    158,
+    161,
+    166,
+    169,
+    174,
+    176,
+    180,
+    184,
+    187,
+    192,
+    195,
+    198,
+    213,
+    215,
+    220,
+    224,
+    232,
+    236,
+    238,
+    242,
+    244,
+    253,
+    257,
+    260,
+    262,
+    264,
+    268,
+    270,
+    273,
+    277,
+    280,
+    285,
+    288,
+    293,
+    295,
+    298,
+    302,
+    308,
+    310,
+    330,
+    334,
+    337,
+    339,
+    344,
+    354,
+    356,
+    362,
+    370,
+    373,
+    384,
+    392,
+    403,
+    407,
+    410,
+    419,
+    423,
+    432,
+    435,
+    438,
+    440,
+    442,
+    446,
+    449,
+    452,
+    454,
+    457,
+    460,
+    462,
+    464,
+    467,
+    471,
+    473,
+    477,
+    482,
+    502,
+    504,
+    508,
+    513,
+    515,
+    526,
+    528,
+    530,
+    532,
+    536,
+    539,
+    541,
+    545,
+    547,
+    555,
+    557,
+    559,
+    563,
+    565,
+    572,
+    575,
+    577,
+    579,
+    581,
+    583,
+    586,
+    594,
+    602,
+    604,
+    606,
+    622,
+    627,
+    633,
+    638,
+    641,
+    644,
+    649,
+    652,
+    662,
+    666,
+    670,
+    672,
+    678,
+    682,
+    684,
+    686,
+    693,
+    696,
+    700,
+    702,
+    706,
+    709,
+    714,
+    718,
+    724,
+    726,
+    740,
+    742,
+    773,
+    775,
+    777,
+    781,
+    803,
+    813,
+    816,
+    821,
+    828,
+    843,
+    846,
+    848,
+    850,
+    854,
+    856,
+    864,
+    868,
+    871,
+    877,
+    884,
+    949,
+    952,
+    964,
+    968,
+    970,
+    972,
+    976,
+    978,
+    981,
+    985,
+    988,
+    993,
+    996,
+    998,
+    1001,
+    1004,
+    1007,
+    1011,
+    1013,
+    1017,
+    1020,
+    1022,
+    1028,
+    1030,
+    1036,
+    1038,
+    1044,
+    1047,
+    1050,
+    1053,
+    1056,
+    1058,
+    1060,
+    1063,
+    1066,
+    1074,
+    1078,
+    1080,
+    1083,
+    1085,
+    1089,
+    1092,
+    1096,
+    1099,
+    1102,
+    1106,
+    1126,
+    1129,
+    1131,
+    1133,
+    1137,
+    1140,
+    1143,
+    1149,
+    1151,
+    1153,
+    1158,
+    1160,
+    1165,
+    1168,
+    1172,
+    1177,
+    1182,
+    1199,
+    1201,
+    1203,
+    1206,
+    1208,
+    1211,
+    1215,
+    1218,
+    1220,
+    1222,
+    1224,
+    1227,
+    1234,
+    1236,
+    1238,
+    1243,
+    1245,
+    1249,
+    1252,
+    1254,
+    1258,
+    1262,
+    1265,
+    1267,
+    1282,
+    1284,
+    1286,
+    1291,
+    1293,
+    1296,
+    1302,
+    1307,
+    1309,
+    1313,
+    1316,
+    1322,
+    1325,
+    1331,
+    1334,
+    1339,
+    1343,
+    1346,
+    1348,
+    1350,
+    1353,
+    1359,
+    1361,
+    1365,
+    1367,
+    1370,
+    1373,
+    1375,
+    1378,
+    1380,
+    1382,
+    1385,
+    1387,
+    1390,
+    1392,
+    1407,
+    1409,
+    1412,
+    1414,
+    1417,
+    1422,
+    1424,
+    1426,
+    1428,
+    1435,
+    1441,
+    1443,
+    1446,
+    1449,
+    1452,
+    1455,
+    1458,
+    1463,
+    1466,
+    1468,
+    1472,
+    1474,
+    1489,
+    1492,
+    1498,
+    1501,
+    1505,
+    1509,
+    1512,
+    1514,
+    1518,
+    1520,
+    1540,
+    1548,
+    1550,
+    1554,
+    1558,
+    1561,
+    1563,
+    1565,
+    1567,
+    1571,
+    1574,
+    1577,
+    1584,
+    1586,
+    1600,
+    1602,
+    1611,
+    1616,
+    1618,
+    1629,
+    1632,
+    1639,
+    1642,
+    1645,
+    1650,
+    1653,
+    1656,
+    1662,
+    1666,
+    1674,
+    1683,
+    1688,
+    1696,
+    1700,
+    1704,
+    1707,
+    1709,
+    1714,
+    1722,
+    1724,
+    1727,
+    1729,
+    1743,
+    1745,
+    1751,
+    1757,
+    1764,
+    1767,
+    1770,
+    1775,
+    1779,
+    1781,
+    1785,
+    1792,
+    1799,
+    1808,
+    1815,
+    1818,
+    1825,
+    1827,
+    1832,
+    1834,
+    1846,
+    1849,
+    1851,
+    1854,
+    1865,
+    1868,
+    1877,
+    1881,
+    1883,
+    1887,
+    1892,
+    1894,
+    1900,
+    1906,
+    1910,
+    1917,
+    1921,
+    1924,
+    1926,
+    1929,
+    1931,
+    1933,
+    1936,
+    1939,
+    1942,
+    1945,
+    1948,
+    1951,
+    1954,
+    1956,
+    1958,
+    1960,
+    1963,
+    1966,
+    1971,
+    1975,
+    1978,
+    1981,
+    1986,
+    1989,
+    1992,
+    1997,
+    2000,
+    2006,
+    2009,
+    2013,
+    2020,
+    2025,
+    2027,
+    2035,
+    2040,
+    2043,
+    2046,
+    2051,
+    2053,
+    2055,
+    2057,
+    2059,
+    2073,
+    2076,
+    2078,
+    2081,
+    2084,
+    2086,
+    2088,
+    2091,
+    2094,
+    2096,
+    2100,
+    2104,
+    2106,
+    2110,
+    2112,
+    2114,
+    2120,
+    2122,
+    2124,
+    2131,
+    2134,
+    2136,
+    2138,
+    2141,
+    2145
+  ],
+  "holds": [],
+  "missingIndividualEffective": []
+}
