@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Search source-linked AHCCCS medication coverage and prior authorization information by plan, medication, category, and subcategory.">
+  <title>Medication Coverage Search</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#results">Skip to results</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-mark" aria-hidden="true">Rx</div>
+      <div>
+        <p class="eyebrow">Clinical reference</p>
+        <h1>Medication Coverage Search</h1>
+        <p class="header-subtitle">AHCCCS and Medicare formulary evidence, linked to official sources</p>
+      </div>
+      <div class="as-of"><span>Data reviewed</span><strong id="asOf">Loading…</strong></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="search-panel" aria-labelledby="searchTitle">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Search coverage</p>
+          <h2 id="searchTitle">Find medication and policy records</h2>
+        </div>
+        <button type="button" class="text-button" id="clearFilters">Clear filters</button>
+      </div>
+
+      <div class="filter-grid">
+        <div class="field field-wide">
+          <label for="medicationInput">Medication name</label>
+          <div class="combobox" data-combobox="medication">
+            <input id="medicationInput" autocomplete="off" placeholder="Generic or brand name" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="medicationOptions">
+            <button class="combobox-toggle" type="button" data-combo-toggle="medication" aria-label="Show medication options" aria-controls="medicationOptions"><span aria-hidden="true">⌄</span></button>
+            <div id="medicationOptions" class="combobox-options" role="listbox" hidden></div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="planInput">Insurance plan</label>
+          <div class="combobox" data-combobox="plan">
+            <input id="planInput" autocomplete="off" placeholder="Type or select a plan" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="planOptions">
+            <button class="combobox-toggle" type="button" data-combo-toggle="plan" aria-label="Show insurance plan options" aria-controls="planOptions"><span aria-hidden="true">⌄</span></button>
+            <div id="planOptions" class="combobox-options" role="listbox" hidden></div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="categoryInput">Category</label>
+          <div class="combobox" data-combobox="category">
+            <input id="categoryInput" autocomplete="off" placeholder="e.g. Diabetes" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="categoryOptions">
+            <button class="combobox-toggle" type="button" data-combo-toggle="category" aria-label="Show category options" aria-controls="categoryOptions"><span aria-hidden="true">⌄</span></button>
+            <div id="categoryOptions" class="combobox-options" role="listbox" hidden></div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="subcategoryInput">Subcategory</label>
+          <div class="combobox" data-combobox="subcategory">
+            <input id="subcategoryInput" autocomplete="off" placeholder="e.g. Calcium channel blockers" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="subcategoryOptions">
+            <button class="combobox-toggle" type="button" data-combo-toggle="subcategory" aria-label="Show subcategory options" aria-controls="subcategoryOptions"><span aria-hidden="true">⌄</span></button>
+            <div id="subcategoryOptions" class="combobox-options" role="listbox" hidden></div>
+          </div>
+        </div>
+        <label>
+          <span>Coverage status</span>
+          <select id="coverageInput">
+            <option value="">All statuses</option>
+            <option value="listed">On formulary / drug list</option>
+            <option value="preferred">Preferred</option>
+            <option value="non_preferred">Nonpreferred</option>
+            <option value="pa_required">Prior authorization required</option>
+            <option value="policy_only">Policy criteria only</option>
+            <option value="policy_index">Policy source indexed</option>
+            <option value="explicit_not_covered">Explicitly not covered</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="quick-categories" aria-label="Quick category filters">
+        <span>Quick categories</span>
+        <button type="button" data-category="Diabetes">Diabetes</button>
+        <button type="button" data-category="Hypertension / Cardiovascular">Hypertension / cardiovascular</button>
+        <button type="button" data-category="Respiratory / Allergy">Respiratory / allergy</button>
+        <button type="button" data-category="Anticoagulation">Anticoagulation</button>
+      </div>
+    </section>
+
+    <details class="plan-context">
+      <summary>Plan information and sources</summary>
+      <section id="planStatus" class="plan-status" aria-live="polite"></section>
+      <section id="planEvidence" class="evidence-panel" hidden aria-labelledby="evidenceTitle">
+        <h2 id="evidenceTitle">Available plan evidence</h2>
+        <div id="evidenceList"></div>
+      </section>
+    </details>
+
+    <section id="results" class="results-section" aria-labelledby="resultsTitle">
+      <div class="results-heading">
+        <div>
+          <p class="eyebrow">Results</p>
+          <h2 id="resultsTitle"><span id="resultCount">0</span> matching records</h2>
+        </div>
+        <p id="effectiveDate" class="effective-date"></p>
+      </div>
+      <div id="loadingState" class="state-card">Loading coverage records…</div>
+      <div id="emptyState" class="state-card" hidden>
+        <strong>No matching records found.</strong>
+        <span>Try clearing one or more filters. Absence from these results does not prove noncoverage.</span>
+      </div>
+      <div id="resultGrid" class="result-grid"></div>
+      <button type="button" id="showMore" class="show-more" hidden>Show 50 more</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Source-linked clinical reference. Plan benefits, formularies, and utilization-management rules can change.</p>
+  </footer>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>

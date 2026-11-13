@@ -1,7 +1,11 @@
 # Medication Coverage Search
 
-Source-linked AHCCCS formulary and prior authorization reference for Tucson/Pima County, Arizona.
+Private static clinical-reference site built from the source-linked AHCCCS importer database.
 
-Existing app: https://medication-coverage-pa.dbpower.chatgpt.site
+## Refresh the data
 
-Migration in progress. Commercial plans are archived separately and excluded from active searches.
+```bash
+python tools/export_data.py
+```
+
+The interface intentionally separates the loaded statewide reference from partial managed-care evidence and unloaded Medicare plans. Absence from results is never presented as proof of noncoverage.
