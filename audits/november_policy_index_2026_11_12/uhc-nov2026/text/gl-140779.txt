@@ -1,0 +1,102 @@
+--- PDF page 1504 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1504 
+Serevent Diskus 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-140779  
+Guideline Name 
+Serevent Diskus  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+3/19/2023  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Serevent Diskus  
+Diagnosis 
+Asthma  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of asthma  
+ 
+AND 
+
+
+--- PDF page 1505 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1505 
+ 
+2 - Patient is 4 years of age or older  
+ 
+AND 
+ 
+3 - Patient is also receiving treatment with an inhaled corticosteroid  
+ 
+Product Name:Serevent Diskus  
+Diagnosis 
+Exercise-Induced Bronchospasm  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of exercise-induced bronchospasm (EIB)  
+ 
+AND 
+ 
+2 - Being used for prevention  
+ 
+AND 
+ 
+3 - Patient is 4 years of age or older  
+ 
+Product Name:Serevent Diskus  
+Diagnosis 
+Bronchospasm associated with chronic obstructive pulmonary disease 
+(COPD)  
+Approval Length 
+12 month(s)  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+
+
+--- PDF page 1506 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1506 
+ 
+1 - Diagnosis of bronchospasm associated with chronic obstructive pulmonary disease 
+(COPD)  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+2/9/2023  
+Removed TD criteria section.  
+ 
