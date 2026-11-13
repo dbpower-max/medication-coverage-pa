@@ -1,0 +1,118 @@
+--- PDF page 441 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 441 
+Daybue (trofinetide) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-510404  
+Guideline Name 
+Daybue (trofinetide)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+3/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Daybue, Daybue Stix  
+Approval Length 
+3 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of Rett syndrome  
+ 
+AND 
+
+
+--- PDF page 442 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 442 
+ 
+2 - ONE of the following:  
+ 
+ 2.1 Submission of medical records (e.g., chart notes) confirming presence of ALL of the 
+following clinical signs and symptoms:  
+ 
+  2.1.1 A pattern of development, regression, then recovery or stabilization  
+ 
+AND 
+ 
+  2.1.2 Partial or complete loss of purposeful hand skills, such as grasping with fingers, 
+reaching for things, or touching things on purpose  
+ 
+AND 
+ 
+  2.1.3 Partial or complete loss of spoken language  
+ 
+AND 
+ 
+  2.1.4 Repetitive hand movements, such as wringing the hands, washing, squeezing, 
+clapping, or rubbing  
+ 
+AND 
+ 
+  2.1.5 Gait abnormalities, including walking on toes or with an unsteady, wide-based, stiff-
+legged gait  
+ 
+OR 
+ 
+ 2.2 Submission of medical records (e.g., chart notes) documenting molecular genetic testing 
+confirms mutations in the MECP2 gene  
+ 
+AND 
+ 
+3 - Patient is 2 years of age or older  
+
+
+--- PDF page 443 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 443 
+ 
+AND 
+ 
+4 - Prescribed by or in consultation with ONE of the following:  
+• 
+Geneticist  
+• 
+Neurologist  
+ 
+Product Name:Daybue, Daybue Stix  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting positive clinical response 
+to therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+2/5/2026  
+Added Daybue Stix products as targets. Updated product name lists 
+and GPI tables accordingly. No changes to clinical criteria.  
+ 
