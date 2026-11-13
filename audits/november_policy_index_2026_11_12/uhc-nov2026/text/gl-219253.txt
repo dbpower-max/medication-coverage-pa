@@ -1,0 +1,129 @@
+--- PDF page 1293 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1293 
+Orgovyx 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-219253  
+Guideline Name 
+Orgovyx  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+• 
+Medicaid - Community & State Colorado  
+• 
+Medicaid - Community & State Hawaii  
+• 
+Medicaid - Community & State Maryland  
+• 
+Medicaid - Community & State New Jersey  
+• 
+Medicaid - Community & State New Mexico  
+• 
+Medicaid - Community & State New York EPP  
+• 
+Medicaid - Community & State New York  
+• 
+Medicaid - Community & State Pennsylvania CHIP  
+• 
+Medicaid - Community & State Rhode Island  
+• 
+Medicaid - Community & State Virginia  
+• 
+Medicaid - Community & State Washington  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+5/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Orgovyx  
+Diagnosis 
+Prostate Cancer  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+
+
+--- PDF page 1294 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1294 
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of advanced prostate cancer  
+ 
+Product Name:Orgovyx  
+Diagnosis 
+Prostate Cancer  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient does not show evidence of progressive disease while on Orgovyx therapy  
+ 
+Product Name:Orgovyx  
+Diagnosis 
+NCCN Recommended Regimens  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Use is supported by The National Comprehensive Cancer Network (NCCN) Drugs and 
+Biologics Compendium  
+ 
+Product Name:Orgovyx  
+Diagnosis 
+NCCN Recommended Regimens  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+
+
+--- PDF page 1295 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1295 
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to Orgovyx therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+3/14/2025  
+Combined formularies. Updated initial auth criteria section for prostat
+e cancer and minor update in reauth section for prostate cancer.  
+ 

@@ -1,0 +1,125 @@
+--- PDF page 1122 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1122 
+Miplyffa (arimoclomol) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-254203  
+Guideline Name 
+Miplyffa (arimoclomol)  
+Formulary 
+• 
+Medicaid - Community & State Arizona  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+6/1/2025  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Miplyffa  
+Approval Length 
+6 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Submission of medical records (e.g., chart notes) documenting a diagnosis of Niemann-
+Pick disease type C (NPC)  
+
+
+--- PDF page 1123 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1123 
+ 
+AND 
+ 
+2 - Submission of medical records (e.g., chart notes) confirming diagnosis by ONE of the 
+following:  
+ 
+ 2.1 Genetically confirmed (deoxyribonucleic acid [DNA] sequence analysis) by mutations in 
+both alleles of NPC1 or NPC2  
+ 
+OR 
+ 
+ 2.2 Mutation in only one allele of NPC1 or NPC2 plus either positive filipin staining or 
+elevated cholestane triol/oxysterols (>2 x upper limit of normal)  
+ 
+AND 
+ 
+3 - Patient has at least one neurological symptom of the disease (e.g., hearing loss, vertical 
+supranuclear gaze palsy, ataxia, dementia, dystonia, seizures, dysarthria, or dysphagia)  
+ 
+AND 
+ 
+4 - Patient is 2 years of age or older  
+ 
+AND 
+ 
+5 - Requested drug will be used in combination with miglustat  
+ 
+AND 
+ 
+6 - Requested drug will NOT be used in combination with Aqneursa (levacetylleucine)*  
+ 
+AND 
+ 
+7 - Prescribed by or in consultation with a specialist knowledgeable in the treatment of 
+Niemann-Pick disease type C  
+
+
+--- PDF page 1124 ---
+UnitedHealthcare Community Plan of Arizona – Clinical Pharmacy Guidelines 
+Page 1124 
+Notes  
+*The use of both Miplyffa and Aqneursa concomitantly is not covered 
+due to lack of evidence to support the use of both products at the sam
+e time and the lack of a Miplyffa and Aqneursa head-to-head study. 
+ 
+Product Name:Miplyffa  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Patient demonstrates positive clinical response to therapy (e.g., slowing of disease 
+progression, improvement in neurological symptoms of the disease)  
+ 
+AND 
+ 
+2 - Requested drug will be used in combination with miglustat  
+ 
+AND 
+ 
+3 - Requested drug will NOT be used in combination with Aqneursa (levacetylleucine)*  
+Notes  
+*The use of both Miplyffa and Aqneursa concomitantly is not covered 
+due to lack of evidence to support the use of both products at the sam
+e time and the lack of a Miplyffa and Aqneursa head-to-head study. 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+5/8/2025  
+Added note regarding concomitant use with Aqneursa, no change to 
+clinical criteria.  
+ 
