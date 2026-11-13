@@ -1,0 +1,166 @@
+--- PDF page 1906 ---
+Page 1906 
+Urea Cycle Disorder Agents 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-450243  
+Guideline Name 
+Urea Cycle Disorder Agents  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+1/1/2026  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Buphenyl, generic sodium phenylbutyrate, Pheburane  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Both of the following:  
+ 
+ 1.1 Diagnosis of urea cycle disorder (UCD)  
+
+
+--- PDF page 1907 ---
+Page 1907 
+ 
+AND 
+ 
+ 1.2 One of the following deficiencies:  
+• 
+carbamylphosphate synthetase (CPS)  
+• 
+ornithine transcarbamylase (OTC)  
+• 
+argininosuccinic acid synthetase (AS)  
+ 
+AND 
+ 
+2 - Molecular genetic testing confirms mutations in the CPS1, OTC, or ASS1 gene [2]  
+ 
+AND 
+ 
+3 - Trial and failure, or intolerance to generic sodium phenylbutyrate (applies to Brand 
+Buphenyl and Pheburane only)  
+ 
+AND 
+ 
+4 - Used as an adjunct with dietary protein restriction and, in some cases, dietary 
+supplements (e.g., essential amino acids, arginine, citrulline, protein-free calorie supplements) 
+ 
+AND 
+ 
+5 - Prescribed by or in consultation with a specialist focused on the treatment of metabolic 
+disorders  
+ 
+Product Name:Olpruva, Brand Ravicti, generic glycerol phenylbutyrate  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+
+
+--- PDF page 1908 ---
+Page 1908 
+Approval Criteria    
+ 
+1 - Both of the following:  
+ 
+ 1.1 Diagnosis of urea cycle disorder (UCD)  
+ 
+AND 
+ 
+ 1.2 One of the following deficiencies:  
+• 
+carbamylphosphate synthetase (CPS)  
+• 
+ornithine transcarbamylase (OTC)  
+• 
+argininosuccinic acid synthetase (AS)  
+ 
+AND 
+ 
+2 - Molecular genetic testing confirms mutations in the CPS1, OTC, or ASS1 gene  
+ 
+AND 
+ 
+3 - Inadequate response to one of the following:  
+• 
+Dietary protein restriction  
+• 
+Amino acid supplementation  
+ 
+AND 
+ 
+4 - Trial and failure, contraindication, or intolerance to generic sodium phenylbutyrate  
+ 
+AND 
+ 
+5 - For generic glycerol phenylbutyrate requests, history of failure or intolerance to Brand 
+Ravicti  
+ 
+AND 
+
+
+--- PDF page 1909 ---
+Page 1909 
+ 
+6 - Used as an adjunct with dietary protein restriction and, in some cases, dietary 
+supplements (e.g., essential amino acids, arginine, citrulline, protein-free calorie supplements) 
+ 
+AND 
+ 
+7 - Prescribed by or in consultation with a specialist focused on the treatment of metabolic 
+disorders  
+ 
+Product Name:Brand Buphenyl, generic sodium phenylbutyrate, Olpruva, Pheburane, Brand 
+Ravicti, generic glycerol phenylbutyrate  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to therapy (e.g., plasma ammonia and amino 
+acid levels within normal limits)  
+ 
+AND 
+ 
+2 - Used as an adjunct with dietary protein restriction and, in some cases, dietary 
+supplements (e.g., essential amino acids, arginine, citrulline, protein-free calorie supplements) 
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+12/17/2025  
+Added generic Ravicti  
+ 
