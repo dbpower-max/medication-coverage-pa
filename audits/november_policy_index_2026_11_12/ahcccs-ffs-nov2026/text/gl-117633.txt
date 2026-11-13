@@ -1,0 +1,73 @@
+--- PDF page 440 ---
+Page 440 
+Daliresp (roflumilast) 
+ 
+  
+  
+Prior Authorization Guideline 
+ 
+  
+Guideline ID 
+GL-117633  
+Guideline Name 
+Daliresp (roflumilast)  
+Formulary 
+• 
+Medicaid - Arizona (AZM, AZMREF, AZMDDD)  
+ 
+ 
+Guideline Note: 
+Effective Date: 
+1/1/2023  
+ 
+ 
+ 
+ 
+1 .  Criteria 
+ 
+Product Name:Brand Daliresp, generic roflumilast  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Initial Authorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Diagnosis of severe to very severe chronic obstructive pulmonary disease (COPD) (i.e., 
+FEV1 less than or equal to 50% of predicted)  
+
+
+--- PDF page 441 ---
+Page 441 
+ 
+AND 
+ 
+2 - COPD is associated with chronic bronchitis  
+ 
+AND 
+ 
+3 - History of COPD exacerbation(s)  
+ 
+Product Name:Brand Daliresp, generic roflumilast  
+Approval Length 
+12 month(s)  
+Therapy Stage 
+Reauthorization  
+Guideline Type 
+Prior Authorization  
+ 
+ 
+Approval Criteria    
+ 
+1 - Documentation of positive clinical response to Daliresp therapy  
+ 
+2 .  Revision History  
+ 
+Date  
+Notes  
+12/4/2022  
+Added generic roflumilast as target  
+ 
