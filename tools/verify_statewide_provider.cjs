@@ -50,7 +50,7 @@ assert(!mock.matches({name:'DRUG TABLET 5 MG',brands:['BRAND']},{name:'DRUG TABL
 // Clinical source guidance must be actionable, limited to the verified product,
 // and linked to the exact November source sections.
 const guidance=data.statewideClinicalGuidance;
-assert(guidance.length===4,'Expected four source-verified clinical guidelines after Trulicity batch');
+assert(guidance.length===5,'Expected five source-verified drug guidance records after Victoza batch');
 function guideByCode(code){return guidance.find(g=>g.policyCode===code);}
 const sg=guideByCode('GL-589207'), ins=guideByCode('GL-154074');
 assert(sg&&ins,'Missing Jardiance or concentrated insulin guideline');
@@ -69,6 +69,12 @@ assert(truli.matchBrands.length===1&&truli.matchBrands[0]==='TRULICITY','Trulici
 assert(truli.pathways.length===1&&truli.pathways[0].all.length===7,'Trulicity must inherit all seven source criteria');
 assert(JSON.stringify(truli.pathways)===JSON.stringify(moun.pathways),'Same source GLP-1 branch has different Trulicity clinical requirements');
 assert(truli.sourcePage===718&&truli.sourceLastPage===719,'Trulicity source page incorrect');
+
+const vict=guidance.find(g=>g.id==='gl-749236-victoza');
+assert(vict&&vict.policyCode==='GL-749236'&&vict.matchBrands.length===1&&vict.matchBrands[0]==='VICTOZA','Victoza source or brand identity wrong');
+assert(JSON.stringify(vict.pathways)===JSON.stringify(moun.pathways),'Victoza clinical criteria differ from shared source branch');
+assert(vict.sourcePage===718&&vict.sourceLastPage===719,'Victoza page reference incorrect');
+
 assert(sg.pathways.length===3&&ins.pathways.length===2,'Wrong clinical qualification branch count');
 assert(sg.pathways.some(p=>p.all.some(r=>r.includes('1,500 mg daily for 90 days'))),'Metformin trial dose/duration not shown');
 assert(sg.pathways.some(p=>/heart failure OR adult CKD/i.test(p.title)
@@ -103,6 +109,14 @@ ui.groupO={name:'SEMAGLUTIDE',brands:['OZEMPIC']};
 const guideT=vm.runInContext('clinicalGuidanceFor(groupT)',ui);
 assert(guideT&&guideT.id==='gl-749236-trulicity','Trulicity criteria did not attach to exact brand');
 assert(vm.runInContext('clinicalGuidanceFor(groupO)',ui)===null,'Trulicity preferred-branch guidance incorrectly applied to Ozempic');
+ui.groupV={name:'LIRAGLUTIDE INJECTION',brands:['VICTOZA']};
+ui.groupL={name:'LIRAGLUTIDE INJECTION',brands:['SAXENDA']};
+const guidelineV=vm.runInContext('clinicalGuidanceFor(groupV)',ui);
+assert(guidelineV&&guidelineV.id==='gl-749236-victoza','Victoza did not map to its confirmed clinical criteria');
+assert(vm.runInContext('clinicalGuidanceFor(groupL)',ui)===null,'Incorrectly applied Victoza T2DM criteria to Saxenda');
+const htmlV=vm.runInContext('clinicalGuidanceContent(clinicalGuidanceFor(groupV))',ui);
+assert(/A1c ≥6.5%/.test(htmlV)&&/90 days/.test(htmlV)&&/paid claims/.test(htmlV),'Victoza clinical and metformin verification missing');
+
 const htmlT=vm.runInContext('clinicalGuidanceContent(clinicalGuidanceFor(groupT))',ui);
 assert(/A1c ≥6.5%/.test(htmlT)&&/paid claims/.test(htmlT)&&/DPP-4/.test(htmlT)&&/12 months/.test(htmlT),'Trulicity full source requirements not rendered');
 assert(/A1c ≥6.5%/.test(htmlM)&&/90 days/.test(htmlM)&&/DPP-4/.test(htmlM),'Clinical Mounjaro requirements not rendered');
