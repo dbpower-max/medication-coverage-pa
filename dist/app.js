@@ -792,8 +792,10 @@
 
   function clinicalGuidanceFor(group) {
     const brands = new Set(group.brands.map(normalize));
+    const generic = normalize(group.name);
     return (state.data.statewideClinicalGuidance || []).find(guide =>
-      guide.matchBrands.some(brand => brands.has(normalize(brand)))
+      (guide.matchBrands || []).some(brand => brands.has(normalize(brand)))
+      || (guide.matchNames || []).some(name => generic === normalize(name))
     ) || null;
   }
 
@@ -855,7 +857,7 @@
         </div>
         <div class="chips" aria-label="Statewide coverage attributes">${statusChips(statewide)}</div>
         ${criteriaLibraryShortcut(group)}
-        ${needsPa || hasStep ? `<details class="record-detail result-disclosure" ${guidance ? 'open' : ''}>
+        ${needsPa || hasStep || guidance ? `<details class="record-detail result-disclosure" ${guidance ? 'open' : ''}>
           <summary>${guidance ? escapeHtml(guidance.heading) : (needsPa ? 'PA requirements — details not yet structured' : 'Step-therapy requirements — details not yet structured')}</summary>
           <div class="result-disclosure-body">
             ${guidance ? clinicalGuidanceContent(guidance) : `
