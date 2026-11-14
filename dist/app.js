@@ -337,6 +337,7 @@
       commercial_guide_import: 'Formulary guide imported · match exact pharmacy plan',
       reference_guide_import: 'PDL reference imported · benefit coverage unverified',
       verified_published_source: 'Current published sources verified',
+      baseline_plus_updates: 'JSON baseline + subsequent updates',
       mandated_minimum_incomplete: 'Verified mandated minimum · additional plan data needed',
       policy_sources_indexed: 'Plan policy sources indexed',
       selected_records_loaded: 'Selected exact-plan records loaded',
@@ -390,7 +391,7 @@
     if (record.pa === 'required') chips.push(['PA required', 'warning']);
     else if (record.pa === 'conditional') chips.push(['Conditional PA', 'warning']);
     if (record.step === 'specified') chips.push(['Step therapy', 'warning']);
-    if (record.qlAmount || record.qlDays) chips.push(['Quantity limit', 'warning']);
+    if (record.quantityLimited || record.qlAmount || record.qlDays) chips.push(['Quantity limit', 'warning']);
     if (record.ageLimited) chips.push(['Age limit', 'warning']);
     if (record.specialty) chips.push(['Specialty', 'warning']);
     if (record.diagnosisRequired) chips.push(['Diagnosis required', 'warning']);
@@ -418,6 +419,9 @@
 
   function recordDetails(record) {
     const details = [];
+    if (record.baselineSource) details.push(`<p><strong>Baseline source:</strong> JSON row ${Number(record.sourceRow)} · RxNorm ${escapeHtml(record.rxnormId)} · declared plan year ${escapeHtml(record.baselineSource.declaredPlanYears.join(', '))}</p>`);
+    if (record.sourceUpdates?.length) details.push('<p><strong>Later source updates (applied in date order):</strong></p>' + record.sourceUpdates.map((item) => `<p><a href="${escapeHtml(sourceHref(item))}" target="_blank" rel="noopener">${escapeHtml(item.name)} · ${escapeHtml(item.sourceEffective)}</a>${item.paText ? ' · ' + escapeHtml(item.paText) : ''}</p>`).join(''));
+    if (record.quantityLimited && !record.qlAmount && !record.qlDays) details.push('<p><strong>Quantity limit:</strong> Required by the JSON source; amount and interval are not supplied.</p>');
     if (hasVerifiedMandatedCoverage(record)) details.push('<p><strong>Coverage source:</strong> AHCCCS-mandated minimum</p>');
     if (record.policyEffective) details.push(`<p><strong>Policy effective:</strong> ${escapeHtml(record.policyEffective)} · source document snapshot ${escapeHtml(record.sourceEffective)}</p>`);
     if (record.individualEffectiveMissing) details.push('<p><strong>Policy effective date:</strong> not stated in this source section. The document snapshot date is shown separately.</p>');

@@ -3,6 +3,8 @@ import gzip
 import hashlib
 import json
 import shutil
+import subprocess
+import sys
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
 
@@ -10,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "dist"
 OUT = ROOT / "_site"
 ALLOWED = {"az-complete-health", "banner-ufc", "uhc-community-az"}
+subprocess.run([sys.executable, str(ROOT / 'tools/import_ach_baseline.py')], check=True)
 data = json.loads(gzip.decompress((SRC / "data.json.gz").read_bytes()))
 assert ALLOWED <= {p["id"] for p in data["plans"]}
 for key, identity in (("plans", "id"), ("medications", "planId"), ("policies", "planId"), ("planEvidence", "planId")):
