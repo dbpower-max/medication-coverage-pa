@@ -400,6 +400,262 @@
         "History of failure, intolerance, or contraindication to Soliqua",
         "Reauthorization"
       ]
+    },
+    {
+      "id": "gl-547232-vitamin-d",
+      "policyCode": "GL-547232",
+      "product": "Vitamin D",
+      "matchNames": [
+        "VITAMIN D"
+      ],
+      "heading": "Vitamin D initial and renewal clinical qualifications",
+      "sourcePage": 1958,
+      "sourceLastPage": 1959,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "The AHCCCS guideline requires laboratory documentation of Vitamin D deficiency for initial authorization and documentation of improvement for renewal. The criteria are indication-specific.",
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "all": [
+            "Submit medical records (e.g., chart notes) including laboratory values documenting Vitamin D deficiency."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "all": [
+            "Submit medical records (e.g., chart notes) including laboratory values documenting improvement in Vitamin D deficiency (e.g., levels within normal range)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide the relevant Vitamin D laboratory result and chart documentation supporting deficiency for initial review; provide follow-up laboratory values demonstrating improvement for renewal."
+      ],
+      "guidelineCaution": "These criteria are taken from the named vitamin policy. The policy index alone does not establish that every vitamin product/formulation requires PA.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-547232.txt",
+      "sourceChecks": [
+        "Product Name:Vitamin D",
+        "Vitamin D deficiency",
+        "improvement in Vitamin D deficiency"
+      ]
+    },
+    {
+      "id": "gl-550187-vitamin-b12",
+      "policyCode": "GL-550187",
+      "product": "Vitamin B-12",
+      "matchNames": [
+        "VITAMIN B-12"
+      ],
+      "heading": "Vitamin B-12 initial and renewal clinical qualifications",
+      "sourcePage": 1954,
+      "sourceLastPage": 1955,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "The AHCCCS guideline requires laboratory documentation of Vitamin B-12 deficiency for initial authorization and documentation of improvement for renewal. The criteria are indication-specific.",
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "all": [
+            "Submit medical records (e.g., chart notes) including laboratory values documenting Vitamin B-12 deficiency."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "all": [
+            "Submit medical records (e.g., chart notes) including laboratory values documenting improvement in Vitamin B-12 deficiency (e.g., levels within normal range)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide the relevant Vitamin B-12 laboratory result and chart documentation supporting deficiency for initial review; provide follow-up laboratory values demonstrating improvement for renewal."
+      ],
+      "guidelineCaution": "These criteria are taken from the named vitamin policy. The policy index alone does not establish that every vitamin product/formulation requires PA.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-550187.txt",
+      "sourceChecks": [
+        "Product Name:Vitamin B-12",
+        "Vitamin B-12 deficiency",
+        "improvement in Vitamin B-12 deficiency"
+      ]
+    },
+    {
+      "id": "gl-547233-vitamin-c",
+      "policyCode": "GL-547233",
+      "product": "Vitamin C",
+      "matchNames": [
+        "VITAMIN C"
+      ],
+      "heading": "Vitamin C initial and renewal clinical qualifications",
+      "sourcePage": 1956,
+      "sourceLastPage": 1957,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "The AHCCCS guideline requires laboratory documentation of Vitamin C deficiency for initial authorization and documentation of improvement for renewal. The criteria are indication-specific.",
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "all": [
+            "Submit medical records (e.g., chart notes) including laboratory values documenting Vitamin C deficiency."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "all": [
+            "Submit medical records (e.g., chart notes) including laboratory values documenting improvement in Vitamin C deficiency (e.g., levels within normal range)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide the relevant Vitamin C laboratory result and chart documentation supporting deficiency for initial review; provide follow-up laboratory values demonstrating improvement for renewal."
+      ],
+      "guidelineCaution": "These criteria are taken from the named vitamin policy. The policy index alone does not establish that every vitamin product/formulation requires PA.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-547233.txt",
+      "sourceChecks": [
+        "Product Name:Vitamin C",
+        "Vitamin C deficiency",
+        "improvement in Vitamin C deficiency"
+      ]
+    },
+    {
+      "id": "gl-547234-calcium-vitamin-d",
+      "policyCode": "GL-547234",
+      "product": "Calcium/Vitamin D combination",
+      "matchNames": [
+        "CALCIUM/VITAMIN D"
+      ],
+      "heading": "Calcium/Vitamin D combination initial and renewal clinical qualifications",
+      "sourcePage": 293,
+      "sourceLastPage": 294,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "The AHCCCS guideline requires laboratory documentation of Vitamin D deficiency for initial authorization and documentation of improvement for renewal. The criteria are indication-specific.",
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "all": [
+            "Submit medical records (e.g., chart notes) including laboratory values documenting Vitamin D deficiency."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "all": [
+            "Submit medical records (e.g., chart notes) including laboratory values documenting improvement in Vitamin D deficiency (e.g., levels within normal range)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide the relevant Vitamin D laboratory result and chart documentation supporting deficiency for initial review; provide follow-up laboratory values demonstrating improvement for renewal."
+      ],
+      "guidelineCaution": "The source specifically states calcium carbonate and calcium lactate are covered without PA. Do not apply this combination-product criterion to those standalone calcium salts.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-547234.txt",
+      "sourceChecks": [
+        "Product Name:Calcium/Vitamin D",
+        "Vitamin D deficiency",
+        "Calcium carbonate and calcium lactate are covered without the need for prior authorization"
+      ]
+    },
+    {
+      "id": "gl-589212-arnuity",
+      "policyCode": "GL-589212",
+      "product": "Arnuity Ellipta",
+      "matchBrands": [
+        "ARNUITY ELLIPTA"
+      ],
+      "heading": "Arnuity Ellipta source clinical qualifications",
+      "sourcePage": 968,
+      "sourceLastPage": 969,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "The AHCCCS inhaled corticosteroid guideline lists this product among the preferred inhaled agents. Its shared baseline criterion is asthma diagnosis; additional prior-agent requirements are designated for nonpreferred requests only.",
+      "pathways": [
+        {
+          "title": "Preferred inhaled corticosteroid",
+          "all": [
+            "Diagnosis of asthma."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document the asthma diagnosis and requested inhaled corticosteroid product."
+      ],
+      "guidelineCaution": "This policy section explicitly limits additional preferred-inhaler trials to NONPREFERRED requests, with separate exceptions for certain generic formulations. Its existence does not independently establish PA when the statewide drug-list field does not indicate PA.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-589212.txt",
+      "sourceChecks": [
+        "Preferred: Brand Arnuity Ellipta, Asmanex HFA/Twisthaler, Qvar Redihaler",
+        "Diagnosis of asthma",
+        "For Non-Preferred requests only"
+      ]
+    },
+    {
+      "id": "gl-589212-asmanex",
+      "policyCode": "GL-589212",
+      "product": "Asmanex HFA/Twisthaler",
+      "matchBrands": [
+        "ASMANEX HFA",
+        "ASMANEX TWISTHALER"
+      ],
+      "heading": "Asmanex HFA/Twisthaler source clinical qualifications",
+      "sourcePage": 968,
+      "sourceLastPage": 969,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "The AHCCCS inhaled corticosteroid guideline lists this product among the preferred inhaled agents. Its shared baseline criterion is asthma diagnosis; additional prior-agent requirements are designated for nonpreferred requests only.",
+      "pathways": [
+        {
+          "title": "Preferred inhaled corticosteroid",
+          "all": [
+            "Diagnosis of asthma."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document the asthma diagnosis and requested inhaled corticosteroid product."
+      ],
+      "guidelineCaution": "This policy section explicitly limits additional preferred-inhaler trials to NONPREFERRED requests, with separate exceptions for certain generic formulations. Its existence does not independently establish PA when the statewide drug-list field does not indicate PA.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-589212.txt",
+      "sourceChecks": [
+        "Preferred: Brand Arnuity Ellipta, Asmanex HFA/Twisthaler, Qvar Redihaler",
+        "Diagnosis of asthma",
+        "For Non-Preferred requests only"
+      ]
+    },
+    {
+      "id": "gl-589212-qvar",
+      "policyCode": "GL-589212",
+      "product": "Qvar RediHaler",
+      "matchBrands": [
+        "QVAR REDIHALER"
+      ],
+      "heading": "Qvar RediHaler source clinical qualifications",
+      "sourcePage": 968,
+      "sourceLastPage": 969,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "The AHCCCS inhaled corticosteroid guideline lists this product among the preferred inhaled agents. Its shared baseline criterion is asthma diagnosis; additional prior-agent requirements are designated for nonpreferred requests only.",
+      "pathways": [
+        {
+          "title": "Preferred inhaled corticosteroid",
+          "all": [
+            "Diagnosis of asthma."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document the asthma diagnosis and requested inhaled corticosteroid product."
+      ],
+      "guidelineCaution": "This policy section explicitly limits additional preferred-inhaler trials to NONPREFERRED requests, with separate exceptions for certain generic formulations. Its existence does not independently establish PA when the statewide drug-list field does not indicate PA.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-589212.txt",
+      "sourceChecks": [
+        "Preferred: Brand Arnuity Ellipta, Asmanex HFA/Twisthaler, Qvar Redihaler",
+        "Diagnosis of asthma",
+        "For Non-Preferred requests only"
+      ]
     }
   ]
 }
