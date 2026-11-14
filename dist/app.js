@@ -82,13 +82,19 @@
   }
 
   function uniqueMedicationNames() {
-    const names = new Set();
-    recordsForPlan().forEach((r) => {
-      if (r.name) names.add(r.name);
-      if (r.brand && normalize(r.brand) !== 'various') names.add(r.brand);
-      for (const alias of r.searchAliases || []) names.add(alias);
-    });
-    return [...names].sort((a, b) => a.localeCompare(b));
+    const names = new Map();
+    // Suggestions contain formulary drug identities only. Policy titles and
+    // source aliases remain available in result details and policy searches.
+    const addName = (name) => {
+      const key = normalize(name || '');
+      if (key && key !== 'various' && !names.has(key)) names.set(key, name.trim());
+    };
+    state.data.medications.filter((record) => record.planId === state.planId)
+      .forEach((record) => {
+        addName(record.name);
+        addName(record.brand);
+      });
+    return [...names.values()].sort((a, b) => a.localeCompare(b));
   }
 
   function categoryOptions() {
