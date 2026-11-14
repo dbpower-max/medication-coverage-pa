@@ -17,4 +17,5 @@ jobs:
       - run: python tools/verify_shared_policy_pilot.py
       - run: node tools/verify_medication_grouping.cjs
       - run: node tools/verify_statewide_provider.cjs
+      - run: node tools/audit_live_clinical_guide_links.cjs
       - run: node tools/verify_statewide_library.cjs
