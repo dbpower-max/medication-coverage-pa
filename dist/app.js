@@ -261,7 +261,14 @@
   }
 
   function uniqueMedicationNames() {
-    return planMedicationGroups().map(group => group.label).sort((a, b) => a.localeCompare(b));
+    const groups = planMedicationGroups();
+    const linked = new Set(groups.map(clinicalGuidanceFor).filter(Boolean).map(guide => guide.id));
+    const unlinkedNames = (state.data.statewideClinicalGuidance || [])
+      .filter(guide => !linked.has(guide.id))
+      .map(guide => (guide.matchBrands || [])[0] || (guide.matchNames || [])[0] || guide.product)
+      .filter(Boolean);
+    return [...new Set([...groups.map(group => group.label), ...unlinkedNames])]
+      .sort((a, b) => a.localeCompare(b));
   }
 
   function categoryOptions() {
@@ -817,6 +824,27 @@
     }) || null;
   }
 
+  // A clinical guideline may name a drug absent from this plan's visible
+  // formulary products. Keep its source accessible, but never infer coverage.
+  function clinicalPolicyOnlyGroups(query, visibleGroups) {
+    const terms = normalize(query).split(/\s+/).filter(Boolean);
+    if (!terms.length) return [];
+    const linked = new Set(visibleGroups.map(clinicalGuidanceFor)
+      .filter(Boolean).map(guide => guide.id));
+    return (state.data.statewideClinicalGuidance || [])
+      .filter(guide => !linked.has(guide.id))
+      .filter(guide => {
+        const names = [...(guide.matchBrands || []), ...(guide.matchNames || []), guide.product || ''];
+        return names.some(name => terms.every(term => normalize(name).includes(term)));
+      })
+      .map(guide => ({
+        key: 'clinical-policy-only:' + guide.id,
+        label: readableMedicationName((guide.matchBrands || [])[0] || (guide.matchNames || [])[0] || guide.product),
+        name: guide.product, brands: guide.matchBrands || [],
+        records: [], policyOnly: true, guide
+      }));
+  }
+
   function clinicalRequirementItem(requirement) {
     if (typeof requirement === 'string') return `<li>${escapeHtml(requirement)}</li>`;
     if (requirement && Array.isArray(requirement.any)) {
@@ -858,6 +886,17 @@
   }
 
   function medicationGroupCard(group) {
+    if (group.policyOnly) return `<article class="result-card policy">
+      <div>
+        <h3>${escapeHtml(group.label)}</h3>
+        <p class="brand"><strong>Clinical criteria only — coverage not established</strong></p>
+        <p>The AHCCCS clinical criteria document names this medication. No matching drug-list or formulary product card is established in this selected view. Do not infer coverage, PA status, or eligibility.</p>
+      </div>
+      <details class="record-detail result-disclosure" open>
+        <summary>${escapeHtml(group.guide.heading)}</summary>
+        <div class="result-disclosure-body">${clinicalGuidanceContent(group.guide)}</div>
+      </details>
+    </article>`;
     if (group.isStatewide) {
       const statewide = group.statewideRecord;
       const planRows = group.records.filter(record => !record.isStatewideReference);
@@ -961,7 +1000,10 @@
       ...(r.approvalGuideIds || []), ...(r.paPolicyAssignments || []).map(p => p.branchId),
       ...(r.policySources || []).map(p => p.policyId).filter(Boolean)
     ])));
-    const records = [...groups, ...matchingRecords.filter(r => r.recordType !== 'formulary' && !linkedPolicies.has(r.id))];
+    const additionalGuides = (!state.coverage || state.coverage === 'policy_only' || state.coverage === 'policy_index')
+      && !state.category && !state.subcategory
+      ? clinicalPolicyOnlyGroups(state.term, groups) : [];
+    const records = [...groups, ...additionalGuides, ...matchingRecords.filter(r => r.recordType !== 'formulary' && !linkedPolicies.has(r.id))];
     planStatus();
     el.loadingState.hidden = true;
     el.resultCount.textContent = records.length.toLocaleString();
