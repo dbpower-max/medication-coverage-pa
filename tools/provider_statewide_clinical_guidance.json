@@ -157,6 +157,42 @@
       "guidelineCaution": "The guideline's preferred-products branch applies to Trulicity for type 2 diabetes, not to other products merely because they contain a GLP-1 receptor agonist. Weight-loss/appetite-suppression requests are excluded under this guideline. The guideline's preference heading is not a replacement for the drug-list classification.",
       "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
       "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-749236.txt"
+    },
+    {
+      "id": "gl-749236-victoza",
+      "policyCode": "GL-749236",
+      "product": "Victoza (liraglutide)",
+      "matchBrands": [
+        "VICTOZA"
+      ],
+      "heading": "Victoza prior authorization clinical qualifications",
+      "sourcePage": 718,
+      "sourceLastPage": 719,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "The November 2026 AHCCCS GLP-1 guideline includes brand Victoza in the same preferred-product type 2 diabetes qualification branch as Mounjaro and Trulicity. All the criteria apply.",
+      "pathways": [
+        {
+          "title": "Type 2 diabetes — all requirements",
+          "all": [
+            "Diagnosis of type 2 diabetes mellitus documented in submitted medical records.",
+            "Baseline hemoglobin A1c ≥6.5%; the laboratory report MUST be submitted.",
+            "Either: paid claims verifying metformin failure at ≥1,500 mg/day for 90 days; OR documented metformin contraindication or intolerance.",
+            "Patient is at least 10 years old.",
+            "Medication is not being used for weight loss.",
+            "Provider attests no concurrent DPP-4 inhibitor-containing drug, OR provides a plan to address concomitant use.",
+            "Medication is not being co-administered with another GLP-1 receptor agonist."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Submit a baseline A1c laboratory report showing ≥6.5%, plus chart records confirming type 2 diabetes.",
+        "For metformin treatment failure, verify ≥1,500 mg/day for 90 days through paid pharmacy claims (the guideline explicitly requires paid-claim verification); otherwise document contraindication or intolerance.",
+        "Document the intended indication and review concurrent DPP-4 inhibitor and GLP-1 receptor agonist use."
+      ],
+      "guidelineCaution": "Victoza is named in the preferred-product clinical criteria branch. This does not extend the same criteria to every liraglutide presentation, another drug, or another indication; retain exact product and current drug-list status.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-749236.txt"
     }
   ]
 }
