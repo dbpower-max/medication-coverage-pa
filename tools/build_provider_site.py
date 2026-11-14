@@ -30,6 +30,31 @@ assert len(statewide_pa) >= 400, "November AHCCCS PA criteria index not found"
 assert all(r["sourceEffective"] == "2026-11-01" for r in statewide_drugs)
 data["statewideDrugList"] = statewide_drugs
 data["statewidePaCriteria"] = statewide_pa
+# Only release clinically meaningful rules individually checked against the
+# November AHCCCS full-text guideline. The other indexed sections remain links,
+# not machine-inferred clinical approval requirements.
+clinical_guidance = json.loads((ROOT / "tools/provider_statewide_clinical_guidance.json").read_text())
+assert clinical_guidance["sourceEffective"] == "2026-11-01"
+indexed_by_code = {p["policyCode"]: p for p in statewide_pa}
+assert len(clinical_guidance["guides"]) == 2
+for guide in clinical_guidance["guides"]:
+    policy = indexed_by_code.get(guide["policyCode"])
+    assert policy, "No current AHCCCS index section for " + guide["policyCode"]
+    assert policy["sourceEffective"] == clinical_guidance["sourceEffective"]
+    assert policy["sourcePage"] <= guide["sourcePage"] <= guide["sourceLastPage"] <= policy["sourceLastPage"]
+    assert policy["sourceTextUrl"] == guide["sourceTextUrl"]
+    raw = " ".join((SRC / guide["sourceTextUrl"].lstrip("/")).read_text().split()).lower()
+    assert guide["policyCode"].lower() in raw
+    assert "12 month(s)" in raw
+    if guide["policyCode"] == "GL-589207":
+        assert "product name:jardiance" in raw
+        assert "1500mg daily for 90 days" in raw
+        assert "heart failure" in raw and "chronic kidney disease" in raw
+    if guide["policyCode"] == "GL-154074":
+        assert "humulin r u-500 vial and kwikpen" in raw
+        assert "insulin aspart or insulin lispro" in raw and "lantus" in raw
+        assert "special circumstance" in raw
+data["statewideClinicalGuidance"] = clinical_guidance["guides"]
 data["statewideSourceInfo"] = {
     "drugListEffective": "2026-11-01",
     "paCriteriaEffective": "2026-11-01",
@@ -111,3 +136,4 @@ assert {p["id"] for p in data["plans"]} == ALLOWED
 print("Three-plan provider site built; linked local assets verified:", len(seen))
 print("Plan medication records:", len(data["medications"]), "Plan policy records:", len(data["policies"]))
 print("Shared AHCCCS statewide drug entries:", len(data["statewideDrugList"]), "FFS PA criteria sections:", len(data["statewidePaCriteria"]))
+print("Source-checked clinical guidance sections:", len(data["statewideClinicalGuidance"]))
