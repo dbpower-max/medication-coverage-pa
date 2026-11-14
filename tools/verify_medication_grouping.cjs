@@ -33,6 +33,38 @@ if(groups([{name:'doxylamine succinate 25 mg Oral Tablet [Wal-Som (doxylamine)]'
 if(groups([{name:'{28 (ivacaftor 150 mg / tezacaftor 100 mg Oral Tablet) / 28 (ivacaftor 150 mg Oral Tablet) } Pack [Symdeko (100 mg / 150 mg; 150 mg)]',brand:'Symdeko (100 mg / 150 mg; 150 mg)'}])[0].label!=='{28 (ivacaftor 150 mg / tezacaftor 100 mg Oral Tablet) / 28 (ivacaftor 150 mg Oral Tablet) } Pack (Symdeko (100 mg / 150 mg; 150 mg))')throw Error('Combination pack brand duplicated');
 
 
+// DailyMed confirms Natroba 0.9% topical suspension and the RxNorm
+// "spinosad 9 mg/mL Medicated Shampoo [Natroba]" label are ONE product.
+// Merge only this explicit identity; never collapse other strengths or brands.
+context.inheritedStatewideRows = () => context.state.data.statewideDrugList;
+function planGroupsFor(supplement, statewide, planId) {
+  context.state.planId=planId;
+  context.state.data.medications=[{id:'supplement',planId,...supplement}];
+  context.state.data.statewideDrugList=[{id:'statewide',planId,isStatewideReference:true,...statewide}];
+  return vm.runInContext('planMedicationGroups()',context);
+}
+const natrobaState={name:'SPINOSAD SUSPENSION',brand:'NATROBA',pa:'required',sourceTitle:'AHCCCS statewide drug list'};
+const natrobaPlan={name:'spinosad 9 mg/ml Medicated Shampoo',brand:'Natroba',pa:'not_required',sourceTitle:'plan-specific formulary'};
+const natrobaCombined=planGroupsFor(natrobaPlan,natrobaState,'natroba-test');
+if(natrobaCombined.length!==1 || !natrobaCombined[0].isStatewide || natrobaCombined[0].records.length!==2)
+  throw Error('Natroba suspension and 9 mg/mL shampoo aliases must be ONE medication card');
+if(!natrobaCombined[0].search.includes('9 mg/ml Medicated Shampoo') || !natrobaCombined[0].label.includes('Natroba'))
+  throw Error('Natroba search alias or brand lost');
+if(natrobaCombined[0].records[0].pa!=='required' || natrobaCombined[0].records[1].pa!=='not_required')
+  throw Error('Source-specific PA statuses overwritten in Natroba merged card');
+if(planGroupsFor({name:'spinosad 9 mg/ml Medicated Shampoo [Natroba]'},natrobaState,'natroba-rxnorm-test').length!==1)
+  throw Error('RxNorm bracketed Natroba alias failed to merge');
+if(planGroupsFor({name:'spinosad 9 mg/ml Medicated Shampoo',brand:'Sklice'},natrobaState,'natroba-other-brand-test').length!==2)
+  throw Error('Different spinosad brand incorrectly merged');
+if(planGroupsFor({name:'spinosad 4 mg/ml Medicated Shampoo',brand:'Natroba'},natrobaState,'natroba-strength-test').length!==2)
+  throw Error('Different Natroba strength incorrectly merged');
+if(planGroupsFor({name:'spinosad 9 mg/ml Oral Solution',brand:'Natroba'},natrobaState,'natroba-route-test').length!==2)
+  throw Error('Different Natroba route incorrectly merged');
+if(planGroupsFor({name:'spinosad 9 mg/ml Medicated Shampoo'},natrobaState,'natroba-unbranded-test').length!==2)
+  throw Error('Unbranded product incorrectly received Natroba brand-only match');
+console.log('PASS: Natroba topical suspension/9 mg/mL shampoo alias forms one card without merging other brands, strengths, or routes');
+
+
 // Audit actual deployed provider-scope records after the site build.
 const zlib = require('zlib');
 function jsonAsset(path) {
