@@ -105,9 +105,14 @@
   // Exact duplicate bracketed brand names are presentation artifacts.
   // Preserve the underlying payer product name, source links and PA records.
   function medicationDisplayLabel(name, brands) {
-    const suffix = name.match(/^(.*?)\s+\[([^\[\]]+)\]\s*$/);
-    const repeatedBrand = suffix && brands.some(brand => normalize(brand) === normalize(suffix[2]));
-    const displayName = repeatedBrand ? suffix[1].trim() : name;
+    let displayName = name;
+    // Remove only exact repeated brand suffixes, whether [Brand] or (Brand).
+    // Leave other bracketed text such as [OTC] or (USP) untouched.
+    for (let i = 0; i < 3; i++) {
+      const suffix = displayName.match(/^(.*?)\s+[\[(]([^\[\]()]+)[\])]\s*$/);
+      if (!suffix || !brands.some(brand => normalize(brand) === normalize(suffix[2]))) break;
+      displayName = suffix[1].trim();
+    }
     return readableMedicationName(displayName) + (brands.length
       ? ` (${brands.map(readableMedicationName).join(' / ')})` : '');
   }
