@@ -1,0 +1,90 @@
+{
+  "sourceEffective": "2026-11-01",
+  "editorialStatus": "Source-transcribed pathways; suggested documentation is not an insurer-provided checklist",
+  "guides": [
+    {
+      "id": "gl-589207-jardiance",
+      "policyCode": "GL-589207",
+      "product": "Jardiance",
+      "matchBrands": [
+        "JARDIANCE"
+      ],
+      "heading": "Step therapy and clinical qualifications",
+      "sourcePage": 1578,
+      "sourceLastPage": 1579,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "The statewide drug list says step through metformin. The detailed guideline supplies indication-specific routes, including heart failure and CKD routes without a metformin trial requirement.",
+      "pathways": [
+        {
+          "title": "Type 2 diabetes",
+          "all": [
+            "Patient is at least 10 years old.",
+            "Diagnosis of type 2 diabetes mellitus.",
+            "History of metformin failure at a minimum 1,500 mg daily for 90 days, OR contraindication, OR intolerance to metformin."
+          ]
+        },
+        {
+          "title": "Adult type 2 diabetes with established cardiovascular disease",
+          "all": [
+            "Medication is requested to reduce cardiovascular death risk in an adult with type 2 diabetes and established cardiovascular disease.",
+            "History of metformin failure at a minimum 1,500 mg daily for 90 days, OR contraindication, OR intolerance to metformin."
+          ]
+        },
+        {
+          "title": "Adult heart failure OR adult CKD at risk of progression",
+          "all": [
+            "Medication is requested to reduce cardiovascular death and hospitalization for heart failure in an adult with heart failure; OR to reduce eGFR decline, end-stage kidney disease, cardiovascular death, and hospitalization in an adult with CKD at risk of progression.",
+            "No metformin trial is specified for this qualifying guideline pathway."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Record the indication and supporting diagnosis.",
+        "For a metformin-dependent pathway, document the dose, dates, duration and response; alternatively document the specific contraindication or intolerance.",
+        "For the heart failure or CKD pathway, document the qualifying condition and clinical rationale."
+      ],
+      "guidelineCaution": "The statewide drug list flags step therapy rather than an explicit general PA requirement. The separate statewide clinical guideline is titled Prior Authorization; the plan determines the actual claim and authorization workflow.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-589207.txt"
+    },
+    {
+      "id": "gl-154074-humulin-u500",
+      "policyCode": "GL-154074",
+      "product": "Humulin R U-500 (vial or KwikPen)",
+      "matchBrands": [
+        "HUMULIN R U-500 KWIKPEN",
+        "HUMULIN R U-500 (CONCENTRATED)",
+        "HUMULIN R U-500"
+      ],
+      "heading": "Prior authorization clinical qualifications",
+      "sourcePage": 976,
+      "sourceLastPage": 977,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "The guideline permits either the specified prior-insulin pathway OR a clinical reason the patient needs concentrated insulin.",
+      "pathways": [
+        {
+          "title": "Prior insulin failure, intolerance or contraindication",
+          "all": [
+            "History of failure, intolerance, or contraindication to insulin aspart OR insulin lispro.",
+            "History of failure, intolerance, or contraindication to Lantus."
+          ]
+        },
+        {
+          "title": "Clinical need for concentrated insulin",
+          "all": [
+            "There is a reason or special circumstance that the patient needs a concentrated insulin product."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "For the prior-insulin pathway, record which rapid-acting insulin and Lantus were tried, treatment outcomes, or the reason each cannot be used.",
+        "For the concentrated-insulin pathway, document the patient-specific reason a concentrated insulin formulation is needed."
+      ],
+      "guidelineCaution": "The guideline does not specify a universal insulin-dose threshold or an additional required laboratory test. Do not infer one.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-154074.txt"
+    }
+  ]
+}
