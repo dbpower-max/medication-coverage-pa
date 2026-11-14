@@ -861,6 +861,67 @@
         "6 month(s)",
         "Patient has a lower extremity diabetic neuropathic ulcer"
       ]
+    },
+    {
+      "id": "gl-103329-rezurock",
+      "policyCode": "GL-103329",
+      "product": "Rezurock (belumosudil)",
+      "matchBrands": [
+        "REZUROCK"
+      ],
+      "heading": "Rezurock PA and BID quantity-limit criteria",
+      "sourcePage": 1509,
+      "sourceLastPage": 1511,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Initial chronic graft-versus-host disease approval requires prior systemic therapy and a qualifying specialist. Renewal requires no evidence of progression. The separate twice-daily quantity-limit pathway is contingent on a CYP3A inducer or proton pump inhibitor.",
+      "stages": [
+        {
+          "title": "Initial authorization — chronic graft-versus-host disease",
+          "all": [
+            "Diagnosis of chronic graft-versus-host disease.",
+            "Trial and failure of two or more lines of systemic therapy.",
+            {
+              "any": [
+                "Prescribed by or in consultation with a hematologist.",
+                "Prescribed by or in consultation with an oncologist.",
+                "Prescribed by or in consultation with a physician experienced in transplant-patient management."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization — chronic graft-versus-host disease",
+          "all": [
+            "Patient does not show evidence of progressive disease while on therapy."
+          ]
+        },
+        {
+          "title": "Twice-daily quantity-limit exception",
+          "all": [
+            {
+              "any": [
+                "Concomitant strong CYP3A inducer.",
+                "Concomitant proton pump inhibitor."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "For initiation, document cGVHD, two prior systemic therapy lines and specialist involvement.",
+        "For renewal, document absence of disease progression.",
+        "For twice-daily use, document the concomitant strong CYP3A inducer or proton pump inhibitor."
+      ],
+      "guidelineCaution": "The twice-daily branch is a separate quantity-limit criterion, not a general requirement for standard once-daily authorization. Individual-plan coverage remains separate.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-103329.txt",
+      "sourceChecks": [
+        "Trial and failure of two or more lines of systemic therapy",
+        "Patient does not show evidence of progressive disease while on therapy",
+        "Strong CYP3A inducer",
+        "Proton pump inhibitor"
+      ]
     }
   ]
 }
