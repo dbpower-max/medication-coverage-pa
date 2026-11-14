@@ -193,6 +193,44 @@
       "guidelineCaution": "Victoza is named in the preferred-product clinical criteria branch. This does not extend the same criteria to every liraglutide presentation, another drug, or another indication; retain exact product and current drug-list status.",
       "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
       "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-749236.txt"
+    },
+    {
+      "id": "gl-589207-farxiga",
+      "policyCode": "GL-589207",
+      "product": "Farxiga (dapagliflozin), branded product",
+      "matchBrands": [
+        "FARXIGA"
+      ],
+      "heading": "Farxiga clinical authorization qualifications",
+      "sourcePage": 1577,
+      "sourceLastPage": 1578,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "The AHCCCS November 2026 SGLT-2 guideline lists two alternative qualification pathways for brand Farxiga. Either indication pathway qualifies under the stated guideline.",
+      "pathways": [
+        {
+          "title": "Type 2 diabetes",
+          "all": [
+            "Patient is at least 10 years old.",
+            "Diagnosis of type 2 diabetes mellitus.",
+            "History of metformin failure at a minimum 1,500 mg/day for 90 days, OR contraindication, OR intolerance to metformin."
+          ]
+        },
+        {
+          "title": "CKD or qualifying heart failure",
+          "all": [
+            "ONE of: chronic kidney disease (CKD); OR heart failure NYHA class II–IV with reduced ejection fraction; OR heart failure NYHA class II–IV with preserved ejection fraction.",
+            "No metformin trial is specified for this CKD/heart-failure qualification pathway."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "For type 2 diabetes, document patient age, diabetes diagnosis, and metformin trial dose/duration/outcome or contraindication/intolerance.",
+        "For CKD or heart failure, document the qualifying diagnosis and, for heart failure, NYHA functional class and ejection-fraction category."
+      ],
+      "guidelineCaution": "This guide applies only to brand Farxiga. Generic dapagliflozin requests have an additional explicit prerequisite: failure, intolerance, or contraindication to brand Farxiga. That extra generic-only rule is not applied to the brand product.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-589207.txt"
     }
   ]
 }
