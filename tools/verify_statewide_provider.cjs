@@ -50,10 +50,19 @@ assert(!mock.matches({name:'DRUG TABLET 5 MG',brands:['BRAND']},{name:'DRUG TABL
 // Clinical source guidance must be actionable, limited to the verified product,
 // and linked to the exact November source sections.
 const guidance=data.statewideClinicalGuidance;
-assert(guidance.length===2,'Expected two source-checked clinical guideline pilots');
+assert(guidance.length===3,'Expected three verified clinical guidelines after Mounjaro batch');
 function guideByCode(code){return guidance.find(g=>g.policyCode===code);}
 const sg=guideByCode('GL-589207'), ins=guideByCode('GL-154074');
 assert(sg&&ins,'Missing Jardiance or concentrated insulin guideline');
+const moun=guideByCode('GL-749236');
+assert(moun&&moun.matchBrands.length===1&&moun.matchBrands[0]==='MOUNJARO','Incorrect Mounjaro identity/scope');
+assert(moun.pathways.length===1&&moun.pathways[0].all.length===7,'Mounjaro must show all seven eligibility conditions');
+assert(moun.pathways[0].all.some(x=>x.includes('A1c ≥6.5%')&&x.includes('MUST')),'Mounjaro A1c lab report missing');
+assert(moun.pathways[0].all.some(x=>x.includes('paid claims')&&x.includes('1,500 mg/day')&&x.includes('90 days')),'Mounjaro metformin verification missing');
+assert(moun.pathways[0].all.some(x=>x.includes('10 years old')),'Mounjaro minimum age missing');
+assert(moun.pathways[0].all.some(x=>x.includes('weight loss')),'Mounjaro indication limitation missing');
+assert(moun.pathways[0].all.some(x=>x.includes('DPP-4'))&&moun.pathways[0].all.some(x=>x.includes('another GLP-1')),'Mounjaro concurrency criteria missing');
+assert(moun.sourcePage===718&&moun.sourceLastPage===719&&moun.approvalDuration==='12 months','Mounjaro approval duration or source page incorrect');
 assert(sg.pathways.length===3&&ins.pathways.length===2,'Wrong clinical qualification branch count');
 assert(sg.pathways.some(p=>p.all.some(r=>r.includes('1,500 mg daily for 90 days'))),'Metformin trial dose/duration not shown');
 assert(sg.pathways.some(p=>/heart failure OR adult CKD/i.test(p.title)
@@ -77,6 +86,14 @@ vm.createContext(ui);
 vm.runInContext(guidelineRuntime,ui);
 const guideJ=vm.runInContext('clinicalGuidanceFor(groupJ)',ui);
 const guideU=vm.runInContext('clinicalGuidanceFor(groupU)',ui);
+ui.groupM={name:'TIRZEPATIDE SOLN AUTO-INJ',brands:['MOUNJARO']};
+ui.groupZ={name:'TIRZEPATIDE SOLN AUTO-INJ',brands:['ZEPBOUND']};
+const guideM=vm.runInContext('clinicalGuidanceFor(groupM)',ui);
+assert(guideM&&guideM.policyCode==='GL-749236','Mounjaro not matched to exact rule');
+assert(vm.runInContext('clinicalGuidanceFor(groupZ)',ui)===null,'Mounjaro diabetes criteria incorrectly applied to Zepbound');
+const htmlM=vm.runInContext('clinicalGuidanceContent(clinicalGuidanceFor(groupM))',ui);
+assert(/A1c ≥6.5%/.test(htmlM)&&/90 days/.test(htmlM)&&/DPP-4/.test(htmlM),'Clinical Mounjaro requirements not rendered');
+assert(/gl-749236/.test(htmlM)&&/12 months/.test(htmlM),'Mounjaro guideline link or approval duration missing');
 assert(guideJ&&guideJ.policyCode==='GL-589207'&&guideU&&guideU.policyCode==='GL-154074','Exact medication guidance matching failed');
 assert(vm.runInContext('clinicalGuidanceFor(groupOther)',ui)===null,'Wrong concentration inherited U-500 criteria');
 const htmlJ=vm.runInContext('clinicalGuidanceContent(clinicalGuidanceFor(groupJ))',ui);
