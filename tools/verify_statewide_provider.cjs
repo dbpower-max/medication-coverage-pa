@@ -50,7 +50,7 @@ assert(!mock.matches({name:'DRUG TABLET 5 MG',brands:['BRAND']},{name:'DRUG TABL
 // Clinical source guidance must be actionable, limited to the verified product,
 // and linked to the exact November source sections.
 const guidance=data.statewideClinicalGuidance;
-assert(guidance.length===6,'Expected six source-verified drug guidance records after Farxiga batch');
+assert(guidance.length===9,'Expected nine source-verified drug guidance records after stage-aware batch');
 function guideByCode(code){return guidance.find(g=>g.policyCode===code);}
 const sg=guideByCode('GL-589207'), ins=guideByCode('GL-154074');
 assert(sg&&ins,'Missing Jardiance or concentrated insulin guideline');
@@ -147,6 +147,33 @@ assert(vm.runInContext('clinicalGuidanceFor(groupF)',ui)?.id==='gl-589207-farxig
 assert(vm.runInContext('clinicalGuidanceFor(groupX)',ui)===null,'Farxiga criteria leaked to Xigduo');
 const htmlF=vm.runInContext('clinicalGuidanceContent(clinicalGuidanceFor(groupF))',ui);
 assert(/NYHA/.test(htmlF)&&/90 days/.test(htmlF)&&/gl-589207/.test(htmlF),'Farxiga source-based clinical details not rendered');
+
+const aw=guidance.find(g=>g.id==='gl-669273-awiqli');
+const sol=guidance.find(g=>g.id==='gl-398215-soliqua');
+const xul=guidance.find(g=>g.id==='gl-398215-xultophy');
+assert(aw&&sol&&xul,'Missing one of the stage-specific source guidelines');
+assert(aw.stages.length===2&&sol.stages.length===2&&xul.stages.length===2,'Both approval stages required');
+assert(aw.sourcePage===195&&aw.sourceLastPage===197&&aw.policyCode==='GL-669273','Awiqli source location wrong');
+assert(sol.sourcePage===370&&xul.sourcePage===371&&sol.policyCode==='GL-398215'&&xul.policyCode==='GL-398215','Combined-insulin GLP-1 guideline page mismatch');
+assert(aw.stages[0].all.some(x=>typeof x==='object'&&x.any?.length===2),'Awiqli requires a nested alternative criterion');
+assert(aw.stages[0].all.some(x=>typeof x==='string'&&x.includes('18 years')),'Awiqli age requirement missing');
+assert(aw.stages[1].all.some(x=>x.includes('Positive clinical response')),'Awiqli renewal requirement missing');
+assert(!sol.stages[0].all.some(x=>x.includes('failure, intolerance, or contraindication to Soliqua')),'Soliqua erroneously needs failure to itself');
+assert(xul.stages[0].all.some(x=>x.includes('failure, intolerance, or contraindication to Soliqua')),'Xultophy first-use Soliqua prerequisite missing');
+assert(xul.stages[1].all.some(x=>x.includes('positive clinical response')),'Xultophy renewal requirement missing');
+ui.awGroup={name:'INSULIN ICODEC',brands:['AWIQLI']};
+ui.solGroup={name:'INSULIN GLARGINE/LIXISENATIDE',brands:['SOLIQUA 100/33']};
+ui.xulGroup={name:'INSULIN DEGLUDEC/LIRAGLUTIDE',brands:['XULTOPHY 100/3.6']};
+const htmlAw=vm.runInContext('clinicalGuidanceContent(clinicalGuidanceFor(awGroup))',ui);
+const htmlSol=vm.runInContext('clinicalGuidanceContent(clinicalGuidanceFor(solGroup))',ui);
+const htmlXul=vm.runInContext('clinicalGuidanceContent(clinicalGuidanceFor(xulGroup))',ui);
+assert(/Initial authorization/.test(htmlAw)&&/Reauthorization/.test(htmlAw)&&/ONE of the following/.test(htmlAw),'Awiqli staged/nested logic not rendered');
+assert(/90-day supply/.test(htmlAw)&&/once weekly|weekly dosing/i.test(htmlAw),'Awiqli treatment barriers or counseling missing');
+assert(/GLP-1/.test(htmlSol)&&/DPP-4/.test(htmlSol)&&/Reauthorization/.test(htmlSol),'Soliqua clinical stage criteria missing');
+assert(/failure, intolerance, or contraindication to Soliqua/.test(htmlXul),'Xultophy Soliqua pretrial missing');
+assert(!htmlAw.includes('Qualifying pathways — any ONE:'),'Renewal criteria mistakenly rendered as initial alternative');
+assert(htmlAw.includes('gl-669273')&&htmlSol.includes('gl-398215')&&htmlXul.includes('gl-398215'),'Source links missing');
+console.log('PASS: Three stage-aware products with initial/renewal criteria, nested ONE-of logic, source pages, and legacy-guide compatibility');
 
 console.log('PASS: Jardiance metformin dose/duration and HF/CKD alternatives; Humulin R U-500 insulin prerequisites or clinical need; source links and brand-specific matching');
 
