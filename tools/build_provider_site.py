@@ -2,6 +2,7 @@
 import gzip
 import hashlib
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -36,7 +37,21 @@ data["statewidePaCriteria"] = statewide_pa
 clinical_guidance = json.loads((ROOT / "tools/provider_statewide_clinical_guidance.json").read_text())
 assert clinical_guidance["sourceEffective"] == "2026-11-01"
 indexed_by_code = {p["policyCode"]: p for p in statewide_pa}
-assert len(clinical_guidance["guides"]) == 9
+assert len(clinical_guidance["guides"]) >= 9, "Previously reviewed guide entries unexpectedly lost"
+ids = [g["id"] for g in clinical_guidance["guides"]]
+assert len(ids) == len(set(ids)), "Duplicate clinical guideline identity"
+brand_claims = set()
+def check_rule_list(rules):
+    assert isinstance(rules, list) and rules, "Empty clinical requirement branch"
+    for item in rules:
+        if isinstance(item, str):
+            assert item.strip(), "Empty clinical requirement"
+        else:
+            assert isinstance(item, dict) and len(item) == 1, "Ambiguous clinical logic shape"
+            key = next(iter(item))
+            assert key in ("all", "any"), "Unknown AND/OR group"
+            check_rule_list(item[key])
+
 for guide in clinical_guidance["guides"]:
     policy = indexed_by_code.get(guide["policyCode"])
     assert policy, "No current AHCCCS index section for " + guide["policyCode"]
@@ -45,7 +60,26 @@ for guide in clinical_guidance["guides"]:
     assert policy["sourceTextUrl"] == guide["sourceTextUrl"]
     raw = " ".join((SRC / guide["sourceTextUrl"].lstrip("/")).read_text().split()).lower()
     assert guide["policyCode"].lower() in raw
-    assert "12 month(s)" in raw
+    assert guide["matchBrands"] and all(isinstance(b, str) and b.strip() for b in guide["matchBrands"]), "Missing unambiguous brand identity"
+    for brand in guide["matchBrands"]:
+        key = brand.strip().lower()
+        assert key not in brand_claims, "Same brand maps to multiple unrelated clinical guides: " + brand
+        brand_claims.add(key)
+    pathways, stages = guide.get("pathways"), guide.get("stages")
+    assert bool(pathways) != bool(stages), "Exactly one of indication pathways or treatment stages required"
+    for pathway in pathways or []:
+        assert pathway["title"].strip()
+        check_rule_list(pathway["all"])
+    for stage in stages or []:
+        assert stage["title"].strip()
+        check_rule_list(stage["all"])
+    source_checks = guide.get("sourceChecks")
+    assert isinstance(source_checks, list) and len(source_checks) >= 3, "Insufficient independent source phrases for " + guide["id"]
+    for phrase in source_checks:
+        assert isinstance(phrase, str) and phrase.strip() and " ".join(phrase.split()).lower() in raw, "Source phrase mismatch: " + guide["id"] + " / " + str(phrase)
+    duration = re.fullmatch(r"(\d+)\s+months?", guide["approvalDuration"].strip().lower())
+    assert duration, "Unsupported approval length: " + guide["id"]
+    assert duration.group(1) + " month(s)" in raw or duration.group(1) + " months" in raw, "Duration does not match published guideline: " + guide["id"]
     if guide["policyCode"] == "GL-589207":
         assert "product name:jardiance" in raw and "brand farxiga, generic dapagliflozin" in raw
         assert "1500mg daily for 90 days" in raw
@@ -163,4 +197,4 @@ assert {p["id"] for p in data["plans"]} == ALLOWED
 print("Three-plan provider site built; linked local assets verified:", len(seen))
 print("Plan medication records:", len(data["medications"]), "Plan policy records:", len(data["policies"]))
 print("Shared AHCCCS statewide drug entries:", len(data["statewideDrugList"]), "FFS PA criteria sections:", len(data["statewidePaCriteria"]))
-print("Source-checked clinical guidance sections:", len(data["statewideClinicalGuidance"]))
+print("Individually source-checked drug guides:", len(data["statewideClinicalGuidance"]), "distinct policy sections:", len({g["policyCode"] for g in data["statewideClinicalGuidance"]}))

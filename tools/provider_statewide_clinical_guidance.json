@@ -46,7 +46,12 @@
       ],
       "guidelineCaution": "The statewide drug list flags step therapy rather than an explicit general PA requirement. The separate statewide clinical guideline is titled Prior Authorization; the plan determines the actual claim and authorization workflow.",
       "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
-      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-589207.txt"
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-589207.txt",
+      "sourceChecks": [
+        "Product Name:Jardiance",
+        "1500mg daily for 90 days",
+        "Requested medication is being used for one of the following"
+      ]
     },
     {
       "id": "gl-154074-humulin-u500",
@@ -84,7 +89,12 @@
       ],
       "guidelineCaution": "The guideline does not specify a universal insulin-dose threshold or an additional required laboratory test. Do not infer one.",
       "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
-      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-154074.txt"
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-154074.txt",
+      "sourceChecks": [
+        "Humulin R U-500 vial and kwikpen",
+        "Insulin aspart or insulin lispro",
+        "special circumstance"
+      ]
     },
     {
       "id": "gl-749236-mounjaro",
@@ -120,7 +130,12 @@
       ],
       "guidelineCaution": "This guideline is for type 2 diabetes; the source states weight-loss/appetite-suppression requests are plan exclusions. Its 'Preferred Drugs' section names Mounjaro, but that heading does not override the separate current statewide drug-list preference field or establish a particular plan's benefit.",
       "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
-      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-749236.txt"
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-749236.txt",
+      "sourceChecks": [
+        "Preferred Drugs: Mounjaro, Trulicity, Brand Victoza",
+        "Baseline A1C greater than or equal to 6.5%",
+        "verified via paid claims"
+      ]
     },
     {
       "id": "gl-749236-trulicity",
@@ -156,7 +171,12 @@
       ],
       "guidelineCaution": "The guideline's preferred-products branch applies to Trulicity for type 2 diabetes, not to other products merely because they contain a GLP-1 receptor agonist. Weight-loss/appetite-suppression requests are excluded under this guideline. The guideline's preference heading is not a replacement for the drug-list classification.",
       "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
-      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-749236.txt"
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-749236.txt",
+      "sourceChecks": [
+        "Preferred Drugs: Mounjaro, Trulicity, Brand Victoza",
+        "Baseline A1C greater than or equal to 6.5%",
+        "verified via paid claims"
+      ]
     },
     {
       "id": "gl-749236-victoza",
@@ -192,7 +212,12 @@
       ],
       "guidelineCaution": "Victoza is named in the preferred-product clinical criteria branch. This does not extend the same criteria to every liraglutide presentation, another drug, or another indication; retain exact product and current drug-list status.",
       "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
-      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-749236.txt"
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-749236.txt",
+      "sourceChecks": [
+        "Preferred Drugs: Mounjaro, Trulicity, Brand Victoza",
+        "Baseline A1C greater than or equal to 6.5%",
+        "verified via paid claims"
+      ]
     },
     {
       "id": "gl-589207-farxiga",
@@ -230,7 +255,12 @@
       ],
       "guidelineCaution": "This guide applies only to brand Farxiga. Generic dapagliflozin requests have an additional explicit prerequisite: failure, intolerance, or contraindication to brand Farxiga. That extra generic-only rule is not applied to the brand product.",
       "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
-      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-589207.txt"
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-589207.txt",
+      "sourceChecks": [
+        "Brand Farxiga, generic dapagliflozin",
+        "1500mg daily for 90 days",
+        "heart failure"
+      ]
     },
     {
       "id": "gl-669273-awiqli",
@@ -275,7 +305,12 @@
       ],
       "guidelineCaution": "The Awiqli initial/renewal distinction is explicit in the published policy. The source does not state a specific universal insulin-dose threshold.",
       "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
-      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-669273.txt"
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-669273.txt",
+      "sourceChecks": [
+        "Product Name:Awiqli",
+        "minimum 90-day supply",
+        "Patient demonstrates positive clinical response"
+      ]
     },
     {
       "id": "gl-398215-soliqua",
@@ -314,7 +349,12 @@
       ],
       "guidelineCaution": "Source examples of GLP-1 receptor agonists and basal insulins are illustrative, not an additional requirement to try every listed agent.",
       "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
-      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-398215.txt"
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-398215.txt",
+      "sourceChecks": [
+        "Product Name:Soliqua",
+        "Inadequately controlled on BOTH of the following",
+        "Reauthorization"
+      ]
     },
     {
       "id": "gl-398215-xultophy",
@@ -354,7 +394,12 @@
       ],
       "guidelineCaution": "The additional Soliqua prerequisite applies to Xultophy initial authorization, not Soliqua initiation or the reauthorization section.",
       "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
-      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-398215.txt"
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-398215.txt",
+      "sourceChecks": [
+        "Product Name:Xultophy",
+        "History of failure, intolerance, or contraindication to Soliqua",
+        "Reauthorization"
+      ]
     }
   ]
 }

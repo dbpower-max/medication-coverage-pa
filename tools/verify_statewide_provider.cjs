@@ -50,7 +50,13 @@ assert(!mock.matches({name:'DRUG TABLET 5 MG',brands:['BRAND']},{name:'DRUG TABL
 // Clinical source guidance must be actionable, limited to the verified product,
 // and linked to the exact November source sections.
 const guidance=data.statewideClinicalGuidance;
-assert(guidance.length===9,'Expected nine source-verified drug guidance records after stage-aware batch');
+assert(guidance.length>=9,'Previously reviewed clinical guides missing');
+const baselineIds=['gl-589207-jardiance','gl-154074-humulin-u500','gl-749236-mounjaro','gl-749236-trulicity','gl-749236-victoza','gl-589207-farxiga','gl-669273-awiqli','gl-398215-soliqua','gl-398215-xultophy'];
+const ids=guidance.map(g=>g.id);
+assert(new Set(ids).size===ids.length,'Duplicate medication clinical guide id');
+assert(baselineIds.every(id=>ids.includes(id)),'Previously source-checked medication guide lost');
+assert(guidance.every(g=>g.sourceChecks?.length>=3),'A clinical guide lacks three source phrase verifications');
+console.log('Source-verified clinical products: '+guidance.length+'; distinct policy sections: '+new Set(guidance.map(g=>g.policyCode)).size);
 function guideByCode(code){return guidance.find(g=>g.policyCode===code);}
 const sg=guideByCode('GL-589207'), ins=guideByCode('GL-154074');
 assert(sg&&ins,'Missing Jardiance or concentrated insulin guideline');
