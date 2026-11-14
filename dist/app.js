@@ -197,7 +197,28 @@
     return values.size === 1 ? [...values][0] : values.size ? 'mixed' : '';
   }
 
+  // The same labeled Natroba topical suspension has two official naming
+  // conventions: the statewide drug list calls it "spinosad suspension",
+  // while RxNorm calls the 9 mg/mL presentation "medicated shampoo".
+  // DailyMed maps both descriptions to brand Natroba (RxCUI 1085820).
+  // Only join these exact names WITH explicit Natroba identity. Do not infer
+  // equivalence for other strengths, routes, brands or spinosad products.
+  function verifiedNatrobaSpinosadAlias(group) {
+    const name = normalize(group.name);
+    const hasBrand = group.brands.some(brand => normalize(brand) === 'natroba')
+      || /\s*(?:\(|\[)natroba(?:\)|\])\s*$/i.test(name);
+    if (!hasBrand) return false;
+    const generic = name.replace(/\s*(?:\(|\[)natroba(?:\)|\])\s*$/i, '').trim();
+    return new Set([
+      'spinosad suspension',
+      'spinosad 9 mg/ml medicated shampoo',
+      'spinosad 0.9% topical suspension',
+      'spinosad 0.9 % topical suspension'
+    ]).has(generic);
+  }
+
   function sameProductGroup(planGroup, sharedGroup) {
+    if (verifiedNatrobaSpinosadAlias(planGroup) && verifiedNatrobaSpinosadAlias(sharedGroup)) return true;
     const concentrationA = explicitInsulinConcentration(planGroup);
     const concentrationB = explicitInsulinConcentration(sharedGroup);
     if (concentrationA !== concentrationB || concentrationA === 'mixed') return false;
@@ -247,6 +268,11 @@
       if (routeSuffix) for (const match of brandIndex.get(normalize(routeSuffix[1])) || []) candidates.add(match);
       for (const brand of group.brands) {
         for (const match of brandIndex.get(normalize(brand)) || []) candidates.add(match);
+      }
+      if (verifiedNatrobaSpinosadAlias(group)) {
+        for (const shared of sharedGroups) {
+          if (verifiedNatrobaSpinosadAlias(shared)) candidates.add(shared);
+        }
       }
       const matches = [...candidates].filter(shared => sameProductGroup(group, shared));
       if (matches.length === 1) {
