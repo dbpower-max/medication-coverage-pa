@@ -76,9 +76,24 @@
     await planLoads.get(planId);
   }
 
+  // Keep one immutable statewide source, projected into the chosen plan for lookup.
+  // This never turns an FFS policy index into plan-specific coverage evidence.
+  const statewideProjectionCache = new Map();
+  function inheritedStatewideRows() {
+    if (!state.data.statewideDrugList?.length) return [];
+    if (!statewideProjectionCache.has(state.planId)) {
+      statewideProjectionCache.set(state.planId, state.data.statewideDrugList.map(record => ({
+        ...record, id: `${state.planId}:statewide:${record.id}`,
+        planId: state.planId, isStatewideReference: true
+      })));
+    }
+    return statewideProjectionCache.get(state.planId);
+  }
+
   function recordsForPlan() {
     return [...state.data.medications, ...state.data.policies]
-      .filter((record) => record.planId === state.planId);
+      .filter((record) => record.planId === state.planId)
+      .concat(inheritedStatewideRows());
   }
 
   // Presentation only: do not alter the original payer text or its coverage record.
@@ -133,8 +148,95 @@
     }));
   }
 
+  function medicationRoute(name) {
+    const text = normalize(name);
+    if (/\b(intravenous|\biv\b)\b/.test(text)) return 'iv';
+    if (/\bintramuscular\b|\bim\b/.test(text)) return 'im';
+    if (/subcut|sub-q|\bsc\b|inject|auto.inj|pref.?syr|\bpen.inj\b|\bvial\b/.test(text)) return 'injection';
+    if (/nasal|nostril/.test(text)) return 'nasal';
+    if (/inhal|nebuliz/.test(text)) return 'inhalation';
+    if (/transdermal|patch/.test(text)) return 'patch';
+    if (/topical|cream|ointment|\bgel\b/.test(text)) return 'topical';
+    if (/tablet|capsule|oral|mouthwash|troche|syrup|elixir/.test(text)) return 'oral';
+    return '';
+  }
+
+  function medicationForm(name) {
+    const n = normalize(name);
+    if (/auto.inj|auto.inject/.test(n)) return 'auto-injector';
+    if (/pref.?syr/.test(n)) return 'syringe';
+    if (/\bvial\b/.test(n)) return 'vial';
+    if (/\bpen.inj|\bpen injection/.test(n)) return 'pen';
+    if (/mouthwash/.test(n)) return 'mouthwash';
+    if (/troche|lozenge/.test(n)) return 'troche';
+    if (/disintegrat|\bodt\b/.test(n)) return 'odt';
+    if (/tablet|\btab\b/.test(n)) return 'tablet';
+    if (/capsule|\bcap\b/.test(n)) return 'capsule';
+    if (/suspension|solution|liquid|syrup|elixir/.test(n)) return 'liquid';
+    return '';
+  }
+
+  function releaseKind(name) {
+    return /\b(er|xr|sr|cr|dr|xl|extended|delayed|controlled|24.hour|12.hour)\b/i.test(name) ? 'modified' : 'ordinary';
+  }
+
+  function strengthTokens(name) {
+    return [...normalize(name).matchAll(/\b\d+(?:\.\d+)?\s*(?:mcg|mg|meq|g|units)\b/g)]
+      .map(match => match[0].replace(/\s+/g, '')).sort();
+  }
+
+  function sameProductGroup(planGroup, sharedGroup) {
+    const sameName = normalize(planGroup.name) === normalize(sharedGroup.name);
+    const sharedBrand = planGroup.brands.some(brand => sharedGroup.brands.some(b => normalize(b) === normalize(brand)));
+    if (!sameName && !sharedBrand) return false;
+    const a = medicationRoute(planGroup.name), b = medicationRoute(sharedGroup.name);
+    if (!a || !b || a !== b) return sameName && a === b;
+    const formA = medicationForm(planGroup.name), formB = medicationForm(sharedGroup.name);
+    // A broad source description may omit the device, but explicit conflicting
+    // forms and release mechanisms must never be merged.
+    if (formA && formB && formA !== formB) {
+      const injectionPackage = new Set(['auto-injector', 'syringe', 'vial', 'pen']);
+      if (!(a === 'injection' && (!injectionPackage.has(formA) || !injectionPackage.has(formB)))) return false;
+    }
+    if (releaseKind(planGroup.name) !== releaseKind(sharedGroup.name)) return false;
+    const strengthA = strengthTokens(planGroup.name), strengthB = strengthTokens(sharedGroup.name);
+    if (strengthA.length && strengthB.length && !strengthA.every(token => strengthB.includes(token))) return false;
+    return true;
+  }
+
+  // Preserve unmatched products as the selected plan's supplement. Attach only
+  // unambiguous equivalent products to the statewide entry; never blend rules.
+  const groupCache = new Map();
   function planMedicationGroups() {
-    return medicationGroups(state.data.medications.filter(r => r.planId === state.planId));
+    const key = state.planId + ':' + state.data.medications.length;
+    if (groupCache.has(key)) return groupCache.get(key);
+    const planGroups = medicationGroups(state.data.medications.filter(r => r.planId === state.planId));
+    const sharedGroups = medicationGroups(inheritedStatewideRows())
+      .map(group => ({...group, isStatewide: true, statewideRecord: group.records[0]}));
+    const brandIndex = new Map(), nameIndex = new Map();
+    for (const group of sharedGroups) {
+      nameIndex.set(normalize(group.name), [...(nameIndex.get(normalize(group.name)) || []), group]);
+      for (const brand of group.brands) {
+        const key = normalize(brand);
+        brandIndex.set(key, [...(brandIndex.get(key) || []), group]);
+      }
+    }
+    const supplements = [];
+    for (const group of planGroups) {
+      const candidates = new Set(nameIndex.get(normalize(group.name)) || []);
+      for (const brand of group.brands) {
+        for (const match of brandIndex.get(normalize(brand)) || []) candidates.add(match);
+      }
+      const matches = [...candidates].filter(shared => sameProductGroup(group, shared));
+      if (matches.length === 1) {
+        const shared = matches[0];
+        shared.records.push(...group.records);
+        shared.search += ' ' + group.search;
+      } else supplements.push(group);
+    }
+    const result = [...sharedGroups, ...supplements];
+    groupCache.set(key, result);
+    return result;
   }
 
   function uniqueMedicationNames() {
