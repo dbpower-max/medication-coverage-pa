@@ -768,6 +768,99 @@
         "History of failure to metformin at a minimum dose of 1500mg daily for 90 days",
         "Patient is 10 years of age or older (applies to Invokana, Invokamet, Invokamet XR ONLY)"
       ]
+    },
+    {
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceGuidelineType": "Prior Authorization",
+      "id": "gl-102891-recorlev",
+      "policyCode": "GL-102891",
+      "product": "Recorlev (levoketoconazole)",
+      "matchBrands": [
+        "RECORLEV"
+      ],
+      "heading": "Recorlev initial and reauthorization criteria",
+      "sourcePage": 1463,
+      "sourceLastPage": 1465,
+      "approvalDuration": "12 months",
+      "summary": "The source contains separate Cushing’s disease and NCCN-supported regimen pathways, each with distinct initial and renewal requirements.",
+      "stages": [
+        {
+          "title": "Initial authorization — Cushing’s disease",
+          "all": [
+            "Diagnosis of Cushing’s disease.",
+            {
+              "any": [
+                "Patient is not a candidate for pituitary surgery.",
+                "Pituitary surgery has not been curative."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization — Cushing’s disease",
+          "all": [
+            "Documentation of positive response to therapy."
+          ]
+        },
+        {
+          "title": "Initial authorization — NCCN recommended regimen",
+          "all": [
+            "Requested use is supported by the NCCN Drugs and Biologics Compendium with Category of Evidence and Consensus 1, 2A, or 2B."
+          ]
+        },
+        {
+          "title": "Reauthorization — NCCN recommended regimen",
+          "all": [
+            "Documentation of positive clinical response to therapy."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "For Cushing’s disease, document diagnosis and surgical ineligibility or lack of cure following surgery.",
+        "For NCCN-supported use, identify the relevant compendium regimen and evidence category.",
+        "For renewal, document positive response to therapy."
+      ],
+      "guidelineCaution": "The NCCN route and Cushing’s disease route are separate indication-specific pathways; renewal is not an initial-approval alternative. This statewide guideline does not itself establish coverage under an individual plan.",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-102891.txt",
+      "sourceChecks": [
+        "Patient is not a candidate for pituitary surgery",
+        "Pituitary surgery has not been curative",
+        "Documentation of positive clinical response to therapy",
+        "Category of Evidence and"
+      ]
+    },
+    {
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceGuidelineType": "Prior Authorization",
+      "id": "gl-102898-regranex",
+      "policyCode": "GL-102898",
+      "product": "Regranex (becaplermin)",
+      "matchBrands": [
+        "REGRANEX"
+      ],
+      "heading": "Regranex prior authorization criteria",
+      "sourcePage": 1472,
+      "sourceLastPage": 1473,
+      "approvalDuration": "6 months",
+      "summary": "The guideline requires a lower-extremity diabetic neuropathic ulcer.",
+      "pathways": [
+        {
+          "title": "Qualifying indication",
+          "all": [
+            "Patient has a lower extremity diabetic neuropathic ulcer."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document the location and diabetic neuropathic nature of the ulcer."
+      ],
+      "guidelineCaution": "The revision history states the prior Santyl prerequisite was removed; do not impose it. Individual-plan benefit and authorization requirements still apply.",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-102898.txt",
+      "sourceChecks": [
+        "Product Name:Regranex",
+        "6 month(s)",
+        "Patient has a lower extremity diabetic neuropathic ulcer"
+      ]
     }
   ]
 }
