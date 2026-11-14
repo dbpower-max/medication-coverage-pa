@@ -72,4 +72,26 @@ for(const planId of plans){
   if(ambiguous.length)console.log('MIXED BRANDS '+planId+': '+JSON.stringify(ambiguous.slice(0,20)));
   assert(!ambiguous.length,'Product-specific clinical guidance is assigned to a mixed-brand medication group: '+planId);
 }
+// Confirm that existing plan-only medication cards actually render their
+// source-verified clinical guidance rather than merely matching it internally.
+const cardStart=source.indexOf('  function medicationGroupCard(');
+const cardEnd=source.indexOf('  function render()',cardStart);
+assert(cardStart>0&&cardEnd>cardStart,'Medication card UI function missing');
+const ui={
+ escapeHtml:s=>String(s),
+ readableMedicationName:s=>String(s),
+ criteriaLibraryShortcut:()=>'',clinicalGuidanceContent:()=>'Clinically validated source details',
+ clinicalGuidanceFor:g=>g.brands.includes('FARXIGA')?{policyCode:'GL-589207',heading:'Farxiga guidance'}:null,
+ statusChips:()=>'',medicationPolicyDropdown:()=>'',recordDetails:()=>''
+};
+vm.createContext(ui);
+vm.runInContext(source.slice(cardStart,cardEnd),ui);
+ui.card={label:'Dapagliflozin (Farxiga)',name:'dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]};
+const withGuide=vm.runInContext('medicationGroupCard(card)',ui);
+assert(withGuide.includes('Clinically validated source details')&&withGuide.includes('does not independently establish plan coverage'),'Plan-only clinical criteria missing or misleading');
+ui.card={label:'Unrelated product',name:'other',brands:['OTHER'],records:[{name:'other'}]};
+const withoutGuide=vm.runInContext('medicationGroupCard(card)',ui);
+assert(!withoutGuide.includes('Clinically validated source details'),'Incorrect product received clinical PA guidance');
+console.log('PASS: plan-only medication cards display only their exact source-backed clinical guidance, with no inferred PA status');
+
 console.log('PASS: all clinical guide IDs reachable as exact medication cards or explicitly coverage-unknown policy-only results for each of 3 plans; no mixed-brand criteria');

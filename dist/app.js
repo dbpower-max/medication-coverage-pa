@@ -942,9 +942,17 @@
       </article>`;
     }
     const onlyOne = group.records.length === 1;
+    const planGuidance = clinicalGuidanceFor(group);
     return `<article class="result-card">
       <h3>${escapeHtml(group.label)}</h3>
       ${criteriaLibraryShortcut(group)}
+      ${planGuidance ? `<details class="record-detail result-disclosure" open>
+        <summary>AHCCCS clinical criteria · ${escapeHtml(planGuidance.policyCode)}</summary>
+        <div class="result-disclosure-body">
+          <p><strong>Clinical criteria only:</strong> this guideline does not independently establish plan coverage, PA requirement, or approval.</p>
+          ${clinicalGuidanceContent(planGuidance)}
+        </div>
+      </details>` : ''}
       ${group.records.map(record => `<section class="medication-product-row">
         ${onlyOne ? '' : `<h4>${escapeHtml(readableMedicationName(record.name))}</h4>`}
         <div class="chips" aria-label="Coverage attributes">${statusChips(record)}</div>
