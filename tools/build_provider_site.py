@@ -18,6 +18,30 @@ subprocess.run([sys.executable, str(ROOT / 'tools/import_ach_baseline.py')], che
 data = json.loads(gzip.decompress((SRC / "data.json.gz").read_bytes()))
 attach_provider_policies(data)
 assert ALLOWED <= {p["id"] for p in data["plans"]}
+# A single current AHCCCS core is shared by all three ACC plan views.
+# These are source records, not synthesized plan claims.
+statewide_drugs = [r for r in data["medications"] if r["planId"] == "ahcccs-statewide"]
+statewide_pa = [r for r in data["policies"]
+                if r["planId"] == "ahcccs-ffs-aihp"
+                and r.get("sourceEffective") == "2026-11-01"
+                and r.get("recordType") == "policy_index"]
+assert 1400 <= len(statewide_drugs) <= 1500, "November AHCCCS drug list not found"
+assert len(statewide_pa) >= 400, "November AHCCCS PA criteria index not found"
+assert all(r["sourceEffective"] == "2026-11-01" for r in statewide_drugs)
+data["statewideDrugList"] = statewide_drugs
+data["statewidePaCriteria"] = statewide_pa
+data["statewideSourceInfo"] = {
+    "drugListEffective": "2026-11-01",
+    "paCriteriaEffective": "2026-11-01",
+    "drugListOfficialUrl": "https://www.azahcccs.gov/Resources/Downloads/PharmacyUpdates/2026/AHCCCSDrugListEffective2026-11-01.pdf",
+    "paCriteriaOfficialUrl": "https://www.azahcccs.gov/Resources/Downloads/PharmacyUpdates/2026/AZMFileseff110126AllGuidelines.pdf",
+    "policyUrl": "https://www.azahcccs.gov/shared/Downloads/MedicalPolicyManual/300/310-V.pdf",
+    "policyEffective": "2026-10-09"
+}
+# The 1,449 copied statewide minimum rows in the ACH view are replaced
+# by the one shared reference above, without modifying the source archive.
+data["medications"] = [r for r in data["medications"]
+    if r.get("validation") != "mandated_statewide_minimum_with_plan_adoption_evidence"]
 for key, identity in (("plans", "id"), ("medications", "planId"), ("policies", "planId"), ("planEvidence", "planId")):
     data[key] = [r for r in data[key] if r.get(identity) in ALLOWED]
 attach_shared_policy(data)
@@ -85,4 +109,5 @@ for plan, url in data["planDataFiles"].items():
 (OUT / "data.json.gz").write_bytes(gzip.compress(json.dumps(data, ensure_ascii=False).encode(), mtime=0))
 assert {p["id"] for p in data["plans"]} == ALLOWED
 print("Three-plan provider site built; linked local assets verified:", len(seen))
-print("Medication records:", len(data["medications"]), "Policy records:", len(data["policies"]))
+print("Plan medication records:", len(data["medications"]), "Plan policy records:", len(data["policies"]))
+print("Shared AHCCCS statewide drug entries:", len(data["statewideDrugList"]), "FFS PA criteria sections:", len(data["statewidePaCriteria"]))
