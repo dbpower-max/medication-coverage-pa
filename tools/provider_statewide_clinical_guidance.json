@@ -966,6 +966,40 @@
         "HLA-A*02:01 genotype positive",
         "does not show evidence of progressive disease"
       ]
+    },
+    {
+      "id": "gl-105258-natroba",
+      "policyCode": "GL-105258",
+      "product": "Natroba (brand spinosad suspension)",
+      "matchBrands": [
+        "NATROBA"
+      ],
+      "heading": "Brand Natroba head lice prior authorization",
+      "sourcePage": 1378,
+      "sourceLastPage": 1379,
+      "approvalDuration": "30 days",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Brand Natroba requires a head-lice indication and a documented trial and failure of generic spinosad suspension; this additional step applies to brand Natroba only.",
+      "pathways": [
+        {
+          "title": "Brand Natroba — all criteria",
+          "all": [
+            "Topical treatment of head lice infestation.",
+            "Trial and failure of generic spinosad suspension, verified through paid pharmacy claims or submitted medical records/chart notes."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document head-lice diagnosis and generic spinosad treatment failure with pharmacy claims or chart notes."
+      ],
+      "guidelineCaution": "The generic-spinosad trial requirement is expressly brand-Natroba-only and must not be applied to Sklice or generic spinosad. Statewide criteria do not independently establish plan coverage.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-105258.txt",
+      "sourceChecks": [
+        "Product Name:Sklice, Brand Natroba, generic spinosad susp",
+        "Diagnosis of topical treatment of head lice infestations",
+        "For Brand Natroba requests ONLY: Trial and failure to generic spinosad suspension"
+      ]
     }
   ]
 }
