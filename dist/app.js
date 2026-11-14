@@ -226,13 +226,17 @@
     const input = el[inputId];
     const options = el[optionsId];
     const wrapper = input.closest('.combobox');
-    const query = showAll ? '' : normalize(input.value);
-    const values = rankedValues(valuesForCombo(name), query, name);
-    const visibleValues = showAll ? values : values.slice(0, 30);
+    // Medication lists can contain thousands of machine-formatted package descriptions.
+    // Never browse them indiscriminately: suggest only matches to typed text.
+    const query = name === 'medication' ? normalize(input.value) : (showAll ? '' : normalize(input.value));
+    const values = name === 'medication' && !query ? [] : rankedValues(valuesForCombo(name), query, name);
+    const visibleValues = showAll && name !== 'medication' ? values : values.slice(0, 30);
 
     options.innerHTML = visibleValues.length
       ? visibleValues.map((value, index) => `<button type="button" class="combobox-option" role="option" id="${name}-option-${index}" data-combo-value="${escapeHtml(value)}" aria-selected="false">${escapeHtml(value)}</button>`).join('')
-      : '<div class="combobox-empty">No matching options</div>';
+      : name === 'medication' && !query
+        ? '<div class="combobox-empty">Type a brand or generic name to search</div>'
+        : '<div class="combobox-empty">No matching options</div>';
     options.hidden = false;
     input.setAttribute('aria-expanded', 'true');
     wrapper.setAttribute('aria-expanded', 'true');
@@ -328,7 +332,7 @@
 
     toggle.addEventListener('click', () => {
       const opening = options.hidden;
-      if (opening) renderComboboxOptions(name, true);
+      if (opening) renderComboboxOptions(name, name !== 'medication');
       else closeCombobox(name);
       input.focus();
     });
