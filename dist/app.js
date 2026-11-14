@@ -388,7 +388,7 @@
     if (record.ageLimited) chips.push(['Age limit', 'warning']);
     if (record.specialty) chips.push(['Specialty', 'warning']);
     if (record.diagnosisRequired) chips.push(['Diagnosis required', 'warning']);
-    return chips.map(([text, kind, help]) => `<span class="chip ${kind}"${help ? ` title="${escapeHtml(help)}"` : ''}>${escapeHtml(text)}</span>`).join('');
+    return chips.filter(([text]) => !/conflicting source listings\s*=\s*conservative status|PA not addressed by notice|exact.plan preference notice/i.test(text)).map(([text, kind, help]) => `<span class="chip ${kind}"${help ? ` title="${escapeHtml(help)}"` : ''}>${escapeHtml(text)}</span>`).join('');
   }
 
   function approvalGuideContent(record) {
