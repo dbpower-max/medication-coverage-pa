@@ -20,4 +20,41 @@ if(!groups([{name:'drug tablet',searchAliases:['ALIAS BRAND']}])[0].search.inclu
 if(groups([{name:'INSULIN NPH SUSPENSION',brand:'HUMULIN N KWIKPEN'}])[0].label!=='Insulin NPH Suspension (Humulin N KwikPen)')throw Error('NPH or device capitalization lost');
 if(groups([{name:'GLP-1 RECEPTOR AGONIST'}])[0].label!=='GLP-1 Receptor Agonist')throw Error('GLP acronym lost');
 if(groups([{name:'INSULIN GLARGINE 100U/ML',brand:'LANTUS SOLOSTAR'}])[0].label!=='Insulin Glargine 100U/mL (Lantus SoloStar)')throw Error('Strength unit or SoloStar capitalization lost');
+// Exact repeated brands must appear once in medication search suggestions.
+const labeled=groups([{name:'chlorhexidine gluconate 1.2 mg/mL Mouthwash [Periogard]',brand:'Periogard'}]);
+if(labeled[0].label!=='chlorhexidine gluconate 1.2 mg/mL Mouthwash (Periogard)')throw Error('Periogard duplicated in bracket and parenthesis');
+const armour=groups([{name:'thyroid (USP) 120 mg Oral Tablet [Armour Thyroid]',brand:'Armour Thyroid'}]);
+if(armour[0].label!=='thyroid (USP) 120 mg Oral Tablet (Armour Thyroid)')throw Error('Armour Thyroid duplicated or USP capitalization lost');
+if(groups([{name:'drug tablet 5 mg (Brand)',brand:'Brand'}])[0].label!=='drug tablet 5 mg (Brand)')throw Error('Repeated parenthesized brand');
+if(groups([{name:'drug tablet 5 mg [Brand] (Brand)',brand:'Brand'}])[0].label!=='drug tablet 5 mg (Brand)')throw Error('Multiple nested duplicate brands');
+if(groups([{name:'drug tablet [OTC]',brand:'Brand'}])[0].label!=='drug tablet [OTC] (Brand)')throw Error('Meaningful unrelated bracket was deleted');
+if(groups([{name:'drug tablet [Other Brand]',brand:'Brand'}])[0].label!=='drug tablet [Other Brand] (Brand)')throw Error('Distinct brand was incorrectly suppressed');
+
+// Audit actual deployed provider-scope records after the site build.
+const zlib = require('zlib');
+function jsonAsset(path) {
+  const bytes=fs.readFileSync(path);
+  return JSON.parse((bytes[0]===31 && bytes[1]===139 ? zlib.gunzipSync(bytes) : bytes).toString('utf8'));
+}
+if (fs.existsSync('_site/data.json.gz')) {
+  const data=jsonAsset('_site/data.json.gz');
+  const rows=[...data.medications];
+  for (const url of Object.values(data.planDataFiles||{})) {
+    const path='_site/'+String(url).split('?')[0].replace(/^\.\//,'').replace(/^\//,'');
+    rows.push(...jsonAsset(path));
+  }
+  const formulary=rows.filter(r=>r.recordType==='formulary');
+  const normalizeBrand=s=>String(s||'').trim().toLowerCase();
+  const duplicatedRaw=formulary.filter(r=>{
+    const match=String(r.name||'').match(/\[([^\[\]]+)\]\s*$/);
+    return match && normalizeBrand(r.brand)===normalizeBrand(match[1]);
+  });
+  context.rows=formulary;
+  const grouped=vm.runInContext('medicationGroups(rows)',context);
+  const duplicatedDisplay=grouped.filter(g=>/\[([^\]]+)\]\s*\(\1\)/i.test(g.label));
+  if (duplicatedDisplay.length) throw Error('Unfixed duplicate search display labels: '+duplicatedDisplay.slice(0,4).map(g=>g.label).join('; '));
+  console.log('LIVE DATA AUDIT: '+formulary.length+' formulary records; '+grouped.length+' search groups; '+duplicatedRaw.length+' source rows with repeated bracketed brand; '+duplicatedDisplay.length+' redundant search labels.');
+  console.log('SAMPLE RAW DUPLICATES: '+JSON.stringify(duplicatedRaw.slice(0,4).map(r=>({name:r.name,brand:r.brand,planId:r.planId}))));
+}
+
 console.log('PASS: brand/generic labels, aliases, duplicate prevention, precise grouping, preserved coverage restrictions');
