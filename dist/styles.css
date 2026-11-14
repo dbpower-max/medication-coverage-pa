@@ -364,3 +364,16 @@ footer p { padding-block: 1.2rem; margin-bottom: 0; color: var(--gray-500); font
 .result-card { row-gap: .55rem; }
 .result-card h3 { margin-bottom: .25rem; }
 .result-card .brand { margin-bottom: 0; }
+
+/* Source-only search: no synthesized approval decision is shown here. */
+.criteria-library { padding: 1rem; }
+.criteria-library > p { margin: .7rem 0; color: var(--gray-700); }
+.criteria-library .field { max-width: 35rem; }
+.criteria-library input { width: 100%; }
+.criteria-count { font-size: .89rem; color: var(--gray-500); }
+.criteria-results { display: grid; gap: .6rem; }
+.criteria-source { padding: .8rem; border: 1px solid var(--gray-200); border-radius: .5rem; }
+.criteria-source h3 { font-size: 1rem; margin: 0 0 .3rem; }
+.criteria-source p { font-size: .86rem; margin: .3rem 0; }
+.criteria-load { display: inline-block; margin-top: .4rem; }
+.guideline-verbatim { margin: .6rem 0 0; padding: .75rem; white-space: pre-wrap; overflow-wrap: anywhere; max-height: 35rem; overflow-y: auto; border: 1px solid var(--gray-200); border-radius: .4rem; background: var(--gray-100); color: var(--gray-700); font-size: .82rem; line-height: 1.5; }

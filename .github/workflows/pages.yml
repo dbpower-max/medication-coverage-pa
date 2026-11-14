@@ -27,6 +27,7 @@ jobs:
       - run: python tools/verify_shared_policy_pilot.py
       - run: node tools/verify_medication_grouping.cjs
       - run: node tools/verify_statewide_provider.cjs
+      - run: node tools/verify_statewide_library.cjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

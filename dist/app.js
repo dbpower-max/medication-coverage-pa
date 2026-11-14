@@ -16,7 +16,8 @@
   const ids = ['asOf', 'planInput', 'planOptions', 'medicationInput', 'medicationOptions',
     'categoryInput', 'categoryOptions', 'subcategoryInput', 'subcategoryOptions', 'coverageInput',
     'clearFilters', 'planStatus', 'planEvidence', 'evidenceList', 'resultCount', 'effectiveDate',
-    'loadingState', 'emptyState', 'resultGrid', 'showMore'];
+    'loadingState', 'emptyState', 'resultGrid', 'showMore',
+    'criteriaLibrary', 'criteriaSearch', 'criteriaCount', 'criteriaResults'];
 
   const comboState = {
     plan: { activeIndex: -1, showAll: false },
@@ -708,6 +709,77 @@
   // may cover particular indications; the link does not promise approval.
   // Clinical requirements are displayed only for a verified product-specific
   // guideline. Exact brand matching prevents accidental class-level transfers.
+  // The index is a searchable table of contents, not an approval algorithm.
+  // Each result links to the complete, source-extracted verbatim section.
+  function searchIndexedCriteria(query, sections) {
+    const terms = normalize(query).split(/\s+/).filter(Boolean);
+    if (!terms.length) return [];
+    return sections.filter(section => {
+      const haystack = normalize([section.name, section.notes, section.policyCode].join(' '));
+      return terms.every(term => haystack.includes(term));
+    }).sort((a, b) => {
+      const titleA = normalize(a.name), titleB = normalize(b.name);
+      const q = normalize(query).trim();
+      const scoreA = titleA === q ? 0 : titleA.startsWith(q) ? 1 : titleA.includes(q) ? 2 : 3;
+      const scoreB = titleB === q ? 0 : titleB.startsWith(q) ? 1 : titleB.includes(q) ? 2 : 3;
+      return scoreA - scoreB || a.name.localeCompare(b.name);
+    });
+  }
+
+  function renderCriteriaLibrary() {
+    const policies = state.data.statewidePaCriteria || [];
+    const query = el.criteriaSearch.value;
+    const matches = searchIndexedCriteria(query, policies);
+    const count = matches.length;
+    el.criteriaCount.textContent = !normalize(query)
+      ? `${policies.length} indexed guideline sections · Type a medication or policy name`
+      : `${count} matching source section${count === 1 ? '' : 's'}${count > 25 ? ' · Showing first 25' : ''}`;
+    el.criteriaResults.innerHTML = matches.slice(0, 25).map(policy => `
+      <article class="criteria-source">
+        <h3>${escapeHtml(policy.name)}</h3>
+        <p>${escapeHtml(policy.policyCode)} · AHCCCS criteria effective ${escapeHtml(policy.sourceEffective)}
+          · PDF pages ${Number(policy.sourcePage)}–${Number(policy.sourceLastPage)}</p>
+        ${policy.notes ? `<p>${escapeHtml(policy.notes)}</p>` : ''}
+        <p><a class="source-link" href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">Open original guideline PDF at this section</a></p>
+        <button type="button" class="text-button criteria-load" data-read-guideline="${escapeHtml(policy.policyCode)}">Read full guideline text</button>
+        <pre class="guideline-verbatim" hidden></pre>
+      </article>
+    `).join('') || (normalize(query) ? '<p>No matching indexed sections. This does not prove a drug has no authorization requirements.</p>' : '');
+  }
+
+  function bindCriteriaLibrary() {
+    el.criteriaSearch.addEventListener('input', renderCriteriaLibrary);
+    el.criteriaResults.addEventListener('click', async event => {
+      const button = event.target.closest('[data-read-guideline]');
+      if (!button) return;
+      const policy = (state.data.statewidePaCriteria || []).find(p => p.policyCode === button.dataset.readGuideline);
+      if (!policy || !policy.sourceTextUrl) return;
+      const pre = button.closest('.criteria-source').querySelector('.guideline-verbatim');
+      if (button.dataset.loaded === 'true') {
+        pre.hidden = !pre.hidden;
+        button.textContent = pre.hidden ? 'Read full guideline text' : 'Hide full guideline text';
+        return;
+      }
+      button.disabled = true;
+      button.textContent = 'Loading original text…';
+      try {
+        const response = await fetch(policy.sourceTextUrl);
+        if (!response.ok) throw new Error('Source text unavailable');
+        pre.textContent = await response.text();
+        pre.hidden = false;
+        button.dataset.loaded = 'true';
+        button.textContent = 'Hide full guideline text';
+      } catch (error) {
+        pre.textContent = 'Could not load the source section. Open the PDF link above instead.';
+        pre.hidden = false;
+        button.textContent = 'Retry reading original text';
+      } finally {
+        button.disabled = false;
+      }
+    });
+    renderCriteriaLibrary();
+  }
+
   function clinicalGuidanceFor(group) {
     const brands = new Set(group.brands.map(normalize));
     return (state.data.statewideClinicalGuidance || []).find(guide =>
@@ -957,6 +1029,7 @@
       el.asOf.textContent = state.data.meta.asOf;
       populateControls();
       bindEvents();
+      bindCriteriaLibrary();
       render();
       registerModelTools();
     } catch (error) {
