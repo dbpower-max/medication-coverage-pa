@@ -76,9 +76,24 @@
     await planLoads.get(planId);
   }
 
+  // Keep one immutable statewide source, projected into the chosen plan for lookup.
+  // This never turns an FFS policy index into plan-specific coverage evidence.
+  const statewideProjectionCache = new Map();
+  function inheritedStatewideRows() {
+    if (!state.data.statewideDrugList?.length) return [];
+    if (!statewideProjectionCache.has(state.planId)) {
+      statewideProjectionCache.set(state.planId, state.data.statewideDrugList.map(record => ({
+        ...record, id: `${state.planId}:statewide:${record.id}`,
+        planId: state.planId, isStatewideReference: true
+      })));
+    }
+    return statewideProjectionCache.get(state.planId);
+  }
+
   function recordsForPlan() {
     return [...state.data.medications, ...state.data.policies]
-      .filter((record) => record.planId === state.planId);
+      .filter((record) => record.planId === state.planId)
+      .concat(inheritedStatewideRows());
   }
 
   // Presentation only: do not alter the original payer text or its coverage record.
@@ -133,8 +148,101 @@
     }));
   }
 
+  function medicationRoute(name) {
+    const text = normalize(name);
+    if (/\b(intravenous|\biv\b)\b/.test(text)) return 'iv';
+    if (/\bintramuscular\b|\bim\b/.test(text)) return 'im';
+    if (/subcut|sub-q|\bsc\b|inject|auto.inj|pref.?syr|\bpen.inj\b|\bvial\b/.test(text)) return 'injection';
+    if (/nasal|nostril/.test(text)) return 'nasal';
+    if (/inhal|nebuliz/.test(text)) return 'inhalation';
+    if (/transdermal|patch/.test(text)) return 'patch';
+    if (/topical|cream|ointment|\bgel\b/.test(text)) return 'topical';
+    if (/tablet|capsule|oral|mouthwash|troche|syrup|elixir/.test(text)) return 'oral';
+    return '';
+  }
+
+  function medicationForm(name) {
+    const n = normalize(name);
+    if (/auto.inj|auto.inject/.test(n)) return 'auto-injector';
+    if (/pref.?syr/.test(n)) return 'syringe';
+    if (/\bvial\b/.test(n)) return 'vial';
+    if (/\bpen.inj|\bpen injection/.test(n)) return 'pen';
+    if (/mouthwash/.test(n)) return 'mouthwash';
+    if (/troche|lozenge/.test(n)) return 'troche';
+    if (/disintegrat|\bodt\b/.test(n)) return 'odt';
+    if (/tablet|\btab\b/.test(n)) return 'tablet';
+    if (/capsule|\bcap\b/.test(n)) return 'capsule';
+    if (/suspension|solution|liquid|syrup|elixir/.test(n)) return 'liquid';
+    return '';
+  }
+
+  function releaseKind(name) {
+    return /\b(er|xr|sr|cr|dr|xl|extended|delayed|controlled|24.hour|12.hour)\b/i.test(name) ? 'modified' : 'ordinary';
+  }
+
+  function strengthTokens(name) {
+    return [...normalize(name).matchAll(/\b\d+(?:\.\d+)?\s*(?:mcg|mg|meq|g|units)\b/g)]
+      .map(match => match[0].replace(/\s+/g, '')).sort();
+  }
+
+  function sameProductGroup(planGroup, sharedGroup) {
+    const sameName = normalize(planGroup.name) === normalize(sharedGroup.name);
+    const sharedBrand = planGroup.brands.some(brand => sharedGroup.brands.some(b => normalize(b) === normalize(brand)));
+    // Verified plan notices may identify a trade name with a route suffix,
+    // without populating the separate brand field (e.g. MOUNJARO (SUBCUTANEOUS)).
+    const routeSuffix = planGroup.name.match(/^(.*?)\s*\((subcutaneous|oral|topical|nasal|inhalation|intravenous|intramuscular)\)\s*$/i);
+    const routeBrand = routeSuffix && sharedGroup.brands.some(b => normalize(b) === normalize(routeSuffix[1]));
+    if (!sameName && !sharedBrand && !routeBrand) return false;
+    const a = medicationRoute(planGroup.name), b = medicationRoute(sharedGroup.name);
+    if (!a || !b || a !== b) return sameName && a === b;
+    const formA = medicationForm(planGroup.name), formB = medicationForm(sharedGroup.name);
+    // A broad source description may omit the device, but explicit conflicting
+    // forms and release mechanisms must never be merged.
+    if (formA && formB && formA !== formB) {
+      const injectionPackage = new Set(['auto-injector', 'syringe', 'vial', 'pen']);
+      if (!(a === 'injection' && (!injectionPackage.has(formA) || !injectionPackage.has(formB)))) return false;
+    }
+    if (releaseKind(planGroup.name) !== releaseKind(sharedGroup.name)) return false;
+    const strengthA = strengthTokens(planGroup.name), strengthB = strengthTokens(sharedGroup.name);
+    if (strengthA.length && strengthB.length && !strengthA.every(token => strengthB.includes(token))) return false;
+    return true;
+  }
+
+  // Preserve unmatched products as the selected plan's supplement. Attach only
+  // unambiguous equivalent products to the statewide entry; never blend rules.
+  const groupCache = new Map();
   function planMedicationGroups() {
-    return medicationGroups(state.data.medications.filter(r => r.planId === state.planId));
+    const key = state.planId + ':' + state.data.medications.length;
+    if (groupCache.has(key)) return groupCache.get(key);
+    const planGroups = medicationGroups(state.data.medications.filter(r => r.planId === state.planId));
+    const sharedGroups = medicationGroups(inheritedStatewideRows())
+      .map(group => ({...group, isStatewide: true, statewideRecord: group.records[0]}));
+    const brandIndex = new Map(), nameIndex = new Map();
+    for (const group of sharedGroups) {
+      nameIndex.set(normalize(group.name), [...(nameIndex.get(normalize(group.name)) || []), group]);
+      for (const brand of group.brands) {
+        const key = normalize(brand);
+        brandIndex.set(key, [...(brandIndex.get(key) || []), group]);
+      }
+    }
+    const supplements = [];
+    for (const group of planGroups) {
+      const candidates = new Set(nameIndex.get(normalize(group.name)) || []);
+      const routeSuffix = group.name.match(/^(.*?)\s*\((subcutaneous|oral|topical|nasal|inhalation|intravenous|intramuscular)\)\s*$/i);
+      if (routeSuffix) for (const match of brandIndex.get(normalize(routeSuffix[1])) || []) candidates.add(match);
+      for (const brand of group.brands) {
+        for (const match of brandIndex.get(normalize(brand)) || []) candidates.add(match);
+      }
+      const matches = [...candidates].filter(shared => sameProductGroup(group, shared));
+      if (matches.length === 1) {
+        const shared = matches[0];
+        shared.records.push(...group.records);
+        shared.search += ' ' + group.search;
+      } else supplements.push(group);
+    }
+    const result = [...sharedGroups, ...supplements];
+    groupCache.set(key, result);
+    return result;
   }
 
   function uniqueMedicationNames() {
@@ -365,8 +473,7 @@
     const subcategory = normalize(state.subcategory);
     const selectedGroup = planMedicationGroups().find(g => normalize(g.label) === normalize(state.term));
     const terms = normalize(state.term).split(/\s+/).filter(Boolean);
-    return [...state.data.medications, ...state.data.policies]
-      .filter((record) => record.planId === state.planId)
+    return recordsForPlan()
       .filter((record) => !category || normalize(record.category).includes(category))
       .filter((record) => !subcategory || normalize(record.subcategory).includes(subcategory))
       .filter(matchesCoverage)
@@ -406,7 +513,12 @@
     el.planStatus.className = `plan-status ${plan.status}`;
     const statewideDate = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' })
       .format(new Date(`${state.data.meta.drugListEffective}T00:00:00Z`));
-    el.planStatus.innerHTML = `<strong>${escapeHtml(plan.name)} · ${labels[plan.status]}</strong><p>${escapeHtml(plan.detail)}</p>`;
+    const shared = state.data.statewideSourceInfo || {};
+    el.planStatus.innerHTML = `<strong>${escapeHtml(plan.name)} · ${labels[plan.status]}</strong>
+      <p>Primary statewide references: <a href="${escapeHtml(shared.drugListOfficialUrl || '')}" target="_blank" rel="noopener">AHCCCS Drug List · ${escapeHtml(shared.drugListEffective || '')}</a> and
+      <a href="${escapeHtml(shared.paCriteriaOfficialUrl || '')}" target="_blank" rel="noopener">AHCCCS clinical PA criteria · ${escapeHtml(shared.paCriteriaEffective || '')}</a>.
+      This plan's additional sources supplement those references.</p>
+      <p>${escapeHtml(plan.detail)}</p>`;
 
     const evidence = state.data.planEvidence.filter((item) => item.planId === plan.id);
     el.planEvidence.hidden = evidence.length === 0;
@@ -433,7 +545,7 @@
     if (record.recordType === 'policy') chips.push([record.guide ? 'PA guide · clinical review pending' : 'Policy criteria', 'warning']);
     else if (record.recordType === 'policy_index') chips.push(['Policy source indexed', 'warning']);
     else if (record.coverage !== 'explicit_not_covered') {
-      const listingLabel = record.planId === 'ahcccs-statewide' ? 'On statewide drug list'
+      const listingLabel = record.isStatewideReference || record.planId === 'ahcccs-statewide' ? 'On statewide drug list'
         : record.planId === 'uhc-community-az' && record.sourceEffective === '2026-07-01' ? 'On archived formulary' : 'On formulary';
       const verifiedCoverage = hasVerifiedMandatedCoverage(record);
       chips.push([verifiedCoverage ? 'Covered' : (/exact.plan preference notice/i.test(record.listingLabel || '') ? 'On formulary' : record.listingLabel) || listingLabel, verifiedCoverage || !record.listingLabel ? 'positive' : 'neutral', 'Appears in this source. Listed restrictions still apply.']);
@@ -592,16 +704,68 @@
     </article>`;
   }
 
+  // Link only clearly named AHCCCS criteria sections. An indexed guideline
+  // may cover particular indications; the link does not promise approval.
+  function matchingStatewidePolicies(group) {
+    const terms = [group.name, ...group.brands].map(normalize).filter(term => term.length >= 5);
+    return (state.data.statewidePaCriteria || []).filter(policy => {
+      const aliases = [policy.name, ...(policy.searchAliases || [])];
+      return aliases.some(alias => terms.includes(normalize(alias)));
+    }).slice(0, 5);
+  }
+
   function medicationGroupCard(group) {
-    return `<article class="result-card"><h3>${escapeHtml(group.label)}</h3>${group.records.map(record => `
-      <section class="medication-product-row">
-        <h4>${escapeHtml(record.name)}${record.brand && normalize(record.brand) !== 'various' ? ` · ${escapeHtml(record.brand)}` : ''}</h4>
+    if (group.isStatewide) {
+      const statewide = group.statewideRecord;
+      const planRows = group.records.filter(record => !record.isStatewideReference);
+      const needsPa = statewide.pa === 'required' || statewide.pa === 'conditional';
+      const sourceInfo = state.data.statewideSourceInfo || {};
+      const namedGuidelines = needsPa ? matchingStatewidePolicies(group) : [];
+      const differs = planRows.some(record =>
+        (record.preferred === 'preferred' && statewide.preferred !== 'preferred')
+        || (record.pa === 'not_required' && needsPa));
+      return `<article class="result-card">
+        <div>
+          <h3>${escapeHtml(group.label)}</h3>
+          <p class="brand">AHCCCS statewide drug list · ${escapeHtml(sourceInfo.drugListEffective || statewide.sourceEffective)}</p>
+        </div>
+        <div class="chips" aria-label="Statewide coverage attributes">${statusChips(statewide)}</div>
+        ${needsPa ? `<details class="record-detail result-disclosure">
+          <summary>Prior authorization criteria</summary>
+          <div class="result-disclosure-body">
+            <p>AHCCCS statewide PA requirements apply. Confirm the drug, indication, age and treatment stage in the clinical criteria before prescribing.</p>
+            ${namedGuidelines.length ? namedGuidelines.map(policy => `<p><a class="source-link" href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">${escapeHtml(policy.name)} · ${escapeHtml(policy.policyCode)}</a> · <a href="${escapeHtml(policy.sourceTextUrl)}" target="_blank" rel="noopener">Full indexed policy text</a></p>`).join('') : '<p>No exact drug-specific index match is established. Review the statewide criteria document for relevant sections.</p>'}
+            <p><a class="source-link" href="${escapeHtml(sourceInfo.paCriteriaOfficialUrl || '')}" target="_blank" rel="noopener">AHCCCS statewide PA criteria · November 2026</a></p>
+          </div>
+        </details>` : ''}
+        <details class="record-detail result-disclosure">
+          <summary>Details and source records${planRows.length ? ` · ${planRows.length} plan supplement${planRows.length === 1 ? '' : 's'}` : ''}</summary>
+          <div class="result-disclosure-body">
+            <p><strong>AHCCCS statewide designation</strong></p>
+            ${recordDetails(statewide)}
+            ${differs ? '<p><strong>Source discrepancy:</strong> An additional plan record differs from the statewide preference or PA designation. The statewide status is shown above; compare the dated original sources.</p>' : ''}
+            ${planRows.map(record => `<details class="result-disclosure"><summary>Plan source: ${escapeHtml(record.sourceTitle || record.name)}${record.sourceEffective ? ' · ' + escapeHtml(record.sourceEffective) : ''}</summary>
+              <div class="result-disclosure-body">
+                <p>${escapeHtml(record.name)}</p>
+                ${recordDetails(record)}
+              </div>
+            </details>`).join('')}
+          </div>
+        </details>
+      </article>`;
+    }
+    const onlyOne = group.records.length === 1;
+    return `<article class="result-card">
+      <h3>${escapeHtml(group.label)}</h3>
+      ${group.records.map(record => `<section class="medication-product-row">
+        ${onlyOne ? '' : `<h4>${escapeHtml(readableMedicationName(record.name))}</h4>`}
         <div class="chips" aria-label="Coverage attributes">${statusChips(record)}</div>
         ${medicationPolicyDropdown(record)}
         <details class="record-detail result-disclosure"><summary>Details, restrictions and sources</summary>
           <div class="result-disclosure-body">${recordDetails(record)}</div>
         </details>
-      </section>`).join('')}</article>`;
+      </section>`).join('')}
+    </article>`;
   }
 
   function render() {
@@ -628,10 +792,22 @@
     // Include the other confirmed products in a matching medication group,
     // while preserving explicit coverage/category filters.
     const allGroups = planMedicationGroups();
-    const matchedKeys = new Set(medicationRows.map(r => medicationIdentity(r).key));
-    const groups = allGroups.filter(g => matchedKeys.has(g.key)).map(g => ({...g,
-      records: g.records.filter(r => matchesCoverage(r) && (!state.category || normalize(r.category).includes(normalize(state.category))) && (!state.subcategory || normalize(r.subcategory).includes(normalize(state.subcategory))))
-    }));
+    const matchedIds = new Set(medicationRows.map(r => r.id));
+    const groups = allGroups.filter(g => {
+      if (!g.records.some(r => matchedIds.has(r.id))) return false;
+      if (!g.isStatewide) return true;
+      const r = g.statewideRecord;
+      return matchesCoverage(r)
+        && (!state.category || normalize(r.category).includes(normalize(state.category)))
+        && (!state.subcategory || normalize(r.subcategory).includes(normalize(state.subcategory)));
+    }).map(g => {
+      if (g.isStatewide) return g;
+      return {...g, records: g.records.filter(r =>
+        matchesCoverage(r)
+        && (!state.category || normalize(r.category).includes(normalize(state.category)))
+        && (!state.subcategory || normalize(r.subcategory).includes(normalize(state.subcategory)))
+      )};
+    });
     const linkedPolicies = new Set(groups.flatMap(g => g.records.flatMap(r => [
       ...(r.approvalGuideIds || []), ...(r.paPolicyAssignments || []).map(p => p.branchId),
       ...(r.policySources || []).map(p => p.policyId).filter(Boolean)
