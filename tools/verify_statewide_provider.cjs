@@ -218,6 +218,33 @@ ui.nonpreferredInhaler={name:'CICLESONIDE INHALER',brands:['ALVESCO']};
 assert(vm.runInContext('clinicalGuidanceFor(nonpreferredInhaler)',ui)===null,'Preferred-drug guideline incorrectly transferred to nonpreferred Alvesco');
 assert(source.includes('needsPa || hasStep || guidance'),'Clinically indexed preferred drug not accessible when PDL does not flag PA');
 assert(guidance.length>=16&&new Set(guidance.map(g=>g.policyCode)).size>=10,'New source policy coverage not retained');
+
+const sgProducts=[
+ ['gl-589207-synjardy','SYNJARDY'],
+ ['gl-589207-synjardy-xr','SYNJARDY XR'],
+ ['gl-589207-invokana','INVOKANA']
+];
+for(const [id,brand] of sgProducts){
+  const guide=guidance.find(g=>g.id===id);
+  assert(guide && guide.policyCode==='GL-589207' && guide.matchBrands.length===1 && guide.matchBrands[0]===brand,'SGLT2 product-specific criteria missing: '+id);
+  assert(guide.pathways.length===1 && guide.pathways[0].all.some(s=>s.includes('10 years old')),'Age threshold missing: '+id);
+  assert(guide.pathways[0].all.some(s=>s.includes('1500mg daily for 90 days')),'Metformin trial threshold missing: '+id);
+  assert(guide.sourcePage>=1579 && guide.sourceLastPage<=1580 && guide.approvalDuration==='12 months','SGLT2 source pages or approval length incorrect: '+id);
+  ui.sgBrandGroup={name:'SGLT-2 INHIBITOR',brands:[brand]};
+  const matched=vm.runInContext('clinicalGuidanceFor(sgBrandGroup)',ui);
+  assert(matched?.id===id,'Wrong SGLT2 matching for '+brand);
+}
+const syn=guidance.find(g=>g.id==='gl-589207-synjardy');
+const synxr=guidance.find(g=>g.id==='gl-589207-synjardy-xr');
+const inv=guidance.find(g=>g.id==='gl-589207-invokana');
+const extra=arr=>arr.some(s=>s.includes('Farxiga')&&s.includes('Jardiance'));
+assert(!extra(syn.pathways[0].all),'Synjardy must not inherit Synjardy XR exclusive dual-failure prerequisite');
+assert(extra(synxr.pathways[0].all),'Synjardy XR must have both additional prior-drug requirements');
+assert(extra(inv.pathways[0].all),'Invokana must have dual-failure requirement');
+ui.sgUnrelated={name:'EMPAGLIFLOZIN/METFORMIN TABLET',brands:['GLYXAMBI']};
+assert(vm.runInContext('clinicalGuidanceFor(sgUnrelated)',ui)===null,'Wrong SGLT2 clinical rule attached to unrelated product');
+console.log('PASS: Synjardy, Synjardy XR, Invokana qualification thresholds, source pages and isolated trial rules');
+
 console.log('PASS: Four vitamin initial/renewal guides and three preferred inhaler asthma rules; no unrelated product matching');
 
 console.log('PASS: Jardiance metformin dose/duration and HF/CKD alternatives; Humulin R U-500 insulin prerequisites or clinical need; source links and brand-specific matching');
