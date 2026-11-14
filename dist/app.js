@@ -188,7 +188,11 @@
   function sameProductGroup(planGroup, sharedGroup) {
     const sameName = normalize(planGroup.name) === normalize(sharedGroup.name);
     const sharedBrand = planGroup.brands.some(brand => sharedGroup.brands.some(b => normalize(b) === normalize(brand)));
-    if (!sameName && !sharedBrand) return false;
+    // Verified plan notices may identify a trade name with a route suffix,
+    // without populating the separate brand field (e.g. MOUNJARO (SUBCUTANEOUS)).
+    const routeSuffix = planGroup.name.match(/^(.*?)\s*\((subcutaneous|oral|topical|nasal|inhalation|intravenous|intramuscular)\)\s*$/i);
+    const routeBrand = routeSuffix && sharedGroup.brands.some(b => normalize(b) === normalize(routeSuffix[1]));
+    if (!sameName && !sharedBrand && !routeBrand) return false;
     const a = medicationRoute(planGroup.name), b = medicationRoute(sharedGroup.name);
     if (!a || !b || a !== b) return sameName && a === b;
     const formA = medicationForm(planGroup.name), formB = medicationForm(sharedGroup.name);
@@ -224,6 +228,8 @@
     const supplements = [];
     for (const group of planGroups) {
       const candidates = new Set(nameIndex.get(normalize(group.name)) || []);
+      const routeSuffix = group.name.match(/^(.*?)\s*\((subcutaneous|oral|topical|nasal|inhalation|intravenous|intramuscular)\)\s*$/i);
+      if (routeSuffix) for (const match of brandIndex.get(normalize(routeSuffix[1])) || []) candidates.add(match);
       for (const brand of group.brands) {
         for (const match of brandIndex.get(normalize(brand)) || []) candidates.add(match);
       }
