@@ -467,8 +467,7 @@
     const subcategory = normalize(state.subcategory);
     const selectedGroup = planMedicationGroups().find(g => normalize(g.label) === normalize(state.term));
     const terms = normalize(state.term).split(/\s+/).filter(Boolean);
-    return [...state.data.medications, ...state.data.policies]
-      .filter((record) => record.planId === state.planId)
+    return recordsForPlan()
       .filter((record) => !category || normalize(record.category).includes(category))
       .filter((record) => !subcategory || normalize(record.subcategory).includes(subcategory))
       .filter(matchesCoverage)
@@ -535,7 +534,7 @@
     if (record.recordType === 'policy') chips.push([record.guide ? 'PA guide · clinical review pending' : 'Policy criteria', 'warning']);
     else if (record.recordType === 'policy_index') chips.push(['Policy source indexed', 'warning']);
     else if (record.coverage !== 'explicit_not_covered') {
-      const listingLabel = record.planId === 'ahcccs-statewide' ? 'On statewide drug list'
+      const listingLabel = record.isStatewideReference || record.planId === 'ahcccs-statewide' ? 'On statewide drug list'
         : record.planId === 'uhc-community-az' && record.sourceEffective === '2026-07-01' ? 'On archived formulary' : 'On formulary';
       const verifiedCoverage = hasVerifiedMandatedCoverage(record);
       chips.push([verifiedCoverage ? 'Covered' : (/exact.plan preference notice/i.test(record.listingLabel || '') ? 'On formulary' : record.listingLabel) || listingLabel, verifiedCoverage || !record.listingLabel ? 'positive' : 'neutral', 'Appears in this source. Listed restrictions still apply.']);
