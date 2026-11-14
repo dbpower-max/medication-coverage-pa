@@ -745,7 +745,7 @@
         "INVOKANA"
       ],
       "sourcePage": 1580,
-      "sourceLastPage": 1581,
+      "sourceLastPage": 1580,
       "summary": "All listed requirements apply; product-specific additional prerequisites are preserved.",
       "pathways": [
         {
@@ -764,9 +764,9 @@
       ],
       "guidelineCaution": "Statewide fee-for-service guideline is not a determination of coverage under an individual AHCCCS managed-care plan.",
       "sourceChecks": [
-        "Invokamet XR ONLY",
-        "Brand Farxiga",
-        "Jardiance"
+        "Product Name:Inovkana, Invokamet, Invokamet XR, Segluromet, Steglatro, Trijardy XR",
+        "History of failure to metformin at a minimum dose of 1500mg daily for 90 days",
+        "Patient is 10 years of age or older (applies to Invokana, Invokamet, Invokamet XR ONLY)"
       ]
     }
   ]
