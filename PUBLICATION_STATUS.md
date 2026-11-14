@@ -1,22 +1,18 @@
 # GitHub publication status
 
-Updated November 13, 2026.
+Updated November 13, 2026 (Arizona).
 
-## Authorized scope going forward
+Public repository: https://github.com/dbpower-max/medication-coverage-pa
+Public app: https://dbpower-max.github.io/medication-coverage-pa/
 
-Provider-facing insurance information for exactly these three plans:
-- AHCCCS: Arizona Complete Health — Complete Care (`az-complete-health`)
-- AHCCCS: Banner — University Family Care ACC (`banner-ufc`)
-- AHCCCS: UnitedHealthcare — AHCCCS Complete Care (`uhc-community-az`)
+GitHub Pages is enabled using GitHub Actions. Deployment run 43531033481, attempt 2, succeeded. The build passed JavaScript syntax validation and verified 969 linked local assets; its scoped dataset contains 6,998 medication records and 970 policy records. Large Banner November PA criteria link to the exact official payer PDF; indexed full policy text is bundled.
 
-Only the interface, these plans' medication coverage/preference/restrictions, PA criteria and linked provider sources are in scope for future uploads. Stop further audit, raw projection, historical database, commercial, Medicare, FFS, ALTCS, DD and other plan uploads. Previously uploaded archive material has not been deleted.
+The deployed app includes only Arizona Complete Health — Complete Care, Banner — University Family Care ACC, and UnitedHealthcare — AHCCCS Complete Care. Provider interface, coverage/preference/restrictions, PA criteria and linked sources are the only future upload scope. No further audit, raw projection, historical database, commercial, Medicare or other-plan uploads are planned. Existing repository archives are excluded from the deployed package.
 
-## Verified publication
+Live browser checks passed for the exact three-plan selector, Banner Jardiance results, UHC Jardiance results, Arizona Complete Health Mounjaro results, clear-filter reset, and opening full Banner policy text at the GitHub project-relative URL.
 
-The existing repository contains the application interface, core compressed dataset, Banner/UHC policy text, ACH policy PDFs, Banner formulary/internal criteria and current UHC PDL/clinical pharmacy PDFs. No further bulk archive uploads are required for this narrowed scope.
+Internal evidence badges requested for removal are filtered in commit 658cc7332f615fc7c69e0fdc6797471d940fbc3f. Clinical data and source conflicts remain preserved. ACH additional-plan data and unresolved source identity conflicts remain incomplete; publication does not establish patient-specific benefits or complete all payer research.
 
-Provider interface now filters plan selections, medication records, policies, evidence and lazy dataset mappings to the three allowed plan IDs. Clear filters returns to Arizona Complete Health. Removed navigation to the separate statewide reference. Header identifies three AHCCCS Complete Care plans. Underlying clinical source assertions are unchanged.
-
-JavaScript syntax check passed. Both changed interface files were fetched from GitHub and matched the intended contents exactly after commit 3e3eda6c1f540f96da248010f658715472d1e859.
-
-GitHub source publication is verified. Live hosting/browser verification remains unconfirmed; do not claim that the existing hosted Site has been updated by these GitHub commits.
+Build: python tools/build_provider_site.py
+Local server: python -m http.server 8000 --directory _site
+Deployment workflow: .github/workflows/pages.yml
