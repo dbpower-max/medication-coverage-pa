@@ -1000,6 +1000,166 @@
         "Diagnosis of topical treatment of head lice infestations",
         "For Brand Natroba requests ONLY: Trial and failure to generic spinosad suspension"
       ]
+    },
+    {
+      "sourceGuidelineType": "Prior Authorization",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "id": "gl-107465-twyneo",
+      "policyCode": "GL-107465",
+      "product": "Twyneo (tretinoin 0.1% / benzoyl peroxide 3% cream)",
+      "matchBrands": [
+        "TWYNEO"
+      ],
+      "heading": "Twyneo acne vulgaris PA",
+      "sourcePage": 1881,
+      "sourceLastPage": 1882,
+      "approvalDuration": "12 months",
+      "summary": "For acne vulgaris in patients aged 9 years or older, the policy requires prior failure, contraindication, or intolerance to all four listed topical therapies.",
+      "pathways": [
+        {
+          "title": "Acne vulgaris — all criteria",
+          "all": [
+            "Patient is 9 years of age or older.",
+            "Diagnosis of acne vulgaris.",
+            "History of therapeutic failure, contraindication, or intolerance to ALL of: benzoyl peroxide; topical clindamycin; topical erythromycin; topical tretinoin (brand Retin-A). Verification by paid pharmacy claims or submitted medical records."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document age, acne diagnosis, and the outcome of each of the four prior topical treatments."
+      ],
+      "guidelineCaution": "All four topical therapies are required; do not interpret this as one-of-four. Statewide PA criteria do not establish plan-specific coverage.",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-107465.txt",
+      "sourceChecks": [
+        "Product Name:Twyneo",
+        "Patient is 9 years of age or older",
+        "Diagnosis of acne vulgaris",
+        "topical clindamycin",
+        "topical erythromycin",
+        "topical tretinoin (Brand Retin-A)"
+      ]
+    },
+    {
+      "sourceGuidelineType": "Prior Authorization",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "id": "gl-107424-korsuva",
+      "policyCode": "GL-107424",
+      "product": "Korsuva (difelikefalin)",
+      "matchBrands": [
+        "KORSUVA"
+      ],
+      "heading": "Korsuva CKD-associated pruritus PA",
+      "sourcePage": 1047,
+      "sourceLastPage": 1049,
+      "approvalDuration": "3 months",
+      "summary": "Initial approval (3 months) requires CKD-associated moderate/severe pruritus during adequate hemodialysis, exclusion of other causes, topical and oral treatment trials, and nephrology or dermatology involvement. Reauthorization (12 months) requires continued hemodialysis and positive response.",
+      "stages": [
+        {
+          "title": "Initial authorization — 3 months",
+          "all": [
+            "Medical records document chronic kidney disease.",
+            "Currently undergoing hemodialysis at an optimal dialysis dose (e.g., Kt/V at least 1.2).",
+            "Moderate to severe CKD-associated pruritus.",
+            "Other causes of pruritus excluded.",
+            {
+              "any": [
+                "Trial and failure, contraindication, or intolerance to emollient cream.",
+                "Trial and failure, contraindication, or intolerance to a topical analgesic (e.g., pramoxine or capsaicin).",
+                "Trial and failure, contraindication, or intolerance to a topical corticosteroid."
+              ]
+            },
+            {
+              "any": [
+                "Trial and failure, contraindication, or intolerance to an oral antihistamine.",
+                "Trial and failure, contraindication, or intolerance to oral gabapentin.",
+                "Trial and failure, contraindication, or intolerance to oral pregabalin."
+              ]
+            },
+            {
+              "any": [
+                "Prescribed by or in consultation with a nephrologist.",
+                "Prescribed by or in consultation with a dermatologist."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Medical records document ongoing hemodialysis.",
+            "Positive clinical response to therapy, such as improved quality of life or worst itching intensity numerical rating score."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "For initial requests include dialysis adequacy, severity of pruritus, exclusion of alternative causes, prior topical/oral therapy and specialist involvement.",
+        "For renewal include ongoing hemodialysis and response documentation."
+      ],
+      "guidelineCaution": "Initial and renewal approval lengths differ. The one-topical and one-oral treatment requirements are both necessary. Plan-specific coverage remains separate.",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-107424.txt",
+      "sourceChecks": [
+        "Product Name:Korsuva",
+        "Patient is currently undergoing hemodialysis (HD) at an optimal dialysis dose",
+        "Trial and failure, contraindication, or intolerance to ONE topical anti-pruritic treatment",
+        "Trial and failure, contraindication, or intolerance to ONE oral treatment",
+        "Documentation of positive clinical response to therapy"
+      ]
+    },
+    {
+      "sourceGuidelineType": "Prior Authorization",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "id": "gl-107454-verkazia",
+      "policyCode": "GL-107454",
+      "product": "Verkazia (cyclosporine ophthalmic emulsion 0.1%)",
+      "matchBrands": [
+        "VERKAZIA"
+      ],
+      "heading": "Verkazia vernal keratoconjunctivitis PA",
+      "sourcePage": 1945,
+      "sourceLastPage": 1947,
+      "approvalDuration": "6 months",
+      "summary": "Initial approval (6 months) requires moderate-to-severe vernal keratoconjunctivitis, prior mast-cell stabilizer/antihistamine and short-course ophthalmic corticosteroid trials, plus ophthalmology or optometry involvement. Renewal is 12 months with documented improvement.",
+      "stages": [
+        {
+          "title": "Initial authorization — 6 months",
+          "all": [
+            "Medical records confirm moderate-to-severe vernal keratoconjunctivitis with clinical signs and symptoms.",
+            {
+              "any": [
+                "Trial and failure, contraindication, or intolerance to a dual-acting ophthalmic mast-cell stabilizer and antihistamine (e.g., olopatadine or azelastine).",
+                "Trial and failure, contraindication, or intolerance to an ophthalmic mast-cell stabilizer (e.g., cromolyn)."
+              ]
+            },
+            "Trial and failure, contraindication, or intolerance to short-term (up to 2–3 weeks) ophthalmic corticosteroids, verified by paid claims or medical records.",
+            {
+              "any": [
+                "Prescribed by or in consultation with an ophthalmologist.",
+                "Prescribed by or in consultation with an optometrist."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Medical records document positive clinical response with improvement in signs and symptoms of vernal keratoconjunctivitis."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document examination findings, the two treatment categories attempted and specialist involvement.",
+        "For renewal document improvement in symptoms and signs."
+      ],
+      "guidelineCaution": "Initial and renewal authorization durations differ. A mast-cell/antihistamine treatment and a short corticosteroid course are separate requirements; statewide criteria do not establish plan coverage.",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-107454.txt",
+      "sourceChecks": [
+        "Product Name:Verkazia",
+        "Diagnosis of moderate to severe vernal keratoconjunctivitis",
+        "Topical ophthalmic mast cell stabilizers",
+        "topical ophthalmic corticosteroids",
+        "Prescribed by or in consultation with ONE of the following",
+        "positive clinical response to therapy"
+      ]
     }
   ]
 }
