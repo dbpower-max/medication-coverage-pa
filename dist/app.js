@@ -693,16 +693,68 @@
     </article>`;
   }
 
+  // Link only clearly named AHCCCS criteria sections. An indexed guideline
+  // may cover particular indications; the link does not promise approval.
+  function matchingStatewidePolicies(group) {
+    const terms = [group.name, ...group.brands].map(normalize).filter(term => term.length >= 5);
+    return (state.data.statewidePaCriteria || []).filter(policy => {
+      const aliases = [policy.name, ...(policy.searchAliases || [])];
+      return aliases.some(alias => terms.includes(normalize(alias)));
+    }).slice(0, 5);
+  }
+
   function medicationGroupCard(group) {
-    return `<article class="result-card"><h3>${escapeHtml(group.label)}</h3>${group.records.map(record => `
-      <section class="medication-product-row">
-        <h4>${escapeHtml(record.name)}${record.brand && normalize(record.brand) !== 'various' ? ` · ${escapeHtml(record.brand)}` : ''}</h4>
+    if (group.isStatewide) {
+      const statewide = group.statewideRecord;
+      const planRows = group.records.filter(record => !record.isStatewideReference);
+      const needsPa = statewide.pa === 'required' || statewide.pa === 'conditional';
+      const sourceInfo = state.data.statewideSourceInfo || {};
+      const namedGuidelines = needsPa ? matchingStatewidePolicies(group) : [];
+      const differs = planRows.some(record =>
+        (record.preferred === 'preferred' && statewide.preferred !== 'preferred')
+        || (record.pa === 'not_required' && needsPa));
+      return `<article class="result-card">
+        <div>
+          <h3>${escapeHtml(group.label)}</h3>
+          <p class="brand">AHCCCS statewide drug list · ${escapeHtml(sourceInfo.drugListEffective || statewide.sourceEffective)}</p>
+        </div>
+        <div class="chips" aria-label="Statewide coverage attributes">${statusChips(statewide)}</div>
+        ${needsPa ? `<details class="record-detail result-disclosure">
+          <summary>Prior authorization criteria</summary>
+          <div class="result-disclosure-body">
+            <p>AHCCCS statewide PA requirements apply. Confirm the drug, indication, age and treatment stage in the clinical criteria before prescribing.</p>
+            ${namedGuidelines.length ? namedGuidelines.map(policy => `<p><a class="source-link" href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">${escapeHtml(policy.name)} · ${escapeHtml(policy.policyCode)}</a> · <a href="${escapeHtml(policy.sourceTextUrl)}" target="_blank" rel="noopener">Full indexed policy text</a></p>`).join('') : '<p>No exact drug-specific index match is established. Review the statewide criteria document for relevant sections.</p>'}
+            <p><a class="source-link" href="${escapeHtml(sourceInfo.paCriteriaOfficialUrl || '')}" target="_blank" rel="noopener">AHCCCS statewide PA criteria · November 2026</a></p>
+          </div>
+        </details>` : ''}
+        <details class="record-detail result-disclosure">
+          <summary>Details and source records${planRows.length ? ` · ${planRows.length} plan supplement${planRows.length === 1 ? '' : 's'}` : ''}</summary>
+          <div class="result-disclosure-body">
+            <p><strong>AHCCCS statewide designation</strong></p>
+            ${recordDetails(statewide)}
+            ${differs ? '<p><strong>Source discrepancy:</strong> An additional plan record differs from the statewide preference or PA designation. The statewide status is shown above; compare the dated original sources.</p>' : ''}
+            ${planRows.map(record => `<details class="result-disclosure"><summary>Plan source: ${escapeHtml(record.sourceTitle || record.name)}${record.sourceEffective ? ' · ' + escapeHtml(record.sourceEffective) : ''}</summary>
+              <div class="result-disclosure-body">
+                <p>${escapeHtml(record.name)}</p>
+                ${recordDetails(record)}
+              </div>
+            </details>`).join('')}
+          </div>
+        </details>
+      </article>`;
+    }
+    const onlyOne = group.records.length === 1;
+    return `<article class="result-card">
+      <h3>${escapeHtml(group.label)}</h3>
+      ${group.records.map(record => `<section class="medication-product-row">
+        ${onlyOne ? '' : `<h4>${escapeHtml(readableMedicationName(record.name))}</h4>`}
         <div class="chips" aria-label="Coverage attributes">${statusChips(record)}</div>
         ${medicationPolicyDropdown(record)}
         <details class="record-detail result-disclosure"><summary>Details, restrictions and sources</summary>
           <div class="result-disclosure-body">${recordDetails(record)}</div>
         </details>
-      </section>`).join('')}</article>`;
+      </section>`).join('')}
+    </article>`;
   }
 
   function render() {
