@@ -36,7 +36,7 @@ data["statewidePaCriteria"] = statewide_pa
 clinical_guidance = json.loads((ROOT / "tools/provider_statewide_clinical_guidance.json").read_text())
 assert clinical_guidance["sourceEffective"] == "2026-11-01"
 indexed_by_code = {p["policyCode"]: p for p in statewide_pa}
-assert len(clinical_guidance["guides"]) == 4
+assert len(clinical_guidance["guides"]) == 5
 for guide in clinical_guidance["guides"]:
     policy = indexed_by_code.get(guide["policyCode"])
     assert policy, "No current AHCCCS index section for " + guide["policyCode"]
@@ -55,7 +55,7 @@ for guide in clinical_guidance["guides"]:
         assert "insulin aspart or insulin lispro" in raw and "lantus" in raw
         assert "special circumstance" in raw
     if guide["policyCode"] == "GL-749236":
-        assert "preferred drugs: mounjaro, trulicity" in raw
+        assert "preferred drugs: mounjaro, trulicity, brand victoza" in raw
         assert "baseline a1c greater than or equal to 6.5%" in raw
         assert "lab report must be submitted" in raw
         assert "verified via paid claims" in raw
