@@ -1,0 +1,19 @@
+name: Validate statewide provider reference
+on:
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/build_provider_site.py
+      - run: node --check _site/app.js
+      - run: python tools/verify_shared_policy_pilot.py
+      - run: node tools/verify_medication_grouping.cjs
+      - run: node tools/verify_statewide_provider.cjs
