@@ -1,5 +1,6 @@
 """Build a standalone site containing only the three provider-facing ACC plans."""
 import gzip
+import hashlib
 import json
 import shutil
 from pathlib import Path
@@ -20,6 +21,12 @@ OUT.mkdir()
 for name in ("index.html", "app.js", "styles.css", "favicon.svg"):
     shutil.copy2(SRC / name, OUT / name)
 (OUT / ".nojekyll").touch()
+# Version static assets so browsers load the matching deployed interface.
+html = (OUT / "index.html").read_text()
+for name in ("app.js", "styles.css"):
+    version = hashlib.sha256((OUT / name).read_bytes()).hexdigest()[:12]
+    html = html.replace("./" + name, "./" + name + "?v=" + version)
+(OUT / "index.html").write_text(html)
 seen = set()
 # Large PDF remains on its official payer host; indexed full policy text is bundled.
 EXTERNAL_SOURCES = {
