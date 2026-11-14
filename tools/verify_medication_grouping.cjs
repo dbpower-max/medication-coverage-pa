@@ -61,4 +61,34 @@ if (fs.existsSync('_site/data.json.gz')) {
   console.log('SAMPLE RAW DUPLICATES: '+JSON.stringify(duplicatedRaw.slice(0,4).map(r=>({name:r.name,brand:r.brand,planId:r.planId}))));
 }
 
+
+// Medication autocomplete must not discard the selected/typed term just
+// because the dropdown arrow was pressed.
+const dropdownSource=source.slice(source.indexOf('  function renderComboboxOptions('),source.indexOf('  function updateActiveOption('));
+if (!source.includes("if (opening) renderComboboxOptions(name, name !== 'medication');")) throw Error('Medication toggle still requests all names');
+const wrapper={setAttribute(){}};
+const input={value:'Mounjaro',setAttribute(){},closest(){return wrapper}};
+const dropdown={hidden:true,innerHTML:''};
+const menuContext={
+  normalize:s=>String(s).trim().toLowerCase(),
+  comboIds:{medication:['medicationInput','medicationOptions']},
+  el:{medicationInput:input,medicationOptions:dropdown},
+  valuesForCombo:()=>['Mounjaro','Valtoco','{1 (0.1 mL) diazepam } Pack','Omisirge'],
+  rankedValues:(values,q)=>values.filter(value=>value.toLowerCase().includes(q)),
+  escapeHtml:s=>String(s),
+  closeAllComboboxes(){},
+  comboState:{medication:{activeIndex:-1,showAll:false}}
+};
+vm.createContext(menuContext);
+vm.runInContext(dropdownSource,menuContext);
+vm.runInContext("renderComboboxOptions('medication', true)",menuContext);
+if(!dropdown.innerHTML.includes('Mounjaro')||dropdown.innerHTML.includes('Valtoco')||dropdown.innerHTML.includes('Omisirge'))throw Error('Selected medication dropdown contains unrelated drugs');
+input.value='';
+vm.runInContext("renderComboboxOptions('medication', true)",menuContext);
+if(!dropdown.innerHTML.includes('Type a brand or generic name')||dropdown.innerHTML.includes('Valtoco'))throw Error('Empty medication dropdown still exposes raw catalog');
+input.value='Valt';
+vm.runInContext("renderComboboxOptions('medication', false)",menuContext);
+if(!dropdown.innerHTML.includes('Valtoco')||dropdown.innerHTML.includes('Mounjaro'))throw Error('Medication query suggestions incorrect');
+console.log('PASS: autocomplete respects entered medication, empty-search prompt, and filtered results');
+
 console.log('PASS: brand/generic labels, aliases, duplicate prevention, precise grouping, preserved coverage restrictions');
