@@ -729,10 +729,22 @@
     // Include the other confirmed products in a matching medication group,
     // while preserving explicit coverage/category filters.
     const allGroups = planMedicationGroups();
-    const matchedKeys = new Set(medicationRows.map(r => medicationIdentity(r).key));
-    const groups = allGroups.filter(g => matchedKeys.has(g.key)).map(g => ({...g,
-      records: g.records.filter(r => matchesCoverage(r) && (!state.category || normalize(r.category).includes(normalize(state.category))) && (!state.subcategory || normalize(r.subcategory).includes(normalize(state.subcategory))))
-    }));
+    const matchedIds = new Set(medicationRows.map(r => r.id));
+    const groups = allGroups.filter(g => {
+      if (!g.records.some(r => matchedIds.has(r.id))) return false;
+      if (!g.isStatewide) return true;
+      const r = g.statewideRecord;
+      return matchesCoverage(r)
+        && (!state.category || normalize(r.category).includes(normalize(state.category)))
+        && (!state.subcategory || normalize(r.subcategory).includes(normalize(state.subcategory)));
+    }).map(g => {
+      if (g.isStatewide) return g;
+      return {...g, records: g.records.filter(r =>
+        matchesCoverage(r)
+        && (!state.category || normalize(r.category).includes(normalize(state.category)))
+        && (!state.subcategory || normalize(r.subcategory).includes(normalize(state.subcategory)))
+      )};
+    });
     const linkedPolicies = new Set(groups.flatMap(g => g.records.flatMap(r => [
       ...(r.approvalGuideIds || []), ...(r.paPolicyAssignments || []).map(p => p.branchId),
       ...(r.policySources || []).map(p => p.policyId).filter(Boolean)
