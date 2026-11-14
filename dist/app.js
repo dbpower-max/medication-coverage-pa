@@ -513,7 +513,12 @@
     el.planStatus.className = `plan-status ${plan.status}`;
     const statewideDate = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' })
       .format(new Date(`${state.data.meta.drugListEffective}T00:00:00Z`));
-    el.planStatus.innerHTML = `<strong>${escapeHtml(plan.name)} · ${labels[plan.status]}</strong><p>${escapeHtml(plan.detail)}</p>`;
+    const shared = state.data.statewideSourceInfo || {};
+    el.planStatus.innerHTML = `<strong>${escapeHtml(plan.name)} · ${labels[plan.status]}</strong>
+      <p>Primary statewide references: <a href="${escapeHtml(shared.drugListOfficialUrl || '')}" target="_blank" rel="noopener">AHCCCS Drug List · ${escapeHtml(shared.drugListEffective || '')}</a> and
+      <a href="${escapeHtml(shared.paCriteriaOfficialUrl || '')}" target="_blank" rel="noopener">AHCCCS clinical PA criteria · ${escapeHtml(shared.paCriteriaEffective || '')}</a>.
+      This plan's additional sources supplement those references.</p>
+      <p>${escapeHtml(plan.detail)}</p>`;
 
     const evidence = state.data.planEvidence.filter((item) => item.planId === plan.id);
     el.planEvidence.hidden = evidence.length === 0;
