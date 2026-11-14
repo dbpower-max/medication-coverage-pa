@@ -50,7 +50,7 @@ assert(!mock.matches({name:'DRUG TABLET 5 MG',brands:['BRAND']},{name:'DRUG TABL
 // Clinical source guidance must be actionable, limited to the verified product,
 // and linked to the exact November source sections.
 const guidance=data.statewideClinicalGuidance;
-assert(guidance.length===5,'Expected five source-verified drug guidance records after Victoza batch');
+assert(guidance.length===6,'Expected six source-verified drug guidance records after Farxiga batch');
 function guideByCode(code){return guidance.find(g=>g.policyCode===code);}
 const sg=guideByCode('GL-589207'), ins=guideByCode('GL-154074');
 assert(sg&&ins,'Missing Jardiance or concentrated insulin guideline');
@@ -134,6 +134,20 @@ assert(jardiance&&jardiance.step==='specified'&&jardiance.pa!=='required','Jardi
 assert(u500&&u500.pa==='required','U-500 drug list PA requirement missing');
 const trulicityState=data.statewideDrugList.find(r=>String(r.brand).toUpperCase()==='TRULICITY');
 assert(trulicityState,'Trulicity statewide entry missing');
+const fzg=guideByCode('GL-589207') && guidance.find(g=>g.id==='gl-589207-farxiga');
+assert(fzg&&fzg.policyCode==='GL-589207'&&JSON.stringify(fzg.matchBrands)===JSON.stringify(['FARXIGA']),'Farxiga-specific guidance not present');
+assert(fzg.pathways.length===2,'Both Farxiga qualification pathways required');
+assert(fzg.pathways[0].all.some(x=>x.includes('1,500 mg/day for 90 days')),'Farxiga metformin threshold missing');
+assert(fzg.pathways[1].all.some(x=>x.includes('NYHA class II')&&x.includes('preserved ejection fraction')),'Farxiga HF functional class/EF criteria missing');
+assert(fzg.pathways[1].all.some(x=>x.includes('No metformin trial')),'Farxiga CKD/HF exception missing');
+assert(/Generic dapagliflozin requests/.test(fzg.guidelineCaution),'Farxiga generic-specific rule not disclosed');
+ui.groupF={name:'DAPAGLIFLOZIN TABLET',brands:['FARXIGA']};
+ui.groupX={name:'DAPAGLIFLOZIN-METFORMIN TABLET',brands:['XIGDUO XR']};
+assert(vm.runInContext('clinicalGuidanceFor(groupF)',ui)?.id==='gl-589207-farxiga','Farxiga brand mapping missing');
+assert(vm.runInContext('clinicalGuidanceFor(groupX)',ui)===null,'Farxiga criteria leaked to Xigduo');
+const htmlF=vm.runInContext('clinicalGuidanceContent(clinicalGuidanceFor(groupF))',ui);
+assert(/NYHA/.test(htmlF)&&/90 days/.test(htmlF)&&/gl-589207/.test(htmlF),'Farxiga source-based clinical details not rendered');
+
 console.log('PASS: Jardiance metformin dose/duration and HF/CKD alternatives; Humulin R U-500 insulin prerequisites or clinical need; source links and brand-specific matching');
 
 console.log('PASS: '+data.statewideDrugList.length+' shared AHCCCS drug entries; '+data.statewidePaCriteria.length+' statewide PA index sections; 3 plan supplements; Mounjaro consolidated; route/release/strength protections');
