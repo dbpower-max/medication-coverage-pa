@@ -8,6 +8,7 @@ import sys
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
 from link_provider_policies import attach_provider_policies
+from shared_policy_pilot import attach_shared_policy
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "dist"
@@ -19,6 +20,7 @@ attach_provider_policies(data)
 assert ALLOWED <= {p["id"] for p in data["plans"]}
 for key, identity in (("plans", "id"), ("medications", "planId"), ("policies", "planId"), ("planEvidence", "planId")):
     data[key] = [r for r in data[key] if r.get(identity) in ALLOWED]
+attach_shared_policy(data)
 data["planDataFiles"] = {k: v for k, v in data.get("planDataFiles", {}).items() if k in ALLOWED}
 if OUT.exists():
     shutil.rmtree(OUT)

@@ -398,12 +398,33 @@
     return chips.filter(([text]) => !/conflicting source listings\s*=\s*conservative status|PA not addressed by notice|exact.plan preference notice/i.test(text)).map(([text, kind, help]) => `<span class="chip ${kind}"${help ? ` title="${escapeHtml(help)}"` : ''}>${escapeHtml(text)}</span>`).join('');
   }
 
+  function resolvedPolicyGuide(record) {
+    if (!record.sharedPolicyRef) return record;
+    const ref = record.sharedPolicyRef;
+    const policy = state.data.sharedPolicies?.find(p => p.id === ref.policyId && p.planId === record.planId && p.version === ref.version);
+    const branch = policy?.branches[ref.branchId];
+    if (!branch) return {...record, guide: null};
+    return {...record, policyEffective: policy.effective, guide: {...branch,
+      requirements: [...policy.guide.requirements, ...branch.requirements]}};
+  }
+
+  function medicationPolicyDropdown(record) {
+    return (record.paPolicyAssignments || []).map(ref => {
+      const raw = state.data.policies.find(p => p.id === ref.branchId && p.planId === record.planId);
+      if (!raw) return '';
+      const guide = resolvedPolicyGuide(raw);
+      if (!guide.guide) return '';
+      return `<details class="approval-guide"><summary>PA criteria · ${escapeHtml(guide.indication)}</summary>${approvalGuideContent(guide)}</details>`;
+    }).join('');
+  }
+
   function approvalGuideContent(record) {
+    record = resolvedPolicyGuide(record);
     const guide = record.guide;
     if (!guide) return '';
     const list = (items) => `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`;
     return `<div class="approval-guide-content">
-      <p><strong>${escapeHtml(record.indication)}</strong> · ${escapeHtml(record.approvalDuration)} · effective ${escapeHtml(record.sourceEffective)}</p>
+      <p><strong>${escapeHtml(record.indication)}</strong> · ${escapeHtml(record.approvalDuration)} · policy effective ${escapeHtml(record.policyEffective || record.sourceEffective)} · source snapshot ${escapeHtml(record.sourceEffective)}</p>
       <p>${escapeHtml(guide.scope)}</p>
       ${guide.ambiguity ? `<p class="guide-ambiguity"><strong>Source clarification needed:</strong> ${escapeHtml(guide.ambiguity)}</p>` : ''}
       <p><strong>${escapeHtml(record.stage)}</strong></p>
@@ -475,7 +496,7 @@
         details.push(`<p><strong>Exact-plan PA policy source:</strong> <a class="source-link" href="${escapeHtml(policy.url)}#page=${policy.firstPage}" target="_blank" rel="noopener">${escapeHtml(policy.title)} · ${escapeHtml(policy.policyCode)} · PDF pages ${policy.firstPage}–${policy.lastPage} · effective ${escapeHtml(policy.effective)}</a><br>Detailed criteria are indexed for review, not yet structured or clinician-approved here.</p>`);
       }
     }
-    if (record.approvalGuideIds?.length) {
+    if (record.approvalGuideIds?.length && !record.paPolicyAssignments?.length) {
       for (const id of record.approvalGuideIds) {
         const guide = state.data.policies.find((item) => item.id === id && item.planId === record.planId && item.guide);
         if (guide) details.push(`<details class="approval-guide"><summary>PA approval guide: ${escapeHtml(guide.name)}</summary>${approvalGuideContent(guide)}</details>`);
@@ -493,6 +514,7 @@
   }
 
   function recordCard(record) {
+    record = resolvedPolicyGuide(record);
     const classes = ['result-card'];
     if (record.recordType === 'policy' || record.recordType === 'policy_index') classes.push('policy');
     if (record.coverage === 'explicit_not_covered') classes.push('not-covered');
@@ -502,6 +524,7 @@
         ${record.brand ? `<p class="brand">Brand: ${escapeHtml(record.brand)}</p>` : ''}
       </div>
       <div class="chips" aria-label="Coverage attributes">${statusChips(record)}</div>
+      ${medicationPolicyDropdown(record)}
       <details class="record-detail result-disclosure">
         <summary>${record.guide || record.approvalGuideIds?.length ? 'PA guide, details and sources' : 'Details, restrictions and sources'}</summary>
         <div class="result-disclosure-body">

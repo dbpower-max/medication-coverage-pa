@@ -24,6 +24,7 @@ jobs:
           python-version: '3.12'
       - run: python tools/build_provider_site.py
       - run: node --check _site/app.js
+      - run: python tools/verify_shared_policy_pilot.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
