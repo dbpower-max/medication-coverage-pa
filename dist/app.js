@@ -83,7 +83,7 @@
 
   // Presentation only: do not alter the original payer text or its coverage record.
   function readableMedicationName(value) {
-    const keepUpper = new Set(['ER', 'XR', 'SR', 'IR', 'DR', 'ODT', 'HFA', 'DPI', 'NDC', 'IV', 'IM', 'SC', 'SQ', 'LA', 'XL', 'EC', 'CR', 'CD', 'U', 'NPH', 'GLP', 'DPP', 'SGLT2', 'HIV', 'ADHD', 'HCTZ', 'MDI', 'ICS', 'LABA', 'LAMA', 'PFS']);
+    const keepUpper = new Set(['ER', 'XR', 'SR', 'IR', 'DR', 'ODT', 'HFA', 'DPI', 'NDC', 'IV', 'IM', 'SC', 'SQ', 'LA', 'XL', 'EC', 'CR', 'CD', 'U', 'NPH', 'GLP', 'DPP', 'SGLT2', 'HIV', 'ADHD', 'HCTZ', 'MDI', 'ICS', 'LABA', 'LAMA', 'PFS', 'USP', 'OTC']);
     const unitCase = {MG: 'mg', MCG: 'mcg', ML: 'mL', MEQ: 'mEq', GM: 'g', HCL: 'HCl', NACL: 'NaCl', HBR: 'HBr', KWIKPEN: 'KwikPen', FLEXPEN: 'FlexPen', FLEXTOUCH: 'FlexTouch', SOLOSTAR: 'SoloStar', PENFILL: 'PenFill', REDIHALER: 'RediHaler'};
     return String(value ?? '').trim().replace(/\s+/g, ' ')
       .replace(/\b[A-Z][A-Z0-9]*\b/g, (word) => unitCase[word] || (keepUpper.has(word) ? word : word[0] + word.slice(1).toLowerCase()))
@@ -102,6 +102,16 @@
     return {key: `${record.planId}:${normalize(generic)}`, generic, brands};
   }
 
+  // Exact duplicate bracketed brand names are presentation artifacts.
+  // Preserve the underlying payer product name, source links and PA records.
+  function medicationDisplayLabel(name, brands) {
+    const suffix = name.match(/^(.*?)\s+\[([^\[\]]+)\]\s*$/);
+    const repeatedBrand = suffix && brands.some(brand => normalize(brand) === normalize(suffix[2]));
+    const displayName = repeatedBrand ? suffix[1].trim() : name;
+    return readableMedicationName(displayName) + (brands.length
+      ? ` (${brands.map(readableMedicationName).join(' / ')})` : '');
+  }
+
   function medicationGroups(records) {
     const groups = new Map();
     for (const record of records) {
@@ -112,7 +122,7 @@
       for (const brand of identity.brands) if (!group.brands.some(b => normalize(b) === normalize(brand))) group.brands.push(brand);
     }
     return [...groups.values()].map(group => ({...group,
-      label: readableMedicationName(group.name) + (group.brands.length ? ` (${group.brands.map(readableMedicationName).join(' / ')})` : ''),
+      label: medicationDisplayLabel(group.name, group.brands),
       search: [group.name, ...group.brands, ...group.records.flatMap(r => [r.name, ...(r.searchAliases || [])])].join(' ')
     }));
   }
