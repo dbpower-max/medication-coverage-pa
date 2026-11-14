@@ -60,11 +60,15 @@ for guide in clinical_guidance["guides"]:
     assert policy["sourceTextUrl"] == guide["sourceTextUrl"]
     raw = " ".join((SRC / guide["sourceTextUrl"].lstrip("/")).read_text().split()).lower()
     assert guide["policyCode"].lower() in raw
-    assert guide["matchBrands"] and all(isinstance(b, str) and b.strip() for b in guide["matchBrands"]), "Missing unambiguous brand identity"
-    for brand in guide["matchBrands"]:
-        key = brand.strip().lower()
-        assert key not in brand_claims, "Same brand maps to multiple unrelated clinical guides: " + brand
-        brand_claims.add(key)
+    brands = guide.get("matchBrands", [])
+    generic_names = guide.get("matchNames", [])
+    assert brands or generic_names, "Guide must have an exact product brand or medication-name key"
+    for kind, identity in (("brand", brands), ("name", generic_names)):
+        for value in identity:
+            assert isinstance(value, str) and value.strip(), "Invalid product identity"
+            key = kind + ":" + value.strip().lower()
+            assert key not in brand_claims, "Product identity maps to multiple clinical guides: " + value
+            brand_claims.add(key)
     pathways, stages = guide.get("pathways"), guide.get("stages")
     assert bool(pathways) != bool(stages), "Exactly one of indication pathways or treatment stages required"
     for pathway in pathways or []:
