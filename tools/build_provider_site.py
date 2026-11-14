@@ -36,7 +36,7 @@ data["statewidePaCriteria"] = statewide_pa
 clinical_guidance = json.loads((ROOT / "tools/provider_statewide_clinical_guidance.json").read_text())
 assert clinical_guidance["sourceEffective"] == "2026-11-01"
 indexed_by_code = {p["policyCode"]: p for p in statewide_pa}
-assert len(clinical_guidance["guides"]) == 5
+assert len(clinical_guidance["guides"]) == 6
 for guide in clinical_guidance["guides"]:
     policy = indexed_by_code.get(guide["policyCode"])
     assert policy, "No current AHCCCS index section for " + guide["policyCode"]
@@ -47,9 +47,11 @@ for guide in clinical_guidance["guides"]:
     assert guide["policyCode"].lower() in raw
     assert "12 month(s)" in raw
     if guide["policyCode"] == "GL-589207":
-        assert "product name:jardiance" in raw
+        assert "product name:jardiance" in raw and "brand farxiga, generic dapagliflozin" in raw
         assert "1500mg daily for 90 days" in raw
         assert "heart failure" in raw and "chronic kidney disease" in raw
+        assert "patient is 10 years of age or older" in raw
+        assert "generic dapagliflozin requests only" in raw and "brand farxiga" in raw
     if guide["policyCode"] == "GL-154074":
         assert "humulin r u-500 vial and kwikpen" in raw
         assert "insulin aspart or insulin lispro" in raw and "lantus" in raw
