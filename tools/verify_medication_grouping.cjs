@@ -29,6 +29,9 @@ if(groups([{name:'drug tablet 5 mg (Brand)',brand:'Brand'}])[0].label!=='drug ta
 if(groups([{name:'drug tablet 5 mg [Brand] (Brand)',brand:'Brand'}])[0].label!=='drug tablet 5 mg (Brand)')throw Error('Multiple nested duplicate brands');
 if(groups([{name:'drug tablet [OTC]',brand:'Brand'}])[0].label!=='drug tablet [OTC] (Brand)')throw Error('Meaningful unrelated bracket was deleted');
 if(groups([{name:'drug tablet [Other Brand]',brand:'Brand'}])[0].label!=='drug tablet [Other Brand] (Brand)')throw Error('Distinct brand was incorrectly suppressed');
+if(groups([{name:'doxylamine succinate 25 mg Oral Tablet [Wal-Som (doxylamine)]',brand:'Wal-Som (doxylamine)'}])[0].label!=='doxylamine succinate 25 mg Oral Tablet (Wal-Som (doxylamine))')throw Error('Nested brand alias duplicated');
+if(groups([{name:'{28 (ivacaftor 150 mg / tezacaftor 100 mg Oral Tablet) / 28 (ivacaftor 150 mg Oral Tablet) } Pack [Symdeko (100 mg / 150 mg; 150 mg)]',brand:'Symdeko (100 mg / 150 mg; 150 mg)'}])[0].label!=='{28 (ivacaftor 150 mg / tezacaftor 100 mg Oral Tablet) / 28 (ivacaftor 150 mg Oral Tablet) } Pack (Symdeko (100 mg / 150 mg; 150 mg))')throw Error('Combination pack brand duplicated');
+
 
 // Audit actual deployed provider-scope records after the site build.
 const zlib = require('zlib');
@@ -52,8 +55,9 @@ if (fs.existsSync('_site/data.json.gz')) {
   context.rows=formulary;
   const grouped=vm.runInContext('medicationGroups(rows)',context);
   const duplicatedDisplay=grouped.filter(g=>/\[([^\]]+)\]\s*\(\1\)/i.test(g.label));
-  if (duplicatedDisplay.length) throw Error('Unfixed duplicate search display labels: '+duplicatedDisplay.slice(0,4).map(g=>g.label).join('; '));
+
   console.log('LIVE DATA AUDIT: '+formulary.length+' formulary records; '+grouped.length+' search groups; '+duplicatedRaw.length+' source rows with repeated bracketed brand; '+duplicatedDisplay.length+' redundant search labels.');
+  if (duplicatedDisplay.length) throw Error('Unfixed duplicate search display labels: '+duplicatedDisplay.slice(0,4).map(g=>g.label).join('; '));
   console.log('SAMPLE RAW DUPLICATES: '+JSON.stringify(duplicatedRaw.slice(0,4).map(r=>({name:r.name,brand:r.brand,planId:r.planId}))));
 }
 
