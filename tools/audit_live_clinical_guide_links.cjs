@@ -52,10 +52,24 @@ for(const planId of plans){
     if(differentBrand)ambiguous.push({guide:guide.id,label:group.label,brands:group.brands});
   }
   const missing=guides.filter(g=>!matchedGuideIds.has(g.id)).map(g=>g.id);
+  for (const guide of guides) {
+    const query=(guide.matchBrands||[])[0] || (guide.matchNames||[])[0] || guide.product;
+    assert(query,'Structured clinical guide lacks search identity: '+guide.id);
+    ctx.clinicalQuery=query;
+    ctx.visibleGroups=groups;
+    const sources=vm.runInContext('clinicalPolicyOnlyGroups(clinicalQuery,visibleGroups)',ctx);
+    const included=sources.some(g=>g.guide.id===guide.id);
+    if (matchedGuideIds.has(guide.id)) {
+      assert(!included,'Duplicate clinical-only card for an already represented medication: '+guide.id);
+    } else {
+      assert(included,'Unlinked clinical guide remains inaccessible in medication search: '+guide.id);
+    }
+    assert(sources.every(g=>g.policyOnly===true&&g.records.length===0),'Clinical policy-only search invented formulary records');
+  }
   console.log('GUIDE VISIBILITY '+planId+': '+matchedGuideIds.size+'/'+guides.length+' guide IDs attached; '+groups.length+' medication groups; '+ambiguous.length+' mixed-brand group matches');
   console.log('UNLINKED '+planId+': '+JSON.stringify(missing));
   console.log('EXAMPLES '+planId+': '+JSON.stringify(assignments.slice(0,15)));
   if(ambiguous.length)console.log('MIXED BRANDS '+planId+': '+JSON.stringify(ambiguous.slice(0,20)));
   assert(!ambiguous.length,'Product-specific clinical guidance is assigned to a mixed-brand medication group: '+planId);
 }
-console.log('PASS: 3-plan real-data guide-to-medication linkage audit completed without mixed-brand rule transfers');
+console.log('PASS: all clinical guide IDs reachable as exact medication cards or explicitly coverage-unknown policy-only results for each of 3 plans; no mixed-brand criteria');
