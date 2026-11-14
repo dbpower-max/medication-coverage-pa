@@ -109,7 +109,8 @@
     // Remove only exact repeated brand suffixes, whether [Brand] or (Brand).
     // Leave other bracketed text such as [OTC] or (USP) untouched.
     for (let i = 0; i < 3; i++) {
-      const suffix = displayName.match(/^(.*?)\s+[\[(]([^\[\]()]+)[\])]\s*$/);
+      const suffix = displayName.match(/^(.*?)\s+\[([^\[\]]+)\]\s*$/)
+        || displayName.match(/^(.*?)\s+\(([^()]+)\)\s*$/);
       if (!suffix || !brands.some(brand => normalize(brand) === normalize(suffix[2]))) break;
       displayName = suffix[1].trim();
     }
