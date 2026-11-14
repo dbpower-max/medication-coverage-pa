@@ -36,4 +36,23 @@ for(const id of ['criteriaLibrary','criteriaSearch','criteriaCount','criteriaRes
 }
 assert(script.includes('pre.textContent = await response.text()'),'Original guideline is not rendered as literal text');
 assert(script.includes('button.dataset.readGuideline'),'On-demand text lookup is missing');
+// Every medication card can open the statewide source index using the
+// displayed generic/brand identity; it never asserts that a policy applies.
+const startShortcut=script.indexOf('  function criteriaLibraryShortcut(');
+const endShortcut=script.indexOf('  function medicationGroupCard(',startShortcut);
+assert(startShortcut>0&&endShortcut>startShortcut,'Card-to-criteria shortcut missing');
+const shortcutCtx={escapeHtml:value=>String(value).replace(/[&<>'"]/g,chr=>({
+ '&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'
+})[chr])};
+vm.createContext(shortcutCtx);
+vm.runInContext(script.slice(startShortcut,endShortcut),shortcutCtx);
+shortcutCtx.group={name:'TIRZEPATIDE SOLN AUTO-INJ',brands:['MOUNJARO']};
+const shortcut=vm.runInContext('criteriaLibraryShortcut(group)',shortcutCtx);
+assert(shortcut.includes('data-criteria-query="MOUNJARO"'),'Mounjaro shortcut not tied to brand');
+shortcutCtx.group={name:'drug generic',brands:['<unsafe>']};
+const safe=vm.runInContext('criteriaLibraryShortcut(group)',shortcutCtx);
+assert(safe.includes('&lt;unsafe&gt;')&&!safe.includes('="<unsafe>"'),'Shortcut escaped drug names incorrectly');
+assert((script.match(/\$\{criteriaLibraryShortcut\(group\)\}/g)||[]).length===2,'Both statewide and plan-specific cards need source shortcuts');
+assert(script.includes('el.criteriaLibrary.open = true')&&script.includes('shortcut.dataset.criteriaQuery'),'Source shortcut does not activate the library');
+
 console.log('PASS: all '+index.length+' policy source files present and tied to November PDF page/code; '+totalBytes+' source-text bytes; search returns expected guideline sections; original text safely rendered');

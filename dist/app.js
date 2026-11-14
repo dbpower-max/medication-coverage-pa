@@ -749,6 +749,16 @@
 
   function bindCriteriaLibrary() {
     el.criteriaSearch.addEventListener('input', renderCriteriaLibrary);
+    document.addEventListener('click', event => {
+      const shortcut = event.target.closest('[data-criteria-query]');
+      if (!shortcut) return;
+      el.criteriaLibrary.open = true;
+      el.criteriaSearch.value = shortcut.dataset.criteriaQuery;
+      renderCriteriaLibrary();
+      el.criteriaLibrary.scrollIntoView({behavior:'smooth',block:'start'});
+      el.criteriaSearch.focus();
+    });
+
     el.criteriaResults.addEventListener('click', async event => {
       const button = event.target.closest('[data-read-guideline]');
       if (!button) return;
@@ -806,6 +816,11 @@
       <p><a class="source-link" href="${escapeHtml(sourceHref(guide))}" target="_blank" rel="noopener">Source: ${escapeHtml(guide.policyCode)} · PDF page ${Number(guide.sourcePage)}${guide.sourceLastPage !== guide.sourcePage ? '–' + Number(guide.sourceLastPage) : ''}</a> · <a href="${escapeHtml(guide.sourceTextUrl)}" target="_blank" rel="noopener">Full guideline text</a></p>`;
   }
 
+  function criteriaLibraryShortcut(group) {
+    const query = group.brands[0] || group.name;
+    return `<button type="button" class="text-button criteria-shortcut" data-criteria-query="${escapeHtml(query)}">Find clinical criteria source for this medication</button>`;
+  }
+
   function medicationGroupCard(group) {
     if (group.isStatewide) {
       const statewide = group.statewideRecord;
@@ -823,6 +838,7 @@
           <p class="brand">AHCCCS statewide drug list · ${escapeHtml(sourceInfo.drugListEffective || statewide.sourceEffective)}</p>
         </div>
         <div class="chips" aria-label="Statewide coverage attributes">${statusChips(statewide)}</div>
+        ${criteriaLibraryShortcut(group)}
         ${needsPa || hasStep ? `<details class="record-detail result-disclosure" ${guidance ? 'open' : ''}>
           <summary>${guidance ? escapeHtml(guidance.heading) : (needsPa ? 'PA requirements — details not yet structured' : 'Step-therapy requirements — details not yet structured')}</summary>
           <div class="result-disclosure-body">
@@ -853,6 +869,7 @@
     const onlyOne = group.records.length === 1;
     return `<article class="result-card">
       <h3>${escapeHtml(group.label)}</h3>
+      ${criteriaLibraryShortcut(group)}
       ${group.records.map(record => `<section class="medication-product-row">
         ${onlyOne ? '' : `<h4>${escapeHtml(readableMedicationName(record.name))}</h4>`}
         <div class="chips" aria-label="Coverage attributes">${statusChips(record)}</div>
