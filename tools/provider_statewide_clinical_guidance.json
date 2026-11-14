@@ -656,6 +656,118 @@
         "Diagnosis of asthma",
         "For Non-Preferred requests only"
       ]
+    },
+    {
+      "policyCode": "GL-589207",
+      "heading": "SGLT-2 inhibitor prior authorization qualifications",
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-589207.txt",
+      "id": "gl-589207-synjardy",
+      "product": "Synjardy",
+      "matchBrands": [
+        "SYNJARDY"
+      ],
+      "sourcePage": 1579,
+      "sourceLastPage": 1580,
+      "summary": "All listed requirements apply; product-specific additional prerequisites are preserved.",
+      "pathways": [
+        {
+          "title": "Type 2 diabetes",
+          "all": [
+            "Diagnosis of type 2 diabetes mellitus.",
+            "History of failure to metformin at a minimum dose of 1500mg daily for 90 days, or contraindication or intolerance to metformin.",
+            "Patient is at least 10 years old."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document type 2 diabetes and metformin trial dose, duration and outcome or contraindication/intolerance.",
+        "Document each product-specific prerequisite, including prior failures, intolerance or contraindications."
+      ],
+      "guidelineCaution": "Statewide fee-for-service guideline is not a determination of coverage under an individual AHCCCS managed-care plan.",
+      "sourceChecks": [
+        "Product Name:Synjardy, Synjardy XR",
+        "History of failure to metformin at a minimum dose of 1500mg daily for 90 days",
+        "Brand Farxiga",
+        "Jardiance"
+      ]
+    },
+    {
+      "policyCode": "GL-589207",
+      "heading": "SGLT-2 inhibitor prior authorization qualifications",
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-589207.txt",
+      "id": "gl-589207-synjardy-xr",
+      "product": "Synjardy XR",
+      "matchBrands": [
+        "SYNJARDY XR"
+      ],
+      "sourcePage": 1579,
+      "sourceLastPage": 1580,
+      "summary": "All listed requirements apply; product-specific additional prerequisites are preserved.",
+      "pathways": [
+        {
+          "title": "Type 2 diabetes",
+          "all": [
+            "Diagnosis of type 2 diabetes mellitus.",
+            "History of failure to metformin at a minimum dose of 1500mg daily for 90 days, or contraindication or intolerance to metformin.",
+            "Patient is at least 10 years old.",
+            "History of failure, intolerance, or contraindication to ALL of: Brand Farxiga AND Jardiance."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document type 2 diabetes and metformin trial dose, duration and outcome or contraindication/intolerance.",
+        "Document each product-specific prerequisite, including prior failures, intolerance or contraindications."
+      ],
+      "guidelineCaution": "Statewide fee-for-service guideline is not a determination of coverage under an individual AHCCCS managed-care plan.",
+      "sourceChecks": [
+        "For Synjardy XR requests ONLY",
+        "History of failure to metformin at a minimum dose of 1500mg daily for 90 days",
+        "Brand Farxiga",
+        "Jardiance"
+      ]
+    },
+    {
+      "policyCode": "GL-589207",
+      "heading": "SGLT-2 inhibitor prior authorization qualifications",
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-589207.txt",
+      "id": "gl-589207-invokana",
+      "product": "Invokana",
+      "matchBrands": [
+        "INVOKANA"
+      ],
+      "sourcePage": 1580,
+      "sourceLastPage": 1581,
+      "summary": "All listed requirements apply; product-specific additional prerequisites are preserved.",
+      "pathways": [
+        {
+          "title": "Type 2 diabetes",
+          "all": [
+            "Diagnosis of type 2 diabetes mellitus.",
+            "History of failure to metformin at a minimum dose of 1500mg daily for 90 days, or contraindication or intolerance to metformin.",
+            "History of failure, intolerance, or contraindication to BOTH Brand Farxiga AND Jardiance.",
+            "Patient is at least 10 years old."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document type 2 diabetes and metformin trial dose, duration and outcome or contraindication/intolerance.",
+        "Document each product-specific prerequisite, including prior failures, intolerance or contraindications."
+      ],
+      "guidelineCaution": "Statewide fee-for-service guideline is not a determination of coverage under an individual AHCCCS managed-care plan.",
+      "sourceChecks": [
+        "Invokamet XR ONLY",
+        "Brand Farxiga",
+        "Jardiance"
+      ]
     }
   ]
 }
