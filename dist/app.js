@@ -115,7 +115,12 @@
     const generic = genericFor ? genericFor[1].trim() : brandFor ? brandFor[2].trim() : name;
     const brand = genericFor ? genericFor[2].trim() : brandFor ? brandFor[1].trim() : record.brand;
     const brands = brand && normalize(brand) !== 'various' && normalize(brand) !== normalize(generic) ? [brand.trim()] : [];
-    return {key: `${record.planId}:${normalize(generic)}`, generic, brands};
+    // A source may omit insulin concentration from the generic description but
+    // identify it in the trade name (e.g., U-100 vs U-500). Those are distinct
+    // clinical products and must never share a single medication card.
+    const concentration = [generic, ...brands].join(' ').match(/\bU[- ]?(100|500)\b/i);
+    const variant = concentration ? `:u${concentration[1]}` : '';
+    return {key: `${record.planId}:${normalize(generic)}${variant}`, generic, brands};
   }
 
   // Exact duplicate bracketed brand names are presentation artifacts.
@@ -186,7 +191,16 @@
       .map(match => match[0].replace(/\s+/g, '')).sort();
   }
 
+  function explicitInsulinConcentration(group) {
+    const names = [group.name, ...group.brands];
+    const values = new Set(names.flatMap(name => [...String(name).matchAll(/\bU[- ]?(100|500)\b/gi)].map(match => match[1])));
+    return values.size === 1 ? [...values][0] : values.size ? 'mixed' : '';
+  }
+
   function sameProductGroup(planGroup, sharedGroup) {
+    const concentrationA = explicitInsulinConcentration(planGroup);
+    const concentrationB = explicitInsulinConcentration(sharedGroup);
+    if (concentrationA !== concentrationB || concentrationA === 'mixed') return false;
     const sameName = normalize(planGroup.name) === normalize(sharedGroup.name);
     const sharedBrand = planGroup.brands.some(brand => sharedGroup.brands.some(b => normalize(b) === normalize(brand)));
     // Verified plan notices may identify a trade name with a route suffix,
@@ -793,10 +807,14 @@
   function clinicalGuidanceFor(group) {
     const brands = new Set(group.brands.map(normalize));
     const generic = normalize(group.name);
-    return (state.data.statewideClinicalGuidance || []).find(guide =>
-      (guide.matchBrands || []).some(brand => brands.has(normalize(brand)))
-      || (guide.matchNames || []).some(name => generic === normalize(name))
-    ) || null;
+    return (state.data.statewideClinicalGuidance || []).find(guide => {
+      const allowedBrands = new Set((guide.matchBrands || []).map(normalize));
+      const matchedBrand = [...brands].some(brand => allowedBrands.has(brand));
+      // Do not put product-specific clinical criteria on a group that also
+      // contains a different branded product.
+      if (matchedBrand) return [...brands].every(brand => allowedBrands.has(brand));
+      return (guide.matchNames || []).some(name => generic === normalize(name));
+    }) || null;
   }
 
   function clinicalRequirementItem(requirement) {
