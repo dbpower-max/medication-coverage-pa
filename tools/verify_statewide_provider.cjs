@@ -28,7 +28,16 @@ const mounjaro=groups.filter(g=>g.brands.some(b=>b.toLowerCase()==='mounjaro'));
 assert(mounjaro.length===1,'Mounjaro still appears in multiple AZ plan groups: '+mounjaro.map(g=>g.label).join(' | '));
 assert(mounjaro[0].isStatewide&&mounjaro[0].statewideRecord.pa==='required','Mounjaro does not inherit statewide PA');
 assert(mounjaro[0].records.some(r=>/MOUNJARO \(SUBCUTANEOUS\)/i.test(r.name)),'October AZ plan notice not retained as supplement');
-assert(mounjaro[0].records.some(r=>r.validation==='official_json_baseline_with_later_updates'),'Older ACH baseline record is not retained for source audit');
+// An older ACH JSON baseline record may or may not name Mounjaro.
+// Retain any such original records when present, but never invent one.
+const baselineRows=data.medications.filter(r=>r.planId==='az-complete-health'
+  && r.validation==='official_json_baseline_with_later_updates'
+  && (/mounjaro/i.test(r.name)||/mounjaro/i.test(r.brand||'')));
+if(baselineRows.length) {
+  const represented=new Set(mounjaro[0].records.map(r=>r.id));
+  assert(baselineRows.every(r=>represented.has(r.id)),'Existing named Mounjaro baseline evidence was not linked');
+}
+console.log('MOUNJARO: '+mounjaro[0].records.map(r=>r.name+' ['+(r.validation||'statewide')+']').join(' + '));
 const mock=model({medications:[
   {id:'plan-notice',planId:'az-complete-health',recordType:'formulary',name:'MOUNJARO (SUBCUTANEOUS)',brand:'',preferred:'preferred'},
   {id:'plan-json',planId:'az-complete-health',recordType:'formulary',name:'TIRZEPATIDE SOLN AUTO-INJ',brand:'MOUNJARO',pa:'required'}],
