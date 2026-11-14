@@ -81,20 +81,40 @@
       .filter((record) => record.planId === state.planId);
   }
 
+  // Group only explicit source identities; do not infer equivalence from class,
+  // ingredient fragments, or route alone. Strength/form/release text is retained.
+  function medicationIdentity(record) {
+    const name = (record.name || '').trim();
+    const genericFor = name.match(/^(.*?)\s*\(generic for ([^)]+)\)\s*$/i);
+    const brandFor = name.match(/^(.*?)\s*\(brand for ([^)]+)\)\s*$/i);
+    const generic = genericFor ? genericFor[1].trim() : brandFor ? brandFor[2].trim() : name;
+    const brand = genericFor ? genericFor[2].trim() : brandFor ? brandFor[1].trim() : record.brand;
+    const brands = brand && normalize(brand) !== 'various' ? [brand.trim()] : [];
+    const relationship = genericFor || brandFor ? `:pair:${normalize(brands[0] || '')}` : '';
+    return {key: `${record.planId}:${normalize(generic)}${relationship}`, generic, brands};
+  }
+
+  function medicationGroups(records) {
+    const groups = new Map();
+    for (const record of records) {
+      const identity = medicationIdentity(record);
+      if (!groups.has(identity.key)) groups.set(identity.key, {key: identity.key, name: identity.generic, brands: [], records: []});
+      const group = groups.get(identity.key);
+      group.records.push(record);
+      for (const brand of identity.brands) if (!group.brands.some(b => normalize(b) === normalize(brand))) group.brands.push(brand);
+    }
+    return [...groups.values()].map(group => ({...group,
+      label: group.name + (group.brands.length ? ` (${group.brands.join(' / ')})` : ''),
+      search: [group.name, ...group.brands, ...group.records.map(r => r.name)].join(' ')
+    }));
+  }
+
+  function planMedicationGroups() {
+    return medicationGroups(state.data.medications.filter(r => r.planId === state.planId));
+  }
+
   function uniqueMedicationNames() {
-    const names = new Map();
-    // Suggestions contain formulary drug identities only. Policy titles and
-    // source aliases remain available in result details and policy searches.
-    const addName = (name) => {
-      const key = normalize(name || '');
-      if (key && key !== 'various' && !names.has(key)) names.set(key, name.trim());
-    };
-    state.data.medications.filter((record) => record.planId === state.planId)
-      .forEach((record) => {
-        addName(record.name);
-        addName(record.brand);
-      });
-    return [...names.values()].sort((a, b) => a.localeCompare(b));
+    return planMedicationGroups().map(group => group.label).sort((a, b) => a.localeCompare(b));
   }
 
   function categoryOptions() {
@@ -166,8 +186,9 @@
 
   function rankedValues(values, query, name) {
     if (!query) return values;
+    const medicationSearch = name === 'medication' ? new Map(planMedicationGroups().map(g => [g.label, normalize(g.search)])) : new Map();
     return values
-      .filter((value) => normalize(value).includes(query))
+      .filter((value) => normalize(value).includes(query) || medicationSearch.get(value)?.includes(query))
       .sort((a, b) => {
         const aStarts = normalize(a).startsWith(query) ? 0 : 1;
         const bStarts = normalize(b).startsWith(query) ? 0 : 1;
@@ -314,6 +335,7 @@
   function filteredRecords() {
     const category = normalize(state.category);
     const subcategory = normalize(state.subcategory);
+    const selectedGroup = planMedicationGroups().find(g => normalize(g.label) === normalize(state.term));
     const terms = normalize(state.term).split(/\s+/).filter(Boolean);
     return [...state.data.medications, ...state.data.policies]
       .filter((record) => record.planId === state.planId)
@@ -321,6 +343,7 @@
       .filter((record) => !subcategory || normalize(record.subcategory).includes(subcategory))
       .filter(matchesCoverage)
       .filter((record) => {
+        if (selectedGroup) return selectedGroup.records.some(r => r.id === record.id);
         const haystack = normalize([
           record.name, record.brand, record.category, record.subcategory, record.notes,
           record.paText, record.indication, record.stage, record.rawRestrictions, record.guide?.products?.join(' '), record.searchAliases?.join(' ')
@@ -541,6 +564,18 @@
     </article>`;
   }
 
+  function medicationGroupCard(group) {
+    return `<article class="result-card"><h3>${escapeHtml(group.label)}</h3>${group.records.map(record => `
+      <section class="medication-product-row">
+        <h4>${escapeHtml(record.name)}${record.brand && normalize(record.brand) !== 'various' ? ` · ${escapeHtml(record.brand)}` : ''}</h4>
+        <div class="chips" aria-label="Coverage attributes">${statusChips(record)}</div>
+        ${medicationPolicyDropdown(record)}
+        <details class="record-detail result-disclosure"><summary>Details, restrictions and sources</summary>
+          <div class="result-disclosure-body">${recordDetails(record)}</div>
+        </details>
+      </section>`).join('')}</article>`;
+  }
+
   function render() {
     const selectedPlan = state.planId;
     if (state.data.planDataFiles?.[selectedPlan] && !loadedPlans.has(selectedPlan)) {
@@ -560,7 +595,20 @@
       });
       return [];
     }
-    const records = filteredRecords();
+    const matchingRecords = filteredRecords();
+    const medicationRows = matchingRecords.filter(r => r.recordType === 'formulary');
+    // Include the other confirmed products in a matching medication group,
+    // while preserving explicit coverage/category filters.
+    const allGroups = planMedicationGroups();
+    const matchedKeys = new Set(medicationRows.map(r => medicationIdentity(r).key));
+    const groups = allGroups.filter(g => matchedKeys.has(g.key)).map(g => ({...g,
+      records: g.records.filter(r => matchesCoverage(r) && (!state.category || normalize(r.category).includes(normalize(state.category))) && (!state.subcategory || normalize(r.subcategory).includes(normalize(state.subcategory))))
+    }));
+    const linkedPolicies = new Set(groups.flatMap(g => g.records.flatMap(r => [
+      ...(r.approvalGuideIds || []), ...(r.paPolicyAssignments || []).map(p => p.branchId),
+      ...(r.policySources || []).map(p => p.policyId).filter(Boolean)
+    ])));
+    const records = [...groups, ...matchingRecords.filter(r => r.recordType !== 'formulary' && !linkedPolicies.has(r.id))];
     planStatus();
     el.loadingState.hidden = true;
     el.resultCount.textContent = records.length.toLocaleString();
@@ -568,7 +616,7 @@
     el.effectiveDate.textContent = plan?.effective || (state.planId === 'ahcccs-statewide'
       ? `Drug list effective ${state.data.meta.drugListEffective}` : '');
     el.emptyState.hidden = records.length !== 0;
-    el.resultGrid.innerHTML = records.slice(0, state.limit).map(recordCard).join('');
+    el.resultGrid.innerHTML = records.slice(0, state.limit).map(record => record.records ? medicationGroupCard(record) : recordCard(record)).join('');
     el.showMore.hidden = records.length <= state.limit;
     el.showMore.textContent = `Show ${Math.min(PAGE_SIZE, records.length - state.limit)} more`;
     document.querySelectorAll('[data-category]').forEach((button) => {
