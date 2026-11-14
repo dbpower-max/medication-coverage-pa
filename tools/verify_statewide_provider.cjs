@@ -181,6 +181,45 @@ assert(!htmlAw.includes('Qualifying pathways — any ONE:'),'Renewal criteria mi
 assert(htmlAw.includes('gl-669273')&&htmlSol.includes('gl-398215')&&htmlXul.includes('gl-398215'),'Source links missing');
 console.log('PASS: Three stage-aware products with initial/renewal criteria, nested ONE-of logic, source pages, and legacy-guide compatibility');
 
+const simpleGuides=[
+ ['gl-547232-vitamin-d','GL-547232','VITAMIN D'],
+ ['gl-550187-vitamin-b12','GL-550187','VITAMIN B-12'],
+ ['gl-547233-vitamin-c','GL-547233','VITAMIN C'],
+ ['gl-547234-calcium-vitamin-d','GL-547234','CALCIUM/VITAMIN D']
+];
+for(const [id,code,name] of simpleGuides){
+ const guide=guidance.find(g=>g.id===id);
+ assert(guide&&guide.policyCode===code&&guide.matchNames?.includes(name),'Missing exact generic-product source guide: '+id);
+ assert(guide.stages?.length===2&&guide.stages[0].title==='Initial authorization'&&guide.stages[1].title==='Reauthorization','Incorrect vitamin initial/renewal stages: '+id);
+ assert(guide.stages[0].all[0].includes('laboratory values')&&guide.stages[1].all[0].includes('improvement'),'Vitamin lab evidence incomplete: '+id);
+ ui.vitaminGroup={name,brands:[]};
+ const g=vm.runInContext('clinicalGuidanceFor(vitaminGroup)',ui);
+ assert(g?.id===id,'Exact generic-name lookup missed '+id);
+ const h=vm.runInContext('clinicalGuidanceContent(clinicalGuidanceFor(vitaminGroup))',ui);
+ assert(h.includes('Initial authorization')&&h.includes('Reauthorization')&&h.includes(code.toLowerCase()),'Vitamin criteria not shown: '+id);
+}
+ui.vitaminD3Group={name:'VITAMIN D3 2000 UNIT TABLET',brands:[]};
+ui.calciumGroup={name:'CALCIUM CARBONATE',brands:[]};
+assert(vm.runInContext('clinicalGuidanceFor(vitaminD3Group)',ui)===null,'Loose ingredient match applied to unconfirmed Vitamin D3 form');
+assert(vm.runInContext('clinicalGuidanceFor(calciumGroup)',ui)===null,'Calcium-only exemption overwritten with combo-product PA');
+const inhalers=[
+ ['gl-589212-arnuity','ARNUITY ELLIPTA'],
+ ['gl-589212-asmanex','ASMANEX TWISTHALER'],
+ ['gl-589212-qvar','QVAR REDIHALER']
+];
+for(const [id,brand] of inhalers){
+ const guide=guidance.find(g=>g.id===id);
+ assert(guide&&guide.matchBrands.includes(brand)&&guide.policyCode==='GL-589212','Preferred inhaler drug identity missing: '+id);
+ assert(guide.pathways?.length===1&&guide.pathways[0].all[0].includes('Diagnosis of asthma'),'Asthma source criterion missing');
+ ui.inhalerGroup={name:'INHALED CORTICOSTEROID',brands:[brand]};
+ assert(vm.runInContext('clinicalGuidanceFor(inhalerGroup)',ui)?.id===id,'Inhaler exact brand rule failed: '+id);
+}
+ui.nonpreferredInhaler={name:'CICLESONIDE INHALER',brands:['ALVESCO']};
+assert(vm.runInContext('clinicalGuidanceFor(nonpreferredInhaler)',ui)===null,'Preferred-drug guideline incorrectly transferred to nonpreferred Alvesco');
+assert(source.includes('needsPa || hasStep || guidance'),'Clinically indexed preferred drug not accessible when PDL does not flag PA');
+assert(guidance.length>=16&&new Set(guidance.map(g=>g.policyCode)).size>=10,'New source policy coverage not retained');
+console.log('PASS: Four vitamin initial/renewal guides and three preferred inhaler asthma rules; no unrelated product matching');
+
 console.log('PASS: Jardiance metformin dose/duration and HF/CKD alternatives; Humulin R U-500 insulin prerequisites or clinical need; source links and brand-specific matching');
 
 console.log('PASS: '+data.statewideDrugList.length+' shared AHCCCS drug entries; '+data.statewidePaCriteria.length+' statewide PA index sections; 3 plan supplements; Mounjaro consolidated; route/release/strength protections');
