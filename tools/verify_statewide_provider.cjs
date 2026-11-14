@@ -50,7 +50,7 @@ assert(!mock.matches({name:'DRUG TABLET 5 MG',brands:['BRAND']},{name:'DRUG TABL
 // Clinical source guidance must be actionable, limited to the verified product,
 // and linked to the exact November source sections.
 const guidance=data.statewideClinicalGuidance;
-assert(guidance.length===3,'Expected three verified clinical guidelines after Mounjaro batch');
+assert(guidance.length===4,'Expected four source-verified clinical guidelines after Trulicity batch');
 function guideByCode(code){return guidance.find(g=>g.policyCode===code);}
 const sg=guideByCode('GL-589207'), ins=guideByCode('GL-154074');
 assert(sg&&ins,'Missing Jardiance or concentrated insulin guideline');
@@ -63,6 +63,12 @@ assert(moun.pathways[0].all.some(x=>x.includes('10 years old')),'Mounjaro minimu
 assert(moun.pathways[0].all.some(x=>x.includes('weight loss')),'Mounjaro indication limitation missing');
 assert(moun.pathways[0].all.some(x=>x.includes('DPP-4'))&&moun.pathways[0].all.some(x=>x.includes('another GLP-1')),'Mounjaro concurrency criteria missing');
 assert(moun.sourcePage===718&&moun.sourceLastPage===719&&moun.approvalDuration==='12 months','Mounjaro approval duration or source page incorrect');
+const truli=guidance.find(g=>g.id==='gl-749236-trulicity');
+assert(truli&&truli.policyCode==='GL-749236','Trulicity source guideline not linked');
+assert(truli.matchBrands.length===1&&truli.matchBrands[0]==='TRULICITY','Trulicity identity not specific');
+assert(truli.pathways.length===1&&truli.pathways[0].all.length===7,'Trulicity must inherit all seven source criteria');
+assert(JSON.stringify(truli.pathways)===JSON.stringify(moun.pathways),'Same source GLP-1 branch has different Trulicity clinical requirements');
+assert(truli.sourcePage===718&&truli.sourceLastPage===719,'Trulicity source page incorrect');
 assert(sg.pathways.length===3&&ins.pathways.length===2,'Wrong clinical qualification branch count');
 assert(sg.pathways.some(p=>p.all.some(r=>r.includes('1,500 mg daily for 90 days'))),'Metformin trial dose/duration not shown');
 assert(sg.pathways.some(p=>/heart failure OR adult CKD/i.test(p.title)
@@ -92,6 +98,13 @@ const guideM=vm.runInContext('clinicalGuidanceFor(groupM)',ui);
 assert(guideM&&guideM.policyCode==='GL-749236','Mounjaro not matched to exact rule');
 assert(vm.runInContext('clinicalGuidanceFor(groupZ)',ui)===null,'Mounjaro diabetes criteria incorrectly applied to Zepbound');
 const htmlM=vm.runInContext('clinicalGuidanceContent(clinicalGuidanceFor(groupM))',ui);
+ui.groupT={name:'DULAGLUTIDE',brands:['TRULICITY']};
+ui.groupO={name:'SEMAGLUTIDE',brands:['OZEMPIC']};
+const guideT=vm.runInContext('clinicalGuidanceFor(groupT)',ui);
+assert(guideT&&guideT.id==='gl-749236-trulicity','Trulicity criteria did not attach to exact brand');
+assert(vm.runInContext('clinicalGuidanceFor(groupO)',ui)===null,'Trulicity preferred-branch guidance incorrectly applied to Ozempic');
+const htmlT=vm.runInContext('clinicalGuidanceContent(clinicalGuidanceFor(groupT))',ui);
+assert(/A1c ≥6.5%/.test(htmlT)&&/paid claims/.test(htmlT)&&/DPP-4/.test(htmlT)&&/12 months/.test(htmlT),'Trulicity full source requirements not rendered');
 assert(/A1c ≥6.5%/.test(htmlM)&&/90 days/.test(htmlM)&&/DPP-4/.test(htmlM),'Clinical Mounjaro requirements not rendered');
 assert(/gl-749236/.test(htmlM)&&/12 months/.test(htmlM),'Mounjaro guideline link or approval duration missing');
 assert(guideJ&&guideJ.policyCode==='GL-589207'&&guideU&&guideU.policyCode==='GL-154074','Exact medication guidance matching failed');
@@ -105,6 +118,8 @@ const jardiance=data.statewideDrugList.find(r=>String(r.brand).toUpperCase()==='
 const u500=data.statewideDrugList.find(r=>String(r.brand).toUpperCase()==='HUMULIN R U-500 KWIKPEN');
 assert(jardiance&&jardiance.step==='specified'&&jardiance.pa!=='required','Jardiance list step status incorrectly converted into PA required');
 assert(u500&&u500.pa==='required','U-500 drug list PA requirement missing');
+const trulicityState=data.statewideDrugList.find(r=>String(r.brand).toUpperCase()==='TRULICITY');
+assert(trulicityState,'Trulicity statewide entry missing');
 console.log('PASS: Jardiance metformin dose/duration and HF/CKD alternatives; Humulin R U-500 insulin prerequisites or clinical need; source links and brand-specific matching');
 
 console.log('PASS: '+data.statewideDrugList.length+' shared AHCCCS drug entries; '+data.statewidePaCriteria.length+' statewide PA index sections; 3 plan supplements; Mounjaro consolidated; route/release/strength protections');
