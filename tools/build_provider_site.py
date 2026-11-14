@@ -36,7 +36,7 @@ data["statewidePaCriteria"] = statewide_pa
 clinical_guidance = json.loads((ROOT / "tools/provider_statewide_clinical_guidance.json").read_text())
 assert clinical_guidance["sourceEffective"] == "2026-11-01"
 indexed_by_code = {p["policyCode"]: p for p in statewide_pa}
-assert len(clinical_guidance["guides"]) == 2
+assert len(clinical_guidance["guides"]) == 3
 for guide in clinical_guidance["guides"]:
     policy = indexed_by_code.get(guide["policyCode"])
     assert policy, "No current AHCCCS index section for " + guide["policyCode"]
@@ -54,6 +54,15 @@ for guide in clinical_guidance["guides"]:
         assert "humulin r u-500 vial and kwikpen" in raw
         assert "insulin aspart or insulin lispro" in raw and "lantus" in raw
         assert "special circumstance" in raw
+    if guide["policyCode"] == "GL-749236":
+        assert "preferred drugs: mounjaro" in raw
+        assert "baseline a1c greater than or equal to 6.5%" in raw
+        assert "lab report must be submitted" in raw
+        assert "verified via paid claims" in raw
+        assert "1500 milligrams (mg) daily for 90 days" in raw
+        assert "patient is 10 years of age or older" in raw
+        assert "not being used for weight loss" in raw
+        assert "dpp-4" in raw and "not being co-administered with another glp-1" in raw
 data["statewideClinicalGuidance"] = clinical_guidance["guides"]
 data["statewideSourceInfo"] = {
     "drugListEffective": "2026-11-01",
