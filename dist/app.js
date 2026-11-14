@@ -360,6 +360,11 @@
       </article>`).join('');
   }
 
+  function hasVerifiedMandatedCoverage(record) {
+    return record.recordType === 'formulary' && record.coverage === 'listed'
+      && record.validation === 'mandated_statewide_minimum_with_plan_adoption_evidence';
+  }
+
   function statusChips(record) {
     const chips = [];
     if (record.descriptionCorrection) chips.push(['Clinician-corrected description', 'neutral']);
@@ -372,7 +377,8 @@
     else if (record.coverage !== 'explicit_not_covered') {
       const listingLabel = record.planId === 'ahcccs-statewide' ? 'On statewide drug list'
         : record.planId === 'uhc-community-az' && record.sourceEffective === '2026-07-01' ? 'On archived formulary' : 'On formulary';
-      chips.push([(/exact.plan preference notice/i.test(record.listingLabel || '') ? 'On formulary' : record.listingLabel) || listingLabel, record.listingLabel ? 'neutral' : 'positive', 'Appears in this source. Listed restrictions still apply.']);
+      const verifiedCoverage = hasVerifiedMandatedCoverage(record);
+      chips.push([verifiedCoverage ? 'Covered' : (/exact.plan preference notice/i.test(record.listingLabel || '') ? 'On formulary' : record.listingLabel) || listingLabel, verifiedCoverage || !record.listingLabel ? 'positive' : 'neutral', 'Appears in this source. Listed restrictions still apply.']);
     }
     if (record.guide?.ambiguity) chips.push(['Source clarification needed', 'negative']);
     if (record.coverage === 'explicit_not_covered') chips.push(['Explicitly not covered', 'negative']);
@@ -412,6 +418,7 @@
 
   function recordDetails(record) {
     const details = [];
+    if (hasVerifiedMandatedCoverage(record)) details.push('<p><strong>Coverage source:</strong> AHCCCS-mandated minimum</p>');
     if (record.policyEffective) details.push(`<p><strong>Policy effective:</strong> ${escapeHtml(record.policyEffective)} · source document snapshot ${escapeHtml(record.sourceEffective)}</p>`);
     if (record.individualEffectiveMissing) details.push('<p><strong>Policy effective date:</strong> not stated in this source section. The document snapshot date is shown separately.</p>');
     if (record.statewideReference) {
