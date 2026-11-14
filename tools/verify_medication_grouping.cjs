@@ -17,4 +17,7 @@ if(groups([{name:'ATORVASTATIN CALCIUM TABLETS',brand:'LIPITOR'}])[0].label!=='A
 if(groups([{name:'drug tablet 5MG',brand:'BRAND'}])[0].label!=='drug tablet 5 mg (Brand)')throw Error('Strength or unit displayed incorrectly');
 if(!groups([{name:'drug tablet',searchAliases:['ALIAS BRAND']}])[0].search.includes('ALIAS BRAND'))throw Error('Search aliases lost');
 
+if(groups([{name:'INSULIN NPH SUSPENSION',brand:'HUMULIN N KWIKPEN'}])[0].label!=='Insulin NPH Suspension (Humulin N KwikPen)')throw Error('NPH or device capitalization lost');
+if(groups([{name:'GLP-1 RECEPTOR AGONIST'}])[0].label!=='GLP-1 Receptor Agonist')throw Error('GLP acronym lost');
+if(groups([{name:'INSULIN GLARGINE 100U/ML',brand:'LANTUS SOLOSTAR'}])[0].label!=='Insulin Glargine 100U/mL (Lantus SoloStar)')throw Error('Strength unit or SoloStar capitalization lost');
 console.log('PASS: brand/generic labels, aliases, duplicate prevention, precise grouping, preserved coverage restrictions');
