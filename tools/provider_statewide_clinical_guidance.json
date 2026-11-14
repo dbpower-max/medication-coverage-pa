@@ -926,45 +926,6 @@
     {
       "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
       "sourceGuidelineType": "Prior Authorization",
-      "id": "gl-105174-cialis-5mg",
-      "policyCode": "GL-105174",
-      "product": "Cialis 5 mg (tadalafil) for BPH",
-      "matchBrands": [
-        "CIALIS"
-      ],
-      "heading": "Cialis 5 mg BPH prior authorization",
-      "sourcePage": 337,
-      "sourceLastPage": 338,
-      "approvalDuration": "12 months",
-      "summary": "The source requires BPH, failure/intolerance/contraindication to both an alpha blocker and a 5-alpha reductase inhibitor, dose at most 5 mg daily, and prescriber attestation of no nitrates or riociguat.",
-      "pathways": [
-        {
-          "title": "BPH — all requirements",
-          "all": [
-            "Diagnosis of benign prostatic hyperplasia (BPH).",
-            "History of failure, intolerance, or contraindication to an alpha blocker (e.g. tamsulosin, alfuzosin ER, doxazosin, terazosin).",
-            "History of failure, intolerance, or contraindication to a 5-alpha reductase inhibitor (e.g. finasteride).",
-            "Requested dose does not exceed 5 mg once daily.",
-            "Provider attests no use of organic nitrates or Adempas (riociguat)."
-          ]
-        }
-      ],
-      "documentationSuggestions": [
-        "Document BPH and treatment outcomes or contraindications for both required drug classes.",
-        "Confirm daily dose and document no concurrent nitrate or Adempas use."
-      ],
-      "guidelineCaution": "This guideline is specific to 5 mg tadalafil for BPH and does not establish coverage for erectile dysfunction or other strengths; exact brand matching prevents extending it to unrelated presentations.",
-      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-105174.txt",
-      "sourceChecks": [
-        "Product Name:Brand Cialis 5mg, generic tadalafil 5mg",
-        "5-alpha reductase inhibitors",
-        "Dose does not exceed 5 milligrams once daily",
-        "patient is not using any form of organic nitrate"
-      ]
-    },
-    {
-      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
-      "sourceGuidelineType": "Prior Authorization",
       "id": "gl-104978-kimmtrak",
       "policyCode": "GL-104978",
       "product": "Kimmtrak (tebentafusp-tebn)",
