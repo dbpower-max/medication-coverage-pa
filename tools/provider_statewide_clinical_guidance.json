@@ -231,6 +231,130 @@
       "guidelineCaution": "This guide applies only to brand Farxiga. Generic dapagliflozin requests have an additional explicit prerequisite: failure, intolerance, or contraindication to brand Farxiga. That extra generic-only rule is not applied to the brand product.",
       "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
       "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-589207.txt"
+    },
+    {
+      "id": "gl-669273-awiqli",
+      "policyCode": "GL-669273",
+      "product": "Awiqli (insulin icodec-abae)",
+      "matchBrands": [
+        "AWIQLI"
+      ],
+      "heading": "Awiqli initial and renewal PA qualifications",
+      "sourcePage": 195,
+      "sourceLastPage": 197,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Awiqli initial approval and renewal have different requirements. Select the applicable treatment stage; do not treat renewal criteria as an alternative pathway for first-time initiation.",
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "all": [
+            "Diagnosis of type 2 diabetes mellitus.",
+            "Patient is at least 18 years old.",
+            "Inadequate glycemic control on non-insulin antidiabetic therapy (HbA1c ≥7%).",
+            {
+              "any": [
+                "Trial and inadequate response to TWO of Lantus (insulin glargine), Rezvoglar KwikPen (insulin glargine), or Tresiba (insulin degludec), with at least a 90-day supply; OR contraindications to TWO of these basal insulins.",
+                "Submitted documentation demonstrates a barrier to safe self-administration of daily insulin (examples in the source include daily-basal nonadherence, visual impairment, caregiver assistance, physical or cognitive limitations)."
+              ]
+            },
+            "Patient or caregiver counseled on weekly dosing, hypoglycemia risk/recognition/management, and avoidance of concurrent basal insulin."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "all": [
+            "Positive clinical response to treatment (for example, decreased HbA1c from baseline)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "For initiation, document T2DM, age, A1c and lack of glycemic control on non-insulin treatment.",
+        "Provide claims or chart records of the required two basal-insulin failures/contraindications, or document the safety barrier to daily insulin.",
+        "Record counseling and avoid overlapping basal insulin. For renewal document response since baseline."
+      ],
+      "guidelineCaution": "The Awiqli initial/renewal distinction is explicit in the published policy. The source does not state a specific universal insulin-dose threshold.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-669273.txt"
+    },
+    {
+      "id": "gl-398215-soliqua",
+      "policyCode": "GL-398215",
+      "product": "Soliqua (insulin glargine/lixisenatide)",
+      "matchBrands": [
+        "SOLIQUA",
+        "SOLIQUA 100/33"
+      ],
+      "heading": "Soliqua initial and renewal PA qualifications",
+      "sourcePage": 370,
+      "sourceLastPage": 372,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Soliqua requires type 2 diabetes and inadequate control with both a GLP-1 receptor agonist and basal insulin for initial authorization; renewal criteria are different.",
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "all": [
+            "Diagnosis of type 2 diabetes mellitus.",
+            "Inadequate glycemic control on BOTH a GLP-1 receptor agonist and a basal insulin.",
+            "Provider attests no concurrent DPP-4 inhibitor-containing drug, OR has developed a plan to address concomitant use."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "all": [
+            "Documentation of a positive clinical response to therapy.",
+            "Provider attests no concurrent DPP-4 inhibitor-containing drug, OR has developed a plan to address concomitant use."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document T2DM and inadequate control with prior GLP-1 receptor agonist plus basal insulin treatment.",
+        "Document the DPP-4 inhibitor medication review or plan. For renewal document clinical response."
+      ],
+      "guidelineCaution": "Source examples of GLP-1 receptor agonists and basal insulins are illustrative, not an additional requirement to try every listed agent.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-398215.txt"
+    },
+    {
+      "id": "gl-398215-xultophy",
+      "policyCode": "GL-398215",
+      "product": "Xultophy (insulin degludec/liraglutide)",
+      "matchBrands": [
+        "XULTOPHY",
+        "XULTOPHY 100/3.6"
+      ],
+      "heading": "Xultophy initial and renewal PA qualifications",
+      "sourcePage": 371,
+      "sourceLastPage": 372,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Xultophy shares several Soliqua qualifications but adds a Soliqua failure/intolerance/contraindication requirement for initial authorization.",
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "all": [
+            "Diagnosis of type 2 diabetes mellitus.",
+            "Inadequate glycemic control on BOTH a GLP-1 receptor agonist and a basal insulin.",
+            "History of failure, intolerance, or contraindication to Soliqua.",
+            "Provider attests no concurrent DPP-4 inhibitor-containing drug, OR has developed a plan to address concomitant use."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "all": [
+            "Documentation of a positive clinical response to therapy.",
+            "Provider attests no concurrent DPP-4 inhibitor-containing drug, OR has developed a plan to address concomitant use."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document T2DM, insufficient control on GLP-1 therapy plus basal insulin, and failure/intolerance/contraindication to Soliqua.",
+        "Include a DPP-4 inhibitor medication review or plan. For renewal document positive response."
+      ],
+      "guidelineCaution": "The additional Soliqua prerequisite applies to Xultophy initial authorization, not Soliqua initiation or the reauthorization section.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-398215.txt"
     }
   ]
 }

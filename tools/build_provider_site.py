@@ -36,7 +36,7 @@ data["statewidePaCriteria"] = statewide_pa
 clinical_guidance = json.loads((ROOT / "tools/provider_statewide_clinical_guidance.json").read_text())
 assert clinical_guidance["sourceEffective"] == "2026-11-01"
 indexed_by_code = {p["policyCode"]: p for p in statewide_pa}
-assert len(clinical_guidance["guides"]) == 6
+assert len(clinical_guidance["guides"]) == 9
 for guide in clinical_guidance["guides"]:
     policy = indexed_by_code.get(guide["policyCode"])
     assert policy, "No current AHCCCS index section for " + guide["policyCode"]
@@ -65,6 +65,22 @@ for guide in clinical_guidance["guides"]:
         assert "patient is 10 years of age or older" in raw
         assert "not being used for weight loss" in raw
         assert "dpp-4" in raw and "not being co-administered with another glp-1" in raw
+    if guide["policyCode"] == "GL-669273":
+        assert "product name:awiqli" in raw
+        assert "therapy stage initial authorization" in raw
+        assert "therapy stage reauthorization" in raw
+        assert "90-day supply" in raw
+        assert "two of the following basal insulin" in raw
+        assert "visual impairment" in raw
+        assert "patient or caregiver has been counseled" in raw
+        assert "patient demonstrates positive clinical response" in raw
+    if guide["policyCode"] == "GL-398215":
+        assert "product name:soliqua" in raw and "product name:xultophy" in raw
+        assert "therapy stage initial authorization" in raw and "therapy stage reauthorization" in raw
+        assert "inadequately controlled on both of the following" in raw
+        assert "history of failure, intolerance, or contraindication to soliqua" in raw
+        assert "documentation of positive clinical response" in raw
+        assert "dpp-4" in raw
 data["statewideClinicalGuidance"] = clinical_guidance["guides"]
 data["statewideSourceInfo"] = {
     "drugListEffective": "2026-11-01",

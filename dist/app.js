@@ -797,17 +797,33 @@
     ) || null;
   }
 
+  function clinicalRequirementItem(requirement) {
+    if (typeof requirement === 'string') return `<li>${escapeHtml(requirement)}</li>`;
+    if (requirement && Array.isArray(requirement.any)) {
+      return `<li><strong>ONE of the following:</strong><ul>${requirement.any.map(clinicalRequirementItem).join('')}</ul></li>`;
+    }
+    if (requirement && Array.isArray(requirement.all)) {
+      return `<li><strong>ALL of the following:</strong><ul>${requirement.all.map(clinicalRequirementItem).join('')}</ul></li>`;
+    }
+    throw new Error('Unsupported clinical requirement structure');
+  }
+
   function clinicalGuidanceContent(guide) {
-    const pathways = guide.pathways.map((pathway, index) => `
+    const pathways = (guide.pathways || []).map((pathway, index) => `
       <div class="criteria-pathway">
         <h4>Pathway ${index + 1}: ${escapeHtml(pathway.title)}</h4>
         <p><strong>All of the following:</strong></p>
-        <ul>${pathway.all.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
+        <ul>${pathway.all.map(clinicalRequirementItem).join('')}</ul>
       </div>`).join('<p><strong>OR</strong></p>');
+    const stages = (guide.stages || []).map(stage => `
+      <section class="criteria-stage">
+        <h4>${escapeHtml(stage.title)}</h4>
+        <p><strong>ALL of the following:</strong></p>
+        <ul>${stage.all.map(clinicalRequirementItem).join('')}</ul>
+      </section>`).join('');
     return `
       <p>${escapeHtml(guide.summary)}</p>
-      <p><strong>Qualifying pathways — any ONE:</strong></p>
-      ${pathways}
+      ${stages ? `<p><strong>Requirements by treatment stage:</strong></p>${stages}` : `<p><strong>Qualifying pathways — any ONE:</strong></p>${pathways}`}
       <p><strong>Approval duration:</strong> ${escapeHtml(guide.approvalDuration)}</p>
       <p><strong>Suggested documentation to include:</strong></p>
       <ul>${guide.documentationSuggestions.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
