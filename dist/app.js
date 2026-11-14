@@ -706,12 +706,32 @@
 
   // Link only clearly named AHCCCS criteria sections. An indexed guideline
   // may cover particular indications; the link does not promise approval.
-  function matchingStatewidePolicies(group) {
-    const terms = [group.name, ...group.brands].map(normalize).filter(term => term.length >= 5);
-    return (state.data.statewidePaCriteria || []).filter(policy => {
-      const aliases = [policy.name, ...(policy.searchAliases || [])];
-      return aliases.some(alias => terms.includes(normalize(alias)));
-    }).slice(0, 5);
+  // Clinical requirements are displayed only for a verified product-specific
+  // guideline. Exact brand matching prevents accidental class-level transfers.
+  function clinicalGuidanceFor(group) {
+    const brands = new Set(group.brands.map(normalize));
+    return (state.data.statewideClinicalGuidance || []).find(guide =>
+      guide.matchBrands.some(brand => brands.has(normalize(brand)))
+    ) || null;
+  }
+
+  function clinicalGuidanceContent(guide) {
+    const pathways = guide.pathways.map((pathway, index) => `
+      <div class="criteria-pathway">
+        <h4>Pathway ${index + 1}: ${escapeHtml(pathway.title)}</h4>
+        <p><strong>All of the following:</strong></p>
+        <ul>${pathway.all.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
+      </div>`).join('<p><strong>OR</strong></p>');
+    return `
+      <p>${escapeHtml(guide.summary)}</p>
+      <p><strong>Qualifying pathways — any ONE:</strong></p>
+      ${pathways}
+      <p><strong>Approval duration:</strong> ${escapeHtml(guide.approvalDuration)}</p>
+      <p><strong>Suggested documentation to include:</strong></p>
+      <ul>${guide.documentationSuggestions.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
+      <p class="guide-review-status">Documentation suggestions are not a separate insurer-prescribed checklist.</p>
+      <p>${escapeHtml(guide.guidelineCaution)}</p>
+      <p><a class="source-link" href="${escapeHtml(sourceHref(guide))}" target="_blank" rel="noopener">Source: ${escapeHtml(guide.policyCode)} · PDF page ${Number(guide.sourcePage)}${guide.sourceLastPage !== guide.sourcePage ? '–' + Number(guide.sourceLastPage) : ''}</a> · <a href="${escapeHtml(guide.sourceTextUrl)}" target="_blank" rel="noopener">Full guideline text</a></p>`;
   }
 
   function medicationGroupCard(group) {
@@ -719,8 +739,9 @@
       const statewide = group.statewideRecord;
       const planRows = group.records.filter(record => !record.isStatewideReference);
       const needsPa = statewide.pa === 'required' || statewide.pa === 'conditional';
+      const hasStep = statewide.step === 'specified' || Boolean(statewide.stepText);
       const sourceInfo = state.data.statewideSourceInfo || {};
-      const namedGuidelines = needsPa ? matchingStatewidePolicies(group) : [];
+      const guidance = clinicalGuidanceFor(group);
       const differs = planRows.some(record =>
         (record.preferred === 'preferred' && statewide.preferred !== 'preferred')
         || (record.pa === 'not_required' && needsPa));
@@ -730,12 +751,15 @@
           <p class="brand">AHCCCS statewide drug list · ${escapeHtml(sourceInfo.drugListEffective || statewide.sourceEffective)}</p>
         </div>
         <div class="chips" aria-label="Statewide coverage attributes">${statusChips(statewide)}</div>
-        ${needsPa ? `<details class="record-detail result-disclosure">
-          <summary>Prior authorization criteria</summary>
+        ${needsPa || hasStep ? `<details class="record-detail result-disclosure" ${guidance ? 'open' : ''}>
+          <summary>${guidance ? escapeHtml(guidance.heading) : (needsPa ? 'PA requirements — details not yet structured' : 'Step-therapy requirements — details not yet structured')}</summary>
           <div class="result-disclosure-body">
-            <p>AHCCCS statewide PA requirements apply. Confirm the drug, indication, age and treatment stage in the clinical criteria before prescribing.</p>
-            ${namedGuidelines.length ? namedGuidelines.map(policy => `<p><a class="source-link" href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">${escapeHtml(policy.name)} · ${escapeHtml(policy.policyCode)}</a> · <a href="${escapeHtml(policy.sourceTextUrl)}" target="_blank" rel="noopener">Full indexed policy text</a></p>`).join('') : '<p>No exact drug-specific index match is established. Review the statewide criteria document for relevant sections.</p>'}
-            <p><a class="source-link" href="${escapeHtml(sourceInfo.paCriteriaOfficialUrl || '')}" target="_blank" rel="noopener">AHCCCS statewide PA criteria · November 2026</a></p>
+            ${guidance ? clinicalGuidanceContent(guidance) : `
+              ${hasStep ? `<p><strong>Statewide step rule:</strong> ${escapeHtml(statewide.stepText || 'Step therapy specified')}</p>` : ''}
+              ${needsPa ? '<p><strong>PA is required by the statewide drug list.</strong></p>' : ''}
+              <p>The published drug list does not provide the complete trial dose, duration, exception or clinical approval pathway for this product. A product-specific clinical guideline has not yet been verified and structured in the app. Do not infer approval from this listing.</p>
+              <p><a class="source-link" href="${escapeHtml(sourceInfo.paCriteriaOfficialUrl || '')}" target="_blank" rel="noopener">Search the AHCCCS statewide PA criteria document</a></p>
+            `}
           </div>
         </details>` : ''}
         <details class="record-detail result-disclosure">
