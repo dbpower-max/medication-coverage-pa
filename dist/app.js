@@ -81,17 +81,25 @@
       .filter((record) => record.planId === state.planId);
   }
 
-  // Group only explicit source identities; do not infer equivalence from class,
-  // ingredient fragments, or route alone. Strength/form/release text is retained.
+  // Presentation only: do not alter the original payer text or its coverage record.
+  function readableMedicationName(value) {
+    const keepUpper = new Set(['ER', 'XR', 'SR', 'IR', 'DR', 'ODT', 'HFA', 'DPI', 'NDC', 'IV', 'IM', 'SC', 'SQ', 'LA', 'XL', 'EC', 'CR', 'CD', 'U']);
+    const unitCase = {MG: 'mg', MCG: 'mcg', ML: 'mL', MEQ: 'mEq', GM: 'g', HCL: 'HCl'};
+    return String(value ?? '').trim().replace(/\s+/g, ' ')
+      .replace(/\b[A-Z][A-Z0-9]*\b/g, (word) => unitCase[word] || (keepUpper.has(word) ? word : word[0] + word.slice(1).toLowerCase()))
+      .replace(/\b(\d+(?:\.\d+)?)(MG|MCG|ML|MEQ|GM)\b/g, (_, amount, unit) => amount + ' ' + unitCase[unit]);
+  }
+
+  // Group only when the generic, formulation, route, release and strength text
+  // match exactly. All source records and individual restrictions stay separate.
   function medicationIdentity(record) {
     const name = (record.name || '').trim();
     const genericFor = name.match(/^(.*?)\s*\(generic for ([^)]+)\)\s*$/i);
     const brandFor = name.match(/^(.*?)\s*\(brand for ([^)]+)\)\s*$/i);
     const generic = genericFor ? genericFor[1].trim() : brandFor ? brandFor[2].trim() : name;
     const brand = genericFor ? genericFor[2].trim() : brandFor ? brandFor[1].trim() : record.brand;
-    const brands = brand && normalize(brand) !== 'various' ? [brand.trim()] : [];
-    const relationship = genericFor || brandFor ? `:pair:${normalize(brands[0] || '')}` : '';
-    return {key: `${record.planId}:${normalize(generic)}${relationship}`, generic, brands};
+    const brands = brand && normalize(brand) !== 'various' && normalize(brand) !== normalize(generic) ? [brand.trim()] : [];
+    return {key: `${record.planId}:${normalize(generic)}`, generic, brands};
   }
 
   function medicationGroups(records) {
@@ -104,8 +112,8 @@
       for (const brand of identity.brands) if (!group.brands.some(b => normalize(b) === normalize(brand))) group.brands.push(brand);
     }
     return [...groups.values()].map(group => ({...group,
-      label: group.name + (group.brands.length ? ` (${group.brands.join(' / ')})` : ''),
-      search: [group.name, ...group.brands, ...group.records.map(r => r.name)].join(' ')
+      label: readableMedicationName(group.name) + (group.brands.length ? ` (${group.brands.map(readableMedicationName).join(' / ')})` : ''),
+      search: [group.name, ...group.brands, ...group.records.flatMap(r => [r.name, ...(r.searchAliases || [])])].join(' ')
     }));
   }
 
