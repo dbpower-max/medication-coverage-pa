@@ -27,6 +27,16 @@ for(const planId of plans){
   vm.createContext(ctx);
   vm.runInContext(code,ctx);
   const groups=vm.runInContext('planMedicationGroups()',ctx);
+  const regularInsulin=groups.filter(g=>/insulin regular \(human\) solution/i.test(g.name));
+  const units = brand => /\bU[- ]?(100|500)\b/i.exec(brand)?.[1] || '';
+  const u500 = regularInsulin.filter(g=>g.brands.some(b=>units(b)==='500'));
+  const u100 = regularInsulin.filter(g=>g.brands.some(b=>units(b)==='100'));
+  assert(u500.length>0&&u100.length>0,'Insulin concentrations absent in displayed source data: '+planId);
+  assert(u500.every(g=>g.brands.every(b=>units(b)==='500')),'U-500 shared a medication card with non-U-500 insulin: '+planId);
+  assert(u100.every(g=>g.brands.every(b=>units(b)==='100')),'U-100 shared a medication card with another insulin concentration: '+planId);
+  ctx.mixedU100={name:'INSULIN REGULAR (HUMAN) SOLUTION',brands:['HUMULIN R U-100']};
+  ctx.mixedU500={name:'INSULIN REGULAR (HUMAN) SOLUTION',brands:['HUMULIN R U-500 (CONCENTRATED)']};
+  assert(!vm.runInContext('sameProductGroup(mixedU100,mixedU500)',ctx),'Cross-source grouping can still mix U-100 with U-500');
   const matchedGuideIds=new Set();
   const ambiguous=[];
   const assignments=[];
