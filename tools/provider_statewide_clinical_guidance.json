@@ -5476,6 +5476,134 @@
       "documentationSuggestions": [
         "Document original-policy clinical history, required laboratory/diagnostic testing, prior drug trial and eligibility stage."
       ]
+    },
+    {
+      "id": "gl-398214-marinol",
+      "policyCode": "GL-398214",
+      "product": "Brand Marinol (dronabinol)",
+      "matchBrands": [
+        "MARINOL"
+      ],
+      "heading": "Brand Marinol (dronabinol) — original November clinical criteria",
+      "sourcePage": 1153,
+      "sourceLastPage": 1157,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Two original indication branches: chemotherapy-induced nausea/vomiting and AIDS-associated anorexia; brand requires failure of preferred generic dronabinol.",
+      "guidelineCaution": "Statewide criteria do not establish Tucson AHCCCS managed-care coverage or PA status. Brand-only prerequisite must not be inherited by generic dronabinol.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-398214.txt",
+      "sourceChecks": [
+        "Product Name:Brand Marinol",
+        "History of failure, contraindication, or intolerance to preferred generic dronabinol",
+        "Patient is on antiretroviral therapy"
+      ],
+      "pathways": [
+        {
+          "title": "Chemotherapy-associated nausea/vomiting",
+          "all": [
+            "Receiving cancer chemotherapy.",
+            "Failed/contraindicated/intolerant to preferred generic dronabinol.",
+            "Failed/contraindicated/intolerant to a 5-HT3 receptor antagonist.",
+            {
+              "any": [
+                "Failure, contraindication or intolerance to lorazepam.",
+                "Failure, contraindication or intolerance to prochlorperazine.",
+                "Failure, contraindication or intolerance to dexamethasone.",
+                "Failure, contraindication or intolerance to haloperidol.",
+                "Failure, contraindication or intolerance to promethazine.",
+                "Failure, contraindication or intolerance to metoclopramide.",
+                "Failure, contraindication or intolerance to olanzapine."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "AIDS-associated anorexia",
+          "all": [
+            "AIDS-associated anorexia with weight loss.",
+            "On antiretroviral therapy.",
+            {
+              "any": [
+                "Age ≥65.",
+                {
+                  "all": [
+                    "Age under 65.",
+                    "History of failure, contraindication, or intolerance to Megace (megestrol)."
+                  ]
+                }
+              ]
+            },
+            "Failed/contraindicated/intolerant to preferred generic dronabinol."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document relevant indication, drug trials and claims/clinical history."
+      ]
+    },
+    {
+      "id": "gl-398214-dronabinol-generic",
+      "policyCode": "GL-398214",
+      "product": "Generic dronabinol",
+      "matchNames": [
+        "DRONABINOL"
+      ],
+      "heading": "Generic dronabinol — original November clinical criteria",
+      "sourcePage": 1153,
+      "sourceLastPage": 1157,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Two original indication branches: chemotherapy-induced nausea/vomiting and AIDS-associated anorexia; brand requires failure of preferred generic dronabinol.",
+      "guidelineCaution": "Statewide criteria do not establish Tucson AHCCCS managed-care coverage or PA status. Brand-only prerequisite must not be inherited by generic dronabinol.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-398214.txt",
+      "sourceChecks": [
+        "Product Name:Generic dronabinol",
+        "Patient is receiving cancer chemotherapy",
+        "Diagnosis of anorexia with weight loss in patients with AIDS"
+      ],
+      "pathways": [
+        {
+          "title": "Chemotherapy-associated nausea/vomiting",
+          "all": [
+            "Receiving cancer chemotherapy.",
+            "Failed/contraindicated/intolerant to a 5-HT3 receptor antagonist.",
+            {
+              "any": [
+                "Failure, contraindication or intolerance to lorazepam.",
+                "Failure, contraindication or intolerance to prochlorperazine.",
+                "Failure, contraindication or intolerance to dexamethasone.",
+                "Failure, contraindication or intolerance to haloperidol.",
+                "Failure, contraindication or intolerance to promethazine.",
+                "Failure, contraindication or intolerance to metoclopramide.",
+                "Failure, contraindication or intolerance to olanzapine."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "AIDS-associated anorexia",
+          "all": [
+            "AIDS-associated anorexia with weight loss.",
+            "On antiretroviral therapy.",
+            {
+              "any": [
+                "Age ≥65.",
+                {
+                  "all": [
+                    "Age under 65.",
+                    "History of failure, contraindication, or intolerance to Megace (megestrol)."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document relevant indication, drug trials and claims/clinical history."
+      ]
     }
   ]
 }
