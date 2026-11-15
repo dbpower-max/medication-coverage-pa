@@ -4242,7 +4242,8 @@
       "documentationSuggestions": [
         "Document BPH diagnosis and the history for each of the two required drug classes.",
         "Document prescribed strength and dose, and provider attestation regarding organic nitrates and Adempas."
-      ]
+      ],
+      "matchStrengthMg": 5
     }
   ]
 }
