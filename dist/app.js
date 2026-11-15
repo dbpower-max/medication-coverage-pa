@@ -877,6 +877,9 @@
       // Do not put product-specific clinical criteria on a group that also
       // contains a different branded product.
       if (matchedBrand) return [...brands].every(brand => allowedBrands.has(brand));
+      // A generic-name-only guide must never be the fallback on a branded
+      // medication group. The product-specific branded rule can differ.
+      if (brands.size > 0) return false;
       return (guide.matchNames || []).some(name => generic === normalize(name));
     }) || null;
   }
