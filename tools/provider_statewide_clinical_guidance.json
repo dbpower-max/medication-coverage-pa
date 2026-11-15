@@ -6243,6 +6243,169 @@
       "documentationSuggestions": [
         "Provide source-required medical records and specialist documentation."
       ]
+    },
+    {
+      "id": "gl-427207-evkeeza",
+      "policyCode": "GL-427207",
+      "product": "Evkeeza (evinacumab-dgnb)",
+      "matchBrands": [
+        "EVKEEZA"
+      ],
+      "heading": "Evkeeza (evinacumab-dgnb) — verified AHCCCS November clinical policy",
+      "sourcePage": 622,
+      "sourceLastPage": 626,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "HoFH: genetic/clinical diagnostic OR, LDL goal despite statin/ezetimibe and PCSK9/other alternatives, specialist and max 15 mg/kg q4wk; 6-month initial, 12-month renewal.",
+      "guidelineCaution": "These statewide clinical requirements do not establish plan-specific formulary coverage or PA status. Use only the branch matching the requested indication and formulation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-427207.txt",
+      "sourceChecks": [
+        "Product Name:Evkeeza",
+        "Patient is 1 year of age or older",
+        "two mutant alleles",
+        "LDL-C greater than 500 mg/dL",
+        "15 milligrams per kilogram",
+        "Patient has previously been treated with lipoprotein apheresis"
+      ],
+      "stages": [
+        {
+          "title": "Initial HoFH authorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Age at least 1 year.",
+            {
+              "any": [
+                "Genetic diagnosis: TWO mutant alleles at LDLR/APOB/PCSK9/LDLRAP1.",
+                {
+                  "all": [
+                    {
+                      "any": [
+                        "Pretreatment LDL-C >500 mg/dL.",
+                        "Treated LDL-C >300 mg/dL."
+                      ]
+                    },
+                    {
+                      "any": [
+                        "Xanthoma developed before age 10.",
+                        "Heterozygous FH in BOTH parents."
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "Failed to reach LDL-C <100 mg/dL despite source-required treatments.",
+            {
+              "all": [
+                {
+                  "any": [
+                    "Currently taking maximally tolerated statin PLUS ezetimibe.",
+                    "Persistent >2-week statin-intolerant myalgia/myositis.",
+                    "Labeled contraindication to ALL statins.",
+                    "Rhabdomyolysis or statin-associated CK >10×ULN."
+                  ]
+                },
+                {
+                  "any": [
+                    "Prior PCSK9 therapy with insufficient response.",
+                    "Attestation of two LDL-receptor-negative alleles causing expected PCSK9 nonresponse.",
+                    "PCSK9 intolerance or contraindication.",
+                    "Previously treated with Juxtapid (lomitapide).",
+                    "Previously treated with lipoprotein apheresis."
+                  ]
+                }
+              ]
+            },
+            "Continue traditional lipid-lowering therapy in combination.",
+            "Evkeeza dose ≤15 mg/kg IV every 4 weeks.",
+            {
+              "any": [
+                "Cardiology prescriber.",
+                "Endocrinology prescriber.",
+                "Lipid specialist prescriber."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "LDL-C reduced compared with baseline.",
+            "Continue other tolerated lipid-lowering therapies.",
+            "Dose ≤15 mg/kg IV every 4 weeks.",
+            {
+              "any": [
+                "Cardiologist.",
+                "Endocrinologist.",
+                "Lipid specialist."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each source-listed laboratory result, treatment trial, clinical history, and relevant specialty involvement."
+      ]
+    },
+    {
+      "id": "gl-357232-dificid",
+      "policyCode": "GL-357232",
+      "product": "Dificid (fidaxomicin)",
+      "matchBrands": [
+        "DIFICID"
+      ],
+      "matchNames": [
+        "FIDAXOMICIN"
+      ],
+      "heading": "Dificid (fidaxomicin) — verified AHCCCS November clinical policy",
+      "sourcePage": 460,
+      "sourceLastPage": 461,
+      "approvalDuration": "10 days",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Brand Dificid tablet requires generic oral vancomycin failure/contraindication/intolerance OR continuation; generic tablet and Dificid suspension additionally require failure/intolerance to brand Dificid tablets.",
+      "guidelineCaution": "These statewide clinical requirements do not establish plan-specific formulary coverage or PA status. Use only the branch matching the requested indication and formulation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-357232.txt",
+      "sourceChecks": [
+        "Product Name:Preferred: Brand Dificid tablets",
+        "Diagnosis of Clostridioides difficile-associated diarrhea (CDAD)",
+        "generic vancomycin oral solution",
+        "Brand Dificid tablets (applies to requests for generic"
+      ],
+      "pathways": [
+        {
+          "title": "Preferred BRAND DIFICID TABLETS",
+          "all": [
+            "Requested formulation is brand Dificid tablets.",
+            "Diagnosis of Clostridioides difficile-associated diarrhea (CDAD).",
+            {
+              "any": [
+                "Failed, contraindicated or intolerant to generic vancomycin oral solution.",
+                "Continuation of prior Dificid therapy."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "GENERIC FIDAXOMICIN TABLETS or BRAND DIFICID ORAL SUSPENSION",
+          "all": [
+            "Requested formulation is generic fidaxomicin tablets or brand Dificid oral suspension.",
+            "CDAD diagnosis.",
+            {
+              "any": [
+                "Failed, contraindicated or intolerant to generic vancomycin oral solution.",
+                "Continuation of prior Dificid therapy."
+              ]
+            },
+            "Trial and failure OR intolerance to brand Dificid tablets."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each source-listed laboratory result, treatment trial, clinical history, and relevant specialty involvement."
+      ]
     }
   ]
 }
