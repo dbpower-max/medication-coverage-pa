@@ -4340,7 +4340,7 @@
       "approvalDuration": "12 months",
       "sourceGuidelineType": "Prior Authorization",
       "summary": "Generic TOPICAL cream or gel only: adults older than 26 require acne vulgaris plus all three prior treatments. No PA required by statewide policy at age ≤26.",
-      "guidelineCaution": "These statewide criteria do not establish plan-specific AHCCCS ACC coverage or prior authorization. Formulation, age and indication restrictions apply as stated.",
+      "guidelineCaution": "These statewide criteria do not establish plan-specific AHCCCS ACC coverage or prior authorization. Formulation, age and indication restrictions apply as stated. The original source says PA is NOT required for patients age 26 or less; this is an exemption, not a separate PA qualification pathway.",
       "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
       "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-413207.txt",
       "sourceChecks": [
@@ -4350,12 +4350,6 @@
         "topical erythromycin"
       ],
       "pathways": [
-        {
-          "title": "Age 26 or younger — original policy notes no PA",
-          "all": [
-            "Patient age 26 or younger; this original guideline states prior authorization not required."
-          ]
-        },
         {
           "title": "Older than 26 — all treatment criteria",
           "all": [
@@ -4425,7 +4419,7 @@
       "approvalDuration": "12 months",
       "sourceGuidelineType": "Prior Authorization",
       "summary": "Original guideline limits PA qualifications to immunocompromised 18–49-year-olds, and explicitly exempts ages 50+.",
-      "guidelineCaution": "These statewide criteria do not establish plan-specific AHCCCS ACC coverage or prior authorization. Formulation, age and indication restrictions apply as stated.",
+      "guidelineCaution": "These statewide criteria do not establish plan-specific AHCCCS ACC coverage or prior authorization. Formulation, age and indication restrictions apply as stated. The original source says PA is NOT required for age 50 and above; this is a PA exemption, not an approval pathway.",
       "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
       "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-441190.txt",
       "sourceChecks": [
@@ -4441,12 +4435,6 @@
             "Vaccine used to prevent herpes zoster.",
             "Age 18 through 49 years.",
             "Increased risk of herpes zoster due to known or anticipated immunodeficiency or immunosuppression from disease or treatment."
-          ]
-        },
-        {
-          "title": "Age 50+: statewide PA exemption",
-          "all": [
-            "Age 50 or older — original guideline states PA not required."
           ]
         }
       ],
@@ -4690,7 +4678,8 @@
             "Used with Phe-restricted diet.",
             "Measure Phe levels within 2 weeks of initiation and periodically up to 3 months.",
             "Trial and failure, contraindication or intolerance to generic sapropterin."
-          ]
+          ],
+          "approvalDuration": "3 months"
         },
         {
           "title": "Reauthorization — 12 months",
@@ -4698,7 +4687,8 @@
             "Blood Phe decreased by at least 15% from baseline.",
             "Continues Phe-restricted diet.",
             "Blood Phe levels monitored periodically."
-          ]
+          ],
+          "approvalDuration": "12 months"
         }
       ],
       "documentationSuggestions": [
@@ -5009,7 +4999,8 @@
             "Tried and failed required supply (30 days generally; 14 days for topical corticosteroids), contraindicated or intolerant to at least TWO of medium/higher potency topical corticosteroid, Elidel, tacrolimus, or Eucrisa.",
             "No potent concomitant immunosuppressant such as cyclosporine or azathioprine.",
             "Short-term and/or noncontinuous chronic use."
-          ]
+          ],
+          "approvalDuration": "12 weeks"
         },
         {
           "title": "Atopic dermatitis: reauthorization 6 months",
@@ -5023,7 +5014,8 @@
             },
             "Not receiving potent immunosuppressant concomitantly.",
             "Only short-term/noncontinuous chronic use."
-          ]
+          ],
+          "approvalDuration": "6 months"
         }
       ],
       "documentationSuggestions": [
@@ -5067,7 +5059,8 @@
               ]
             },
             "Dermatologist prescriber or consultation."
-          ]
+          ],
+          "approvalDuration": "6 months"
         },
         {
           "title": "Psoriasis: reauthorization 12 months",
@@ -5078,7 +5071,8 @@
                 "Symptom improvement, such as itch or inflammation."
               ]
             }
-          ]
+          ],
+          "approvalDuration": "12 months"
         },
         {
           "title": "Atopic dermatitis: initial authorization 6 months",
@@ -5093,7 +5087,8 @@
                 "Immunologist prescriber/consultation."
               ]
             }
-          ]
+          ],
+          "approvalDuration": "6 months"
         },
         {
           "title": "Atopic dermatitis: reauthorization 12 months",
@@ -5105,7 +5100,8 @@
                 "Improved quality of life."
               ]
             }
-          ]
+          ],
+          "approvalDuration": "12 months"
         }
       ],
       "documentationSuggestions": [
@@ -5251,7 +5247,8 @@
             "Recipient CMV seropositive (R+).",
             "Provider attests initiation during posttransplant days 0–28, continuation through day 100, with extension to day 200 if at risk of late CMV.",
             "Use is CMV prophylaxis, NOT treatment."
-          ]
+          ],
+          "approvalDuration": "6 months"
         },
         {
           "title": "Kidney transplant CMV prophylaxis — 12 months",
@@ -5262,7 +5259,8 @@
             "CMV donor seropositive and recipient seronegative (D+/R−).",
             "Provider attests start days 0–7 posttransplant and continuation through day 200.",
             "Use is prophylaxis, NOT active infection treatment."
-          ]
+          ],
+          "approvalDuration": "12 months"
         }
       ],
       "documentationSuggestions": [
@@ -5282,7 +5280,7 @@
       "approvalDuration": "12 months",
       "sourceGuidelineType": "Prior Authorization",
       "summary": "Generic sapropterin: PKU diagnosis; no requirement to have failed generic sapropterin before taking the generic itself.",
-      "guidelineCaution": "November statewide criteria alone do not establish plan-specific coverage or PA. Review approval length per indication and initial/renewal stage.",
+      "guidelineCaution": "November statewide criteria alone do not establish plan-specific coverage or PA. Review approval length per indication and initial/renewal stage. The source's failure-to-generic prerequisite applies ONLY to named brands, not to generic sapropterin.",
       "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
       "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-479197.txt",
       "sourceChecks": [
@@ -5294,8 +5292,7 @@
         {
           "title": "Generic sapropterin",
           "all": [
-            "Diagnosis of phenylketonuria (PKU).",
-            "Brand-only generic sapropterin failure prerequisite does NOT apply to generic sapropterin."
+            "Diagnosis of phenylketonuria (PKU)."
           ]
         }
       ],
