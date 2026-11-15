@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "scope": "Review-only brand-concept pilot; not a production source-to-product crosswalk",
+  "records": [
+    {
+      "medicationId": "rxp-001-natroba",
+      "lookupName": "Natroba",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-002-sklice",
+      "lookupName": "Sklice",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-003-mounjaro",
+      "lookupName": "Mounjaro",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-004-zepbound",
+      "lookupName": "Zepbound",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-005-ozempic",
+      "lookupName": "Ozempic",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-006-wegovy",
+      "lookupName": "Wegovy",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-007-trulicity",
+      "lookupName": "Trulicity",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-008-victoza",
+      "lookupName": "Victoza",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-009-jardiance",
+      "lookupName": "Jardiance",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-010-synjardy",
+      "lookupName": "Synjardy",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-011-farxiga",
+      "lookupName": "Farxiga",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-012-xigduo-xr",
+      "lookupName": "Xigduo XR",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-013-eliquis",
+      "lookupName": "Eliquis",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-014-xarelto",
+      "lookupName": "Xarelto",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-015-pradaxa",
+      "lookupName": "Pradaxa",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-016-humalog",
+      "lookupName": "Humalog",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-017-novolog",
+      "lookupName": "NovoLog",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-018-lantus",
+      "lookupName": "Lantus",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-019-tresiba",
+      "lookupName": "Tresiba",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-020-semglee",
+      "lookupName": "Semglee",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-021-adderall-xr",
+      "lookupName": "Adderall XR",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-022-vyvanse",
+      "lookupName": "Vyvanse",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-023-qvar-redihaler",
+      "lookupName": "Qvar Redihaler",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-024-symbicort",
+      "lookupName": "Symbicort",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-025-trelegy-ellipta",
+      "lookupName": "Trelegy Ellipta",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-026-repatha",
+      "lookupName": "Repatha",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-027-praluent",
+      "lookupName": "Praluent",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-028-incruse-ellipta",
+      "lookupName": "Incruse Ellipta",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-029-spiriva-respimat",
+      "lookupName": "Spiriva Respimat",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    },
+    {
+      "medicationId": "rxp-030-dupixent",
+      "lookupName": "Dupixent",
+      "expectedTty": "BN",
+      "resolution": "review_required",
+      "notes": "Brand-level concept only; strength, route, manufacturer, package and payer policy must be verified independently"
+    }
+  ]
+}
