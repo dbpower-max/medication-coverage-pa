@@ -5217,6 +5217,268 @@
       "documentationSuggestions": [
         "Specify CKD/T2D versus HF indication; include UACR/eGFR/potassium, ACE/ARB history, SGLT2 status, and for HF LVEF, NYHA, diuretic use, and cardiology."
       ]
+    },
+    {
+      "id": "gl-427192-prevymis",
+      "policyCode": "GL-427192",
+      "product": "Prevymis (letermovir)",
+      "matchBrands": [
+        "PREVYMIS"
+      ],
+      "heading": "Prevymis (letermovir) — AHCCCS clinical qualification",
+      "sourcePage": 1414,
+      "sourceLastPage": 1416,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Two distinct transplant prophylaxis branches: HSCT 6 months and kidney transplant 12 months, with different age/weight, serostatus and start/end windows.",
+      "guidelineCaution": "November statewide criteria alone do not establish plan-specific coverage or PA. Review approval length per indication and initial/renewal stage.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-427192.txt",
+      "sourceChecks": [
+        "Product Name:Prevymis",
+        "Patient is 6 months of age or older",
+        "Patient weighs at least 6 kg",
+        "recipient of a kidney transplant",
+        "Day 200 post-transplant"
+      ],
+      "pathways": [
+        {
+          "title": "HSCT CMV prophylaxis — 6 months",
+          "all": [
+            "Patient at least 6 months old.",
+            "Patient weight at least 6 kg.",
+            "Allogeneic hematopoietic stem-cell transplant recipient.",
+            "Recipient CMV seropositive (R+).",
+            "Provider attests initiation during posttransplant days 0–28, continuation through day 100, with extension to day 200 if at risk of late CMV.",
+            "Use is CMV prophylaxis, NOT treatment."
+          ]
+        },
+        {
+          "title": "Kidney transplant CMV prophylaxis — 12 months",
+          "all": [
+            "Age at least 12 years.",
+            "Body weight at least 40 kg.",
+            "Kidney transplant recipient.",
+            "CMV donor seropositive and recipient seronegative (D+/R−).",
+            "Provider attests start days 0–7 posttransplant and continuation through day 200.",
+            "Use is prophylaxis, NOT active infection treatment."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document original-policy clinical history, required laboratory/diagnostic testing, prior drug trial and eligibility stage."
+      ]
+    },
+    {
+      "id": "gl-479197-sapropterin-generic",
+      "policyCode": "GL-479197",
+      "product": "Generic sapropterin",
+      "matchNames": [
+        "SAPROPTERIN"
+      ],
+      "heading": "Generic sapropterin — AHCCCS clinical qualification",
+      "sourcePage": 1565,
+      "sourceLastPage": 1566,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Generic sapropterin: PKU diagnosis; no requirement to have failed generic sapropterin before taking the generic itself.",
+      "guidelineCaution": "November statewide criteria alone do not establish plan-specific coverage or PA. Review approval length per indication and initial/renewal stage.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-479197.txt",
+      "sourceChecks": [
+        "Product Name:Brand Kuvan, generic sapropterin, Javygtor, Zelvysia",
+        "Diagnosis of phenylketonuria (PKU)",
+        "patient must have tried and failed generic sapropterin"
+      ],
+      "pathways": [
+        {
+          "title": "Generic sapropterin",
+          "all": [
+            "Diagnosis of phenylketonuria (PKU).",
+            "Brand-only generic sapropterin failure prerequisite does NOT apply to generic sapropterin."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document original-policy clinical history, required laboratory/diagnostic testing, prior drug trial and eligibility stage."
+      ]
+    },
+    {
+      "id": "gl-479197-sapropterin-brands",
+      "policyCode": "GL-479197",
+      "product": "Kuvan, Javygtor, Zelvysia",
+      "matchBrands": [
+        "KUVAN",
+        "JAVYGTOR",
+        "ZELVYSIA"
+      ],
+      "heading": "Kuvan, Javygtor, Zelvysia — AHCCCS clinical qualification",
+      "sourcePage": 1565,
+      "sourceLastPage": 1566,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "All three listed branded PKU products require diagnosis and prior failed generic sapropterin.",
+      "guidelineCaution": "November statewide criteria alone do not establish plan-specific coverage or PA. Review approval length per indication and initial/renewal stage.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-479197.txt",
+      "sourceChecks": [
+        "Product Name:Brand Kuvan, generic sapropterin, Javygtor, Zelvysia",
+        "Diagnosis of phenylketonuria (PKU)",
+        "If the request is for Brand Kuvan, Javygtor, or Zelvysia"
+      ],
+      "pathways": [
+        {
+          "title": "Brand-only additional requirement",
+          "all": [
+            "Diagnosis of phenylketonuria (PKU).",
+            "Trial and failure of generic sapropterin."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document original-policy clinical history, required laboratory/diagnostic testing, prior drug trial and eligibility stage."
+      ]
+    },
+    {
+      "id": "gl-357222-xiidra",
+      "policyCode": "GL-357222",
+      "product": "Xiidra (lifitegrast)",
+      "matchBrands": [
+        "XIIDRA"
+      ],
+      "heading": "Xiidra (lifitegrast) — AHCCCS clinical qualification",
+      "sourcePage": 473,
+      "sourceLastPage": 476,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Moderate/severe ocular inflammatory dry eye with diagnostic testing, OTC lubricant step, eye-care/rheumatology specialist and Restasis single-dose trial; renewal response.",
+      "guidelineCaution": "November statewide criteria alone do not establish plan-specific coverage or PA. Review approval length per indication and initial/renewal stage.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-357222.txt",
+      "sourceChecks": [
+        "Product Name:Preferred: Xiidra",
+        "moderate to severe dry eye disease",
+        "minimum trial of 60 days of Brand Restasis single dose vials",
+        "Patient demonstrates positive clinical response to therapy"
+      ],
+      "stages": [
+        {
+          "title": "Preferred Xiidra — initial authorization 12 months",
+          "all": [
+            {
+              "any": [
+                "Tear deficiency due to moderate-to-severe keratoconjunctivitis sicca with inflammation.",
+                "Tear deficiency due to moderate-to-severe dry eye disease with inflammation."
+              ]
+            },
+            {
+              "any": [
+                "Schirmer test confirms diagnosis.",
+                "Ocular surface staining confirms diagnosis.",
+                "Tear-function index or fluorescein clearance test.",
+                "Tear break-up time.",
+                "Tear-film osmolarity.",
+                "Slit-lamp lid evaluation.",
+                "Lacrimal gland function."
+              ]
+            },
+            "Not prescribed merely to manage perioperative dry eyes for elective eye surgery (e.g., LASIK).",
+            "Trial and failure, contraindication, or intolerance to at least one OTC ocular lubricant in previous 60 days.",
+            {
+              "any": [
+                "Prescribed by/in consultation with ophthalmologist.",
+                "Prescribed by/in consultation with optometrist.",
+                "Prescribed by/in consultation with rheumatologist."
+              ]
+            },
+            "At least 60-day trial of Brand Restasis single-dose vials, unless contraindicated."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Positive response (e.g., improved tear production or dry-eye symptoms)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document original-policy clinical history, required laboratory/diagnostic testing, prior drug trial and eligibility stage."
+      ]
+    },
+    {
+      "id": "gl-357222-dry-eye-nonpreferred",
+      "policyCode": "GL-357222",
+      "product": "Nonpreferred dry-eye therapies",
+      "matchBrands": [
+        "CEQUA",
+        "MIEBO",
+        "RESTASIS MULTIDOSE",
+        "TRYPTYR",
+        "TYRVAYA",
+        "VEVYE"
+      ],
+      "matchNames": [
+        "CYCLOSPORINE OPHTHALMIC EMULSION"
+      ],
+      "heading": "Nonpreferred dry-eye therapies — AHCCCS clinical qualification",
+      "sourcePage": 475,
+      "sourceLastPage": 476,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Same dry-eye workup as Xiidra but TWO separate preferred-product 60-day steps (Restasis SD vials AND Xiidra) unless contraindicated; renewal response.",
+      "guidelineCaution": "November statewide criteria alone do not establish plan-specific coverage or PA. Review approval length per indication and initial/renewal stage.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-357222.txt",
+      "sourceChecks": [
+        "Product Name:Non-Preferred: Cequa, generic cyclosporine emulsion, Miebo",
+        "minimum trial",
+        "Brand Restasis single dose vials",
+        "Xiidra (PA may be required)"
+      ],
+      "stages": [
+        {
+          "title": "Nonpreferred — initial authorization 12 months",
+          "all": [
+            {
+              "any": [
+                "Tear deficiency due to moderate-to-severe keratoconjunctivitis sicca with inflammation.",
+                "Tear deficiency due to moderate-to-severe dry eye disease with inflammation."
+              ]
+            },
+            {
+              "any": [
+                "Schirmer test confirms diagnosis.",
+                "Ocular surface staining confirms diagnosis.",
+                "Tear-function index or fluorescein clearance test.",
+                "Tear break-up time.",
+                "Tear-film osmolarity.",
+                "Slit-lamp lid evaluation.",
+                "Lacrimal gland function."
+              ]
+            },
+            "Not prescribed merely to manage perioperative dry eyes for elective eye surgery (e.g., LASIK).",
+            "Trial and failure, contraindication, or intolerance to at least one OTC ocular lubricant in previous 60 days.",
+            {
+              "any": [
+                "Prescribed by/in consultation with ophthalmologist.",
+                "Prescribed by/in consultation with optometrist.",
+                "Prescribed by/in consultation with rheumatologist."
+              ]
+            },
+            "At least 60-day trial of Brand Restasis single-dose vials, unless contraindicated.",
+            "At least 60-day trial of Xiidra, unless contraindicated."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Positive response (e.g., improved tear production or dry-eye symptoms)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document original-policy clinical history, required laboratory/diagnostic testing, prior drug trial and eligibility stage."
+      ]
     }
   ]
 }
