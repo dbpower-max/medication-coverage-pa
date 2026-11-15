@@ -971,7 +971,7 @@ for(const [code,id] of b42Specs){
    'Batch42 source page mismatch: '+g.id);
  const valid=(g.stages||g.pathways||[]).length>=1;
  assert(valid,'Batch42 no verified clinical pathways: '+g.id);
- assert(g.guidelineCaution.includes('NOT proof')||g.guidelineCaution.includes('NOT'),
+ assert(/not proof|does not establish|not verification/i.test(g.guidelineCaution),
    'Batch42 clinical criteria falsely imply plan coverage '+g.id);
  if(g.matchBrands?.length&&g.matchStrengthMg==null){
   ui.b42This={name:'UNRELATED GENERIC',brands:[g.matchBrands[0]],records:[]};
