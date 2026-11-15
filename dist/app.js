@@ -851,6 +851,18 @@
     const brands = new Set(group.brands.map(normalize));
     const generic = normalize(group.name);
     return (state.data.statewideClinicalGuidance || []).find(guide => {
+      // Strength-specific policies must not attach to a brand/generic group
+      // representing another tablet strength, or to an unspecified strength.
+      // A group with mixed/ambiguous record strengths fails closed.
+      if (guide.matchStrengthMg != null) {
+        const products = group.records?.length ? group.records.map(r => r.name) : [group.name];
+        if (!products.length || !products.every(name => {
+          const milligrams = [...String(name || '').matchAll(/\b(\d+(?:\.\d+)?)\s*mg\b/gi)]
+            .map(match => Number(match[1]));
+          return milligrams.length > 0 &&
+            milligrams.every(value => value === guide.matchStrengthMg);
+        })) return false;
+      }
       const allowedBrands = new Set((guide.matchBrands || []).map(normalize));
       const matchedBrand = [...brands].some(brand => allowedBrands.has(brand));
       // Do not put product-specific clinical criteria on a group that also
