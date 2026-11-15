@@ -1355,6 +1355,177 @@
         "Patient is not a candidate for laser therapy or surgical treatments",
         "Documentation of positive clinical response to therapy"
       ]
+    },
+    {
+      "id": "gl-105529-lyrica",
+      "policyCode": "GL-105529",
+      "product": "Brand Lyrica (pregabalin immediate-release)",
+      "matchBrands": [
+        "LYRICA"
+      ],
+      "heading": "Brand Lyrica indication-specific PA",
+      "sourcePage": 1143,
+      "sourceLastPage": 1146,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Brand Lyrica requires prior generic pregabalin trial or intolerance, with a 300 mg/day for four weeks failure threshold for the four listed pain indications.",
+      "guidelineCaution": "These statewide clinical criteria do not independently establish plan-specific coverage or PA status.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-105529.txt",
+      "sourceChecks": [
+        "Product Name:Brand Lyrica",
+        "Diagnosis of seizure disorder",
+        "minimum dose of 300mg daily for 4 weeks",
+        "Contraindication or intolerance to generic pregabalin immediate-release capsules or"
+      ],
+      "pathways": [
+        {
+          "title": "Seizure disorder",
+          "all": [
+            "Diagnosis of seizure disorder.",
+            "History of failure, contraindication, or intolerance to generic pregabalin immediate-release capsules or generic pregabalin solution."
+          ]
+        },
+        {
+          "title": "Neuropathic pain associated with spinal cord injury",
+          "all": [
+            "Diagnosis of Neuropathic pain associated with spinal cord injury.",
+            {
+              "any": [
+                "Failure of generic pregabalin immediate-release capsules or solution at a minimum 300 mg daily for 4 weeks.",
+                "Contraindication or intolerance to generic pregabalin immediate-release capsules or solution."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Fibromyalgia",
+          "all": [
+            "Diagnosis of Fibromyalgia.",
+            {
+              "any": [
+                "Failure of generic pregabalin immediate-release capsules or solution at a minimum 300 mg daily for 4 weeks.",
+                "Contraindication or intolerance to generic pregabalin immediate-release capsules or solution."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Diabetic peripheral neuropathy (DPN)",
+          "all": [
+            "Diagnosis of Diabetic peripheral neuropathy (DPN).",
+            {
+              "any": [
+                "Failure of generic pregabalin immediate-release capsules or solution at a minimum 300 mg daily for 4 weeks.",
+                "Contraindication or intolerance to generic pregabalin immediate-release capsules or solution."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Postherpetic neuralgia (PHN)",
+          "all": [
+            "Diagnosis of Postherpetic neuralgia (PHN).",
+            {
+              "any": [
+                "Failure of generic pregabalin immediate-release capsules or solution at a minimum 300 mg daily for 4 weeks.",
+                "Contraindication or intolerance to generic pregabalin immediate-release capsules or solution."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document the indication and prior generic pregabalin trial with dose/duration or contraindication/intolerance."
+      ]
+    },
+    {
+      "id": "gl-105529-lyrica-cr",
+      "policyCode": "GL-105529",
+      "product": "Lyrica CR (pregabalin extended-release)",
+      "matchBrands": [
+        "LYRICA CR"
+      ],
+      "heading": "Lyrica CR DPN or PHN prior authorization",
+      "sourcePage": 1146,
+      "sourceLastPage": 1147,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Lyrica CR requires indication-specific gabapentin, antidepressant and generic immediate-release pregabalin prior therapy.",
+      "guidelineCaution": "These statewide clinical criteria do not independently establish plan-specific coverage or PA status.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-105529.txt",
+      "sourceChecks": [
+        "Product Name:Lyrica CR",
+        "Diagnosis of diabetic peripheral neuropathy (DPN)",
+        "minimum dose of 1800 milligrams daily for 4 weeks",
+        "tricyclic antidepressant at the maximum tolerated dose for 6 to 8 weeks"
+      ],
+      "pathways": [
+        {
+          "title": "Diabetic peripheral neuropathy",
+          "all": [
+            "Diagnosis of diabetic peripheral neuropathy (DPN).",
+            "History of failure, contraindication, or intolerance to gabapentin at a minimum dose of 1800 mg daily for 4 weeks.",
+            {
+              "any": [
+                "Failure of a tricyclic antidepressant at maximum tolerated dose for 6–8 weeks or intolerance to a tricyclic antidepressant.",
+                "Failure, contraindication, or intolerance to an SNRI antidepressant (e.g., duloxetine or venlafaxine)."
+              ]
+            },
+            "History of failure, contraindication, or intolerance to generic pregabalin immediate-release capsules or solution."
+          ]
+        },
+        {
+          "title": "Postherpetic neuralgia",
+          "all": [
+            "Diagnosis of postherpetic neuralgia (PHN).",
+            "History of failure, contraindication, or intolerance to gabapentin at a minimum dose of 1800 mg daily for 4 weeks.",
+            "History of failure, contraindication, or intolerance to a tricyclic antidepressant at maximum tolerated dose for 6–8 weeks.",
+            "History of failure, contraindication, or intolerance to generic pregabalin immediate-release capsules or solution."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Record diagnosis, gabapentin dose and duration, prior antidepressant trials, and generic pregabalin trial or intolerance."
+      ]
+    },
+    {
+      "id": "gl-108674-glycopyrrolate-brands",
+      "policyCode": "GL-108674",
+      "product": "Nonpreferred brand oral glycopyrrolate products",
+      "matchBrands": [
+        "CUVPOSA",
+        "DARTISLA ODT",
+        "ROBINUL",
+        "ROBINUL FORTE"
+      ],
+      "heading": "Brand oral glycopyrrolate prior authorization",
+      "sourcePage": 724,
+      "sourceLastPage": 725,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "The specified brand oral glycopyrrolate products require an FDA-approved indication and failure or intolerance to generic glycopyrrolate tablets or oral solution.",
+      "guidelineCaution": "These statewide clinical criteria do not independently establish plan-specific coverage or PA status.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-108674.txt",
+      "sourceChecks": [
+        "Product Name:Brand Cuvposa oral solution, Dartisla ODT, Brand Robinul, Brand Robinul",
+        "Food and Drug Administration (FDA)-approved indication",
+        "Trial and failure or intolerance to generic glycopyrrolate tablets or oral solution"
+      ],
+      "pathways": [
+        {
+          "title": "Brand oral glycopyrrolate — all requirements",
+          "all": [
+            "Medical records document use for an FDA-approved indication.",
+            "Trial and failure or intolerance to generic glycopyrrolate tablets or oral solution, verified by paid pharmacy claims or medical records/chart notes."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document FDA-approved indication and generic glycopyrrolate treatment failure or intolerance."
+      ]
     }
   ]
 }

@@ -338,3 +338,28 @@ const hyf=guidance.find(g=>g.id==='gl-114463-hyftor');
 assert(hyf.stages.length===2&&hyf.stages[0].all.length===4&&hyf.stages[1].all.length===1&&
  hyf.stages[1].all[0].includes('positive clinical response'),'Hyftor initial/renewal branches lost');
 console.log('PASS: Nadolol, Zimhi, Hyftor source/brand/stage regression');
+
+
+const additionalGuideSpecs=[
+ {id:'gl-105529-lyrica',brand:'LYRICA',code:'GL-105529',pages:[1143,1146],paths:5},
+ {id:'gl-105529-lyrica-cr',brand:'LYRICA CR',code:'GL-105529',pages:[1146,1147],paths:2},
+ {id:'gl-108674-glycopyrrolate-brands',brand:'CUVPOSA',code:'GL-108674',pages:[724,725],paths:1}
+];
+for(const spec of additionalGuideSpecs){
+ const guide=guidance.find(g=>g.id===spec.id);
+ assert(guide&&guide.policyCode===spec.code&&guide.sourcePage===spec.pages[0]&&guide.sourceLastPage===spec.pages[1],'New guide page/code mismatch '+spec.id);
+ assert(guide.pathways.length===spec.paths&&guide.sourceChecks.length>=3,'Incomplete guide logic '+spec.id);
+ const raw=fs.readFileSync('_site/'+guide.sourceTextUrl.replace(/^\//,''),'utf8').replace(/\s+/g,' ').toLowerCase();
+ for(const phrase of guide.sourceChecks)assert(raw.includes(phrase.replace(/\s+/g,' ').toLowerCase()),'Source phrase absent '+spec.id+': '+phrase);
+ ui.newClinicalGroup={name:'UNRELATED PRODUCT',brands:[spec.brand]};
+ assert(vm.runInContext('clinicalGuidanceFor(newClinicalGroup)',ui)?.id===spec.id,'Exact brand does not resolve '+spec.id);
+ ui.newClinicalGroup={name:'UNRELATED PRODUCT',brands:[spec.brand+' XR']};
+ assert(vm.runInContext('clinicalGuidanceFor(newClinicalGroup)',ui)===null,'Brand leaks into variant '+spec.id);
+}
+const lyr=guidance.find(g=>g.id==='gl-105529-lyrica');
+assert(lyr.pathways[0].title==='Seizure disorder'&&lyr.pathways.slice(1).every(p=>p.all.some(x=>x.any?.length===2)),'Lyrica indication-specific alternatives lost');
+const lyrcr=guidance.find(g=>g.id==='gl-105529-lyrica-cr');
+assert(lyrcr.pathways[0].all.some(x=>x.any?.length===2)&&lyrcr.pathways[1].all.every(x=>!x.any),'Lyrica CR DPN/PHN branch difference lost');
+const gly=guidance.find(g=>g.id==='gl-108674-glycopyrrolate-brands');
+assert(JSON.stringify(gly.matchBrands)===JSON.stringify(['CUVPOSA','DARTISLA ODT','ROBINUL','ROBINUL FORTE']),'Glycopyrrolate brand scope changed');
+console.log('PASS: Lyrica, Lyrica CR and oral glycopyrrolate source and exact-brand regression');
