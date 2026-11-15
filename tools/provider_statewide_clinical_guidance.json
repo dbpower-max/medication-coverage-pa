@@ -8710,6 +8710,168 @@
       "documentationSuggestions": [
         "Document all source-required clinical and pharmacy-history criteria."
       ]
+    },
+    {
+      "id": "gl-99513-tretinoin-capsules",
+      "policyCode": "GL-99513",
+      "product": "Tretinoin ORAL capsules (APL and NCCN)",
+      "matchNames": [
+        "TRETINOIN"
+      ],
+      "heading": "Tretinoin ORAL capsules (APL and NCCN) — source-verified November criteria",
+      "sourcePage": 1846,
+      "sourceLastPage": 1848,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Oral capsules for APL or NCCN use; topical tretinoin is separate.",
+      "guidelineCaution": "Statewide policy source only. No individual Tucson AHCCCS plan coverage or PA requirement is inferred from this criterion.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99513.txt",
+      "sourceChecks": [
+        "Product Name:Tretinoin capsules",
+        "Diagnosis of acute promyelocytic leukemia",
+        "National Comprehensive Cancer",
+        "positive clinical response to tretinoin capsules"
+      ],
+      "stages": [
+        {
+          "title": "Acute promyelocytic leukemia — initial",
+          "approvalDuration": "12 months",
+          "all": [
+            "APL diagnosed."
+          ]
+        },
+        {
+          "title": "APL — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response to oral tretinoin capsules."
+          ]
+        },
+        {
+          "title": "NCCN-supported — initial",
+          "approvalDuration": "12 months",
+          "all": [
+            "NCCN Drugs and Biologics Compendium supports indication at category 1, 2A or 2B."
+          ]
+        },
+        {
+          "title": "NCCN-supported — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response to oral tretinoin capsules."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include source-required diagnosis, failed agents, stage and clinical response."
+      ],
+      "matchFormulationWords": [
+        "capsules",
+        "capsule",
+        "caps"
+      ]
+    },
+    {
+      "id": "gl-99514-aquadeks",
+      "policyCode": "GL-99514",
+      "product": "Aquadeks vitamins",
+      "matchBrands": [
+        "AQUADEKS"
+      ],
+      "heading": "Aquadeks vitamins — source-verified November criteria",
+      "sourcePage": 174,
+      "sourceLastPage": 175,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Cystic fibrosis.",
+      "guidelineCaution": "Statewide policy source only. No individual Tucson AHCCCS plan coverage or PA requirement is inferred from this criterion.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99514.txt",
+      "sourceChecks": [
+        "Product Name:Aquadeks",
+        "Diagnosis of cystic fibrosis",
+        "Cystic Fibrosis"
+      ],
+      "pathways": [
+        {
+          "title": "Cystic fibrosis",
+          "all": [
+            "Cystic fibrosis diagnosed."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include source-required diagnosis, failed agents, stage and clinical response."
+      ]
+    },
+    {
+      "id": "gl-99567-durezol",
+      "policyCode": "GL-99567",
+      "product": "Durezol (ophthalmic difluprednate)",
+      "matchBrands": [
+        "DUREZOL"
+      ],
+      "heading": "Durezol (ophthalmic difluprednate) — source-verified November criteria",
+      "sourcePage": 502,
+      "sourceLastPage": 503,
+      "approvalDuration": "2 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Both prednisolone 1% and dexamethasone ophthalmic preparations.",
+      "guidelineCaution": "Statewide policy source only. No individual Tucson AHCCCS plan coverage or PA requirement is inferred from this criterion.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99567.txt",
+      "sourceChecks": [
+        "Product Name:Durezol",
+        "History of failure, contraindication, or intolerance to BOTH",
+        "prednisolone 1%",
+        "dexamethasone ophthalmic drops"
+      ],
+      "pathways": [
+        {
+          "title": "BOTH ophthalmic prerequisites",
+          "all": [
+            "Failure, contraindication or intolerance to prednisolone 1% ophthalmic.",
+            "Failure, contraindication or intolerance to dexamethasone ophthalmic drops or ointment."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include source-required diagnosis, failed agents, stage and clinical response."
+      ]
+    },
+    {
+      "id": "gl-99603-cayston",
+      "policyCode": "GL-99603",
+      "product": "Cayston (inhaled aztreonam)",
+      "matchBrands": [
+        "CAYSTON"
+      ],
+      "heading": "Cayston (inhaled aztreonam) — source-verified November criteria",
+      "sourcePage": 308,
+      "sourceLastPage": 309,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Cystic fibrosis.",
+      "guidelineCaution": "Statewide policy source only. No individual Tucson AHCCCS plan coverage or PA requirement is inferred from this criterion.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99603.txt",
+      "sourceChecks": [
+        "Product Name:Cayston",
+        "Diagnosis of cystic fibrosis (CF)",
+        "Cystic Fibrosis (CF)"
+      ],
+      "pathways": [
+        {
+          "title": "Cystic fibrosis",
+          "all": [
+            "Diagnosis of cystic fibrosis."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include source-required diagnosis, failed agents, stage and clinical response."
+      ]
     }
   ]
 }
