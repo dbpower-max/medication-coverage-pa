@@ -1242,6 +1242,119 @@
         "negative to Ciprofloxacin or Nitrofurantoin",
         "Trial and failure, contraindication, or intolerance to ONE of the following"
       ]
+    },
+    {
+      "sourceGuidelineType": "Prior Authorization",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "guidelineCaution": "Statewide clinical guidance does not independently establish plan-specific coverage or PA status.",
+      "id": "gl-109903-nadolol",
+      "policyCode": "GL-109903",
+      "product": "Nadolol",
+      "matchNames": [
+        "NADOLOL"
+      ],
+      "heading": "Nadolol adult PA criteria",
+      "sourcePage": 1220,
+      "sourceLastPage": 1221,
+      "approvalDuration": "12 months",
+      "summary": "For patients 18 years or older, prior failure, contraindication, or intolerance to at least three of twelve listed beta-blocker or combination alternatives.",
+      "pathways": [
+        {
+          "title": "Adults 18 years or older",
+          "all": [
+            "Patient is 18 years of age or older.",
+            "History of failure, contraindication, or intolerance to THREE of: atenolol; atenolol/chlorthalidone; bisoprolol fumarate; bisoprolol/hydrochlorothiazide; carvedilol; labetalol HCl; metoprolol succinate; metoprolol tartrate; metoprolol/hydrochlorothiazide; propranolol HCl; propranolol/hydrochlorothiazide; sotalol HCl."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document three qualifying prior agents and reasons for failure, contraindication, or intolerance. The source identifies PA as applicable to patients aged 18 or older."
+      ],
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-109903.txt",
+      "sourceChecks": [
+        "Product Name:Nadolol",
+        "PA required for patients 18 years of age or older",
+        "History of failure, contraindication, or intolerance to 3 of the following",
+        "metoprolol succinate"
+      ]
+    },
+    {
+      "sourceGuidelineType": "Prior Authorization",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "guidelineCaution": "Statewide clinical guidance does not independently establish plan-specific coverage or PA status.",
+      "id": "gl-114472-zimhi",
+      "policyCode": "GL-114472",
+      "product": "Zimhi (naloxone) injection",
+      "matchBrands": [
+        "ZIMHI"
+      ],
+      "heading": "Zimhi preferred naloxone step requirement",
+      "sourcePage": 2110,
+      "sourceLastPage": 2111,
+      "approvalDuration": "12 months",
+      "summary": "Requires a history of failure or intolerance to preferred naloxone products; the source lists Narcan nasal spray, Kloxxado, and preferred naloxone injections as examples.",
+      "pathways": [
+        {
+          "title": "Preferred naloxone prerequisite",
+          "all": [
+            "History of failure or intolerance to preferred naloxone products (e.g., brand Narcan nasal spray, Kloxxado, or preferred naloxone injections)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document the preferred naloxone product and failure or intolerance; the source does not list contraindication as an alternative."
+      ],
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-114472.txt",
+      "sourceChecks": [
+        "Product Name:Zimhi",
+        "History of failure, or intolerance to preferred naloxone products",
+        "Brand Narcan nasal",
+        "Kloxxado"
+      ]
+    },
+    {
+      "sourceGuidelineType": "Prior Authorization",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "guidelineCaution": "Statewide clinical guidance does not independently establish plan-specific coverage or PA status.",
+      "id": "gl-114463-hyftor",
+      "policyCode": "GL-114463",
+      "product": "Hyftor (sirolimus) topical gel",
+      "matchBrands": [
+        "HYFTOR"
+      ],
+      "heading": "Hyftor facial angiofibroma initial and renewal criteria",
+      "sourcePage": 848,
+      "sourceLastPage": 849,
+      "approvalDuration": "4 months",
+      "summary": "Initial authorization is 4 months for facial angiofibroma associated with tuberous sclerosis complex in patients aged 6 years or older who are not candidates for laser/surgery, with dermatology involvement. Reauthorization is 12 months with positive clinical response.",
+      "stages": [
+        {
+          "title": "Initial authorization — 4 months",
+          "all": [
+            "Diagnosis of facial angiofibroma associated with tuberous sclerosis complex.",
+            "Patient is 6 years of age or older.",
+            "Patient is not a candidate for laser therapy or surgical treatments.",
+            "Prescribed by or in consultation with a dermatologist."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Documentation of positive clinical response to therapy (e.g., improvement in size or redness of facial angiofibroma)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "For initial requests document diagnosis, age, treatment candidacy, and dermatology involvement; for renewal document response."
+      ],
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-114463.txt",
+      "sourceChecks": [
+        "Product Name:Hyftor",
+        "Diagnosis of facial angiofibroma associated with tuberous sclerosis complex",
+        "Patient is 6 years of age or older",
+        "Patient is not a candidate for laser therapy or surgical treatments",
+        "Documentation of positive clinical response to therapy"
+      ]
     }
   ]
 }

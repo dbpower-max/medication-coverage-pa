@@ -305,3 +305,36 @@ for(const id of ['gl-107424-korsuva','gl-107454-verkazia']){
    'Missing renewal response criterion: '+id);
 }
 console.log('PASS: Five recent brand-specific source/logic regressions, exact matching, initial/renewal stages');
+
+
+// Independent source/identity/branch regression for Nadolol, Zimhi and Hyftor.
+const nextChecks=[
+ {id:'gl-109903-nadolol',code:'GL-109903',page:1220,name:'NADOLOL',
+  phrases:['PA required for patients 18 years of age or older','History of failure, contraindication, or intolerance to 3 of the following','sotalol HCl']},
+ {id:'gl-114472-zimhi',code:'GL-114472',page:2110,brand:'ZIMHI',
+  phrases:['Product Name:Zimhi','History of failure, or intolerance to preferred naloxone products','Kloxxado']},
+ {id:'gl-114463-hyftor',code:'GL-114463',page:848,brand:'HYFTOR',
+  phrases:['Diagnosis of facial angiofibroma associated with tuberous sclerosis complex','Patient is 6 years of age or older','Therapy Stage','Reauthorization']}
+];
+for(const spec of nextChecks){
+ const guide=guidance.find(g=>g.id===spec.id);
+ assert(guide&&guide.policyCode===spec.code&&guide.sourcePage===spec.page,'Missing or mismatched new guide '+spec.id);
+ assert(guide.sourceChecks.length>=3,'Missing source checks '+spec.id);
+ assert(spec.brand?JSON.stringify(guide.matchBrands)===JSON.stringify([spec.brand])&&!guide.matchNames?.length:
+  JSON.stringify(guide.matchNames)===JSON.stringify([spec.name])&&!guide.matchBrands?.length,'Overbroad identity '+spec.id);
+ const raw=fs.readFileSync('_site/'+guide.sourceTextUrl.replace(/^\//,''),'utf8');
+ const compact=s=>s.replace(/\s+/g,' ').toLowerCase();
+ for(const phrase of spec.phrases) assert(compact(raw).includes(compact(phrase)),'Missing raw phrase '+spec.id+': '+phrase);
+ ui.newClinicalGroup={name:spec.name||'UNRELATED GENERIC',brands:spec.brand?[spec.brand]:[]};
+ assert(vm.runInContext('clinicalGuidanceFor(newClinicalGroup)',ui)?.id===spec.id,'Guide fails exact match '+spec.id);
+ ui.newClinicalGroup={name:(spec.name||'UNRELATED GENERIC')+' XR',brands:spec.brand?[spec.brand+' XR']:[]};
+ assert(vm.runInContext('clinicalGuidanceFor(newClinicalGroup)',ui)===null,'Guide leaked to variant '+spec.id);
+}
+const nad=guidance.find(g=>g.id==='gl-109903-nadolol');
+assert(nad.pathways.length===1&&nad.pathways[0].all.some(x=>x.includes('THREE of:')&&x.includes('sotalol HCl')),'Nadolol 3-agent threshold lost');
+const zim=guidance.find(g=>g.id==='gl-114472-zimhi');
+assert(zim.pathways.length===1&&zim.pathways[0].all.every(x=>!x.includes('contraindication')),'Zimhi source does not authorize contraindication');
+const hyf=guidance.find(g=>g.id==='gl-114463-hyftor');
+assert(hyf.stages.length===2&&hyf.stages[0].all.length===4&&hyf.stages[1].all.length===1&&
+ hyf.stages[1].all[0].includes('positive clinical response'),'Hyftor initial/renewal branches lost');
+console.log('PASS: Nadolol, Zimhi, Hyftor source/brand/stage regression');
