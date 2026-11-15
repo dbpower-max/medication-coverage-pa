@@ -6408,27 +6408,24 @@
       ]
     },
     {
-      "id": "gl-479199-elidel-tacrolimus-topical",
+      "id": "gl-479199-elidel-pimecrolimus-cream",
       "policyCode": "GL-479199",
-      "product": "Elidel cream, generic pimecrolimus cream, topical tacrolimus ointment",
+      "product": "Elidel brand / generic pimecrolimus CREAM",
       "matchBrands": [
         "ELIDEL"
       ],
       "matchNames": [
-        "PIMECROLIMUS",
-        "TACROLIMUS"
+        "PIMECROLIMUS"
       ],
       "matchFormulationWords": [
-        "cream",
-        "ointment",
-        "oint"
+        "cream"
       ],
-      "heading": "Pimecrolimus/tacrolimus TOPICAL — formulation and age-specific criteria",
+      "heading": "Pimecrolimus CREAM (Elidel/generic): age ≥2 and topical clinical criteria",
       "sourcePage": 536,
       "sourceLastPage": 538,
       "approvalDuration": "12 months",
       "sourceGuidelineType": "Prior Authorization",
-      "summary": "Initial: medically accepted plan benefit, age ≥2 for Elidel/pimecrolimus/tacrolimus 0.03% or ≥16 for tacrolimus 0.1%, plus a topical steroid in prior 90 days OR facial/groin application; renewal requires response.",
+      "summary": "Brand Elidel and generic pimecrolimus cream: age ≥2; covered medically accepted indication, recent topical steroid failure/contraindication/intolerance OR facial/groin site; renewal response.",
       "guidelineCaution": "Source excludes cosmetic/vitiligo indications; this guide applies ONLY to topical cream or ointment, NEVER oral or injectable tacrolimus. Statewide criteria do not establish plan-specific PA or coverage.",
       "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
       "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-479199.txt",
@@ -6440,41 +6437,95 @@
       ],
       "stages": [
         {
-          "title": "Initial: Elidel/pimecrolimus cream or tacrolimus 0.03% ointment",
+          "title": "Cream — initial authorization",
           "all": [
-            "Medication is used for a medically accepted indication covered by the plan; NOT cosmetic or vitiligo.",
+            "Medication used for medically accepted, plan-recognized indication (not cosmetic or vitiligo).",
             "Patient age ≥2.",
             {
               "any": [
-                "Failed, contraindicated, or intolerant to ONE topical corticosteroid in past 90 days.",
+                "Failed, contraindicated or intolerant to ONE topical corticosteroid in last 90 days.",
                 "Prescribed for facial or groin area."
               ]
             }
           ]
         },
         {
-          "title": "Initial: tacrolimus 0.1% ointment",
+          "title": "Cream — reauthorization",
           "all": [
-            "Medication is used for medically accepted plan benefit; not cosmetic/vitiligo.",
-            "Patient age ≥16; younger patients require separate off-label policy review.",
-            {
-              "any": [
-                "Failed, contraindicated, or intolerant to ONE topical corticosteroid in past 90 days.",
-                "Prescribed for facial or groin area."
-              ]
-            }
-          ]
-        },
-        {
-          "title": "Reauthorization",
-          "all": [
-            "Medically accepted indication recognized as a covered plan benefit.",
+            "Medication used for medically accepted, plan-recognized indication (not cosmetic or vitiligo).",
             "Positive clinical response to therapy."
           ]
         }
       ],
       "documentationSuggestions": [
-        "Record topical formulation/strength, patient age, steroid history or facial/groin site, and objective clinical response."
+        "Verify cream dosage form, age ≥2, steroid history or facial/groin use, and treatment response."
+      ]
+    },
+    {
+      "id": "gl-479199-tacrolimus-ointment",
+      "policyCode": "GL-479199",
+      "product": "Generic tacrolimus 0.03% or 0.1% OINTMENT",
+      "matchNames": [
+        "TACROLIMUS"
+      ],
+      "matchFormulationWords": [
+        "ointment",
+        "oint"
+      ],
+      "heading": "Tacrolimus OINTMENT: strength-dependent ages and criteria",
+      "sourcePage": 536,
+      "sourceLastPage": 538,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Tacrolimus 0.03% ointment: age ≥2. Tacrolimus 0.1% ointment: age ≥16, younger patients require off-label criteria. Both require medically accepted plan benefit, one recent steroid failure/contraindication/intolerance OR facial/groin use; renewal response.",
+      "guidelineCaution": "Source excludes cosmetic/vitiligo indications; this guide applies ONLY to topical cream or ointment, NEVER oral or injectable tacrolimus. Statewide criteria do not establish plan-specific PA or coverage.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-479199.txt",
+      "sourceChecks": [
+        "Product Name:Brand Elidel, generic pimecrolimus, generic tacrolimus 0.03%",
+        "For tacrolimus 0.1% ointment: Patient is at least 16 years of age",
+        "facial or groin area",
+        "Patient demonstrates positive clinical response to therapy"
+      ],
+      "stages": [
+        {
+          "title": "0.03% ointment — initial authorization",
+          "all": [
+            "Medication used for medically accepted, plan-recognized indication (not cosmetic or vitiligo).",
+            "Requested strength is tacrolimus 0.03% ointment.",
+            "Patient age ≥2.",
+            {
+              "any": [
+                "Failed, contraindicated or intolerant to ONE topical corticosteroid in last 90 days.",
+                "Prescribed for facial or groin area."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "0.1% ointment — initial authorization",
+          "all": [
+            "Medication used for medically accepted, plan-recognized indication (not cosmetic or vitiligo).",
+            "Requested strength is tacrolimus 0.1% ointment.",
+            "Patient age ≥16 (under 16 requires off-label criteria review).",
+            {
+              "any": [
+                "Failed, contraindicated or intolerant to ONE topical corticosteroid in last 90 days.",
+                "Prescribed for facial or groin area."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Ointment — reauthorization",
+          "all": [
+            "Medication used for medically accepted, plan-recognized indication (not cosmetic or vitiligo).",
+            "Positive clinical response to therapy."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Confirm TACROLIMUS OINTMENT route and exact 0.03% or 0.1% strength, age threshold, steroid history/site and response."
       ]
     },
     {
