@@ -5604,6 +5604,173 @@
       "documentationSuggestions": [
         "Document relevant indication, drug trials and claims/clinical history."
       ]
+    },
+    {
+      "id": "gl-417196-bylvay",
+      "policyCode": "GL-417196",
+      "product": "Bylvay (odevixibat)",
+      "matchBrands": [
+        "BYLVAY"
+      ],
+      "heading": "Bylvay (odevixibat) — clinical policy qualification",
+      "sourcePage": 280,
+      "sourceLastPage": 284,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "PFIC versus Alagille syndrome have different genetics/age/dose requirements, each with 6-month initial and 12-month renewal.",
+      "guidelineCaution": "Statewide November criteria are not proof of plan-specific formulary status or PA requirement; distinguish every indication and treatment stage.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-417196.txt",
+      "sourceChecks": [
+        "Product Name:Bylvay",
+        "does not have a ABCB11 variant",
+        "Patient is 3 months of age or older",
+        "Patient is 12 months of age or older"
+      ],
+      "stages": [
+        {
+          "title": "PFIC — initial authorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Molecular PFIC diagnosis confirmed.",
+            "No ABCB11 variant with nonfunctional/absent bile salt export pump protein (BSEP-3).",
+            {
+              "all": [
+                "Moderate-to-severe pruritus.",
+                "Serum bile acids above laboratory ULN."
+              ]
+            },
+            "Patient age ≥3 months.",
+            "Inadequate response to at least TWO of ursodiol, antihistamines, rifampin, bile-acid sequestrants.",
+            "FDA-labeled dose not exceeding 6 mg daily.",
+            {
+              "any": [
+                "Hepatologist.",
+                "Gastroenterologist."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "PFIC — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response, e.g., reduced bile acids or less pruritus.",
+            "FDA-labeled dose not exceeding 6 mg daily."
+          ]
+        },
+        {
+          "title": "Alagille syndrome — initial authorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Alagille syndrome diagnosed.",
+            "Pathogenic JAG1 or NOTCH2 variant confirmed.",
+            {
+              "all": [
+                "Moderate-to-severe pruritus.",
+                "Serum bile acids above laboratory ULN."
+              ]
+            },
+            "Patient age ≥12 months.",
+            "Inadequate response to at least TWO of ursodiol, antihistamines, rifampin, bile-acid sequestrants.",
+            {
+              "any": [
+                "Hepatologist.",
+                "Gastroenterologist."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Alagille syndrome — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response, e.g., reduced bile acids or lower pruritus severity."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Record the source-required diagnoses, treatment trials, laboratory criteria, and specialist involvement."
+      ]
+    },
+    {
+      "id": "gl-427214-brinsupri",
+      "policyCode": "GL-427214",
+      "product": "Brinsupri (brensocatib)",
+      "matchBrands": [
+        "BRINSUPRI"
+      ],
+      "heading": "Brinsupri (brensocatib) — clinical policy qualification",
+      "sourcePage": 273,
+      "sourceLastPage": 276,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Non-CF bronchiectasis requires CT, CF exclusion, age-dependent systemic-antibiotic exacerbations and pulmonology; conditional coexisting COPD/asthma controller therapy.",
+      "guidelineCaution": "Statewide November criteria are not proof of plan-specific formulary status or PA requirement; distinguish every indication and treatment stage.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-427214.txt",
+      "sourceChecks": [
+        "Product Name:Brinsupri",
+        "Diagnosis of non-cystic fibrosis bronchiectasis (NCFB)",
+        "Diagnostic testing confirms patient does not have cystic fibrosis",
+        "If patient is 12 to 17 years of age",
+        "If patient is 18 years of age or older"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Non-CF bronchiectasis documented by CT.",
+            "Diagnostic testing excludes cystic fibrosis.",
+            "History of chronic cough/sputum or recurrent respiratory infections consistent with bronchiectasis.",
+            {
+              "any": [
+                {
+                  "all": [
+                    "Age 12–17 years.",
+                    "At least one systemic-antibiotic-treated pulmonary exacerbation within past 12 months."
+                  ]
+                },
+                {
+                  "all": [
+                    "Age ≥18 years.",
+                    "At least two systemic-antibiotic-treated exacerbations within past 12 months."
+                  ]
+                }
+              ]
+            },
+            "Patient age ≥12 years.",
+            {
+              "any": [
+                {
+                  "all": [
+                    "For coexisting COPD: receiving ICS + LAMA + LABA triple therapy.",
+                    "If ICS contraindicated, LAMA + LABA may substitute."
+                  ]
+                },
+                {
+                  "all": [
+                    "For coexisting asthma: receiving ICS plus another controller, unless contraindicated or intolerant."
+                  ]
+                },
+                "For coexisting asthma: receiving combination ICS/LABA, unless contraindicated or intolerant."
+              ]
+            },
+            "Prescribed by/in consultation with pulmonologist."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response, e.g., fewer/stabilized pulmonary exacerbations."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Record the source-required diagnoses, treatment trials, laboratory criteria, and specialist involvement."
+      ]
     }
   ]
 }
