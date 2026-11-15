@@ -1545,7 +1545,7 @@
       "summary": "One of thirteen independently qualifying documented diagnoses or treatment indications; these are OR alternatives, not cumulative requirements.",
       "sourceChecks": [
         "Product Name:Intron A",
-        "Diagnosis of hairy cell leukemia",
+        "diagnosis of hairy cell leukemia",
         "diagnosis of malignant melanoma"
       ],
       "pathways": [
