@@ -716,3 +716,116 @@ const bphHtml=vm.runInContext('clinicalGuidanceContent(clinicalGuidanceFor(bph5)
 assert(bphHtml.includes('5 mg')&&bphHtml.includes('Adempas')
   &&bphHtml.includes('alpha'), 'BPH clinical card omitted key eligibility conditions');
 console.log('PASS: GL-105174 BPH 5 mg, source, branch and 7 negative strength/matcher regressions');
+
+
+// Batch 39: 20 newly structured November policy sections, independent source,
+// brand/formulation-negative, age-exemption and mixed-approval safety checks.
+const batch39Specs=[
+ ['356255','rayos'],['413207','tretinoin-topical'],['427190','leucovorin-tablets'],
+ ['441190','shingrix'],['450249','orlynvah'],['450258','gralise'],
+ ['450258','horizant'],['490254','effient'],['364197','vanrafia'],
+ ['479196','sephience'],['481198','forzinity'],['481199','palsonify'],
+ ['401288','voydeya'],['417211','krystexxa'],['363221','iluvien'],
+ ['417204','opzelura'],['369200','vtama'],['396205','kerendia'],
+ ['427192','prevymis'],['479197','sapropterin-generic'],
+ ['479197','sapropterin-brands'],['357222','xiidra'],
+ ['357222','dry-eye-nonpreferred']
+];
+assert(batch39Specs.length===23,'Batch 39 requires 23 independently checked medication guides');
+assert(new Set(batch39Specs.map(x=>x[0])).size===20,'Batch 39 requires 20 different policy sections');
+const batch39Norm=t=>String(t).replace(/\s+/g,' ').toLowerCase();
+for(const [code,id] of batch39Specs){
+ const guide=guidance.find(g=>g.id==='gl-'+code+'-'+id);
+ assert(guide&&guide.policyCode==='GL-'+code,'Missing batch 39 product '+id);
+ assert(guide.sourceChecks?.length>=3,'Insufficient exact November source checks: '+id);
+ const rawText=fs.readFileSync('_site/'+guide.sourceTextUrl.replace(/^\//,''),'utf8');
+ const raw=batch39Norm(rawText);
+ for(const phrase of guide.sourceChecks)
+  assert(raw.includes(batch39Norm(phrase)),'Published source phrase differs: '+id+' / '+phrase);
+ const sourcePages=[...rawText.matchAll(/--- PDF page (\d+) ---/g)].map(x=>Number(x[1]));
+ assert(sourcePages.includes(guide.sourcePage)&&sourcePages.includes(guide.sourceLastPage),
+   'Incorrect original PDF page reference: '+id);
+ const opts=guide.stages||guide.pathways;
+ assert(opts?.length,'Clinical decision structure missing: '+id);
+ assert(guide.guidelineCaution?.toLowerCase().includes('plan'),
+   'Source-based guidance missing plan-benefit caveat: '+id);
+ for(const brand of guide.matchBrands||[]){
+   ui.audit39Group={name:'OTHER GENERIC',brands:[brand]};
+   assert(vm.runInContext('clinicalGuidanceFor(audit39Group)',ui)?.id===guide.id,
+     'Exact product brand lookup failed: '+brand);
+   ui.audit39Group={name:'OTHER GENERIC',brands:[brand+' EXTRA']};
+   assert(vm.runInContext('clinicalGuidanceFor(audit39Group)',ui)===null,
+     'Unsafe substring/fuzzy brand matching: '+brand);
+ }
+ for(const name of guide.matchNames||[]){
+   ui.audit39Group={name,brands:[]};
+   assert(vm.runInContext('clinicalGuidanceFor(audit39Group)',ui)?.id===guide.id,
+     'Exact generic/formulation lookup failed: '+name);
+   ui.audit39Group={name:name+' EXTENDED RELEASE INJECTION',brands:[]};
+   assert(vm.runInContext('clinicalGuidanceFor(audit39Group)',ui)===null,
+     'Unsafe generic route/form match: '+name);
+ }
+}
+const b39=id=>guidance.find(g=>g.id==='gl-'+id);
+assert(b39('356255-rayos').pathways[0].all[3].any.length===6,
+ 'Rayos requires TWO of FOUR steroids; the six possible pairs must be represented');
+assert(b39('413207-tretinoin-topical').pathways.length===1
+ &&b39('413207-tretinoin-topical').guidelineCaution.includes('NOT required'),
+ 'Tretinoin age ≤26 exemption is not a PA approval pathway');
+assert(b39('441190-shingrix').pathways.length===1
+ &&b39('441190-shingrix').guidelineCaution.includes('NOT required'),
+ 'Shingrix age ≥50 exception is not a PA approval pathway');
+assert(b39('450249-orlynvah').pathways[0].all[3].any.length===3,
+ 'Orlynvah three covered organisms must remain explicit alternatives');
+assert(b39('450258-gralise').pathways[0].all.length===2
+ &&b39('450258-horizant').pathways.length===2,
+ 'Gralise generic gabapentin step leaked into Horizant RLS pathway');
+assert(b39('364197-vanrafia').stages.length===2
+ &&b39('364197-vanrafia').stages[0].all.some(x=>x.any?.length===2),
+ 'Vanrafia ACE vs ARB minimum 90-day rule missing');
+assert(b39('417211-krystexxa').stages[1].all.length===2,
+ 'Krystexxa requires BOTH laboratory and clinical response for renewal');
+assert(b39('363221-iluvien').pathways.length===2,
+ 'Iluvien noninfectious uveitis vs DME pathways missing');
+assert(b39('417204-opzelura').stages.length===2
+ &&b39('417204-opzelura').guidelineCaution.includes('vitiligo'),
+ 'Opzelura benefit exclusion or initial/renewal qualifications lost');
+assert(b39('369200-vtama').stages.length===4,
+ 'Vtama plaque psoriasis and atopic dermatitis stages incorrectly combined');
+assert(b39('396205-kerendia').stages.length===4
+ &&b39('396205-kerendia').stages[2].all.some(x=>typeof x==='string'&&x.includes('spironolactone')),
+ 'Kerendia CKD/heart-failure separate pathways or no-spironolactone rule missing');
+assert(b39('427192-prevymis').pathways.length===2,
+ 'Prevymis kidney and HSCT transplant source requirements combined');
+assert(b39('479197-sapropterin-generic').pathways[0].all.length===1
+ &&b39('479197-sapropterin-brands').pathways[0].all.length===2,
+ 'Brand-only failure-to-generic step erroneously added to generic sapropterin');
+assert(b39('357222-xiidra').stages[0].all.length+1
+ ===b39('357222-dry-eye-nonpreferred').stages[0].all.length,
+ 'Nonpreferred dry-eye product must have BOTH Restasis and Xiidra steps');
+const multiDuration39=[
+ ['479196-sephience',['3 months','12 months']],
+ ['417204-opzelura',['12 weeks','6 months']],
+ ['369200-vtama',['6 months','12 months','6 months','12 months']],
+ ['427192-prevymis',['6 months','12 months']]
+];
+for(const [id,expected] of multiDuration39){
+ const guide=b39(id);
+ const options=guide.stages||guide.pathways;
+ assert(JSON.stringify(options.map(x=>x.approvalDuration))===JSON.stringify(expected),
+   'Original source-specific approval lengths missing for '+id);
+ ui.batch39Guide=guide;
+ const markup=vm.runInContext('clinicalGuidanceContent(batch39Guide)',ui);
+ assert(markup.includes('Approval duration for this ')
+   &&!markup.includes('<strong>Approval duration:</strong>'),
+   'Ambiguous single global approval duration displayed for '+id);
+ for(const period of new Set(expected))assert(markup.includes(period),
+   'Missing branch-specific duration '+period+' for '+id);
+}
+ui.audit39Group={name:'TRETINOIN ORAL 10 MG CAPSULE',brands:[]};
+assert(vm.runInContext('clinicalGuidanceFor(audit39Group)',ui)===null,
+ 'Generic topical tretinoin guideline incorrectly attached to oral tretinoin');
+ui.audit39Group={name:'GABAPENTIN IMMEDIATE RELEASE',brands:[]};
+assert(vm.runInContext('clinicalGuidanceFor(audit39Group)',ui)===null,
+ 'Gralise or Horizant guidelines incorrectly attached to generic IR gabapentin');
+console.log('PASS: Batch 39 audited 20 original sections, 23 guides, direct sources, exact identities, clinical logic, mixed approval periods and exemptions');

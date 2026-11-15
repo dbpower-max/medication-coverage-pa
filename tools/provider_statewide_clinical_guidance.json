@@ -4244,6 +4244,1238 @@
         "Document prescribed strength and dose, and provider attestation regarding organic nitrates and Adempas."
       ],
       "matchStrengthMg": 5
+    },
+    {
+      "id": "gl-356255-rayos",
+      "policyCode": "GL-356255",
+      "product": "Rayos delayed-release prednisone",
+      "matchBrands": [
+        "RAYOS"
+      ],
+      "heading": "Rayos delayed-release prednisone — source-verified clinical criteria",
+      "sourcePage": 1455,
+      "sourceLastPage": 1456,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Source requires qualifying indication, accepted plan benefit, documented unresolvable generic prednisone intolerance, and TWO of four other steroids.",
+      "guidelineCaution": "These statewide criteria do not establish plan-specific AHCCCS ACC coverage or prior authorization. Formulation, age and indication restrictions apply as stated.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-356255.txt",
+      "sourceChecks": [
+        "Product Name:Rayos",
+        "intolerance to generic prednisone tablets",
+        "History of failure, contraindication, or intolerance to TWO",
+        "Food and Drug Administration (FDA)-approved"
+      ],
+      "pathways": [
+        {
+          "title": "FDA/compendia + recognized benefit + 3 prerequisite conditions",
+          "all": [
+            {
+              "any": [
+                "Use for FDA-approved indication.",
+                "Use supported by a policy-listed accepted literature compendium (AHFS, NCCN, DrugDex, Clinical Pharmacology or USP-NF)."
+              ]
+            },
+            "Medically accepted indication recognized as a covered benefit under the member's health plan; anti-obesity, cosmetic, ED and sexual dysfunction purposes excluded.",
+            "Medical records/claims show intolerance to generic prednisone tablets unresolved after appropriate adverse-effect mitigation.",
+            {
+              "any": [
+                {
+                  "all": [
+                    "Failure, contraindication or intolerance to dexamethasone tablet or oral solution.",
+                    "Failure, contraindication or intolerance to hydrocortisone tablet."
+                  ]
+                },
+                {
+                  "all": [
+                    "Failure, contraindication or intolerance to dexamethasone tablet or oral solution.",
+                    "Failure, contraindication or intolerance to methylprednisolone tablet."
+                  ]
+                },
+                {
+                  "all": [
+                    "Failure, contraindication or intolerance to dexamethasone tablet or oral solution.",
+                    "Failure, contraindication or intolerance to prednisolone tablet or oral solution."
+                  ]
+                },
+                {
+                  "all": [
+                    "Failure, contraindication or intolerance to hydrocortisone tablet.",
+                    "Failure, contraindication or intolerance to methylprednisolone tablet."
+                  ]
+                },
+                {
+                  "all": [
+                    "Failure, contraindication or intolerance to hydrocortisone tablet.",
+                    "Failure, contraindication or intolerance to prednisolone tablet or oral solution."
+                  ]
+                },
+                {
+                  "all": [
+                    "Failure, contraindication or intolerance to methylprednisolone tablet.",
+                    "Failure, contraindication or intolerance to prednisolone tablet or oral solution."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable policy-specific prior therapies, indications and supporting records."
+      ]
+    },
+    {
+      "id": "gl-413207-tretinoin-topical",
+      "policyCode": "GL-413207",
+      "product": "Generic topical tretinoin cream/gel",
+      "matchNames": [
+        "TRETINOIN CREAM",
+        "TRETINOIN GEL"
+      ],
+      "heading": "Generic topical tretinoin cream/gel — source-verified clinical criteria",
+      "sourcePage": 1849,
+      "sourceLastPage": 1850,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Generic TOPICAL cream or gel only: adults older than 26 require acne vulgaris plus all three prior treatments. No PA required by statewide policy at age ≤26.",
+      "guidelineCaution": "These statewide criteria do not establish plan-specific AHCCCS ACC coverage or prior authorization. Formulation, age and indication restrictions apply as stated. The original source says PA is NOT required for patients age 26 or less; this is an exemption, not a separate PA qualification pathway.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-413207.txt",
+      "sourceChecks": [
+        "Product Name:generic tretinoin cream and gel",
+        "Patient is 26 years of age or less",
+        "Diagnosis of acne vulgaris",
+        "topical erythromycin"
+      ],
+      "pathways": [
+        {
+          "title": "Older than 26 — all treatment criteria",
+          "all": [
+            "Patient age older than 26.",
+            "Diagnosis of acne vulgaris.",
+            "Failure, contraindication or intolerance to benzoyl peroxide.",
+            "Failure, contraindication or intolerance to topical clindamycin.",
+            "Failure, contraindication or intolerance to topical erythromycin."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable policy-specific prior therapies, indications and supporting records."
+      ]
+    },
+    {
+      "id": "gl-427190-leucovorin-tablets",
+      "policyCode": "GL-427190",
+      "product": "Leucovorin oral tablets",
+      "matchNames": [
+        "LEUCOVORIN TABLETS",
+        "LEUCOVORIN CALCIUM TABLET"
+      ],
+      "heading": "Leucovorin oral tablets — source-verified clinical criteria",
+      "sourcePage": 1078,
+      "sourceLastPage": 1079,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "One of three source-listed indications; source names oral tablets only.",
+      "guidelineCaution": "These statewide criteria do not establish plan-specific AHCCCS ACC coverage or prior authorization. Formulation, age and indication restrictions apply as stated.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-427190.txt",
+      "sourceChecks": [
+        "Product Name:Leucovorin tablets",
+        "Methotrexate toxicity prophylaxis",
+        "Treatment of hematologic toxicity",
+        "cerebral"
+      ],
+      "pathways": [
+        {
+          "title": "One indication",
+          "all": [
+            {
+              "any": [
+                "Methotrexate toxicity prophylaxis.",
+                "Treatment of hematologic toxicity from a folic acid antagonist (e.g., pyrimethamine or trimethoprim).",
+                "Medical records document diagnosis of cerebral folate deficiency."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable policy-specific prior therapies, indications and supporting records."
+      ]
+    },
+    {
+      "id": "gl-441190-shingrix",
+      "policyCode": "GL-441190",
+      "product": "Shingrix recombinant zoster vaccine",
+      "matchBrands": [
+        "SHINGRIX"
+      ],
+      "heading": "Shingrix recombinant zoster vaccine — source-verified clinical criteria",
+      "sourcePage": 1584,
+      "sourceLastPage": 1585,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Original guideline limits PA qualifications to immunocompromised 18–49-year-olds, and explicitly exempts ages 50+.",
+      "guidelineCaution": "These statewide criteria do not establish plan-specific AHCCCS ACC coverage or prior authorization. Formulation, age and indication restrictions apply as stated. The original source says PA is NOT required for age 50 and above; this is a PA exemption, not an approval pathway.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-441190.txt",
+      "sourceChecks": [
+        "Product Name:Shingrix*",
+        "Patient is between 18 to 49 years of age",
+        "immunosuppression caused by known disease or therapy",
+        "Prior authorization is not required for patients 50"
+      ],
+      "pathways": [
+        {
+          "title": "Ages 18–49: all original PA qualifications",
+          "all": [
+            "Vaccine used to prevent herpes zoster.",
+            "Age 18 through 49 years.",
+            "Increased risk of herpes zoster due to known or anticipated immunodeficiency or immunosuppression from disease or treatment."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable policy-specific prior therapies, indications and supporting records."
+      ]
+    },
+    {
+      "id": "gl-450249-orlynvah",
+      "policyCode": "GL-450249",
+      "product": "Orlynvah (sulopenem/probenecid)",
+      "matchBrands": [
+        "ORLYNVAH"
+      ],
+      "heading": "Orlynvah (sulopenem/probenecid) — source-verified clinical criteria",
+      "sourcePage": 1346,
+      "sourceLastPage": 1347,
+      "approvalDuration": "5 days",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Adult uncomplicated UTI with one listed causative pathogen and alternative oral antibacterial unsuccessful/contraindicated/resistant.",
+      "guidelineCaution": "These statewide criteria do not establish plan-specific AHCCCS ACC coverage or prior authorization. Formulation, age and indication restrictions apply as stated.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-450249.txt",
+      "sourceChecks": [
+        "Product Name:Orlynvah",
+        "Diagnosis of an uncomplicated urinary tract infection (uUTI)",
+        "Patient is 18 years of age or older",
+        "Klebsiella pneumoniae"
+      ],
+      "pathways": [
+        {
+          "title": "All uncomplicated-UTI conditions",
+          "all": [
+            "Uncomplicated UTI diagnosis.",
+            "Patient age at least 18 years.",
+            "Inadequate response, contraindication or resistance to one other oral antibacterial (e.g., TMP-SMX or ciprofloxacin).",
+            {
+              "any": [
+                "Infection caused by Escherichia coli.",
+                "Infection caused by Klebsiella pneumoniae.",
+                "Infection caused by Proteus mirabilis."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable policy-specific prior therapies, indications and supporting records."
+      ]
+    },
+    {
+      "id": "gl-450258-gralise",
+      "policyCode": "GL-450258",
+      "product": "Brand Gralise (gabapentin once daily)",
+      "matchBrands": [
+        "GRALISE"
+      ],
+      "heading": "Brand Gralise (gabapentin once daily) — source-verified clinical criteria",
+      "sourcePage": 740,
+      "sourceLastPage": 741,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Brand-only PHN guide. Generic gabapentin once daily has additional Gralise step and is not included.",
+      "guidelineCaution": "These statewide criteria do not establish plan-specific AHCCCS ACC coverage or prior authorization. Formulation, age and indication restrictions apply as stated.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-450258.txt",
+      "sourceChecks": [
+        "Product Name:Brand Gralise, generic gabapentin (once-daily)",
+        "Diagnosis of postherpetic neuralgia (PHN)",
+        "Trial and failure or intolerance to generic immediate-release gabapentin"
+      ],
+      "pathways": [
+        {
+          "title": "Both conditions",
+          "all": [
+            "Diagnosis of postherpetic neuralgia (PHN).",
+            "Trial failure or intolerance to generic immediate-release gabapentin (Neurontin generic)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable policy-specific prior therapies, indications and supporting records."
+      ]
+    },
+    {
+      "id": "gl-450258-horizant",
+      "policyCode": "GL-450258",
+      "product": "Horizant (gabapentin enacarbil)",
+      "matchBrands": [
+        "HORIZANT"
+      ],
+      "heading": "Horizant (gabapentin enacarbil) — source-verified clinical criteria",
+      "sourcePage": 740,
+      "sourceLastPage": 741,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Either PHN plus generic IR gabapentin failure/intolerance, or restless legs syndrome.",
+      "guidelineCaution": "These statewide criteria do not establish plan-specific AHCCCS ACC coverage or prior authorization. Formulation, age and indication restrictions apply as stated.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-450258.txt",
+      "sourceChecks": [
+        "Product Name:Horizant",
+        "Diagnosis of restless legs syndrome",
+        "generic immediate-release gabapentin"
+      ],
+      "pathways": [
+        {
+          "title": "PHN branch",
+          "all": [
+            "Diagnosis of postherpetic neuralgia.",
+            "Trial failure or intolerance to generic immediate-release gabapentin."
+          ]
+        },
+        {
+          "title": "Restless legs syndrome branch",
+          "all": [
+            "Diagnosis of restless legs syndrome."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable policy-specific prior therapies, indications and supporting records."
+      ]
+    },
+    {
+      "id": "gl-490254-effient",
+      "policyCode": "GL-490254",
+      "product": "Effient (prasugrel)",
+      "matchBrands": [
+        "EFFIENT"
+      ],
+      "matchNames": [
+        "PRASUGREL"
+      ],
+      "heading": "Effient (prasugrel) — source-verified clinical criteria",
+      "sourcePage": 526,
+      "sourceLastPage": 527,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "ACS managed with percutaneous coronary intervention; source names brand and generic.",
+      "guidelineCaution": "These statewide criteria do not establish plan-specific AHCCCS ACC coverage or prior authorization. Formulation, age and indication restrictions apply as stated.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-490254.txt",
+      "sourceChecks": [
+        "Product Name:Brand Effient, Generic prasurgrel",
+        "Diagnosis of acute coronary syndrome (ACS)",
+        "percutaneous coronary intervention (PCI)"
+      ],
+      "pathways": [
+        {
+          "title": "Both requirements",
+          "all": [
+            "Diagnosis of ACS (unstable angina, NSTEMI or STEMI).",
+            "Patient managed with PCI."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable policy-specific prior therapies, indications and supporting records."
+      ]
+    },
+    {
+      "id": "gl-364197-vanrafia",
+      "policyCode": "GL-364197",
+      "product": "Vanrafia (atrasentan)",
+      "matchBrands": [
+        "VANRAFIA"
+      ],
+      "heading": "Vanrafia (atrasentan) — source-verified clinical criteria",
+      "sourcePage": 1926,
+      "sourceLastPage": 1928,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Biopsy-proven primary IgAN with proteinuria/eGFR thresholds and at least 90-day ACE/ARB treatment; renewal lower UPCR.",
+      "guidelineCaution": "These statewide criteria do not establish plan-specific AHCCCS ACC coverage or prior authorization. Formulation, age and indication restrictions apply as stated.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-364197.txt",
+      "sourceChecks": [
+        "Product Name:Vanrafia",
+        "Proteinuria of greater than or equal to 1 g/day",
+        "minimum 90-day trial",
+        "decrease in urine protein-to-creatinine ratio (UPCR)"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 12 months",
+          "all": [
+            "Primary IgA nephropathy confirmed in records.",
+            "Biopsy confirms IgA nephropathy.",
+            "Proteinuria ≥1 g/day.",
+            "eGFR ≥30 mL/min/1.73m².",
+            "At risk for progression (e.g., UPCR ≥1.5g/g or other risk scoring).",
+            "Use is to reduce proteinuria.",
+            {
+              "any": [
+                "≥90-day trial at maximally tolerated ACE inhibitor dose.",
+                "≥90-day trial at maximally tolerated ARB dose."
+              ]
+            },
+            "Prescribed by or in consultation with nephrologist."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Reduced UPCR compared with baseline is documented."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable policy-specific prior therapies, indications and supporting records."
+      ]
+    },
+    {
+      "id": "gl-479196-sephience",
+      "policyCode": "GL-479196",
+      "product": "Sephience (sepiapterin)",
+      "matchBrands": [
+        "SEPHIENCE"
+      ],
+      "heading": "Sephience (sepiapterin) — November clinical criteria",
+      "sourcePage": 1571,
+      "sourceLastPage": 1572,
+      "approvalDuration": "3 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "PKU plus dietary Phe control and generic sapropterin step; reauthorization requires ≥15% reduction in Phe levels.",
+      "guidelineCaution": "Statewide criteria are not confirmation of coverage/PA requirements in an individual Tucson AHCCCS ACC plan; initial and reauthorization approvals can differ.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-479196.txt",
+      "sourceChecks": [
+        "Product Name:Sephience",
+        "phenylalanine (Phe)-restricted diet",
+        "within 2 weeks of therapy",
+        "15% or greater reduction"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 3 months",
+          "all": [
+            "PKU diagnosis confirmed by records.",
+            "Used with Phe-restricted diet.",
+            "Measure Phe levels within 2 weeks of initiation and periodically up to 3 months.",
+            "Trial and failure, contraindication or intolerance to generic sapropterin."
+          ],
+          "approvalDuration": "3 months"
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Blood Phe decreased by at least 15% from baseline.",
+            "Continues Phe-restricted diet.",
+            "Blood Phe levels monitored periodically."
+          ],
+          "approvalDuration": "12 months"
+        }
+      ],
+      "documentationSuggestions": [
+        "Document original-source qualifying records, laboratory findings and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-481198-forzinity",
+      "policyCode": "GL-481198",
+      "product": "Forzinity (elamipretide)",
+      "matchBrands": [
+        "FORZINITY"
+      ],
+      "heading": "Forzinity (elamipretide) — November clinical criteria",
+      "sourcePage": 693,
+      "sourceLastPage": 694,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Barth syndrome with tafazzin mutation and weight ≥30 kg, specialist; renewal response.",
+      "guidelineCaution": "Statewide criteria are not confirmation of coverage/PA requirements in an individual Tucson AHCCCS ACC plan; initial and reauthorization approvals can differ.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-481198.txt",
+      "sourceChecks": [
+        "Product Name:Forzinity",
+        "diagnosis of Barth",
+        "mutation in the Tafazzin gene",
+        "Patient weight is greater than or equal to 30kg"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 12 months",
+          "all": [
+            "Diagnosis of Barth syndrome confirmed.",
+            "Tafazzin gene mutation identified.",
+            "Body weight ≥30 kg.",
+            {
+              "any": [
+                "Prescribed by/in consultation with geneticist.",
+                "Prescribed by/in consultation with cardiologist.",
+                "Prescribed by/in consultation with neurologist.",
+                "Prescribed by/in consultation with metabolic disorder specialist."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Positive response such as knee-extension strength, 6-minute walking, or quality-of-life improvement."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document original-source qualifying records, laboratory findings and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-481199-palsonify",
+      "policyCode": "GL-481199",
+      "product": "Palsonify (paltusotine)",
+      "matchBrands": [
+        "PALSONIFY"
+      ],
+      "heading": "Palsonify (paltusotine) — November clinical criteria",
+      "sourcePage": 1365,
+      "sourceLastPage": 1366,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Acromegaly with unsuccessful/unavailable surgery and positive tolerance/response to octreotide or lanreotide; endocrinologist.",
+      "guidelineCaution": "Statewide criteria are not confirmation of coverage/PA requirements in an individual Tucson AHCCCS ACC plan; initial and reauthorization approvals can differ.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-481199.txt",
+      "sourceChecks": [
+        "Product Name:Palsonify",
+        "Diagnosis of acromegaly",
+        "Patient has an inadequate response to surgery",
+        "generic octreotide or lanreotide"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 12 months",
+          "all": [
+            "Acromegaly diagnosis.",
+            {
+              "any": [
+                "Inadequate response to surgery.",
+                "Not a surgical candidate."
+              ]
+            },
+            "Patient previously responded to AND tolerated generic octreotide or lanreotide.",
+            "Prescribed by/in consultation with endocrinologist."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Positive response (e.g., reduced IGF-1/GH or ASD score)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document original-source qualifying records, laboratory findings and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-401288-voydeya",
+      "policyCode": "GL-401288",
+      "product": "Voydeya (danicopan)",
+      "matchBrands": [
+        "VOYDEYA"
+      ],
+      "heading": "Voydeya (danicopan) — November clinical criteria",
+      "sourcePage": 1975,
+      "sourceLastPage": 1976,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "PNH requires ongoing C5-inhibitor combination and specific anemia/reticulocyte levels; renewal maintains combination.",
+      "guidelineCaution": "Statewide criteria are not confirmation of coverage/PA requirements in an individual Tucson AHCCCS ACC plan; initial and reauthorization approvals can differ.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-401288.txt",
+      "sourceChecks": [
+        "Product Name:Voydeya",
+        "Diagnosis of paroxysmal nocturnal hemoglobinuria (PNH)",
+        "Hemoglobin levels less than or equal to 9.5 g/dL",
+        "Absolute reticulocyte count greater than or equal to 120"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 12 months",
+          "all": [
+            "PNH diagnosis.",
+            {
+              "any": [
+                "Add-on therapy to Ultomiris (ravulizumab).",
+                "Add-on therapy to Soliris (eculizumab)."
+              ]
+            },
+            "Hemoglobin ≤9.5 g/dL.",
+            "Reticulocytes ≥120 × 10⁹/L.",
+            "Prescribed by/in consultation with hematologist/oncologist."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Positive response (e.g., stabilization of hemoglobin or fewer RBC transfusions).",
+            {
+              "any": [
+                "Continue add-on to Ultomiris.",
+                "Continue add-on to Soliris."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document original-source qualifying records, laboratory findings and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-417211-krystexxa",
+      "policyCode": "GL-417211",
+      "product": "Krystexxa (pegloticase)",
+      "matchBrands": [
+        "KRYSTEXXA"
+      ],
+      "heading": "Krystexxa (pegloticase) — source-verified November clinical criteria",
+      "sourcePage": 1050,
+      "sourceLastPage": 1051,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Refractory gout after BOTH urate-lowering classes plus flare/tophi; renewal demands BOTH serum urate and clinical improvement.",
+      "guidelineCaution": "Statewide rules do not independently establish Pima ACC plan coverage or PA; initial and renewal durations are stage-specific. ",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-417211.txt",
+      "sourceChecks": [
+        "Product Name:Krystexxa",
+        "Diagnosis of gout",
+        "Xanthine oxidase inhibitor",
+        "Uricosuric agent",
+        "Serum urate level has decreased"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 12 months",
+          "all": [
+            "Diagnosis of gout.",
+            "Failed, contraindicated or intolerant at maximum recommended doses of a xanthine oxidase inhibitor (allopurinol/febuxostat).",
+            "Failed, contraindicated or intolerant at maximum recommended doses of a uricosuric agent (probenecid).",
+            {
+              "any": [
+                "≥2 gout attacks in prior 12 months.",
+                "At least one tophus."
+              ]
+            },
+            {
+              "any": [
+                "Prescribed by/in consultation with rheumatologist.",
+                "Prescribed by/in consultation with nephrologist."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Serum urate decreased from pretreatment level.",
+            "Clinical gout improvement, e.g., fewer flares, reduced tophus, improved arthropathy or QoL."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Use supporting medical records, prior drug trials, lab data or documented clinical response required by source."
+      ]
+    },
+    {
+      "id": "gl-363221-iluvien",
+      "policyCode": "GL-363221",
+      "product": "Iluvien (intravitreal fluocinolone implant)",
+      "matchBrands": [
+        "ILUVIEN"
+      ],
+      "heading": "Iluvien (intravitreal fluocinolone implant) — source-verified November clinical criteria",
+      "sourcePage": 868,
+      "sourceLastPage": 869,
+      "approvalDuration": "3 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Either chronic noninfectious intermediate/posterior/panuveitis, or DME with prior steroid therapy without significant IOP rise.",
+      "guidelineCaution": "Statewide rules do not independently establish Pima ACC plan coverage or PA; initial and renewal durations are stage-specific. ",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-363221.txt",
+      "sourceChecks": [
+        "Product Name:Iluvien",
+        "Intermediate uveitis",
+        "Inflammation is chronic",
+        "clinically significant rise in intraocular pressure"
+      ],
+      "pathways": [
+        {
+          "title": "Chronic noninfectious uveitis",
+          "all": [
+            {
+              "any": [
+                "Intermediate uveitis.",
+                "Posterior uveitis.",
+                "Panuveitis."
+              ]
+            },
+            "Inflammation is chronic.",
+            "Inflammation is not due to infection."
+          ]
+        },
+        {
+          "title": "Diabetic macular edema",
+          "all": [
+            "Medical records document diabetic macular edema.",
+            "Previously treated with corticosteroids.",
+            "Patient had NO clinically significant intraocular pressure increase during prior corticosteroid use."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Use supporting medical records, prior drug trials, lab data or documented clinical response required by source."
+      ]
+    },
+    {
+      "id": "gl-417204-opzelura",
+      "policyCode": "GL-417204",
+      "product": "Opzelura (topical ruxolitinib)",
+      "matchBrands": [
+        "OPZELURA"
+      ],
+      "heading": "Opzelura (topical ruxolitinib) — source-verified November clinical criteria",
+      "sourcePage": 1325,
+      "sourceLastPage": 1328,
+      "approvalDuration": "12 weeks",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "AD indication only with age/BSA, specialist, prior topical step, immunosuppressant and treatment pattern restrictions. Source disallows vitiligo.",
+      "guidelineCaution": "Statewide rules do not independently establish Pima ACC plan coverage or PA; initial and renewal durations are stage-specific. Source explicitly excludes coverage requests for nonsegmental vitiligo; no vitiligo pathway is offered.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-417204.txt",
+      "sourceChecks": [
+        "Product Name:Opzelura",
+        "Diagnosis of mild to moderate atopic dermatitis",
+        "Greater than or equal to 3% body surface area",
+        "non-continuous chronic treatment",
+        "nonsegmental vitiligo are not authorized"
+      ],
+      "stages": [
+        {
+          "title": "Atopic dermatitis: initial authorization 12 weeks",
+          "all": [
+            "Mild/moderate atopic dermatitis.",
+            {
+              "any": [
+                "At least 3% BSA involvement.",
+                "Sensitive areas affected (face/hands/feet/scalp/groin)."
+              ]
+            },
+            "Patient at least 2 years old.",
+            {
+              "any": [
+                "Dermatologist prescriber/consultation.",
+                "Allergist/immunologist prescriber/consultation."
+              ]
+            },
+            "Failed ≥30-day non-pharmacologic topical treatment (e.g., moisturizer).",
+            "Tried and failed required supply (30 days generally; 14 days for topical corticosteroids), contraindicated or intolerant to at least TWO of medium/higher potency topical corticosteroid, Elidel, tacrolimus, or Eucrisa.",
+            "No potent concomitant immunosuppressant such as cyclosporine or azathioprine.",
+            "Short-term and/or noncontinuous chronic use."
+          ],
+          "approvalDuration": "12 weeks"
+        },
+        {
+          "title": "Atopic dermatitis: reauthorization 6 months",
+          "all": [
+            {
+              "any": [
+                "Reduced BSA involvement.",
+                "Reduced severity of pruritus.",
+                "Improved quality of life."
+              ]
+            },
+            "Not receiving potent immunosuppressant concomitantly.",
+            "Only short-term/noncontinuous chronic use."
+          ],
+          "approvalDuration": "6 months"
+        }
+      ],
+      "documentationSuggestions": [
+        "Use supporting medical records, prior drug trials, lab data or documented clinical response required by source."
+      ]
+    },
+    {
+      "id": "gl-369200-vtama",
+      "policyCode": "GL-369200",
+      "product": "Vtama (tapinarof)",
+      "matchBrands": [
+        "VTAMA"
+      ],
+      "heading": "Vtama (tapinarof) — source-verified November clinical criteria",
+      "sourcePage": 1981,
+      "sourceLastPage": 1984,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Four distinct indication/stage branches for psoriasis and AD, with 6-month initial and 12-month reauthorization periods.",
+      "guidelineCaution": "Statewide rules do not independently establish Pima ACC plan coverage or PA; initial and renewal durations are stage-specific. ",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-369200.txt",
+      "sourceChecks": [
+        "Product Name:Vtama",
+        "minimum duration of a 4 week trial",
+        "Patient is 2 years of age or older",
+        "Reduction in the body surface area",
+        "Improvement in quality of life"
+      ],
+      "stages": [
+        {
+          "title": "Psoriasis: initial authorization 6 months",
+          "all": [
+            "Plaque psoriasis documented.",
+            {
+              "any": [
+                "Failure/contraindication/intolerance following ≥4 weeks topical steroid.",
+                "Failure/contraindication/intolerance following ≥4 weeks vitamin D analog.",
+                "Failure/contraindication/intolerance following ≥4 weeks tazarotene.",
+                "Failure/contraindication/intolerance following ≥4 weeks topical calcineurin inhibitor."
+              ]
+            },
+            "Dermatologist prescriber or consultation."
+          ],
+          "approvalDuration": "6 months"
+        },
+        {
+          "title": "Psoriasis: reauthorization 12 months",
+          "all": [
+            {
+              "any": [
+                "Reduction in psoriasis BSA from baseline.",
+                "Symptom improvement, such as itch or inflammation."
+              ]
+            }
+          ],
+          "approvalDuration": "12 months"
+        },
+        {
+          "title": "Atopic dermatitis: initial authorization 6 months",
+          "all": [
+            "Atopic dermatitis confirmed.",
+            "Patient at least 2 years old.",
+            "Failed required supply, contraindicated or intolerant to TWO of medium-or-higher topical steroid (≥14-day supply), Elidel (≥30 days), tacrolimus (≥30 days), or Eucrisa (≥30 days).",
+            {
+              "any": [
+                "Dermatology prescriber/consultation.",
+                "Allergist prescriber/consultation.",
+                "Immunologist prescriber/consultation."
+              ]
+            }
+          ],
+          "approvalDuration": "6 months"
+        },
+        {
+          "title": "Atopic dermatitis: reauthorization 12 months",
+          "all": [
+            {
+              "any": [
+                "Reduced BSA involvement.",
+                "Reduced pruritus severity.",
+                "Improved quality of life."
+              ]
+            }
+          ],
+          "approvalDuration": "12 months"
+        }
+      ],
+      "documentationSuggestions": [
+        "Use supporting medical records, prior drug trials, lab data or documented clinical response required by source."
+      ]
+    },
+    {
+      "id": "gl-396205-kerendia",
+      "policyCode": "GL-396205",
+      "product": "Kerendia (finerenone)",
+      "matchBrands": [
+        "KERENDIA"
+      ],
+      "heading": "Kerendia — CKD/T2D and HF source-verified pathways",
+      "sourcePage": 1022,
+      "sourceLastPage": 1027,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Four separately labeled source branches: initial CKD associated with type 2 diabetes; CKD reauthorization; initial HF with LVEF ≥40%; and HF reauthorization. Both indications require distinct source-supported SGLT2 alternatives.",
+      "guidelineCaution": "Source-specific statewide clinical criteria do not establish plan-specific coverage or PA requirements. CKD and heart failure branches are alternatives by indication, not cumulative requirements.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-396205.txt",
+      "sourceChecks": [
+        "Product Name:Kerendia",
+        "Urine albumin-to-creatinine ratio (UACR) greater than or equal to 30 mg/g",
+        "Serum potassium level less than or equal to 5.0 mEq/L",
+        "Heart Failure with Left Ventricular Ejection Fraction",
+        "Prescribed by or in consultation with a cardiologist"
+      ],
+      "stages": [
+        {
+          "title": "CKD associated with T2D — initial authorization 12 months",
+          "all": [
+            "CKD associated with type 2 diabetes.",
+            "UACR ≥30 mg/g.",
+            "eGFR ≥25 mL/min/1.73m².",
+            "Serum K ≤5.0 mEq/L before starting.",
+            {
+              "any": [
+                "At least 30-day trial of maximally tolerated ACE inhibitor (and will continue ACE inhibitor).",
+                "At least 30-day trial of maximally tolerated ARB (and will continue ARB).",
+                "Contraindication or intolerance to BOTH ACE inhibitors and ARBs."
+              ]
+            },
+            {
+              "any": [
+                "Stable SGLT2 inhibitor (e.g., Farxiga/Jardiance), and therapy will continue.",
+                "Contraindication or intolerance to SGLT2 inhibitor."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "CKD associated with T2D — reauthorization 12 months",
+          "all": [
+            "Positive clinical response.",
+            {
+              "any": [
+                "Continues a maximally tolerated ACE inhibitor or ARB.",
+                "Contraindication or intolerance to BOTH ACE inhibitors and ARBs."
+              ]
+            },
+            {
+              "any": [
+                "Continues SGLT2 inhibitor.",
+                "Contraindication or intolerance to SGLT2 inhibitor."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Heart failure with LVEF ≥40% — initial authorization 12 months",
+          "all": [
+            "Documented heart failure.",
+            "LVEF ≥40%.",
+            {
+              "any": [
+                "NYHA class II symptoms.",
+                "NYHA class III symptoms.",
+                "NYHA class IV symptoms."
+              ]
+            },
+            "eGFR ≥25 mL/min/1.73m².",
+            "Serum K ≤5.0 mEq/L before initiation.",
+            "On diuretic therapy for HF symptoms for at least 30 days.",
+            "Not taking Kerendia concomitantly with spironolactone or eplerenone.",
+            {
+              "any": [
+                "On stable SGLT2 inhibitor and will continue.",
+                "SGLT2 inhibitor contraindication or intolerance."
+              ]
+            },
+            "Prescribed by or in consultation with cardiologist."
+          ]
+        },
+        {
+          "title": "Heart failure with LVEF ≥40% — reauthorization 12 months",
+          "all": [
+            "Positive clinical response.",
+            {
+              "any": [
+                "Continues SGLT2 inhibitor.",
+                "SGLT2 inhibitor contraindication or intolerance."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Specify CKD/T2D versus HF indication; include UACR/eGFR/potassium, ACE/ARB history, SGLT2 status, and for HF LVEF, NYHA, diuretic use, and cardiology."
+      ]
+    },
+    {
+      "id": "gl-427192-prevymis",
+      "policyCode": "GL-427192",
+      "product": "Prevymis (letermovir)",
+      "matchBrands": [
+        "PREVYMIS"
+      ],
+      "heading": "Prevymis (letermovir) — AHCCCS clinical qualification",
+      "sourcePage": 1414,
+      "sourceLastPage": 1416,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Two distinct transplant prophylaxis branches: HSCT 6 months and kidney transplant 12 months, with different age/weight, serostatus and start/end windows.",
+      "guidelineCaution": "November statewide criteria alone do not establish plan-specific coverage or PA. Review approval length per indication and initial/renewal stage.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-427192.txt",
+      "sourceChecks": [
+        "Product Name:Prevymis",
+        "Patient is 6 months of age or older",
+        "Patient weighs at least 6 kg",
+        "recipient of a kidney transplant",
+        "Day 200 post-transplant"
+      ],
+      "pathways": [
+        {
+          "title": "HSCT CMV prophylaxis — 6 months",
+          "all": [
+            "Patient at least 6 months old.",
+            "Patient weight at least 6 kg.",
+            "Allogeneic hematopoietic stem-cell transplant recipient.",
+            "Recipient CMV seropositive (R+).",
+            "Provider attests initiation during posttransplant days 0–28, continuation through day 100, with extension to day 200 if at risk of late CMV.",
+            "Use is CMV prophylaxis, NOT treatment."
+          ],
+          "approvalDuration": "6 months"
+        },
+        {
+          "title": "Kidney transplant CMV prophylaxis — 12 months",
+          "all": [
+            "Age at least 12 years.",
+            "Body weight at least 40 kg.",
+            "Kidney transplant recipient.",
+            "CMV donor seropositive and recipient seronegative (D+/R−).",
+            "Provider attests start days 0–7 posttransplant and continuation through day 200.",
+            "Use is prophylaxis, NOT active infection treatment."
+          ],
+          "approvalDuration": "12 months"
+        }
+      ],
+      "documentationSuggestions": [
+        "Document original-policy clinical history, required laboratory/diagnostic testing, prior drug trial and eligibility stage."
+      ]
+    },
+    {
+      "id": "gl-479197-sapropterin-generic",
+      "policyCode": "GL-479197",
+      "product": "Generic sapropterin",
+      "matchNames": [
+        "SAPROPTERIN"
+      ],
+      "heading": "Generic sapropterin — AHCCCS clinical qualification",
+      "sourcePage": 1565,
+      "sourceLastPage": 1566,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Generic sapropterin: PKU diagnosis; no requirement to have failed generic sapropterin before taking the generic itself.",
+      "guidelineCaution": "November statewide criteria alone do not establish plan-specific coverage or PA. Review approval length per indication and initial/renewal stage. The source's failure-to-generic prerequisite applies ONLY to named brands, not to generic sapropterin.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-479197.txt",
+      "sourceChecks": [
+        "Product Name:Brand Kuvan, generic sapropterin, Javygtor, Zelvysia",
+        "Diagnosis of phenylketonuria (PKU)",
+        "patient must have tried and failed generic sapropterin"
+      ],
+      "pathways": [
+        {
+          "title": "Generic sapropterin",
+          "all": [
+            "Diagnosis of phenylketonuria (PKU)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document original-policy clinical history, required laboratory/diagnostic testing, prior drug trial and eligibility stage."
+      ]
+    },
+    {
+      "id": "gl-479197-sapropterin-brands",
+      "policyCode": "GL-479197",
+      "product": "Kuvan, Javygtor, Zelvysia",
+      "matchBrands": [
+        "KUVAN",
+        "JAVYGTOR",
+        "ZELVYSIA"
+      ],
+      "heading": "Kuvan, Javygtor, Zelvysia — AHCCCS clinical qualification",
+      "sourcePage": 1565,
+      "sourceLastPage": 1566,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "All three listed branded PKU products require diagnosis and prior failed generic sapropterin.",
+      "guidelineCaution": "November statewide criteria alone do not establish plan-specific coverage or PA. Review approval length per indication and initial/renewal stage.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-479197.txt",
+      "sourceChecks": [
+        "Product Name:Brand Kuvan, generic sapropterin, Javygtor, Zelvysia",
+        "Diagnosis of phenylketonuria (PKU)",
+        "If the request is for Brand Kuvan, Javygtor, or Zelvysia"
+      ],
+      "pathways": [
+        {
+          "title": "Brand-only additional requirement",
+          "all": [
+            "Diagnosis of phenylketonuria (PKU).",
+            "Trial and failure of generic sapropterin."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document original-policy clinical history, required laboratory/diagnostic testing, prior drug trial and eligibility stage."
+      ]
+    },
+    {
+      "id": "gl-357222-xiidra",
+      "policyCode": "GL-357222",
+      "product": "Xiidra (lifitegrast)",
+      "matchBrands": [
+        "XIIDRA"
+      ],
+      "heading": "Xiidra (lifitegrast) — AHCCCS clinical qualification",
+      "sourcePage": 473,
+      "sourceLastPage": 476,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Moderate/severe ocular inflammatory dry eye with diagnostic testing, OTC lubricant step, eye-care/rheumatology specialist and Restasis single-dose trial; renewal response.",
+      "guidelineCaution": "November statewide criteria alone do not establish plan-specific coverage or PA. Review approval length per indication and initial/renewal stage.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-357222.txt",
+      "sourceChecks": [
+        "Product Name:Preferred: Xiidra",
+        "moderate to severe dry eye disease",
+        "minimum trial of 60 days of Brand Restasis single dose vials",
+        "Patient demonstrates positive clinical response to therapy"
+      ],
+      "stages": [
+        {
+          "title": "Preferred Xiidra — initial authorization 12 months",
+          "all": [
+            {
+              "any": [
+                "Tear deficiency due to moderate-to-severe keratoconjunctivitis sicca with inflammation.",
+                "Tear deficiency due to moderate-to-severe dry eye disease with inflammation."
+              ]
+            },
+            {
+              "any": [
+                "Schirmer test confirms diagnosis.",
+                "Ocular surface staining confirms diagnosis.",
+                "Tear-function index or fluorescein clearance test.",
+                "Tear break-up time.",
+                "Tear-film osmolarity.",
+                "Slit-lamp lid evaluation.",
+                "Lacrimal gland function."
+              ]
+            },
+            "Not prescribed merely to manage perioperative dry eyes for elective eye surgery (e.g., LASIK).",
+            "Trial and failure, contraindication, or intolerance to at least one OTC ocular lubricant in previous 60 days.",
+            {
+              "any": [
+                "Prescribed by/in consultation with ophthalmologist.",
+                "Prescribed by/in consultation with optometrist.",
+                "Prescribed by/in consultation with rheumatologist."
+              ]
+            },
+            "At least 60-day trial of Brand Restasis single-dose vials, unless contraindicated."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Positive response (e.g., improved tear production or dry-eye symptoms)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document original-policy clinical history, required laboratory/diagnostic testing, prior drug trial and eligibility stage."
+      ]
+    },
+    {
+      "id": "gl-357222-dry-eye-nonpreferred",
+      "policyCode": "GL-357222",
+      "product": "Nonpreferred dry-eye therapies",
+      "matchBrands": [
+        "CEQUA",
+        "MIEBO",
+        "RESTASIS MULTIDOSE",
+        "TRYPTYR",
+        "TYRVAYA",
+        "VEVYE"
+      ],
+      "matchNames": [
+        "CYCLOSPORINE OPHTHALMIC EMULSION"
+      ],
+      "heading": "Nonpreferred dry-eye therapies — AHCCCS clinical qualification",
+      "sourcePage": 475,
+      "sourceLastPage": 476,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Same dry-eye workup as Xiidra but TWO separate preferred-product 60-day steps (Restasis SD vials AND Xiidra) unless contraindicated; renewal response.",
+      "guidelineCaution": "November statewide criteria alone do not establish plan-specific coverage or PA. Review approval length per indication and initial/renewal stage.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-357222.txt",
+      "sourceChecks": [
+        "Product Name:Non-Preferred: Cequa, generic cyclosporine emulsion, Miebo",
+        "minimum trial",
+        "Brand Restasis single dose vials",
+        "Xiidra (PA may be required)"
+      ],
+      "stages": [
+        {
+          "title": "Nonpreferred — initial authorization 12 months",
+          "all": [
+            {
+              "any": [
+                "Tear deficiency due to moderate-to-severe keratoconjunctivitis sicca with inflammation.",
+                "Tear deficiency due to moderate-to-severe dry eye disease with inflammation."
+              ]
+            },
+            {
+              "any": [
+                "Schirmer test confirms diagnosis.",
+                "Ocular surface staining confirms diagnosis.",
+                "Tear-function index or fluorescein clearance test.",
+                "Tear break-up time.",
+                "Tear-film osmolarity.",
+                "Slit-lamp lid evaluation.",
+                "Lacrimal gland function."
+              ]
+            },
+            "Not prescribed merely to manage perioperative dry eyes for elective eye surgery (e.g., LASIK).",
+            "Trial and failure, contraindication, or intolerance to at least one OTC ocular lubricant in previous 60 days.",
+            {
+              "any": [
+                "Prescribed by/in consultation with ophthalmologist.",
+                "Prescribed by/in consultation with optometrist.",
+                "Prescribed by/in consultation with rheumatologist."
+              ]
+            },
+            "At least 60-day trial of Brand Restasis single-dose vials, unless contraindicated.",
+            "At least 60-day trial of Xiidra, unless contraindicated."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Positive response (e.g., improved tear production or dry-eye symptoms)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document original-policy clinical history, required laboratory/diagnostic testing, prior drug trial and eligibility stage."
+      ]
     }
   ]
 }

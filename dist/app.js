@@ -908,19 +908,21 @@
     const pathways = (guide.pathways || []).map((pathway, index) => `
       <div class="criteria-pathway">
         <h4>Pathway ${index + 1}: ${escapeHtml(pathway.title)}</h4>
+        ${pathway.approvalDuration ? `<p><strong>Approval duration for this pathway:</strong> ${escapeHtml(pathway.approvalDuration)}</p>` : ''}
         <p><strong>All of the following:</strong></p>
         <ul>${pathway.all.map(clinicalRequirementItem).join('')}</ul>
       </div>`).join('<p><strong>OR</strong></p>');
     const stages = (guide.stages || []).map(stage => `
       <section class="criteria-stage">
         <h4>${escapeHtml(stage.title)}</h4>
+        ${stage.approvalDuration ? `<p><strong>Approval duration for this stage:</strong> ${escapeHtml(stage.approvalDuration)}</p>` : ''}
         <p><strong>ALL of the following:</strong></p>
         <ul>${stage.all.map(clinicalRequirementItem).join('')}</ul>
       </section>`).join('');
     return `
       <p>${escapeHtml(guide.summary)}</p>
       ${stages ? `<p><strong>Requirements by treatment stage:</strong></p>${stages}` : `<p><strong>Qualifying pathways — any ONE:</strong></p>${pathways}`}
-      <p><strong>Approval duration:</strong> ${escapeHtml(guide.approvalDuration)}</p>
+      ${(guide.pathways || guide.stages || []).some(x => x.approvalDuration) ? '' : `<p><strong>Approval duration:</strong> ${escapeHtml(guide.approvalDuration)}</p>`}
       <p><strong>Suggested documentation to include:</strong></p>
       <ul>${guide.documentationSuggestions.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
       <p class="guide-review-status">Documentation suggestions are not a separate insurer-prescribed checklist.</p>
