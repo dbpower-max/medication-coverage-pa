@@ -588,3 +588,87 @@ ui.batch36Group={name:'CLONIDINE TABLET',brands:['CATAPRES']};
 assert(vm.runInContext('clinicalGuidanceFor(batch36Group)',ui)===null,
  'Nexiclon extended-release rule leaked into immediate-release clonidine');
 console.log('PASS: Adaptive 20-policy/22-guide batch, exact brand/generic identity, source checks, AND/OR and initial/renewal tests');
+
+
+// 60-policy sprint: mandatory source, exact-brand, and indication/stage regression
+// for the subset that passed independent detailed clinical review.
+const sprintGuideIds=[
+ 'gl-164377-namzaric','gl-164415-emrosi','gl-211208-baclofen-branded-liquid',
+ 'gl-228335-vivjoa','gl-241267-zunveyl','gl-241268-xromi',
+ 'gl-285207-xdemvy','gl-269199-lama-laba-regular','gl-269199-bevespi',
+ 'gl-300315-jynarque','gl-322195-sofdra','gl-300304-velsipity',
+ 'gl-321192-crenessity','gl-269197-sunlenca','gl-157795-piasky',
+ 'gl-157798-livdelzi','gl-161661-yorvipath','gl-193195-attruby',
+ 'gl-155841-tryvio','gl-155844-vafseo'
+];
+assert(sprintGuideIds.length===20,'Expected 20 independently reviewed new guides');
+const sprintCodes=new Set(sprintGuideIds.map(id=>guidance.find(g=>g.id===id)?.policyCode));
+assert(sprintCodes.size===19&&!sprintCodes.has(undefined),'Expected 19 distinct new clinical policy sections');
+const compactSprint=s=>String(s).replace(/\s+/g,' ').toLowerCase();
+for(const id of sprintGuideIds){
+ const guide=guidance.find(g=>g.id===id);
+ assert(guide?.matchBrands?.length&&!guide?.matchNames?.length,'Exact brand identity missing '+id);
+ assert(guide.sourceChecks.length>=3,'Insufficient source-phrase confirmations '+id);
+ const s=fs.readFileSync('_site/'+guide.sourceTextUrl.replace(/^\//,''),'utf8');
+ const raw=compactSprint(s);
+ for(const phrase of guide.sourceChecks)
+  assert(raw.includes(compactSprint(phrase)),'Original November source phrase mismatch '+id+': '+phrase);
+ const pages=[...s.matchAll(/--- PDF page (\d+) ---/g)].map(x=>Number(x[1]));
+ assert(pages.includes(guide.sourcePage)&&pages.includes(guide.sourceLastPage),
+  'Original November page mismatch '+id);
+ ui.sprintGroup={name:'UNRELATED GENERIC PRODUCT',brands:[guide.matchBrands[0]]};
+ assert(vm.runInContext('clinicalGuidanceFor(sprintGroup)',ui)?.id===id,'Exact brand not linked '+id);
+ ui.sprintGroup={name:'UNRELATED GENERIC PRODUCT',brands:[guide.matchBrands[0]+' XR EXTRA']};
+ assert(vm.runInContext('clinicalGuidanceFor(sprintGroup)',ui)===null,
+  'Substring/fuzzy drug identity attached clinical criteria '+id);
+}
+const getSprint=id=>guidance.find(g=>g.id==='gl-'+id);
+assert(getSprint('164377-namzaric').pathways[0].all.length===3,'Namzaric dual ingredient histories lost');
+assert(getSprint('211208-baclofen-branded-liquid').pathways.length===2,
+ 'Baclofen OR tablet failure vs inability to swallow lost');
+assert(getSprint('228335-vivjoa').pathways[0].all.length===7 &&
+ getSprint('228335-vivjoa').pathways[0].all[2].any.length===2 &&
+ getSprint('228335-vivjoa').pathways[0].all[5].any.length===2,
+ 'Vivjoa RVVC/fluconazole nested criteria lost');
+assert(getSprint('241267-zunveyl').pathways[0].all.length===5,'Zunveyl ALL three prior drugs missing');
+assert(getSprint('241268-xromi').stages.length===2 &&
+ getSprint('241268-xromi').stages[0].all[3].any.length===2,
+ 'Xromi solid formulation alternative or renewal lost');
+assert(getSprint('285207-xdemvy').pathways[0].all.length===6,
+ 'Xdemvy BOTH 12-week steps or ophthalmology requirements lost');
+assert(getSprint('269199-lama-laba-regular').pathways[0].all.length===2 &&
+ getSprint('269199-bevespi').pathways[0].all.length===4,
+ 'Bevespi preferred products prerequisite leaked to other LAMA/LABA');
+assert(getSprint('300315-jynarque').stages.length===2 &&
+ !getSprint('300315-jynarque').matchBrands.includes('TOLVAPTAN'),
+ 'Jynarque brand rule leaked into generic tolvaptan');
+assert(getSprint('322195-sofdra').stages.length===2 &&
+ getSprint('322195-sofdra').stages[0].all.length===8 &&
+ getSprint('322195-sofdra').stages[1].title.includes('6 months'),
+ 'Sofdra initial 6-week and renewal 6-month qualification lost');
+assert(getSprint('300304-velsipity').stages[0].all.length===8 &&
+ getSprint('300304-velsipity').stages[0].all[1].any.length===6 &&
+ getSprint('300304-velsipity').stages[0].all[2].any.length===4,
+ 'Velsipity UC severity and drug trial branching missing');
+assert(getSprint('321192-crenessity').stages[0].all[3].any.length===2,
+ 'Crenessity age-specific glucocorticoid dose rules lost');
+assert(getSprint('269197-sunlenca').pathways.length===2 &&
+ getSprint('269197-sunlenca').pathways[0].all[2].any.length===3,
+ 'Sunlenca new use vs continuation OR rules lost');
+assert(getSprint('157795-piasky').stages.every(s=>s.all.some(x=>x.any?.length===2)),
+ 'Piasky Soliris vs Ultomiris alternative omitted');
+assert(getSprint('157798-livdelzi').stages[0].all[1].any.length===2 &&
+ getSprint('157798-livdelzi').stages[0].all[1].any[0].all.length===2,
+ 'Livdelzi UDCA failure vs intolerance branching lost');
+assert(getSprint('161661-yorvipath').stages[0].all.some(x=>x.includes('7.8 mg/dL')),
+ 'Yorvipath corrected calcium cutoff missing');
+assert(getSprint('193195-attruby').stages[0].all[1].any.length===3 &&
+ getSprint('193195-attruby').stages[0].all[1].any[2].all.length===2,
+ 'Attruby three confirmation routes and light-chain exclusion missing');
+assert(getSprint('155841-tryvio').stages[0].all.length===9 &&
+ getSprint('155841-tryvio').stages[1].all.length===7,
+ 'Tryvio four drug-class trials or renewal conditions missing');
+assert(getSprint('155844-vafseo').stages[0].all[4].any.length===2 &&
+ getSprint('155844-vafseo').stages[1].all[3].any.length===2,
+ 'Vafseo preferred ESA step or renewal requirements lost');
+console.log('PASS: 20 new guides in 19 original policies; exact-source, identity, route, AND/OR and stage safeguards');
