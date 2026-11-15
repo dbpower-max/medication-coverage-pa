@@ -1664,6 +1664,550 @@
       "documentationSuggestions": [
         "Submit documentation of refractory or recurrent external genital/venereal warts related to HPV."
       ]
+    },
+    {
+      "id": "gl-117636-eucrisa",
+      "policyCode": "GL-117636",
+      "product": "Eucrisa (crisaborole)",
+      "matchBrands": [
+        "EUCRISA"
+      ],
+      "heading": "Eucrisa (crisaborole) — source-verified clinical criteria",
+      "sourcePage": 604,
+      "sourceLastPage": 605,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Topical corticosteroid failure/intolerance/contraindication, plus either age under 2 or age at least 2 with a topical calcineurin inhibitor trial.",
+      "guidelineCaution": "These statewide November criteria are not proof of plan-specific formulary coverage or PA status.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-117636.txt",
+      "sourceChecks": [
+        "Product Name:Eucrisa",
+        "ONE topical corticosteroid",
+        "Patient is less than 2 years of age",
+        "ONE topical calcineurin inhibitor"
+      ],
+      "pathways": [
+        {
+          "title": "Both requirements, including age-dependent alternative",
+          "all": [
+            "History of failure, contraindication, or intolerance to ONE topical corticosteroid.",
+            {
+              "any": [
+                "Patient is younger than 2 years.",
+                "Patient is at least 2 years old AND has failure, contraindication, or intolerance to ONE topical calcineurin inhibitor (pimecrolimus or tacrolimus)."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document the applicable requirements and supporting medical records or claims as specified by the original policy."
+      ]
+    },
+    {
+      "id": "gl-117633-daliresp",
+      "policyCode": "GL-117633",
+      "product": "Daliresp (oral roflumilast)",
+      "matchBrands": [
+        "DALIRESP"
+      ],
+      "heading": "Daliresp (oral roflumilast) — source-verified clinical criteria",
+      "sourcePage": 440,
+      "sourceLastPage": 441,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Initial approval for severe-to-very-severe COPD with chronic bronchitis and exacerbation history; renewal requires positive response.",
+      "guidelineCaution": "These statewide November criteria are not proof of plan-specific formulary coverage or PA status.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-117633.txt",
+      "sourceChecks": [
+        "Product Name:Brand Daliresp, generic roflumilast",
+        "FEV1 less than or equal to 50% of predicted",
+        "COPD is associated with chronic bronchitis",
+        "Documentation of positive clinical response to Daliresp therapy"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 12 months",
+          "all": [
+            "Severe-to-very-severe COPD, with FEV1 ≤50% predicted.",
+            "COPD is associated with chronic bronchitis.",
+            "History of COPD exacerbation(s)."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Documentation of positive clinical response to Daliresp therapy."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document the applicable requirements and supporting medical records or claims as specified by the original policy."
+      ]
+    },
+    {
+      "id": "gl-110773-ranexa",
+      "policyCode": "GL-110773",
+      "product": "Brand Ranexa (ranolazine)",
+      "matchBrands": [
+        "RANEXA"
+      ],
+      "heading": "Brand Ranexa (ranolazine) — source-verified clinical criteria",
+      "sourcePage": 1452,
+      "sourceLastPage": 1453,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Step Therapy",
+      "summary": "One prior standard anti-angina treatment, plus generic ranolazine trial and failure for brand requests.",
+      "guidelineCaution": "These statewide November criteria are not proof of plan-specific formulary coverage or PA status.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-110773.txt",
+      "sourceChecks": [
+        "Product Name:Brand Ranexa, generic ranolazine",
+        "History of ONE of the following standard anti-angina treatments",
+        "For Brand Ranexa requests ONLY: Trial and failure to generic ranolazine"
+      ],
+      "pathways": [
+        {
+          "title": "Brand Ranexa — both requirements",
+          "all": [
+            {
+              "any": [
+                "History of one beta-blocker anti-angina therapy.",
+                "History of one calcium channel blocker anti-angina therapy.",
+                "History of one long-acting nitrate therapy."
+              ]
+            },
+            "Trial and failure of generic ranolazine, supported by paid claims or medical records."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document the applicable requirements and supporting medical records or claims as specified by the original policy."
+      ]
+    },
+    {
+      "id": "gl-110773-ranolazine-generic",
+      "policyCode": "GL-110773",
+      "product": "Generic ranolazine",
+      "matchNames": [
+        "RANOLAZINE"
+      ],
+      "heading": "Generic ranolazine — source-verified clinical criteria",
+      "sourcePage": 1452,
+      "sourceLastPage": 1453,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Step Therapy",
+      "summary": "A history of ONE beta-blocker, calcium channel blocker, or long-acting nitrate; brand-only generic-ranolazine failure does not apply.",
+      "guidelineCaution": "These statewide November criteria are not proof of plan-specific formulary coverage or PA status.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-110773.txt",
+      "sourceChecks": [
+        "Product Name:Brand Ranexa, generic ranolazine",
+        "History of ONE of the following standard anti-angina treatments",
+        "One long acting nitrate therapy"
+      ],
+      "pathways": [
+        {
+          "title": "Generic ranolazine — one prior anti-angina treatment",
+          "all": [
+            {
+              "any": [
+                "History of one beta-blocker anti-angina therapy.",
+                "History of one calcium channel blocker anti-angina therapy.",
+                "History of one long-acting nitrate therapy."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document the applicable requirements and supporting medical records or claims as specified by the original policy."
+      ]
+    },
+    {
+      "id": "gl-110773-aspruzyo-sprinkle",
+      "policyCode": "GL-110773",
+      "product": "Aspruzyo Sprinkle",
+      "matchBrands": [
+        "ASPRUZYO SPRINKLE"
+      ],
+      "heading": "Aspruzyo Sprinkle — source-verified clinical criteria",
+      "sourcePage": 1453,
+      "sourceLastPage": 1454,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Step Therapy",
+      "summary": "One prior standard anti-angina treatment, AND either generic ranolazine failure, age ≤8, or inability to swallow solid tablets.",
+      "guidelineCaution": "These statewide November criteria are not proof of plan-specific formulary coverage or PA status.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-110773.txt",
+      "sourceChecks": [
+        "Product Name:Aspruzyo Sprinkle",
+        "History of ONE of the following standard anti-angina treatments",
+        "Patient is 8 years of age or younger",
+        "Patient is unable to swallow the oral tablet"
+      ],
+      "pathways": [
+        {
+          "title": "Aspruzyo — anti-angina trial plus formulation alternative",
+          "all": [
+            {
+              "any": [
+                "History of one beta-blocker anti-angina therapy.",
+                "History of one calcium channel blocker anti-angina therapy.",
+                "History of one long-acting nitrate therapy."
+              ]
+            },
+            {
+              "any": [
+                "Trial and failure of generic ranolazine, verified by paid claims or records.",
+                "Patient is 8 years old or younger.",
+                "Patient cannot swallow solid oral tablets because of swallowing difficulties."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document the applicable requirements and supporting medical records or claims as specified by the original policy."
+      ]
+    },
+    {
+      "id": "gl-117420-lidoderm",
+      "policyCode": "GL-117420",
+      "product": "Lidoderm 5% patch",
+      "matchBrands": [
+        "LIDODERM"
+      ],
+      "heading": "Lidoderm 5% patch — source-verified clinical criteria",
+      "sourcePage": 1083,
+      "sourceLastPage": 1084,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Either FDA-approved use or a use supported by at least one literature/compendia source specified in the guideline.",
+      "guidelineCaution": "These statewide November criteria are not proof of plan-specific formulary coverage or PA status.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-117420.txt",
+      "sourceChecks": [
+        "Product Name:Brand Lidoderm patch, generic lidocaine patch",
+        "The requested drug must be used for a Food and Drug Administration (FDA)-approved",
+        "The use of this drug is supported by information from ONE of the following appropriate"
+      ],
+      "pathways": [
+        {
+          "title": "FDA-approved indication",
+          "all": [
+            "The requested patch is used for an FDA-approved indication."
+          ]
+        },
+        {
+          "title": "Alternative compendia-supported indication",
+          "all": [
+            "Use is supported by ONE current-literature compendium/reference listed in the policy (including practice guidelines, comparative efficacy/safety information, AHFS, Drug Facts and Comparisons, USP-DI, DRUGDEX, UpToDate, MicroMedex, peer-reviewed literature, or other drug-reference resources)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document the applicable requirements and supporting medical records or claims as specified by the original policy."
+      ]
+    },
+    {
+      "id": "gl-113527-tarpeyo",
+      "policyCode": "GL-113527",
+      "product": "Tarpeyo (budesonide)",
+      "matchBrands": [
+        "TARPEYO"
+      ],
+      "heading": "Tarpeyo (budesonide) — source-verified clinical criteria",
+      "sourcePage": 1767,
+      "sourceLastPage": 1768,
+      "approvalDuration": "9 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Biopsy-proven primary IgA nephropathy at risk of progression, eGFR ≥35, risk/reduction and prior-therapy requirements, nephrology.",
+      "guidelineCaution": "These statewide November criteria are not proof of plan-specific formulary coverage or PA status.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-113527.txt",
+      "sourceChecks": [
+        "Product Name:Tarpeyo",
+        "primary immunoglobulin A nephropathy (IgAN) as confirmed by a kidney biopsy",
+        "Estimated glomerular filtration rate (eGFR) greater than or equal to 35",
+        "Prescribed by or in consultation with a nephrologist"
+      ],
+      "pathways": [
+        {
+          "title": "All initial qualification requirements",
+          "all": [
+            "Medical records document primary IgA nephropathy confirmed by kidney biopsy.",
+            "At risk for rapid disease progression (e.g., UPCR ≥1.5 g/g or International IgAN Prediction Tool risk criteria).",
+            "Tarpeyo is being used to reduce proteinuria.",
+            "eGFR ≥35 mL/min/1.73m².",
+            {
+              "any": [
+                "Minimum 90-day trial of a maximally tolerated ACE inhibitor OR ARB dose, and therapy will continue.",
+                "Contraindication or intolerance to BOTH ACE inhibitors and ARBs."
+              ]
+            },
+            "Failure, contraindication, or intolerance to another glucocorticoid (e.g., prednisone or methylprednisolone).",
+            "Prescribed by or in consultation with a nephrologist."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document the applicable requirements and supporting medical records or claims as specified by the original policy."
+      ]
+    },
+    {
+      "id": "gl-113529-livtencity",
+      "policyCode": "GL-113529",
+      "product": "Livtencity (maribavir)",
+      "matchBrands": [
+        "LIVTENCITY"
+      ],
+      "heading": "Livtencity (maribavir) — source-verified clinical criteria",
+      "sourcePage": 1096,
+      "sourceLastPage": 1097,
+      "approvalDuration": "8 weeks",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "CMV infection confirmed by testing after a transplant; ≥12 years and ≥35 kg; prior antiviral and specialist requirements.",
+      "guidelineCaution": "These statewide November criteria are not proof of plan-specific formulary coverage or PA status.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-113529.txt",
+      "sourceChecks": [
+        "Product Name:Livtencity",
+        "CMV pp65 antigenemia",
+        "Patient is 12 years of age or older",
+        "Patient weighs greater than or equal to 35kg"
+      ],
+      "pathways": [
+        {
+          "title": "CMV transplant treatment — all requirements",
+          "all": [
+            {
+              "any": [
+                "CMV infection/disease confirmed by quantitative PCR (qPCR).",
+                "CMV infection/disease confirmed by pp65 antigenemia."
+              ]
+            },
+            {
+              "any": [
+                "Recipient of hematopoietic stem cell transplant.",
+                "Recipient of solid organ transplant."
+              ]
+            },
+            "At an appropriately indicated dose, trial and failure of at least 2 weeks OR contraindication/intolerance to one of IV ganciclovir, oral valganciclovir, IV foscarnet, or IV cidofovir.",
+            "Patient is at least 12 years old.",
+            "Patient weighs at least 35 kg.",
+            {
+              "any": [
+                "Prescribed by or in consultation with a transplant specialist.",
+                "Prescribed by or in consultation with an infectious disease specialist."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document the applicable requirements and supporting medical records or claims as specified by the original policy."
+      ]
+    },
+    {
+      "id": "gl-120432-pedmark",
+      "policyCode": "GL-120432",
+      "product": "Pedmark (sodium thiosulfate injection)",
+      "matchBrands": [
+        "PEDMARK"
+      ],
+      "heading": "Pedmark (sodium thiosulfate injection) — source-verified clinical criteria",
+      "sourcePage": 1380,
+      "sourceLastPage": 1381,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Localized non-metastatic solid tumor, cisplatin ototoxicity prevention, age ≥1 month, oncology and generic sodium thiosulfate intolerance/failure.",
+      "guidelineCaution": "These statewide November criteria are not proof of plan-specific formulary coverage or PA status.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-120432.txt",
+      "sourceChecks": [
+        "Product Name:Pedmark",
+        "Disease is BOTH of the following",
+        "Used for the prevention of ototoxicity due to cisplatin-based chemotherapy",
+        "History of failure, or intolerance to generic sodium thiosulfate"
+      ],
+      "pathways": [
+        {
+          "title": "All six requirements",
+          "all": [
+            "Medical records document solid-tumor diagnosis.",
+            "Disease is BOTH localized AND non-metastatic.",
+            "Prevention of ototoxicity due to cisplatin-based chemotherapy.",
+            "Patient is at least 1 month old.",
+            "Prescribed by or in consultation with an oncologist.",
+            "History of failure or intolerance to generic sodium thiosulfate."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document the applicable requirements and supporting medical records or claims as specified by the original policy."
+      ]
+    },
+    {
+      "id": "gl-116131-firdapse",
+      "policyCode": "GL-116131",
+      "product": "Firdapse (amifampridine)",
+      "matchBrands": [
+        "FIRDAPSE"
+      ],
+      "heading": "Firdapse (amifampridine) — source-verified clinical criteria",
+      "sourcePage": 682,
+      "sourceLastPage": 683,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Initial LEMS diagnosis, no similar potassium-channel-blocker coadministration, age ≥6; renewal positive response plus no coadministration.",
+      "guidelineCaution": "These statewide November criteria are not proof of plan-specific formulary coverage or PA status.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-116131.txt",
+      "sourceChecks": [
+        "Product Name:Firdapse",
+        "Patient is 6 years of age or older",
+        "Documentation of positive clinical response to Firdapse therapy",
+        "Patient is not receiving Firdapse in combination with similar potassium channel blockers"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 12 months",
+          "all": [
+            "Diagnosis of Lambert-Eaton myasthenic syndrome (LEMS).",
+            "Not receiving Firdapse with similar potassium channel blockers (e.g., dalfampridine or amifampridine).",
+            "Patient is at least 6 years old."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Documentation of positive clinical response to Firdapse.",
+            "Not receiving Firdapse with similar potassium channel blockers (e.g., dalfampridine or amifampridine)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document the applicable requirements and supporting medical records or claims as specified by the original policy."
+      ]
+    },
+    {
+      "id": "gl-116190-dojolvi",
+      "policyCode": "GL-116190",
+      "product": "Dojolvi (triheptanoin)",
+      "matchBrands": [
+        "DOJOLVI"
+      ],
+      "heading": "Dojolvi (triheptanoin) — source-verified clinical criteria",
+      "sourcePage": 464,
+      "sourceLastPage": 465,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Initial LC-FAOD diagnosis must be demonstrated by at least TWO specified findings; MCT exclusion and specialist required. Renewal has separate criteria.",
+      "guidelineCaution": "These statewide November criteria are not proof of plan-specific formulary coverage or PA status.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-116190.txt",
+      "sourceChecks": [
+        "Product Name:Dojolvi",
+        "has been confirmed by at least two of the following",
+        "Not used with any other medium-chain triglyceride (MCT) product",
+        "Prescriber attests to continued need of therapy"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 12 months",
+          "all": [
+            {
+              "any": [
+                {
+                  "all": [
+                    "Disease-specific acylcarnitine elevation on newborn blood spot or in plasma.",
+                    "Low enzyme activity in cultured fibroblasts."
+                  ]
+                },
+                {
+                  "all": [
+                    "Disease-specific acylcarnitine elevation on newborn blood spot or in plasma.",
+                    "At least one known pathogenic CPT2, ACADVL, HADHA, or HADHB mutation."
+                  ]
+                },
+                {
+                  "all": [
+                    "Low enzyme activity in cultured fibroblasts.",
+                    "At least one known pathogenic CPT2, ACADVL, HADHA, or HADHB mutation."
+                  ]
+                }
+              ]
+            },
+            "Not used with any other medium-chain triglyceride (MCT) product.",
+            "Prescribed by or in consultation with a specialist knowledgeable in LC-FAOD dietary management (e.g., geneticist, cardiologist, gastroenterologist)."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Prescriber attests that therapy remains necessary.",
+            "Not used with any other medium-chain triglyceride (MCT) product.",
+            "Prescribed by or in consultation with a specialist knowledgeable in LC-FAOD dietary management."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document the applicable requirements and supporting medical records or claims as specified by the original policy."
+      ]
+    },
+    {
+      "id": "gl-116122-orkambi",
+      "policyCode": "GL-116122",
+      "product": "Orkambi (lumacaftor/ivacaftor)",
+      "matchBrands": [
+        "ORKAMBI"
+      ],
+      "heading": "Orkambi (lumacaftor/ivacaftor) — source-verified clinical criteria",
+      "sourcePage": 1343,
+      "sourceLastPage": 1344,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Initial CF with homozygous F508del mutation, age ≥1, CF specialist; renewal requires documented meaningful response and specialist.",
+      "guidelineCaution": "These statewide November criteria are not proof of plan-specific formulary coverage or PA status.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-116122.txt",
+      "sourceChecks": [
+        "Product Name:Orkambi",
+        "Patient is 1 year of age or older",
+        "homozygous for the F508del",
+        "clinically meaningful response while on Orkambi therapy"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 12 months",
+          "all": [
+            "Diagnosis of cystic fibrosis.",
+            "Laboratory results confirm homozygosity for F508del mutation in the CFTR gene.",
+            "Patient is at least 1 year old.",
+            "Prescribed by or in consultation with a specialist affiliated with a cystic fibrosis care center."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            {
+              "any": [
+                "Prescriber attests to clinically meaningful improvement in ppFEV1.",
+                "Prescriber attests to clinically meaningful improvement in BMI.",
+                "Prescriber attests to clinically meaningful improvement in pulmonary exacerbations.",
+                "Prescriber attests to clinically meaningful improvement in quality of life (CFQ-R respiratory domain score)."
+              ]
+            },
+            "Prescribed by or in consultation with a specialist affiliated with a CF care center."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document the applicable requirements and supporting medical records or claims as specified by the original policy."
+      ]
     }
   ]
 }
