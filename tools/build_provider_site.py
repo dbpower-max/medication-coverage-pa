@@ -60,6 +60,8 @@ for guide in clinical_guidance["guides"]:
     assert policy["sourceTextUrl"] == guide["sourceTextUrl"]
     raw = " ".join((SRC / guide["sourceTextUrl"].lstrip("/")).read_text().split()).lower()
     assert guide["policyCode"].lower() in raw
+    if guide.get("matchFormulationWords"):
+        assert all(isinstance(w, str) and w.isalpha() for w in guide["matchFormulationWords"])
     brands = guide.get("matchBrands", [])
     generic_names = guide.get("matchNames", [])
     # The product matcher must enforce source-confirmed strength restrictions.
