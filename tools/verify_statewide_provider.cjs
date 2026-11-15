@@ -250,3 +250,58 @@ console.log('PASS: Four vitamin initial/renewal guides and three preferred inhal
 console.log('PASS: Jardiance metformin dose/duration and HF/CKD alternatives; Humulin R U-500 insulin prerequisites or clinical need; source links and brand-specific matching');
 
 console.log('PASS: '+data.statewideDrugList.length+' shared AHCCCS drug entries; '+data.statewidePaCriteria.length+' statewide PA index sections; 3 plan supplements; Mounjaro consolidated; route/release/strength protections');
+
+
+// Regression gate for the five most recently released clinical products.
+// These assertions deliberately test exact brand identity and source-backed
+// qualification logic without treating statewide guidance as plan coverage.
+const recentClinicalChecks=[
+  {id:'gl-108675-epsolay',code:'GL-108675',brand:'EPSOLAY',page:581,
+   phrases:['Diagnosis of rosacea','inflammatory lesions','30-day supply']},
+  {id:'gl-108624-monurol',code:'GL-108624',brand:'MONUROL',page:1199,
+   phrases:['culture and sensitivity','Ciprofloxacin','Nitrofurantoin']},
+  {id:'gl-107465-twyneo',code:'GL-107465',brand:'TWYNEO',page:1881,
+   phrases:['9 years of age','acne vulgaris','topical erythromycin']},
+  {id:'gl-107424-korsuva',code:'GL-107424',brand:'KORSUVA',page:1047,
+   phrases:['hemodialysis','pruritus','Reauthorization']},
+  {id:'gl-107454-verkazia',code:'GL-107454',brand:'VERKAZIA',page:1945,
+   phrases:['vernal keratoconjunctivitis','mast cell stabilizer','Reauthorization']}
+];
+for(const spec of recentClinicalChecks){
+  const guide=guidance.find(g=>g.id===spec.id);
+  assert(guide&&guide.policyCode===spec.code,'Recent guide missing: '+spec.id);
+  assert(guide.sourcePage===spec.page,'Wrong policy source page: '+spec.id);
+  assert(JSON.stringify(guide.matchBrands)===JSON.stringify([spec.brand]),
+    'Clinical guide may match unintended brand: '+spec.id);
+  assert(!guide.matchNames?.length,'Recent brand guide should not match generic: '+spec.id);
+  assert(guide.sourceChecks.length>=3,'Insufficient source checks: '+spec.id);
+  const raw=fs.readFileSync('_site/'+guide.sourceTextUrl.replace(/^\/+/,''),'utf8');
+  const compact=s=>s.replace(/\s+/g,' ').toLowerCase();
+  for(const phrase of spec.phrases){
+    assert(compact(raw).includes(compact(phrase)),'Missing independent source phrase '+phrase);
+  }
+  ui.recentGroup={name:'UNRELATED GENERIC',brands:[spec.brand]};
+  assert(vm.runInContext('clinicalGuidanceFor(recentGroup)',ui)?.id===spec.id,
+    'Exact brand failed to attach guide: '+spec.brand);
+  ui.recentGroup={name:'UNRELATED GENERIC',brands:[spec.brand+' XR']};
+  assert(vm.runInContext('clinicalGuidanceFor(recentGroup)',ui)===null,
+    'Clinical criteria leaked to a modified brand: '+spec.brand);
+}
+const eps=guidance.find(g=>g.id==='gl-108675-epsolay');
+assert(eps.pathways.length===1&&eps.pathways[0].all.length===3,
+  'Epsolay must require all three rosacea criteria');
+const mon=guidance.find(g=>g.id==='gl-108624-monurol');
+assert(mon.pathways.length===2&&mon.pathways[1].all[0].any.length===2,
+  'Monurol alternatives or antibiotic ONE-of logic lost');
+const twy=guidance.find(g=>g.id==='gl-107465-twyneo');
+assert(twy.pathways[0].all.some(x=>x.includes('ALL of:')&&x.includes('topical tretinoin')),
+  'Twyneo four-treatment failure requirement lost');
+for(const id of ['gl-107424-korsuva','gl-107454-verkazia']){
+ const guide=guidance.find(g=>g.id===id);
+ assert(guide.stages?.length===2,'Initial and renewal stages required: '+id);
+ assert(guide.stages[0].all.some(x=>typeof x==='object'&&x.any?.length>=2),
+   'Missing initial alternative criteria: '+id);
+ assert(guide.stages[1].all.some(x=>typeof x==='string'&&/positive clinical response/i.test(x)),
+   'Missing renewal response criterion: '+id);
+}
+console.log('PASS: Five recent brand-specific source/logic regressions, exact matching, initial/renewal stages');
