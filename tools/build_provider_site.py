@@ -81,10 +81,10 @@ for guide in clinical_guidance["guides"]:
     assert isinstance(source_checks, list) and len(source_checks) >= 3, "Insufficient independent source phrases for " + guide["id"]
     for phrase in source_checks:
         assert isinstance(phrase, str) and phrase.strip() and " ".join(phrase.split()).lower() in raw, "Source phrase mismatch: " + guide["id"] + " / " + str(phrase)
-    duration = re.fullmatch(r"(\d+)\s+(months?|days?)", guide["approvalDuration"].strip().lower())
+    duration = re.fullmatch(r"(\d+)\s+(months?|weeks?|days?)", guide["approvalDuration"].strip().lower())
     assert duration, "Unsupported approval length: " + guide["id"]
     duration_value = duration.group(1)
-    duration_unit = "month" if duration.group(2).startswith("month") else "day"
+    duration_unit = duration.group(2).removesuffix("s")
     assert (
         duration_value + " " + duration_unit + "(s)" in raw
         or duration_value + " " + duration_unit + "s" in raw
