@@ -6784,6 +6784,157 @@
       "documentationSuggestions": [
         "Document source-supported diagnosis, prior treatment, and clinical response."
       ]
+    },
+    {
+      "id": "gl-525282-alkindi-sprinkle",
+      "policyCode": "GL-525282",
+      "product": "Alkindi Sprinkle (hydrocortisone)",
+      "matchBrands": [
+        "ALKINDI SPRINKLE"
+      ],
+      "heading": "Alkindi Sprinkle (hydrocortisone) — exact-product qualifications",
+      "sourcePage": 77,
+      "sourceLastPage": 79,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Alkindi (sprinkle) formulation requires adrenocortical insufficiency and one solid-form disadvantage/other steroid contraindication or intolerance; source 5–18 age restriction is for Khindivi ONLY.",
+      "guidelineCaution": "Statewide policy criteria do not independently establish managed-care plan coverage or PA requirement. Do not import age limitations of a different product.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-525282.txt",
+      "sourceChecks": [
+        "Product Name:Alkindi Sprinkle, Khindivi",
+        "Diagnosis of adrenocortical insufficiency",
+        "Dosage requirements cannot be met with a solid dosage form"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Diagnosis of adrenocortical insufficiency.",
+            {
+              "any": [
+                "Contraindication (e.g., age) or intolerance to other corticosteroids such as prednisolone/prednisone.",
+                "Unable to swallow solid dosage form because of age, coordination/dysphagia, or feeding tube.",
+                "Required dose cannot be met with a solid dosage form."
+              ]
+            },
+            "Prescribed by or in consultation with endocrinologist."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Patient demonstrates positive clinical response to therapy."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Record reason for formulation and source-listed treatment alternatives."
+      ]
+    },
+    {
+      "id": "gl-525282-khindivi",
+      "policyCode": "GL-525282",
+      "product": "Khindivi hydrocortisone oral solution",
+      "matchBrands": [
+        "KHINDIVI"
+      ],
+      "heading": "Khindivi hydrocortisone oral solution — exact-product qualifications",
+      "sourcePage": 77,
+      "sourceLastPage": 79,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Khindivi oral solution explicitly restricted to ages 5–18 in this policy; Alkindi does not inherit that age constraint.",
+      "guidelineCaution": "Statewide policy criteria do not independently establish managed-care plan coverage or PA requirement. Do not import age limitations of a different product.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-525282.txt",
+      "sourceChecks": [
+        "Product Name:Alkindi Sprinkle, Khindivi",
+        "Patient is between 5 and 18 years of age",
+        "Prescribed by or in consultation with an endocrinologist"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Diagnosis of adrenocortical insufficiency.",
+            "Patient ages 5–18 years for KHINDIVI requests ONLY.",
+            {
+              "any": [
+                "Contraindication (e.g., age) or intolerance to other corticosteroids such as prednisolone/prednisone.",
+                "Unable to swallow solid dosage form because of age, coordination/dysphagia, or feeding tube.",
+                "Required dose cannot be met with a solid dosage form."
+              ]
+            },
+            "Prescribed by or in consultation with endocrinologist."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Patient demonstrates positive clinical response to therapy."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Record reason for formulation and source-listed treatment alternatives."
+      ]
+    },
+    {
+      "id": "gl-525288-voyxact",
+      "policyCode": "GL-525288",
+      "product": "Voyxact (sibeprenlimab-szsi)",
+      "matchBrands": [
+        "VOYXACT"
+      ],
+      "heading": "Voyxact — primary IgA nephropathy",
+      "sourcePage": 1978,
+      "sourceLastPage": 1980,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "IgAN at risk of progression with 90-day maximally tolerated ACE/ARB plus continuation or BOTH intolerance/contraindication, nephrology; reauthorization reduced UPCR.",
+      "guidelineCaution": "Statewide clinical criteria are not plan-specific PA or coverage confirmation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-525288.txt",
+      "sourceChecks": [
+        "Product Name:Voyxact",
+        "proteinuria of at least 0.5 g/day",
+        "minimum 90-day trial of a maximally tolerated dose",
+        "decrease in urine protein-to-creatinine ratio (UPCR)"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Primary IgA nephropathy confirmed in records.",
+            "At risk of progression (e.g., proteinuria ≥0.5 g/day or International IgAN Prediction Tool risk scoring).",
+            "Used to reduce proteinuria.",
+            {
+              "any": [
+                "Minimum 90-day maximally tolerated ACE inhibitor trial AND continuing treatment.",
+                "Minimum 90-day maximally tolerated ARB trial AND continuing treatment.",
+                "Contraindication/intolerance to BOTH ACE inhibitor and ARB."
+              ]
+            },
+            "Prescribed by/in consultation with nephrologist."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive response as decreased UPCR from baseline."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document progression risk, 90-day maximally tolerated therapy or both exclusions, and UPCR response."
+      ]
     }
   ]
 }
