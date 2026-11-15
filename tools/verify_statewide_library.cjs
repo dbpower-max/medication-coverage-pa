@@ -67,7 +67,7 @@ const cases=[
  ['GL-490254','gl-490254-effient','EFFIENT',526,527,'12 months','pathways'],
  ['GL-364197','gl-364197-vanrafia','VANRAFIA',1926,1928,'12 months','stages']
 ];
-const normalizePhrase=s=>String(s).replace(/\\s+/g,' ').toLowerCase();
+const normalizePhrase=s=>String(s).replace(/\s+/g,' ').toLowerCase();
 for(const [code,id,brand,first,last,duration,branch] of cases){
  const guide=reviewed.find(g=>g.id===id);
  assert(guide&&guide.policyCode===code,'Missing or wrong clinical guide '+id);
