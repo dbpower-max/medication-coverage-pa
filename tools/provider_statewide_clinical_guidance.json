@@ -6476,6 +6476,85 @@
       "documentationSuggestions": [
         "Record topical formulation/strength, patient age, steroid history or facial/groin site, and objective clinical response."
       ]
+    },
+    {
+      "id": "gl-457217-blood-glucose-test-strips",
+      "policyCode": "GL-457217",
+      "product": "Blood glucose test strips — preferred products by Pima AHCCCS plan",
+      "matchNames": [
+        "BLOOD GLUCOSE TEST STRIPS",
+        "GLUCOSE TEST STRIPS"
+      ],
+      "heading": "Blood glucose test strips — plan-preferred products and exception rules",
+      "sourcePage": 1781,
+      "sourceLastPage": 1784,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Step Therapy",
+      "summary": "Original reference preferred brands: AZ Complete Health — Accu-Chek Guide; Banner–University Family Care — FreeStyle, OneTouch Ultra/Verio; UHC/C&S AZ — Accu-Chek, Contour. Also specifies nonpreferred-product step exceptions and test-strip quantity-limit exceptions.",
+      "guidelineCaution": "Preferences listed in this original AHCCCS source are NOT a live confirmation of current plan formulary coverage, restrictions or PA status. Only the three Pima ACC plans are shown. The source's generic nonpreferred step applies with plan-specific preferred products; verify current plan before prescribing.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-457217.txt",
+      "sourceChecks": [
+        "Product Name:Non-preferred Test Strip Products",
+        "Patient is on an insulin pump",
+        "Accu-Chek Guide",
+        "Banner",
+        "UHC/C&S AZ"
+      ],
+      "pathways": [
+        {
+          "title": "Nonpreferred test-strip product: ONE qualifying alternative",
+          "all": [
+            {
+              "any": [
+                {
+                  "all": [
+                    "Failed, contraindicated, or intolerant to True Metrix.",
+                    "Failed, contraindicated, or intolerant to Accu-Chek."
+                  ]
+                },
+                "Patient uses an insulin pump.",
+                "Patient has visual impairment."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Higher quantity: insulin-dependent or pregnant",
+          "all": [
+            [
+              "Prescriber confirms need for greater test-strip quantity due to more frequent blood glucose testing."
+            ]
+          ]
+        },
+        {
+          "title": "Higher quantity: not insulin dependent",
+          "all": [
+            {
+              "any": [
+                "Hypo/hyperglycemia risk requiring extra monitoring.",
+                "Clinician adjusting medications.",
+                "Clinician adjusting medical nutrition therapy.",
+                "Physical activity/exercise causing glucose fluctuations.",
+                "Other physician-attested need for increased testing (clinical review required)."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Source-listed preferred products for 3 ACC plans",
+          "all": [
+            [
+              "Arizona Complete Health: Accu-Chek Guide test strips.",
+              "Banner–University Family Care: FreeStyle, OneTouch Ultra, OneTouch Verio test strips.",
+              "UnitedHealthcare Community Plan (UHC/C&S AZ): Accu-Chek or Contour test strips."
+            ]
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Confirm source-specific quantity-limit or nonpreferred step exception, and check current actual plan formulary."
+      ]
     }
   ]
 }
