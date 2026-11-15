@@ -880,7 +880,7 @@ assert(bron[3].any.length===2&&bron[5].any.length===2
 assert(b41('484224-anzupgo').stages[0].all[5].all.length===7,
  'Anzupgo requires ALL 7 prior therapies');
 const journ=b41('490255-journavx').pathways[0].all;
-assert(journ[4].all.length===3&&journ[5].any.length===4
+assert(journ[5].all.length===3&&journ[6].any.length===4
  &&journ.some(x=>typeof x==='string'&&x.includes('CYP3A')),
  'Journavx 3-of-3 + 1-of-4 and CYP3A safety requirements lost');
 assert(b41('300291-olumiant').stages.length===3
