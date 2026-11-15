@@ -7114,6 +7114,427 @@
           ]
         }
       ]
+    },
+    {
+      "id": "gl-99426-aemcolo",
+      "policyCode": "GL-99426",
+      "product": "Aemcolo (rifamycin)",
+      "matchBrands": [
+        "AEMCOLO"
+      ],
+      "heading": "Aemcolo (rifamycin) — November source-verified criteria",
+      "sourcePage": 64,
+      "sourceLastPage": 65,
+      "approvalDuration": "1 month",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Travelers' diarrhea after ONE of four specified antibiotic trials/contraindications/intolerance.",
+      "guidelineCaution": "November 2026 published statewide criteria: does not establish member-specific managed-care coverage, PA approval or formulary status. Match the exact product and indication.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99426.txt",
+      "sourceChecks": [
+        "Product Name:Aemcolo",
+        "Diagnosis of travelers’ diarrhea",
+        "Azithromycin (generic Zithromax)"
+      ],
+      "pathways": [
+        {
+          "title": "Travelers' diarrhea",
+          "all": [
+            "Diagnosed travelers' diarrhea.",
+            {
+              "any": [
+                "Azithromycin failed, contraindicated or intolerable.",
+                "Ciprofloxacin failed, contraindicated or intolerable.",
+                "Levofloxacin failed, contraindicated or intolerable.",
+                "Ofloxacin failed, contraindicated or intolerable."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-requested diagnosis, clinical or claims-based treatment history, and any specialist records."
+      ]
+    },
+    {
+      "id": "gl-99429-alinia",
+      "policyCode": "GL-99429",
+      "product": "Brand Alinia and generic nitazoxanide",
+      "matchBrands": [
+        "ALINIA"
+      ],
+      "matchNames": [
+        "NITAZOXANIDE"
+      ],
+      "heading": "Brand Alinia and generic nitazoxanide — November source-verified criteria",
+      "sourcePage": 75,
+      "sourceLastPage": 76,
+      "approvalDuration": "3 days",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Separate Giardia and Cryptosporidium indications have different approval durations.",
+      "guidelineCaution": "November 2026 published statewide criteria: does not establish member-specific managed-care coverage, PA approval or formulary status. Match the exact product and indication.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99429.txt",
+      "sourceChecks": [
+        "Product Name:Brand Alinia, generic nitazoxanide",
+        "Diagnosis of giardiasis",
+        "Diagnosis of cryptosporidiosis"
+      ],
+      "pathways": [
+        {
+          "title": "Giardia lamblia — 3 days",
+          "all": [
+            "Giardiasis diagnosed.",
+            "Metronidazole failure, contraindication or intolerance."
+          ],
+          "approvalDuration": "3 days"
+        },
+        {
+          "title": "Cryptosporidium parvum — 12 months",
+          "all": [
+            "Cryptosporidiosis diagnosed."
+          ],
+          "approvalDuration": "12 months"
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-requested diagnosis, clinical or claims-based treatment history, and any specialist records."
+      ]
+    },
+    {
+      "id": "gl-99434-benznidazole",
+      "policyCode": "GL-99434",
+      "product": "Benznidazole",
+      "matchNames": [
+        "BENZNIDAZOLE"
+      ],
+      "heading": "Benznidazole — November source-verified criteria",
+      "sourcePage": 236,
+      "sourceLastPage": 237,
+      "approvalDuration": "60 days",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Source supports treatment of Chagas disease due to T. cruzi for 60 days.",
+      "guidelineCaution": "November 2026 published statewide criteria: does not establish member-specific managed-care coverage, PA approval or formulary status. Match the exact product and indication.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99434.txt",
+      "sourceChecks": [
+        "Product Name:Benznidazole",
+        "Chagas disease (American trypanosomiasis)",
+        "Trypanosoma cruzi"
+      ],
+      "pathways": [
+        {
+          "title": "Chagas disease",
+          "all": [
+            "Diagnosis of Chagas disease (American trypanosomiasis) caused by Trypanosoma cruzi."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-requested diagnosis, clinical or claims-based treatment history, and any specialist records."
+      ]
+    },
+    {
+      "id": "gl-99436-bonjesta-diclegis",
+      "policyCode": "GL-99436",
+      "product": "Bonjesta / Diclegis / generic doxylamine-pyridoxine",
+      "matchBrands": [
+        "BONJESTA",
+        "DICLEGIS"
+      ],
+      "matchNames": [
+        "DOXYLAMINE/PYRIDOXINE"
+      ],
+      "heading": "Bonjesta / Diclegis / generic doxylamine-pyridoxine — November source-verified criteria",
+      "sourcePage": 260,
+      "sourceLastPage": 261,
+      "approvalDuration": "9 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Requires pregnancy-related nausea/vomiting, lifestyle trial and a 5-day separate OTC doxylamine+pyridoxine trial.",
+      "guidelineCaution": "November 2026 published statewide criteria: does not establish member-specific managed-care coverage, PA approval or formulary status. Match the exact product and indication.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99436.txt",
+      "sourceChecks": [
+        "Product Name:Bonjesta, Brand Diclegis, generic doxylamine/pyridoxine",
+        "Diagnosis of nausea and vomiting associated with pregnancy",
+        "five day trial of over-the-counter"
+      ],
+      "pathways": [
+        {
+          "title": "Pregnancy-related nausea/vomiting",
+          "all": [
+            "Nausea/vomiting associated with pregnancy.",
+            "Lifestyle modification (diet, trigger avoidance) failed or contraindicated.",
+            "Five-day trial failed or contraindicated: OTC doxylamine AND pyridoxine taken together as separate dosage forms."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-requested diagnosis, clinical or claims-based treatment history, and any specialist records."
+      ]
+    },
+    {
+      "id": "gl-99445-dofetilide",
+      "policyCode": "GL-99445",
+      "product": "Tikosyn brand / generic dofetilide",
+      "matchBrands": [
+        "TIKOSYN"
+      ],
+      "matchNames": [
+        "DOFETILIDE"
+      ],
+      "heading": "Tikosyn brand / generic dofetilide — November source-verified criteria",
+      "sourcePage": 462,
+      "sourceLastPage": 463,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Hospital initiation ≥3 days; renal/QT restrictions and listed drug interactions apply.",
+      "guidelineCaution": "November 2026 published statewide criteria: does not establish member-specific managed-care coverage, PA approval or formulary status. Match the exact product and indication.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99445.txt",
+      "sourceChecks": [
+        "Brand Tikosyn, generic dofetilide",
+        "Verification that the patient has already started on dofetilide while in the hospital",
+        "Patient does NOT have congenital or acquired long QT syndromes"
+      ],
+      "pathways": [
+        {
+          "title": "AF or atrial flutter rhythm management",
+          "all": [
+            {
+              "any": [
+                "Atrial fibrillation diagnosis.",
+                "Atrial flutter diagnosis."
+              ]
+            },
+            {
+              "any": [
+                "Conversion to normal sinus rhythm required.",
+                "Maintenance of sinus rhythm required."
+              ]
+            },
+            "Dofetilide initiated while hospitalized for at least three days.",
+            "Creatinine clearance ≥20 mL/min (no severe renal impairment).",
+            "No congenital/acquired long QT.",
+            "NOT receiving cimetidine, HCTZ, ketoconazole, megestrol, prochlorperazine, trimethoprim, dolutegravir or verapamil."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-requested diagnosis, clinical or claims-based treatment history, and any specialist records."
+      ]
+    },
+    {
+      "id": "gl-99448-elmiron",
+      "policyCode": "GL-99448",
+      "product": "Elmiron (pentosan polysulfate sodium)",
+      "matchBrands": [
+        "ELMIRON"
+      ],
+      "heading": "Elmiron (pentosan polysulfate sodium) — November source-verified criteria",
+      "sourcePage": 539,
+      "sourceLastPage": 540,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Diagnosis of interstitial cystitis with associated bladder pain or discomfort.",
+      "guidelineCaution": "November 2026 published statewide criteria: does not establish member-specific managed-care coverage, PA approval or formulary status. Match the exact product and indication.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99448.txt",
+      "sourceChecks": [
+        "Product Name:Elmiron",
+        "Bladder pain or discomfort associated with interstitial cystitis",
+        "documented diagnosis of bladder pain"
+      ],
+      "pathways": [
+        {
+          "title": "Interstitial cystitis associated pain",
+          "all": [
+            "Documented bladder pain or discomfort associated with interstitial cystitis."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-requested diagnosis, clinical or claims-based treatment history, and any specialist records."
+      ]
+    },
+    {
+      "id": "gl-99450-endari",
+      "policyCode": "GL-99450",
+      "product": "Endari (L-glutamine)",
+      "matchBrands": [
+        "ENDARI"
+      ],
+      "heading": "Endari (L-glutamine) — November source-verified criteria",
+      "sourcePage": 557,
+      "sourceLastPage": 558,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Sickle cell: hydroxyurea ongoing OR intolerance/contraindication, ≥2 crises/12 months; renewal response.",
+      "guidelineCaution": "November 2026 published statewide criteria: does not establish member-specific managed-care coverage, PA approval or formulary status. Match the exact product and indication.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99450.txt",
+      "sourceChecks": [
+        "Product Name:Endari",
+        "Patient has had 2 or more painful sickle cell crises",
+        "Documentation of positive clinical response to Endari therapy"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            {
+              "all": [
+                "Sickle cell disease diagnosis.",
+                "Used to reduce acute sickle cell complications."
+              ]
+            },
+            {
+              "any": [
+                "Receiving hydroxyurea concurrently with Endari.",
+                "Contraindication/intolerance to hydroxyurea."
+              ]
+            },
+            "At least two painful crises in past twelve months."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response to Endari."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-requested diagnosis, clinical or claims-based treatment history, and any specialist records."
+      ]
+    },
+    {
+      "id": "gl-99451-entocort-ec",
+      "policyCode": "GL-99451",
+      "product": "Brand Entocort EC (budesonide oral controlled-release)",
+      "matchBrands": [
+        "ENTOCORT EC"
+      ],
+      "heading": "Brand Entocort EC (budesonide oral controlled-release) — November source-verified criteria",
+      "sourcePage": 563,
+      "sourceLastPage": 564,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Only applies to oral Entocort EC product. Generic budesonide formulations/routes must not inherit this rule.",
+      "guidelineCaution": "November 2026 published statewide criteria: does not establish member-specific managed-care coverage, PA approval or formulary status. Match the exact product and indication.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99451.txt",
+      "sourceChecks": [
+        "Product Name:Brand Entocort EC, generic budesonide",
+        "Chrohn’s Disease",
+        "being used for the treatment of Crohn’s disease"
+      ],
+      "pathways": [
+        {
+          "title": "Crohn disease",
+          "all": [
+            "Entocort EC is used to treat Crohn disease."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-requested diagnosis, clinical or claims-based treatment history, and any specialist records."
+      ]
+    },
+    {
+      "id": "gl-99453-epaned",
+      "policyCode": "GL-99453",
+      "product": "Epaned (enalapril oral solution)",
+      "matchBrands": [
+        "EPANED"
+      ],
+      "heading": "Epaned (enalapril oral solution) — November source-verified criteria",
+      "sourcePage": 575,
+      "sourceLastPage": 576,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Under 8 qualifies via age path; otherwise one specified cardiovascular indication plus two antihypertensive failures or difficulty swallowing solids.",
+      "guidelineCaution": "November 2026 published statewide criteria: does not establish member-specific managed-care coverage, PA approval or formulary status. Match the exact product and indication.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99453.txt",
+      "sourceChecks": [
+        "Product Name:Epaned",
+        "Patient is less than 8 years of age",
+        "oral/motor difficulties",
+        "History of failure, contraindication, or intolerance to TWO formulary"
+      ],
+      "pathways": [
+        {
+          "title": "Patient under eight",
+          "all": [
+            "Patient younger than 8 years."
+          ]
+        },
+        {
+          "title": "Older patient: medical need for solution",
+          "all": [
+            {
+              "any": [
+                "Hypertension.",
+                "Heart failure.",
+                "Asymptomatic LV dysfunction with LVEF ≤35%."
+              ]
+            },
+            {
+              "any": [
+                "Failure, contraindication, or intolerance to TWO formulary oral antihypertensives.",
+                "Unable to ingest tablets/capsules due to oral-motor difficulty or dysphagia."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-requested diagnosis, clinical or claims-based treatment history, and any specialist records."
+      ]
+    },
+    {
+      "id": "gl-99454-eplerenone",
+      "policyCode": "GL-99454",
+      "product": "Inspra brand / generic eplerenone",
+      "matchBrands": [
+        "INSPRA"
+      ],
+      "matchNames": [
+        "EPLERENONE"
+      ],
+      "heading": "Inspra brand / generic eplerenone — November source-verified criteria",
+      "sourcePage": 579,
+      "sourceLastPage": 580,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Either post-MI symptomatic HFrEF or hypertension.",
+      "guidelineCaution": "November 2026 published statewide criteria: does not establish member-specific managed-care coverage, PA approval or formulary status. Match the exact product and indication.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99454.txt",
+      "sourceChecks": [
+        "Product Name:Brand Inspra, generic eplerenone",
+        "Symptomatic heart failure with reduced ejection fraction",
+        "Hypertension"
+      ],
+      "pathways": [
+        {
+          "title": "One qualifying indication",
+          "all": [
+            {
+              "any": [
+                "Symptomatic HFrEF after acute myocardial infarction.",
+                "Hypertension."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-requested diagnosis, clinical or claims-based treatment history, and any specialist records."
+      ]
     }
   ]
 }
