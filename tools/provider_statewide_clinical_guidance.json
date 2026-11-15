@@ -6522,9 +6522,7 @@
         {
           "title": "Higher quantity: insulin-dependent or pregnant",
           "all": [
-            [
-              "Prescriber confirms need for greater test-strip quantity due to more frequent blood glucose testing."
-            ]
+            "Prescriber confirms need for greater test-strip quantity due to more frequent blood glucose testing."
           ]
         },
         {
@@ -6544,11 +6542,9 @@
         {
           "title": "Source-listed preferred products for 3 ACC plans",
           "all": [
-            [
-              "Arizona Complete Health: Accu-Chek Guide test strips.",
-              "Banner–University Family Care: FreeStyle, OneTouch Ultra, OneTouch Verio test strips.",
-              "UnitedHealthcare Community Plan (UHC/C&S AZ): Accu-Chek or Contour test strips."
-            ]
+            "Arizona Complete Health: Accu-Chek Guide test strips.",
+            "Banner–University Family Care: FreeStyle, OneTouch Ultra, OneTouch Verio test strips.",
+            "UnitedHealthcare Community Plan (UHC/C&S AZ): Accu-Chek or Contour test strips."
           ]
         }
       ],
