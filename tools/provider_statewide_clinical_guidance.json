@@ -6935,6 +6935,138 @@
       "documentationSuggestions": [
         "Document progression risk, 90-day maximally tolerated therapy or both exclusions, and UPCR response."
       ]
+    },
+    {
+      "policyCode": "GL-525289",
+      "heading": "Mitapivat products — exact source criteria",
+      "sourceGuidelineType": "Prior Authorization",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-525289.txt",
+      "guidelineCaution": "Pyrukynd and Aqvesme treat different conditions; do not apply a rule to the other brand. Statewide criteria do not independently verify Pima managed-care plan PA or coverage.",
+      "documentationSuggestions": [
+        "Record indication-specific lab/genetic confirmation, exclusions, specialist, and measurable response."
+      ],
+      "id": "gl-525289-pyrukynd",
+      "product": "Pyrukynd (mitapivat)",
+      "matchBrands": [
+        "PYRUKYND"
+      ],
+      "sourcePage": 1172,
+      "sourceLastPage": 1174,
+      "approvalDuration": "6 months",
+      "summary": "PK deficiency hemolytic anemia with PKLR alleles and exclusion criteria; 6-month initial, 12-month renewal. Failed reauthorization may allow one one-month discontinuation taper per source note.",
+      "sourceChecks": [
+        "Product Name:Pyrukynd",
+        "Presence of at least 2 variant alleles",
+        "not homozygous for the c.1436G>A",
+        "Hemoglobin is less than or equal to 10g/dL"
+      ],
+      "stages": [
+        {
+          "title": "PK-deficiency anemia — initial",
+          "approvalDuration": "6 months",
+          "all": [
+            "Chronic hemolytic anemia documented.",
+            {
+              "all": [
+                "At least TWO PKLR variants, at least ONE missense.",
+                "Not homozygous c.1436G>A (p.R479H).",
+                "Not two exclusively non-missense PKLR variants without another missense."
+              ]
+            },
+            "Hemoglobin ≤10 g/dL.",
+            "Symptomatic anemia or transfusion dependent.",
+            "Other hemolytic causes excluded (infections, toxins, drugs).",
+            "Hematologist prescriber/consultation."
+          ]
+        },
+        {
+          "title": "PK deficiency — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive response (e.g., Hb rise ≥1.5 g/dL, RBC units transfused reduced ≥33%, or improved hemolysis markers).",
+            "Hematologist prescriber/consultation."
+          ]
+        }
+      ]
+    },
+    {
+      "policyCode": "GL-525289",
+      "heading": "Mitapivat products — exact source criteria",
+      "sourceGuidelineType": "Prior Authorization",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-525289.txt",
+      "guidelineCaution": "Pyrukynd and Aqvesme treat different conditions; do not apply a rule to the other brand. Statewide criteria do not independently verify Pima managed-care plan PA or coverage.",
+      "documentationSuggestions": [
+        "Record indication-specific lab/genetic confirmation, exclusions, specialist, and measurable response."
+      ],
+      "id": "gl-525289-aqvesme",
+      "product": "Aqvesme (mitapivat)",
+      "matchBrands": [
+        "AQVESME"
+      ],
+      "sourcePage": 1174,
+      "sourceLastPage": 1176,
+      "approvalDuration": "12 months",
+      "summary": "Alpha/beta thalassemia anemia, Hb ≤10 and symptomatic/transfusion dependent, no source-listed liver diseases or prior gene/HSCT therapy, no concurrent Reblozyl/ESA/Pyrukynd.",
+      "sourceChecks": [
+        "Product Name:Aqvesme",
+        "Diagnosis of anemia with alpha or beta-thalassemia",
+        "Patient does not have liver disease",
+        "Patient has not had prior exposure to gene therapy",
+        "Reblozyl (luspatercept-aamt)"
+      ],
+      "stages": [
+        {
+          "title": "Thalassemia anemia — initial",
+          "approvalDuration": "12 months",
+          "all": [
+            "Diagnosis of alpha- or beta-thalassemia-associated anemia.",
+            "Hemoglobin ≤10 g/dL.",
+            "Symptomatic anemia or transfusion-dependent.",
+            "No source-listed liver disease (cirrhosis Child-Pugh A/B/C, hepatitis B/C, HIV).",
+            {
+              "all": [
+                "No prior gene therapy (e.g., Casgevy/Zynteglo).",
+                "No prior bone marrow or stem cell transplant."
+              ]
+            },
+            {
+              "any": [
+                "Prescribed by/in consultation with hematologist.",
+                "Prescribed by/in consultation with hepatologist."
+              ]
+            },
+            {
+              "all": [
+                "No concomitant Reblozyl.",
+                "No concomitant ESA (e.g., Epogen/Aranesp).",
+                "No concomitant Pyrukynd."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Thalassemia anemia — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive response (e.g., fewer transfusions, improved fatigue, or Hb rise ≥1 g/dL).",
+            {
+              "any": [
+                "Hematologist.",
+                "Hepatologist."
+              ]
+            },
+            {
+              "all": [
+                "No concomitant Reblozyl.",
+                "No concomitant ESA.",
+                "No concomitant Pyrukynd."
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
