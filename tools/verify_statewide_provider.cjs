@@ -363,3 +363,22 @@ assert(lyrcr.pathways[0].all.some(x=>x.any?.length===2)&&lyrcr.pathways[1].all.e
 const gly=guidance.find(g=>g.id==='gl-108674-glycopyrrolate-brands');
 assert(JSON.stringify(gly.matchBrands)===JSON.stringify(['CUVPOSA','DARTISLA ODT','ROBINUL','ROBINUL FORTE']),'Glycopyrrolate brand scope changed');
 console.log('PASS: Lyrica, Lyrica CR and oral glycopyrrolate source and exact-brand regression');
+
+// Cross-product negative controls: brand Lyrica criteria must never attach to
+// generic pregabalin or Lyrica CR; oral glycopyrrolate criteria must never
+// attach to generic oral solution or any injectable glycopyrrolate strength.
+const negativeGuideCases=[
+ {name:'PREGABALIN CAPSULE',brands:['PREGABALIN'],forbidden:['gl-105529-lyrica','gl-105529-lyrica-cr']},
+ {name:'PREGABALIN TABLET ER',brands:['LYRICA CR'],forbidden:['gl-105529-lyrica']},
+ {name:'PREGABALIN CAPSULE',brands:['LYRICA'],forbidden:['gl-105529-lyrica-cr']},
+ {name:'GLYCOPYRROLATE ORAL SOLUTION',brands:['GLYCOPYRROLATE'],forbidden:['gl-108674-glycopyrrolate-brands']},
+ {name:'GLYCOPYRROLATE INJECTION 0.6 MG/3 ML',brands:['GLYCOPYRROLATE'],forbidden:['gl-108674-glycopyrrolate-brands']},
+ {name:'GLYCOPYRROLATE INJECTION 0.6 MG/3 ML',brands:[],forbidden:['gl-108674-glycopyrrolate-brands']}
+];
+for(const spec of negativeGuideCases){
+ ui.negativeClinicalGroup={name:spec.name,brands:spec.brands};
+ const matched=vm.runInContext('clinicalGuidanceFor(negativeClinicalGroup)',ui);
+ assert(!matched||!spec.forbidden.includes(matched.id),
+   'Cross-route or cross-form clinical criteria leak: '+spec.name+' / '+spec.brands.join(','));
+}
+console.log('PASS: Lyrica IR/CR and glycopyrrolate oral/injectable negative identity controls');
