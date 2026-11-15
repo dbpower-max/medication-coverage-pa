@@ -840,13 +840,13 @@ const batch41Ids=[
 'gl-490255-journavx','gl-300291-olumiant','gl-300310-chenodal',
 'gl-300310-ctexli','gl-357234-spevigo','gl-396204-gamifant',
 'gl-427207-evkeeza','gl-357232-dificid',
-'gl-479199-elidel-tacrolimus-topical','gl-457217-blood-glucose-test-strips',
+'gl-479199-elidel-pimecrolimus-cream','gl-479199-tacrolimus-ointment','gl-457217-blood-glucose-test-strips',
 'gl-502256-nonhormonal-vms','gl-502258-cablivi',
 'gl-505202-redemplo','gl-508202-daybue',
 'gl-525282-alkindi-sprinkle','gl-525282-khindivi',
 'gl-525288-voyxact','gl-525289-pyrukynd','gl-525289-aqvesme'
 ];
-assert(batch41Ids.length===24,'Expected exactly 24 guides in 20 policy sections');
+assert(batch41Ids.length===25,'Expected exactly 25 guides in 20 policy sections');
 const batch41Guides=batch41Ids.map(id=>guidance.find(g=>g.id===id));
 assert(batch41Guides.every(Boolean),'Batch41 guide missing');
 assert(new Set(batch41Guides.map(g=>g.policyCode)).size===20,
@@ -895,8 +895,10 @@ assert(b41('427207-evkeeza').stages[0].all[1].any.length===2,
 assert(b41('357232-dificid').pathways.length===2
  &&b41('357232-dificid').pathways[1].all.length===4,
  'Dificid brand tablet vs generic/suspension step missing');
-assert(b41('479199-elidel-tacrolimus-topical').matchFormulationWords.includes('ointment')
- &&b41('479199-elidel-tacrolimus-topical').stages.length===3,
+assert(b41('479199-elidel-pimecrolimus-cream').matchFormulationWords.includes('cream')
+ &&b41('479199-elidel-pimecrolimus-cream').stages.length===2
+ &&b41('479199-tacrolimus-ointment').matchFormulationWords.includes('ointment')
+ &&b41('479199-tacrolimus-ointment').stages.length===3,
  'Topical tacrolimus route/age safeguards absent');
 assert(b41('457217-blood-glucose-test-strips').pathways.length===4
  &&!b41('457217-blood-glucose-test-strips').summary.includes('Mercy'),
@@ -932,10 +934,10 @@ ui.b41TacTop={name:'TACROLIMUS',brands:[],records:[{name:'TACROLIMUS 0.1% OINTME
 ui.b41TacOral={name:'TACROLIMUS',brands:[],records:[{name:'TACROLIMUS 1 MG CAPSULE'}]};
 ui.b41TacInject={name:'TACROLIMUS',brands:[],records:[{name:'TACROLIMUS 1 MG/ML INJECTION'}]};
 ui.b41TacMixed={name:'TACROLIMUS',brands:[],records:[{name:'TACROLIMUS 0.03% OINTMENT'},{name:'TACROLIMUS 1 MG CAPSULE'}]};
-assert(vm.runInContext('clinicalGuidanceFor(b41TacTop)',ui)?.id==='gl-479199-elidel-tacrolimus-topical',
+assert(vm.runInContext('clinicalGuidanceFor(b41TacTop)',ui)?.id==='gl-479199-tacrolimus-ointment',
  'Topical tacrolimus should match topical policy');
 for(const name of ['b41TacOral','b41TacInject','b41TacMixed'])
  assert(vm.runInContext('clinicalGuidanceFor('+name+')',ui)===null,
   'TOPICAL tacrolimus PA criteria leaked to oral, injectable or mixed product');
-console.log('PASS: batch41 all 24 guides/20 sections, original sources, product identities,'
+console.log('PASS: batch41 all 25 guides/20 sections, original sources, product identities,'
  +' AND/OR, duration, non-branded-generic and route-specific safety regressions');
