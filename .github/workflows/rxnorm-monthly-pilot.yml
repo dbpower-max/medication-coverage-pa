@@ -1,0 +1,50 @@
+name: RxNorm monthly candidate diff (review-only PR)
+on:
+  schedule:
+    - cron: '0 15 10 * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: rxnorm-monthly-pilot
+  cancel-in-progress: false
+jobs:
+  review_candidates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Offline tests before network requests
+        run: python -m unittest discover -s tools -p test_rxnorm_pilot.py -v
+      - name: Preserve comparison baseline
+        run: cp data/rxnorm-pilot/snapshot.json /tmp/rxnorm-previous.json
+      - name: Query RxNav exact BN concepts; fail closed on API error
+        run: |
+          python tools/rxnorm_pilot.py refresh \
+            --targets data/rxnorm-pilot/targets.json \
+            --output data/rxnorm-pilot/snapshot.json
+      - name: Generate source-release diff and review report
+        run: |
+          python tools/rxnorm_pilot.py diff \
+            --previous /tmp/rxnorm-previous.json \
+            --current data/rxnorm-pilot/snapshot.json \
+            --report data/rxnorm-pilot/report.md
+      - name: Open review PR only for changed candidate files (never auto-merge)
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: bot/rxnorm-monthly-pilot
+          delete-branch: true
+          add-paths: |
+            data/rxnorm-pilot/snapshot.json
+            data/rxnorm-pilot/report.md
+          commit-message: "chore(rxnorm): propose new RxNorm exact-brand concept snapshot"
+          title: "Review RxNorm pilot monthly concept diff"
+          body: |
+            **Review-only. Do not auto-merge.**
+            30 fixed pilot IDs. All RxCUIs are unverified BN-level candidates.
+            Review the generated report and concepts before any use in the app.
+            This PR must not alter medication coverage, PA requirements, live cards or source records.
