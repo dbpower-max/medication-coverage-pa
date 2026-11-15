@@ -4244,6 +4244,421 @@
         "Document prescribed strength and dose, and provider attestation regarding organic nitrates and Adempas."
       ],
       "matchStrengthMg": 5
+    },
+    {
+      "id": "gl-356255-rayos",
+      "policyCode": "GL-356255",
+      "product": "Rayos delayed-release prednisone",
+      "matchBrands": [
+        "RAYOS"
+      ],
+      "heading": "Rayos delayed-release prednisone — source-verified clinical criteria",
+      "sourcePage": 1455,
+      "sourceLastPage": 1456,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Source requires qualifying indication, accepted plan benefit, documented unresolvable generic prednisone intolerance, and TWO of four other steroids.",
+      "guidelineCaution": "These statewide criteria do not establish plan-specific AHCCCS ACC coverage or prior authorization. Formulation, age and indication restrictions apply as stated.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-356255.txt",
+      "sourceChecks": [
+        "Product Name:Rayos",
+        "intolerance to generic prednisone tablets",
+        "History of failure, contraindication, or intolerance to TWO",
+        "Food and Drug Administration (FDA)-approved"
+      ],
+      "pathways": [
+        {
+          "title": "FDA/compendia + recognized benefit + 3 prerequisite conditions",
+          "all": [
+            {
+              "any": [
+                "Use for FDA-approved indication.",
+                "Use supported by a policy-listed accepted literature compendium (AHFS, NCCN, DrugDex, Clinical Pharmacology or USP-NF)."
+              ]
+            },
+            "Medically accepted indication recognized as a covered benefit under the member's health plan; anti-obesity, cosmetic, ED and sexual dysfunction purposes excluded.",
+            "Medical records/claims show intolerance to generic prednisone tablets unresolved after appropriate adverse-effect mitigation.",
+            {
+              "any": [
+                {
+                  "all": [
+                    "Failure, contraindication or intolerance to dexamethasone tablet or oral solution.",
+                    "Failure, contraindication or intolerance to hydrocortisone tablet."
+                  ]
+                },
+                {
+                  "all": [
+                    "Failure, contraindication or intolerance to dexamethasone tablet or oral solution.",
+                    "Failure, contraindication or intolerance to methylprednisolone tablet."
+                  ]
+                },
+                {
+                  "all": [
+                    "Failure, contraindication or intolerance to dexamethasone tablet or oral solution.",
+                    "Failure, contraindication or intolerance to prednisolone tablet or oral solution."
+                  ]
+                },
+                {
+                  "all": [
+                    "Failure, contraindication or intolerance to hydrocortisone tablet.",
+                    "Failure, contraindication or intolerance to methylprednisolone tablet."
+                  ]
+                },
+                {
+                  "all": [
+                    "Failure, contraindication or intolerance to hydrocortisone tablet.",
+                    "Failure, contraindication or intolerance to prednisolone tablet or oral solution."
+                  ]
+                },
+                {
+                  "all": [
+                    "Failure, contraindication or intolerance to methylprednisolone tablet.",
+                    "Failure, contraindication or intolerance to prednisolone tablet or oral solution."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable policy-specific prior therapies, indications and supporting records."
+      ]
+    },
+    {
+      "id": "gl-413207-tretinoin-topical",
+      "policyCode": "GL-413207",
+      "product": "Generic topical tretinoin cream/gel",
+      "matchNames": [
+        "TRETINOIN CREAM",
+        "TRETINOIN GEL"
+      ],
+      "heading": "Generic topical tretinoin cream/gel — source-verified clinical criteria",
+      "sourcePage": 1849,
+      "sourceLastPage": 1850,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Generic TOPICAL cream or gel only: adults older than 26 require acne vulgaris plus all three prior treatments. No PA required by statewide policy at age ≤26.",
+      "guidelineCaution": "These statewide criteria do not establish plan-specific AHCCCS ACC coverage or prior authorization. Formulation, age and indication restrictions apply as stated.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-413207.txt",
+      "sourceChecks": [
+        "Product Name:generic tretinoin cream and gel",
+        "Patient is 26 years of age or less",
+        "Diagnosis of acne vulgaris",
+        "topical erythromycin"
+      ],
+      "pathways": [
+        {
+          "title": "Age 26 or younger — original policy notes no PA",
+          "all": [
+            "Patient age 26 or younger; this original guideline states prior authorization not required."
+          ]
+        },
+        {
+          "title": "Older than 26 — all treatment criteria",
+          "all": [
+            "Patient age older than 26.",
+            "Diagnosis of acne vulgaris.",
+            "Failure, contraindication or intolerance to benzoyl peroxide.",
+            "Failure, contraindication or intolerance to topical clindamycin.",
+            "Failure, contraindication or intolerance to topical erythromycin."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable policy-specific prior therapies, indications and supporting records."
+      ]
+    },
+    {
+      "id": "gl-427190-leucovorin-tablets",
+      "policyCode": "GL-427190",
+      "product": "Leucovorin oral tablets",
+      "matchNames": [
+        "LEUCOVORIN TABLETS",
+        "LEUCOVORIN CALCIUM TABLET"
+      ],
+      "heading": "Leucovorin oral tablets — source-verified clinical criteria",
+      "sourcePage": 1078,
+      "sourceLastPage": 1079,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "One of three source-listed indications; source names oral tablets only.",
+      "guidelineCaution": "These statewide criteria do not establish plan-specific AHCCCS ACC coverage or prior authorization. Formulation, age and indication restrictions apply as stated.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-427190.txt",
+      "sourceChecks": [
+        "Product Name:Leucovorin tablets",
+        "Methotrexate toxicity prophylaxis",
+        "Treatment of hematologic toxicity",
+        "cerebral"
+      ],
+      "pathways": [
+        {
+          "title": "One indication",
+          "all": [
+            {
+              "any": [
+                "Methotrexate toxicity prophylaxis.",
+                "Treatment of hematologic toxicity from a folic acid antagonist (e.g., pyrimethamine or trimethoprim).",
+                "Medical records document diagnosis of cerebral folate deficiency."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable policy-specific prior therapies, indications and supporting records."
+      ]
+    },
+    {
+      "id": "gl-441190-shingrix",
+      "policyCode": "GL-441190",
+      "product": "Shingrix recombinant zoster vaccine",
+      "matchBrands": [
+        "SHINGRIX"
+      ],
+      "heading": "Shingrix recombinant zoster vaccine — source-verified clinical criteria",
+      "sourcePage": 1584,
+      "sourceLastPage": 1585,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Original guideline limits PA qualifications to immunocompromised 18–49-year-olds, and explicitly exempts ages 50+.",
+      "guidelineCaution": "These statewide criteria do not establish plan-specific AHCCCS ACC coverage or prior authorization. Formulation, age and indication restrictions apply as stated.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-441190.txt",
+      "sourceChecks": [
+        "Product Name:Shingrix*",
+        "Patient is between 18 to 49 years of age",
+        "immunosuppression caused by known disease or therapy",
+        "Prior authorization is not required for patients 50"
+      ],
+      "pathways": [
+        {
+          "title": "Ages 18–49: all original PA qualifications",
+          "all": [
+            "Vaccine used to prevent herpes zoster.",
+            "Age 18 through 49 years.",
+            "Increased risk of herpes zoster due to known or anticipated immunodeficiency or immunosuppression from disease or treatment."
+          ]
+        },
+        {
+          "title": "Age 50+: statewide PA exemption",
+          "all": [
+            "Age 50 or older — original guideline states PA not required."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable policy-specific prior therapies, indications and supporting records."
+      ]
+    },
+    {
+      "id": "gl-450249-orlynvah",
+      "policyCode": "GL-450249",
+      "product": "Orlynvah (sulopenem/probenecid)",
+      "matchBrands": [
+        "ORLYNVAH"
+      ],
+      "heading": "Orlynvah (sulopenem/probenecid) — source-verified clinical criteria",
+      "sourcePage": 1346,
+      "sourceLastPage": 1347,
+      "approvalDuration": "5 days",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Adult uncomplicated UTI with one listed causative pathogen and alternative oral antibacterial unsuccessful/contraindicated/resistant.",
+      "guidelineCaution": "These statewide criteria do not establish plan-specific AHCCCS ACC coverage or prior authorization. Formulation, age and indication restrictions apply as stated.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-450249.txt",
+      "sourceChecks": [
+        "Product Name:Orlynvah",
+        "Diagnosis of an uncomplicated urinary tract infection (uUTI)",
+        "Patient is 18 years of age or older",
+        "Klebsiella pneumoniae"
+      ],
+      "pathways": [
+        {
+          "title": "All uncomplicated-UTI conditions",
+          "all": [
+            "Uncomplicated UTI diagnosis.",
+            "Patient age at least 18 years.",
+            "Inadequate response, contraindication or resistance to one other oral antibacterial (e.g., TMP-SMX or ciprofloxacin).",
+            {
+              "any": [
+                "Infection caused by Escherichia coli.",
+                "Infection caused by Klebsiella pneumoniae.",
+                "Infection caused by Proteus mirabilis."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable policy-specific prior therapies, indications and supporting records."
+      ]
+    },
+    {
+      "id": "gl-450258-gralise",
+      "policyCode": "GL-450258",
+      "product": "Brand Gralise (gabapentin once daily)",
+      "matchBrands": [
+        "GRALISE"
+      ],
+      "heading": "Brand Gralise (gabapentin once daily) — source-verified clinical criteria",
+      "sourcePage": 740,
+      "sourceLastPage": 741,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Brand-only PHN guide. Generic gabapentin once daily has additional Gralise step and is not included.",
+      "guidelineCaution": "These statewide criteria do not establish plan-specific AHCCCS ACC coverage or prior authorization. Formulation, age and indication restrictions apply as stated.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-450258.txt",
+      "sourceChecks": [
+        "Product Name:Brand Gralise, generic gabapentin (once-daily)",
+        "Diagnosis of postherpetic neuralgia (PHN)",
+        "Trial and failure or intolerance to generic immediate-release gabapentin"
+      ],
+      "pathways": [
+        {
+          "title": "Both conditions",
+          "all": [
+            "Diagnosis of postherpetic neuralgia (PHN).",
+            "Trial failure or intolerance to generic immediate-release gabapentin (Neurontin generic)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable policy-specific prior therapies, indications and supporting records."
+      ]
+    },
+    {
+      "id": "gl-450258-horizant",
+      "policyCode": "GL-450258",
+      "product": "Horizant (gabapentin enacarbil)",
+      "matchBrands": [
+        "HORIZANT"
+      ],
+      "heading": "Horizant (gabapentin enacarbil) — source-verified clinical criteria",
+      "sourcePage": 740,
+      "sourceLastPage": 741,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Either PHN plus generic IR gabapentin failure/intolerance, or restless legs syndrome.",
+      "guidelineCaution": "These statewide criteria do not establish plan-specific AHCCCS ACC coverage or prior authorization. Formulation, age and indication restrictions apply as stated.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-450258.txt",
+      "sourceChecks": [
+        "Product Name:Horizant",
+        "Diagnosis of restless legs syndrome",
+        "generic immediate-release gabapentin"
+      ],
+      "pathways": [
+        {
+          "title": "PHN branch",
+          "all": [
+            "Diagnosis of postherpetic neuralgia.",
+            "Trial failure or intolerance to generic immediate-release gabapentin."
+          ]
+        },
+        {
+          "title": "Restless legs syndrome branch",
+          "all": [
+            "Diagnosis of restless legs syndrome."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable policy-specific prior therapies, indications and supporting records."
+      ]
+    },
+    {
+      "id": "gl-490254-effient",
+      "policyCode": "GL-490254",
+      "product": "Effient (prasugrel)",
+      "matchBrands": [
+        "EFFIENT"
+      ],
+      "matchNames": [
+        "PRASUGREL"
+      ],
+      "heading": "Effient (prasugrel) — source-verified clinical criteria",
+      "sourcePage": 526,
+      "sourceLastPage": 527,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "ACS managed with percutaneous coronary intervention; source names brand and generic.",
+      "guidelineCaution": "These statewide criteria do not establish plan-specific AHCCCS ACC coverage or prior authorization. Formulation, age and indication restrictions apply as stated.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-490254.txt",
+      "sourceChecks": [
+        "Product Name:Brand Effient, Generic prasurgrel",
+        "Diagnosis of acute coronary syndrome (ACS)",
+        "percutaneous coronary intervention (PCI)"
+      ],
+      "pathways": [
+        {
+          "title": "Both requirements",
+          "all": [
+            "Diagnosis of ACS (unstable angina, NSTEMI or STEMI).",
+            "Patient managed with PCI."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable policy-specific prior therapies, indications and supporting records."
+      ]
+    },
+    {
+      "id": "gl-364197-vanrafia",
+      "policyCode": "GL-364197",
+      "product": "Vanrafia (atrasentan)",
+      "matchBrands": [
+        "VANRAFIA"
+      ],
+      "heading": "Vanrafia (atrasentan) — source-verified clinical criteria",
+      "sourcePage": 1926,
+      "sourceLastPage": 1928,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Biopsy-proven primary IgAN with proteinuria/eGFR thresholds and at least 90-day ACE/ARB treatment; renewal lower UPCR.",
+      "guidelineCaution": "These statewide criteria do not establish plan-specific AHCCCS ACC coverage or prior authorization. Formulation, age and indication restrictions apply as stated.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-364197.txt",
+      "sourceChecks": [
+        "Product Name:Vanrafia",
+        "Proteinuria of greater than or equal to 1 g/day",
+        "minimum 90-day trial",
+        "decrease in urine protein-to-creatinine ratio (UPCR)"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 12 months",
+          "all": [
+            "Primary IgA nephropathy confirmed in records.",
+            "Biopsy confirms IgA nephropathy.",
+            "Proteinuria ≥1 g/day.",
+            "eGFR ≥30 mL/min/1.73m².",
+            "At risk for progression (e.g., UPCR ≥1.5g/g or other risk scoring).",
+            "Use is to reduce proteinuria.",
+            {
+              "any": [
+                "≥90-day trial at maximally tolerated ACE inhibitor dose.",
+                "≥90-day trial at maximally tolerated ARB dose."
+              ]
+            },
+            "Prescribed by or in consultation with nephrologist."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Reduced UPCR compared with baseline is documented."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable policy-specific prior therapies, indications and supporting records."
+      ]
     }
   ]
 }
