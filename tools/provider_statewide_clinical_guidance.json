@@ -3188,6 +3188,479 @@
       "documentationSuggestions": [
         "Document each qualification criterion with the source-requested clinical notes, labs, or pharmacy claims."
       ]
+    },
+    {
+      "id": "gl-164377-namzaric",
+      "policyCode": "GL-164377",
+      "product": "Namzaric (memantine/donepezil)",
+      "matchBrands": [
+        "NAMZARIC"
+      ],
+      "heading": "Namzaric (memantine/donepezil) — source-verified AHCCCS clinical criteria",
+      "sourcePage": 1222,
+      "sourceLastPage": 1223,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Combined product requires prior histories of BOTH memantine and donepezil and stabilization on donepezil 10 mg once daily.",
+      "guidelineCaution": "The original statewide policy specifies these requirements but does not establish this medication's coverage or PA flag for an individual Pima AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-164377.txt",
+      "sourceChecks": [
+        "Product Name:Brand Namzaric, generic memantine/donepezil",
+        "Memantine (generic Namenda)",
+        "Donepezil (generic Aricept)",
+        "Patient is stabilized on 10mg of donepezil once daily"
+      ],
+      "pathways": [
+        {
+          "title": "Both components and stable donepezil dose",
+          "all": [
+            "History of treatment with memantine (generic Namenda).",
+            "History of treatment with donepezil (generic Aricept).",
+            "Patient stabilized on donepezil 10 mg once daily."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable criteria from the original guideline (including chart notes, clinical history, claims, or specialist input when required)."
+      ]
+    },
+    {
+      "id": "gl-164415-emrosi",
+      "policyCode": "GL-164415",
+      "product": "Emrosi (minocycline)",
+      "matchBrands": [
+        "EMROSI"
+      ],
+      "heading": "Emrosi (minocycline) — source-verified AHCCCS clinical criteria",
+      "sourcePage": 545,
+      "sourceLastPage": 546,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Inflammatory lesions of rosacea and documented failure of generic minocycline 50 mg capsules.",
+      "guidelineCaution": "The original statewide policy specifies these requirements but does not establish this medication's coverage or PA flag for an individual Pima AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-164415.txt",
+      "sourceChecks": [
+        "Product Name:Emrosi",
+        "inflammatory lesions (papules and pustules) of",
+        "History of failure to generic minocycline 50mg capsules"
+      ],
+      "pathways": [
+        {
+          "title": "Both qualifications",
+          "all": [
+            "Medication used for inflammatory papules/pustules of rosacea.",
+            "History of failure to generic minocycline 50 mg capsules."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable criteria from the original guideline (including chart notes, clinical history, claims, or specialist input when required)."
+      ]
+    },
+    {
+      "id": "gl-211208-baclofen-branded-liquid",
+      "policyCode": "GL-211208",
+      "product": "Baclofen oral formulations (Fleqsuvy/Lyvispah/Ozobax)",
+      "matchBrands": [
+        "FLEQSUVY",
+        "LYVISPAH",
+        "OZOBAX",
+        "OZOBAX DS"
+      ],
+      "heading": "Baclofen oral formulations (Fleqsuvy/Lyvispah/Ozobax) — source-verified AHCCCS clinical criteria",
+      "sourcePage": 213,
+      "sourceLastPage": 214,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Either baclofen-tablet trial failure/intolerance OR inability to swallow tablets; applies only to explicitly named liquid/granule brands.",
+      "guidelineCaution": "The original statewide policy specifies these requirements but does not establish this medication's coverage or PA flag for an individual Pima AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-211208.txt",
+      "sourceChecks": [
+        "Brand Fleqsuvy, generic baclofen suspension, Lyvispah, Ozobax/DS",
+        "Trial and failure, or intolerance to baclofen tablets",
+        "Patient is unable to swallow oral tablets"
+      ],
+      "pathways": [
+        {
+          "title": "Failed or intolerant of baclofen tablets",
+          "all": [
+            "Trial and failure or intolerance to baclofen tablets."
+          ]
+        },
+        {
+          "title": "Cannot swallow tablets",
+          "all": [
+            "Patient is unable to swallow oral tablets."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable criteria from the original guideline (including chart notes, clinical history, claims, or specialist input when required)."
+      ]
+    },
+    {
+      "id": "gl-228335-vivjoa",
+      "policyCode": "GL-228335",
+      "product": "Vivjoa (oteseconazole)",
+      "matchBrands": [
+        "VIVJOA"
+      ],
+      "heading": "Vivjoa (oteseconazole) — source-verified AHCCCS clinical criteria",
+      "sourcePage": 1960,
+      "sourceLastPage": 1961,
+      "approvalDuration": "4 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "RVVC, not of reproductive potential, confirmed KOH/culture, ≥3 symptomatic episodes/12 months, vaginal antifungal trial, fluconazole step, and Brexafemme trial.",
+      "guidelineCaution": "The original statewide policy specifies these requirements but does not establish this medication's coverage or PA flag for an individual Pima AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-228335.txt",
+      "sourceChecks": [
+        "Product Name:Vivjoa",
+        "Patient is NOT of reproductive potential",
+        "3 or more symptomatic episodes of vulvovaginal candidiasis",
+        "Trial and failure, contraindication or intolerance to Brexafemme"
+      ],
+      "pathways": [
+        {
+          "title": "All RVVC requirements",
+          "all": [
+            "Diagnosis of recurrent vulvovaginal candidiasis (RVVC).",
+            "Patient is NOT of reproductive potential.",
+            {
+              "any": [
+                "RVVC confirmed with positive potassium hydroxide (KOH) preparation.",
+                "RVVC confirmed by vaginal fungal culture."
+              ]
+            },
+            "At least 3 symptomatic VVC episodes within the past 12 months.",
+            "Trial/failure, contraindication, or intolerance to ONE intravaginal antifungal product (e.g. clotrimazole, miconazole, tioconazole, terconazole, boric acid).",
+            {
+              "any": [
+                "Maintenance oral fluconazole at 100, 150 or 200 mg weekly for 6 months failed or response inadequate after ≥24 weeks.",
+                "Infection recurred during fluconazole maintenance, or fluconazole caused an adverse reaction, or is contraindicated."
+              ]
+            },
+            "Trial/failure, contraindication, or intolerance to Brexafemme (ibrexafungerp)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable criteria from the original guideline (including chart notes, clinical history, claims, or specialist input when required)."
+      ]
+    },
+    {
+      "id": "gl-241267-zunveyl",
+      "policyCode": "GL-241267",
+      "product": "Zunveyl (benzgalantamine)",
+      "matchBrands": [
+        "ZUNVEYL"
+      ],
+      "heading": "Zunveyl (benzgalantamine) — source-verified AHCCCS clinical criteria",
+      "sourcePage": 2134,
+      "sourceLastPage": 2135,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Mild-to-moderate Alzheimer-type dementia, age ≥18, and trial failure/contraindication/intolerance to ALL three generic cholinesterase inhibitors.",
+      "guidelineCaution": "The original statewide policy specifies these requirements but does not establish this medication's coverage or PA flag for an individual Pima AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-241267.txt",
+      "sourceChecks": [
+        "Product Name:Zunveyl",
+        "Diagnosis of mild to moderate dementia of the Alzheimer’s type",
+        "Patient is 18 years of age or older",
+        "generic galantamine",
+        "generic rivastigmine",
+        "generic donepezil"
+      ],
+      "pathways": [
+        {
+          "title": "All five requirements",
+          "all": [
+            "Diagnosis of mild-to-moderate Alzheimer-type dementia.",
+            "Patient is at least 18 years old.",
+            "Trial failure after a minimum 30-day supply, contraindication, or intolerance to generic galantamine.",
+            "Trial failure after a minimum 30-day supply, contraindication, or intolerance to generic rivastigmine.",
+            "Trial failure after a minimum 30-day supply, contraindication, or intolerance to generic donepezil."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable criteria from the original guideline (including chart notes, clinical history, claims, or specialist input when required)."
+      ]
+    },
+    {
+      "id": "gl-241268-xromi",
+      "policyCode": "GL-241268",
+      "product": "Xromi (hydroxyurea oral solution)",
+      "matchBrands": [
+        "XROMI"
+      ],
+      "heading": "Xromi (hydroxyurea oral solution) — source-verified AHCCCS clinical criteria",
+      "sourcePage": 2081,
+      "sourceLastPage": 2082,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Sickle cell anemia and moderate/severe painful crises, age ≥6 months, liquid formulation need; positive response for renewal. Source note: PA required only for patients older than 10.",
+      "guidelineCaution": "The original statewide policy specifies these requirements but does not establish this medication's coverage or PA flag for an individual Pima AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-241268.txt",
+      "sourceChecks": [
+        "Product Name:Xromi",
+        "Patient has moderate to severe painful crises",
+        "Patient is 6 months of age or older",
+        "PA is required for patients greater than 10 years of age"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 12 months",
+          "all": [
+            "Diagnosis of sickle cell anemia.",
+            "Moderate-to-severe painful crises.",
+            "At least 6 months old.",
+            {
+              "any": [
+                "Cannot swallow solid oral tablets/capsules because of age, physical coordination impairment, dysphagia, or feeding tube.",
+                "Required dose cannot be met using a solid dosage form."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Positive clinical response to therapy."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable criteria from the original guideline (including chart notes, clinical history, claims, or specialist input when required)."
+      ]
+    },
+    {
+      "id": "gl-285207-xdemvy",
+      "policyCode": "GL-285207",
+      "product": "Xdemvy (lotilaner ophthalmic)",
+      "matchBrands": [
+        "XDEMVY"
+      ],
+      "heading": "Xdemvy (lotilaner ophthalmic) — source-verified AHCCCS clinical criteria",
+      "sourcePage": 2025,
+      "sourceLastPage": 2026,
+      "approvalDuration": "2 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Demodex blepharitis diagnosis with ≥1 sign, symptoms/anatomic change, failed ≥12-week trials of BOTH tea tree oil and eyelid scrubs, and eye-care specialist.",
+      "guidelineCaution": "The original statewide policy specifies these requirements but does not establish this medication's coverage or PA flag for an individual Pima AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-285207.txt",
+      "sourceChecks": [
+        "Product Name:Xdemvy",
+        "Diagnosis of Demodex blepharitis",
+        "Inadequate response to at least a 12-week trial of BOTH of the following",
+        "Ophthalmologist"
+      ],
+      "pathways": [
+        {
+          "title": "All requirements",
+          "all": [
+            "Medical records document Demodex blepharitis.",
+            {
+              "any": [
+                "Collarettes.",
+                "Eyelid margin erythema.",
+                "Eyelash abnormalities such as misdirection."
+              ]
+            },
+            "Demodex-associated symptoms or anatomic changes (burning, tearing, itching, foreign body sensation, lash loss or inward lash growth).",
+            "Inadequate response to at least 12 weeks of tea tree oil treatment.",
+            "Inadequate response to at least 12 weeks of eyelid scrubs.",
+            {
+              "any": [
+                "Prescribed by or in consultation with an ophthalmologist.",
+                "Prescribed by or in consultation with an optometrist."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable criteria from the original guideline (including chart notes, clinical history, claims, or specialist input when required)."
+      ]
+    },
+    {
+      "id": "gl-269199-lama-laba-regular",
+      "policyCode": "GL-269199",
+      "product": "LAMA/LABA inhalers (Anoro Ellipta/Stiolto)",
+      "matchBrands": [
+        "ANORO ELLIPTA",
+        "STIOLTO RESPIMAT",
+        "STIOLTO"
+      ],
+      "heading": "LAMA/LABA inhalers (Anoro Ellipta/Stiolto) — source-verified AHCCCS clinical criteria",
+      "sourcePage": 1056,
+      "sourceLastPage": 1057,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "COPD plus 30-day failure/contraindication/intolerance to either LABA or inhaled anticholinergic; Bevespi and brand umeclidinium-vilanterol have additional product-specific conditions not included here.",
+      "guidelineCaution": "The original statewide policy specifies these requirements but does not establish this medication's coverage or PA flag for an individual Pima AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-269199.txt",
+      "sourceChecks": [
+        "Product Name:Brand Anoro Ellipta, Brand Umeclidinium-vilanterol, Bevespi, Stiolto",
+        "Diagnosis of chronic obstructive pulmonary disease (COPD)",
+        "30 day trial of a long-",
+        "30 day trial of an"
+      ],
+      "pathways": [
+        {
+          "title": "Standard LAMA/LABA requirements",
+          "all": [
+            "Diagnosis of COPD.",
+            {
+              "any": [
+                "Failure, contraindication, or intolerance after a 30-day trial of LABA (e.g., Serevent, Striverdi, Foradil, Arcapta).",
+                "Failure, contraindication, or intolerance after a 30-day trial of orally inhaled anticholinergic (e.g., Spiriva, Atrovent, Combivent, Tudorza)."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable criteria from the original guideline (including chart notes, clinical history, claims, or specialist input when required)."
+      ]
+    },
+    {
+      "id": "gl-269199-bevespi",
+      "policyCode": "GL-269199",
+      "product": "Bevespi (glycopyrrolate/formoterol)",
+      "matchBrands": [
+        "BEVESPI",
+        "BEVESPI AEROSPHERE"
+      ],
+      "heading": "Bevespi (glycopyrrolate/formoterol) — source-verified AHCCCS clinical criteria",
+      "sourcePage": 1056,
+      "sourceLastPage": 1057,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "COPD plus prior 30-day LABA or anticholinergic, AND trials of both preferred Anoro Ellipta and Stiolto Respimat for Bevespi requests.",
+      "guidelineCaution": "The original statewide policy specifies these requirements but does not establish this medication's coverage or PA flag for an individual Pima AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-269199.txt",
+      "sourceChecks": [
+        "Product Name:Brand Anoro Ellipta, Brand Umeclidinium-vilanterol, Bevespi, Stiolto",
+        "For Bevespi requests ONLY",
+        "Brand Anoro Ellipta",
+        "Stiolto Respimat"
+      ],
+      "pathways": [
+        {
+          "title": "COPD and all Bevespi prerequisites",
+          "all": [
+            "Diagnosis of COPD.",
+            {
+              "any": [
+                "Failure, contraindication, or intolerance after 30-day LABA trial.",
+                "Failure, contraindication, or intolerance after 30-day inhaled anticholinergic trial."
+              ]
+            },
+            "Failure, contraindication, or intolerance after 30-day trial of Brand Anoro Ellipta.",
+            "Failure, contraindication, or intolerance after 30-day trial of Stiolto Respimat."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable criteria from the original guideline (including chart notes, clinical history, claims, or specialist input when required)."
+      ]
+    },
+    {
+      "id": "gl-300315-jynarque",
+      "policyCode": "GL-300315",
+      "product": "Jynarque (tolvaptan) brand",
+      "matchBrands": [
+        "JYNARQUE",
+        "JYNARQUE PAK"
+      ],
+      "heading": "Jynarque (tolvaptan) brand — source-verified AHCCCS clinical criteria",
+      "sourcePage": 1011,
+      "sourceLastPage": 1012,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Brand Jynarque initial requires ADPKD diagnosis; renewal positive clinical response. Generic tolvaptan has an additional brand failure/intolerance rule and is excluded from this brand guide.",
+      "guidelineCaution": "The original statewide policy specifies these requirements but does not establish this medication's coverage or PA flag for an individual Pima AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-300315.txt",
+      "sourceChecks": [
+        "Product Name:Brand Jynarque, Brand Jynarque Pak, generic tolvaptan",
+        "Diagnosis of autosomal dominant polycystic kidney disease (ADPKD)",
+        "Documentation of positive clinical response to therapy",
+        "For generic tolvaptan requests ONLY"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 12 months",
+          "all": [
+            "Diagnosis of autosomal dominant polycystic kidney disease (ADPKD)."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Documentation of positive clinical response to therapy."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable criteria from the original guideline (including chart notes, clinical history, claims, or specialist input when required)."
+      ]
+    },
+    {
+      "id": "gl-322195-sofdra",
+      "policyCode": "GL-322195",
+      "product": "Sofdra (sofpironium topical gel)",
+      "matchBrands": [
+        "SOFDRA"
+      ],
+      "heading": "Sofdra (sofpironium topical gel) — source-verified AHCCCS clinical criteria",
+      "sourcePage": 1639,
+      "sourceLastPage": 1641,
+      "approvalDuration": "6 weeks",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Axillary hyperhidrosis ≥6 months, age ≥9, secondary causes ruled out, daily activity impairment, six-week antiperspirant step, Botox step, dermatology; renewal response for 6 months.",
+      "guidelineCaution": "The original statewide policy specifies these requirements but does not establish this medication's coverage or PA flag for an individual Pima AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-322195.txt",
+      "sourceChecks": [
+        "Product Name:Sofdra",
+        "Diagnosis of primary axillary hyperhidrosis",
+        "Patient is 9 years of age or older",
+        "Trial and failure, contraindication, or intolerance to Botox"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 6 weeks",
+          "all": [
+            "Diagnosis of primary axillary hyperhidrosis.",
+            "Symptoms for at least 6 months.",
+            "Patient at least 9 years old.",
+            "Other causes of hyperhidrosis excluded (e.g., menopause, medications).",
+            "Disease frequently interferes with daily activities.",
+            "Failure after ≥6-week supply, contraindication, or intolerance to prescription-strength aluminum-chloride antiperspirant (e.g., Drysol, Xerac AC).",
+            "Trial failure, contraindication, or intolerance to Botox.",
+            "Prescribed by or in consultation with dermatologist."
+          ]
+        },
+        {
+          "title": "Reauthorization — 6 months",
+          "all": [
+            "Positive clinical response (e.g., improved productivity or psychosocial well-being)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document applicable criteria from the original guideline (including chart notes, clinical history, claims, or specialist input when required)."
+      ]
     }
   ]
 }
