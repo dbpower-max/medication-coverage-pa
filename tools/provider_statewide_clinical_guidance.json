@@ -5111,6 +5111,112 @@
       "documentationSuggestions": [
         "Use supporting medical records, prior drug trials, lab data or documented clinical response required by source."
       ]
+    },
+    {
+      "id": "gl-396205-kerendia",
+      "policyCode": "GL-396205",
+      "product": "Kerendia (finerenone)",
+      "matchBrands": [
+        "KERENDIA"
+      ],
+      "heading": "Kerendia — CKD/T2D and HF source-verified pathways",
+      "sourcePage": 1022,
+      "sourceLastPage": 1027,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Four separately labeled source branches: initial CKD associated with type 2 diabetes; CKD reauthorization; initial HF with LVEF ≥40%; and HF reauthorization. Both indications require distinct source-supported SGLT2 alternatives.",
+      "guidelineCaution": "Source-specific statewide clinical criteria do not establish plan-specific coverage or PA requirements. CKD and heart failure branches are alternatives by indication, not cumulative requirements.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-396205.txt",
+      "sourceChecks": [
+        "Product Name:Kerendia",
+        "Urine albumin-to-creatinine ratio (UACR) greater than or equal to 30 mg/g",
+        "Serum potassium level less than or equal to 5.0 mEq/L",
+        "Heart Failure with Left Ventricular Ejection Fraction",
+        "Prescribed by or in consultation with a cardiologist"
+      ],
+      "stages": [
+        {
+          "title": "CKD associated with T2D — initial authorization 12 months",
+          "all": [
+            "CKD associated with type 2 diabetes.",
+            "UACR ≥30 mg/g.",
+            "eGFR ≥25 mL/min/1.73m².",
+            "Serum K ≤5.0 mEq/L before starting.",
+            {
+              "any": [
+                "At least 30-day trial of maximally tolerated ACE inhibitor (and will continue ACE inhibitor).",
+                "At least 30-day trial of maximally tolerated ARB (and will continue ARB).",
+                "Contraindication or intolerance to BOTH ACE inhibitors and ARBs."
+              ]
+            },
+            {
+              "any": [
+                "Stable SGLT2 inhibitor (e.g., Farxiga/Jardiance), and therapy will continue.",
+                "Contraindication or intolerance to SGLT2 inhibitor."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "CKD associated with T2D — reauthorization 12 months",
+          "all": [
+            "Positive clinical response.",
+            {
+              "any": [
+                "Continues a maximally tolerated ACE inhibitor or ARB.",
+                "Contraindication or intolerance to BOTH ACE inhibitors and ARBs."
+              ]
+            },
+            {
+              "any": [
+                "Continues SGLT2 inhibitor.",
+                "Contraindication or intolerance to SGLT2 inhibitor."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Heart failure with LVEF ≥40% — initial authorization 12 months",
+          "all": [
+            "Documented heart failure.",
+            "LVEF ≥40%.",
+            {
+              "any": [
+                "NYHA class II symptoms.",
+                "NYHA class III symptoms.",
+                "NYHA class IV symptoms."
+              ]
+            },
+            "eGFR ≥25 mL/min/1.73m².",
+            "Serum K ≤5.0 mEq/L before initiation.",
+            "On diuretic therapy for HF symptoms for at least 30 days.",
+            "Not taking Kerendia concomitantly with spironolactone or eplerenone.",
+            {
+              "any": [
+                "On stable SGLT2 inhibitor and will continue.",
+                "SGLT2 inhibitor contraindication or intolerance."
+              ]
+            },
+            "Prescribed by or in consultation with cardiologist."
+          ]
+        },
+        {
+          "title": "Heart failure with LVEF ≥40% — reauthorization 12 months",
+          "all": [
+            "Positive clinical response.",
+            {
+              "any": [
+                "Continues SGLT2 inhibitor.",
+                "SGLT2 inhibitor contraindication or intolerance."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Specify CKD/T2D versus HF indication; include UACR/eGFR/potassium, ACE/ARB history, SGLT2 status, and for HF LVEF, NYHA, diuretic use, and cardiology."
+      ]
     }
   ]
 }
