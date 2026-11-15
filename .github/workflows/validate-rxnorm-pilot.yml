@@ -21,6 +21,27 @@ jobs:
           python-version: '3.12'
       - name: Offline validation (no API needed)
         run: python -m unittest discover -s tools -p test_rxnorm_pilot.py -v
+      - name: Read-only RxNav integration preview (never changes the app)
+        id: live_rxnav
+        continue-on-error: true
+        run: |
+          python tools/rxnorm_pilot.py refresh \
+            --targets data/rxnorm-pilot/targets.json \
+            --output /tmp/rxnorm-candidate-preview.json
+          python tools/rxnorm_pilot.py diff \
+            --previous data/rxnorm-pilot/snapshot.json \
+            --current /tmp/rxnorm-candidate-preview.json \
+            --report /tmp/rxnorm-candidate-preview.md
+          cat /tmp/rxnorm-candidate-preview.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rxnorm-review-only-preview
+          path: |
+            /tmp/rxnorm-candidate-preview.json
+            /tmp/rxnorm-candidate-preview.md
+          if-no-files-found: ignore
+          retention-days: 7
       - name: Verify pilot does not alter production
         run: |
           python -m py_compile tools/rxnorm_pilot.py
