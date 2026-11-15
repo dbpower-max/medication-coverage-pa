@@ -154,6 +154,16 @@
     }));
   }
 
+  // A verified, product-specific clinical guide is already displayed on the
+  // medication card. Keep its class-level policy index in the separate
+  // searchable clinical criteria library rather than repeating it as a
+  // second top-level medication search result. Never infer plan coverage.
+  function redundantIndexedPolicyResult(record, visibleGuideCodes, medicationQuery) {
+    return record.recordType === 'policy_index'
+      && Boolean(normalize(medicationQuery))
+      && visibleGuideCodes.has(record.policyCode);
+  }
+
   function medicationRoute(name) {
     const text = normalize(name);
     if (/\b(intravenous|\biv\b)\b/.test(text)) return 'iv';
@@ -1034,10 +1044,14 @@
       ...(r.approvalGuideIds || []), ...(r.paPolicyAssignments || []).map(p => p.branchId),
       ...(r.policySources || []).map(p => p.policyId).filter(Boolean)
     ])));
+    const clinicalPolicyCodesAlreadyDisplayed = new Set(groups
+      .map(clinicalGuidanceFor).filter(Boolean).map(guide => guide.policyCode));
     const additionalGuides = (!state.coverage || state.coverage === 'policy_only' || state.coverage === 'policy_index')
       && !state.category && !state.subcategory
       ? clinicalPolicyOnlyGroups(state.term, groups) : [];
-    const records = [...groups, ...additionalGuides, ...matchingRecords.filter(r => r.recordType !== 'formulary' && !linkedPolicies.has(r.id))];
+    const records = [...groups, ...additionalGuides, ...matchingRecords.filter(r => r.recordType !== 'formulary'
+      && !linkedPolicies.has(r.id)
+      && !redundantIndexedPolicyResult(r, clinicalPolicyCodesAlreadyDisplayed, state.term))];
     planStatus();
     el.loadingState.hidden = true;
     el.resultCount.textContent = records.length.toLocaleString();
