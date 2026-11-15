@@ -62,6 +62,12 @@ for guide in clinical_guidance["guides"]:
     assert guide["policyCode"].lower() in raw
     brands = guide.get("matchBrands", [])
     generic_names = guide.get("matchNames", [])
+    # The product matcher must enforce source-confirmed strength restrictions.
+    if "matchStrengthMg" in guide:
+        strength = guide["matchStrengthMg"]
+        assert type(strength) in (int, float) and strength > 0, "Invalid guide strength: " + guide["id"]
+        amount = str(int(strength)) if float(strength).is_integer() else str(strength)
+        assert amount + "mg" in raw.replace(" mg", "mg"), "Strength absent from original policy: " + guide["id"]
     assert brands or generic_names, "Guide must have an exact product brand or medication-name key"
     for kind, identity in (("brand", brands), ("name", generic_names)):
         for value in identity:

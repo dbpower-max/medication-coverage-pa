@@ -672,3 +672,47 @@ assert(getSprint('155844-vafseo').stages[0].all[4].any.length===2 &&
  getSprint('155844-vafseo').stages[1].all[3].any.length===2,
  'Vafseo preferred ESA step or renewal requirements lost');
 console.log('PASS: 20 new guides in 19 original policies; exact-source, identity, route, AND/OR and stage safeguards');
+
+
+// GL-105174 BPH is explicitly limited to the 5 mg Cialis/tadalafil product.
+// Fail closed on unconfirmed, 2.5 mg, 10 mg, 20 mg, and mixed-strength records.
+const bphGuide=guidance.find(g=>g.id==='gl-105174-cialis-bph');
+assert(bphGuide&&bphGuide.policyCode==='GL-105174'&&bphGuide.matchStrengthMg===5,
+  'Cialis BPH guide must require exact 5 mg product');
+assert(bphGuide.sourcePage===337&&bphGuide.sourceLastPage===338
+  &&bphGuide.approvalDuration==='12 months','Cialis BPH original source reference mismatch');
+assert(JSON.stringify(bphGuide.matchBrands)===JSON.stringify(['CIALIS'])
+  &&JSON.stringify(bphGuide.matchNames)===JSON.stringify(['TADALAFIL']),
+  'Cialis BPH guide may only match confirmed original product identities');
+const bphAll=bphGuide.pathways?.[0]?.all;
+assert(bphAll?.length===4&&bphAll[1].all.length===2
+  &&bphAll[1].all.every(branch=>branch.any?.length===3),
+  'Cialis BPH requires BOTH alpha-blocker AND 5-alpha inhibitor failure/intolerance/contraindication');
+assert(bphAll[2].includes('5 mg')&&bphAll[3].includes('Adempas'),
+  'Cialis BPH dose and nitrate/riociguat protections missing');
+ui.bph5={name:'TADALAFIL 5 MG TABLET',brands:['CIALIS'],
+  records:[{recordType:'formulary',name:'TADALAFIL 5 MG TABLET (brand for CIALIS)'}]};
+ui.bphGeneric5={name:'TADALAFIL',brands:[],
+  records:[{recordType:'formulary',name:'TADALAFIL 5MG TABLET'}]};
+assert(vm.runInContext('clinicalGuidanceFor(bph5)',ui)?.id===bphGuide.id,
+  '5 mg Cialis brand record not recognized');
+assert(vm.runInContext('clinicalGuidanceFor(bphGeneric5)',ui)?.id===bphGuide.id,
+  'Explicit generic tadalafil 5 mg record not recognized');
+const unsafeBph=[
+ {name:'TADALAFIL 2.5 MG TABLET',brands:['CIALIS'],records:[{name:'TADALAFIL 2.5 MG TABLET'}]},
+ {name:'TADALAFIL 10 MG TABLET',brands:['CIALIS'],records:[{name:'TADALAFIL 10 MG TABLET'}]},
+ {name:'TADALAFIL 20 MG TABLET',brands:['CIALIS'],records:[{name:'TADALAFIL 20 MG TABLET'}]},
+ {name:'TADALAFIL',brands:['CIALIS'],records:[{name:'TADALAFIL TABLET'}]},
+ {name:'TADALAFIL',brands:[],records:[{name:'TADALAFIL 20 MG TABLET'}]},
+ {name:'TADALAFIL 5 MG TABLET',brands:['CIALIS'],records:[{name:'TADALAFIL 5 MG TABLET'}, {name:'TADALAFIL 20 MG TABLET'}]},
+ {name:'SILDENAFIL 5 MG TABLET',brands:['VIAGRA'],records:[{name:'SILDENAFIL 5 MG TABLET'}]}
+];
+for (const candidate of unsafeBph) {
+ ui.unsafeBph=candidate;
+ assert(vm.runInContext('clinicalGuidanceFor(unsafeBph)',ui)===null,
+   'Strength-specific BPH criteria incorrectly attached to '+candidate.name);
+}
+const bphHtml=vm.runInContext('clinicalGuidanceContent(clinicalGuidanceFor(bph5))',ui);
+assert(bphHtml.includes('5 mg')&&bphHtml.includes('Adempas')
+  &&bphHtml.includes('alpha'), 'BPH clinical card omitted key eligibility conditions');
+console.log('PASS: GL-105174 BPH 5 mg, source, branch and 7 negative strength/matcher regressions');
