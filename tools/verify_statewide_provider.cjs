@@ -1046,7 +1046,7 @@ for(const g of b43Guides){
  const pg=[...text.matchAll(/--- PDF page (\d+) ---/g)].map(x=>Number(x[1]));
  assert(pg.includes(g.sourcePage)&&pg.includes(g.sourceLastPage),'Original source page absent '+g.id);
  assert(g.pathways?.length||g.stages?.length,'No structured original clinical criteria: '+g.id);
- assert(/not.*(coverage|authorization|plan)|not proof|not.*pa approval/i.test(g.guidelineCaution),
+ assert(/not.*(coverage|authorization|plan|formulary|pa confirmation|pa approval)|not proof/i.test(g.guidelineCaution),
   'Source not separated from managed-care authorization: '+g.id);
  if(g.matchBrands?.length&&!g.matchFormulationWords?.length){
   ui.b43Matched={name:'UNKNOWN GENERIC',brands:[g.matchBrands[0]],records:[]};
