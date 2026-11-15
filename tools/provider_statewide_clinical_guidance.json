@@ -6098,6 +6098,151 @@
       "documentationSuggestions": [
         "Verify source-specific records and clinical prerequisites."
       ]
+    },
+    {
+      "id": "gl-357234-spevigo",
+      "policyCode": "GL-357234",
+      "product": "Spevigo (spesolimab-sbzo)",
+      "matchBrands": [
+        "SPEVIGO"
+      ],
+      "heading": "Spevigo (spesolimab-sbzo) — original AHCCCS clinical policy",
+      "sourcePage": 1662,
+      "sourceLastPage": 1665,
+      "approvalDuration": "14 days",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Separate IV flare treatment 14 days (max two infusions per flare), and SC relapse prevention 12-month initial/renewal; no SC treatment of acute flare.",
+      "guidelineCaution": "Statewide clinical eligibility is not a plan-specific coverage or PA confirmation. The relevant route, indication and stage must match the request.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-357234.txt",
+      "sourceChecks": [
+        "Product Name:Spevigo IV",
+        "Product Name:Spevigo SC",
+        "Patient has not already received two infusions of Spevigo",
+        "Subcutaneous formulation will not be used to treat GPP flare"
+      ],
+      "stages": [
+        {
+          "title": "IV — treatment of active GPP flare",
+          "approvalDuration": "14 days",
+          "all": [
+            "Diagnosis of generalized pustular psoriasis.",
+            {
+              "any": [
+                "New or worsening fresh pustules.",
+                "At least 5% BSA erythema with pustules.",
+                "GPPPGA total score ≥3.",
+                "GPPPGA pustulation subscore ≥2."
+              ]
+            },
+            "Patient age ≥12 years.",
+            "Weight ≥40 kg.",
+            "Dermatologist prescriber or consultation.",
+            "No more than TWO Spevigo infusions for a single GPP flare."
+          ]
+        },
+        {
+          "title": "SC — initial prevention/maintenance",
+          "approvalDuration": "12 months",
+          "all": [
+            {
+              "all": [
+                "Generalized pustular psoriasis with primary sterile visible pustules on non-acral skin, excluding solely plaque-limited pustules.",
+                "Relapsing GPP (>1 episode) or persistent disease (>3 months)."
+              ]
+            },
+            "SC NOT used to treat an acute GPP flare.",
+            "Age ≥12 years.",
+            "Weight ≥40 kg.",
+            "Dermatology prescriber or consultation."
+          ]
+        },
+        {
+          "title": "SC — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response (e.g., fewer flares)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-required medical records and specialist documentation."
+      ]
+    },
+    {
+      "id": "gl-396204-gamifant",
+      "policyCode": "GL-396204",
+      "product": "Gamifant (emapalumab-lzsg)",
+      "matchBrands": [
+        "GAMIFANT"
+      ],
+      "heading": "Gamifant (emapalumab-lzsg) — original AHCCCS clinical policy",
+      "sourcePage": 702,
+      "sourceLastPage": 705,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Two distinct indications with separate initial/renewal 6-month stages; primary HLH requires no prior HSCT.",
+      "guidelineCaution": "Statewide clinical eligibility is not a plan-specific coverage or PA confirmation. The relevant route, indication and stage must match the request.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-396204.txt",
+      "sourceChecks": [
+        "Product Name:Gamifant",
+        "Primary Hemophagocytic Lymphohistiocytosis (HLH)",
+        "Patient has not received HSCT",
+        "Disease occurs in known or suspected Still’s disease"
+      ],
+      "stages": [
+        {
+          "title": "Primary HLH — initial authorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Primary hemophagocytic lymphohistiocytosis confirmed.",
+            {
+              "any": [
+                "Refractory disease.",
+                "Recurrent disease.",
+                "Progressive disease.",
+                "Failure, contraindication, or intolerance to conventional HLH therapy (etoposide, dexamethasone, cyclosporine A, or intrathecal methotrexate)."
+              ]
+            },
+            "Prescribed by or in consultation with hematologist/oncologist.",
+            "Patient has NOT received HSCT."
+          ]
+        },
+        {
+          "title": "Primary HLH — reauthorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Positive response (e.g., normalized fever, hematologic or inflammatory markers).",
+            "Patient has NOT received HSCT."
+          ]
+        },
+        {
+          "title": "Still disease HLH/MAS — initial authorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Active HLH/macrophage activation syndrome confirmed.",
+            "Occurs in known or suspected Still disease (systemic JIA or adult-onset Still disease).",
+            {
+              "any": [
+                "Trial failure, contraindication, or intolerance to high-dose corticosteroids.",
+                "Recurrent MAS."
+              ]
+            },
+            "Prescribed by or in consultation with rheumatologist/hematologist."
+          ]
+        },
+        {
+          "title": "Still disease HLH/MAS — reauthorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Positive clinical response (e.g., improved leukocyte/platelet counts, resolution of fever, normalized inflammation)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-required medical records and specialist documentation."
+      ]
     }
   ]
 }
