@@ -7960,6 +7960,539 @@
       "documentationSuggestions": [
         "Document source-indicated diagnosis, treatment failures, test results, and specialist consultation."
       ]
+    },
+    {
+      "id": "gl-99466-inbrija",
+      "policyCode": "GL-99466",
+      "product": "Inbrija (levodopa inhalation powder)",
+      "matchBrands": [
+        "INBRIJA"
+      ],
+      "heading": "Inbrija (levodopa inhalation powder) — November original AHCCCS criteria",
+      "sourcePage": 949,
+      "sourceLastPage": 951,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "OFF episodes refractory to optimized carbidopa/levodopa and TWO distinct adjunctive drug classes.",
+      "guidelineCaution": "Historical section included in November 2026 statewide source. This is not an individualized coverage, safety endorsement, or managed-care PA approval.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99466.txt",
+      "sourceChecks": [
+        "Product Name:Inbrija",
+        "greater than or equal to 2 hours of OFF time per day",
+        "trial must be from two",
+        "Documentation of positive clinical response to Inbrija therapy"
+      ],
+      "stages": [
+        {
+          "title": "Initial approval",
+          "approvalDuration": "6 months",
+          "all": [
+            "Parkinson disease diagnosed.",
+            "Intermittent treatment of OFF episodes.",
+            "Neurologist or Parkinson disease specialist prescribed/consulted.",
+            "Stable carbidopa/levodopa and continuing it.",
+            {
+              "all": [
+                "OFF time ≥2 hours/day despite optimization.",
+                {
+                  "all": [
+                    "Timing carbidopa/levodopa on empty stomach or away from protein meals.",
+                    "Dose and dosing interval optimized."
+                  ]
+                }
+              ]
+            },
+            "Failed, contraindicated, or intolerant to TWO adjunct agents from TWO DIFFERENT classes: dopamine agonists, COMT inhibitors, or MAO-B inhibitors."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive response to Inbrija.",
+            "Continue carbidopa/levodopa-containing therapy."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document treatment indication, prior trials, specialist involvement and measurable response as specified."
+      ]
+    },
+    {
+      "id": "gl-99468-lotronex",
+      "policyCode": "GL-99468",
+      "product": "Brand Lotronex / generic alosetron",
+      "matchBrands": [
+        "LOTRONEX"
+      ],
+      "matchNames": [
+        "ALOSETRON"
+      ],
+      "heading": "Brand Lotronex / generic alosetron — November original AHCCCS criteria",
+      "sourcePage": 985,
+      "sourceLastPage": 987,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Severe IBS-D in adults assigned female at birth, ≥6 months symptoms, prior TWO of three drug classes.",
+      "guidelineCaution": "Historical section included in November 2026 statewide source. This is not an individualized coverage, safety endorsement, or managed-care PA approval.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99468.txt",
+      "sourceChecks": [
+        "Product Name:Brand Lotronex, generic alosetron",
+        "Patient was female at birth",
+        "Symptoms for at least 6 months",
+        "Antispasmodic agent"
+      ],
+      "stages": [
+        {
+          "title": "Initial approval",
+          "approvalDuration": "12 months",
+          "all": [
+            "Severe diarrhea-predominant IBS.",
+            "Symptoms ≥6 months.",
+            "Patient assigned female at birth.",
+            "Age ≥18 years.",
+            {
+              "any": [
+                {
+                  "all": [
+                    "Failed, contraindicated or intolerant to antispasmodic (e.g., dicyclomine).",
+                    "Failed, contraindicated or intolerant to antidiarrheal (e.g., loperamide)."
+                  ]
+                },
+                {
+                  "all": [
+                    "Failed, contraindicated or intolerant to antispasmodic.",
+                    "Failed, contraindicated or intolerant to TCA (e.g., amitriptyline)."
+                  ]
+                },
+                {
+                  "all": [
+                    "Failed, contraindicated or intolerant to antidiarrheal.",
+                    "Failed, contraindicated or intolerant to TCA."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response to Lotronex."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document treatment indication, prior trials, specialist involvement and measurable response as specified."
+      ]
+    },
+    {
+      "id": "gl-99468-viberzi",
+      "policyCode": "GL-99468",
+      "product": "Viberzi (eluxadoline)",
+      "matchBrands": [
+        "VIBERZI"
+      ],
+      "heading": "Viberzi (eluxadoline) — November original AHCCCS criteria",
+      "sourcePage": 986,
+      "sourceLastPage": 987,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "IBS-D with TWO prior failed/contraindicated/intolerated agents from antispasmodic, antidiarrheal, or TCA classes.",
+      "guidelineCaution": "Historical section included in November 2026 statewide source. This is not an individualized coverage, safety endorsement, or managed-care PA approval.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99468.txt",
+      "sourceChecks": [
+        "Product Name:Viberzi",
+        "Diagnosis of irritable bowel syndrome with diarrhea (IBS-D)",
+        "History of failure, contraindication, or intolerance to TWO"
+      ],
+      "stages": [
+        {
+          "title": "Initial approval",
+          "approvalDuration": "12 months",
+          "all": [
+            "IBS with diarrhea diagnosed.",
+            {
+              "any": [
+                {
+                  "all": [
+                    "Failed, contraindicated or intolerant to antispasmodic (e.g., dicyclomine).",
+                    "Failed, contraindicated or intolerant to antidiarrheal (e.g., loperamide)."
+                  ]
+                },
+                {
+                  "all": [
+                    "Failed, contraindicated or intolerant to antispasmodic.",
+                    "Failed, contraindicated or intolerant to TCA (e.g., amitriptyline)."
+                  ]
+                },
+                {
+                  "all": [
+                    "Failed, contraindicated or intolerant to antidiarrheal.",
+                    "Failed, contraindicated or intolerant to TCA."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response to Viberzi."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document treatment indication, prior trials, specialist involvement and measurable response as specified."
+      ]
+    },
+    {
+      "id": "gl-99486-osphena",
+      "policyCode": "GL-99486",
+      "product": "Osphena (ospemifene)",
+      "matchBrands": [
+        "OSPHENA"
+      ],
+      "heading": "Osphena (ospemifene) — November original AHCCCS criteria",
+      "sourcePage": 1348,
+      "sourceLastPage": 1349,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Menopause-related vaginal dryness; BOTH estradiol cream and vaginal tablets required. Source excludes dyspareunia benefit.",
+      "guidelineCaution": "Historical section included in November 2026 statewide source. This is not an individualized coverage, safety endorsement, or managed-care PA approval.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99486.txt",
+      "sourceChecks": [
+        "Product Name:Osphena",
+        "moderate to severe vaginal dryness",
+        "Estradiol vaginal cream",
+        "Estradiol vaginal tablet"
+      ],
+      "stages": [
+        {
+          "title": "Initial approval",
+          "approvalDuration": "12 months",
+          "all": [
+            "Moderate/severe vaginal dryness from menopausal vulvar/vaginal atrophy.",
+            {
+              "all": [
+                "Failure, contraindication or intolerance to estradiol vaginal cream.",
+                "Failure, contraindication or intolerance to estradiol vaginal tablet."
+              ]
+            },
+            "Source explicitly EXCLUDES treatment of dyspareunia as a benefit."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Documented positive clinical response."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document treatment indication, prior trials, specialist involvement and measurable response as specified."
+      ]
+    },
+    {
+      "id": "gl-99488-pretomanid",
+      "policyCode": "GL-99488",
+      "product": "Pretomanid",
+      "matchNames": [
+        "PRETOMANID"
+      ],
+      "heading": "Pretomanid — November original AHCCCS criteria",
+      "sourcePage": 1412,
+      "sourceLastPage": 1413,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "XDR-TB or MDR-TB intolerant/nonresponsive to treatment; use with both bedaquiline and linezolid.",
+      "guidelineCaution": "Historical section included in November 2026 statewide source. This is not an individualized coverage, safety endorsement, or managed-care PA approval.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99488.txt",
+      "sourceChecks": [
+        "Product Name:Pretomanid",
+        "extensively drug resistant (XDR) tuberculosis",
+        "bedaquiline and linezolid"
+      ],
+      "pathways": [
+        {
+          "title": "Qualifying TB diagnosis AND combination therapy",
+          "all": [
+            {
+              "any": [
+                "Pulmonary extensively drug-resistant TB diagnosed.",
+                "Treatment-intolerant or nonresponsive multidrug-resistant TB."
+              ]
+            },
+            "Pretomanid will be administered WITH both bedaquiline AND linezolid."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document treatment indication, prior trials, specialist involvement and measurable response as specified."
+      ]
+    },
+    {
+      "id": "gl-99489-nonoral-progesterone",
+      "policyCode": "GL-99489",
+      "product": "Crinone / Endometrin vaginal progesterone",
+      "matchBrands": [
+        "CRINONE",
+        "ENDOMETRIN"
+      ],
+      "heading": "Crinone / Endometrin vaginal progesterone — November original AHCCCS criteria",
+      "sourcePage": 1424,
+      "sourceLastPage": 1425,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "The source only specifies non-infertility use; do not infer that historical examples represent current guideline-endorsed treatment.",
+      "guidelineCaution": "Historical section included in November 2026 statewide source. This is not an individualized coverage, safety endorsement, or managed-care PA approval.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99489.txt",
+      "sourceChecks": [
+        "Product Name:Crinone, Endometrin",
+        "Treatment is for non-infertility use",
+        "secondary amenorrhea"
+      ],
+      "pathways": [
+        {
+          "title": "Non-infertility indication",
+          "all": [
+            "Medication prescribed for non-infertility use (e.g., secondary amenorrhea or source-listed preterm-birth prevention)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document treatment indication, prior trials, specialist involvement and measurable response as specified."
+      ]
+    },
+    {
+      "id": "gl-99492-rectiv",
+      "policyCode": "GL-99492",
+      "product": "Rectiv (nitroglycerin rectal ointment)",
+      "matchBrands": [
+        "RECTIV"
+      ],
+      "heading": "Rectiv (nitroglycerin rectal ointment) — November original AHCCCS criteria",
+      "sourcePage": 1466,
+      "sourceLastPage": 1467,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Moderate/severe pain related to chronic anal fissures.",
+      "guidelineCaution": "Historical section included in November 2026 statewide source. This is not an individualized coverage, safety endorsement, or managed-care PA approval.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99492.txt",
+      "sourceChecks": [
+        "Product Name:Rectiv",
+        "Pain Associated with Chronic Anal Fissures",
+        "Diagnosis of moderate to severe pain"
+      ],
+      "pathways": [
+        {
+          "title": "Chronic anal fissure pain",
+          "all": [
+            "Moderate-to-severe pain associated with chronic anal fissures diagnosed."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document treatment indication, prior trials, specialist involvement and measurable response as specified."
+      ]
+    },
+    {
+      "id": "gl-99495-serevent",
+      "policyCode": "GL-99495",
+      "product": "Serevent Diskus (salmeterol inhalation)",
+      "matchBrands": [
+        "SEREVENT DISKUS",
+        "SEREVENT"
+      ],
+      "heading": "Serevent Diskus (salmeterol inhalation) — November original AHCCCS criteria",
+      "sourcePage": 1574,
+      "sourceLastPage": 1576,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Three indication-specific pathways. For asthma, source requires concurrent inhaled corticosteroid.",
+      "guidelineCaution": "Historical section included in November 2026 statewide source. This is not an individualized coverage, safety endorsement, or managed-care PA approval.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99495.txt",
+      "sourceChecks": [
+        "Product Name:Serevent Diskus",
+        "Patient is also receiving treatment with an inhaled corticosteroid",
+        "Exercise-Induced Bronchospasm",
+        "chronic obstructive pulmonary disease"
+      ],
+      "pathways": [
+        {
+          "title": "Asthma",
+          "all": [
+            "Asthma diagnosis.",
+            "Age ≥4 years.",
+            "Receiving inhaled corticosteroid concurrently (LABA monotherapy NOT supported)."
+          ]
+        },
+        {
+          "title": "Exercise-induced bronchospasm",
+          "all": [
+            "Exercise-induced bronchospasm diagnosis.",
+            "Used for prevention.",
+            "Age ≥4 years."
+          ]
+        },
+        {
+          "title": "COPD bronchospasm",
+          "all": [
+            "Bronchospasm associated with COPD diagnosed."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document treatment indication, prior trials, specialist involvement and measurable response as specified."
+      ]
+    },
+    {
+      "id": "gl-99496-soriatane",
+      "policyCode": "GL-99496",
+      "product": "Soriatane brand / generic acitretin",
+      "matchBrands": [
+        "SORIATANE"
+      ],
+      "matchNames": [
+        "ACITRETIN"
+      ],
+      "heading": "Soriatane brand / generic acitretin — November original AHCCCS criteria",
+      "sourcePage": 1653,
+      "sourceLastPage": 1655,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Severe psoriasis plus dermatologist, lack of response to alternatives/contraindication, and ≥1 body area severity criterion.",
+      "guidelineCaution": "Historical section included in November 2026 statewide source. This is not an individualized coverage, safety endorsement, or managed-care PA approval.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99496.txt",
+      "sourceChecks": [
+        "Product Name:Brand Soriatane, Generic acitretin",
+        "Diagnosis of severe psoriasis",
+        "Palmoplantar, facial, or genital involvement",
+        "Documentation of positive clinical response"
+      ],
+      "stages": [
+        {
+          "title": "Initial approval",
+          "approvalDuration": "12 months",
+          "all": [
+            "Severe psoriasis diagnosed.",
+            "Prescribed or recommended by dermatologist.",
+            {
+              "any": [
+                "Unresponsive to other therapies such as steroids, topical vitamin D/tazarotene or methotrexate.",
+                "Other therapies contraindicated by clinical condition."
+              ]
+            },
+            {
+              "any": [
+                "≥10% BSA involvement.",
+                "Palmoplantar, facial or genital involvement.",
+                "Severe scalp psoriasis."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response.",
+            "Prescribed or recommended by dermatologist."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document treatment indication, prior trials, specialist involvement and measurable response as specified."
+      ]
+    },
+    {
+      "id": "gl-99499-symlin",
+      "policyCode": "GL-99499",
+      "product": "Symlin (pramlintide)",
+      "matchBrands": [
+        "SYMLIN"
+      ],
+      "heading": "Symlin (pramlintide) — November original AHCCCS criteria",
+      "sourcePage": 1727,
+      "sourceLastPage": 1728,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Type 1 or type 2 diabetes using insulin concurrently.",
+      "guidelineCaution": "Historical section included in November 2026 statewide source. This is not an individualized coverage, safety endorsement, or managed-care PA approval.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99499.txt",
+      "sourceChecks": [
+        "Product Name:Symlin",
+        "Type 1 diabetes",
+        "Type 2 diabetes",
+        "Concurrent use of insulin therapy"
+      ],
+      "pathways": [
+        {
+          "title": "Insulin-treated diabetes",
+          "all": [
+            {
+              "any": [
+                "Type 1 diabetes.",
+                "Type 2 diabetes."
+              ]
+            },
+            "Concurrent use of insulin therapy."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document treatment indication, prior trials, specialist involvement and measurable response as specified."
+      ]
+    },
+    {
+      "id": "gl-99501-uloric",
+      "policyCode": "GL-99501",
+      "product": "Uloric brand / generic febuxostat",
+      "matchBrands": [
+        "ULORIC"
+      ],
+      "matchNames": [
+        "FEBUXOSTAT"
+      ],
+      "heading": "Uloric brand / generic febuxostat — November original AHCCCS criteria",
+      "sourcePage": 1892,
+      "sourceLastPage": 1893,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Step Therapy",
+      "summary": "Allopurinol failure, intolerance or contraindication is required by original step therapy policy.",
+      "guidelineCaution": "Historical section included in November 2026 statewide source. This is not an individualized coverage, safety endorsement, or managed-care PA approval.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99501.txt",
+      "sourceChecks": [
+        "Product Name:Brand Uloric, generic febuxostat",
+        "History of failure, contraindication or intolerance to allopurinol",
+        "Guideline Type"
+      ],
+      "pathways": [
+        {
+          "title": "Allopurinol prerequisite",
+          "all": [
+            "Failure, contraindication, or intolerance to allopurinol."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document treatment indication, prior trials, specialist involvement and measurable response as specified."
+      ]
     }
   ]
 }
