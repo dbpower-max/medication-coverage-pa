@@ -5786,6 +5786,138 @@
       "documentationSuggestions": [
         "Record the source-required diagnoses, treatment trials, laboratory criteria, and specialist involvement."
       ]
+    },
+    {
+      "id": "gl-484224-anzupgo",
+      "policyCode": "GL-484224",
+      "product": "Anzupgo (delgocitinib)",
+      "matchBrands": [
+        "ANZUPGO"
+      ],
+      "heading": "Anzupgo (delgocitinib) — original November policy",
+      "sourcePage": 161,
+      "sourceLastPage": 163,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Severe chronic hand eczema: adult, functional burden, consistent emollients, irritant counseling, ALL seven prior drugs, no concurrent potent immunosuppression/JAK agent; renewal response.",
+      "guidelineCaution": "Clinical criteria are statewide source information, NOT verification of plan-specific formulary coverage or prior authorization status.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-484224.txt",
+      "sourceChecks": [
+        "Product Name:Anzupgo",
+        "Diagnosis of severe chronic hand eczema (CHE)",
+        "Adbry (tralokinumab-ldrm)",
+        "Not used in combination with other Janus kinase (JAK) inhibitors"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Age ≥18 years.",
+            "Severe chronic hand eczema confirmed.",
+            "CHE causes functional impairment (ADLs, sleep, infections).",
+            "Counseled to avoid irritants and allergens.",
+            "Consistently using emollients.",
+            {
+              "all": [
+                "Failed minimum 14-day medium/high-potency topical corticosteroid trial, contraindication or intolerance.",
+                "Failed minimum 30-day topical calcineurin inhibitor trial, contraindication or intolerance.",
+                "Failed minimum 30-day Eucrisa trial, contraindication or intolerance.",
+                "Failed minimum 30-day Opzelura trial, contraindication or intolerance.",
+                "Failed minimum 30-day Vtama trial, contraindication or intolerance.",
+                "Failed minimum 30-day Zoryve 0.05% or 0.15% cream trial, contraindication or intolerance.",
+                "Failed minimum 30-day Adbry trial, contraindication or intolerance."
+              ]
+            },
+            "Not used with another JAK inhibitor or potent immunosuppressant.",
+            {
+              "any": [
+                "Prescribed by/in consultation with dermatologist.",
+                "Prescribed by/in consultation with allergist/immunologist."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response (erythema, scaling, hyperkeratosis, fissures).",
+            "No concurrent JAK inhibitor or potent immunosuppressant."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide chart notes, claims, labs, and relevant patient counseling per the original criteria."
+      ]
+    },
+    {
+      "id": "gl-490255-journavx",
+      "policyCode": "GL-490255",
+      "product": "Journavx (suzetrigine)",
+      "matchBrands": [
+        "JOURNAVX"
+      ],
+      "heading": "Journavx (suzetrigine) — original November policy",
+      "sourcePage": 1004,
+      "sourceLastPage": 1006,
+      "approvalDuration": "14 days",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "New moderate/severe acute pain; 14 days/28 tablets max, all three named NSAIDs plus one of four others, opioid/CYP3A exclusion and contraceptive counseling.",
+      "guidelineCaution": "Clinical criteria are statewide source information, NOT verification of plan-specific formulary coverage or prior authorization status.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-490255.txt",
+      "sourceChecks": [
+        "Product Name:Brand Journavx",
+        "Patient is experiencing a new episode of moderate to severe pain",
+        "Requested quantity does not exceed 28 tablets",
+        "Celecoxib",
+        "Medication will not be used in combination with opioid products"
+      ],
+      "pathways": [
+        {
+          "title": "All qualifying acute pain conditions",
+          "all": [
+            "At least 18 years old.",
+            "New episode of moderate or severe pain.",
+            "NOT intended to treat chronic pain.",
+            {
+              "any": [
+                "Patient does not have severe hepatic impairment (Child-Pugh C).",
+                {
+                  "all": [
+                    "Patient has moderate hepatic impairment.",
+                    "Lower dosage will be prescribed."
+                  ]
+                }
+              ]
+            },
+            "Course no longer than 14 days AND no more than 28 tablets.",
+            {
+              "all": [
+                "Tried and failed celecoxib at maximum dose within last 30 days.",
+                "Tried and failed diclofenac sodium OR potassium at maximum dose within last 30 days.",
+                "Tried and failed ketorolac at maximum dose within last 30 days."
+              ]
+            },
+            {
+              "any": [
+                "Tried and failed ibuprofen at maximum dose in last 30 days.",
+                "Tried and failed fenoprofen at maximum dose in last 30 days.",
+                "Tried and failed ketoprofen at maximum dose in last 30 days.",
+                "Tried and failed naproxen sodium at maximum dose in last 30 days."
+              ]
+            },
+            "Not used with opioid products.",
+            "Not used with strong CYP3A inhibitors.",
+            "For female patients of reproductive potential ages 14–44 only: prescriber attests negative pregnancy prior to therapy, AND counsels users of hormonal contraceptives containing progestins OTHER than levonorgestrel/norethindrone to use alternative contraception throughout treatment and 28 days after stopping."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide chart notes, claims, labs, and relevant patient counseling per the original criteria."
+      ]
     }
   ]
 }
