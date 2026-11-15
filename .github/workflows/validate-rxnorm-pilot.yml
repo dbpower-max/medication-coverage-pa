@@ -1,0 +1,33 @@
+name: Validate RxNorm pilot (offline)
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tools/rxnorm_pilot.py'
+      - 'tools/test_rxnorm_pilot.py'
+      - 'data/rxnorm-pilot/**'
+      - '.github/workflows/*rxnorm*'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Offline validation (no API needed)
+        run: python -m unittest discover -s tools -p test_rxnorm_pilot.py -v
+      - name: Verify pilot does not alter production
+        run: |
+          python -m py_compile tools/rxnorm_pilot.py
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('data/rxnorm-pilot/snapshot.json')
+          assert p.exists()
+          assert not Path('tools/rxnorm_pilot.py').read_text().count('medication_coverage_v0.31.sqlite')
+          print('Review-only files verified')
+          PY
