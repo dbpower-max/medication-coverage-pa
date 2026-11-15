@@ -4857,6 +4857,260 @@
       "documentationSuggestions": [
         "Document original-source qualifying records, laboratory findings and specialist consultation."
       ]
+    },
+    {
+      "id": "gl-417211-krystexxa",
+      "policyCode": "GL-417211",
+      "product": "Krystexxa (pegloticase)",
+      "matchBrands": [
+        "KRYSTEXXA"
+      ],
+      "heading": "Krystexxa (pegloticase) — source-verified November clinical criteria",
+      "sourcePage": 1050,
+      "sourceLastPage": 1051,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Refractory gout after BOTH urate-lowering classes plus flare/tophi; renewal demands BOTH serum urate and clinical improvement.",
+      "guidelineCaution": "Statewide rules do not independently establish Pima ACC plan coverage or PA; initial and renewal durations are stage-specific. ",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-417211.txt",
+      "sourceChecks": [
+        "Product Name:Krystexxa",
+        "Diagnosis of gout",
+        "Xanthine oxidase inhibitor",
+        "Uricosuric agent",
+        "Serum urate level has decreased"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 12 months",
+          "all": [
+            "Diagnosis of gout.",
+            "Failed, contraindicated or intolerant at maximum recommended doses of a xanthine oxidase inhibitor (allopurinol/febuxostat).",
+            "Failed, contraindicated or intolerant at maximum recommended doses of a uricosuric agent (probenecid).",
+            {
+              "any": [
+                "≥2 gout attacks in prior 12 months.",
+                "At least one tophus."
+              ]
+            },
+            {
+              "any": [
+                "Prescribed by/in consultation with rheumatologist.",
+                "Prescribed by/in consultation with nephrologist."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Serum urate decreased from pretreatment level.",
+            "Clinical gout improvement, e.g., fewer flares, reduced tophus, improved arthropathy or QoL."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Use supporting medical records, prior drug trials, lab data or documented clinical response required by source."
+      ]
+    },
+    {
+      "id": "gl-363221-iluvien",
+      "policyCode": "GL-363221",
+      "product": "Iluvien (intravitreal fluocinolone implant)",
+      "matchBrands": [
+        "ILUVIEN"
+      ],
+      "heading": "Iluvien (intravitreal fluocinolone implant) — source-verified November clinical criteria",
+      "sourcePage": 868,
+      "sourceLastPage": 869,
+      "approvalDuration": "3 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Either chronic noninfectious intermediate/posterior/panuveitis, or DME with prior steroid therapy without significant IOP rise.",
+      "guidelineCaution": "Statewide rules do not independently establish Pima ACC plan coverage or PA; initial and renewal durations are stage-specific. ",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-363221.txt",
+      "sourceChecks": [
+        "Product Name:Iluvien",
+        "Intermediate uveitis",
+        "Inflammation is chronic",
+        "clinically significant rise in intraocular pressure"
+      ],
+      "pathways": [
+        {
+          "title": "Chronic noninfectious uveitis",
+          "all": [
+            {
+              "any": [
+                "Intermediate uveitis.",
+                "Posterior uveitis.",
+                "Panuveitis."
+              ]
+            },
+            "Inflammation is chronic.",
+            "Inflammation is not due to infection."
+          ]
+        },
+        {
+          "title": "Diabetic macular edema",
+          "all": [
+            "Medical records document diabetic macular edema.",
+            "Previously treated with corticosteroids.",
+            "Patient had NO clinically significant intraocular pressure increase during prior corticosteroid use."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Use supporting medical records, prior drug trials, lab data or documented clinical response required by source."
+      ]
+    },
+    {
+      "id": "gl-417204-opzelura",
+      "policyCode": "GL-417204",
+      "product": "Opzelura (topical ruxolitinib)",
+      "matchBrands": [
+        "OPZELURA"
+      ],
+      "heading": "Opzelura (topical ruxolitinib) — source-verified November clinical criteria",
+      "sourcePage": 1325,
+      "sourceLastPage": 1328,
+      "approvalDuration": "12 weeks",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "AD indication only with age/BSA, specialist, prior topical step, immunosuppressant and treatment pattern restrictions. Source disallows vitiligo.",
+      "guidelineCaution": "Statewide rules do not independently establish Pima ACC plan coverage or PA; initial and renewal durations are stage-specific. Source explicitly excludes coverage requests for nonsegmental vitiligo; no vitiligo pathway is offered.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-417204.txt",
+      "sourceChecks": [
+        "Product Name:Opzelura",
+        "Diagnosis of mild to moderate atopic dermatitis",
+        "Greater than or equal to 3% body surface area",
+        "non-continuous chronic treatment",
+        "nonsegmental vitiligo are not authorized"
+      ],
+      "stages": [
+        {
+          "title": "Atopic dermatitis: initial authorization 12 weeks",
+          "all": [
+            "Mild/moderate atopic dermatitis.",
+            {
+              "any": [
+                "At least 3% BSA involvement.",
+                "Sensitive areas affected (face/hands/feet/scalp/groin)."
+              ]
+            },
+            "Patient at least 2 years old.",
+            {
+              "any": [
+                "Dermatologist prescriber/consultation.",
+                "Allergist/immunologist prescriber/consultation."
+              ]
+            },
+            "Failed ≥30-day non-pharmacologic topical treatment (e.g., moisturizer).",
+            "Tried and failed required supply (30 days generally; 14 days for topical corticosteroids), contraindicated or intolerant to at least TWO of medium/higher potency topical corticosteroid, Elidel, tacrolimus, or Eucrisa.",
+            "No potent concomitant immunosuppressant such as cyclosporine or azathioprine.",
+            "Short-term and/or noncontinuous chronic use."
+          ]
+        },
+        {
+          "title": "Atopic dermatitis: reauthorization 6 months",
+          "all": [
+            {
+              "any": [
+                "Reduced BSA involvement.",
+                "Reduced severity of pruritus.",
+                "Improved quality of life."
+              ]
+            },
+            "Not receiving potent immunosuppressant concomitantly.",
+            "Only short-term/noncontinuous chronic use."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Use supporting medical records, prior drug trials, lab data or documented clinical response required by source."
+      ]
+    },
+    {
+      "id": "gl-369200-vtama",
+      "policyCode": "GL-369200",
+      "product": "Vtama (tapinarof)",
+      "matchBrands": [
+        "VTAMA"
+      ],
+      "heading": "Vtama (tapinarof) — source-verified November clinical criteria",
+      "sourcePage": 1981,
+      "sourceLastPage": 1984,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Four distinct indication/stage branches for psoriasis and AD, with 6-month initial and 12-month reauthorization periods.",
+      "guidelineCaution": "Statewide rules do not independently establish Pima ACC plan coverage or PA; initial and renewal durations are stage-specific. ",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-369200.txt",
+      "sourceChecks": [
+        "Product Name:Vtama",
+        "minimum duration of a 4 week trial",
+        "Patient is 2 years of age or older",
+        "Reduction in the body surface area",
+        "Improvement in quality of life"
+      ],
+      "stages": [
+        {
+          "title": "Psoriasis: initial authorization 6 months",
+          "all": [
+            "Plaque psoriasis documented.",
+            {
+              "any": [
+                "Failure/contraindication/intolerance following ≥4 weeks topical steroid.",
+                "Failure/contraindication/intolerance following ≥4 weeks vitamin D analog.",
+                "Failure/contraindication/intolerance following ≥4 weeks tazarotene.",
+                "Failure/contraindication/intolerance following ≥4 weeks topical calcineurin inhibitor."
+              ]
+            },
+            "Dermatologist prescriber or consultation."
+          ]
+        },
+        {
+          "title": "Psoriasis: reauthorization 12 months",
+          "all": [
+            {
+              "any": [
+                "Reduction in psoriasis BSA from baseline.",
+                "Symptom improvement, such as itch or inflammation."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Atopic dermatitis: initial authorization 6 months",
+          "all": [
+            "Atopic dermatitis confirmed.",
+            "Patient at least 2 years old.",
+            "Failed required supply, contraindicated or intolerant to TWO of medium-or-higher topical steroid (≥14-day supply), Elidel (≥30 days), tacrolimus (≥30 days), or Eucrisa (≥30 days).",
+            {
+              "any": [
+                "Dermatology prescriber/consultation.",
+                "Allergist prescriber/consultation.",
+                "Immunologist prescriber/consultation."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Atopic dermatitis: reauthorization 12 months",
+          "all": [
+            {
+              "any": [
+                "Reduced BSA involvement.",
+                "Reduced pruritus severity.",
+                "Improved quality of life."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Use supporting medical records, prior drug trials, lab data or documented clinical response required by source."
+      ]
     }
   ]
 }
