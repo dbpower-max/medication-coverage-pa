@@ -941,3 +941,81 @@ for(const name of ['b41TacOral','b41TacInject','b41TacMixed'])
   'TOPICAL tacrolimus PA criteria leaked to oral, injectable or mixed product');
 console.log('PASS: batch41 all 25 guides/20 sections, original sources, product identities,'
  +' AND/OR, duration, non-branded-generic and route-specific safety regressions');
+
+
+// Batch42: independently source-checked original 20 policies/21 medication guides.
+// No class-wide matching, no ungrounded PA assumptions or off-strength leakage.
+const b42Specs=[
+ ['99426','aemcolo'],['99429','alinia'],['99434','benznidazole'],
+ ['99436','bonjesta-diclegis'],['99445','dofetilide'],['99448','elmiron'],
+ ['99450','endari'],['99451','entocort-ec'],['99453','epaned'],
+ ['99454','eplerenone'],['99455','femring'],['99455','premarin'],
+ ['99458','fexmid'],['99463','hcg'],['99471','lumizyme'],
+ ['99473','lysteda'],['99474','mepron'],['99476','multaq'],
+ ['99477','mytesi'],['99481','nourianz'],['99483','nuplazid']
+];
+const b42BySuffix=(code,id)=>guidance.find(g=>g.id==='gl-'+code+'-'+id);
+assert(b42Specs.length===21&&new Set(b42Specs.map(x=>x[0])).size===20,
+ 'Batch42 original section/guide counts incorrect');
+const normalized42=s=>String(s).replace(/\s+/g,' ').toLowerCase();
+for(const [code,id] of b42Specs){
+ const g=b42BySuffix(code,id);
+ assert(g&&g.policyCode==='GL-'+code&&g.sourceChecks.length>=3,
+   'Batch42 missing guide, source phrase, or policy identity: '+code+'/'+id);
+ const raw=fs.readFileSync('_site/'+g.sourceTextUrl.replace(/^\//,''),'utf8');
+ const normalizedRaw=normalized42(raw);
+ for(const phrase of g.sourceChecks)assert(normalizedRaw.includes(normalized42(phrase)),
+   'Batch42 phrase not found verbatim in original source: '+g.id+'/'+phrase);
+ const pages=[...raw.matchAll(/--- PDF page (\d+) ---/g)].map(x=>Number(x[1]));
+ assert(pages.includes(g.sourcePage)&&pages.includes(g.sourceLastPage),
+   'Batch42 source page mismatch: '+g.id);
+ const valid=(g.stages||g.pathways||[]).length>=1;
+ assert(valid,'Batch42 no verified clinical pathways: '+g.id);
+ assert(/not proof|does not establish|not verification/i.test(g.guidelineCaution),
+   'Batch42 clinical criteria falsely imply plan coverage '+g.id);
+ if(g.matchBrands?.length&&g.matchStrengthMg==null){
+  ui.b42This={name:'UNRELATED GENERIC',brands:[g.matchBrands[0]],records:[]};
+  assert(vm.runInContext('clinicalGuidanceFor(b42This)',ui)?.id===g.id,
+    'Batch42 exact brand criteria not linked '+g.id);
+  ui.b42Unrelated={name:'UNRELATED GENERIC',brands:[g.matchBrands[0]+' OTHER'],records:[]};
+  assert(vm.runInContext('clinicalGuidanceFor(b42Unrelated)',ui)===null,
+    'Batch42 substring brand matched unrelated drug '+g.id);
+ }
+}
+const b42=(id)=>guidance.find(g=>g.id==='gl-'+id);
+assert(b42('99429-alinia').pathways.length===2
+ &&b42('99429-alinia').pathways[0].approvalDuration==='3 days'
+ &&b42('99429-alinia').pathways[1].approvalDuration==='12 months',
+ 'Alinia Giardia vs Cryptosporidium duration mismatch');
+assert(b42('99445-dofetilide').pathways[0].all.some(x=>typeof x==='string'&&x.includes('QT')),
+ 'Dofetilide QT and inpatient restrictions missing');
+assert(b42('99450-endari').stages.length===2
+ &&b42('99450-endari').stages[0].all.some(x=>x.any?.length===2),
+ 'Endari initial hydroxyurea OR response renewal missing');
+assert(b42('99453-epaned').pathways.length===2
+ &&b42('99453-epaned').pathways[1].all.every(x=>x.any?.length===3||x.any?.length===2),
+ 'Epaned age vs dysphagia/antihypertensive paths wrong');
+assert(b42('99455-femring').id!==b42('99455-premarin').id,
+ 'Femring and Premarin merged despite distinct indications');
+assert(b42('99458-fexmid').matchStrengthMg===7.5,
+ 'Fexmid 7.5 mg requires exact strength');
+ui.b42Fexmid={name:'CYCLOBENZAPRINE 7.5 MG TABLET',brands:['FEXMID'],
+ records:[{name:'CYCLOBENZAPRINE 7.5 MG TABLET'}]};
+assert(vm.runInContext('clinicalGuidanceFor(b42Fexmid)',ui)?.id==='gl-99458-fexmid',
+ 'Fexmid 7.5 mg guide did not match verified strength');
+for(const strength of ['5','10']){
+ ui.b42Wrong={name:'CYCLOBENZAPRINE '+strength+' MG TABLET',brands:['FEXMID'],
+  records:[{name:'CYCLOBENZAPRINE '+strength+' MG TABLET'}]};
+ assert(vm.runInContext('clinicalGuidanceFor(b42Wrong)',ui)===null,
+   'Fexmid rule leaked to unapproved strength '+strength);
+}
+assert(b42('99474-mepron').pathways.length===2
+ &&b42('99474-mepron').pathways[0].all.length===2,
+ 'Mepron prophylaxis vs PCP treatment split lost');
+assert(b42('99476-multaq').pathways.length===2
+ &&b42('99476-multaq').pathways[0].all.length===4,
+ 'Multaq initial CHF exclusions vs continuation missing');
+assert(b42('99481-nourianz').stages[0].approvalDuration==='6 months'
+ &&b42('99481-nourianz').stages[1].approvalDuration==='12 months',
+ 'Nourianz stage duration incorrect');
+console.log('PASS: Batch42 20 policies / 21 guides, source double-check and medication safety regressions');
