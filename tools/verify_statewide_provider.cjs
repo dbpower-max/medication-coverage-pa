@@ -403,3 +403,81 @@ for(const spec of alphaGuides){
 ui.alphaClinicalGroup={name:'INTERFERON ALFA',brands:['INTERFERON ALFA-2B']};
 assert(vm.runInContext('clinicalGuidanceFor(alphaClinicalGroup)',ui)===null,'Generic interferon should not inherit brand-only policy');
 console.log('PASS: Intron A and Alferon N source, OR branches, durations, exact brand and negative matching');
+
+
+// Adaptive sprint batch: direct source, exact identity/route, and branching checks.
+const adaptiveSpecs=[
+ ['gl-117636-eucrisa','GL-117636',604,605,'EUCRISA','12 months'],
+ ['gl-117633-daliresp','GL-117633',440,441,'DALIRESP','12 months'],
+ ['gl-110773-ranexa','GL-110773',1452,1453,'RANEXA','12 months'],
+ ['gl-110773-ranolazine-generic','GL-110773',1452,1453,null,'12 months'],
+ ['gl-110773-aspruzyo-sprinkle','GL-110773',1453,1454,'ASPRUZYO SPRINKLE','12 months'],
+ ['gl-117420-lidoderm','GL-117420',1083,1084,'LIDODERM','12 months'],
+ ['gl-113527-tarpeyo','GL-113527',1767,1768,'TARPEYO','9 months'],
+ ['gl-113529-livtencity','GL-113529',1096,1097,'LIVTENCITY','8 weeks'],
+ ['gl-120432-pedmark','GL-120432',1380,1381,'PEDMARK','12 months'],
+ ['gl-116131-firdapse','GL-116131',682,683,'FIRDAPSE','12 months'],
+ ['gl-116190-dojolvi','GL-116190',464,465,'DOJOLVI','12 months'],
+ ['gl-116122-orkambi','GL-116122',1343,1344,'ORKAMBI','12 months']
+];
+const adaptiveCompact=s=>s.replace(/\s+/g,' ').toLowerCase();
+for(const [id,code,startPage,endPage,brand,duration] of adaptiveSpecs){
+ const guide=guidance.find(g=>g.id===id);
+ assert(guide&&guide.policyCode===code&&guide.sourcePage===startPage&&guide.sourceLastPage===endPage,
+   'Adaptive guide policy/page mismatch '+id);
+ assert(guide.approvalDuration===duration&&guide.sourceChecks.length>=3,
+   'Adaptive guide duration/phrase count mismatch '+id);
+ const raw=adaptiveCompact(fs.readFileSync('_site/'+guide.sourceTextUrl.replace(/^\//,''),'utf8'));
+ for(const phrase of guide.sourceChecks){
+  assert(raw.includes(adaptiveCompact(phrase)),'Adaptive raw phrase mismatch '+id+' / '+phrase);
+ }
+ assert(brand
+   ? guide.matchBrands?.length===1&&guide.matchBrands[0]===brand&&!guide.matchNames?.length
+   : JSON.stringify(guide.matchNames)===JSON.stringify(['RANOLAZINE'])&&!guide.matchBrands?.length,
+   'Adaptive guide has overbroad/mismatched identity '+id);
+ ui.adaptiveGroup={name:brand?'UNRELATED GENERIC MEDICATION':'RANOLAZINE',brands:brand?[brand]:[]};
+ assert(vm.runInContext('clinicalGuidanceFor(adaptiveGroup)',ui)?.id===id,
+   'Exact adaptive guide matching failed '+id);
+ ui.adaptiveGroup={name:brand?'UNRELATED GENERIC MEDICATION':'RANOLAZINE EXTENDED RELEASE',brands:brand?[brand+' EXTRA']:[]};
+ assert(vm.runInContext('clinicalGuidanceFor(adaptiveGroup)',ui)===null,
+   'Adaptive guide leaked into other name/form '+id);
+}
+const adaptiveBy=id=>guidance.find(g=>g.id===id);
+const e=adaptiveBy('gl-117636-eucrisa');
+assert(e.pathways.length===1&&e.pathways[0].all.length===2&&e.pathways[0].all[1].any.length===2,
+  'Eucrisa age-dependent calcineurin OR branch missing');
+const dl=adaptiveBy('gl-117633-daliresp');
+assert(dl.stages.length===2&&dl.stages[0].all.length===3&&dl.stages[1].all.length===1,
+  'Daliresp initial/renewal requirement count incorrect');
+const ra=adaptiveBy('gl-110773-ranexa'),rg=adaptiveBy('gl-110773-ranolazine-generic'),
+  as=adaptiveBy('gl-110773-aspruzyo-sprinkle');
+assert(ra.pathways[0].all.length===2&&ra.pathways[0].all[0].any.length===3
+  &&ra.pathways[0].all[1].includes('generic ranolazine'),
+  'Brand Ranexa generic trial or initial anti-angina OR condition missing');
+assert(rg.pathways[0].all.length===1&&rg.pathways[0].all[0].any.length===3,
+  'Generic ranolazine incorrectly inherited brand failure prerequisite');
+assert(as.pathways[0].all.length===2&&as.pathways[0].all[0].any.length===3
+  &&as.pathways[0].all[1].any.length===3,
+  'Aspruzyo BOTH sets of alternatives missing');
+const t=adaptiveBy('gl-113527-tarpeyo');
+assert(t.pathways[0].all.length===7&&t.pathways[0].all[4].any.length===2,
+  'Tarpeyo biopsy/eGFR/steroid/nephrology or ACE/ARB branching missing');
+const lv=adaptiveBy('gl-113529-livtencity');
+assert(lv.pathways[0].all.length===6&&lv.pathways[0].all[0].any.length===2
+  &&lv.pathways[0].all[1].any.length===2&&lv.pathways[0].all[5].any.length===2,
+  'Livtencity CMV, transplant or specialist OR condition missing');
+const f=adaptiveBy('gl-116131-firdapse'),d=adaptiveBy('gl-116190-dojolvi'),
+  o=adaptiveBy('gl-116122-orkambi');
+assert([f,d,o].every(x=>x.stages?.length===2),'Initial/renewal stage missing');
+assert(d.stages[0].all[0].any.length===3
+  &&d.stages[0].all[0].any.every(x=>x.all?.length===2),
+  'Dojolvi at-least-TWO-of-three tests not represented correctly');
+assert(o.stages[1].all[0].any.length===4,
+  'Orkambi renewal ONE-of-four response options missing');
+ui.adaptiveGroup={name:'ROFLUMILAST TOPICAL',brands:['ZORYVE']};
+assert(vm.runInContext('clinicalGuidanceFor(adaptiveGroup)',ui)===null,
+  'Oral Daliresp clinical criteria inappropriately matched topical roflumilast');
+ui.adaptiveGroup={name:'LIDOCAINE INJECTION',brands:['LIDOCAINE']};
+assert(vm.runInContext('clinicalGuidanceFor(adaptiveGroup)',ui)===null,
+  'Lidoderm patch criteria inappropriately matched injectable lidocaine');
+console.log('PASS: 12 adaptive guides, 10 sections, exact source phrases, brand/form and nested clinical decision branches');
