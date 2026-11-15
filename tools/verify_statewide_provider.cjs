@@ -481,3 +481,110 @@ ui.adaptiveGroup={name:'LIDOCAINE INJECTION',brands:['LIDOCAINE']};
 assert(vm.runInContext('clinicalGuidanceFor(adaptiveGroup)',ui)===null,
   'Lidoderm patch criteria inappropriately matched injectable lidocaine');
 console.log('PASS: 12 adaptive guides, 10 sections, exact source phrases, brand/form and nested clinical decision branches');
+
+
+// One adaptive PR containing 20 separately source-checked November policies.
+// Exact identities must not leak between branded, generic, or adjacent products.
+const batch36Specs=[
+ ['120435','brexafemme','BREXAFEMME',268,269,'12 months'],
+ ['124866','adacel','ADACEL',27,28,'12 months'],
+ ['125301','nexiclon-xr','NEXICLON XR',1236,1237,'12 months'],
+ ['127089','tepezza','TEPEZZA',1779,1780,'6 months'],
+ ['133807','zinplava','ZINPLAVA',2112,2113,'14 days'],
+ ['136964','kepivance','KEPIVANCE',1020,1021,'6 months'],
+ ['136966','diclareal','DICLAREAL',1825,1826,'3 months'],
+ ['136966','trubrexa','TRUBREXA',1826,1826,'3 months'],
+ ['139356','zurzuvae','ZURZUVAE',2136,2137,'14 days'],
+ ['147691','xhance','XHANCE',2055,2056,'12 months'],
+ ['146005','vemlidy','VEMLIDY',1939,1940,'12 months'],
+ ['146018','eohilia','EOHILIA',572,574,'12 weeks'],
+ ['154516','lucemyra','LUCEMYRA',1126,1127,'14 days'],
+ ['154516','lofexidine-generic',null,1126,1127,'14 days'],
+ ['135438','gattex','GATTEX',706,707,'6 months'],
+ ['136958','ojjaara','OJJAARA',1307,1308,'6 months'],
+ ['139344','xphozah','XPHOZAH',2078,2079,'12 months'],
+ ['127083','cuvrior','CUVRIOR',435,436,'12 months'],
+ ['124881','syfovre','SYFOVRE',1722,1723,'12 months'],
+ ['135329','izervay','IZERVAY',996,997,'6 months'],
+ ['136978','veltassa','VELTASSA',1936,1938,'12 months'],
+ ['143522','jesduvroq','JESDUVROQ',998,1000,'6 months']
+];
+assert(batch36Specs.length===22,'Batch 36 guide count mismatch');
+assert(new Set(batch36Specs.map(x=>x[0])).size===20,'20 distinct new policy sections required');
+const batch36Compact=t=>t.replace(/\s+/g,' ').toLowerCase();
+for (const [code,suffix,brand,first,last,duration] of batch36Specs){
+  const id='gl-'+code+'-'+suffix;
+  const guide=guidance.find(g=>g.id===id);
+  assert(guide&&guide.policyCode==='GL-'+code&&guide.sourcePage===first&&guide.sourceLastPage===last,
+    'Policy/page mapping failed: '+id);
+  assert(guide.approvalDuration===duration&&guide.sourceChecks?.length>=3,
+    'Duration or independent source phrases missing: '+id);
+  const raw=batch36Compact(fs.readFileSync('_site/'+guide.sourceTextUrl.replace(/^\//,''),'utf8'));
+  for(const phrase of guide.sourceChecks)
+    assert(raw.includes(batch36Compact(phrase)),'Missing literal November phrase: '+id+' / '+phrase);
+  assert(brand
+    ? JSON.stringify(guide.matchBrands)===JSON.stringify([brand])&&!guide.matchNames?.length
+    : JSON.stringify(guide.matchNames)===JSON.stringify(['LOFEXIDINE'])&&!guide.matchBrands?.length,
+    'Unverified brand or generic matcher: '+id);
+  ui.batch36Group={name:brand?'UNRELATED GENERIC':'LOFEXIDINE',brands:brand?[brand]:[]};
+  assert(vm.runInContext('clinicalGuidanceFor(batch36Group)',ui)?.id===id,'Expected exact lookup missed: '+id);
+  ui.batch36Group={name:brand?'UNRELATED GENERIC':'LOFEXIDINE SUSPENSION',brands:brand?[brand+' XR']:[]};
+  assert(vm.runInContext('clinicalGuidanceFor(batch36Group)',ui)===null,'Substring match leakage: '+id);
+}
+const batch36=id=>guidance.find(x=>x.id==='gl-'+id);
+const branch36=[
+ ['120435-brexafemme',1,3],['124866-adacel',1,4],
+ ['125301-nexiclon-xr',1,2],['127089-tepezza',1,3],
+ ['133807-zinplava',1,5],['136964-kepivance',1,3],
+ ['136966-diclareal',1,4],['136966-trubrexa',1,4],
+ ['139356-zurzuvae',1,4],['147691-xhance',1,2],
+ ['146005-vemlidy',2,null],['146018-eohilia',1,8],
+ ['154516-lucemyra',1,7],['154516-lofexidine-generic',1,6]
+];
+for(const [id,count,requirements] of branch36){
+ const g=batch36(id);
+ assert(g.pathways?.length===count,'Required indication alternatives not preserved: '+id);
+ if(requirements!==null)assert(g.pathways[0].all.length===requirements,
+   'Incorrect AND requirement count: '+id);
+}
+const stage36=['135438-gattex','136958-ojjaara','139344-xphozah','127083-cuvrior',
+ '124881-syfovre','135329-izervay','136978-veltassa','143522-jesduvroq'];
+for(const id of stage36){
+ const g=batch36(id);
+ assert(g.stages?.length===2
+   &&/^Initial authorization/.test(g.stages[0].title)
+   &&/^Reauthorization/.test(g.stages[1].title),
+   'Initial vs renewal criteria missing: '+id);
+}
+assert(batch36('125301-nexiclon-xr').pathways[0].all[1].any.length===2,'Nexiclon requires ONE prior formulation');
+assert(batch36('133807-zinplava').pathways[0].all[3].any.length===5,'Zinplava five recurrence risk alternatives lost');
+assert(batch36('139356-zurzuvae').pathways[0].all[0].any.length===2,'Zurzuvae severe vs mild/moderate PPD alternatives lost');
+assert(batch36('139356-zurzuvae').pathways[0].all[3].includes('12 hours'),'Zurzuvae driving precaution lost');
+assert(batch36('147691-xhance').pathways[0].all[0].any.length===2,'Xhance nasal polyps OR missing');
+assert(batch36('146005-vemlidy').pathways[1].all[0].any.length===2
+ &&batch36('146005-vemlidy').pathways[1].all[0].any[0].all[1].any.length===2,
+ 'Vemlidy Viread-renal/osteoporosis vs ongoing Vemlidy branch malformed');
+assert(batch36('146018-eohilia').pathways[0].all[6].includes('does not list contraindication'),
+ 'Eohilia topical-steroid requirement improperly extended to contraindications');
+assert(batch36('154516-lucemyra').pathways[0].all.length
+ ===batch36('154516-lofexidine-generic').pathways[0].all.length+1,
+ 'Brand Lucemyra generic-lofexidine trial wrongly required for generic product');
+assert(batch36('136966-diclareal').pathways[0].all.some(x=>x.includes('2% topical solution')),
+ 'Diclareal 2% diclofenac step missing');
+assert(batch36('136966-trubrexa').pathways[0].all.some(x=>x.includes('lidocaine patch')),
+ 'Trubrexa lidocaine step missing');
+assert(batch36('139344-xphozah').stages.every(s=>s.all.filter(x=>typeof x==='string'&&x.includes('carbonate')).length>=2),
+ 'Xphozah all 3 phosphate-binder steps missing');
+assert(batch36('135329-izervay').stages[1].all.some(x=>x.includes('12 months')),
+ 'Izervay maximum lifetime course in original guideline lost');
+assert(batch36('136978-veltassa').stages[0].all.some(x=>x.includes('Lokelma')),
+ 'Veltassa Lokelma prerequisite missing');
+assert(batch36('143522-jesduvroq').stages[0].all.some(x=>x.any?.length===3),
+ 'Jesduvroq one-of-three ESA alternatives missing');
+ui.batch36Group={name:'FLUTICASONE PROPIONATE NASAL SPRAY',brands:['FLONASE']};
+assert(vm.runInContext('clinicalGuidanceFor(batch36Group)',ui)===null,
+ 'Xhance guidance leaked into generic intranasal fluticasone');
+ui.batch36Group={name:'CLONIDINE TABLET',brands:['CATAPRES']};
+assert(vm.runInContext('clinicalGuidanceFor(batch36Group)',ui)===null,
+ 'Nexiclon extended-release rule leaked into immediate-release clonidine');
+console.log('PASS: Adaptive 20-policy/22-guide batch, exact brand/generic identity, source checks, AND/OR and initial/renewal tests');

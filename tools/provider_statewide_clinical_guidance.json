@@ -2208,6 +2208,986 @@
       "documentationSuggestions": [
         "Document the applicable requirements and supporting medical records or claims as specified by the original policy."
       ]
+    },
+    {
+      "id": "gl-120435-brexafemme",
+      "policyCode": "GL-120435",
+      "product": "Brexafemme (ibrexafungerp)",
+      "matchBrands": [
+        "BREXAFEMME"
+      ],
+      "heading": "Brexafemme (ibrexafungerp) — original November clinical criteria",
+      "sourcePage": 268,
+      "sourceLastPage": 269,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "FDA-approved indication AND prior failure, contraindication, or intolerance to BOTH one intravaginal product and oral fluconazole for ≥3 days.",
+      "guidelineCaution": "Statewide source requirements do not establish coverage or PA status for any individual Tucson AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-120435.txt",
+      "sourceChecks": [
+        "Product Name:Brexafemme",
+        "Requested drug is being used for a Food and Drug Administration (FDA)-approved",
+        "Oral fluconazole for a minimum of 3 days duration"
+      ],
+      "pathways": [
+        {
+          "title": "All qualification requirements",
+          "all": [
+            "FDA-approved indication.",
+            "Failure, contraindication, or intolerance to ONE intravaginal treatment (e.g., clotrimazole, miconazole, tioconazole, terconazole, boric acid).",
+            "Failure, contraindication, or intolerance to oral fluconazole administered for at least 3 days."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each qualifying condition with source-requested chart notes or pharmacy claims, as applicable."
+      ]
+    },
+    {
+      "id": "gl-124866-adacel",
+      "policyCode": "GL-124866",
+      "product": "Adacel Tdap vaccine",
+      "matchBrands": [
+        "ADACEL"
+      ],
+      "heading": "Adacel Tdap vaccine — original November clinical criteria",
+      "sourcePage": 27,
+      "sourceLastPage": 28,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Specific pregnancy policy: patient ≥19 years, vaccine administered in third trimester to prevent pertussis in infants younger than 2 months. Under 19: VFC program noted in source.",
+      "guidelineCaution": "Statewide source requirements do not establish coverage or PA status for any individual Tucson AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-124866.txt",
+      "sourceChecks": [
+        "Product Name:Adacel",
+        "Vaccine is being used to prevent pertussis in infants younger than 2 months of age",
+        "Patient is 19 years of age or older",
+        "Vaccine is being administered during 3rd trimester of pregnancy"
+      ],
+      "pathways": [
+        {
+          "title": "All pregnancy qualification conditions",
+          "all": [
+            "Patient is 19 years old or older.",
+            "Patient is pregnant.",
+            "Vaccine is administered during third trimester.",
+            "Vaccination aims to prevent pertussis in infants younger than two months."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each qualifying condition with source-requested chart notes or pharmacy claims, as applicable."
+      ]
+    },
+    {
+      "id": "gl-125301-nexiclon-xr",
+      "policyCode": "GL-125301",
+      "product": "Nexiclon XR (clonidine ER)",
+      "matchBrands": [
+        "NEXICLON XR"
+      ],
+      "heading": "Nexiclon XR (clonidine ER) — original November clinical criteria",
+      "sourcePage": 1236,
+      "sourceLastPage": 1237,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Hypertension treatment plus trial and failure, contraindication, or intolerance to one generic clonidine tablet or patch.",
+      "guidelineCaution": "Statewide source requirements do not establish coverage or PA status for any individual Tucson AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-125301.txt",
+      "sourceChecks": [
+        "Product Name:Nexiclon XR, Brand Clonidine ER (Nexiclon XR ABA)",
+        "Requested medication is being used for treatment of hypertension",
+        "generic clonidine topical patch"
+      ],
+      "pathways": [
+        {
+          "title": "Both conditions",
+          "all": [
+            "Used to treat hypertension.",
+            {
+              "any": [
+                "Trial and failure, contraindication, or intolerance to generic clonidine oral tablets, verified via claims or chart notes.",
+                "Trial and failure, contraindication, or intolerance to generic clonidine transdermal patches, verified via claims or chart notes."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each qualifying condition with source-requested chart notes or pharmacy claims, as applicable."
+      ]
+    },
+    {
+      "id": "gl-127089-tepezza",
+      "policyCode": "GL-127089",
+      "product": "Tepezza (teprotumumab-trbw)",
+      "matchBrands": [
+        "TEPEZZA"
+      ],
+      "heading": "Tepezza (teprotumumab-trbw) — original November clinical criteria",
+      "sourcePage": 1779,
+      "sourceLastPage": 1780,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Thyroid eye disease, prescribed with specified specialist involvement, and no more than eight total Tepezza infusions.",
+      "guidelineCaution": "Statewide source requirements do not establish coverage or PA status for any individual Tucson AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-127089.txt",
+      "sourceChecks": [
+        "Product Name:Tepezza",
+        "diagnosis of thyroid eye disease (TED)",
+        "Treatment with Tepezza has not exceeded a total of 8 infusions"
+      ],
+      "pathways": [
+        {
+          "title": "All TED qualification conditions",
+          "all": [
+            "Medical records confirm thyroid eye disease (TED).",
+            {
+              "any": [
+                "Prescribed by or in consultation with endocrinologist.",
+                "Prescribed by or in consultation with specialist experienced in TED.",
+                "Prescribed by or in consultation with ophthalmologist."
+              ]
+            },
+            "Tepezza therapy has not exceeded eight total infusions."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each qualifying condition with source-requested chart notes or pharmacy claims, as applicable."
+      ]
+    },
+    {
+      "id": "gl-133807-zinplava",
+      "policyCode": "GL-133807",
+      "product": "Zinplava (bezlotoxumab)",
+      "matchBrands": [
+        "ZINPLAVA"
+      ],
+      "heading": "Zinplava (bezlotoxumab) — original November clinical criteria",
+      "sourcePage": 2112,
+      "sourceLastPage": 2113,
+      "approvalDuration": "14 days",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Age ≥1, adjunct to CDI antibiotics to reduce recurrence; ≥1 recurrence risk factor and ID/GI involvement.",
+      "guidelineCaution": "Statewide source requirements do not establish coverage or PA status for any individual Tucson AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-133807.txt",
+      "sourceChecks": [
+        "Product Name:Zinplava",
+        "Patient is 1 year of age or older",
+        "Used in combination with antibacterial drug treatment for CDI",
+        "Patient has one or more of the following risk factors associated with CDI recurrence"
+      ],
+      "pathways": [
+        {
+          "title": "All recurrence-prevention conditions",
+          "all": [
+            "Used to reduce recurrence of C. difficile infection (CDI).",
+            "Patient is at least one year old.",
+            "Used with concurrent antibacterial treatment for CDI (e.g., oral vancomycin, metronidazole, fidaxomicin).",
+            {
+              "any": [
+                "One or more prior CDI episodes in preceding 6 months.",
+                "Patient immunocompromised.",
+                "Patient on chronic dialysis.",
+                "Inflammatory bowel disease.",
+                "Continued non-CDI antibiotics after CDI diagnosis and/or treatment."
+              ]
+            },
+            {
+              "any": [
+                "Prescribed by or with infectious disease specialist.",
+                "Prescribed by or with gastroenterologist."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each qualifying condition with source-requested chart notes or pharmacy claims, as applicable."
+      ]
+    },
+    {
+      "id": "gl-136964-kepivance",
+      "policyCode": "GL-136964",
+      "product": "Kepivance (palifermin)",
+      "matchBrands": [
+        "KEPIVANCE"
+      ],
+      "heading": "Kepivance (palifermin) — original November clinical criteria",
+      "sourcePage": 1020,
+      "sourceLastPage": 1021,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "WHO Grade ≥3 oral mucositis prevention/treatment and inadequate response to diphenhydramine/antacid/lidocaine mouthwash; hematologist or oncologist prescriber.",
+      "guidelineCaution": "Statewide source requirements do not establish coverage or PA status for any individual Tucson AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-136964.txt",
+      "sourceChecks": [
+        "Product Name:Kepivance",
+        "WHO Grade 3 or higher",
+        "Inadequate response to an oral mouthwash",
+        "Prescribed by a hematologist or oncologist"
+      ],
+      "pathways": [
+        {
+          "title": "All criteria",
+          "all": [
+            "Medical records document use to prevent or treat severe oral mucositis (WHO Grade 3 or higher).",
+            "Inadequate response to diphenhydramine/antacid/lidocaine oral mouthwash (magic or miracle mouthwash).",
+            "Prescribed by a hematologist or oncologist."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each qualifying condition with source-requested chart notes or pharmacy claims, as applicable."
+      ]
+    },
+    {
+      "id": "gl-136966-diclareal",
+      "policyCode": "GL-136966",
+      "product": "Diclareal topical",
+      "matchBrands": [
+        "DICLAREAL"
+      ],
+      "heading": "Diclareal topical — original November clinical criteria",
+      "sourcePage": 1825,
+      "sourceLastPage": 1826,
+      "approvalDuration": "3 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Knee osteoarthritis plus documented failure to ALL three specified topical treatments.",
+      "guidelineCaution": "Statewide source requirements do not establish coverage or PA status for any individual Tucson AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-136966.txt",
+      "sourceChecks": [
+        "Product Name:Diclareal",
+        "diagnosis of osteoarthritis of the knees",
+        "failure to ALL of the following",
+        "diclofenac 2% topical solution"
+      ],
+      "pathways": [
+        {
+          "title": "All topical failures",
+          "all": [
+            "Medical records confirm knee osteoarthritis.",
+            "Documented failure of diclofenac 1% topical gel.",
+            "Documented failure of diclofenac 2% topical solution.",
+            "Documented failure of topical capsaicin cream or patch."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each qualifying condition with source-requested chart notes or pharmacy claims, as applicable."
+      ]
+    },
+    {
+      "id": "gl-136966-trubrexa",
+      "policyCode": "GL-136966",
+      "product": "Trubrexa topical",
+      "matchBrands": [
+        "TRUBREXA"
+      ],
+      "heading": "Trubrexa topical — original November clinical criteria",
+      "sourcePage": 1826,
+      "sourceLastPage": 1826,
+      "approvalDuration": "3 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Acute/chronic musculoskeletal pain and trial failure, contraindication or intolerance to ALL three topical agents; no substitution for Diclareal-specific rule.",
+      "guidelineCaution": "Statewide source requirements do not establish coverage or PA status for any individual Tucson AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-136966.txt",
+      "sourceChecks": [
+        "Product Name:Trubrexa",
+        "treatment of acute and chronic pain in muscles and joints",
+        "topical lidocaine patch"
+      ],
+      "pathways": [
+        {
+          "title": "Pain indication and all topical prerequisites",
+          "all": [
+            "Used for acute or chronic muscle/joint pain (e.g., soreness, sprains, strains, arthritis, backache, stiffness).",
+            "Trial and failure, contraindication, or intolerance to diclofenac 1% topical gel.",
+            "Trial and failure, contraindication, or intolerance to topical capsaicin cream or patch.",
+            "Trial and failure, contraindication, or intolerance to topical lidocaine patch."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each qualifying condition with source-requested chart notes or pharmacy claims, as applicable."
+      ]
+    },
+    {
+      "id": "gl-139356-zurzuvae",
+      "policyCode": "GL-139356",
+      "product": "Zurzuvae (zuranolone)",
+      "matchBrands": [
+        "ZURZUVAE"
+      ],
+      "heading": "Zurzuvae (zuranolone) — original November clinical criteria",
+      "sourcePage": 2136,
+      "sourceLastPage": 2137,
+      "approvalDuration": "14 days",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Severe PPD OR mild-to-moderate PPD plus SSRI/SNRI trial, AND age ≥18, symptom onset in specified period, and 12-hour postdose driving counseling.",
+      "guidelineCaution": "Statewide source requirements do not establish coverage or PA status for any individual Tucson AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-139356.txt",
+      "sourceChecks": [
+        "Product Name:Zurzuvae",
+        "Diagnosis of severe postpartum depression (PPD)",
+        "Onset of symptoms in the third trimester or within 4 weeks of delivery",
+        "not drive or operate machinery until at least 12 hours after"
+      ],
+      "pathways": [
+        {
+          "title": "One PPD branch plus all other criteria",
+          "all": [
+            {
+              "any": [
+                "Diagnosis of severe postpartum depression.",
+                "Mild-to-moderate postpartum depression AND trial and failure, contraindication, or intolerance to at least one oral SSRI or SNRI."
+              ]
+            },
+            "Patient 18 years old or older.",
+            "Symptoms began in third trimester or within 4 weeks after delivery.",
+            "Counseling and patient agreement to avoid driving/operating machinery for at least 12 hours after EACH dose throughout the 14-day course, including warning that patients may not accurately judge impairment."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each qualifying condition with source-requested chart notes or pharmacy claims, as applicable."
+      ]
+    },
+    {
+      "id": "gl-147691-xhance",
+      "policyCode": "GL-147691",
+      "product": "Xhance (fluticasone nasal spray)",
+      "matchBrands": [
+        "XHANCE"
+      ],
+      "heading": "Xhance (fluticasone nasal spray) — original November clinical criteria",
+      "sourcePage": 2055,
+      "sourceLastPage": 2056,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Chronic rhinosinusitis with OR without nasal polyps, plus failure of generic fluticasone nasal spray.",
+      "guidelineCaution": "Statewide source requirements do not establish coverage or PA status for any individual Tucson AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-147691.txt",
+      "sourceChecks": [
+        "Product Name:Xhance",
+        "Chronic rhinosinusitis with nasal polyps (CRSwNP)",
+        "Chronic rhinosinusitis without nasal polyps (CRSsNP)",
+        "History of failure to generic fluticasone nasal spray"
+      ],
+      "pathways": [
+        {
+          "title": "Diagnosis and nasal spray failure",
+          "all": [
+            {
+              "any": [
+                "Chronic rhinosinusitis WITH nasal polyps (CRSwNP).",
+                "Chronic rhinosinusitis WITHOUT nasal polyps (CRSsNP)."
+              ]
+            },
+            "History of failure to generic intranasal fluticasone spray."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each qualifying condition with source-requested chart notes or pharmacy claims, as applicable."
+      ]
+    },
+    {
+      "id": "gl-146005-vemlidy",
+      "policyCode": "GL-146005",
+      "product": "Vemlidy (tenofovir alafenamide)",
+      "matchBrands": [
+        "VEMLIDY"
+      ],
+      "heading": "Vemlidy (tenofovir alafenamide) — original November clinical criteria",
+      "sourcePage": 1939,
+      "sourceLastPage": 1940,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Separate naive and experienced chronic HBV alternatives: entecavir contraindication with age/weight minimum, or specific Viread renal/bone criteria or Vemlidy continuation.",
+      "guidelineCaution": "Statewide source requirements do not establish coverage or PA status for any individual Tucson AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-146005.txt",
+      "sourceChecks": [
+        "Product Name:Vemlidy",
+        "Treatment-Naïve Chronic Hepatitis B Infection",
+        "Patient has a contraindication to entecavir therapy",
+        "Patient is currently on Vemlidy therapy"
+      ],
+      "pathways": [
+        {
+          "title": "Treatment-naive chronic hepatitis B",
+          "all": [
+            "Patient has a contraindication to entecavir therapy.",
+            "Patient is at least 6 years old.",
+            "Patient weighs at least 25 kg."
+          ]
+        },
+        {
+          "title": "Treatment-experienced chronic hepatitis B",
+          "all": [
+            {
+              "any": [
+                {
+                  "all": [
+                    "Currently receiving Viread.",
+                    {
+                      "any": [
+                        "Creatinine clearance <60 mL/min.",
+                        "Osteoporosis diagnosis."
+                      ]
+                    },
+                    "Patient at least 6 years old.",
+                    "Patient weighs at least 25 kg."
+                  ]
+                },
+                "Currently receiving Vemlidy."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each qualifying condition with source-requested chart notes or pharmacy claims, as applicable."
+      ]
+    },
+    {
+      "id": "gl-146018-eohilia",
+      "policyCode": "GL-146018",
+      "product": "Eohilia (budesonide oral suspension)",
+      "matchBrands": [
+        "EOHILIA"
+      ],
+      "heading": "Eohilia (budesonide oral suspension) — original November clinical criteria",
+      "sourcePage": 572,
+      "sourceLastPage": 574,
+      "approvalDuration": "12 weeks",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "EoE with histological and symptom documentation; ≥11 years; ≥8-week PPI failure/intolerance/contraindication, ≥8-week esophageal steroid failure/intolerance, GI/allergy involvement.",
+      "guidelineCaution": "Statewide source requirements do not establish coverage or PA status for any individual Tucson AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-146018.txt",
+      "sourceChecks": [
+        "Product Name:Eohilia",
+        "Patient has at least 15 intraepithelial eosinophils per high power field (HPF)",
+        "Patient is 11 years of age or older",
+        "Other causes of esophageal eosinophilia have been excluded"
+      ],
+      "pathways": [
+        {
+          "title": "All EoE requirements",
+          "all": [
+            "Medical records confirm eosinophilic esophagitis.",
+            "Symptoms of esophageal dysfunction, such as dysphagia, food impaction, heartburn, or abdominal pain.",
+            "At least 15 intraepithelial eosinophils per high-power field.",
+            "Other causes of esophageal eosinophilia excluded.",
+            "Patient at least 11 years old.",
+            "PPI trial and failure for ≥8 weeks OR contraindication or intolerance to PPI.",
+            "Trial and failure of topical ESOPHAGEAL corticosteroid for ≥8 weeks OR intolerance (policy does not list contraindication for this step).",
+            {
+              "any": [
+                "Prescribed by or in consultation with allergist/immunologist.",
+                "Prescribed by or in consultation with gastroenterologist."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each qualification criterion with the source-requested clinical notes, labs, or pharmacy claims."
+      ]
+    },
+    {
+      "id": "gl-154516-lucemyra",
+      "policyCode": "GL-154516",
+      "product": "Brand Lucemyra (lofexidine)",
+      "matchBrands": [
+        "LUCEMYRA"
+      ],
+      "heading": "Brand Lucemyra (lofexidine) — original November clinical criteria",
+      "sourcePage": 1126,
+      "sourceLastPage": 1127,
+      "approvalDuration": "14 days",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Opioids stopped; clonidine prerequisite; organ-function screening, vital monitoring, cardiovascular/QT exclusions; for BRAND requests additional generic lofexidine failure/intolerance.",
+      "guidelineCaution": "Statewide source requirements do not establish coverage or PA status for any individual Tucson AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-154516.txt",
+      "sourceChecks": [
+        "Product Name:Brand Lucemyra, generic lofexidine",
+        "Opioids have been discontinued",
+        "clonidine claims history in the past 180 days",
+        "Patient does not have congenital long QT syndrome",
+        "For Brand Lucemyra requests ONLY, history of failure or intolerance to generic lofexidine"
+      ],
+      "pathways": [
+        {
+          "title": "All brand-specific criteria",
+          "all": [
+            "Medication used for symptoms of abrupt opioid withdrawal; opioids have been discontinued.",
+            "Failure, contraindication, or intolerance to clonidine, verified by recent clonidine claims within 180 days.",
+            "Prescriber confirms screening for renal and hepatic impairment and dosing suitable for organ function.",
+            "Prescriber verifies vital sign monitoring and patient self-monitoring instruction for hypotension, orthostasis, and bradycardia.",
+            "Patient does not have severe coronary insufficiency, recent MI, cerebrovascular disease, chronic renal failure, or marked bradycardia.",
+            "Patient does not have congenital long QT syndrome.",
+            "History of failure or intolerance to generic lofexidine (brand-only requirement)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each qualification criterion with the source-requested clinical notes, labs, or pharmacy claims."
+      ]
+    },
+    {
+      "id": "gl-154516-lofexidine-generic",
+      "policyCode": "GL-154516",
+      "product": "Generic lofexidine",
+      "matchNames": [
+        "LOFEXIDINE"
+      ],
+      "heading": "Generic lofexidine — original November clinical criteria",
+      "sourcePage": 1126,
+      "sourceLastPage": 1127,
+      "approvalDuration": "14 days",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Opioids stopped; clonidine prerequisite; renal/hepatic and vital-sign monitoring; cardiovascular/QT exclusions. No generic-lofexidine failure prerequisite for generic requests.",
+      "guidelineCaution": "Statewide source requirements do not establish coverage or PA status for any individual Tucson AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-154516.txt",
+      "sourceChecks": [
+        "Product Name:Brand Lucemyra, generic lofexidine",
+        "Opioids have been discontinued",
+        "clonidine claims history in the past 180 days",
+        "Patient does not have congenital long QT syndrome"
+      ],
+      "pathways": [
+        {
+          "title": "All generic criteria",
+          "all": [
+            "Medication used for symptoms of abrupt opioid withdrawal; opioids have been discontinued.",
+            "Failure, contraindication, or intolerance to clonidine, verified by recent clonidine claims within 180 days.",
+            "Prescriber confirms screening for renal and hepatic impairment and dosing suitable for organ function.",
+            "Prescriber verifies vital sign monitoring and patient self-monitoring instruction for hypotension, orthostasis, and bradycardia.",
+            "Patient does not have severe coronary insufficiency, recent MI, cerebrovascular disease, chronic renal failure, or marked bradycardia.",
+            "Patient does not have congenital long QT syndrome."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each qualification criterion with the source-requested clinical notes, labs, or pharmacy claims."
+      ]
+    },
+    {
+      "id": "gl-135438-gattex",
+      "policyCode": "GL-135438",
+      "product": "Gattex (teduglutide)",
+      "matchBrands": [
+        "GATTEX"
+      ],
+      "heading": "Gattex (teduglutide) — original November clinical criteria",
+      "sourcePage": 706,
+      "sourceLastPage": 707,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Initial short bowel syndrome, age ≥1 and PN/IV-dependent for ≥12 consecutive months with GI specialist (6 months); renewal 12 months requires reduction in PN/IV support.",
+      "guidelineCaution": "Statewide source requirements do not establish coverage or PA status for any individual Tucson AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-135438.txt",
+      "sourceChecks": [
+        "Product Name:Gattex",
+        "Patient is 1 year of age and older",
+        "dependent on parenteral nutrition/intravenous (PN/IV)",
+        "reduction in weekly parenteral nutrition/intravenous (PN/IV) support"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 6 months",
+          "all": [
+            "Documented short bowel syndrome.",
+            "Patient at least 1 year old.",
+            "Dependent on parenteral nutrition or IV support for at least 12 consecutive months.",
+            "Prescribed by or in consultation with gastroenterologist."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Medical records document decreased weekly PN/IV support from baseline while taking Gattex.",
+            "Prescribed by or in consultation with gastroenterologist."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each qualification criterion with the source-requested clinical notes, labs, or pharmacy claims."
+      ]
+    },
+    {
+      "id": "gl-136958-ojjaara",
+      "policyCode": "GL-136958",
+      "product": "Ojjaara (momelotinib)",
+      "matchBrands": [
+        "OJJAARA"
+      ],
+      "heading": "Ojjaara (momelotinib) — original November clinical criteria",
+      "sourcePage": 1307,
+      "sourceLastPage": 1308,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Initial 6 months for one qualifying myelofibrosis subtype with intermediate/high risk AND anemia; 12-month renewal based on response.",
+      "guidelineCaution": "Statewide source requirements do not establish coverage or PA status for any individual Tucson AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-136958.txt",
+      "sourceChecks": [
+        "Product Name:Ojjaara",
+        "Disease is intermediate or high risk",
+        "Patient has anemia",
+        "positive clinical response to therapy"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 6 months",
+          "all": [
+            {
+              "any": [
+                "Primary myelofibrosis.",
+                "Post-polycythemia vera myelofibrosis.",
+                "Post-essential thrombocythemia myelofibrosis."
+              ]
+            },
+            "Disease intermediate- or high-risk.",
+            "Patient has anemia."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Medical records document positive response (e.g., symptom improvement or spleen-volume reduction)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each qualification criterion with the source-requested clinical notes, labs, or pharmacy claims."
+      ]
+    },
+    {
+      "id": "gl-139344-xphozah",
+      "policyCode": "GL-139344",
+      "product": "Xphozah (tenapanor)",
+      "matchBrands": [
+        "XPHOZAH"
+      ],
+      "heading": "Xphozah (tenapanor) — original November clinical criteria",
+      "sourcePage": 2078,
+      "sourceLastPage": 2079,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Hyperphosphatemia with CKD on dialysis and failure/contraindication/intolerance to ALL three phosphate binders; 12-month renewal requires positive response and same binder steps.",
+      "guidelineCaution": "Statewide source requirements do not establish coverage or PA status for any individual Tucson AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-139344.txt",
+      "sourceChecks": [
+        "Product Name:Xphozah",
+        "Diagnosis of hyperphosphatemia in chronic kidney disease",
+        "Patient is on dialysis",
+        "sevelamer carbonate",
+        "Patient demonstrates positive clinical response to therapy"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 12 months",
+          "all": [
+            "CKD-associated hyperphosphatemia.",
+            "Patient is on dialysis.",
+            "Failure after ≥30 days when inadequate response, contraindication, or intolerance to calcium carbonate.",
+            "Failure after ≥30 days when inadequate response, contraindication, or intolerance to calcium acetate.",
+            "Failure after ≥30 days when inadequate response, contraindication, or intolerance to sevelamer carbonate."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Positive response to treatment.",
+            "Trial/inadequate response after ≥30 days, contraindication, or intolerance to calcium carbonate.",
+            "Trial/inadequate response after ≥30 days, contraindication, or intolerance to calcium acetate.",
+            "Trial/inadequate response after ≥30 days, contraindication, or intolerance to sevelamer carbonate."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each qualification criterion with the source-requested clinical notes, labs, or pharmacy claims."
+      ]
+    },
+    {
+      "id": "gl-127083-cuvrior",
+      "policyCode": "GL-127083",
+      "product": "Cuvrior (trientine hydrochloride)",
+      "matchBrands": [
+        "CUVRIOR"
+      ],
+      "heading": "Cuvrior (trientine hydrochloride) — original November clinical criteria",
+      "sourcePage": 435,
+      "sourceLastPage": 436,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Wilson disease plus one of five diagnostic markers, generic penicillamine-capsule step, GI/hepatology specialist; positive-response renewal.",
+      "guidelineCaution": "Statewide source requirements do not establish coverage or PA status for any individual Tucson AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-127083.txt",
+      "sourceChecks": [
+        "Product Name:Cuvrior",
+        "Diagnosis of Wilson's disease (i.e., hepatolenticular degeneration)",
+        "Trial and failure, contraindication, or intolerance to generic penicillamine capsules",
+        "Documentation of a positive clinical response to therapy"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 12 months",
+          "all": [
+            "Wilson disease (hepatolenticular degeneration).",
+            {
+              "any": [
+                "Kayser–Fleischer rings documented.",
+                "Ceruloplasmin <20 mg/dL.",
+                "24-hour urine copper >100 mcg.",
+                "Liver copper dry weight >250 mcg/g.",
+                "ATP7B gene mutation detected."
+              ]
+            },
+            "Trial and failure, contraindication, or intolerance to generic penicillamine capsules.",
+            {
+              "any": [
+                "Prescribed by or in consultation with a gastroenterologist.",
+                "Prescribed by or in consultation with a hepatologist."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Documented positive clinical response."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each qualification criterion with the source-requested clinical notes, labs, or pharmacy claims."
+      ]
+    },
+    {
+      "id": "gl-124881-syfovre",
+      "policyCode": "GL-124881",
+      "product": "Syfovre (pegcetacoplan intravitreal)",
+      "matchBrands": [
+        "SYFOVRE"
+      ],
+      "heading": "Syfovre (pegcetacoplan intravitreal) — original November clinical criteria",
+      "sourcePage": 1722,
+      "sourceLastPage": 1723,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Initial geographic atrophy due to AMD demonstrated by retinal imaging, exclusion of other causes, retina-experienced ophthalmologist; renewal on response.",
+      "guidelineCaution": "Statewide source requirements do not establish coverage or PA status for any individual Tucson AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-124881.txt",
+      "sourceChecks": [
+        "Product Name:Syfovre",
+        "geographic atrophy (GA) secondary to age-related macular degeneration (AMD)",
+        "GA is not secondary to any other conditions",
+        "positive clinical response to therapy"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 12 months",
+          "all": [
+            {
+              "any": [
+                "Geographic atrophy due to AMD confirmed by fundus photography/autofluorescence.",
+                "Geographic atrophy due to AMD confirmed by OCT.",
+                "Geographic atrophy due to AMD confirmed by fluorescein angiography."
+              ]
+            },
+            "Not geographic atrophy secondary to another condition (e.g., Stargardt disease, cone-rod dystrophy, toxic maculopathy).",
+            "Prescribed by or in consultation with ophthalmologist experienced in retinal disease."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Records show positive clinical response (e.g., reduced GA lesion-growth rate)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each qualification criterion with the source-requested clinical notes, labs, or pharmacy claims."
+      ]
+    },
+    {
+      "id": "gl-135329-izervay",
+      "policyCode": "GL-135329",
+      "product": "Izervay (avacincaptad pegol intravitreal)",
+      "matchBrands": [
+        "IZERVAY"
+      ],
+      "heading": "Izervay (avacincaptad pegol intravitreal) — original November clinical criteria",
+      "sourcePage": 996,
+      "sourceLastPage": 997,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Initial AMD-related geographic atrophy documented by imaging, no other cause, retina ophthalmologist; reauthorization requires response and ≤12 months total therapy.",
+      "guidelineCaution": "Statewide source requirements do not establish coverage or PA status for any individual Tucson AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-135329.txt",
+      "sourceChecks": [
+        "Product Name:Izervay",
+        "geographic atrophy (GA) secondary to age-related macular degeneration (AMD)",
+        "Patient has not exceeded a total of 12 months treatment",
+        "positive clinical response to therapy"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 6 months",
+          "all": [
+            {
+              "any": [
+                "GA due to AMD confirmed by fundus photography/autofluorescence.",
+                "GA due to AMD confirmed by OCT.",
+                "GA due to AMD confirmed by fluorescein angiography."
+              ]
+            },
+            "GA not secondary to another condition.",
+            "Prescribed by or in consultation with ophthalmologist experienced in retinal diseases."
+          ]
+        },
+        {
+          "title": "Reauthorization — 6 months",
+          "all": [
+            "Medical records document positive clinical response (e.g., reduced GA-lesion progression).",
+            "Patient has not exceeded a total of 12 months of treatment."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each qualification criterion with the source-requested clinical notes, labs, or pharmacy claims."
+      ]
+    },
+    {
+      "id": "gl-136978-veltassa",
+      "policyCode": "GL-136978",
+      "product": "Veltassa (patiromer)",
+      "matchBrands": [
+        "VELTASSA"
+      ],
+      "heading": "Veltassa (patiromer) — original November clinical criteria",
+      "sourcePage": 1936,
+      "sourceLastPage": 1938,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Initial non-life-threatening hyperkalemia age ≥12, appropriate medication/diuretic adjustments, ≤3 g/day K diet, and Lokelma step; renewal response, continued need, medication review.",
+      "guidelineCaution": "Statewide source requirements do not establish coverage or PA status for any individual Tucson AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-136978.txt",
+      "sourceChecks": [
+        "Product Name:Veltassa",
+        "Diagnosis of non-life threatening hyperkalemia",
+        "Patient is 12 years of age or older",
+        "History of failure, intolerance, or contraindication to Lokelma",
+        "Patient continues to require treatment for hyperkalemia"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 12 months",
+          "all": [
+            "Diagnosis of non-life-threatening hyperkalemia.",
+            "Patient age ≥12.",
+            "Where clinically appropriate, hyperkalemia-causing drugs reduced or discontinued to lowest effective dose.",
+            "Where clinically appropriate, loop or thiazide diuretic treatment for potassium removal has failed.",
+            "Low-potassium diet ≤3 grams daily.",
+            "Failure, intolerance, or contraindication to Lokelma."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Positive clinical response to Veltassa.",
+            "Continued need for hyperkalemia treatment.",
+            "Where clinically appropriate, hyperkalemia-causing medications reduced/discontinued to lowest effective dose."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each qualification criterion with the source-requested clinical notes, labs, or pharmacy claims."
+      ]
+    },
+    {
+      "id": "gl-143522-jesduvroq",
+      "policyCode": "GL-143522",
+      "product": "Jesduvroq (daprodustat)",
+      "matchBrands": [
+        "JESDUVROQ"
+      ],
+      "heading": "Jesduvroq (daprodustat) — original November clinical criteria",
+      "sourcePage": 998,
+      "sourceLastPage": 1000,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "CKD dialysis ≥4 months, ferritin >100 mcg/L and TSAT >20%, Hb <11, ESA alternative prerequisite and no concurrent ESA; renewal positive response, Hb ≤12 and adequate iron.",
+      "guidelineCaution": "Statewide source requirements do not establish coverage or PA status for any individual Tucson AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-143522.txt",
+      "sourceChecks": [
+        "Product Name:Jesduvroq",
+        "Patient has been on dialysis for at least 4 months",
+        "Hemoglobin level less than 11 g/dL",
+        "Hemoglobin level does not exceed 12g/dL"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 6 months",
+          "all": [
+            "Chronic kidney disease diagnosis.",
+            "Receiving dialysis for ≥4 months.",
+            "Ferritin >100 mcg/L AND TSAT >20%.",
+            "Hemoglobin <11 g/dL.",
+            {
+              "any": [
+                "Trial failure, contraindication, or intolerance to Epogen.",
+                "Trial failure, contraindication, or intolerance to Procrit.",
+                "Trial failure, contraindication, or intolerance to Retacrit."
+              ]
+            },
+            {
+              "any": [
+                "Prescribed by or in consultation with hematologist.",
+                "Prescribed by or in consultation with nephrologist."
+              ]
+            },
+            "Not receiving a concurrent erythropoiesis-stimulating agent."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Positive clinical response (e.g., hemoglobin rise).",
+            "Hemoglobin does not exceed 12 g/dL.",
+            "Ferritin >100 mcg/L AND TSAT >20%.",
+            "No concurrent erythropoiesis-stimulating agent."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document each qualification criterion with the source-requested clinical notes, labs, or pharmacy claims."
+      ]
     }
   ]
 }
