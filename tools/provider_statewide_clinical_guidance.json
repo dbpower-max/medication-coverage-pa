@@ -1526,6 +1526,144 @@
       "documentationSuggestions": [
         "Document FDA-approved indication and generic glycopyrrolate treatment failure or intolerance."
       ]
+    },
+    {
+      "policyCode": "GL-105169",
+      "heading": "Source-transcribed prior authorization qualification",
+      "sourcePage": 80,
+      "sourceLastPage": 83,
+      "sourceGuidelineType": "Prior Authorization",
+      "guidelineCaution": "Statewide clinical criteria are not confirmation of coverage or PA requirements for an individual AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-105169.txt",
+      "id": "gl-105169-intron-a",
+      "product": "Intron A",
+      "matchBrands": [
+        "INTRON A"
+      ],
+      "approvalDuration": "12 months",
+      "summary": "One of thirteen independently qualifying documented diagnoses or treatment indications; these are OR alternatives, not cumulative requirements.",
+      "sourceChecks": [
+        "Product Name:Intron A",
+        "diagnosis of hairy cell leukemia",
+        "diagnosis of malignant melanoma"
+      ],
+      "pathways": [
+        {
+          "title": "Alternative 1: hairy cell leukemia",
+          "all": [
+            "Medical records (chart notes, laboratory findings, or imaging) document diagnosis of hairy cell leukemia."
+          ]
+        },
+        {
+          "title": "Alternative 2: condylomata acuminata (genital or perianal)",
+          "all": [
+            "Medical records (chart notes, laboratory findings, or imaging) document diagnosis of condylomata acuminata (genital or perianal)."
+          ]
+        },
+        {
+          "title": "Alternative 3: AIDS-related Kaposi’s sarcoma",
+          "all": [
+            "Medical records (chart notes, laboratory findings, or imaging) document diagnosis of AIDS-related Kaposi’s sarcoma."
+          ]
+        },
+        {
+          "title": "Alternative 4: leptomeningeal metastases",
+          "all": [
+            "Medical records (chart notes, laboratory findings, or imaging) document diagnosis of leptomeningeal metastases."
+          ]
+        },
+        {
+          "title": "Alternative 5: meningiomas",
+          "all": [
+            "Medical records (chart notes, laboratory findings, or imaging) document diagnosis of meningiomas."
+          ]
+        },
+        {
+          "title": "Alternative 6: kidney cancer",
+          "all": [
+            "Medical records (chart notes, laboratory findings, or imaging) document diagnosis of kidney cancer."
+          ]
+        },
+        {
+          "title": "Alternative 7: myeloproliferative neoplasms (MPNs) such as essential thrombocythemia (ET), polycythemia vera (PV), or primary myelofibrosis (PM)",
+          "all": [
+            "Medical records (chart notes, laboratory findings, or imaging) document treatment of myeloproliferative neoplasms (MPNs) such as essential thrombocythemia (ET), polycythemia vera (PV), or primary myelofibrosis (PM)."
+          ]
+        },
+        {
+          "title": "Alternative 8: follicular lymphoma",
+          "all": [
+            "Medical records (chart notes, laboratory findings, or imaging) document diagnosis of follicular lymphoma."
+          ]
+        },
+        {
+          "title": "Alternative 9: adult T-cell leukemia, lymphoma",
+          "all": [
+            "Medical records (chart notes, laboratory findings, or imaging) document diagnosis of adult T-cell leukemia, lymphoma."
+          ]
+        },
+        {
+          "title": "Alternative 10: mycosis fungoides, Sézary syndrome",
+          "all": [
+            "Medical records (chart notes, laboratory findings, or imaging) document diagnosis of mycosis fungoides, Sézary syndrome."
+          ]
+        },
+        {
+          "title": "Alternative 11: desmoid tumors/aggressive fibromatosis",
+          "all": [
+            "Medical records (chart notes, laboratory findings, or imaging) document diagnosis of desmoid tumors/aggressive fibromatosis."
+          ]
+        },
+        {
+          "title": "Alternative 12: giant cell tumor of the bone",
+          "all": [
+            "Medical records (chart notes, laboratory findings, or imaging) document diagnosis of giant cell tumor of the bone."
+          ]
+        },
+        {
+          "title": "Alternative 13: malignant melanoma",
+          "all": [
+            "Medical records (chart notes, laboratory findings, or imaging) document diagnosis of malignant melanoma."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Submit medical records establishing the selected qualifying indication."
+      ]
+    },
+    {
+      "policyCode": "GL-105169",
+      "heading": "Source-transcribed prior authorization qualification",
+      "sourcePage": 80,
+      "sourceLastPage": 83,
+      "sourceGuidelineType": "Prior Authorization",
+      "guidelineCaution": "Statewide clinical criteria are not confirmation of coverage or PA requirements for an individual AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-105169.txt",
+      "id": "gl-105169-alferon-n",
+      "product": "Alferon N",
+      "matchBrands": [
+        "ALFERON N"
+      ],
+      "approvalDuration": "8 weeks",
+      "summary": "Medical records must document treatment of refractory or recurring external condylomata acuminata caused by HPV.",
+      "sourceChecks": [
+        "Product Name:Alferon N",
+        "Approval Length \n8 Week(s)",
+        "treatment of refractory or recurring external condylomata acuminata"
+      ],
+      "pathways": [
+        {
+          "title": "Refractory or recurrent external condylomata acuminata",
+          "all": [
+            "Medical records (chart notes, laboratory findings, or imaging) document treatment of refractory or recurring external condylomata acuminata (genital or venereal warts) due to HPV infection."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Submit documentation of refractory or recurrent external genital/venereal warts related to HPV."
+      ]
     }
   ]
 }
