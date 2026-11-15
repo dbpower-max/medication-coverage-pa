@@ -8872,6 +8872,48 @@
       "documentationSuggestions": [
         "Include source-required diagnosis, failed agents, stage and clinical response."
       ]
+    },
+    {
+      "id": "gl-99550-ecoza",
+      "policyCode": "GL-99550",
+      "product": "Ecoza (econazole topical)",
+      "matchBrands": [
+        "ECOZA"
+      ],
+      "heading": "Ecoza — ALL nine required prior therapies",
+      "sourcePage": 513,
+      "sourceLastPage": 514,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Source requires failure, contraindication or intolerance to ALL nine topical antifungal alternatives.",
+      "guidelineCaution": "Original statewide clinical criteria are not a plan-specific coverage/PA determination.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99550.txt",
+      "sourceChecks": [
+        "Product Name:Ecoza, Generic econazole",
+        "History of failure, contraindication, or intolerance to ALL of the following",
+        "clotrimazole w/ betamethasone",
+        "tolnaftate"
+      ],
+      "pathways": [
+        {
+          "title": "Required prior medications — all nine",
+          "all": [
+            "Failure, contraindication or intolerance to butenafine.",
+            "Failure, contraindication or intolerance to ciclopirox.",
+            "Failure, contraindication or intolerance to clotrimazole.",
+            "Failure, contraindication or intolerance to clotrimazole + betamethasone.",
+            "Failure, contraindication or intolerance to ketoconazole.",
+            "Failure, contraindication or intolerance to miconazole.",
+            "Failure, contraindication or intolerance to nystatin.",
+            "Failure, contraindication or intolerance to terbinafine.",
+            "Failure, contraindication or intolerance to tolnaftate."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide dates, outcomes, or contraindication/intolerance for each of the nine prior therapies."
+      ]
     }
   ]
 }
