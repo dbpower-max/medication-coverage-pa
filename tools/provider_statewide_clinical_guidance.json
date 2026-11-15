@@ -4659,6 +4659,204 @@
       "documentationSuggestions": [
         "Document applicable policy-specific prior therapies, indications and supporting records."
       ]
+    },
+    {
+      "id": "gl-479196-sephience",
+      "policyCode": "GL-479196",
+      "product": "Sephience (sepiapterin)",
+      "matchBrands": [
+        "SEPHIENCE"
+      ],
+      "heading": "Sephience (sepiapterin) — November clinical criteria",
+      "sourcePage": 1571,
+      "sourceLastPage": 1572,
+      "approvalDuration": "3 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "PKU plus dietary Phe control and generic sapropterin step; reauthorization requires ≥15% reduction in Phe levels.",
+      "guidelineCaution": "Statewide criteria are not confirmation of coverage/PA requirements in an individual Tucson AHCCCS ACC plan; initial and reauthorization approvals can differ.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-479196.txt",
+      "sourceChecks": [
+        "Product Name:Sephience",
+        "phenylalanine (Phe)-restricted diet",
+        "within 2 weeks of therapy",
+        "15% or greater reduction"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 3 months",
+          "all": [
+            "PKU diagnosis confirmed by records.",
+            "Used with Phe-restricted diet.",
+            "Measure Phe levels within 2 weeks of initiation and periodically up to 3 months.",
+            "Trial and failure, contraindication or intolerance to generic sapropterin."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Blood Phe decreased by at least 15% from baseline.",
+            "Continues Phe-restricted diet.",
+            "Blood Phe levels monitored periodically."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document original-source qualifying records, laboratory findings and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-481198-forzinity",
+      "policyCode": "GL-481198",
+      "product": "Forzinity (elamipretide)",
+      "matchBrands": [
+        "FORZINITY"
+      ],
+      "heading": "Forzinity (elamipretide) — November clinical criteria",
+      "sourcePage": 693,
+      "sourceLastPage": 694,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Barth syndrome with tafazzin mutation and weight ≥30 kg, specialist; renewal response.",
+      "guidelineCaution": "Statewide criteria are not confirmation of coverage/PA requirements in an individual Tucson AHCCCS ACC plan; initial and reauthorization approvals can differ.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-481198.txt",
+      "sourceChecks": [
+        "Product Name:Forzinity",
+        "diagnosis of Barth",
+        "mutation in the Tafazzin gene",
+        "Patient weight is greater than or equal to 30kg"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 12 months",
+          "all": [
+            "Diagnosis of Barth syndrome confirmed.",
+            "Tafazzin gene mutation identified.",
+            "Body weight ≥30 kg.",
+            {
+              "any": [
+                "Prescribed by/in consultation with geneticist.",
+                "Prescribed by/in consultation with cardiologist.",
+                "Prescribed by/in consultation with neurologist.",
+                "Prescribed by/in consultation with metabolic disorder specialist."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Positive response such as knee-extension strength, 6-minute walking, or quality-of-life improvement."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document original-source qualifying records, laboratory findings and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-481199-palsonify",
+      "policyCode": "GL-481199",
+      "product": "Palsonify (paltusotine)",
+      "matchBrands": [
+        "PALSONIFY"
+      ],
+      "heading": "Palsonify (paltusotine) — November clinical criteria",
+      "sourcePage": 1365,
+      "sourceLastPage": 1366,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Acromegaly with unsuccessful/unavailable surgery and positive tolerance/response to octreotide or lanreotide; endocrinologist.",
+      "guidelineCaution": "Statewide criteria are not confirmation of coverage/PA requirements in an individual Tucson AHCCCS ACC plan; initial and reauthorization approvals can differ.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-481199.txt",
+      "sourceChecks": [
+        "Product Name:Palsonify",
+        "Diagnosis of acromegaly",
+        "Patient has an inadequate response to surgery",
+        "generic octreotide or lanreotide"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 12 months",
+          "all": [
+            "Acromegaly diagnosis.",
+            {
+              "any": [
+                "Inadequate response to surgery.",
+                "Not a surgical candidate."
+              ]
+            },
+            "Patient previously responded to AND tolerated generic octreotide or lanreotide.",
+            "Prescribed by/in consultation with endocrinologist."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Positive response (e.g., reduced IGF-1/GH or ASD score)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document original-source qualifying records, laboratory findings and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-401288-voydeya",
+      "policyCode": "GL-401288",
+      "product": "Voydeya (danicopan)",
+      "matchBrands": [
+        "VOYDEYA"
+      ],
+      "heading": "Voydeya (danicopan) — November clinical criteria",
+      "sourcePage": 1975,
+      "sourceLastPage": 1976,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "PNH requires ongoing C5-inhibitor combination and specific anemia/reticulocyte levels; renewal maintains combination.",
+      "guidelineCaution": "Statewide criteria are not confirmation of coverage/PA requirements in an individual Tucson AHCCCS ACC plan; initial and reauthorization approvals can differ.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-401288.txt",
+      "sourceChecks": [
+        "Product Name:Voydeya",
+        "Diagnosis of paroxysmal nocturnal hemoglobinuria (PNH)",
+        "Hemoglobin levels less than or equal to 9.5 g/dL",
+        "Absolute reticulocyte count greater than or equal to 120"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization — 12 months",
+          "all": [
+            "PNH diagnosis.",
+            {
+              "any": [
+                "Add-on therapy to Ultomiris (ravulizumab).",
+                "Add-on therapy to Soliris (eculizumab)."
+              ]
+            },
+            "Hemoglobin ≤9.5 g/dL.",
+            "Reticulocytes ≥120 × 10⁹/L.",
+            "Prescribed by/in consultation with hematologist/oncologist."
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "all": [
+            "Positive response (e.g., stabilization of hemoglobin or fewer RBC transfusions).",
+            {
+              "any": [
+                "Continue add-on to Ultomiris.",
+                "Continue add-on to Soliris."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document original-source qualifying records, laboratory findings and specialist consultation."
+      ]
     }
   ]
 }
