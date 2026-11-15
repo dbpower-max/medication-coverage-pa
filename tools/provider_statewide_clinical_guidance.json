@@ -3814,35 +3814,32 @@
         "an active and optimized background",
         "For continuation of prior therapy"
       ],
-      "stages": [
-        {
-          "title": "Initial HIV-1 qualification or continuation",
-          "all": [
-            {
-              "any": [
-                {
-                  "all": [
-                    "HIV-1 infection.",
-                    "Heavily treatment-experienced, resistance-assay-confirmed multidrug resistance.",
-                    {
-                      "any": [
-                        "Current regimen failure due to resistance.",
-                        "Current regimen failure due to intolerance.",
-                        "Current regimen failure due to safety concerns."
-                      ]
-                    },
-                    "Taking or will take active optimized background ART.",
-                    "Prescribed by or in consultation with HIV expert."
-                  ]
-                },
-                "Continuation of prior Sunlenca therapy."
-              ]
-            }
-          ]
-        }
-      ],
       "documentationSuggestions": [
         "Document the specified clinical criteria, duration, records, and specialist involvement."
+      ],
+      "pathways": [
+        {
+          "title": "New use: HIV-1 infection with multidrug-resistant failing ART",
+          "all": [
+            "HIV-1 infection.",
+            "Heavily treatment-experienced with multidrug resistance confirmed by resistance assay.",
+            {
+              "any": [
+                "Current ART failing because of resistance.",
+                "Current ART failing because of intolerance.",
+                "Current ART failing because of safety considerations."
+              ]
+            },
+            "Currently receiving or will receive an active optimized background antiretroviral regimen.",
+            "Prescribed by or in consultation with an HIV-experienced clinician."
+          ]
+        },
+        {
+          "title": "Continuation of prior Sunlenca therapy",
+          "all": [
+            "Patient continuing prior Sunlenca therapy."
+          ]
+        }
       ]
     },
     {
