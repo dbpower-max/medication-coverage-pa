@@ -1164,45 +1164,6 @@
     {
       "sourceGuidelineType": "Prior Authorization",
       "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
-      "id": "gl-105174-cialis-bph",
-      "policyCode": "GL-105174",
-      "product": "Cialis 5 mg (tadalafil) for BPH",
-      "matchBrands": [
-        "CIALIS"
-      ],
-      "heading": "Cialis 5 mg / tadalafil 5 mg for BPH",
-      "sourcePage": 337,
-      "sourceLastPage": 338,
-      "approvalDuration": "12 months",
-      "summary": "For BPH, requires failure, intolerance or contraindication to both an alpha blocker and a 5-alpha reductase inhibitor; maximum 5 mg once daily; prescriber attests no organic nitrates or riociguat (Adempas).",
-      "pathways": [
-        {
-          "title": "BPH — all requirements",
-          "all": [
-            "Diagnosis of benign prostatic hyperplasia (BPH).",
-            "History of failure, intolerance, or contraindication to BOTH an alpha blocker (e.g., tamsulosin, alfuzosin ER, doxazosin, terazosin) AND a 5-alpha reductase inhibitor (e.g., finasteride).",
-            "Dose does not exceed 5 mg once daily.",
-            "Provider attests the patient is not using any organic nitrate (e.g., nitroglycerin, isosorbide products, amyl nitrate) or Adempas (riociguat)."
-          ]
-        }
-      ],
-      "documentationSuggestions": [
-        "Record BPH diagnosis, alpha blocker and 5-alpha reductase inhibitor outcomes, dose, and absence of nitrate/Adempas use."
-      ],
-      "guidelineCaution": "This guideline applies specifically to 5 mg Cialis/tadalafil for BPH, not erectile-dysfunction dosing or other strengths. Exact-brand matching may surface the guide on other strengths; verify strength before applying criteria. Statewide PA criteria do not establish plan coverage.",
-      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-105174.txt",
-      "sourceChecks": [
-        "Product Name:Brand Cialis 5mg, generic tadalafil 5mg",
-        "The patient has a diagnosis of benign prostatic hyperplasia (BPH)",
-        "Alpha Blockers",
-        "5-alpha reductase inhibitors",
-        "Dose does not exceed 5 milligrams once daily",
-        "Provider attests that patient is not using any form of organic nitrate"
-      ]
-    },
-    {
-      "sourceGuidelineType": "Prior Authorization",
-      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
       "id": "gl-108675-epsolay",
       "policyCode": "GL-108675",
       "product": "Epsolay (benzoyl peroxide) cream",
