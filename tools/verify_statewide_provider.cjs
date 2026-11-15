@@ -393,8 +393,8 @@ for(const spec of alphaGuides){
  assert(guide&&guide.policyCode==='GL-105169'&&guide.sourcePage===80&&guide.sourceLastPage===83,'Alpha interferon policy/page mismatch '+spec.id);
  assert(guide.approvalDuration===spec.duration&&guide.pathways.length===spec.count,'Alpha interferon duration/OR branches mismatch '+spec.id);
  assert(guide.matchBrands.length===1&&guide.matchBrands[0]===spec.brand&&guide.sourceChecks.length>=3,'Alpha interferon exact brand/source checks mismatch '+spec.id);
- const raw=fs.readFileSync('_site/'+guide.sourceTextUrl.replace(/^\\//,''),'utf8').replace(/\\s+/g,' ').toLowerCase();
- for(const phrase of guide.sourceChecks)assert(raw.includes(phrase.replace(/\\s+/g,' ').toLowerCase()),'Alpha interferon source phrase absent '+spec.id+': '+phrase);
+ const raw=fs.readFileSync('_site/'+guide.sourceTextUrl.replace(/^\//,''),'utf8').replace(/\s+/g,' ').toLowerCase();
+ for(const phrase of guide.sourceChecks)assert(raw.includes(phrase.replace(/\s+/g,' ').toLowerCase()),'Alpha interferon source phrase absent '+spec.id+': '+phrase);
  ui.alphaClinicalGroup={name:'UNRELATED MEDICATION',brands:[spec.brand]};
  assert(vm.runInContext('clinicalGuidanceFor(alphaClinicalGroup)',ui)?.id===spec.id,'Alpha interferon exact brand match missing '+spec.id);
  ui.alphaClinicalGroup={name:'UNRELATED MEDICATION',brands:[spec.brand+' XR']};
