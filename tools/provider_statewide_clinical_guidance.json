@@ -5745,16 +5745,31 @@
               "any": [
                 {
                   "all": [
-                    "For coexisting COPD: receiving ICS + LAMA + LABA triple therapy.",
-                    "If ICS contraindicated, LAMA + LABA may substitute."
+                    "For patients with coexisting COPD:",
+                    {
+                      "any": [
+                        "Patient receives ICS + LAMA + LABA triple therapy.",
+                        "ICS contraindicated AND patient receives LAMA + LABA."
+                      ]
+                    }
                   ]
                 },
                 {
                   "all": [
-                    "For coexisting asthma: receiving ICS plus another controller, unless contraindicated or intolerant."
+                    "For patients with coexisting asthma:",
+                    {
+                      "any": [
+                        {
+                          "all": [
+                            "Patient receives inhaled corticosteroid (ICS).",
+                            "Patient receives an additional asthma controller (LTRA, LABA, or LAMA)."
+                          ]
+                        },
+                        "Patient receives one ICS/LABA combination product (e.g., Advair/Breo), unless contraindicated/intolerant."
+                      ]
+                    }
                   ]
-                },
-                "For coexisting asthma: receiving combination ICS/LABA, unless contraindicated or intolerant."
+                }
               ]
             },
             "Prescribed by/in consultation with pulmonologist."
