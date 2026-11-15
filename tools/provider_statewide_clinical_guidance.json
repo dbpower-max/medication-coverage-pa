@@ -4185,6 +4185,64 @@
       "documentationSuggestions": [
         "Document the specified clinical criteria, duration, records, and specialist involvement."
       ]
+    },
+    {
+      "id": "gl-105174-cialis-bph",
+      "policyCode": "GL-105174",
+      "product": "Cialis 5 mg / tadalafil 5 mg (BPH)",
+      "matchBrands": [
+        "CIALIS"
+      ],
+      "matchNames": [
+        "TADALAFIL"
+      ],
+      "heading": "BPH prior authorization clinical qualifications",
+      "sourcePage": 337,
+      "sourceLastPage": 338,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "BPH only: 5 mg once daily; documented failure, intolerance, or contraindication to both an alpha-blocker and a 5-alpha reductase inhibitor; no organic nitrates or riociguat (Adempas).",
+      "guidelineCaution": "Statewide clinical policy criteria do not establish plan-specific formulary coverage or PA requirements. This policy applies to the 5 mg strength for BPH, not other tadalafil strengths or indications.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-105174.txt",
+      "sourceChecks": [
+        "Product Name:Brand Cialis 5mg, generic tadalafil 5mg",
+        "History of failure, intolerance, or contraindication to BOTH of the following:",
+        "Dose does not exceed 5 milligrams once daily",
+        "Provider attests that patient is not using any form of organic nitrate"
+      ],
+      "pathways": [
+        {
+          "title": "BPH — initial authorization (12 months)",
+          "all": [
+            "Diagnosis of benign prostatic hyperplasia (BPH).",
+            {
+              "all": [
+                {
+                  "any": [
+                    "Failure of alpha blocker.",
+                    "Intolerance to alpha blocker.",
+                    "Contraindication to alpha blocker."
+                  ]
+                },
+                {
+                  "any": [
+                    "Failure of 5-alpha reductase inhibitor.",
+                    "Intolerance to 5-alpha reductase inhibitor.",
+                    "Contraindication to 5-alpha reductase inhibitor."
+                  ]
+                }
+              ]
+            },
+            "Requested tadalafil/Cialis strength is 5 mg, dose no more than once daily.",
+            "Provider attests patient is not using any organic nitrate or Adempas."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document BPH diagnosis and the history for each of the two required drug classes.",
+        "Document prescribed strength and dose, and provider attestation regarding organic nitrates and Adempas."
+      ]
     }
   ]
 }
