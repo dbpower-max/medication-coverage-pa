@@ -716,3 +716,40 @@ const bphHtml=vm.runInContext('clinicalGuidanceContent(clinicalGuidanceFor(bph5)
 assert(bphHtml.includes('5 mg')&&bphHtml.includes('Adempas')
   &&bphHtml.includes('alpha'), 'BPH clinical card omitted key eligibility conditions');
 console.log('PASS: GL-105174 BPH 5 mg, source, branch and 7 negative strength/matcher regressions');
+
+
+// Independent clinical accuracy/safety audit: oral leucovorin policy must
+// never be attached to injectable leucovorin or ambiguous mixed formulations.
+const leucovorinOral=guidance.find(g=>g.id==='gl-427190-leucovorin-tabs');
+assert(leucovorinOral&&leucovorinOral.policyCode==='GL-427190'
+ &&JSON.stringify(leucovorinOral.matchFormulationWords)===JSON.stringify(['tablet','tablets','tab','tabs']),
+ 'Leucovorin oral policy formulation restriction missing');
+assert(leucovorinOral.pathways?.[0]?.all?.[0]?.any?.length===3,
+ 'Leucovorin one-of-three indications not represented');
+ui.leucovorinOral={name:'LEUCOVORIN CALCIUM',brands:[],
+ records:[{name:'LEUCOVORIN CALCIUM 5 MG TABLET'}]};
+ui.leucovorinInjection={name:'LEUCOVORIN CALCIUM',brands:[],
+ records:[{name:'LEUCOVORIN CALCIUM 10 MG/ML INJECTION'}]};
+ui.leucovorinLiquid={name:'LEUCOVORIN CALCIUM',brands:[],
+ records:[{name:'LEUCOVORIN CALCIUM 10 MG/ML ORAL SOLUTION'}]};
+ui.leucovorinMixed={name:'LEUCOVORIN CALCIUM',brands:[],
+ records:[{name:'LEUCOVORIN CALCIUM 5 MG TABLET'},
+  {name:'LEUCOVORIN CALCIUM 10 MG/ML INJECTION'}]};
+assert(vm.runInContext('clinicalGuidanceFor(leucovorinOral)',ui)?.id===leucovorinOral.id,
+ 'Verified leucovorin tablet card lacks oral clinical guide');
+for(const n of ['leucovorinInjection','leucovorinLiquid','leucovorinMixed'])
+ assert(vm.runInContext('clinicalGuidanceFor('+n+')',ui)===null,
+  'Leucovorin oral criteria leaked to non-tablet or mixed group: '+n);
+const sh=guidance.find(g=>g.id==='gl-441190-shingrix');
+assert(sh.pathways[0].all.some(s=>s.includes('18 through 49'))
+ &&sh.pathways[1].all.some(s=>s.includes('50 years or older')),
+ 'Shingrix age-specific statewide criterion/note missing');
+const ora=guidance.find(g=>g.id==='gl-450249-orlynvah');
+assert(ora.approvalDuration==='5 days'&&ora.pathways[0].all[3].any.length===3,
+ 'Orlynvah three organism OR branches or 5-day course missing');
+const vf=guidance.find(g=>g.id==='gl-364197-vanrafia');
+assert(vf.stages.length===2&&vf.stages[0].all.length===8
+ &&vf.stages[0].all[6].any.length===2
+ &&vf.stages[1].all.length===1,
+ 'Vanrafia biopsy/proteinuria/90-day ACEi-ARB vs renewal structure incorrect');
+console.log('PASS: Source-reviewed 5-policy batch formulation, age, organism and stage safety checks');
