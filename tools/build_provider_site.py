@@ -96,6 +96,22 @@ for guide in clinical_guidance["guides"]:
         or duration_value + " " + duration_unit + "s" in raw
         or duration_value + " " + duration_unit in raw
     ), "Duration does not match published guideline: " + guide["id"]
+    # Per-indication or per-stage durations are mandatory on EVERY branch
+    # when a source gives more than one approval period for a product.
+    duration_branches = pathways or stages or []
+    if any("approvalDuration" in branch for branch in duration_branches):
+        assert all("approvalDuration" in branch for branch in duration_branches), (
+            "Mixed annotated/unannotated approval branches: " + guide["id"])
+        for branch in duration_branches:
+            branch_duration = re.fullmatch(
+                r"(\d+)\s+(months?|weeks?|days?)",
+                branch["approvalDuration"].strip().lower())
+            assert branch_duration, "Invalid branch duration: " + guide["id"]
+            val = branch_duration.group(1)
+            unit = branch_duration.group(2).removesuffix("s")
+            assert any(val + " " + suffix in raw for suffix in (
+                unit + "(s)", unit + "s", unit
+            )), "Branch duration missing from original policy: " + guide["id"]
     if guide["policyCode"] == "GL-589207":
         assert "product name:jardiance" in raw and "brand farxiga, generic dapagliflozin" in raw
         assert "1500mg daily for 90 days" in raw
