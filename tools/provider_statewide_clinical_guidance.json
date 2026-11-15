@@ -4284,7 +4284,12 @@
       "documentationSuggestions": [
         "Document the policy-specific diagnosis, clinical requirements, and records where indicated."
       ],
-      "matchFormulationRegex": "\\b(?:tab|tabs|tablet|tablets)\\b"
+      "matchFormulationWords": [
+        "tablet",
+        "tablets",
+        "tab",
+        "tabs"
+      ]
     },
     {
       "id": "gl-441190-shingrix",
