@@ -7535,6 +7535,431 @@
       "documentationSuggestions": [
         "Provide source-requested diagnosis, clinical or claims-based treatment history, and any specialist records."
       ]
+    },
+    {
+      "id": "gl-99455-femring",
+      "policyCode": "GL-99455",
+      "product": "Femring (estradiol acetate vaginal ring)",
+      "matchBrands": [
+        "FEMRING"
+      ],
+      "heading": "Femring (estradiol acetate vaginal ring) — original November clinical policy",
+      "sourcePage": 602,
+      "sourceLastPage": 603,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Femring qualifies for either source-listed menopausal indication.",
+      "guidelineCaution": "Original statewide clinical criteria are NOT proof of any individual Arizona AHCCCS plan's current coverage, PA requirement or authorization approval.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99455.txt",
+      "sourceChecks": [
+        "Product Name:Femring",
+        "Diagnosis of moderate to severe vasomotor symptoms due to menopause",
+        "Diagnosis of moderate to severe vulvar and vaginal atrophy"
+      ],
+      "pathways": [
+        {
+          "title": "Either menopausal indication",
+          "all": [
+            {
+              "any": [
+                "Moderate or severe vasomotor symptoms due to menopause.",
+                "Moderate or severe vulvar/vaginal atrophy due to menopause."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document source-indicated diagnosis, treatment failures, test results, and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-99455-premarin",
+      "policyCode": "GL-99455",
+      "product": "Premarin (conjugated estrogens)",
+      "matchBrands": [
+        "PREMARIN"
+      ],
+      "heading": "Premarin (conjugated estrogens) — original November clinical policy",
+      "sourcePage": 602,
+      "sourceLastPage": 603,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Source's Premarin branch specifies atrophic vaginitis and kraurosis vulvae; separate from Femring.",
+      "guidelineCaution": "Original statewide clinical criteria are NOT proof of any individual Arizona AHCCCS plan's current coverage, PA requirement or authorization approval.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99455.txt",
+      "sourceChecks": [
+        "Product Name:Premarin",
+        "Diagnosis of atrophic vaginitis and kraurosis vulvae",
+        "Product Name:Femring"
+      ],
+      "pathways": [
+        {
+          "title": "Atrophic vaginitis or kraurosis vulvae",
+          "all": [
+            "Diagnosis of atrophic vaginitis and kraurosis vulvae."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document source-indicated diagnosis, treatment failures, test results, and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-99458-fexmid",
+      "policyCode": "GL-99458",
+      "product": "Fexmid 7.5 mg (cyclobenzaprine)",
+      "matchBrands": [
+        "FEXMID"
+      ],
+      "heading": "Fexmid 7.5 mg (cyclobenzaprine) — original November clinical policy",
+      "sourcePage": 670,
+      "sourceLastPage": 671,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Applies ONLY to Fexmid 7.5 mg strength, not other cyclobenzaprine strengths; specific rationale why 5/10 mg unsuitable.",
+      "guidelineCaution": "Original statewide clinical criteria are NOT proof of any individual Arizona AHCCCS plan's current coverage, PA requirement or authorization approval.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99458.txt",
+      "sourceChecks": [
+        "Product Name:Brand Fexmid 7.5mg, generic cyclobenzaprine 7.5mg",
+        "Diagnosis of muscle spasm associated with acute",
+        "cannot use cyclobenzaprine 5 milligram"
+      ],
+      "pathways": [
+        {
+          "title": "Specific 7.5 mg formulation",
+          "all": [
+            "Acute painful musculoskeletal condition with muscle spasm.",
+            "Document reason/special circumstance patient cannot use 5 mg or 10 mg cyclobenzaprine tablets."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document source-indicated diagnosis, treatment failures, test results, and specialist consultation."
+      ],
+      "matchStrengthMg": 7.5
+    },
+    {
+      "id": "gl-99463-hcg",
+      "policyCode": "GL-99463",
+      "product": "HCG products for prepubertal cryptorchidism",
+      "matchBrands": [
+        "NOVAREL",
+        "OVIDREL",
+        "PREGNYL"
+      ],
+      "heading": "HCG products for prepubertal cryptorchidism — original November clinical policy",
+      "sourcePage": 773,
+      "sourceLastPage": 774,
+      "approvalDuration": "6 weeks",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Specific source-listed HCG products for prepubertal cryptorchidism without anatomic obstruction.",
+      "guidelineCaution": "Original statewide clinical criteria are NOT proof of any individual Arizona AHCCCS plan's current coverage, PA requirement or authorization approval.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99463.txt",
+      "sourceChecks": [
+        "Product Name:Novarel, Ovidrel, Brand Pregnyl, generic chorionic gonadotropin",
+        "Prepubertal Cryptorchidism",
+        "not due to anatomical obstruction"
+      ],
+      "pathways": [
+        {
+          "title": "Prepubertal cryptorchidism",
+          "all": [
+            "Diagnosis of prepubertal cryptorchidism not caused by an anatomic obstruction."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document source-indicated diagnosis, treatment failures, test results, and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-99471-lumizyme",
+      "policyCode": "GL-99471",
+      "product": "Lumizyme (alglucosidase alfa)",
+      "matchBrands": [
+        "LUMIZYME"
+      ],
+      "heading": "Lumizyme (alglucosidase alfa) — original November clinical policy",
+      "sourcePage": 1129,
+      "sourceLastPage": 1130,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Diagnosis of Pompe disease (GAA deficiency).",
+      "guidelineCaution": "Original statewide clinical criteria are NOT proof of any individual Arizona AHCCCS plan's current coverage, PA requirement or authorization approval.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99471.txt",
+      "sourceChecks": [
+        "Product Name:Lumizyme",
+        "Diagnosis of Pompe disease",
+        "acid alpha-glucosidase [GAA] deficiency"
+      ],
+      "pathways": [
+        {
+          "title": "Pompe disease",
+          "all": [
+            "Pompe disease (acid alpha-glucosidase [GAA] deficiency) diagnosed."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document source-indicated diagnosis, treatment failures, test results, and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-99473-lysteda",
+      "policyCode": "GL-99473",
+      "product": "Lysteda (tranexamic acid oral tablets)",
+      "matchBrands": [
+        "LYSTEDA"
+      ],
+      "heading": "Lysteda (tranexamic acid oral tablets) — original November clinical policy",
+      "sourcePage": 1149,
+      "sourceLastPage": 1150,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Source's Lysteda branch for cyclic heavy menstrual bleeding; generic product routes must not be conflated.",
+      "guidelineCaution": "Original statewide clinical criteria are NOT proof of any individual Arizona AHCCCS plan's current coverage, PA requirement or authorization approval.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99473.txt",
+      "sourceChecks": [
+        "Product Name:Brand Lysteda, generic tranexamic acid",
+        "Diagnosis of cyclic heavy menstrual bleeding",
+        "GL-99473"
+      ],
+      "pathways": [
+        {
+          "title": "Cyclic heavy menstrual bleeding",
+          "all": [
+            "Diagnosis of cyclic heavy menstrual bleeding."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document source-indicated diagnosis, treatment failures, test results, and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-99474-mepron",
+      "policyCode": "GL-99474",
+      "product": "Mepron brand / generic atovaquone",
+      "matchBrands": [
+        "MEPRON"
+      ],
+      "matchNames": [
+        "ATOVAQUONE"
+      ],
+      "heading": "Mepron brand / generic atovaquone — original November clinical policy",
+      "sourcePage": 1158,
+      "sourceLastPage": 1159,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Two distinct PCP infection prevention/treatment branches; prophylaxis requires BOTH TMP-SMX and dapsone intolerance/contraindication.",
+      "guidelineCaution": "Original statewide clinical criteria are NOT proof of any individual Arizona AHCCCS plan's current coverage, PA requirement or authorization approval.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99474.txt",
+      "sourceChecks": [
+        "Product Name:Brand Mepron, generic atovaquone",
+        "Pneumocystis jirovecii pneumonia (PCP) infection prophylaxis",
+        "trimethoprim-",
+        "mild to moderate pneumonia caused by P. jirovecii"
+      ],
+      "pathways": [
+        {
+          "title": "PCP prophylaxis",
+          "all": [
+            "A diagnosis/clinical context (e.g., HIV) warrants Pneumocystis jirovecii pneumonia prophylaxis.",
+            "Contraindication or intolerance to BOTH TMP-SMX and dapsone."
+          ]
+        },
+        {
+          "title": "Treatment of mild/moderate PCP",
+          "all": [
+            "Mild-to-moderate P. jirovecii pneumonia diagnosed.",
+            "TMP-SMX failure, contraindication, or intolerance."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document source-indicated diagnosis, treatment failures, test results, and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-99476-multaq",
+      "policyCode": "GL-99476",
+      "product": "Multaq (dronedarone)",
+      "matchBrands": [
+        "MULTAQ"
+      ],
+      "heading": "Multaq (dronedarone) — original November clinical policy",
+      "sourcePage": 1206,
+      "sourceLastPage": 1207,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Initial AF rhythm management with important heart failure exclusions OR continuation of existing therapy.",
+      "guidelineCaution": "Original statewide clinical criteria are NOT proof of any individual Arizona AHCCCS plan's current coverage, PA requirement or authorization approval.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99476.txt",
+      "sourceChecks": [
+        "Product Name:Multaq",
+        "Paroxysmal Atrial Fibrillation",
+        "New York Heart Association (NYHA) Class IV",
+        "For continuation of current therapy"
+      ],
+      "pathways": [
+        {
+          "title": "Initial AF rhythm control",
+          "all": [
+            {
+              "any": [
+                "Paroxysmal AF.",
+                "Persistent AF of <6 months duration."
+              ]
+            },
+            {
+              "any": [
+                "Patient in sinus rhythm.",
+                "Cardioversion to sinus rhythm is planned."
+              ]
+            },
+            "No NYHA class IV heart failure.",
+            "No symptomatic heart failure with recent decompensation requiring hospitalization."
+          ]
+        },
+        {
+          "title": "Continuing current therapy",
+          "all": [
+            "Continuation of current Multaq therapy."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document source-indicated diagnosis, treatment failures, test results, and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-99477-mytesi",
+      "policyCode": "GL-99477",
+      "product": "Mytesi (crofelemer)",
+      "matchBrands": [
+        "MYTESI"
+      ],
+      "heading": "Mytesi (crofelemer) — original November clinical policy",
+      "sourcePage": 1218,
+      "sourceLastPage": 1219,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "HIV/AIDS-associated diarrhea.",
+      "guidelineCaution": "Original statewide clinical criteria are NOT proof of any individual Arizona AHCCCS plan's current coverage, PA requirement or authorization approval.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99477.txt",
+      "sourceChecks": [
+        "Product Name:Mytesi",
+        "human immunodeficiency virus (HIV)",
+        "associated diarrhea"
+      ],
+      "pathways": [
+        {
+          "title": "HIV/AIDS-associated diarrhea",
+          "all": [
+            "Diagnosis of diarrhea associated with HIV infection or AIDS."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document source-indicated diagnosis, treatment failures, test results, and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-99481-nourianz",
+      "policyCode": "GL-99481",
+      "product": "Nourianz (istradefylline)",
+      "matchBrands": [
+        "NOURIANZ"
+      ],
+      "heading": "Nourianz (istradefylline) — original November clinical policy",
+      "sourcePage": 1265,
+      "sourceLastPage": 1266,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "OFF episodes in Parkinson disease; two prior adjunct classes and ongoing carbidopa/levodopa; 6-month initial, 12-month renewal.",
+      "guidelineCaution": "Original statewide clinical criteria are NOT proof of any individual Arizona AHCCCS plan's current coverage, PA requirement or authorization approval.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99481.txt",
+      "sourceChecks": [
+        "Product Name:Nourianz",
+        "Used as adjunctive treatment to levodopa/carbidopa",
+        "two different classes",
+        "Documentation of positive clinical response"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Diagnosis of Parkinson disease.",
+            "Adjunct to levodopa/carbidopa for OFF episodes.",
+            "Failure, contraindication, or intolerance to TWO anti-Parkinson drug trials from TWO DISTINCT adjunctive classes: dopamine agonist, COMT inhibitor, or MAO-B inhibitor."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive response to Nourianz.",
+            "Will continue carbidopa/levodopa-containing treatment."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document source-indicated diagnosis, treatment failures, test results, and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-99483-nuplazid",
+      "policyCode": "GL-99483",
+      "product": "Nuplazid (pimavanserin)",
+      "matchBrands": [
+        "NUPLAZID"
+      ],
+      "heading": "Nuplazid (pimavanserin) — original November clinical policy",
+      "sourcePage": 1284,
+      "sourceLastPage": 1285,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Parkinson disease psychosis with hallucinations and delusions developing after PD diagnosis; renewal requires response.",
+      "guidelineCaution": "Original statewide clinical criteria are NOT proof of any individual Arizona AHCCCS plan's current coverage, PA requirement or authorization approval.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99483.txt",
+      "sourceChecks": [
+        "Product Name:Nuplazid",
+        "Patient is currently experiencing hallucinations and delusions",
+        "Documentation of positive clinical response to Nuplazid therapy"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Parkinson disease diagnosed.",
+            "Hallucinations and delusions of Parkinson disease psychosis began AFTER Parkinson disease diagnosis."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response to Nuplazid."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document source-indicated diagnosis, treatment failures, test results, and specialist consultation."
+      ]
     }
   ]
 }
