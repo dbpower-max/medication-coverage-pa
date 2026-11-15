@@ -6555,6 +6555,235 @@
       "documentationSuggestions": [
         "Confirm source-specific quantity-limit or nonpreferred step exception, and check current actual plan formulary."
       ]
+    },
+    {
+      "id": "gl-502256-nonhormonal-vms",
+      "policyCode": "GL-502256",
+      "product": "Lynkuet / Veozah (non-hormonal menopause vasomotor therapy)",
+      "matchBrands": [
+        "LYNKUET",
+        "VEOZAH"
+      ],
+      "heading": "Lynkuet / Veozah (non-hormonal menopause vasomotor therapy) — November AHCCCS clinical criteria",
+      "sourcePage": 1252,
+      "sourceLastPage": 1253,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Both hormone and nonhormone previous therapy categories required; same original policy for Lynkuet and Veozah.",
+      "guidelineCaution": "Original statewide criteria are not verification of current plan-specific coverage or PA status; use exact product and initial/renewal requirements.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-502256.txt",
+      "sourceChecks": [
+        "Product Name:Lynkuet, Veozah",
+        "Diagnosis of moderate to severe vasomotor symptoms due to menopause",
+        "Menopausal hormone therapy",
+        "Non-hormonal therapy"
+      ],
+      "stages": [
+        {
+          "title": "Initial — 6 months",
+          "approvalDuration": "6 months",
+          "all": [
+            "Moderate-to-severe vasomotor symptoms due to menopause.",
+            {
+              "all": [
+                "Documented failure, contraindication or intolerance to menopausal hormone therapy.",
+                "Documented failure, contraindication or intolerance to nonhormonal therapy (e.g., paroxetine, venlafaxine, clonidine)."
+              ]
+            },
+            "Document medication, treatment date and trial duration."
+          ]
+        },
+        {
+          "title": "Reauthorization — 6 months",
+          "approvalDuration": "6 months",
+          "all": [
+            "Positive response: fewer/less severe vasomotor symptoms compared with baseline."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document source-supported diagnosis, prior treatment, and clinical response."
+      ]
+    },
+    {
+      "id": "gl-502258-cablivi",
+      "policyCode": "GL-502258",
+      "product": "Cablivi (caplacizumab)",
+      "matchBrands": [
+        "CABLIVI"
+      ],
+      "heading": "Cablivi (caplacizumab) — November AHCCCS clinical criteria",
+      "sourcePage": 285,
+      "sourceLastPage": 287,
+      "approvalDuration": "2 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "New-episode-only reauthorization (not automatic extension); inpatient plasma exchange and immunosuppression required.",
+      "guidelineCaution": "Original statewide criteria are not verification of current plan-specific coverage or PA status; use exact product and initial/renewal requirements.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-502258.txt",
+      "sourceChecks": [
+        "Product Name:Cablivi",
+        "acquired thrombotic thrombocytopenic purpura (aTTP)",
+        "plasma exchange therapy",
+        "58 days beyond the last therapeutic plasma exchange"
+      ],
+      "stages": [
+        {
+          "title": "Initial — 2 months",
+          "approvalDuration": "2 months",
+          "all": [
+            "At least 12 years old.",
+            "Acquired thrombotic thrombocytopenic purpura.",
+            "Cablivi initiated during inpatient treatment with plasma exchange.",
+            "Used with immunosuppressive treatment (e.g., corticosteroids).",
+            "Total treatment ≤58 days beyond last plasma exchange."
+          ]
+        },
+        {
+          "title": "Reauthorization — new episode only",
+          "approvalDuration": "2 months",
+          "all": [
+            "New DIFFERENT aTTP episode requiring renewed plasma exchange; document dates of both prior and new episode.",
+            "Patient at least 12 years old."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document source-supported diagnosis, prior treatment, and clinical response."
+      ]
+    },
+    {
+      "id": "gl-505202-redemplo",
+      "policyCode": "GL-505202",
+      "product": "Redemplo (plozasiran)",
+      "matchBrands": [
+        "REDEMPLO"
+      ],
+      "heading": "Redemplo (plozasiran) — November AHCCCS clinical criteria",
+      "sourcePage": 1468,
+      "sourceLastPage": 1471,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "FCS requires genetic or score diagnosis, baseline fasting triglycerides ≥880, established lipid treatment or intolerance, diet and no Tryngolza.",
+      "guidelineCaution": "Original statewide criteria are not verification of current plan-specific coverage or PA status; use exact product and initial/renewal requirements.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-505202.txt",
+      "sourceChecks": [
+        "Product Name:Redemplo",
+        "familial chylomicronemia syndrome (FCS)",
+        "NAFCS) Score of greater than or equal to 45",
+        "Baseline fasting triglyceride levels are greater than or equal to 880 mg/dL",
+        "Tryngolza (olezarsen)"
+      ],
+      "stages": [
+        {
+          "title": "Initial — 6 months",
+          "approvalDuration": "6 months",
+          "all": [
+            "Familial chylomicronemia syndrome (type I) documented.",
+            {
+              "any": [
+                "Biallelic pathogenic variant in LPL, GPIHBP1, APOA5, APOC2 or LMF1.",
+                "North American FCS score ≥45.",
+                "Moulin score >10."
+              ]
+            },
+            {
+              "any": [
+                "Patient tried or will receive prescription omega-3 fatty acid AND fibrate as standard triglyceride-lowering therapy.",
+                "Intolerant of standard triglyceride-lowering therapy (prescription omega-3 AND fibrate)."
+              ]
+            },
+            "Fasting triglycerides ≥880 mg/dL BEFORE therapy.",
+            "Used as adjunct to low-fat diet.",
+            "Not combined with Tryngolza.",
+            {
+              "any": [
+                "Cardiology specialist.",
+                "Endocrinology specialist.",
+                "Gastroenterologist.",
+                "Lipid specialist."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response such as lowered triglycerides.",
+            "Not used with Tryngolza."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document source-supported diagnosis, prior treatment, and clinical response."
+      ]
+    },
+    {
+      "id": "gl-508202-daybue",
+      "policyCode": "GL-508202",
+      "product": "Daybue / Daybue Stix (trofinetide)",
+      "matchBrands": [
+        "DAYBUE",
+        "DAYBUE STIX"
+      ],
+      "heading": "Daybue / Daybue Stix (trofinetide) — November AHCCCS clinical criteria",
+      "sourcePage": 449,
+      "sourceLastPage": 451,
+      "approvalDuration": "3 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Rett syndrome confirmed by ALL five classic features or molecular MECP2 test, age ≥2, geneticist/neurologist, response renewal.",
+      "guidelineCaution": "Original statewide criteria are not verification of current plan-specific coverage or PA status; use exact product and initial/renewal requirements.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-508202.txt",
+      "sourceChecks": [
+        "Product Name:Daybue, Daybue Stix",
+        "Diagnosis of Rett syndrome",
+        "MECP2 gene",
+        "Patient is 2 years of age or older"
+      ],
+      "stages": [
+        {
+          "title": "Initial — 3 months",
+          "approvalDuration": "3 months",
+          "all": [
+            "Diagnosis of Rett syndrome.",
+            {
+              "any": [
+                {
+                  "all": [
+                    "Development then regression then recovery/stabilization.",
+                    "Loss of purposeful hand skills.",
+                    "Loss of spoken language.",
+                    "Repetitive stereotypical hand movements.",
+                    "Gait abnormalities."
+                  ]
+                },
+                "MECP2 gene mutation confirmed by molecular genetic testing."
+              ]
+            },
+            "Age at least 2 years.",
+            {
+              "any": [
+                "Prescribed by/in consultation with geneticist.",
+                "Prescribed by/in consultation with neurologist."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization — 12 months",
+          "approvalDuration": "12 months",
+          "all": [
+            "Documented positive clinical response to therapy."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document source-supported diagnosis, prior treatment, and clinical response."
+      ]
     }
   ]
 }
