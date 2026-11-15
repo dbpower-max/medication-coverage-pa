@@ -1197,6 +1197,51 @@
         "Trial and failure (of a minimum 30-day supply)",
         "verified via paid pharmacy claims"
       ]
+    },
+    {
+      "sourceGuidelineType": "Prior Authorization",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "id": "gl-108624-monurol",
+      "policyCode": "GL-108624",
+      "product": "Monurol (fosfomycin tromethamine)",
+      "matchBrands": [
+        "MONUROL"
+      ],
+      "heading": "Monurol PA clinical criteria",
+      "sourcePage": 1199,
+      "sourceLastPage": 1200,
+      "approvalDuration": "12 months",
+      "summary": "One of two alternatives: urine culture/susceptibility submitted showing susceptibility to Monurol and nonsusceptibility to ciprofloxacin or nitrofurantoin; OR a trial and failure, contraindication, or intolerance to either ciprofloxacin or nitrofurantoin.",
+      "pathways": [
+        {
+          "title": "Culture/susceptibility pathway",
+          "all": [
+            "Submitted culture and sensitivity laboratory results show susceptibility to Monurol and lack of susceptibility to ciprofloxacin OR nitrofurantoin."
+          ]
+        },
+        {
+          "title": "Prior antibiotic pathway",
+          "all": [
+            {
+              "any": [
+                "Trial and failure, contraindication, or intolerance to ciprofloxacin.",
+                "Trial and failure, contraindication, or intolerance to nitrofurantoin."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide culture/susceptibility results or the qualifying prior antibiotic trial, contraindication, or intolerance."
+      ],
+      "guidelineCaution": "The original source spells Monurol as 'Monural' in one criterion; the displayed drug identity is Monurol. Statewide clinical criteria do not establish plan-specific coverage.",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-108624.txt",
+      "sourceChecks": [
+        "Product Name:Monurol",
+        "culture and sensitivity is positive for Monural",
+        "negative to Ciprofloxacin or Nitrofurantoin",
+        "Trial and failure, contraindication, or intolerance to ONE of the following"
+      ]
     }
   ]
 }
