@@ -829,3 +829,115 @@ ui.audit39Group={name:'GABAPENTIN IMMEDIATE RELEASE',brands:[]};
 assert(vm.runInContext('clinicalGuidanceFor(audit39Group)',ui)===null,
  'Gralise or Horizant guidelines incorrectly attached to generic IR gabapentin');
 console.log('PASS: Batch 39 audited 20 original sections, 23 guides, direct sources, exact identities, clinical logic, mixed approval periods and exemptions');
+
+
+// Batch 41 clinical double-review and independent matching safety gate.
+// Each source phrase and page is checked against the original indexed policy,
+// and each indication/formulation must retain its exact product identity.
+const batch41Ids=[
+'gl-398214-marinol','gl-398214-dronabinol-generic',
+'gl-417196-bylvay','gl-427214-brinsupri','gl-484224-anzupgo',
+'gl-490255-journavx','gl-300291-olumiant','gl-300310-chenodal',
+'gl-300310-ctexli','gl-357234-spevigo','gl-396204-gamifant',
+'gl-427207-evkeeza','gl-357232-dificid',
+'gl-479199-elidel-pimecrolimus-cream','gl-479199-tacrolimus-ointment','gl-457217-blood-glucose-test-strips',
+'gl-502256-nonhormonal-vms','gl-502258-cablivi',
+'gl-505202-redemplo','gl-508202-daybue',
+'gl-525282-alkindi-sprinkle','gl-525282-khindivi',
+'gl-525288-voyxact','gl-525289-pyrukynd','gl-525289-aqvesme'
+];
+assert(batch41Ids.length===25,'Expected exactly 25 guides in 20 policy sections');
+const batch41Guides=batch41Ids.map(id=>guidance.find(g=>g.id===id));
+assert(batch41Guides.every(Boolean),'Batch41 guide missing');
+assert(new Set(batch41Guides.map(g=>g.policyCode)).size===20,
+ 'Batch41 must have 20 distinct original policy sections');
+const sourceNormal=s=>String(s).replace(/\s+/g,' ').toLowerCase();
+for(const g of batch41Guides){
+ assert(g.sourceChecks.length>=3,'Missing literal original source checks '+g.id);
+ const source=fs.readFileSync('_site/'+g.sourceTextUrl.replace(/^\//,''),'utf8');
+ const compact=sourceNormal(source);
+ for(const phrase of g.sourceChecks)
+  assert(compact.includes(sourceNormal(phrase)),'Unverified source phrase '+g.id+': '+phrase);
+ const originalPages=[...source.matchAll(/--- PDF page (\d+) ---/g)].map(m=>Number(m[1]));
+ assert(originalPages.includes(g.sourcePage)&&originalPages.includes(g.sourceLastPage),
+  'Unverified original page span '+g.id);
+ assert((g.matchBrands?.length||0)+(g.matchNames?.length||0)>0,
+  'Unverified medication identity '+g.id);
+}
+const b41=id=>guidance.find(g=>g.id==='gl-'+id);
+const marinol=b41('398214-marinol'),drona=b41('398214-dronabinol-generic');
+assert(marinol.pathways.length===2&&drona.pathways.length===2,
+ 'Marinol and generic dronabinol have two indication-specific branches each');
+assert(marinol.pathways.every((p,i)=>p.all.length===drona.pathways[i].all.length+1),
+ 'Marinol brand-only generic-trial prerequisite incorrectly inherited by generic');
+assert(b41('417196-bylvay').stages.map(s=>s.approvalDuration).join(',')===
+ '6 months,12 months,6 months,12 months','Bylvay indication-specific durations lost');
+const bron=b41('427214-brinsupri').stages[0].all;
+assert(bron[3].any.length===2&&bron[5].any.length===2
+ &&bron[5].any[0].all[1].any.length===2
+ &&bron[5].any[1].all[1].any.length===2,
+ 'Brinsupri COPD/asthma, age and controller therapy logic malformed');
+assert(b41('484224-anzupgo').stages[0].all[5].all.length===7,
+ 'Anzupgo requires ALL 7 prior therapies');
+const journ=b41('490255-journavx').pathways[0].all;
+assert(journ[5].all.length===3&&journ[6].any.length===4
+ &&journ.some(x=>typeof x==='string'&&x.includes('CYP3A')),
+ 'Journavx 3-of-3 + 1-of-4 and CYP3A safety requirements lost');
+assert(b41('300291-olumiant').stages.length===3
+ &&b41('300291-olumiant').stages[2].approvalDuration==='14 days',
+ 'Olumiant RA vs inpatient COVID approval window or alopecia exclusion lost');
+assert(b41('357234-spevigo').stages.map(s=>s.approvalDuration).join(',')===
+ '14 days,12 months,12 months','Spevigo IV flare vs SC durations lost');
+assert(b41('396204-gamifant').stages.length===4,
+ 'Gamifant primary HLH vs Still disease stage separation lost');
+assert(b41('427207-evkeeza').stages[0].all[1].any.length===2,
+ 'Evkeeza diagnostic OR required');
+assert(b41('357232-dificid').pathways.length===2
+ &&b41('357232-dificid').pathways[1].all.length===4,
+ 'Dificid brand tablet vs generic/suspension step missing');
+assert(b41('479199-elidel-pimecrolimus-cream').matchFormulationWords.includes('cream')
+ &&b41('479199-elidel-pimecrolimus-cream').stages.length===2
+ &&b41('479199-tacrolimus-ointment').matchFormulationWords.includes('ointment')
+ &&b41('479199-tacrolimus-ointment').stages.length===3,
+ 'Topical tacrolimus route/age safeguards absent');
+assert(b41('457217-blood-glucose-test-strips').pathways.length===4
+ &&!b41('457217-blood-glucose-test-strips').summary.includes('Mercy'),
+ 'Test strips should expose only three Pima ACC plans, with ST and QL branches');
+assert(b41('502256-nonhormonal-vms').stages[0].all[1].all.length===2,
+ 'Lynkuet and Veozah require BOTH prior treatment categories');
+assert(b41('502258-cablivi').stages[1].all.some(x=>typeof x==='string'&&x.includes('DIFFERENT')),
+ 'Cablivi reauthorization must be a new TTP episode');
+assert(b41('505202-redemplo').stages[0].all.some(x=>typeof x==='string'&&x.includes('880')),
+ 'Redemplo pre-treatment triglyceride minimum lost');
+assert(b41('508202-daybue').stages[0].all[1].any.length===2,
+ 'Daybue Rett clinical evidence OR MECP2 mutation lost');
+assert(!JSON.stringify(b41('525282-alkindi-sprinkle').stages[0]).includes('5–18')
+ &&JSON.stringify(b41('525282-khindivi').stages[0]).includes('5–18'),
+ 'Khindivi-only age limitation wrongly inherited by Alkindi');
+assert(b41('525288-voyxact').stages[0].all.some(x=>x.any?.length===3),
+ 'Voyxact ACEi/ARB/contraindication alternatives lost');
+assert(b41('525289-pyrukynd').stages[0].all[1].all.length===3
+ &&b41('525289-aqvesme').stages[0].all.some(x=>x.all?.length===3),
+ 'Pyrukynd PKLR and Aqvesme concomitant medication exclusions lost');
+ui.b41Generic={name:'DRONABINOL',brands:[],records:[{name:'DRONABINOL 2.5 MG CAPSULE'}]};
+ui.b41Brand={name:'DRONABINOL',brands:['MARINOL'],records:[{name:'DRONABINOL 2.5 MG CAPSULE'}]};
+ui.b41OtherBrand={name:'DRONABINOL',brands:['UNRELATED BRAND'],records:[{name:'DRONABINOL 2.5 MG CAPSULE'}]};
+ui.b41MixedBrand={name:'DRONABINOL',brands:['MARINOL','UNRELATED BRAND'],records:[{name:'DRONABINOL 2.5 MG CAPSULE'}]};
+assert(vm.runInContext('clinicalGuidanceFor(b41Generic)',ui)?.id===drona.id,
+ 'Generic dronabinol not matched');
+assert(vm.runInContext('clinicalGuidanceFor(b41Brand)',ui)?.id===marinol.id,
+ 'Brand Marinol not matched');
+for(const name of ['b41OtherBrand','b41MixedBrand'])
+ assert(vm.runInContext('clinicalGuidanceFor('+name+')',ui)===null,
+  'Generic drug policy dangerously leaked to unrelated branded product');
+ui.b41TacTop={name:'TACROLIMUS',brands:[],records:[{name:'TACROLIMUS 0.1% OINTMENT'}]};
+ui.b41TacOral={name:'TACROLIMUS',brands:[],records:[{name:'TACROLIMUS 1 MG CAPSULE'}]};
+ui.b41TacInject={name:'TACROLIMUS',brands:[],records:[{name:'TACROLIMUS 1 MG/ML INJECTION'}]};
+ui.b41TacMixed={name:'TACROLIMUS',brands:[],records:[{name:'TACROLIMUS 0.03% OINTMENT'},{name:'TACROLIMUS 1 MG CAPSULE'}]};
+assert(vm.runInContext('clinicalGuidanceFor(b41TacTop)',ui)?.id==='gl-479199-tacrolimus-ointment',
+ 'Topical tacrolimus should match topical policy');
+for(const name of ['b41TacOral','b41TacInject','b41TacMixed'])
+ assert(vm.runInContext('clinicalGuidanceFor('+name+')',ui)===null,
+  'TOPICAL tacrolimus PA criteria leaked to oral, injectable or mixed product');
+console.log('PASS: batch41 all 25 guides/20 sections, original sources, product identities,'
+ +' AND/OR, duration, non-branded-generic and route-specific safety regressions');

@@ -854,6 +854,15 @@
       // Strength-specific policies must not attach to a brand/generic group
       // representing another tablet strength, or to an unspecified strength.
       // A group with mixed/ambiguous record strengths fails closed.
+      // A dosage-form-specific policy must never be applied to a different
+      // route or formulation (e.g. tacrolimus ointment vs oral/injection).
+      if (Array.isArray(guide.matchFormulationWords) && guide.matchFormulationWords.length) {
+        const products = group.records?.length ? group.records.map(record => record.name) : [group.name];
+        const allowed = new Set(guide.matchFormulationWords.map(normalize));
+        if (!products.length || !products.every(name =>
+          String(name || '').toLowerCase().match(/[a-z0-9]+/g)?.some(word => allowed.has(word))
+        )) return false;
+      }
       if (guide.matchStrengthMg != null) {
         const products = group.records?.length ? group.records.map(r => r.name) : [group.name];
         if (!products.length || !products.every(name => {
@@ -868,6 +877,9 @@
       // Do not put product-specific clinical criteria on a group that also
       // contains a different branded product.
       if (matchedBrand) return [...brands].every(brand => allowedBrands.has(brand));
+      // A generic-name-only guide must never be the fallback on a branded
+      // medication group. The product-specific branded rule can differ.
+      if (brands.size > 0) return false;
       return (guide.matchNames || []).some(name => generic === normalize(name));
     }) || null;
   }
