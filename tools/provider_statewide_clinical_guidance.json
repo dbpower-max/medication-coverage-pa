@@ -1160,6 +1160,88 @@
         "Prescribed by or in consultation with ONE of the following",
         "positive clinical response to therapy"
       ]
+    },
+    {
+      "sourceGuidelineType": "Prior Authorization",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "id": "gl-108675-epsolay",
+      "policyCode": "GL-108675",
+      "product": "Epsolay (benzoyl peroxide) cream",
+      "matchBrands": [
+        "EPSOLAY"
+      ],
+      "heading": "Epsolay rosacea PA",
+      "sourcePage": 581,
+      "sourceLastPage": 582,
+      "approvalDuration": "12 months",
+      "summary": "For rosacea with inflammatory lesions, requires trial and failure of at least a 30-day supply, contraindication, or intolerance to one preferred topical rosacea product (e.g., metronidazole), verified via paid pharmacy claims.",
+      "pathways": [
+        {
+          "title": "Rosacea — all requirements",
+          "all": [
+            "Diagnosis of rosacea.",
+            "Patient has inflammatory lesions.",
+            "Trial and failure (minimum 30-day supply), contraindication, or intolerance to one preferred topical rosacea product (e.g., metronidazole cream, gel, or lotion), verified via paid pharmacy claims."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document rosacea and inflammatory lesions; identify the prior preferred topical treatment and paid claim or reason it could not be used."
+      ],
+      "guidelineCaution": "Statewide criteria do not independently establish plan-specific coverage or PA status.",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-108675.txt",
+      "sourceChecks": [
+        "Product Name:Epsolay",
+        "Diagnosis of rosacea",
+        "Patient has inflammatory lesions",
+        "Trial and failure (of a minimum 30-day supply)",
+        "verified via paid pharmacy claims"
+      ]
+    },
+    {
+      "sourceGuidelineType": "Prior Authorization",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "id": "gl-108624-monurol",
+      "policyCode": "GL-108624",
+      "product": "Monurol (fosfomycin tromethamine)",
+      "matchBrands": [
+        "MONUROL"
+      ],
+      "heading": "Monurol PA clinical criteria",
+      "sourcePage": 1199,
+      "sourceLastPage": 1200,
+      "approvalDuration": "12 months",
+      "summary": "One of two alternatives: urine culture/susceptibility submitted showing susceptibility to Monurol and nonsusceptibility to ciprofloxacin or nitrofurantoin; OR a trial and failure, contraindication, or intolerance to either ciprofloxacin or nitrofurantoin.",
+      "pathways": [
+        {
+          "title": "Culture/susceptibility pathway",
+          "all": [
+            "Submitted culture and sensitivity laboratory results show susceptibility to Monurol and lack of susceptibility to ciprofloxacin OR nitrofurantoin."
+          ]
+        },
+        {
+          "title": "Prior antibiotic pathway",
+          "all": [
+            {
+              "any": [
+                "Trial and failure, contraindication, or intolerance to ciprofloxacin.",
+                "Trial and failure, contraindication, or intolerance to nitrofurantoin."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide culture/susceptibility results or the qualifying prior antibiotic trial, contraindication, or intolerance."
+      ],
+      "guidelineCaution": "The original source spells Monurol as 'Monural' in one criterion; the displayed drug identity is Monurol. Statewide clinical criteria do not establish plan-specific coverage.",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-108624.txt",
+      "sourceChecks": [
+        "Product Name:Monurol",
+        "culture and sensitivity is positive for Monural",
+        "negative to Ciprofloxacin or Nitrofurantoin",
+        "Trial and failure, contraindication, or intolerance to ONE of the following"
+      ]
     }
   ]
 }
