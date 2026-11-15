@@ -349,8 +349,8 @@ for(const spec of additionalGuideSpecs){
  const guide=guidance.find(g=>g.id===spec.id);
  assert(guide&&guide.policyCode===spec.code&&guide.sourcePage===spec.pages[0]&&guide.sourceLastPage===spec.pages[1],'New guide page/code mismatch '+spec.id);
  assert(guide.pathways.length===spec.paths&&guide.sourceChecks.length>=3,'Incomplete guide logic '+spec.id);
- const raw=fs.readFileSync('_site/'+guide.sourceTextUrl.replace(/^\\//,''),'utf8').replace(/\\s+/g,' ').toLowerCase();
- for(const phrase of guide.sourceChecks)assert(raw.includes(phrase.replace(/\\s+/g,' ').toLowerCase()),'Source phrase absent '+spec.id+': '+phrase);
+ const raw=fs.readFileSync('_site/'+guide.sourceTextUrl.replace(/^\//,''),'utf8').replace(/\s+/g,' ').toLowerCase();
+ for(const phrase of guide.sourceChecks)assert(raw.includes(phrase.replace(/\s+/g,' ').toLowerCase()),'Source phrase absent '+spec.id+': '+phrase);
  ui.newClinicalGroup={name:'UNRELATED PRODUCT',brands:[spec.brand]};
  assert(vm.runInContext('clinicalGuidanceFor(newClinicalGroup)',ui)?.id===spec.id,'Exact brand does not resolve '+spec.id);
  ui.newClinicalGroup={name:'UNRELATED PRODUCT',brands:[spec.brand+' XR']};
