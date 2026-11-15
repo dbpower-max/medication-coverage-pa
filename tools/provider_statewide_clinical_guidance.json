@@ -5918,6 +5918,186 @@
       "documentationSuggestions": [
         "Provide chart notes, claims, labs, and relevant patient counseling per the original criteria."
       ]
+    },
+    {
+      "id": "gl-300291-olumiant",
+      "policyCode": "GL-300291",
+      "product": "Olumiant (baricitinib)",
+      "matchBrands": [
+        "OLUMIANT"
+      ],
+      "heading": "Olumiant (baricitinib) — original clinical policy criteria",
+      "sourcePage": 1309,
+      "sourceLastPage": 1312,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "RA initial/renew 12 months, COVID-19 hospitalized support for 14 days; alopecia areata is explicitly excluded in this statewide source.",
+      "guidelineCaution": "Statewide source criteria do not establish any individual AHCCCS managed-care plan's formulary coverage or prior authorization flag.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-300291.txt",
+      "sourceChecks": [
+        "Product Name:Olumiant",
+        "a 3 month trial of one non-biologic",
+        "A preferred tocilizumab biosimilar",
+        "Patient is hospitalized",
+        "Alopecia Areata"
+      ],
+      "stages": [
+        {
+          "title": "Rheumatoid arthritis — initial authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Moderate-to-severe active rheumatoid arthritis.",
+            "≥3 month failure of one maximally indicated nonbiologic DMARD within prior 6 months, unless contraindicated or significant adverse effects.",
+            {
+              "all": [
+                "Failure, contraindication, or intolerance to preferred adalimumab biosimilar OR Enbrel.",
+                "Failure, contraindication, or intolerance to infliximab.",
+                "Failure, contraindication, or intolerance to Orencia.",
+                "Failure, contraindication, or intolerance to Xeljanz IR/XR tablet.",
+                "Failure, contraindication, or intolerance to preferred tocilizumab biosimilar."
+              ]
+            },
+            "Prescribed by or in consultation with rheumatologist."
+          ]
+        },
+        {
+          "title": "Rheumatoid arthritis — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response.",
+            "Prescribed by or in consultation with rheumatologist."
+          ]
+        },
+        {
+          "title": "Hospitalized COVID-19 — authorization",
+          "approvalDuration": "14 days",
+          "all": [
+            "COVID-19 diagnosed.",
+            "Patient hospitalized.",
+            {
+              "any": [
+                "Requires supplemental oxygen.",
+                "Requires noninvasive ventilation.",
+                "Requires invasive mechanical ventilation.",
+                "Requires ECMO."
+              ]
+            },
+            "This COVID-19 branch is INPATIENT only; source excludes alopecia areata as nonapprovable."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Verify source-specific records and clinical prerequisites."
+      ]
+    },
+    {
+      "id": "gl-300310-chenodal",
+      "policyCode": "GL-300310",
+      "product": "Chenodal (chenodiol)",
+      "matchBrands": [
+        "CHENODAL"
+      ],
+      "heading": "Chenodal (chenodiol) — original clinical policy criteria",
+      "sourcePage": 330,
+      "sourceLastPage": 332,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Gallstone-specific Chenodal requirements; must not inherit Ctexli genetic disorder criteria.",
+      "guidelineCaution": "Statewide source criteria do not establish any individual AHCCCS managed-care plan's formulary coverage or prior authorization flag.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-300310.txt",
+      "sourceChecks": [
+        "Product Name:Chenodal",
+        "Diagnosis of radiolucent gallstones",
+        "Trial and failure, contraindication or intolerance to ursodiol",
+        "Patient is not a candidate for surgery"
+      ],
+      "stages": [
+        {
+          "title": "Gallstones — initial authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Radiolucent gallstones.",
+            "Well-opacifying gallbladder shown by oral cholecystography.",
+            "Failure, intolerance or contraindication to ursodiol.",
+            "Not a surgical candidate.",
+            "Stones are not calcified or radiolucent bile-pigment stones.",
+            {
+              "any": [
+                "Prescribed by or in consultation with gastroenterologist.",
+                "Prescribed by or in consultation with gallstone management specialist."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Gallstones — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Disease status reassessed with oral cholecystography or ultrasonography and ongoing treatment warranted.",
+            {
+              "any": [
+                "Gastroenterologist.",
+                "Clinician with gallstone-specific expertise."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Verify source-specific records and clinical prerequisites."
+      ]
+    },
+    {
+      "id": "gl-300310-ctexli",
+      "policyCode": "GL-300310",
+      "product": "Ctexli (chenodiol)",
+      "matchBrands": [
+        "CTEXLI"
+      ],
+      "heading": "Ctexli (chenodiol) — original clinical policy criteria",
+      "sourcePage": 332,
+      "sourceLastPage": 333,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "CTEXLI restricted to CYP27A1-confirmed cerebrotendinous xanthomatosis; separate from Chenodal gallstones.",
+      "guidelineCaution": "Statewide source criteria do not establish any individual AHCCCS managed-care plan's formulary coverage or prior authorization flag.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-300310.txt",
+      "sourceChecks": [
+        "Product Name:Ctexli",
+        "Diagnosis of cerebrotendinous xanthomatosis",
+        "CYP27A1 gene",
+        "Metabolic disease specialist"
+      ],
+      "stages": [
+        {
+          "title": "Cerebrotendinous xanthomatosis — initial authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Diagnosis of cerebrotendinous xanthomatosis (cholestanol storage disease).",
+            "Pathogenic CYP27A1 variant demonstrated by FDA-approved or CLIA-facility genetic test.",
+            {
+              "any": [
+                "Neurologist.",
+                "Geneticist.",
+                "Metabolic disease specialist."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Cerebrotendinous xanthomatosis — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response such as symptom stabilization/improvement, reduced serum cholestanol or urine 23S-pentol."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Verify source-specific records and clinical prerequisites."
+      ]
     }
   ]
 }
