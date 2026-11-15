@@ -382,3 +382,24 @@ for(const spec of negativeGuideCases){
    'Cross-route or cross-form clinical criteria leak: '+spec.name+' / '+spec.brands.join(','));
 }
 console.log('PASS: Lyrica IR/CR and glycopyrrolate oral/injectable negative identity controls');
+
+
+const alphaGuides=[
+ {id:'gl-105169-intron-a',brand:'INTRON A',duration:'12 months',count:13},
+ {id:'gl-105169-alferon-n',brand:'ALFERON N',duration:'8 weeks',count:1}
+];
+for(const spec of alphaGuides){
+ const guide=guidance.find(g=>g.id===spec.id);
+ assert(guide&&guide.policyCode==='GL-105169'&&guide.sourcePage===80&&guide.sourceLastPage===83,'Alpha interferon policy/page mismatch '+spec.id);
+ assert(guide.approvalDuration===spec.duration&&guide.pathways.length===spec.count,'Alpha interferon duration/OR branches mismatch '+spec.id);
+ assert(guide.matchBrands.length===1&&guide.matchBrands[0]===spec.brand&&guide.sourceChecks.length>=3,'Alpha interferon exact brand/source checks mismatch '+spec.id);
+ const raw=fs.readFileSync('_site/'+guide.sourceTextUrl.replace(/^\\//,''),'utf8').replace(/\\s+/g,' ').toLowerCase();
+ for(const phrase of guide.sourceChecks)assert(raw.includes(phrase.replace(/\\s+/g,' ').toLowerCase()),'Alpha interferon source phrase absent '+spec.id+': '+phrase);
+ ui.alphaClinicalGroup={name:'UNRELATED MEDICATION',brands:[spec.brand]};
+ assert(vm.runInContext('clinicalGuidanceFor(alphaClinicalGroup)',ui)?.id===spec.id,'Alpha interferon exact brand match missing '+spec.id);
+ ui.alphaClinicalGroup={name:'UNRELATED MEDICATION',brands:[spec.brand+' XR']};
+ assert(vm.runInContext('clinicalGuidanceFor(alphaClinicalGroup)',ui)===null,'Alpha interferon fuzzy brand leakage '+spec.id);
+}
+ui.alphaClinicalGroup={name:'INTERFERON ALFA',brands:['INTERFERON ALFA-2B']};
+assert(vm.runInContext('clinicalGuidanceFor(alphaClinicalGroup)',ui)===null,'Generic interferon should not inherit brand-only policy');
+console.log('PASS: Intron A and Alferon N source, OR branches, durations, exact brand and negative matching');
