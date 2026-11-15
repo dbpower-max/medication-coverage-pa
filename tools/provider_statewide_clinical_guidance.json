@@ -8493,6 +8493,223 @@
       "documentationSuggestions": [
         "Document treatment indication, prior trials, specialist involvement and measurable response as specified."
       ]
+    },
+    {
+      "id": "gl-99502-xopenex-respules",
+      "policyCode": "GL-99502",
+      "product": "Xopenex inhalation solution",
+      "matchBrands": [
+        "XOPENEX"
+      ],
+      "heading": "Xopenex inhalation solution — November original clinical criteria",
+      "sourcePage": 2076,
+      "sourceLastPage": 2077,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Only Xopenex inhalation solution; HFA aerosol not included.",
+      "guidelineCaution": "Original statewide clinical criteria only, not patient-specific AHCCCS managed-care formulary or PA confirmation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99502.txt",
+      "sourceChecks": [
+        "Product Name:Brand Xopenex inhalation soln, generic levalbuterol inhalation soln",
+        "history of failure, contraindication, or intolerance",
+        "albuterol inhalation solution"
+      ],
+      "pathways": [
+        {
+          "title": "Inhalation solution prerequisite",
+          "all": [
+            "Prior failure, contraindication or intolerance to albuterol INHALATION SOLUTION."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document all source-required clinical and pharmacy-history criteria."
+      ],
+      "matchFormulationWords": [
+        "solution",
+        "soln",
+        "respules"
+      ]
+    },
+    {
+      "id": "gl-99503-zontivity",
+      "policyCode": "GL-99503",
+      "product": "Zontivity (vorapaxar)",
+      "matchBrands": [
+        "ZONTIVITY"
+      ],
+      "heading": "Zontivity (vorapaxar) — November original clinical criteria",
+      "sourcePage": 2120,
+      "sourceLastPage": 2121,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Requires MI or PAD, with no prior stroke/TIA/ICH or active bleeding.",
+      "guidelineCaution": "Original statewide clinical criteria only, not patient-specific AHCCCS managed-care formulary or PA confirmation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99503.txt",
+      "sourceChecks": [
+        "Product Name:Zontivity",
+        "History of myocardial infarction (MI)",
+        "Intracranial hemorrhage (ICH)",
+        "active pathological bleeding"
+      ],
+      "pathways": [
+        {
+          "title": "MI/PAD diagnosis plus all exclusions",
+          "all": [
+            {
+              "any": [
+                "History of myocardial infarction.",
+                "Peripheral artery disease."
+              ]
+            },
+            "No prior stroke.",
+            "No prior TIA.",
+            "No prior intracranial hemorrhage.",
+            "No active pathological bleeding."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document all source-required clinical and pharmacy-history criteria."
+      ]
+    },
+    {
+      "id": "gl-99504-zortress",
+      "policyCode": "GL-99504",
+      "product": "Zortress (everolimus)",
+      "matchBrands": [
+        "ZORTRESS"
+      ],
+      "heading": "Zortress (everolimus) — November original clinical criteria",
+      "sourcePage": 2122,
+      "sourceLastPage": 2123,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Kidney or liver transplant rejection prophylaxis only.",
+      "guidelineCaution": "Original statewide clinical criteria only, not patient-specific AHCCCS managed-care formulary or PA confirmation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99504.txt",
+      "sourceChecks": [
+        "Product Name:Zortress",
+        "Kidney transplant rejection prophylaxis",
+        "Liver transplant rejection prophylaxis"
+      ],
+      "pathways": [
+        {
+          "title": "Transplant rejection prevention",
+          "all": [
+            {
+              "any": [
+                "Kidney transplant rejection prophylaxis in a patient with low-to-moderate immunologic risk.",
+                "Liver transplant rejection prophylaxis."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document all source-required clinical and pharmacy-history criteria."
+      ]
+    },
+    {
+      "id": "gl-99505-nocdurna",
+      "policyCode": "GL-99505",
+      "product": "Nocdurna (desmopressin)",
+      "matchBrands": [
+        "NOCDURNA"
+      ],
+      "heading": "Nocdurna (desmopressin) — November original clinical criteria",
+      "sourcePage": 1249,
+      "sourceLastPage": 1251,
+      "approvalDuration": "3 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Sodium normalization, prior 6-month Na stability and risk review central; initial 3 months, renewal 12.",
+      "guidelineCaution": "Original statewide clinical criteria only, not patient-specific AHCCCS managed-care formulary or PA confirmation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99505.txt",
+      "sourceChecks": [
+        "Product Name:Nocdurna",
+        "nighttime urine production",
+        "serum sodium level",
+        "risks of hyponatremia"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "3 months",
+          "all": [
+            "Nocturia due to nocturnal polyuria with nighttime urine >1/3 of 24-hour output.",
+            "Repeated nocturnal voiding at least twice per night.",
+            "Serum Na currently normal and normal over previous six months.",
+            "Other identifiable causes evaluated and inadequately treated, contraindicated, or intolerant (e.g., OAB, BPH, elevated PVR, HF).",
+            "Prescriber attests favorable risk/benefit assessment."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive response to therapy.",
+            "Routine sodium monitoring.",
+            "Hyponatremia risk reviewed; prescriber attests favorable benefit/risk."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document all source-required clinical and pharmacy-history criteria."
+      ]
+    },
+    {
+      "id": "gl-99511-panretin",
+      "policyCode": "GL-99511",
+      "product": "Panretin (alitretinoin topical)",
+      "matchBrands": [
+        "PANRETIN"
+      ],
+      "heading": "Panretin (alitretinoin topical) — November original clinical criteria",
+      "sourcePage": 1370,
+      "sourceLastPage": 1372,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "AIDS-associated Kaposi sarcoma without systemic treatment OR NCCN compendium-supported regimen (initial/renewal).",
+      "guidelineCaution": "Original statewide clinical criteria only, not patient-specific AHCCCS managed-care formulary or PA confirmation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99511.txt",
+      "sourceChecks": [
+        "Product Name:Panretin",
+        "AIDS-related Kaposi’s Sarcoma",
+        "Category of Evidence and",
+        "Documentation of positive clinical response to Panretin therapy"
+      ],
+      "stages": [
+        {
+          "title": "AIDS-related Kaposi sarcoma",
+          "approvalDuration": "12 months",
+          "all": [
+            "AIDS-related Kaposi sarcoma diagnosed.",
+            "Not receiving systemic anti-Kaposi sarcoma treatment."
+          ]
+        },
+        {
+          "title": "NCCN-supported regimen initial",
+          "approvalDuration": "12 months",
+          "all": [
+            "NCCN Drugs and Biologics Compendium supports use at Category 1, 2A, or 2B."
+          ]
+        },
+        {
+          "title": "NCCN-supported regimen reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response to Panretin."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document all source-required clinical and pharmacy-history criteria."
+      ]
     }
   ]
 }
