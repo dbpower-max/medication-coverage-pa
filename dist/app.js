@@ -854,6 +854,14 @@
       // Strength-specific policies must not attach to a brand/generic group
       // representing another tablet strength, or to an unspecified strength.
       // A group with mixed/ambiguous record strengths fails closed.
+      if (Array.isArray(guide.matchFormulationWords) && guide.matchFormulationWords.length) {
+        const products = group.records?.length ? group.records.map(r => r.name) : [group.name];
+        const allowedForms = new Set(guide.matchFormulationWords.map(normalize));
+        if (!products.length || !products.every(name =>
+          String(name || '').toLowerCase().match(/[a-z0-9]+/g)
+            ?.some(word => allowedForms.has(word))
+        )) return false;
+      }
       if (guide.matchStrengthMg != null) {
         const products = group.records?.length ? group.records.map(r => r.name) : [group.name];
         if (!products.length || !products.every(name => {
