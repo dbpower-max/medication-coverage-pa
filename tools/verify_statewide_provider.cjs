@@ -1198,7 +1198,7 @@ for(const [id,companion] of [['139338-pombiliti','Opfolda'],['139340-opfolda','P
   'Pompe companion product and 24-month renewal safeguard missing '+id);
 }
 assert(b44('143519-adzynma').stages.every(s=>s.all.some(x=>
- typeof x==='string'&&x.includes('plasma')),
+ typeof x==='string'&&x.includes('plasma'))),
  'Adzynma trial of plasma-based infusions must persist');
 assert(b44('143858-skyclarys').stages[0].all[1].includes('FXN'),
  'Skyclarys genetic confirmation lost');
