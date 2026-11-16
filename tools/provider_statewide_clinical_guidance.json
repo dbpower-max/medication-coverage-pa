@@ -9530,6 +9530,341 @@
       "documentationSuggestions": [
         "Provide source-required diagnosis, test results, treatment history and specialist documentation."
       ]
+    },
+    {
+      "id": "gl-131958-xenpozyme",
+      "policyCode": "GL-131958",
+      "product": "Xenpozyme (olipudase alfa)",
+      "matchBrands": [
+        "XENPOZYME"
+      ],
+      "heading": "Xenpozyme (olipudase alfa) — source-verified November clinical criteria",
+      "sourcePage": 2043,
+      "sourceLastPage": 2045,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Non-CNS ASMD requires genotype or enzyme deficiency with initial 12-month and renewal 24-month approval.",
+      "guidelineCaution": "The exact November statewide criteria do not confirm PA status or coverage for an individual Pima ACC plan. Verify product formulation and indication.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-131958.txt",
+      "sourceChecks": [
+        "Product Name:Xenpozyme",
+        "acid sphingomyelinase deficiency",
+        "SMPD1",
+        "less than 10% of controls",
+        "non-central nervous system manifestations"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Acid sphingomyelinase deficiency (ASMD) diagnosed.",
+            {
+              "any": [
+                "Biallelic SMPD1 pathogenic variants confirmed.",
+                "Residual acid sphingomyelinase activity <10% of normal controls in peripheral blood lymphocytes or fibroblasts."
+              ]
+            },
+            "Non-CNS manifestations of ASMD documented.",
+            {
+              "any": [
+                "Prescribed by/in consultation with metabolic specialist.",
+                "Prescribed by/in consultation with geneticist."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "24 months",
+          "all": [
+            "Positive clinical response (e.g., spleen/liver shrinkage, improved platelets or lung function)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document source-required clinical history, diagnosis, supporting testing, prior treatment, and specialist review."
+      ]
+    },
+    {
+      "id": "gl-131964-ezallor",
+      "policyCode": "GL-131964",
+      "product": "Ezallor Sprinkle (rosuvastatin)",
+      "matchBrands": [
+        "EZALLOR"
+      ],
+      "heading": "Ezallor Sprinkle (rosuvastatin) — source-verified November clinical criteria",
+      "sourcePage": 641,
+      "sourceLastPage": 643,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Source allows under-10 cardiologist pathway OR specified adult/pediatric indications PLUS generic rosuvastatin trial or swallowing limitation.",
+      "guidelineCaution": "The exact November statewide criteria do not confirm PA status or coverage for an individual Pima ACC plan. Verify product formulation and indication.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-131964.txt",
+      "sourceChecks": [
+        "Product Name:Ezallor",
+        "Patient is less than 10 years of age",
+        "Prescribed by or in consultation with a cardiologist",
+        "generic rosuvastatin tablets",
+        "Patient is unable to swallow oral tablets"
+      ],
+      "pathways": [
+        {
+          "title": "Under age 10",
+          "all": [
+            "Patient younger than 10 years.",
+            "Prescribed by/in consultation with cardiologist."
+          ]
+        },
+        {
+          "title": "Recognized indication with formulation necessity",
+          "all": [
+            {
+              "any": [
+                "Reduction in ASCVD events in adults at specified CHD/diabetes risk or established coronary heart disease.",
+                "Reduction in LDL-C for adult primary hyperlipidemia or heterozygous FH age ≥10.",
+                "LDL lowering for homozygous FH age ≥7 with adjunctive therapy (or alone if unavailable).",
+                "Adult primary dysbetalipoproteinemia or hypertriglyceridemia as adjunct to diet."
+              ]
+            },
+            {
+              "any": [
+                "Prior generic rosuvastatin tablets failed, contraindicated, or intolerable.",
+                "Unable to swallow tablets."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document source-required clinical history, diagnosis, supporting testing, prior treatment, and specialist review."
+      ]
+    },
+    {
+      "id": "gl-135321-veopoz",
+      "policyCode": "GL-135321",
+      "product": "Veopoz (pozelimab)",
+      "matchBrands": [
+        "VEOPOZ"
+      ],
+      "heading": "Veopoz (pozelimab) — source-verified November clinical criteria",
+      "sourcePage": 1942,
+      "sourceLastPage": 1944,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "CHAPLE syndrome requires genotype, hypoalbuminemia and ≥1 symptom within 6 months, specialist; 12-month initial/renewal.",
+      "guidelineCaution": "The exact November statewide criteria do not confirm PA status or coverage for an individual Pima ACC plan. Verify product formulation and indication.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-135321.txt",
+      "sourceChecks": [
+        "Product Name:Veopoz",
+        "CD55-deficient protein-losing enteropathy",
+        "biallelic CD55 loss-of-function",
+        "serum albumin concentration",
+        "hospitalizations"
+      ],
+      "stages": [
+        {
+          "title": "Initial CHAPLE authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Active CD55-deficient protein-losing enteropathy (CHAPLE).",
+            "Biallelic CD55 loss-of-function mutation confirmed.",
+            "Age ≥1 year.",
+            "Serum albumin ≤3.2 g/dL.",
+            {
+              "any": [
+                "Abdominal pain within previous six months.",
+                "Diarrhea within previous six months.",
+                "Peripheral edema within six months.",
+                "Facial edema within six months."
+              ]
+            },
+            {
+              "any": [
+                "Immunologist.",
+                "Geneticist.",
+                "Hematologist."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive response, e.g., fewer albumin infusions/hospitalizations or normalized IgG."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document source-required clinical history, diagnosis, supporting testing, prior treatment, and specialist review."
+      ]
+    },
+    {
+      "id": "gl-135325-daxxify",
+      "policyCode": "GL-135325",
+      "product": "Daxxify (daxibotulinumtoxinA)",
+      "matchBrands": [
+        "DAXXIFY"
+      ],
+      "heading": "Daxxify (daxibotulinumtoxinA) — source-verified November clinical criteria",
+      "sourcePage": 446,
+      "sourceLastPage": 448,
+      "approvalDuration": "3 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Only cervical dystonia qualifies. Cosmetic facial-line indications are explicitly excluded in the original policy.",
+      "guidelineCaution": "The exact November statewide criteria do not confirm PA status or coverage for an individual Pima ACC plan. Verify product formulation and indication.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-135325.txt",
+      "sourceChecks": [
+        "Product Name:Daxxify",
+        "Diagnosis of cervical dystonia",
+        "At least 3 months have or will have elapsed",
+        "requests for cosmetic use are excluded"
+      ],
+      "stages": [
+        {
+          "title": "Cervical dystonia — initial",
+          "approvalDuration": "3 months",
+          "all": [
+            "Diagnosis of cervical dystonia documented."
+          ]
+        },
+        {
+          "title": "Cervical dystonia — reauthorization",
+          "approvalDuration": "3 months",
+          "all": [
+            "Positive clinical response.",
+            "At least three months elapsed or will elapse since prior injection."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document source-required clinical history, diagnosis, supporting testing, prior treatment, and specialist review."
+      ]
+    },
+    {
+      "id": "gl-135381-lodoco",
+      "policyCode": "GL-135381",
+      "product": "Lodoco (colchicine 0.5 mg)",
+      "matchBrands": [
+        "LODOCO"
+      ],
+      "heading": "Lodoco (colchicine 0.5 mg) — source-verified November clinical criteria",
+      "sourcePage": 1102,
+      "sourceLastPage": 1105,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Secondary ASCVD prevention requires very-high-risk profile, background risk-factor treatment and prior generic colchicine 0.6 mg failure/intolerance.",
+      "guidelineCaution": "The exact November statewide criteria do not confirm PA status or coverage for an individual Pima ACC plan. Verify product formulation and indication.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-135381.txt",
+      "sourceChecks": [
+        "Product Name:Lodoco",
+        "Used for the secondary prevention of CV disease",
+        "colchicine 0.6 mg tablets",
+        "multiple risk factors"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Cardiovascular disease diagnosis.",
+            "Used for secondary cardiovascular prevention in very high-risk patient (multiple major ASCVD events OR one major event with ≥2 high-risk conditions).",
+            "Receiving guideline-based management of dyslipidemia, blood pressure and/or hyperglycemia.",
+            "History of failure or intolerance to colchicine 0.6 mg tablets."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Positive cardiovascular clinical response to therapy."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document source-required clinical history, diagnosis, supporting testing, prior treatment, and specialist review."
+      ]
+    },
+    {
+      "id": "gl-137865-voxzogo",
+      "policyCode": "GL-137865",
+      "product": "Voxzogo (vosoritide)",
+      "matchBrands": [
+        "VOXZOGO"
+      ],
+      "heading": "Voxzogo (vosoritide) — source-verified November clinical criteria",
+      "sourcePage": 1971,
+      "sourceLastPage": 1974,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "For achondroplasia with open epiphyses only; original policy excludes idiopathic short stature. Initial and renewal 12 months.",
+      "guidelineCaution": "The exact November statewide criteria do not confirm PA status or coverage for an individual Pima ACC plan. Verify product formulation and indication.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-137865.txt",
+      "sourceChecks": [
+        "Product Name:Voxzogo",
+        "Patient has open epiphyses",
+        "c.1138G>A or c.1138G>C",
+        "limb-lengthening surgery",
+        "Idiopathic Short Stature"
+      ],
+      "stages": [
+        {
+          "title": "Achondroplasia — initial",
+          "approvalDuration": "12 months",
+          "all": [
+            "Open growth plates (epiphyses).",
+            {
+              "any": [
+                {
+                  "all": [
+                    "Clinical features characteristic of achondroplasia.",
+                    "Characteristic radiographic findings."
+                  ]
+                },
+                "FGFR3 c.1138G>A or c.1138G>C (p.Gly380Arg) mutation confirmed."
+              ]
+            },
+            "No limb-lengthening surgery in last 18 months and none planned during treatment.",
+            {
+              "any": [
+                "Clinical geneticist.",
+                "Endocrinologist.",
+                "Achondroplasia-specialist clinician."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Achondroplasia — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Epiphyses remain open.",
+            {
+              "any": [
+                "Improvement in annualized growth velocity.",
+                "Improvement in height Z-score."
+              ]
+            },
+            {
+              "any": [
+                "Clinical geneticist.",
+                "Endocrinologist.",
+                "Achondroplasia-specialist clinician."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document source-required clinical history, diagnosis, supporting testing, prior treatment, and specialist review."
+      ]
     }
   ]
 }
