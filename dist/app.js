@@ -916,6 +916,7 @@
     document.addEventListener('click', event => {
       const shortcut = event.target.closest('[data-criteria-query]');
       if (!shortcut) return;
+      el.criteriaLibrary.hidden = false;
       el.criteriaLibrary.open = true;
       el.criteriaSearch.value = shortcut.dataset.criteriaQuery;
       // A legacy reference brand may be absent from current policy headings.
