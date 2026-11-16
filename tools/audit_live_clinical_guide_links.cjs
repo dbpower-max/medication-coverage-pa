@@ -78,7 +78,7 @@ assert(cardStart>0&&cardEnd>cardStart,'Medication card UI function missing');
 const ui={
  escapeHtml:s=>String(s),
  readableMedicationName:s=>String(s),
- criteriaLibraryShortcut:()=>'',clinicalGuidanceContent:()=>'Clinically validated source details',
+ criteriaLibraryShortcut:()=>'',linkedPolicyPanels:()=>'',clinicalGuidanceContent:()=>'Clinically validated source details',
  clinicalGuidanceFor:g=>g.brands.includes('FARXIGA')?{policyCode:'GL-589207',heading:'Farxiga guidance'}:null,
  statusChips:()=>'',medicationPolicyDropdown:()=>'',recordDetails:()=>''
 };

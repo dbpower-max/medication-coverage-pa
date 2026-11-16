@@ -26,6 +26,10 @@ assert(api.el.criteriaResults.innerHTML.includes('Inhaled Corticosteroids'),'Pla
 assert.equal(api.el.criteriaLibrary.open,true,'Policy-only match is hidden in collapsed library');
 api.state.term='GL-749236';api.render();
 assert(api.el.criteriaResults.innerHTML.includes('Mounjaro'),'Policy code search cannot reach structured guide');
+api.state.term='Qvar';api.render();
+assert(api.el.resultGrid.innerHTML.includes('Selected-plan policy'),'Existing Banner policy link remains buried');
+assert(api.el.resultGrid.innerHTML.includes('linked:banner-ufc:'),'Banner inline source reader missing');
+assert(!api.el.resultGrid.innerHTML.includes('linked:uhc-community-az:'),'Wrong plan source reader attached');
 // A source record accidentally inserted into medications must still fail closed.
 data.medications.push({id:'internal-audit',planId:'banner-ufc',recordType:'audit',name:'Internal Audit Sentinel'});
 api.state.term='Internal Audit Sentinel';assert.equal(api.render().length,0);

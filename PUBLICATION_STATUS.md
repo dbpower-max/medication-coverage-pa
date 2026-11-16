@@ -2,6 +2,8 @@
 
 ## Overnight correction ledger — November 15–16, 2026
 
+- Batch 50: existing selected-plan policy links now have on-card expandable readers, including links retained on statewide groups. Original full text remains unchanged; plan-scoped reader IDs prevent cross-plan source selection. Existing 520 plan-policy link occurrences exposed without re-extraction or coverage/PA inference. Targeted reader, PA, grouping/provider, source-library and asset-version tests passed; deployment pending at commit time.
+
 - Baseline: `aebad20` (Batch 45), Pages run `43798489045` succeeded. Existing 239 structured guides / 202 policy sections and 481 statewide source sections retained. Older ledger entries below are historical.
 - Priority queue: (1) PA-column misclassifications and conditional wording; (2) existing criteria access; (3) policy/admin records in medication search; (4) targeted production regression/mobile checks.
 - Batch 46: nine source-reviewed products corrected: Humatin/Alkeran/Eulexin explicitly excluded; Lagevrio/Paxlovid age rules; Singulair granules/Likmez/nadolol/Synagis exemptions without inferring PA outside the exemption. November AHCCCS and October Banner PDFs checked; original values/text retained. All 205 remaining conditional statewide panels preserve source wording instead of asserting unconditional PA. Targeted PA tests and existing grouping/provider checks passed; production verification pending at commit time.

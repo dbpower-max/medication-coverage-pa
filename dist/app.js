@@ -816,10 +816,12 @@
       el.criteriaSearch.focus();
     });
 
-    el.criteriaResults.addEventListener('click', async event => {
+    document.addEventListener('click', async event => {
       const button = event.target.closest('[data-read-guideline]');
       if (!button) return;
-      const policy = criteriaSources().find(p => p.id === button.dataset.readGuideline);
+      const policy = criteriaSources().find(p => p.id === button.dataset.readGuideline)
+        || inlinePolicySources.get(button.dataset.readGuideline);
+      if (policy?.planId && policy.planId !== 'ahcccs-ffs-aihp' && policy.planId !== state.planId) return;
       if (!policy || !policy.sourceTextUrl) return;
       const pre = button.closest('.criteria-source').querySelector('.guideline-verbatim');
       if (button.dataset.loaded === 'true') {
@@ -948,6 +950,38 @@
     return `<button type="button" class="text-button criteria-shortcut" data-criteria-query="${escapeHtml(query)}">Find clinical criteria source for this medication</button>`;
   }
 
+  const inlinePolicySources = new Map();
+  function linkedPolicyPanels(group) {
+    const links = new Map();
+    for (const record of group.records || []) {
+      if (record.planId !== state.planId || record.isStatewideReference) continue;
+      for (const link of [...(record.policySources || []), ...(record.policySource ? [record.policySource] : [])]) {
+        if (!link.textUrl) continue;
+        const id = `linked:${record.planId}:${link.textUrl}`;
+        if (links.has(id)) continue;
+        const policy = {
+          id, planId: record.planId, name: link.title, policyCode: link.policyCode,
+          sourceUrl: link.url, sourceTextUrl: link.textUrl,
+          sourcePage: link.firstPage, sourceLastPage: link.lastPage,
+          sourceEffective: link.effective
+        };
+        links.set(id, policy);
+        inlinePolicySources.set(id, policy);
+      }
+    }
+    const plan = state.data.plans.find(p => p.id === state.planId);
+    return [...links.values()].map(policy => `<details class="record-detail result-disclosure">
+      <summary>Selected-plan policy · ${escapeHtml(policy.name)}</summary>
+      <article class="criteria-source result-disclosure-body">
+        <p><strong>${escapeHtml(plan?.name)}</strong>${policy.sourceEffective ? ' · source ' + escapeHtml(policy.sourceEffective) : ''}</p>
+        <p>Review the named product, formulation, indication, initial and renewal branches, and exceptions. This related policy link does not independently establish coverage or PA status.</p>
+        <p><a class="source-link" href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">Original policy PDF · pages ${Number(policy.sourcePage)}–${Number(policy.sourceLastPage)}</a></p>
+        <button type="button" class="text-button criteria-load" data-read-guideline="${escapeHtml(policy.id)}">Read full guideline text</button>
+        <pre class="guideline-verbatim" hidden></pre>
+      </article>
+    </details>`).join('');
+  }
+
   function medicationGroupCard(group) {
     if (group.policyOnly) return `<article class="result-card policy">
       <div>
@@ -981,6 +1015,7 @@
         ${statewide.ageRestrictionText ? `<p><strong>Age restriction:</strong> ${escapeHtml(statewide.ageRestrictionText)}</p>` : ''}
         ${statewide.coverageText ? `<p><strong>Coverage restriction:</strong> ${escapeHtml(statewide.coverageText)}</p>` : ''}
         ${criteriaLibraryShortcut(group)}
+        ${linkedPolicyPanels(group)}
         ${needsPa || hasStep || guidance ? `<details class="record-detail result-disclosure" ${guidance ? 'open' : ''}>
           <summary>${guidance ? escapeHtml(guidance.heading) : (needsPa ? 'PA requirements — details not yet structured' : 'Step-therapy requirements — details not yet structured')}</summary>
           <div class="result-disclosure-body">
@@ -1013,6 +1048,7 @@
     return `<article class="result-card">
       <h3>${escapeHtml(group.label)}</h3>
       ${criteriaLibraryShortcut(group)}
+      ${linkedPolicyPanels(group)}
       ${planGuidance ? `<details class="record-detail result-disclosure" open>
         <summary>AHCCCS clinical criteria · ${escapeHtml(planGuidance.policyCode)}</summary>
         <div class="result-disclosure-body">
