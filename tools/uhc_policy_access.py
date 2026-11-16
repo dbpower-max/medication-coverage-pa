@@ -6,17 +6,19 @@ from collections import defaultdict
 from structured_statewide_criteria import structure_policy, validate_structure
 
 PLAN = 'uhc-community-az'
-FORMS = r'oral|tablet|tablets|capsule|capsules|solution|suspension|injection|injectable|subcutaneous|intravenous|intramuscular|topical|cream|ointment|ophthalmic|otic|nasal|inhalation|inhaler|aerosol|powder|spray|prefilled|syringe|syringes|pen|kit|pack|vial|vials|chewable|disintegrating|hcl|hydrochloride|mg|mcg|ml|unit|units|act|actuat|dose|metered|breath|actuated|hfa|tabs|caps|soln|susp|packet|packets|reconstituted|cartridge|kwikpen|and|external|er|xr|dr|sr|pf|therapy|initiation|pk|titration|patient|month|sprinkle|sprinkles|soluble|dispersible|granules|auto|injector|transdermal|patch|recon|reconstitution|concentrate|intramuscular'
+FORMS = r'oral|tablet|tablets|capsule|capsules|solution|suspension|injection|injectable|subcutaneous|intravenous|intramuscular|topical|cream|ointment|ophthalmic|otic|nasal|inhalation|inhaler|aerosol|powder|spray|prefilled|syringe|syringes|pen|kit|pack|vial|vials|chewable|disintegrating|hcl|hydrochloride|mg|mcg|ml|unit|units|act|actuat|dose|metered|breath|actuated|hfa|tabs|caps|soln|susp|packet|packets|reconstituted|cartridge|kwikpen|and|external|er|xr|dr|sr|pf|therapy|initiation|pk|titration|patient|month|sprinkle|sprinkles|soluble|dispersible|granules|auto|injector|transdermal|patch|recon|reconstitution|concentrate|intramuscular|patches|odt|for|rebidose'
 
 def identity(value):
     value = re.sub(r'\([^)]*\)|\[[^]]*\]', ' ', str(value).lower())
     value = re.sub(r'\bu[- ](\d+)\b', r'u\1', value)
+    value = value.replace('delayed release', '')
     value = re.sub(r'\b\d+(?:\.\d+)?\s*(?:mg|mcg|ml|units?|hr|hours?)\b', ' ', value)
     value = re.sub(r'\b(?:brand|generic|non[- ]?preferred|preferred|drugs?|agents?|products?)\b\s*:?', ' ', value)
     value = re.sub(r'\b(?:' + FORMS + r')\b|\b\d+(?:\.\d+)?\b', ' ', value)
     return ' '.join(re.findall('[a-z][a-z0-9]*', value))
 
 def alias_parts(product):
+    product = re.sub(r'\b([A-Za-z][A-Za-z-]+)\s*/\s*\1\b', r'\1, \1', product, flags=re.I)
     product = re.sub(r'Asmanex HFA/Twisthaler', 'Asmanex HFA, Asmanex Twisthaler',product,flags=re.I)
     return [v.strip() for v in re.split(r'[,;]|\b(?:brand|generic)\b', product, flags=re.I) if len(identity(v)) >= 4]
 
@@ -28,6 +30,7 @@ def product_matches(record, product):
     names += re.findall(r'\(\s*(?:brand|generic) for ([^)]+)\)', record['name'], re.I)
     names += re.findall(r'\[([^]]+)\]', record['name'])
     keys = {identity(n) for n in names if identity(n)}
+    keys.update(identity(part) for part in alias_parts(record['name']))
     name = record['name'].lower()
     for alias in alias_parts(product):
         if identity(alias) not in keys:continue
@@ -35,6 +38,15 @@ def product_matches(record, product):
         # medicine's strength/formulation in a comma-separated heading.
         lower = alias.lower()
         allowed = True
+        if re.search(r'\bODT\b',alias,re.I) and not re.search(r'odt|disintegrating|dispersible|solutab',name):allowed=False
+        route_patterns = {'oral':r'\boral\b|\b(?:tabs?|tablets?|caps?|capsules?|syrup|elixir|odt)\b', 'ophthalmic':r'ophthalmic', 'otic':r'\botic\b', 'nasal':r'\bnasal\b', 'inhalation':r'inhalation|inhaler|nebuliz', 'topical':r'topical|external|ointment|cream', 'transdermal':r'transdermal|\bpatch(?:es)?\b', 'subcutaneous':r'subcutaneous|\bsc\b', 'intravenous':r'intravenous|\biv\b', 'intramuscular':r'intramuscular|\bim\b'}
+        src_routes={k for k,v in route_patterns.items() if re.search(v,lower)}
+        dst_routes={k for k,v in route_patterns.items() if re.search(v,name)}
+        if src_routes and dst_routes and not src_routes.intersection(dst_routes):allowed=False
+        forms={'tablet':r'\b(?:tabs?|tablets?)\b','capsule':r'\b(?:caps?|capsules?)\b','liquid':r'\b(?:soln|solution|syrup|elixir|concentrate)\b','suspension':r'\b(?:susp|suspension)\b','patch':r'\bpatch(?:es)?\b','cream':r'\bcream\b','ointment':r'\bointment\b'}
+        src_forms={k for k,v in forms.items() if re.search(v,lower)}
+        dst_forms={k for k,v in forms.items() if re.search(v,name)}
+        if src_forms and dst_forms and not src_forms.intersection(dst_forms):allowed=False
         for form in ['ointment','cream','ophthalmic','otic','nasal','extended release']:
             if form in lower and form not in name:allowed = False
         source_devices = [f for f in ['pen','syringe','vial','autoinjector'] if re.search(r'\b'+f+r'\b',lower)]
@@ -90,7 +102,7 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         if code in {'GL-231255','GL-140667','GL-512232','GL-545275'}:continue
         for i,b in enumerate(p['branches']):
             product = b['fields'].get('Product Name',{}).get('displayText') or b['fields'].get('Product Name',{}).get('text','')
-            for key in aliases(product):by_key[key].append((code,i,product))
+            for key in sorted(aliases(product)):by_key[key].append((code,i,product))
     totals = defaultdict(int); missing = []
     for record in data['medications']:
         if record['planId'] != PLAN or record['recordType'] != 'formulary':continue
@@ -111,11 +123,12 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             bindings.append(binding)
         names = [record['name'],record.get('brand',''),record.get('standardDisplayName','')] + re.findall(r'\(\s*(?:brand|generic) for ([^)]+)\)|\[([^]]+)\]',record['name'],re.I)
         keys = {identity(n if isinstance(n,str) else ' '.join(n)) for n in names}
+        keys.update(identity(part) for part in alias_parts(record['name']))
         matched = defaultdict(set)
-        for key in keys:
+        for key in sorted(keys):
             for code,i,product in by_key.get(key,[]):
                 if product_matches(record,product):matched[code].add(i)
-        for code,indexes in matched.items():
+        for code,indexes in sorted(matched.items()):
             pa_indexes=[];ql_indexes=[]
             for i in sorted(indexes):
                 typ=structured[code]['branches'][i]['fields'].get('Guideline Type',{}).get('text','').lower()
@@ -138,6 +151,6 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         if ql:add('GL-140667',[0],'global_quantity')
         record['uhcClinicalBindings']=bindings
         if pa and not any(b['role'] in {'product','nonpreferred','nonsolid'} for b in bindings):missing.append(record['id'])
-        for role in {b['role'] for b in bindings}:totals[role]+=1
+        for role in sorted({b['role'] for b in bindings}):totals[role]+=1
     data['uhcClinicalPolicyInfo']={'policies':len(structured),'branches':sum(len(p['branches']) for p in structured.values()),'linkedRecordsByRole':dict(totals),'paCriteriaUnresolvedIds':missing}
     print('UHC policy access:',len(structured),'policies;',dict(totals),'; unresolved PA:',len(missing))

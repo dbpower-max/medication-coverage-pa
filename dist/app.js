@@ -1439,12 +1439,12 @@
     const key = group.key || group.label;
     cardClinicalGroups.set(key, {group, policies, guidance, planId: state.planId});
     const restriction = state.planId === 'uhc-community-az' && (group.records || []).find(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays));
-    const reference = guidance || policies.find(p => p.planId === state.planId) || policies[0] || restriction;
+    const reference = (state.planId === 'uhc-community-az' ? policies.find(p => p.planId === state.planId) || restriction : guidance) || guidance || policies.find(p => p.planId === state.planId) || policies[0];
     const refs = reference ? cardPaReference(reference) : '';
     const rows = group.isStatewide ? [group.statewideRecord] : group.records || [];
     const conditions = [...new Set(rows.flatMap(record => [
       ['required', 'conditional'].includes(record.pa) ? record.paText : '', record.paExceptionText, record.ageRestrictionText
-    ]).filter(Boolean))];
+    ]).filter(Boolean))].filter(text => !/^PA is printed in at least one source row\.$/.test(text));
     return `<article class="result-card">
       <h3>${escapeHtml(group.label)}</h3>
       ${rows.map(record => `<div class="chips" aria-label="Coverage attributes">${statusChips(record)}</div>`).join('')}

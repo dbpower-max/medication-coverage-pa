@@ -35,6 +35,9 @@ for r in rows:
 assert product_matches({'name':'AIMOVIG'},'Aimovig, Ajovy, Emgality 120 mg/mL'),'Different product strength blocked Aimovig'
 assert not product_matches({'name':'metoprolol tartrate tablet'},'metoprolol succinate extended release tablet'),'Salt/form mismatch accepted'
 assert not product_matches({'name':'Humulin R U-100'},'Humulin R U-500 kwikpen and vial'),'U500 concentration guard lost'
+assert not product_matches({'name':'prednisolone ophthalmic solution'},'prednisolone oral solution'),'Oral policy crossed into ophthalmic form'
+assert not product_matches({'name':'lidocaine injection solution'},'lidocaine topical patch'),'Topical policy crossed into injection'
+assert product_matches({'name':'lansoprazole oral tablet delayed release dispersible 15 mg'},'generic lansoprazole ODT'),'Explicit ODT/dispersible formulation synonym missed'
 # Compare the build input after existing approved corrections; binding must never infer PA.
 base=json.load(gzip.open('dist/data.json.gz'))
 from source_restrictions import correct_source_restrictions,correct_source_conflicts
