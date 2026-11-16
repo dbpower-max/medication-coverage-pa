@@ -32,6 +32,7 @@ jobs:
       - run: node tools/verify_pa_column.cjs
       - run: node tools/verify_policy_source_branches.cjs
       - run: node tools/verify_medication_results.cjs
+      - run: node tools/verify_compact_clinical_ui.cjs
       - run: python tools/verify_shared_policy_pilot.py
       - run: node tools/verify_medication_grouping.cjs
       - run: node tools/verify_statewide_provider.cjs

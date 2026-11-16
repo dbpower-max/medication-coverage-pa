@@ -384,3 +384,47 @@ footer p { padding-block: 1.2rem; margin-bottom: 0; color: var(--gray-500); font
 
 /* A card-level shortcut to exact published source text, not an approval claim. */
 .criteria-shortcut { justify-self: start; text-align: left; grid-column: 1 / -1; margin: .35rem 0; }
+
+/* Compact clinical workflow: records and search code remain unchanged. */
+.header-inner { min-height: 76px; padding-block: .65rem; gap: .7rem; }
+.brand-mark { width: 40px; height: 40px; flex-basis: 40px; border-radius: 10px 10px 10px 4px; }
+h1 { font-size: clamp(1.25rem, 3vw, 1.7rem); }
+.site-header .eyebrow { display: none; }
+.header-subtitle { font-size: .82rem; }
+main { padding-top: .65rem; }
+.search-panel { padding: .8rem; box-shadow: none; }
+.section-heading { margin-bottom: .6rem; align-items: center; }
+.section-heading .eyebrow, .results-heading .eyebrow { display: none; }
+.section-heading h2 { font-size: 1.1rem; }
+.primary-filters { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: .7rem; }
+.primary-filters .field-wide { grid-column: auto; }
+.additional-filters { margin-top: .35rem; }
+.additional-filters > summary { cursor: pointer; color: var(--teal-dark); min-height: 44px; display: list-item; padding: .6rem 0; }
+.additional-filters .filter-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin: .35rem 0; }
+.quick-categories { margin-top: .4rem; padding-top: .4rem; gap: .35rem; }
+.quick-categories button { min-height: 44px; padding-block: .4rem; }
+.results-heading { margin: .85rem 0 .55rem; }
+.result-card { padding: .75rem .9rem; gap: .35rem .75rem; }
+.result-card > .medication-product-row { grid-column: 1 / -1; }
+.clinical-details > summary { min-height: 44px; padding-block: .55rem; }
+.clinical-details > .result-disclosure-body { padding-top: .5rem; margin-top: .2rem; }
+.linked-clinical-policy { margin: .7rem 0; }
+.linked-clinical-policy > h4 { margin: .5rem 0 .3rem; }
+.source-action, .clinical-details .source-link { color: #1756a9; font-size: .82rem; }
+.source-action { min-height: 44px; padding: .5rem .25rem; text-align: left; }
+.inline-criteria-results { display: grid; gap: .5rem; }
+#sourceDialog { width: min(900px, calc(100% - 1.5rem)); max-height: 85vh; border: 1px solid var(--gray-200); border-radius: .65rem; color: var(--navy); padding: 1rem; overflow: auto; overflow-wrap: anywhere; }
+#sourceDialog::backdrop { background: rgba(11,31,51,.5); }
+.source-dialog-heading { display: flex; gap: 1rem; align-items: start; justify-content: space-between; }
+.source-dialog-heading h2 { font-size: 1.1rem; }
+.source-dialog-heading button { min-height: 44px; flex-shrink: 0; }
+#sourceDialogContent section { margin: .8rem 0; padding-top: .6rem; border-top: 1px solid var(--gray-200); }
+#sourceDialogContent { font-size: .86rem; }
+#sourceDialogContent a { color: #1756a9; }
+@media (max-width: 580px) {
+  .primary-filters, .additional-filters .filter-grid { grid-template-columns: 1fr; }
+  .header-subtitle { display: none; }
+  .header-inner { min-height: 62px; align-items: center; }
+  .result-card { grid-template-columns: minmax(0, 1fr); }
+  .quick-categories > span { display: none; }
+}

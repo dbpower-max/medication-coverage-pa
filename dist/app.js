@@ -314,6 +314,8 @@
       .sort((a, b) => a.localeCompare(b));
   }
 
+  function displayPlanName(plan) { return plan ? 'AHCCCS: ' + plan.name.replace(/^AHCCCS:\s*/i, '') : ''; }
+
   function planGroup(plan) {
     const priority = ['az-complete-health', 'banner-ufc', 'uhc-community-az'].indexOf(plan.id);
     if (priority >= 0) return priority - 3;
@@ -325,14 +327,14 @@
   function valuesForCombo(name) {
     if (name === 'plan') return [...state.data.plans]
       .sort((a, b) => planGroup(a) - planGroup(b) || a.name.localeCompare(b.name))
-      .map((plan) => plan.name);
+      .map(displayPlanName);
     if (name === 'medication') return uniqueMedicationNames();
     if (name === 'category') return categoryOptions();
     return subcategoryOptions();
   }
 
   function populateControls() {
-    el.planInput.value = state.data.plans.find((p) => p.id === state.planId)?.name || '';
+    el.planInput.value = displayPlanName(state.data.plans.find((p) => p.id === state.planId));
   }
 
   function updateSubcategoryOptions() {
@@ -345,7 +347,7 @@
   }
 
   function resolvePlan(input) {
-    const target = normalize(input);
+    const target = normalize(input).replace(/^ahcccs:\s*/, '');
     return state.data.plans.find((plan) => normalize(plan.name) === target || normalize(plan.id) === target);
   }
 
@@ -593,16 +595,16 @@
 
   function statusChips(record) {
     const chips = [];
-    if (record.descriptionCorrection) chips.push(['Clinician-corrected description', 'neutral']);
+    // Description-correction provenance remains in the source records.
     if (record.planId === 'uhc-community-az' && record.sourceEffective === '2026-07-01') {
       chips.push(['Historical July 2026 · current status unverified', 'negative']);
     }
-    if (record.suppressCoverageAndPaBadges) return `<span class="chip negative">${escapeHtml(record.sourceIssue || 'Source identity needs review')}</span>`;
+    if (record.suppressCoverageAndPaBadges) return '';
     if (record.recordType === 'policy') chips.push([record.guide ? 'PA guide · clinical review pending' : 'Policy criteria', 'warning']);
     else if (record.recordType === 'policy_index') chips.push(['Policy source indexed', 'warning']);
     else if (record.coverage !== 'explicit_not_covered') {
-      const listingLabel = record.isStatewideReference || record.planId === 'ahcccs-statewide' ? 'On statewide drug list'
-        : record.planId === 'uhc-community-az' && record.sourceEffective === '2026-07-01' ? 'On archived formulary' : 'On formulary';
+      const listingLabel = record.isStatewideReference || record.planId === 'ahcccs-statewide' ? 'Covered'
+        : record.planId === 'uhc-community-az' && record.sourceEffective === '2026-07-01' ? 'On archived formulary' : record.coverage === 'listed' ? 'Covered' : 'On formulary';
       const verifiedCoverage = hasVerifiedMandatedCoverage(record);
       chips.push([verifiedCoverage ? 'Covered' : (/exact.plan preference notice/i.test(record.listingLabel || '') ? 'On formulary' : record.listingLabel) || listingLabel, verifiedCoverage || !record.listingLabel ? 'positive' : 'neutral', 'Appears in this source. Listed restrictions still apply.']);
     }
@@ -611,7 +613,6 @@
     if (record.coverageCaveat) chips.push([record.coverageCaveat, 'warning']);
     if (record.preferred === 'preferred') chips.push(['Preferred', 'positive']);
     if (record.preferred === 'non_preferred') chips.push(['Nonpreferred', 'warning']);
-    if (record.recordType === 'formulary' && record.coverage !== 'explicit_not_covered' && record.preferred === 'not_specified') chips.push(['Preference not specified', 'neutral']);
     if (/\bbrand\s*only\b/i.test(record.brandGenericNotes || record.notes || '')) chips.push(['Brand only', 'warning']);
     if (/\bauthorized\s+generic\s+only\b/i.test([record.brandGenericNotes, record.notes].join(' '))) chips.push(['Authorized generic only', 'warning']);
     else if (/\bgeneric(?:\s+formulations)?\s+only\b/i.test([record.brandGenericNotes, record.notes].join(' '))) chips.push(['Generic only', 'warning']);
@@ -788,9 +789,8 @@
     });
   }
 
-  function renderCriteriaLibrary() {
+  function renderCriteriaLibrary(query = el.criteriaSearch.value, target = el.criteriaResults) {
     const policies = criteriaSources();
-    const query = el.criteriaSearch.value;
     const matches = searchIndexedCriteria(query, policies);
     const guides = clinicalPolicyOnlyGroups(query, []);
     const count = matches.length;
@@ -798,7 +798,7 @@
     el.criteriaCount.textContent = !normalize(query)
       ? `${Number(state.data.structuredCriteriaCount || 0)} of ${(state.data.statewidePaCriteria || []).length} statewide policies with clinical criteria · ${policies.length} total indexed sections · Type a medication or policy name`
       : `${guides.length} structured clinical guide${guides.length === 1 ? '' : 's'} · ${structuredCount} source-transcribed clinical polic${structuredCount === 1 ? 'y' : 'ies'} · ${count} matching source section${count === 1 ? '' : 's'}${count > 25 ? ' · Showing first 25 source sections' : ''}`;
-    el.criteriaResults.innerHTML = guides.map(group => `<article class="criteria-source">
+    target.innerHTML = guides.map(group => `<article class="criteria-source">
         <h3>${escapeHtml(group.label)} · ${escapeHtml(group.guide.policyCode)}</h3>
         <details class="result-disclosure"><summary>${escapeHtml(group.guide.heading)}</summary>
           <div class="result-disclosure-body">${clinicalGuidanceContent(group.guide)}</div>
@@ -883,7 +883,18 @@
   }
 
   function bindCriteriaLibrary() {
-    el.criteriaSearch.addEventListener('input', renderCriteriaLibrary);
+    el.criteriaSearch.addEventListener('input', () => renderCriteriaLibrary());
+    document.addEventListener('click', event => {
+      const dialog = document.getElementById('sourceDialog');
+      if (event.target.closest('[data-close-sources]')) { dialog.close(); return; }
+      const button = event.target.closest('[data-card-sources]');
+      if (!button) return;
+      const entry = cardSourceGroups.get(button.dataset.cardSources);
+      if (!entry || entry.planId !== state.planId) return;
+      dialog.querySelector('#sourceDialogTitle').textContent = 'Sources — ' + entry.group.label;
+      dialog.querySelector('#sourceDialogContent').innerHTML = entry.group.records.map(record => `<section><h3>${escapeHtml(readableMedicationName(record.name))}</h3>${recordDetails(record)}</section>`).join('');
+      dialog.showModal();
+    });
     document.addEventListener('click', async event => {
       const button = event.target.closest('[data-read-criteria]');
       if (!button) return;
@@ -916,8 +927,6 @@
     document.addEventListener('click', event => {
       const shortcut = event.target.closest('[data-criteria-query]');
       if (!shortcut) return;
-      el.criteriaLibrary.hidden = false;
-      el.criteriaLibrary.open = true;
       el.criteriaSearch.value = shortcut.dataset.criteriaQuery;
       // A legacy reference brand may be absent from current policy headings.
       // Broaden source discovery to the displayed generic name only; this
@@ -927,9 +936,17 @@
           && !clinicalPolicyOnlyGroups(el.criteriaSearch.value, []).length) {
         el.criteriaSearch.value = shortcut.dataset.criteriaFallback;
       }
-      renderCriteriaLibrary();
-      el.criteriaLibrary.scrollIntoView({behavior:'smooth',block:'start'});
-      el.criteriaSearch.focus();
+      if (el.criteriaLibrary.hidden) {
+        const content = shortcut.closest('.inline-criteria-lookup').querySelector('.inline-criteria-results');
+        if (content.dataset.loaded === 'true') content.hidden = !content.hidden;
+        else { renderCriteriaLibrary(el.criteriaSearch.value, content); content.hidden = false; content.dataset.loaded = 'true'; }
+        shortcut.setAttribute('aria-expanded', String(!content.hidden));
+      } else {
+        el.criteriaLibrary.open = true;
+        renderCriteriaLibrary();
+        el.criteriaLibrary.scrollIntoView({behavior:'smooth',block:'start'});
+        el.criteriaSearch.focus();
+      }
     });
 
     document.addEventListener('click', async event => {
@@ -1067,12 +1084,12 @@
       <p class="guide-review-status">Documentation suggestions are not a separate insurer-prescribed checklist.</p>
       <p>${escapeHtml(guide.guidelineCaution)}</p>
       <p class="guide-review-status">Source-reviewed summary; clinician approval pending. The guideline does not independently establish plan coverage or PA status.</p>
-      <p><a class="source-link" href="${escapeHtml(sourceHref(guide))}" target="_blank" rel="noopener">Source: ${escapeHtml(guide.policyCode)} · PDF page ${Number(guide.sourcePage)}${guide.sourceLastPage !== guide.sourcePage ? '–' + Number(guide.sourceLastPage) : ''}</a> · <a href="${escapeHtml(guide.sourceTextUrl)}" target="_blank" rel="noopener">Full guideline text</a></p>`;
+      <p><a class="source-link" href="${escapeHtml(sourceHref(guide))}" target="_blank" rel="noopener">PA reference: ${escapeHtml(guide.policyCode)} · PDF page ${Number(guide.sourcePage)}${guide.sourceLastPage !== guide.sourcePage ? '–' + Number(guide.sourceLastPage) : ''}</a> · <a href="${escapeHtml(guide.sourceTextUrl)}" target="_blank" rel="noopener">Full guideline text</a></p>`;
   }
 
   function criteriaLibraryShortcut(group) {
     const query = group.brands[0] || group.name;
-    return `<button type="button" class="text-button criteria-shortcut" data-criteria-query="${escapeHtml(query)}" data-criteria-fallback="${escapeHtml(policyLookupQuery(group.name))}">Find clinical criteria source for this medication</button>`;
+    return `<section class="inline-criteria-lookup"><button type="button" aria-expanded="false" class="text-button source-action criteria-shortcut" data-criteria-query="${escapeHtml(query)}" data-criteria-fallback="${escapeHtml(policyLookupQuery(group.name))}">More clinical criteria</button><div class="inline-criteria-results" hidden></div></section>`;
   }
 
   function policyLookupQuery(name) {
@@ -1133,107 +1150,80 @@
     // apply to every formulation or that this medication requires PA.
     for (const policy of [...namedPlanPolicies(group), ...namedPlanPolicies(group, true)]) add(policy);
     const plan = state.data.plans.find(p => p.id === state.planId);
-    return [...links.values()].map(policy => `<details class="record-detail result-disclosure">
-      <summary>${policy.planId === 'ahcccs-ffs-aihp' ? 'AHCCCS reference policy' : 'Selected-plan policy'} · ${escapeHtml(policy.name)}</summary>
+    return [...links.values()].map(policy => `<section class="linked-clinical-policy">
+      <h4>${policy.planId === 'ahcccs-ffs-aihp' ? 'AHCCCS reference policy' : 'Selected-plan policy'} · ${escapeHtml(policy.name)}</h4>
       <article class="criteria-source result-disclosure-body">
         <p><strong>${escapeHtml(policy.planId === 'ahcccs-ffs-aihp' ? 'AHCCCS statewide clinical reference' : plan?.name)}</strong>${policy.sourceEffective ? ' · source ' + escapeHtml(policy.sourceEffective) : ''}</p>
-        <p>Review the named product, formulation, indication, initial and renewal branches, and exceptions. This related policy link does not independently establish coverage or PA status.</p>
+        <p>Review the applicable product and indication. This policy reference does not independently establish plan coverage or PA status.</p>
         ${structuredPolicyPanel(policy)}
-        <p><a class="source-link" href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">Original policy PDF · pages ${Number(policy.sourcePage)}–${Number(policy.sourceLastPage)}</a></p>
+        <p><a class="source-link" href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">PA reference · pages ${Number(policy.sourcePage)}–${Number(policy.sourceLastPage)}</a></p>
         <button type="button" class="text-button criteria-load" data-read-guideline="${escapeHtml(policy.id)}">Read full guideline text</button>
         <pre class="guideline-verbatim" hidden></pre>
       </article>
-    </details>`).join('');
+    </section>`).join('');
+  }
+
+  const cardSourceGroups = new Map();
+  function sourcesLink(group) {
+    const key = group.key || group.label;
+    cardSourceGroups.set(key, {group, planId: state.planId});
+    return `<button type="button" class="text-button source-action" data-card-sources="${escapeHtml(key)}">Sources &amp; technical details</button>`;
   }
 
   function medicationGroupCard(group) {
-    if (group.policyOnly) return `<article class="result-card policy">
-      <div>
-        <h3>${escapeHtml(group.label)}</h3>
-        <p class="brand"><strong>Clinical criteria only — coverage not established</strong></p>
-        <p>The AHCCCS clinical criteria document names this medication. No matching drug-list or formulary product card is established in this selected view. Do not infer coverage, PA status, or eligibility.</p>
-      </div>
-      <details class="record-detail result-disclosure" open>
-        <summary>${escapeHtml(group.guide.heading)}</summary>
-        <div class="result-disclosure-body">${clinicalGuidanceContent(group.guide)}</div>
-      </details>
-    </article>`;
+    if (group.policyOnly) return `<article class="result-card policy"><h3>${escapeHtml(group.label)}</h3>
+      <details class="clinical-details result-disclosure"><summary>Clinical details &amp; PA criteria</summary>
+        <div class="result-disclosure-body">${clinicalGuidanceContent(group.guide)}</div></details></article>`;
     const policyPanels = linkedPolicyPanels(group);
+    const guidance = clinicalGuidanceFor(group);
     if (group.isStatewide) {
       const statewide = group.statewideRecord;
       const planRows = group.records.filter(record => !record.isStatewideReference);
       const needsPa = statewide.pa === 'required' || statewide.pa === 'conditional';
       const hasStep = statewide.step === 'specified' || Boolean(statewide.stepText);
-      const sourceInfo = state.data.statewideSourceInfo || {};
-      const guidance = clinicalGuidanceFor(group);
       const hasClinicalDetails = needsPa || hasStep || guidance;
       const productScope = statewide.brandGenericNotes || statewide.notes || '';
       const showProductScope = productScope && !/^(?:brand only|authorized generic only|generic only|generic formulations only|various)$/i.test(productScope.trim());
-      const differs = planRows.some(record =>
-        (record.preferred === 'preferred' && statewide.preferred !== 'preferred')
-        || (record.pa === 'not_required' && needsPa));
       return `<article class="result-card">
-        <div>
-          <h3>${escapeHtml(group.label)}</h3>
-          <p class="brand">AHCCCS statewide drug list · ${escapeHtml(sourceInfo.drugListEffective || statewide.sourceEffective)}</p>
-        </div>
+        <h3>${escapeHtml(group.label)}</h3>
         <div class="chips" aria-label="Statewide coverage attributes">${statusChips(statewide)}</div>
-        ${showProductScope ? `<p><strong>Product scope:</strong> ${escapeHtml(productScope)}</p>` : ''}
-        ${needsPa && statewide.paText ? `<p class="pa-condition"><strong>${statewide.pa === 'conditional' ? 'PA condition' : 'PA requirement'}:</strong> ${escapeHtml(statewide.paText)}</p>` : ''}
-        ${statewide.paExceptionText ? `<p><strong>PA exception stated by source:</strong> ${escapeHtml(statewide.paExceptionText)}</p>` : ''}
-        ${statewide.ageRestrictionText ? `<p><strong>Age restriction:</strong> ${escapeHtml(statewide.ageRestrictionText)}</p>` : ''}
-        ${statewide.coverageText ? `<p><strong>Coverage restriction:</strong> ${escapeHtml(statewide.coverageText)}</p>` : ''}
-        ${criteriaLibraryShortcut(group)}
-        ${hasStep && statewide.stepText ? `<p><strong>Step therapy:</strong> ${escapeHtml(statewide.stepText)}</p>` : ''}
-        ${policyPanels}
-        ${hasClinicalDetails && (guidance || !policyPanels) ? `<details class="record-detail result-disclosure" ${guidance ? 'open' : ''}>
-          <summary>${guidance ? escapeHtml(guidance.heading) : 'Clinical authorization source'}</summary>
+        <details class="clinical-details result-disclosure"><summary>Clinical details &amp; PA criteria</summary>
           <div class="result-disclosure-body">
-            ${guidance ? clinicalGuidanceContent(guidance) : `
-              ${hasStep ? `<p><strong>Statewide step rule:</strong> ${escapeHtml(statewide.stepText || 'Step therapy specified')}</p>` : ''}
-              ${needsPa && !statewide.paText ? `<p><strong>${statewide.pa === 'conditional' ? 'PA applies only under the source conditions; review the original drug-list row.' : 'PA is required by the statewide drug list.'}</strong></p>` : ''}
-              <p>Review the full clinical guideline for the applicable indication, treatment trials, duration, exceptions and renewal requirements.</p>
-              <p><a class="source-link" href="${escapeHtml(sourceInfo.paCriteriaOfficialUrl || '')}" target="_blank" rel="noopener">Search the AHCCCS statewide PA criteria document</a></p>
-            `}
-          </div>
-        </details>` : ''}
-        <details class="record-detail result-disclosure">
-          <summary>Details and source records${planRows.length ? ` · ${planRows.length} plan supplement${planRows.length === 1 ? '' : 's'}` : ''}</summary>
-          <div class="result-disclosure-body">
-            <p><strong>AHCCCS statewide designation</strong></p>
-            ${recordDetails(statewide)}
-            ${differs ? '<p><strong>Source discrepancy:</strong> An additional plan record differs from the statewide preference or PA designation. The statewide status is shown above; compare the dated original sources.</p>' : ''}
-            ${planRows.map(record => `<details class="result-disclosure"><summary>Plan source: ${escapeHtml(record.sourceTitle || record.name)}${record.sourceEffective ? ' · ' + escapeHtml(record.sourceEffective) : ''}</summary>
-              <div class="result-disclosure-body">
-                <p>${escapeHtml(record.name)}</p>
-                ${recordDetails(record)}
-              </div>
-            </details>`).join('')}
+            ${showProductScope ? `<p><strong>Product scope:</strong> ${escapeHtml(productScope)}</p>` : ''}
+            ${needsPa && statewide.paText ? `<p class="pa-condition"><strong>${statewide.pa === 'conditional' ? 'PA condition' : 'PA requirement'}:</strong> ${escapeHtml(statewide.paText)}</p>` : ''}
+            ${statewide.paExceptionText ? `<p><strong>PA exception:</strong> ${escapeHtml(statewide.paExceptionText)}</p>` : ''}
+            ${statewide.ageRestrictionText ? `<p><strong>Age restriction:</strong> ${escapeHtml(statewide.ageRestrictionText)}</p>` : ''}
+            ${statewide.coverageText ? `<p><strong>Coverage restriction:</strong> ${escapeHtml(statewide.coverageText)}</p>` : ''}
+            ${hasStep && statewide.stepText ? `<p><strong>Step therapy:</strong> ${escapeHtml(statewide.stepText)}</p>` : ''}
+            ${planRows.length ? `<section class="plan-product-differences"><h4>Selected-plan products</h4>${planRows.map(record => `<p>${escapeHtml(readableMedicationName(record.name))}</p><div class="chips">${statusChips(record)}</div>${medicationPolicyDropdown(record)}`).join('')}</section>` : ''}
+            ${policyPanels}
+            ${guidance ? `<section class="reviewed-clinical-guide"><h4>${escapeHtml(guidance.heading)}</h4>${clinicalGuidanceContent(guidance)}</section>` : ''}
+            ${hasClinicalDetails && !guidance && !policyPanels ? '<p>Review the source for the applicable diagnosis, treatment trials, duration and exceptions.</p>' : ''}
+            ${criteriaLibraryShortcut(group)}
+            ${sourcesLink(group)}
           </div>
         </details>
       </article>`;
     }
     const onlyOne = group.records.length === 1;
-    const planGuidance = clinicalGuidanceFor(group);
     return `<article class="result-card">
       <h3>${escapeHtml(group.label)}</h3>
-      ${criteriaLibraryShortcut(group)}
-      ${policyPanels}
-      ${planGuidance ? `<details class="record-detail result-disclosure" open>
-        <summary>AHCCCS clinical criteria · ${escapeHtml(planGuidance.policyCode)}</summary>
-        <div class="result-disclosure-body">
-          <p><strong>Clinical criteria only:</strong> this guideline does not independently establish plan coverage, PA requirement, or approval.</p>
-          ${clinicalGuidanceContent(planGuidance)}
-        </div>
-      </details>` : ''}
       ${group.records.map(record => `<section class="medication-product-row">
         ${onlyOne ? '' : `<h4>${escapeHtml(readableMedicationName(record.name))}</h4>`}
         <div class="chips" aria-label="Coverage attributes">${statusChips(record)}</div>
-        ${medicationPolicyDropdown(record)}
-        <details class="record-detail result-disclosure"><summary>Details, restrictions and sources</summary>
-          <div class="result-disclosure-body">${recordDetails(record)}</div>
-        </details>
       </section>`).join('')}
+      <details class="clinical-details result-disclosure"><summary>Clinical details &amp; PA criteria</summary>
+        <div class="result-disclosure-body">
+          ${group.records.map(record => `<section>${onlyOne ? '' : `<h4>${escapeHtml(readableMedicationName(record.name))}</h4>`}
+            ${record.paText && ['required','conditional'].includes(record.pa) ? `<p><strong>PA:</strong> ${escapeHtml(record.paText)}</p>` : ''}
+            ${record.stepText ? `<p><strong>Step therapy:</strong> ${escapeHtml(record.stepText)}</p>` : ''}
+            ${medicationPolicyDropdown(record)}</section>`).join('')}
+          ${policyPanels}
+          ${guidance ? `<section><h4>AHCCCS clinical criteria · ${escapeHtml(guidance.policyCode)}</h4><p>Clinical criteria only; this guideline does not independently establish plan coverage or PA status.</p>${clinicalGuidanceContent(guidance)}</section>` : ''}
+          ${criteriaLibraryShortcut(group)}
+          ${sourcesLink(group)}
+        </div>
+      </details>
     </article>`;
   }
 
@@ -1256,6 +1246,7 @@
       });
       return [];
     }
+    cardSourceGroups.clear();
     const matchingRecords = filteredRecords();
     const medicationRows = matchingRecords.filter(r => r.recordType === 'formulary');
     // Include the other confirmed products in a matching medication group,
@@ -1282,7 +1273,7 @@
     // administrative and source records never enter the medication results.
     el.criteriaSearch.value = state.term;
     renderCriteriaLibrary();
-    if (!records.length && normalize(state.term) && el.criteriaResults.innerHTML.trimStart().startsWith('<article')) {
+    if (!el.criteriaLibrary.hidden && !records.length && normalize(state.term) && el.criteriaResults.innerHTML.trimStart().startsWith('<article')) {
       el.criteriaLibrary.open = true;
     }
     planStatus();
@@ -1312,7 +1303,7 @@
     el.planStatus.addEventListener('click', (event) => {
       if (!event.target.closest('[data-open-state-reference]')) return;
       state.planId = 'ahcccs-statewide';
-      el.planInput.value = state.data.plans.find((plan) => plan.id === state.planId).name;
+      el.planInput.value = displayPlanName(state.data.plans.find((plan) => plan.id === state.planId));
       if (state.coverage === 'policy_index') {
         state.coverage = '';
         el.coverageInput.value = '';
@@ -1322,7 +1313,7 @@
     });
     el.clearFilters.addEventListener('click', () => {
       Object.assign(state, { planId: 'az-complete-health', term: '', selectedMedicationKey: null, category: '', subcategory: '', coverage: '', limit: PAGE_SIZE });
-      el.planInput.value = state.data.plans.find((plan) => plan.id === state.planId).name;
+      el.planInput.value = displayPlanName(state.data.plans.find((plan) => plan.id === state.planId));
       el.medicationInput.value = '';
       el.categoryInput.value = '';
       el.subcategoryInput.value = '';
@@ -1383,7 +1374,7 @@
       execute: async (args) => {
         const plan = args.plan ? resolvePlan(args.plan) : null;
         if (args.plan && !plan) return { error: 'Plan not found. Use list_medication_categories or an exact visible plan name.' };
-        if (plan) { state.planId = plan.id; el.planInput.value = plan.name; state.selectedMedicationKey = null; }
+        if (plan) { state.planId = plan.id; el.planInput.value = displayPlanName(plan); state.selectedMedicationKey = null; }
         if (args.medication !== undefined) { state.term = args.medication; el.medicationInput.value = args.medication; state.selectedMedicationKey = null; }
         if (args.category !== undefined) { state.category = args.category; el.categoryInput.value = args.category; }
         if (args.subcategory !== undefined) { state.subcategory = args.subcategory; el.subcategoryInput.value = args.subcategory; }
