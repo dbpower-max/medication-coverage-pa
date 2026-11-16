@@ -11276,6 +11276,10 @@
       ],
       "documentationSuggestions": [
         "Document all indicated prior treatment and test results, clinical response, and specialist context."
+      ],
+      "matchFormulationWords": [
+        "suspension",
+        "susp"
       ]
     },
     {
