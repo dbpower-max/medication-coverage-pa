@@ -11999,6 +11999,393 @@
       "documentationSuggestions": [
         "Submit clinical history, medication use and specialist attestation as required in the original source."
       ]
+    },
+    {
+      "id": "gl-161707-selzentry-brand",
+      "policyCode": "GL-161707",
+      "product": "Brand Selzentry (maraviroc)",
+      "matchBrands": [
+        "SELZENTRY"
+      ],
+      "heading": "Brand Selzentry (maraviroc) — November original clinical requirements",
+      "sourcePage": 843,
+      "sourceLastPage": 845,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "CCR5-tropic HIV or continuation; Brand Selzentry needs prior generic maraviroc tablets failure/intolerance; do not import this step into generic.",
+      "guidelineCaution": "Statewide clinical eligibility does not establish the coverage, preference, or PA status of any particular Pima AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-161707.txt",
+      "sourceChecks": [
+        "Product Name:Brand Selzentry tablets, generic maraviroc",
+        "CCR5-tropic HIV-1 infection",
+        "For Brand Selzentry ONLY",
+        "generic maraviroc tablets"
+      ],
+      "pathways": [
+        {
+          "title": "New CCR5-tropic HIV therapy",
+          "all": [
+            "Documented CCR5-tropic HIV-1 by sensitive tropism assay.",
+            "Optimized background antiretroviral regimen currently used or planned.",
+            "Prescribed by/in consultation with HIV-experienced clinician.",
+            "Brand Selzentry only: generic maraviroc tablets previously failed or intolerable."
+          ]
+        },
+        {
+          "title": "Continuation of previous treatment",
+          "all": [
+            "Continuing established Selzentry therapy.",
+            "Brand Selzentry only: generic maraviroc tablets previously failed or intolerable."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Attach original source-required test results, diagnosis, claims history and specialist involvement."
+      ]
+    },
+    {
+      "id": "gl-161707-maraviroc-generic",
+      "policyCode": "GL-161707",
+      "product": "Generic maraviroc tablets",
+      "matchNames": [
+        "MARAVIROC"
+      ],
+      "heading": "Generic maraviroc tablets — November original clinical requirements",
+      "sourcePage": 843,
+      "sourceLastPage": 845,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Generic maraviroc source has CCR5-tropism/optimized ART or continuation, WITHOUT brand-only failed-generic prerequisite.",
+      "guidelineCaution": "Statewide clinical eligibility does not establish the coverage, preference, or PA status of any particular Pima AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-161707.txt",
+      "sourceChecks": [
+        "Product Name:Brand Selzentry tablets, generic maraviroc",
+        "CCR5-tropic HIV-1 infection",
+        "optimized background antiretroviral",
+        "For continuation of prior therapy"
+      ],
+      "pathways": [
+        {
+          "title": "CCR5-tropic HIV therapy",
+          "all": [
+            "Documented CCR5-tropic HIV-1 by sensitive tropism assay.",
+            "Optimized background antiretroviral regimen currently used or planned.",
+            "Prescribed by/in consultation with HIV-experienced clinician."
+          ]
+        },
+        {
+          "title": "Continuation of previous therapy",
+          "all": [
+            "Continuing established maraviroc treatment."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Attach original source-required test results, diagnosis, claims history and specialist involvement."
+      ]
+    },
+    {
+      "id": "gl-161707-fuzeon",
+      "policyCode": "GL-161707",
+      "product": "Fuzeon (enfuvirtide)",
+      "matchBrands": [
+        "FUZEON"
+      ],
+      "heading": "Fuzeon (enfuvirtide) — November original clinical requirements",
+      "sourcePage": 844,
+      "sourceLastPage": 845,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Fuzeon treats multidrug-resistant HIV-1 with optimized background ART and HIV specialist, OR continuation of prior treatment.",
+      "guidelineCaution": "Statewide clinical eligibility does not establish the coverage, preference, or PA status of any particular Pima AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-161707.txt",
+      "sourceChecks": [
+        "Product Name:Fuzeon",
+        "multidrug-resistant HIV-1 infection",
+        "optimized background antiretroviral",
+        "continuation of prior therapy"
+      ],
+      "pathways": [
+        {
+          "title": "New multidrug-resistant HIV-1 use",
+          "all": [
+            "Multidrug-resistant HIV-1 diagnosis.",
+            "Optimized background ART currently used or planned.",
+            "HIV-experienced clinician."
+          ]
+        },
+        {
+          "title": "Continuation of previous therapy",
+          "all": [
+            "Continue existing Fuzeon treatment."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Attach original source-required test results, diagnosis, claims history and specialist involvement."
+      ]
+    },
+    {
+      "id": "gl-135313-depen-titratab",
+      "policyCode": "GL-135313",
+      "product": "Depen Titratab (penicillamine tablets)",
+      "matchBrands": [
+        "DEPEN TITRATAB",
+        "DEPEN"
+      ],
+      "heading": "Depen Titratab (penicillamine tablets) — November original clinical requirements",
+      "sourcePage": 403,
+      "sourceLastPage": 404,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "TABLET product: severe rheumatoid arthritis, Wilson disease or cystinuria, with RA-specific response renewal. Generic penicillamine tablet is also in the same source.",
+      "guidelineCaution": "Statewide clinical eligibility does not establish the coverage, preference, or PA status of any particular Pima AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-135313.txt",
+      "sourceChecks": [
+        "Product Name:Brand Depen Titratab, generic penicillamine tablets",
+        "Diagnosis of severe active rheumatoid arthritis",
+        "Wilson’s disease",
+        "Cystinuria"
+      ],
+      "stages": [
+        {
+          "title": "Severe rheumatoid arthritis — initial",
+          "approvalDuration": "12 months",
+          "all": [
+            "Severe active rheumatoid arthritis diagnosed."
+          ]
+        },
+        {
+          "title": "Rheumatoid arthritis — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response to Depen."
+          ]
+        },
+        {
+          "title": "Wilson disease or cystinuria",
+          "approvalDuration": "12 months",
+          "all": [
+            {
+              "any": [
+                "Wilson disease.",
+                "Cystinuria."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Attach original source-required test results, diagnosis, claims history and specialist involvement."
+      ]
+    },
+    {
+      "id": "gl-135313-cuprimine",
+      "policyCode": "GL-135313",
+      "product": "Cuprimine (penicillamine capsules)",
+      "matchBrands": [
+        "CUPRIMINE"
+      ],
+      "heading": "Cuprimine (penicillamine capsules) — November original clinical requirements",
+      "sourcePage": 404,
+      "sourceLastPage": 405,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Capsule product requires one of three conditions AND failure/intolerance to Depen tablets; source differs from Depen itself.",
+      "guidelineCaution": "Statewide clinical eligibility does not establish the coverage, preference, or PA status of any particular Pima AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-135313.txt",
+      "sourceChecks": [
+        "Product Name:Brand Cuprimine, generic penicillamine capsules",
+        "Severe active rheumatoid arthritis",
+        "History of failure or intolerance to Depen",
+        "positive clinical response to Cuprimine"
+      ],
+      "stages": [
+        {
+          "title": "Initial",
+          "approvalDuration": "12 months",
+          "all": [
+            {
+              "any": [
+                "Wilson disease.",
+                "Cystinuria.",
+                "Severe active rheumatoid arthritis."
+              ]
+            },
+            "Failure or intolerance to Depen (penicillamine tablets)."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response to Cuprimine."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Attach original source-required test results, diagnosis, claims history and specialist involvement."
+      ]
+    },
+    {
+      "id": "gl-135313-syprine",
+      "policyCode": "GL-135313",
+      "product": "Syprine / trientine",
+      "matchBrands": [
+        "SYPRINE"
+      ],
+      "matchNames": [
+        "TRIENTINE"
+      ],
+      "heading": "Syprine / trientine — November original clinical requirements",
+      "sourcePage": 405,
+      "sourceLastPage": 406,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Trientine is limited to Wilson disease with prior failure/contraindication/intolerance to Depen OR Cuprimine; generic trientine uses same source.",
+      "guidelineCaution": "Statewide clinical eligibility does not establish the coverage, preference, or PA status of any particular Pima AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-135313.txt",
+      "sourceChecks": [
+        "Product Name:Brand Syprine, generic trientine",
+        "Diagnosis of Wilson’s disease",
+        "failure, contraindication, or intolerance to Depen",
+        "positive clinical response to Syprine"
+      ],
+      "stages": [
+        {
+          "title": "Wilson disease — initial",
+          "approvalDuration": "12 months",
+          "all": [
+            "Wilson disease diagnosed.",
+            {
+              "any": [
+                "Failed/contraindicated/intolerant to Depen (penicillamine).",
+                "Failed/contraindicated/intolerant to Cuprimine (penicillamine)."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive response to Syprine/trientine."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Attach original source-required test results, diagnosis, claims history and specialist involvement."
+      ]
+    },
+    {
+      "id": "gl-224200-evrysdi",
+      "policyCode": "GL-224200",
+      "product": "Evrysdi (risdiplam)",
+      "matchBrands": [
+        "EVRYSDI"
+      ],
+      "heading": "Evrysdi (risdiplam) — November original clinical requirements",
+      "sourcePage": 627,
+      "sourceLastPage": 632,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "SMA requires SMN1 genotype, ventilatory status, no concurrent/prior competing SMA modifying or gene therapy and functional score; renewal based on one of five source-defined scales.",
+      "guidelineCaution": "Statewide clinical eligibility does not establish the coverage, preference, or PA status of any particular Pima AHCCCS managed-care plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-224200.txt",
+      "sourceChecks": [
+        "Product Name:Evrysdi",
+        "Homozygous gene deletion or mutation of SMN1 gene",
+        "not dependent on invasive ventilation",
+        "CHOP",
+        "not previously received gene replacement therapy"
+      ],
+      "stages": [
+        {
+          "title": "Initial spinal muscular atrophy authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "SMA diagnosis.",
+            {
+              "any": [
+                "Homozygous deletion/mutation of SMN1 (chromosome 5q).",
+                "Compound heterozygous SMN1 mutation (deletion on one allele and mutation on second)."
+              ]
+            },
+            "No dependence on invasive ventilation/tracheostomy.",
+            "No noninvasive ventilation dependence except naps and overnight.",
+            "Not receiving concurrent chronic SMN therapy (e.g., Spinraza).",
+            "No prior SMA gene-replacement therapy (e.g., Zolgensma).",
+            {
+              "any": [
+                "Baseline CHOP INTEND assessment.",
+                "Baseline HINE-2 assessment.",
+                "Baseline HFMSE assessment.",
+                "Baseline upper limb module.",
+                "Baseline MFM-32 assessment.",
+                "Patient younger than 2 months; assessment can be performed shortly AFTER initiation to avoid access delay."
+              ]
+            },
+            "Neurologist with SMA expertise."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            {
+              "any": [
+                {
+                  "any": [
+                    "CHOP INTEND improvement ≥4 points maintained.",
+                    "New unexpected motor milestone achieved/maintained."
+                  ]
+                },
+                {
+                  "any": [
+                    "HINE-2 kick increase ≥2 points.",
+                    "HINE-2 other milestone ≥1 point (not voluntary grasp).",
+                    "Net positive HINE-2 milestones.",
+                    "New unexpected milestone maintained."
+                  ]
+                },
+                {
+                  "any": [
+                    "HFMSE improvement ≥3 points.",
+                    "New milestone maintained."
+                  ]
+                },
+                {
+                  "any": [
+                    "Upper Limb Module improvement ≥2 points.",
+                    "New milestone maintained."
+                  ]
+                },
+                {
+                  "any": [
+                    "MFM-32 improvement ≥3 points.",
+                    "New milestone maintained."
+                  ]
+                }
+              ]
+            },
+            "Not dependent on invasive ventilation/tracheostomy.",
+            "No use of noninvasive ventilation except naps and overnight.",
+            "Not receiving concurrent Spinraza or other chronic SMN therapy.",
+            "No prior Zolgensma or other gene replacement.",
+            "Neurologist with SMA expertise."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Attach original source-required test results, diagnosis, claims history and specialist involvement."
+      ]
     }
   ]
 }
