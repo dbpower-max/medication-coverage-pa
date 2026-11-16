@@ -18,6 +18,9 @@ def correct_source_restrictions(records):
         if re.fullmatch(r'PA REQUIRED \((?:3%|1\.8% & 3\.5%) Only\)', text, re.I):
             fields = dict(pa='conditional')
             reason = 'Printed PA requirement applies only to the specified concentrations.'
+        elif re.match(r'PA REQUIRED\s+(?:if|unless|when)\b', text, re.I):
+            fields = dict(pa='conditional')
+            reason = 'Printed PA requirement has an explicit condition; retain the complete source condition.'
         elif re.match(r'Not covered through AHCCCS\.', text, re.I):
             fields = dict(coverage='explicit_not_covered', pa='not_specified',
                           coverageText=text)

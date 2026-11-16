@@ -603,6 +603,7 @@
     if (record.preferred === 'preferred') chips.push(['Preferred', 'positive']);
     if (record.preferred === 'non_preferred') chips.push(['Nonpreferred', 'warning']);
     if (/\bbrand\s*only\b/i.test(record.brandGenericNotes || record.notes || '')) chips.push(['Brand only', 'warning']);
+    if (/\bauthorized\s+generic\s+only\b/i.test([record.brandGenericNotes, record.notes].join(' '))) chips.push(['Authorized generic only', 'warning']);
     if (record.tier) chips.push([`Tier ${record.tier}`, 'neutral']);
     if (record.pa === 'required') chips.push(['PA required', 'warning']);
     else if (record.pa === 'conditional') chips.push(['Conditional PA', 'warning']);
@@ -706,7 +707,8 @@
       if (record.coverageText) details.push(`<p><strong>Coverage restriction:</strong> ${escapeHtml(record.coverageText)}</p>`);
       if (record.stepText) details.push(`<p><strong>Step:</strong> ${escapeHtml(record.stepText)}</p>`);
       if (record.qlAmount || record.qlDays) {
-        details.push(`<p><strong>Quantity limit:</strong> ${escapeHtml([record.qlAmount, record.qlDays && `per ${record.qlDays} days`].filter(Boolean).join(' '))}</p>`);
+        const interval = record.qlDays && `per ${record.qlDays}${/^\d+(?:\.\d+)?$/.test(String(record.qlDays)) ? ' days' : ''}`;
+        details.push(`<p><strong>Quantity limit:</strong> ${escapeHtml([record.qlAmount, interval].filter(Boolean).join(' '))}</p>`);
       }
       if (record.notes) details.push(`<p><strong>Notes:</strong> ${escapeHtml(record.notes)}</p>`);
       if (record.rawRestrictions) details.push(`<p><strong>Source restrictions:</strong> ${escapeHtml(record.rawRestrictions)}</p>`);
@@ -995,14 +997,15 @@
 
   const inlinePolicySources = new Map();
   const namedPolicyCache = new Map();
-  function namedPlanPolicies(group) {
+  function namedPlanPolicies(group, statewide = false) {
+    const scope = statewide ? 'ahcccs-ffs-aihp' : state.planId;
     const identities = [...new Set([...group.brands, group.name].map(normalize).filter(name => name.length >= 4 && name !== 'various'))];
     const matches = new Map();
     for (const identity of identities) {
-      const key = `${state.planId}:${identity}`;
+      const key = `${scope}:${identity}`;
       if (!namedPolicyCache.has(key)) {
-        const policies = (state.data.policies || []).filter(policy => {
-          if (policy.planId !== state.planId || policy.recordType !== 'policy_index' || !policy.sourceTextUrl) return false;
+        const policies = (statewide ? state.data.statewidePaCriteria || [] : state.data.policies || []).filter(policy => {
+          if (policy.planId !== scope || policy.recordType !== 'policy_index' || !policy.sourceTextUrl) return false;
           if ((policy.searchAliases || []).some(alias => normalize(alias) === identity)) return true;
           // This field contains the extracted original Product Name headings,
           // not medications mentioned as prior trials in clinical prose.
@@ -1043,12 +1046,12 @@
     }
     // Navigation only: a named source is not an assertion that its criteria
     // apply to every formulation or that this medication requires PA.
-    for (const policy of namedPlanPolicies(group)) add(policy);
+    for (const policy of [...namedPlanPolicies(group), ...namedPlanPolicies(group, true)]) add(policy);
     const plan = state.data.plans.find(p => p.id === state.planId);
     return [...links.values()].map(policy => `<details class="record-detail result-disclosure">
-      <summary>Selected-plan policy · ${escapeHtml(policy.name)}</summary>
+      <summary>${policy.planId === 'ahcccs-ffs-aihp' ? 'AHCCCS reference policy' : 'Selected-plan policy'} · ${escapeHtml(policy.name)}</summary>
       <article class="criteria-source result-disclosure-body">
-        <p><strong>${escapeHtml(plan?.name)}</strong>${policy.sourceEffective ? ' · source ' + escapeHtml(policy.sourceEffective) : ''}</p>
+        <p><strong>${escapeHtml(policy.planId === 'ahcccs-ffs-aihp' ? 'AHCCCS statewide clinical reference' : plan?.name)}</strong>${policy.sourceEffective ? ' · source ' + escapeHtml(policy.sourceEffective) : ''}</p>
         <p>Review the named product, formulation, indication, initial and renewal branches, and exceptions. This related policy link does not independently establish coverage or PA status.</p>
         <p><a class="source-link" href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">Original policy PDF · pages ${Number(policy.sourcePage)}–${Number(policy.sourceLastPage)}</a></p>
         <button type="button" class="text-button criteria-load" data-read-guideline="${escapeHtml(policy.id)}">Read full guideline text</button>
@@ -1069,6 +1072,7 @@
         <div class="result-disclosure-body">${clinicalGuidanceContent(group.guide)}</div>
       </details>
     </article>`;
+    const policyPanels = linkedPolicyPanels(group);
     if (group.isStatewide) {
       const statewide = group.statewideRecord;
       const planRows = group.records.filter(record => !record.isStatewideReference);
@@ -1076,6 +1080,7 @@
       const hasStep = statewide.step === 'specified' || Boolean(statewide.stepText);
       const sourceInfo = state.data.statewideSourceInfo || {};
       const guidance = clinicalGuidanceFor(group);
+      const hasClinicalDetails = needsPa || hasStep || guidance;
       const differs = planRows.some(record =>
         (record.preferred === 'preferred' && statewide.preferred !== 'preferred')
         || (record.pa === 'not_required' && needsPa));
@@ -1090,14 +1095,15 @@
         ${statewide.ageRestrictionText ? `<p><strong>Age restriction:</strong> ${escapeHtml(statewide.ageRestrictionText)}</p>` : ''}
         ${statewide.coverageText ? `<p><strong>Coverage restriction:</strong> ${escapeHtml(statewide.coverageText)}</p>` : ''}
         ${criteriaLibraryShortcut(group)}
-        ${linkedPolicyPanels(group)}
-        ${needsPa || hasStep || guidance ? `<details class="record-detail result-disclosure" ${guidance ? 'open' : ''}>
-          <summary>${guidance ? escapeHtml(guidance.heading) : (needsPa ? 'PA requirements — details not yet structured' : 'Step-therapy requirements — details not yet structured')}</summary>
+        ${hasStep && statewide.stepText ? `<p><strong>Step therapy:</strong> ${escapeHtml(statewide.stepText)}</p>` : ''}
+        ${policyPanels}
+        ${hasClinicalDetails && (guidance || !policyPanels) ? `<details class="record-detail result-disclosure" ${guidance ? 'open' : ''}>
+          <summary>${guidance ? escapeHtml(guidance.heading) : 'Clinical authorization source'}</summary>
           <div class="result-disclosure-body">
             ${guidance ? clinicalGuidanceContent(guidance) : `
               ${hasStep ? `<p><strong>Statewide step rule:</strong> ${escapeHtml(statewide.stepText || 'Step therapy specified')}</p>` : ''}
               ${needsPa && !statewide.paText ? `<p><strong>${statewide.pa === 'conditional' ? 'PA applies only under the source conditions; review the original drug-list row.' : 'PA is required by the statewide drug list.'}</strong></p>` : ''}
-              <p>The published drug list does not provide the complete trial dose, duration, exception or clinical approval pathway for this product. A product-specific clinical guideline has not yet been verified and structured in the app. Do not infer approval from this listing.</p>
+              <p>Review the full clinical guideline for the applicable indication, treatment trials, duration, exceptions and renewal requirements.</p>
               <p><a class="source-link" href="${escapeHtml(sourceInfo.paCriteriaOfficialUrl || '')}" target="_blank" rel="noopener">Search the AHCCCS statewide PA criteria document</a></p>
             `}
           </div>
@@ -1123,7 +1129,7 @@
     return `<article class="result-card">
       <h3>${escapeHtml(group.label)}</h3>
       ${criteriaLibraryShortcut(group)}
-      ${linkedPolicyPanels(group)}
+      ${policyPanels}
       ${planGuidance ? `<details class="record-detail result-disclosure" open>
         <summary>AHCCCS clinical criteria · ${escapeHtml(planGuidance.policyCode)}</summary>
         <div class="result-disclosure-body">

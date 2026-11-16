@@ -21,6 +21,11 @@ for(const brand of ['SINGULAIR','LIKMEZ','SYNAGIS']) {
 }
 const nadolol=rows.find(r=>r.name==='NADOLOL');
 assert.equal(nadolol.pa,'not_specified');assert.match(nadolol.paExceptionText,/UNDER 19/);
+for(const name of ['GLECAPREVIR-PIBRENTASVIR TABLETS','GLECAPREVIR-PIBRENTASVIR PACKETS','SOFOSBUVIR-VELPATASVIR TABLETS']) {
+ const row=rows.find(r=>r.name===name);
+ assert.equal(row.pa,'conditional','HCV prior-treatment condition misclassified: '+name);
+ assert.match(row.paText,/if member has been treated previously/);
+}
 for(const name of ['LIDOCAINE HCL LOTION','LIDOCAINE PATCH']) {
  const row=data.medications.find(r=>r.planId==='banner-ufc'&&r.name===name);
  assert.equal(row.pa,'conditional',name+' concentration condition lost');
@@ -40,4 +45,4 @@ for(const row of conditional) {
  assert(html.includes(ctx.escapeHtml(row.paText)),row.name+' condition missing');
 }
 assert(conditional.length>200);
-console.log('PASS: 11 reviewed PA-column product corrections, explicit noncoverage, age restrictions, PA exemptions, concentration-specific PA, and '+conditional.length+' conditional statewide panels preserve source wording');
+console.log('PASS: 14 reviewed PA-column product corrections, explicit noncoverage, age restrictions, PA exemptions, concentration/prior-treatment PA, and '+conditional.length+' conditional statewide panels preserve source wording');

@@ -7,7 +7,7 @@ const script=fs.readFileSync('_site/app.js','utf8');
 const hook="document.addEventListener('DOMContentLoaded', init);";
 assert(script.includes(hook));
 const ctx={document:{querySelectorAll:()=>[]},Intl,console};vm.createContext(ctx);
-vm.runInContext(script.replace(hook,'globalThis.api={state,el,recordsForPlan,planMedicationGroups,filteredRecords,render,uniqueMedicationNames,criteriaSources,renderCriteriaLibrary,namedPlanPolicies};'),ctx);
+vm.runInContext(script.replace(hook,'globalThis.api={state,el,recordsForPlan,planMedicationGroups,filteredRecords,render,uniqueMedicationNames,criteriaSources,renderCriteriaLibrary,namedPlanPolicies,statusChips,recordDetails};'),ctx);
 const {api}=ctx;api.state.data=data;
 for(const id of ['criteriaSearch','criteriaCount','criteriaResults','criteriaLibrary','planStatus','planEvidence','evidenceList','loadingState','resultCount','effectiveDate','emptyState','resultGrid','showMore']) api.el[id]={value:'',innerHTML:'',textContent:'',hidden:false};
 for(const planId of data.plans.map(p=>p.id)) {
@@ -33,6 +33,8 @@ assert.equal(api.el.criteriaLibrary.open,true,'Policy-only match is hidden in co
 api.state.term='GL-749236';api.render();
 assert(api.el.criteriaResults.innerHTML.includes('Mounjaro'),'Policy code search cannot reach structured guide');
 api.state.term='Qvar';api.render();
+assert(api.el.resultGrid.innerHTML.includes('Diagnosis of asthma'),'Preferred inhaler criteria lost when no PA flag is present');
+assert(!/<span[^>]*>PA required<\/span>/.test(api.el.resultGrid.innerHTML),'Clinical guideline existence incorrectly asserted inhaler PA');
 assert(api.el.resultGrid.innerHTML.includes('Selected-plan policy'),'Existing Banner policy link remains buried');
 assert(api.el.resultGrid.innerHTML.includes('linked:banner-ufc:'),'Banner inline source reader missing');
 assert(!api.el.resultGrid.innerHTML.includes('linked:uhc-community-az:'),'Wrong plan source reader attached');
@@ -47,4 +49,8 @@ api.state.term='baseline';assert.equal(api.filteredRecords().length,0,'Provenanc
 api.state.term='Adderall XR';api.state.coverage='pa_conditional';
 assert.equal(api.render().length,1,'Conditional PA filter lost age-restricted Adderall XR');
 api.state.coverage='pa_required';assert.equal(api.render().length,0,'Conditional PA appears unconditional');
+const epclusa=data.statewideDrugList.find(r=>r.name==='SOFOSBUVIR-VELPATASVIR TABLETS');
+assert(api.statusChips(epclusa).includes('Authorized generic only'),'Authorized-generic source restriction hidden');
+const limits=api.recordDetails(epclusa);
+assert(limits.includes('per Lifetime')&&!limits.includes('Lifetime days'),'Lifetime quantity limit mislabeled as days');
 console.log('PASS: only medication results, source-only records excluded, medication-only name matching, plan-isolated criteria, structured policy lookup and conditional PA filtering');

@@ -34,5 +34,5 @@ for row in data['medications']:
  if row['name'].startswith('24 HR bupropion'):
   assert not any('12-HOUR' in u['name'] for u in row['sourceUpdates'])
  if '[Mavyret]' in row['name'] and 'Oral Tablet' in row['name']:
-  assert row['pa']=='required','Explicit current tablet PA requirement missing'
+  assert row['pa']=='conditional' and 'treated previously' in row['paText'],'Prior-DAA treatment condition lost from tablet PA rule'
 print('PASS: ACH later updates preserve brand identity, route, combination ingredients and release period; verified actual source assignments')
