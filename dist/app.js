@@ -1197,6 +1197,12 @@
       state.data.planEvidence = state.data.planEvidence.filter((record) => providerPlans.has(record.planId));
       state.data.planDataFiles = Object.fromEntries(Object.entries(state.data.planDataFiles || {}).filter(([id]) => providerPlans.has(id)));
       el.asOf.textContent = state.data.meta.asOf;
+      // Preserve searches entered while the clinical dataset was loading.
+      state.term = el.medicationInput.value;
+      state.category = el.categoryInput.value;
+      state.subcategory = el.subcategoryInput.value;
+      state.coverage = el.coverageInput.value;
+      state.planId = resolvePlan(el.planInput.value)?.id || state.planId;
       populateControls();
       bindEvents();
       bindCriteriaLibrary();

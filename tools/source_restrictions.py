@@ -14,7 +14,11 @@ def correct_source_restrictions(records):
                                 'bufc_formulary_eff10012026_en.pdf')):
             continue
         text = record.get('paText', '')
-        if re.match(r'Not covered through AHCCCS\.', text, re.I):
+        reason = 'Reviewed printed PA-column statement; no positive PA requirement.'
+        if re.fullmatch(r'PA REQUIRED \((?:3%|1\.8% & 3\.5%) Only\)', text, re.I):
+            fields = dict(pa='conditional')
+            reason = 'Printed PA requirement applies only to the specified concentrations.'
+        elif re.match(r'Not covered through AHCCCS\.', text, re.I):
             fields = dict(coverage='explicit_not_covered', pa='not_specified',
                           coverageText=text)
         elif re.fullmatch(r'Minimum Patient Age of (18|12) Years', text, re.I):
@@ -28,7 +32,7 @@ def correct_source_restrictions(records):
         record.setdefault('restrictionCorrection', {
             'originalCoverage': record.get('coverage'),
             'originalPa': record.get('pa'),
-            'reason': 'Reviewed printed PA-column statement; no positive PA requirement.'
+            'reason': reason
         })
         record.update(fields)
         changed += 1
