@@ -858,6 +858,14 @@
       if (!shortcut) return;
       el.criteriaLibrary.open = true;
       el.criteriaSearch.value = shortcut.dataset.criteriaQuery;
+      // A legacy reference brand may be absent from current policy headings.
+      // Broaden source discovery to the displayed generic name only; this
+      // never creates a policy assignment or an approval/coverage assertion.
+      if (shortcut.dataset.criteriaFallback
+          && !searchIndexedCriteria(el.criteriaSearch.value, criteriaSources()).length
+          && !clinicalPolicyOnlyGroups(el.criteriaSearch.value, []).length) {
+        el.criteriaSearch.value = shortcut.dataset.criteriaFallback;
+      }
       renderCriteriaLibrary();
       el.criteriaLibrary.scrollIntoView({behavior:'smooth',block:'start'});
       el.criteriaSearch.focus();
@@ -1003,7 +1011,12 @@
 
   function criteriaLibraryShortcut(group) {
     const query = group.brands[0] || group.name;
-    return `<button type="button" class="text-button criteria-shortcut" data-criteria-query="${escapeHtml(query)}">Find clinical criteria source for this medication</button>`;
+    return `<button type="button" class="text-button criteria-shortcut" data-criteria-query="${escapeHtml(query)}" data-criteria-fallback="${escapeHtml(policyLookupQuery(group.name))}">Find clinical criteria source for this medication</button>`;
+  }
+
+  function policyLookupQuery(name) {
+    const presentation = new Set('hcl hydrochloride oral topical transdermal rectal vaginal ophthalmic otic inhalation nasal intravenous intramuscular subcutaneous injection injectable tablet tablets capsule capsules solution suspension soln susp gel cream ointment patch patches powder aerosol spray syrup elixir lozenge chewable disintegrating extended delayed controlled release er xr sr ir dr cr xl ec mg mcg ml meq gm g units hr hour hours day pack packet kit pref prefilled syr syringe pen auto inj usp'.split(' '));
+    return [...new Set((String(name).toLowerCase().match(/[a-z]+/g) || []).filter(word => !presentation.has(word)))].join(' ');
   }
 
   const inlinePolicySources = new Map();
