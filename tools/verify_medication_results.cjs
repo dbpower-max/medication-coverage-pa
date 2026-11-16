@@ -19,6 +19,8 @@ for(const planId of data.plans.map(p=>p.id)) {
  assert(api.el.criteriaResults.innerHTML.includes('gl-749236'),'Existing Mounjaro criteria inaccessible in '+planId);
  const sources=api.criteriaSources();
  assert(sources.every(p=>p.planId==='ahcccs-ffs-aihp'||p.planId===planId),'Cross-plan policy leak');
+ const all=api.planMedicationGroups();
+ assert.equal(new Set(all.map(g=>g.label.trim().toLowerCase())).size,all.length,'Exact duplicate medication labels in '+planId);
 }
 api.state.planId='banner-ufc';api.state.term='Inhaled Corticosteroids';
 assert.equal(api.render().length,0,'Policy still appears as a medication');

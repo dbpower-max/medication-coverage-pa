@@ -20,6 +20,8 @@ for(const policy of [...data.statewidePaCriteria,...data.policies]) {
  policies++;branches+=parsed.branches.length;
 }
 const unsafe=ctx.policySourceBranchMarkup('Product Name:<script>bad()</script>\nApproval Length\n12 month(s)\nA AND B OR C');
+const wrapped=ctx.policySourceBranches('Product Name:Preferred: Drug A;\nNon-Preferred: Drug B\nApproval Length\n12 month(s)\nA AND B OR C');
+assert(wrapped.branches[0].product.includes('Non-Preferred: Drug B'),'Wrapped product scope lost from branch heading');
 assert(!unsafe.includes('<script>')&&unsafe.includes('&lt;script&gt;'));
 assert(unsafe.includes('A AND B OR C'));
 assert(stageBranches>50);

@@ -169,7 +169,7 @@
 
   function medicationForm(name) {
     const n = normalize(name);
-    if (/auto.inj|auto.inject/.test(n)) return 'auto-injector';
+    if (/auto.?inj/.test(n)) return 'auto-injector';
     if (/pref.?syr/.test(n)) return 'syringe';
     if (/\bvial\b/.test(n)) return 'vial';
     if (/\bpen.inj|\bpen injection/.test(n)) return 'pen';
@@ -274,7 +274,12 @@
           if (verifiedNatrobaSpinosadAlias(shared)) candidates.add(shared);
         }
       }
-      const matches = [...candidates].filter(shared => sameProductGroup(group, shared));
+      const compatible = [...candidates].filter(shared => sameProductGroup(group, shared));
+      // An exact name/formulation match outranks broader candidates sharing a
+      // reference brand. Otherwise multiple brand variants create duplicate
+      // cards even when the exact source product is already present.
+      const exact = compatible.filter(shared => normalize(shared.name) === normalize(group.name));
+      const matches = exact.length ? exact : compatible;
       if (matches.length === 1) {
         const shared = matches[0];
         shared.records.push(...group.records);
@@ -811,9 +816,14 @@
     if (!markers.length) return {intro: text, branches: []};
     return {intro: text.slice(0, markers[0].index), branches: markers.map((marker, i) => {
       const content = text.slice(marker.index, markers[i + 1]?.index ?? text.length);
+      const headerEnd = content.search(/^\s*(?:Approval\s+Length|Guideline\s+Type|Therapy\s+Stage|Approval\s+Criteria)\b/im);
+      const product = (headerEnd >= 0 ? content.slice(0, headerEnd) : marker[0])
+        .replace(/^[\t ]*Product\s*Name\s*:[\t ]*/i, '')
+        .split(/\r?\n/).filter(line => !/^\s*(?:--- PDF page \d+ ---|=== PDF PAGE \d+ ===|Page \d+)\s*$/i.test(line))
+        .join(' ').replace(/\s+/g, ' ').trim();
       const stage = content.match(/Therapy\s+Stage[\t ]*[\r\n]+\s*(Initial Authorization|Reauthorization)/i)?.[1] || '';
       const duration = content.match(/Approval\s+Length[\t ]*[\r\n]+\s*(\d+\s+(?:month|week|day)\(s\))/i)?.[1] || '';
-      return {product: marker[1].trim() || 'Product branch (see source text)', stage, duration, text: content};
+      return {product: product || 'Product branch (see source text)', stage, duration, text: content};
     })};
   }
 

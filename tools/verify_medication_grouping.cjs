@@ -124,3 +124,15 @@ if(!dropdown.innerHTML.includes('Valtoco')||dropdown.innerHTML.includes('Mounjar
 console.log('PASS: autocomplete respects entered medication, empty-search prompt, and filtered results');
 
 console.log('PASS: brand/generic labels, aliases, duplicate prevention, precise grouping, preserved coverage restrictions');
+
+// Exact source formulation must win over a broader same-brand candidate.
+context.state.planId='exact-form-test';
+context.state.data.medications=[{id:'plan-auto',recordType:'formulary',planId:'exact-form-test',name:'TOCILIZUMAB-AAZG AUTOINJECTOR',brand:'TYENNE'}];
+context.state.data.statewideDrugList=[
+ {id:'state-auto',planId:'exact-form-test',name:'TOCILIZUMAB-AAZG AUTOINJECTOR',brand:'TYENNE',isStatewideReference:true},
+ {id:'state-vial',planId:'exact-form-test',name:'TOCILIZUMAB-AAZG VIAL',brand:'TYENNE',isStatewideReference:true}
+];
+const exact=vm.runInContext('planMedicationGroups()',context);
+if(exact.length!==2||exact.find(g=>g.name.endsWith('AUTOINJECTOR')).records.length!==2||exact.find(g=>g.name.endsWith('VIAL')).records.length!==1)throw Error('Exact autoinjector source was duplicated or merged with vial');
+context.auto={name:'TOCILIZUMAB-AAZG AUTOINJECTOR',brands:['TYENNE']};context.vial={name:'TOCILIZUMAB-AAZG VIAL',brands:['TYENNE']};
+if(vm.runInContext('sameProductGroup(auto,vial)',context))throw Error('Autoinjector incorrectly considered the same as vial');
