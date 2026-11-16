@@ -1423,6 +1423,7 @@
       state.category = el.categoryInput.value;
       state.subcategory = el.subcategoryInput.value;
       state.coverage = el.coverageInput.value;
+      state.sort = el.sortInput.value === 'za' ? 'za' : 'az';
       state.planId = resolvePlan(el.planInput.value)?.id || state.planId;
       populateControls();
       bindEvents();
