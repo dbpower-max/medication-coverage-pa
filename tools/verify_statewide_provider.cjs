@@ -1104,3 +1104,117 @@ assert(vm.runInContext('clinicalGuidanceFor(b43Neb)',ui)?.id===neb.id,
 assert(vm.runInContext('clinicalGuidanceFor(b43Hfa)',ui)===null,
  'Xopenex nebulizer PA rule incorrectly attached to HFA inhaler');
 console.log('PASS: Batch43 21 guides/20 policies, exact November source, route, stages, AND/OR and negative-matching review');
+
+
+// Batch44: third-pass clinical accuracy and product-safety review after
+// original source transcription and second independent source comparison.
+const batch44Ids=[
+'gl-107466-vonjo','gl-110775-igalmi','gl-114155-ztalmy',
+'gl-114467-valsartan-solution','gl-104872-carbaglu',
+'gl-123730-enjaymo','gl-125941-lamzede',
+'gl-128980-rebyota','gl-128980-vowst','gl-128982-qalsody',
+'gl-129071-qutenza','gl-131958-xenpozyme',
+'gl-131964-ezallor','gl-135321-veopoz','gl-135325-daxxify',
+'gl-135381-lodoco','gl-137865-voxzogo',
+'gl-139338-pombiliti','gl-139340-opfolda','gl-143519-adzynma',
+'gl-143858-skyclarys','gl-148802-vijoice'
+];
+assert(batch44Ids.length===22,'Batch44 must contain 22 separate medication guides');
+const batch44=batch44Ids.map(id=>guidance.find(g=>g.id===id));
+assert(batch44.every(Boolean),'Batch44 clinical source guide missing');
+assert(new Set(batch44.map(g=>g.policyCode)).size===21,
+ 'Batch44 must structure 21 distinct original clinical policies');
+const norm44=s=>String(s).replace(/\s+/g,' ').toLowerCase();
+for(const g of batch44){
+ assert(g.sourceChecks?.length>=3&&g.sourceTextUrl.endsWith(g.policyCode.toLowerCase()+'.txt'),
+  'Batch44 clinical provenance invalid '+g.id);
+ const text=fs.readFileSync('_site/'+g.sourceTextUrl.replace(/^\//,''),'utf8');
+ const raw=norm44(text),pages=[...text.matchAll(/--- PDF page (\d+) ---/g)].map(m=>Number(m[1]));
+ assert(pages.includes(g.sourcePage)&&pages.includes(g.sourceLastPage),
+  'Batch44 page discrepancy '+g.id);
+ for(const phrase of g.sourceChecks)assert(raw.includes(norm44(phrase)),
+  'Batch44 source phrase discrepancy '+g.id);
+ assert((g.pathways?.length||0)+(g.stages?.length||0)>0,
+  'Batch44 has no medical requirements '+g.id);
+ for(const brand of g.matchBrands||[]){
+  ui.b44={name:'UNRELATED GENERIC',brands:[brand],records:[{name:'UNRELATED GENERIC TABLET'}]};
+  assert(vm.runInContext('clinicalGuidanceFor(b44)',ui)?.id===g.id,
+   'Batch44 exact brand matcher does not return correct policy '+g.id);
+  ui.b44={name:'UNRELATED GENERIC',brands:[brand+' SUPER'],records:[{name:'UNRELATED GENERIC TABLET'}]};
+  assert(vm.runInContext('clinicalGuidanceFor(b44)',ui)===null,
+   'Batch44 substring/fuzzy brand matched incorrect clinical criteria '+g.id);
+ }
+}
+const b44=id=>guidance.find(g=>g.id==='gl-'+id);
+assert(b44('107466-vonjo').stages.map(s=>s.approvalDuration).join(',')===
+ '6 months,12 months,12 months','Vonjo myelofibrosis vs NCCN periods confused');
+assert(b44('110775-igalmi').pathways[0].all[0].any.length===2,
+ 'Igalmi schizophrenia/bipolar alternative diagnoses missing');
+assert(b44('114155-ztalmy').stages[0].all.some(x=>x.any?.length===2),
+ 'Ztalmy TWO anticonvulsants OR continuation history lost');
+assert(b44('104872-carbaglu').stages.map(s=>s.approvalDuration).join(',')===
+ '3 months,1 month,12 months,12 months',
+ 'Carbaglu acute etiology/7-day course vs chronic NAGS periods confused');
+assert(b44('123730-enjaymo').stages[0].all[0].all.length===5
+ &&b44('123730-enjaymo').stages[1].all[0].all.length===2,
+ 'Enjaymo five DAT/titer requirements or TWO renewal response conditions lost');
+assert(b44('125941-lamzede').stages[1].approvalDuration==='24 months',
+ 'Lamzede renewal is 24 months');
+assert(b44('128980-rebyota').pathways[0].all.some(x=>
+ typeof x==='string'&&x.includes('ONE recurrent')),
+ 'Rebyota threshold of ONE recurrent CDI lost');
+assert(b44('128980-vowst').pathways[0].all.some(x=>
+ typeof x==='string'&&x.includes('TWO recurrent')),
+ 'Vowst threshold of TWO recurrent CDI lost');
+assert(b44('128980-vowst').pathways[0].all.some(x=>x.all?.length===3),
+ 'Vowst bowel preparation and antibiotic timing missing');
+assert(b44('128982-qalsody').stages[0].all.some(x=>
+ typeof x==='string'&&x.includes('≥50%')),
+ 'Qalsody original SVC threshold lost');
+assert(b44('129071-qutenza').stages[0].all[1].all.length===5
+ &&b44('129071-qutenza').stages[1].all[1].all.length===6
+ &&b44('129071-qutenza').stages[2].all.length===3,
+ 'Qutenza indication-specific 5 vs 6 failed medications or 3-month renewal lost');
+assert(b44('131958-xenpozyme').stages[0].all[1].any.length===2
+ &&b44('131958-xenpozyme').stages[1].approvalDuration==='24 months',
+ 'Xenpozyme alternative diagnosis or renewal duration missing');
+assert(b44('131964-ezallor').pathways.length===2
+ &&b44('131964-ezallor').pathways[1].all.every(x=>x.any?.length>0),
+ 'Ezallor under-10 exception vs established indication/formulation necessity lost');
+assert(b44('135321-veopoz').stages[0].all.some(x=>x.any?.length===4),
+ 'Veopoz CHAPLE symptomatic criteria missing');
+assert(b44('135325-daxxify').summary.includes('cosmetic'),
+ 'Daxxify cosmetic-use benefit exclusion not displayed');
+assert(b44('135381-lodoco').stages[0].all.some(x=>
+ typeof x==='string'&&x.includes('0.6 mg')),
+ 'Lodoco generic colchicine prerequisite missing');
+assert(b44('137865-voxzogo').summary.toLowerCase().includes('idiopathic short stature')
+ &&b44('137865-voxzogo').stages[0].all[1].any.length===2,
+ 'Voxzogo ISS exclusion or diagnostic branch missing');
+for(const [id,companion] of [['139338-pombiliti','Opfolda'],['139340-opfolda','Pombiliti']]){
+ const g=b44(id);assert(g.stages.length===2
+  &&g.stages.every(stage=>JSON.stringify(stage).includes(companion))
+  &&g.stages[1].approvalDuration==='24 months',
+  'Pompe companion product and 24-month renewal safeguard missing '+id);
+}
+assert(b44('143519-adzynma').stages.every(s=>s.all.some(x=>
+ typeof x==='string'&&x.includes('plasma')),
+ 'Adzynma trial of plasma-based infusions must persist');
+assert(b44('143858-skyclarys').stages[0].all[1].includes('FXN'),
+ 'Skyclarys genetic confirmation lost');
+assert(b44('148802-vijoice').stages[0].all.some(x=>
+ typeof x==='string'&&x.includes('≥2')),
+ 'Vijoice age 2 minimum lost');
+ui.b44V={name:'VALSARTAN ORAL SOLUTION',brands:[],
+ records:[{name:'VALSARTAN 4 MG/ML ORAL SOLUTION'}]};
+ui.b44T={name:'VALSARTAN TABLETS',brands:[],
+ records:[{name:'VALSARTAN 80 MG TABLET'}]};
+assert(vm.runInContext('clinicalGuidanceFor(b44V)',ui)?.id==='gl-114467-valsartan-solution',
+ 'Valsartan oral solution exact product guide missing');
+assert(vm.runInContext('clinicalGuidanceFor(b44T)',ui)===null,
+ 'Valsartan oral-solution swallowing criteria leaked onto tablets');
+ui.b44Car={name:'CARGLUMIC ACID',brands:[],records:[{name:'CARGLUMIC ACID 200 MG TABLET'}]};
+assert(vm.runInContext('clinicalGuidanceFor(b44Car)',ui)?.id==='gl-104872-carbaglu',
+ 'Carbaglu generic carglumic acid criteria not resolved');
+console.log('PASS: Batch44 21 source policies and 22 guides, source double-check,'
+ +' route/brand safety, indication-specific initial/renewal logic audit');
