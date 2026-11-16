@@ -23,6 +23,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: python tools/build_provider_site.py
+      - run: python tools/verify_asset_versions.py
       - run: node --check _site/app.js
       - run: node tools/verify_pa_column.cjs
       - run: node tools/verify_medication_results.cjs

@@ -1,7 +1,7 @@
 const fs=require('fs'),vm=require('vm'),zlib=require('zlib'),assert=require('node:assert/strict');
 const load=p=>{const b=fs.readFileSync(p);return JSON.parse(b[0]===31?zlib.gunzipSync(b):b)};
 const data=load('_site/data.json.gz');
-for(const file of Object.values(data.planDataFiles||{})) data.medications.push(...load('_site/'+file.replace(/^\.\//,'')));
+for(const file of Object.values(data.planDataFiles||{})) data.medications.push(...load('_site/'+file.split('?')[0].replace(/^\.\//,'')));
 delete data.planDataFiles;
 const script=fs.readFileSync('_site/app.js','utf8');
 const hook="document.addEventListener('DOMContentLoaded', init);";

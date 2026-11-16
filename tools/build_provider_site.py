@@ -175,12 +175,6 @@ OUT.mkdir()
 for name in ("index.html", "app.js", "styles.css", "favicon.svg"):
     shutil.copy2(SRC / name, OUT / name)
 (OUT / ".nojekyll").touch()
-# Version static assets so browsers load the matching deployed interface.
-html = (OUT / "index.html").read_text()
-for name in ("app.js", "styles.css"):
-    version = hashlib.sha256((OUT / name).read_bytes()).hexdigest()[:12]
-    html = html.replace("./" + name, "./" + name + "?v=" + version)
-(OUT / "index.html").write_text(html)
 seen = set()
 # Large PDF remains on its official payer host; indexed full policy text is bundled.
 EXTERNAL_SOURCES = {
@@ -228,8 +222,20 @@ for plan, url in data["planDataFiles"].items():
     target.parent.mkdir(parents=True, exist_ok=True)
     payload = json.dumps(records, ensure_ascii=False).encode()
     target.write_bytes(gzip.compress(payload, mtime=0) if path.endswith(".gz") else payload)
-    data["planDataFiles"][plan] = "./" + path
+    version = hashlib.sha256(target.read_bytes()).hexdigest()[:12]
+    data["planDataFiles"][plan] = "./" + path + "?v=" + version
 (OUT / "data.json.gz").write_bytes(gzip.compress(json.dumps(data, ensure_ascii=False).encode(), mtime=0))
+# Version data as well as scripts: a cached old dataset must never accompany
+# new PA logic. Hash scripts after injecting the exact built data version.
+version = hashlib.sha256((OUT / 'data.json.gz').read_bytes()).hexdigest()[:12]
+script = (OUT / 'app.js').read_text()
+assert "fetch('./data.json.gz')" in script, 'Dataset fetch location changed'
+(OUT / 'app.js').write_text(script.replace("fetch('./data.json.gz')", f"fetch('./data.json.gz?v={version}')"))
+html = (OUT / 'index.html').read_text()
+for name in ('app.js', 'styles.css'):
+    version = hashlib.sha256((OUT / name).read_bytes()).hexdigest()[:12]
+    html = html.replace('./' + name, './' + name + '?v=' + version)
+(OUT / 'index.html').write_text(html)
 assert {p["id"] for p in data["plans"]} == ALLOWED
 print("Three-plan provider site built; linked local assets verified:", len(seen))
 print("Plan medication records:", len(data["medications"]), "Plan policy records:", len(data["policies"]))
