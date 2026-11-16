@@ -1186,7 +1186,11 @@
           sourcePage: link.firstPage, sourceLastPage: link.lastPage,
           sourceEffective: link.effective
         };
-        add(policy);
+        add(state.data.policies.find(p => p.id === link.policyId && p.planId === state.planId) || policy);
+      }
+      for (const binding of record.uhcClinicalBindings || []) {
+        const policy = state.data.policies.find(p => p.id === binding.policyId && p.planId === state.planId);
+        if (policy) add(policy);
       }
     }
     // Navigation only: a named source is not an assertion that its criteria
@@ -1256,7 +1260,7 @@
   }
 
   function cardBranchMarkup(branch) {
-    const field = key => branch.fields?.[key]?.text || '';
+    const field = key => branch.fields?.[key]?.displayText || branch.fields?.[key]?.text || '';
     // Administrative dispensing instructions are retained in the source, not clinical UI.
     const notes = (branch.notes || []).filter(item => !/^PA Team Note:/i.test(item.text));
     return `<section class="card-clinical-branch">
@@ -1310,16 +1314,89 @@
     return clinicalSourceLoads.get(url);
   }
 
+  function uhcGroupBindings(group) {
+    if (state.planId !== 'uhc-community-az') return [];
+    const found = new Map();
+    for (const record of group.records || []) {
+      if (record.planId !== state.planId || record.isStatewideReference) continue;
+      for (const binding of record.uhcClinicalBindings || []) {
+        const key = [binding.policyId, binding.role, binding.branchIndexes.join(',')].join(':');
+        found.set(key, binding);
+      }
+    }
+    return [...found.values()];
+  }
+
+  function uhcRestrictionSummary(group) {
+    if (state.planId !== 'uhc-community-az') return '';
+    const rows = (group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference);
+    const ql = rows.filter(r => r.qlAmount || r.qlDays);
+    const statedLimits = [...new Set(ql.map(r => r.policyQuantityLimit?.text).filter(Boolean))];
+    if (statedLimits.length) return `<p><strong>Quantity limit:</strong> ${escapeHtml(statedLimits.join(' '))}</p>`;
+    const amounts = [...new Set(ql.map(r => r.qlAmount).filter(v => v && !/QL printed|numeric limit not shown/i.test(v)))];
+    const days = [...new Set(ql.map(r => r.qlDays).filter(Boolean))];
+    if (!ql.length) return '';
+    return `<p><strong>Quantity limit:</strong> ${amounts.length ? escapeHtml(amounts.join('; ')) + (days.length ? ' per ' + escapeHtml(days.join('; ')) + ' days' : '') : 'Applies. The formulary does not publish a numeric limit; see the quantity-limit policy below.'}</p>`;
+  }
+
+  async function uhcClinicalContent(group, bindings) {
+    const policies = state.data.policies.filter(p => p.planId === state.planId);
+    const byRole = roles => bindings.filter(b => roles.includes(b.role));
+    let primary = byRole(['product']);
+    if (!primary.length) primary = byRole(['nonsolid']);
+    if (!primary.length) primary = byRole(['nonpreferred']);
+    let quantity = byRole(['quantity']);
+    if (!quantity.length) quantity = byRole(['global_quantity']);
+    const sections = [], references = [], seen = new Set();
+    for (const [kind, selected] of [['Prior authorization', primary], ['Quantity-limit exceptions', quantity]]) {
+      const body = [];
+      for (const binding of selected) {
+        const policy = policies.find(p => p.id === binding.policyId);
+        if (!policy) continue;
+        const source = await loadClinicalSource(policy);
+        for (const i of binding.branchIndexes) {
+          const key = policy.id + ':' + i;
+          if (seen.has(key)) continue;
+          const branch = source.branches[i];
+          if (!branch) throw new Error('Clinical branch missing');
+          seen.add(key);
+          const scope = binding.branchLabels?.[i];
+          body.push((scope ? `<p><strong>Formulation:</strong> ${escapeHtml(scope)}</p>` : '') + cardBranchMarkup(branch));
+        }
+        if (!references.some(p => p.id === policy.id)) references.push(policy);
+      }
+      if (body.length) sections.push(`<section class="uhc-restriction-criteria"><h4>${kind}</h4>${body.join('')}</section>`);
+    }
+    const paRequired = (group.records || []).some(r => r.planId === state.planId && !r.isStatewideReference && ['required','conditional'].includes(r.pa));
+    if (paRequired && !primary.length) sections.unshift('<p>PA is required. Medication-specific approval criteria were not located in UHC’s published guideline; use the formulary reference to confirm the requirement.</p>');
+    const referenceLabels = references.map(p => primary.some(b => b.policyId === p.id) ? 'PA reference' : 'QL reference');
+    if (paRequired && !primary.length) {
+      const record = group.records.find(r => r.planId === state.planId && !r.isStatewideReference && ['required','conditional'].includes(r.pa));
+      if (record?.sourceUrl) { references.unshift(record); referenceLabels.unshift('PA formulary'); }
+    }
+    return {html: sections.join(''), references, referenceLabels};
+  }
+
   async function populateCardClinical(details) {
     if (!details.open || details.dataset.loaded === 'true' || details.dataset.loading === 'true') return;
     const entry = cardClinicalGroups.get(details.dataset.cardClinical);
     if (!entry || entry.planId !== state.planId) return;
     const {group, policies, guidance} = entry;
     const target = details.querySelector('.card-clinical-content');
-    if (!policies.length) return;
+    if (!policies.length && !(state.planId === 'uhc-community-az' && (group.records || []).some(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays)))) return;
     details.dataset.loading = 'true';
     target.innerHTML = '<p role="status">Loading clinical criteria…</p>';
     try {
+      const bindings = uhcGroupBindings(group);
+      if (state.planId === 'uhc-community-az' && (group.records || []).some(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays))) {
+        const content = await uhcClinicalContent(group, bindings);
+        if (target.isConnected === false) return;
+        target.innerHTML = content.html;
+        const references = details.querySelector('.card-pa-references');
+        if (references) references.innerHTML = content.references.map((p,i) => cardPaReference(p, content.referenceLabels[i])).join('');
+        details.dataset.loaded = 'true';
+        return;
+      }
       let sections = [];
       let activeSource = guidance;
       // Use the selected plan's exact named product branches first. Never
@@ -1352,8 +1429,8 @@
     } finally { details.dataset.loading = 'false'; }
   }
 
-  function cardPaReference(source) {
-    return `<a class="source-link card-pa-reference" href="${escapeHtml(sourceHref(source))}" target="_blank" rel="noopener" title="${escapeHtml(source.policyCode || source.name || 'PA source')} · ${escapeHtml(source.sourceEffective || '')}">PA reference ↗</a>`;
+  function cardPaReference(source, label = 'PA reference') {
+    return `<a class="source-link card-pa-reference" href="${escapeHtml(sourceHref(source))}" target="_blank" rel="noopener" title="${escapeHtml(source.policyCode || source.name || 'PA source')} · ${escapeHtml(source.sourceEffective || '')}">${escapeHtml(label)} ↗</a>`;
   }
 
   function medicationGroupCard(group) {
@@ -1361,7 +1438,8 @@
     const policies = group.policyOnly ? [] : linkedPolicyPanels(group, true);
     const key = group.key || group.label;
     cardClinicalGroups.set(key, {group, policies, guidance, planId: state.planId});
-    const reference = guidance || policies.find(p => p.planId === state.planId) || policies[0];
+    const restriction = state.planId === 'uhc-community-az' && (group.records || []).find(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays));
+    const reference = guidance || policies.find(p => p.planId === state.planId) || policies[0] || restriction;
     const refs = reference ? cardPaReference(reference) : '';
     const rows = group.isStatewide ? [group.statewideRecord] : group.records || [];
     const conditions = [...new Set(rows.flatMap(record => [
@@ -1375,6 +1453,7 @@
         <summary><span>Clinical details &amp; PA criteria</span><span class="card-pa-references">${refs}</span></summary>
         <div class="result-disclosure-body">
           ${conditions.map(text => `<p class="pa-condition">${escapeHtml(text)}</p>`).join('')}
+          ${uhcRestrictionSummary(group)}
           <div class="card-clinical-content">${guidance ? clinicalGuidanceContent(guidance, true) : !policies.length ? '<p>Formatted criteria for this medication are not available.</p>' : ''}</div>
         </div>
       </details>

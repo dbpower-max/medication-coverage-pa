@@ -454,3 +454,5 @@ main { padding-top: .65rem; }
 .clinical-details .criteria-pathway h4, .clinical-details .criteria-stage h4 { margin-top: .75rem; }
 
 .clinical-logic-label { font-weight: 600; }
+.uhc-restriction-criteria + .uhc-restriction-criteria { border-top: 1px solid var(--gray-200); margin-top: .85rem; padding-top: .5rem; }
+.uhc-restriction-criteria > h4 { margin-bottom: .65rem; }

@@ -13,6 +13,7 @@ from shared_policy_pilot import attach_shared_policy
 from source_restrictions import correct_source_restrictions, correct_source_conflicts
 from structured_statewide_criteria import publish_structured_criteria
 from rxnorm_display_names import attach_rxnorm_display_names
+from uhc_policy_access import publish_uhc_policy_access
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "dist"
@@ -184,6 +185,7 @@ assert criteria_release['sourceEffective'] == clinical_guidance['sourceEffective
 criteria_codes = {g['policyCode'] for g in clinical_guidance['guides']} | set(criteria_release['additionalPolicyCodes'])
 data['structuredCriteriaCount'] = publish_structured_criteria(statewide_pa, SRC, OUT, criteria_codes)
 assert data['structuredCriteriaCount'] == criteria_release.get('expectedStructuredCount', len(criteria_codes))
+publish_uhc_policy_access(data, SRC, OUT)
 seen = set()
 # Large PDF remains on its official payer host; indexed full policy text is bundled.
 EXTERNAL_SOURCES = {

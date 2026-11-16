@@ -31,7 +31,7 @@ for(const name of ['LIDOCAINE HCL LOTION','LIDOCAINE PATCH']) {
  assert.equal(row.pa,'conditional',name+' concentration condition lost');
  assert.match(row.paText,/Only/);
 }
-const ctx={cardClinicalGroups:new Map(),cardPaReference:()=>'',sourceHref:()=>'',state:{data},normalize:s=>String(s||'').trim().toLowerCase(),
+const ctx={cardClinicalGroups:new Map(),uhcRestrictionSummary:()=>'',cardPaReference:()=>'',sourceHref:()=>'',state:{data},normalize:s=>String(s||'').trim().toLowerCase(),
  escapeHtml:s=>String(s||'').replace(/</g,'&lt;').replace(/>/g,'&gt;'),
  linkedPolicyPanels:()=>[],clinicalGuidanceFor:()=>null,criteriaLibraryShortcut:()=>'',statusChips:()=>'',
  readableMedicationName:s=>String(s),sourcesLink:()=>'',recordDetails:()=>'',medicationPolicyDropdown:()=>''};

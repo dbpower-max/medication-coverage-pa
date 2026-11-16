@@ -75,7 +75,7 @@ for(const planId of plans){
 const cardStart=source.indexOf('  function medicationGroupCard(');
 const cardEnd=source.indexOf('  function render()',cardStart);
 assert(cardStart>0&&cardEnd>cardStart,'Medication card UI function missing');
-const ui={cardClinicalGroups:new Map(),cardPaReference:()=>'',state:{planId:'az-complete-health'},normalize:s=>String(s).toLowerCase(),sourceHref:()=>'',
+const ui={cardClinicalGroups:new Map(),uhcRestrictionSummary:()=>'',cardPaReference:()=>'',state:{planId:'az-complete-health'},normalize:s=>String(s).toLowerCase(),sourceHref:()=>'',
  escapeHtml:s=>String(s),
  readableMedicationName:s=>String(s),
  sourcesLink:()=>'',criteriaLibraryShortcut:()=>'',linkedPolicyPanels:()=>[],clinicalGuidanceContent:()=>'Clinically validated source details',
