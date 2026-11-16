@@ -12,6 +12,7 @@ from link_provider_policies import attach_provider_policies
 from shared_policy_pilot import attach_shared_policy
 from source_restrictions import correct_source_restrictions, correct_source_conflicts
 from structured_statewide_criteria import publish_structured_criteria
+from rxnorm_display_names import attach_rxnorm_display_names
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "dist"
@@ -22,6 +23,7 @@ data = json.loads(gzip.decompress((SRC / "data.json.gz").read_bytes()))
 correct_source_restrictions(data['medications'])
 correct_source_conflicts(data['medications'])
 attach_provider_policies(data)
+attach_rxnorm_display_names(data)
 assert ALLOWED <= {p["id"] for p in data["plans"]}
 # A single current AHCCCS core is shared by all three ACC plan views.
 # These are source records, not synthesized plan claims.

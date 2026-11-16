@@ -28,9 +28,7 @@ for(const plan of data.plans){
 }
 assert(script.includes("state.sort = el.sortInput.value === 'za' ? 'za' : 'az'; resetLimitAndRender()"),'Sort interaction fails to reset pagination');
 assert(script.includes("el.sortInput.value = 'az'"),'Clear filters does not restore alphabetical default');
-assert(api.medicationSortName({label:'{1 (0.1 mL) (diazepam 50 mg/mL Nasal Spray [Valtoco]) } Pack'}).startsWith('diazepam'));
-assert(api.medicationSortName({label:'24 HR metformin Extended Release Tablet'}).startsWith('metformin'));
-assert.equal(api.medicationSortName({label:'Guaifenesin Tablet'}),'Guaifenesin Tablet');
+assert.equal(api.medicationSortName({label:'5-fluorouracil Cream'}),'5-fluorouracil Cream','Genuine medication-name number removed');
 const artifact='SCABICIDES & PEDICULICIDES TOPICAl AGENTS+A1106';
 assert.equal(api.subcategoryLabel(artifact),'Scabicides & Pediculicides Topical Agents');
 assert.equal(api.subcategoryLabel('PHOSPHODIESTERASE 4 (PDE4) INHIBITORS - TOPICAL'),'Phosphodiesterase 4 (PDE4) Inhibitors - Topical');

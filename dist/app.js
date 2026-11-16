@@ -130,7 +130,11 @@
 
   // Exact duplicate bracketed brand names are presentation artifacts.
   // Preserve the underlying payer product name, source links and PA records.
-  function medicationDisplayLabel(name, brands) {
+  function medicationDisplayLabel(name, brands, records = []) {
+    // Display names come from NLM by the existing RxCUI, not from parsing
+    // package syntax. A group spanning different IDs keeps its source label.
+    if (records.length && records.every(record => record.standardName
+        && record.rxnormId === records[0].rxnormId)) return records[0].standardName;
     let displayName = name;
     // Remove only exact repeated brand suffixes, whether [Brand] or (Brand).
     // Leave other bracketed text such as [OTC] or (USP) untouched.
@@ -154,8 +158,8 @@
       for (const brand of identity.brands) if (!group.brands.some(b => normalize(b) === normalize(brand))) group.brands.push(brand);
     }
     return [...groups.values()].map(group => ({...group,
-      label: medicationDisplayLabel(group.name, group.brands),
-      search: [group.name, ...group.brands, ...group.records.flatMap(r => [r.name, ...(r.searchAliases || [])])].join(' ')
+      label: medicationDisplayLabel(group.name, group.brands, group.records),
+      search: [group.name, ...group.brands, ...group.records.flatMap(r => [r.name, r.standardName || '', ...(r.searchAliases || [])])].join(' ')
     }));
   }
 
@@ -682,6 +686,7 @@
 
   function recordDetails(record) {
     const details = [];
+    if (record.standardName) details.push(`<p><strong>Standardized name:</strong> ${escapeHtml(record.standardName)}<br>${escapeHtml(record.standardNameType)} · RxCUI ${escapeHtml(record.rxnormId)} · NLM release ${escapeHtml(record.standardNameProvenance.release)} · ${escapeHtml(record.standardNameProvenance.sourceFile)}</p>`);
     if (record.baselineSource) details.push(`<p><strong>Baseline source:</strong> JSON row ${Number(record.sourceRow)} · RxNorm ${escapeHtml(record.rxnormId)} · declared plan year ${escapeHtml(record.baselineSource.declaredPlanYears.join(', '))}</p>`);
     if (record.sourceUpdates?.length) details.push('<p><strong>Later source updates (applied in date order):</strong></p>' + record.sourceUpdates.map((item) => `<p><a href="${escapeHtml(sourceHref(item))}" target="_blank" rel="noopener">${escapeHtml(item.name)} · ${escapeHtml(item.sourceEffective)}</a>${item.paText ? ' · ' + escapeHtml(item.paText) : ''}</p>`).join(''));
     if (record.quantityLimited && !record.qlAmount && !record.qlDays) details.push('<p><strong>Quantity limit:</strong> Required by the JSON source; amount and interval are not supplied.</p>');
@@ -1208,7 +1213,7 @@
             ${statewide.ageRestrictionText ? `<p><strong>Age restriction:</strong> ${escapeHtml(statewide.ageRestrictionText)}</p>` : ''}
             ${statewide.coverageText ? `<p><strong>Coverage restriction:</strong> ${escapeHtml(statewide.coverageText)}</p>` : ''}
             ${hasStep && statewide.stepText ? `<p><strong>Step therapy:</strong> ${escapeHtml(statewide.stepText)}</p>` : ''}
-            ${planRows.length ? `<section class="plan-product-differences"><h4>Selected-plan products</h4>${planRows.map(record => `<p>${escapeHtml(readableMedicationName(record.name))}</p><div class="chips">${statusChips(record)}</div>${medicationPolicyDropdown(record)}`).join('')}</section>` : ''}
+            ${planRows.length ? `<section class="plan-product-differences"><h4>Selected-plan products</h4>${planRows.map(record => `<p>${escapeHtml(record.standardName || readableMedicationName(record.name))}</p><div class="chips">${statusChips(record)}</div>${medicationPolicyDropdown(record)}`).join('')}</section>` : ''}
             ${policyPanels}
             ${guidance ? `<section class="reviewed-clinical-guide"><h4>${escapeHtml(guidance.heading)}</h4>${clinicalGuidanceContent(guidance)}</section>` : ''}
             ${hasClinicalDetails && !guidance && !policyPanels ? '<p>Review the source for the applicable diagnosis, treatment trials, duration and exceptions.</p>' : ''}
@@ -1222,12 +1227,12 @@
     return `<article class="result-card">
       <h3>${escapeHtml(group.label)}</h3>
       ${group.records.map(record => `<section class="medication-product-row">
-        ${onlyOne ? '' : `<h4>${escapeHtml(readableMedicationName(record.name))}</h4>`}
+        ${onlyOne ? '' : `<h4>${escapeHtml(record.standardName || readableMedicationName(record.name))}</h4>`}
         <div class="chips" aria-label="Coverage attributes">${statusChips(record)}</div>
       </section>`).join('')}
       <details class="clinical-details result-disclosure"><summary>Clinical details &amp; PA criteria</summary>
         <div class="result-disclosure-body">
-          ${group.records.map(record => `<section>${onlyOne ? '' : `<h4>${escapeHtml(readableMedicationName(record.name))}</h4>`}
+          ${group.records.map(record => `<section>${onlyOne ? '' : `<h4>${escapeHtml(record.standardName || readableMedicationName(record.name))}</h4>`}
             ${record.paText && ['required','conditional'].includes(record.pa) ? `<p><strong>PA:</strong> ${escapeHtml(record.paText)}</p>` : ''}
             ${record.stepText ? `<p><strong>Step therapy:</strong> ${escapeHtml(record.stepText)}</p>` : ''}
             ${medicationPolicyDropdown(record)}</section>`).join('')}
@@ -1241,16 +1246,9 @@
   }
 
   function medicationSortName(group) {
-    // RxNorm package counts and leading strengths are presentation, not the
-    // alphabetic drug name. Change sorting only; keep displayed/source names.
-    let name = String(group.label || '');
-    while (true) {
-      const next = name.replace(/^[\s{}()\[\]]+/, '')
-        .replace(/^\d+(?:\.\d+)?(?:\/\d+(?:\.\d+)?)?(?:\s*(?:mcg|mg|ml|gm|g|meq|units?|unt|hr|hours?))?\b\s*/i, '');
-      if (next === name) break;
-      name = next;
-    }
-    return name || group.label;
+    // Standard prescribable names already put release/strength after the
+    // medicine. Preserve numbers that are genuinely part of its name.
+    return group.label;
   }
 
   function render() {
@@ -1378,6 +1376,9 @@
     };
     const product = record => ({
       name: record.name, brand: record.brand || '', coverage: record.coverage,
+      medication_id: record.id, rxcui: record.rxnormId || null,
+      display_name: record.standardName || record.name,
+      display_name_standard: record.standardNameType || null,
       preferred: record.preferred, pa: record.pa || 'not_specified', pa_text: record.paText || '',
       step: record.step, step_text: record.stepText || '', quantity: record.qlAmount || '', quantity_interval: record.qlDays || '',
       source: sourceHref(record), source_effective: record.sourceEffective || '',
