@@ -404,6 +404,10 @@ main { padding-top: .65rem; }
 .quick-categories { margin-top: .4rem; padding-top: .4rem; gap: .35rem; }
 .quick-categories button { min-height: 44px; padding-block: .4rem; }
 .results-heading { margin: .85rem 0 .55rem; }
+.results-heading { flex-wrap: wrap; align-items: center; }
+.sort-control { display: flex; align-items: center; gap: .45rem; margin-left: auto; flex-shrink: 0; }
+.sort-control > span { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.sort-control select { width: auto; min-width: 4.5rem; min-height: 44px; padding: .3rem .45rem; font-size: .82rem; }
 .result-card { padding: .75rem .9rem; gap: .35rem .75rem; }
 .result-card > .medication-product-row { grid-column: 1 / -1; }
 .clinical-details > summary { min-height: 44px; padding-block: .55rem; }
@@ -427,4 +431,9 @@ main { padding-top: .65rem; }
   .header-inner { min-height: 62px; align-items: center; }
   .result-card { grid-template-columns: minmax(0, 1fr); }
   .quick-categories > span { display: none; }
+}
+@media (max-width: 580px) {
+  .results-heading { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .4rem; }
+  .results-heading h2 { font-size: 1.05rem; }
+  .sort-control { margin-left: 0; }
 }

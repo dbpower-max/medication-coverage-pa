@@ -10,6 +10,7 @@
     category: '',
     subcategory: '',
     coverage: '',
+    sort: 'az',
     limit: PAGE_SIZE,
   };
 
@@ -18,7 +19,7 @@
     'categoryInput', 'categoryOptions', 'subcategoryInput', 'subcategoryOptions', 'coverageInput',
     'clearFilters', 'planStatus', 'planEvidence', 'evidenceList', 'resultCount', 'effectiveDate',
     'loadingState', 'emptyState', 'resultGrid', 'showMore',
-    'criteriaLibrary', 'criteriaSearch', 'criteriaCount', 'criteriaResults'];
+    'criteriaLibrary', 'criteriaSearch', 'criteriaCount', 'criteriaResults', 'sortInput'];
 
   const comboState = {
     plan: { activeIndex: -1, showAll: false },
@@ -1268,7 +1269,11 @@
         && (!state.subcategory || normalize(r.subcategory).includes(normalize(state.subcategory)))
       )};
     });
-    const records = groups;
+    // Order the complete matching set before taking the visible page.
+    const direction = state.sort === 'za' ? -1 : 1;
+    const collator = new Intl.Collator('en', {sensitivity: 'base', numeric: true});
+    const records = groups.sort((a, b) => direction * (
+      collator.compare(a.label, b.label) || String(a.key).localeCompare(String(b.key), 'en')));
     // Keep matching clinical information accessible in its own panel. Policy,
     // administrative and source records never enter the medication results.
     el.criteriaSearch.value = state.term;
@@ -1300,6 +1305,7 @@
   function bindEvents() {
     setupComboboxes();
     el.coverageInput.addEventListener('change', () => { state.coverage = el.coverageInput.value; resetLimitAndRender(); });
+    el.sortInput.addEventListener('change', () => { state.sort = el.sortInput.value === 'za' ? 'za' : 'az'; resetLimitAndRender(); });
     el.planStatus.addEventListener('click', (event) => {
       if (!event.target.closest('[data-open-state-reference]')) return;
       state.planId = 'ahcccs-statewide';
@@ -1312,7 +1318,8 @@
       resetLimitAndRender();
     });
     el.clearFilters.addEventListener('click', () => {
-      Object.assign(state, { planId: 'az-complete-health', term: '', selectedMedicationKey: null, category: '', subcategory: '', coverage: '', limit: PAGE_SIZE });
+      Object.assign(state, { planId: 'az-complete-health', term: '', selectedMedicationKey: null, category: '', subcategory: '', coverage: '', sort: 'az', limit: PAGE_SIZE });
+      el.sortInput.value = 'az';
       el.planInput.value = displayPlanName(state.data.plans.find((plan) => plan.id === state.planId));
       el.medicationInput.value = '';
       el.categoryInput.value = '';
