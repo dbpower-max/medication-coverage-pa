@@ -902,6 +902,13 @@
 
   function bindCriteriaLibrary() {
     el.criteriaSearch.addEventListener('input', () => renderCriteriaLibrary());
+    document.addEventListener('toggle', event => {
+      if (event.target.matches?.('details[data-card-clinical]')) populateCardClinical(event.target);
+    }, true);
+    document.addEventListener('click', event => {
+      const retry = event.target.closest('[data-retry-card-criteria]');
+      if (retry) populateCardClinical(retry.closest('details[data-card-clinical]'));
+    });
     document.addEventListener('click', event => {
       const dialog = document.getElementById('sourceDialog');
       if (event.target.closest('[data-close-sources]')) { dialog.close(); return; }
@@ -910,7 +917,10 @@
       const entry = cardSourceGroups.get(button.dataset.cardSources);
       if (!entry || entry.planId !== state.planId) return;
       dialog.querySelector('#sourceDialogTitle').textContent = 'Sources — ' + entry.group.label;
-      dialog.querySelector('#sourceDialogContent').innerHTML = entry.group.records.map(record => `<section><h3>${escapeHtml(readableMedicationName(record.name))}</h3>${recordDetails(record)}</section>`).join('');
+      const clinical = cardClinicalGroups.get(entry.group.key || entry.group.label);
+      dialog.querySelector('#sourceDialogContent').innerHTML = entry.group.records.map(record => `<section><h3>${escapeHtml(readableMedicationName(record.name))}</h3>${recordDetails(record)}</section>`).join('')
+        + (clinical?.guidance ? `<section><p>Source-reviewed summary; clinician approval pending.</p><p>${escapeHtml(clinical.guidance.guidelineCaution)}</p></section>` : '')
+        + (clinical?.policies || []).map(policy => `<section><a href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">${escapeHtml(policy.name || policy.policyCode)} · ${escapeHtml(policy.sourceEffective)}</a>${policy.sourceTextUrl ? `<p><a href="${escapeHtml(policy.sourceTextUrl)}" target="_blank" rel="noopener">Original policy text</a></p>` : ''}<p>Source-transcribed criteria; clinician approval pending. Policy references do not independently establish selected-plan coverage or PA status.</p></section>`).join('');
       dialog.showModal();
     });
     document.addEventListener('click', async event => {
@@ -1078,7 +1088,7 @@
     throw new Error('Unsupported clinical requirement structure');
   }
 
-  function clinicalGuidanceContent(guide) {
+  function clinicalGuidanceContent(guide, compact = false) {
     const pathways = (guide.pathways || []).map((pathway, index) => `
       <div class="criteria-pathway">
         <h4>Pathway ${index + 1}: ${escapeHtml(pathway.title)}</h4>
@@ -1093,6 +1103,7 @@
         <p><strong>ALL of the following:</strong></p>
         <ul>${stage.all.map(clinicalRequirementItem).join('')}</ul>
       </section>`).join('');
+    if (compact) return `${(guide.pathways || guide.stages || []).some(x => x.approvalDuration) ? '' : `<p><strong>Approval duration:</strong> ${escapeHtml(guide.approvalDuration)}</p>`}${stages || pathways}`;
     return `
       <p>${escapeHtml(guide.summary)}</p>
       ${stages ? `<p><strong>Requirements by treatment stage:</strong></p>${stages}` : `<p><strong>Qualifying pathways — any ONE:</strong></p>${pathways}`}
@@ -1142,7 +1153,7 @@
     return [...matches.values()];
   }
 
-  function linkedPolicyPanels(group) {
+  function linkedPolicyPanels(group, collectOnly = false) {
     const links = new Map();
     const add = policy => {
       const signature = [policy.planId, policy.sourceUrl?.split('#')[0], policy.sourcePage, policy.sourceLastPage].join(':');
@@ -1167,6 +1178,7 @@
     // Navigation only: a named source is not an assertion that its criteria
     // apply to every formulation or that this medication requires PA.
     for (const policy of [...namedPlanPolicies(group), ...namedPlanPolicies(group, true)]) add(policy);
+    if (collectOnly) return [...links.values()];
     const plan = state.data.plans.find(p => p.id === state.planId);
     return [...links.values()].map(policy => `<section class="linked-clinical-policy">
       <h4>${policy.planId === 'ahcccs-ffs-aihp' ? 'AHCCCS reference policy' : 'Selected-plan policy'} · ${escapeHtml(policy.name)}</h4>
@@ -1185,61 +1197,165 @@
   function sourcesLink(group) {
     const key = group.key || group.label;
     cardSourceGroups.set(key, {group, planId: state.planId});
-    return `<button type="button" class="text-button source-action" data-card-sources="${escapeHtml(key)}">Sources &amp; technical details</button>`;
+    return `<button type="button" class="text-button source-action" data-card-sources="${escapeHtml(key)}">Sources</button>`;
+  }
+
+  // Card content is product-scoped; full policies stay in the archived library/Sources.
+  function productIdentity(value) {
+    return policyLookupQuery(String(value).replace(/\([^)]*\)/g, ' '))
+      .replace(/\b(?:brand|generic|free base|hydrochloride|hcl)\b/g, ' ')
+      .replace(/\s+/g, ' ').trim();
+  }
+
+  function matchingClinicalBranches(policy, group) {
+    const brands = group.brands.map(productIdentity).filter(Boolean);
+    const names = [...new Set([group.name, ...(group.records || []).map(r => r.name)].map(productIdentity).filter(Boolean))];
+    return (policy.branches || []).filter(branch => {
+      const product = branch.fields?.['Product Name']?.text || branch.product || '';
+      const identities = product.split(/[,;]|\bgeneric\b|\bbrand\b/gi).map(productIdentity).filter(Boolean);
+      const presentation = String(group.name) + ' ' + (group.records || []).map(r => r.name).join(' ');
+      for (const form of ['ophthalmic', 'otic', 'topical', 'ointment', 'cream', 'injection', 'nasal', 'inhalation', 'extended release']) {
+        if (normalize(product).includes(form) && !normalize(presentation).includes(form)) return false;
+      }
+      const sourceStrengths = [...product.matchAll(/\b(\d+(?:\.\d+)?)\s*mg\b/gi)].map(m => Number(m[1]));
+      if (sourceStrengths.length && !(group.records || []).every(record => {
+        const strengths = [...record.name.matchAll(/\b(\d+(?:\.\d+)?)\s*mg\b/gi)].map(m => Number(m[1]));
+        return strengths.length && strengths.every(value => sourceStrengths.includes(value));
+      })) return false;
+      return brands.length ? brands.every(brand => identities.includes(brand)) : identities.some(identity => names.includes(identity));
+    });
+  }
+
+  function cardSourceRules(items) {
+    return items.map(item => {
+      const value = item.displayText || item.text;
+      const number = /^(\d+(?:\.\d+)*)\b/.exec(value)?.[1];
+      const depth = number ? Math.min(number.split('.').length - 1, 4) : 1;
+      return `<p class="card-clinical-rule ${item.kind === 'connector' ? 'clinical-source-connector' : ''}" style="margin-left:${depth * .65}rem">${escapeHtml(value.replace(/^\d+(?:\.\d+)*(?:\s*-\s*|\s+(?=(?:ALL|ONE|For|If)\b))/i, '').replace(/^•\s*/, '• '))}</p>`;
+    }).join('');
+  }
+
+  function cardBranchMarkup(branch) {
+    const field = key => branch.fields?.[key]?.text || '';
+    // Administrative dispensing instructions are retained in the source, not clinical UI.
+    const notes = (branch.notes || []).filter(item => !/^PA Team Note:/i.test(item.text));
+    return `<section class="card-clinical-branch">
+      ${['Diagnosis', 'Therapy Stage', 'Approval Length'].filter(key => field(key)).map(key => `<p><strong>${key === 'Approval Length' ? 'Approval duration' : key === 'Therapy Stage' ? 'Treatment stage' : key}:</strong> ${escapeHtml(field(key))}</p>`).join('')}
+      ${cardSourceRules(branch.criteria || [])}
+      ${notes.length ? `<div class="clinical-exceptions"><strong>Restrictions &amp; exceptions</strong>${cardSourceRules(notes)}</div>` : ''}
+    </section>`;
+  }
+
+  function cardTextBranchMarkup(branch) {
+    const text = branch.text.replace(/^\s*(?:--- PDF page \d+ ---|=== PDF PAGE \d+ ===|Page \d+)\s*$/gmi, '');
+    const body = text.split(/Approval\s+Criteria\s*:?/i)[1];
+    if (!body) return '<p>Formatted criteria for this medication are not available. See the PA reference.</p>';
+    // Original clinical text is retained verbatim, with only line-break/page
+    // furniture cleanup. Administrative PA-team dispensing notes stay internal.
+    const clinical = body.split(/\bPA Team Note\s*:/i)[0]
+      .replace(/^.*UnitedHealthcare Community Plan of Arizona.*Clinical Pharmacy Guidelines.*$/gmi, '')
+      .replace(/\bNotes\s*$/i, '').trim();
+    const paragraphs = [];
+    for (const raw of clinical.split(/\r?\n/)) {
+      const line = raw.trim();
+      if (!line) continue;
+      if (/^(?:•|\d+(?:\.\d+)*\s*(?:-|[A-Za-z])|OR$|AND$)/.test(line) || !paragraphs.length) paragraphs.push(line);
+      else paragraphs[paragraphs.length - 1] += ' ' + line;
+    }
+    return `<section class="card-clinical-branch">
+      ${branch.stage ? `<p><strong>Treatment stage:</strong> ${escapeHtml(branch.stage)}</p>` : ''}
+      ${branch.duration ? `<p><strong>Approval duration:</strong> ${escapeHtml(branch.duration)}</p>` : ''}
+      ${cardSourceRules(paragraphs.map(text => ({text, kind: /^(?:AND|OR)$/.test(text) ? 'connector' : 'requirement'})))}
+    </section>`;
+  }
+
+  const cardClinicalGroups = new Map();
+  const clinicalSourceLoads = new Map();
+  async function loadClinicalSource(policy) {
+    const url = policy.structuredCriteriaUrl || policy.sourceTextUrl;
+    if (!clinicalSourceLoads.has(url)) {
+      const request = (async () => {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Clinical source unavailable');
+        if (policy.structuredCriteriaUrl) {
+          const structured = await response.json();
+          if (structured.policyCode !== policy.policyCode || structured.sourceEffective !== policy.sourceEffective) throw new Error('Wrong clinical source');
+          return structured;
+        }
+        return {branches: policySourceBranches(await response.text()).branches};
+      })();
+      clinicalSourceLoads.set(url, request);
+      request.catch(() => clinicalSourceLoads.delete(url));
+    }
+    return clinicalSourceLoads.get(url);
+  }
+
+  async function populateCardClinical(details) {
+    if (!details.open || details.dataset.loaded === 'true' || details.dataset.loading === 'true') return;
+    const entry = cardClinicalGroups.get(details.dataset.cardClinical);
+    if (!entry || entry.planId !== state.planId) return;
+    const {group, policies, guidance} = entry;
+    const target = details.querySelector('.card-clinical-content');
+    if (!policies.length) return;
+    details.dataset.loading = 'true';
+    target.innerHTML = '<p role="status">Loading clinical criteria…</p>';
+    try {
+      let sections = [];
+      let activeSource = guidance;
+      // Use the selected plan's exact named product branches first. Never
+      // concatenate two payer versions into one apparent set of requirements.
+      const planPolicies = policies.filter(p => p.planId === state.planId);
+      const referencePolicies = policies.filter(p => p.planId === 'ahcccs-ffs-aihp');
+      for (const candidates of [planPolicies, guidance ? [] : referencePolicies]) {
+        for (const policy of candidates) {
+          const structured = await loadClinicalSource(policy);
+          const branches = matchingClinicalBranches(structured, group);
+          if (!branches.length) continue;
+          activeSource = policy;
+          const seen = new Set();
+          sections = branches.filter(branch => {
+            const signature = JSON.stringify(branch.fields ? [branch.fields, branch.criteria, branch.notes] : branch.text);
+            if (seen.has(signature)) return false;
+            seen.add(signature); return true;
+          }).map(branch => branch.fields ? cardBranchMarkup(branch) : cardTextBranchMarkup(branch));
+          break;
+        }
+        if (sections.length) break;
+      }
+      if (!target.isConnected && typeof target.isConnected === 'boolean') return;
+      target.innerHTML = sections.length ? sections.join('') : (guidance ? clinicalGuidanceContent(guidance, true) : '<p>Formatted criteria for this medication are not available. See the PA reference.</p>');
+      const reference = details.querySelector('.card-pa-references');
+      if (reference && activeSource) reference.innerHTML = cardPaReference(activeSource);
+      details.dataset.loaded = 'true';
+    } catch (error) {
+      target.innerHTML = '<p>Clinical criteria could not be loaded.</p><button type="button" class="text-button" data-retry-card-criteria>Retry clinical criteria</button>';
+    } finally { details.dataset.loading = 'false'; }
+  }
+
+  function cardPaReference(source) {
+    return `<a class="source-link card-pa-reference" href="${escapeHtml(sourceHref(source))}" target="_blank" rel="noopener" title="${escapeHtml(source.policyCode || source.name || 'PA source')} · ${escapeHtml(source.sourceEffective || '')}">PA reference ↗</a>`;
   }
 
   function medicationGroupCard(group) {
-    if (group.policyOnly) return `<article class="result-card policy"><h3>${escapeHtml(group.label)}</h3>
-      <details class="clinical-details result-disclosure"><summary>Clinical details &amp; PA criteria</summary>
-        <div class="result-disclosure-body">${clinicalGuidanceContent(group.guide)}</div></details></article>`;
-    const policyPanels = linkedPolicyPanels(group);
-    const guidance = clinicalGuidanceFor(group);
-    if (group.isStatewide) {
-      const statewide = group.statewideRecord;
-      const planRows = group.records.filter(record => !record.isStatewideReference);
-      const needsPa = statewide.pa === 'required' || statewide.pa === 'conditional';
-      const hasStep = statewide.step === 'specified' || Boolean(statewide.stepText);
-      const hasClinicalDetails = needsPa || hasStep || guidance;
-      const productScope = statewide.brandGenericNotes || statewide.notes || '';
-      const showProductScope = productScope && !/^(?:brand only|authorized generic only|generic only|generic formulations only|various)$/i.test(productScope.trim());
-      return `<article class="result-card">
-        <h3>${escapeHtml(group.label)}</h3>
-        <div class="chips" aria-label="Statewide coverage attributes">${statusChips(statewide)}</div>
-        <details class="clinical-details result-disclosure"><summary>Clinical details &amp; PA criteria</summary>
-          <div class="result-disclosure-body">
-            ${showProductScope ? `<p><strong>Product scope:</strong> ${escapeHtml(productScope)}</p>` : ''}
-            ${needsPa && statewide.paText ? `<p class="pa-condition"><strong>${statewide.pa === 'conditional' ? 'PA condition' : 'PA requirement'}:</strong> ${escapeHtml(statewide.paText)}</p>` : ''}
-            ${statewide.paExceptionText ? `<p><strong>PA exception:</strong> ${escapeHtml(statewide.paExceptionText)}</p>` : ''}
-            ${statewide.ageRestrictionText ? `<p><strong>Age restriction:</strong> ${escapeHtml(statewide.ageRestrictionText)}</p>` : ''}
-            ${statewide.coverageText ? `<p><strong>Coverage restriction:</strong> ${escapeHtml(statewide.coverageText)}</p>` : ''}
-            ${hasStep && statewide.stepText ? `<p><strong>Step therapy:</strong> ${escapeHtml(statewide.stepText)}</p>` : ''}
-            ${planRows.length ? `<section class="plan-product-differences"><h4>Selected-plan products</h4>${planRows.map(record => `<p>${escapeHtml(record.standardName || readableMedicationName(record.name))}</p><div class="chips">${statusChips(record)}</div>${medicationPolicyDropdown(record)}`).join('')}</section>` : ''}
-            ${policyPanels}
-            ${guidance ? `<section class="reviewed-clinical-guide"><h4>${escapeHtml(guidance.heading)}</h4>${clinicalGuidanceContent(guidance)}</section>` : ''}
-            ${hasClinicalDetails && !guidance && !policyPanels ? '<p>Review the source for the applicable diagnosis, treatment trials, duration and exceptions.</p>' : ''}
-            ${criteriaLibraryShortcut(group)}
-            ${sourcesLink(group)}
-          </div>
-        </details>
-      </article>`;
-    }
-    const onlyOne = group.records.length === 1;
+    const guidance = group.policyOnly ? group.guide : clinicalGuidanceFor(group);
+    const policies = group.policyOnly ? [] : linkedPolicyPanels(group, true);
+    const key = group.key || group.label;
+    cardClinicalGroups.set(key, {group, policies, guidance, planId: state.planId});
+    const reference = guidance || policies.find(p => p.planId === state.planId) || policies[0];
+    const refs = reference ? cardPaReference(reference) : '';
+    const rows = group.isStatewide ? [group.statewideRecord] : group.records || [];
+    const conditions = [...new Set(rows.flatMap(record => [
+      ['required', 'conditional'].includes(record.pa) ? record.paText : '', record.paExceptionText, record.ageRestrictionText
+    ]).filter(Boolean))];
     return `<article class="result-card">
       <h3>${escapeHtml(group.label)}</h3>
-      ${group.records.map(record => `<section class="medication-product-row">
-        ${onlyOne ? '' : `<h4>${escapeHtml(record.standardName || readableMedicationName(record.name))}</h4>`}
-        <div class="chips" aria-label="Coverage attributes">${statusChips(record)}</div>
-      </section>`).join('')}
-      <details class="clinical-details result-disclosure"><summary>Clinical details &amp; PA criteria</summary>
+      ${rows.map(record => `<div class="chips" aria-label="Coverage attributes">${statusChips(record)}</div>`).join('')}
+      <div class="card-source-access">${sourcesLink(group)}</div>
+      <details class="clinical-details result-disclosure" data-card-clinical="${escapeHtml(key)}">
+        <summary><span>Clinical details &amp; PA criteria</span><span class="card-pa-references">${refs}</span></summary>
         <div class="result-disclosure-body">
-          ${group.records.map(record => `<section>${onlyOne ? '' : `<h4>${escapeHtml(record.standardName || readableMedicationName(record.name))}</h4>`}
-            ${record.paText && ['required','conditional'].includes(record.pa) ? `<p><strong>PA:</strong> ${escapeHtml(record.paText)}</p>` : ''}
-            ${record.stepText ? `<p><strong>Step therapy:</strong> ${escapeHtml(record.stepText)}</p>` : ''}
-            ${medicationPolicyDropdown(record)}</section>`).join('')}
-          ${policyPanels}
-          ${guidance ? `<section><h4>AHCCCS clinical criteria · ${escapeHtml(guidance.policyCode)}</h4><p>Clinical criteria only; this guideline does not independently establish plan coverage or PA status.</p>${clinicalGuidanceContent(guidance)}</section>` : ''}
-          ${criteriaLibraryShortcut(group)}
-          ${sourcesLink(group)}
+          ${conditions.map(text => `<p class="pa-condition">${escapeHtml(text)}</p>`).join('')}
+          <div class="card-clinical-content">${guidance ? clinicalGuidanceContent(guidance, true) : !policies.length ? '<p>Formatted criteria for this medication are not available.</p>' : ''}</div>
         </div>
       </details>
     </article>`;

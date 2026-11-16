@@ -7,7 +7,7 @@ const script=fs.readFileSync('_site/app.js','utf8');
 const hook="document.addEventListener('DOMContentLoaded', init);";
 assert(script.includes(hook));
 const ctx={document:{querySelectorAll:()=>[]},Intl,console};vm.createContext(ctx);
-vm.runInContext(script.replace(hook,'globalThis.api={state,el,recordsForPlan,planMedicationGroups,filteredRecords,render,uniqueMedicationNames,criteriaSources,renderCriteriaLibrary,namedPlanPolicies,statusChips,recordDetails,medicationSearchResult,policyLookupQuery,searchIndexedCriteria};'),ctx);
+vm.runInContext(script.replace(hook,'globalThis.api={state,el,recordsForPlan,planMedicationGroups,filteredRecords,render,uniqueMedicationNames,criteriaSources,renderCriteriaLibrary,namedPlanPolicies,statusChips,recordDetails,medicationSearchResult,policyLookupQuery,searchIndexedCriteria,cardClinicalGroups};'),ctx);
 const {api}=ctx;api.state.data=data;
 for(const id of ['criteriaSearch','criteriaCount','criteriaResults','criteriaLibrary','planStatus','planEvidence','evidenceList','loadingState','resultCount','effectiveDate','emptyState','resultGrid','showMore']) api.el[id]={value:'',innerHTML:'',textContent:'',hidden:false};
 for(const planId of data.plans.map(p=>p.id)) {
@@ -27,8 +27,8 @@ for(const planId of data.plans.map(p=>p.id)) {
  assert(!api.el.resultGrid.innerHTML.includes('Policy source indexed'));
  assert(api.el.criteriaResults.innerHTML.includes('gl-749236'),'Existing Mounjaro criteria inaccessible in '+planId);
  if(planId==='uhc-community-az') {
-  assert(api.el.resultGrid.innerHTML.includes('Selected-plan policy · GLP-1 Agonists'),'Named UHC GLP-1 source not attached to Mounjaro');
-  assert(api.el.resultGrid.innerHTML.includes('uhc-nov2026-policy-gl-720195'),'Wrong GLP-1 policy linked to UHC Mounjaro');
+  assert(results.some(g=>api.cardClinicalGroups.get(g.key)?.policies.some(p=>p.id==='uhc-nov2026-policy-gl-720195')),'Wrong UHC GLP-1 source attached to Mounjaro');
+  assert(api.el.resultGrid.innerHTML.includes('PA reference'),'PA source reference inaccessible');
  }
  const sources=api.criteriaSources();
  assert(sources.every(p=>p.planId==='ahcccs-ffs-aihp'||p.planId===planId),'Cross-plan policy leak');
@@ -41,12 +41,13 @@ assert(api.el.criteriaResults.innerHTML.includes('Inhaled Corticosteroids'),'Pla
 assert.equal(api.el.criteriaLibrary.open,true,'Policy-only match is hidden in collapsed library');
 api.state.term='GL-749236';api.render();
 assert(api.el.criteriaResults.innerHTML.includes('Mounjaro'),'Policy code search cannot reach structured guide');
-api.state.term='Qvar';api.render();
+api.state.term='Qvar';const qvarGroups=api.render();
 assert(api.el.resultGrid.innerHTML.includes('Diagnosis of asthma'),'Preferred inhaler criteria lost when no PA flag is present');
 assert(!/<span[^>]*>PA required<\/span>/.test(api.el.resultGrid.innerHTML),'Clinical guideline existence incorrectly asserted inhaler PA');
-assert(api.el.resultGrid.innerHTML.includes('Selected-plan policy'),'Existing Banner policy link remains buried');
-assert(api.el.resultGrid.innerHTML.includes('linked:banner-ufc:'),'Banner inline source reader missing');
-assert(!api.el.resultGrid.innerHTML.includes('linked:uhc-community-az:'),'Wrong plan source reader attached');
+const qvarPolicies=qvarGroups.flatMap(g=>api.cardClinicalGroups.get(g.key)?.policies||[]);
+assert(qvarPolicies.some(p=>p.id.startsWith('linked:banner-ufc:')),'Banner clinical source missing');
+assert(!qvarPolicies.some(p=>p.planId==='uhc-community-az'),'Wrong plan clinical source attached');
+assert(api.el.resultGrid.innerHTML.includes('PA reference'),'PA reference not accessible');
 data.policies.push({id:'combination-negative',planId:'banner-ufc',recordType:'policy_index',sourceTextUrl:'test.txt',notes:'Named Product Name fields: alpha-test/beta-test Policy product-field matches are search aids;'});
 assert.equal(api.namedPlanPolicies({name:'alpha-test',brands:[]}).length,0,'Single ingredient matched a combination-product source');
 assert.equal(api.namedPlanPolicies({name:'alpha-test/beta-test',brands:[]}).length,1,'Exact combination source unavailable');

@@ -438,3 +438,17 @@ main { padding-top: .65rem; }
   .sort-control { margin-left: 0; }
 }
 #subcategoryOptions .combobox-option { font-size: .9rem; line-height: 1.5; white-space: normal; overflow-wrap: anywhere; }
+/* Approved medication-card reference, November 16: clinical text only. */
+.card-source-access { grid-column: 1 / -1; justify-self: end; margin-top: -.5rem; }
+.card-source-access .source-action { min-height: 28px; padding: .1rem .15rem; font-size: .78rem; }
+.clinical-details > summary { display: flex; align-items: baseline; gap: .5rem 1rem; }
+.clinical-details > summary::before { content: '▸'; }
+.clinical-details[open] > summary::before { content: '▾'; }
+.clinical-details > summary > span:first-child { flex: 1; }
+.card-pa-references { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .25rem .7rem; max-width: 45%; text-align: right; }
+.card-pa-reference { font-weight: 500; white-space: nowrap; padding: .2rem 0; }
+.card-clinical-rule { margin-block: .45rem; white-space: pre-line; }
+.card-clinical-branch + .card-clinical-branch { border-top: 1px solid var(--gray-200); margin-top: 1rem; padding-top: .65rem; }
+.clinical-source-paragraph { white-space: pre-line; }
+.additional-medication-criteria > summary { color: var(--teal-dark); cursor: pointer; min-height: 44px; padding: .55rem 0; }
+.clinical-details .criteria-pathway h4, .clinical-details .criteria-stage h4 { margin-top: .75rem; }

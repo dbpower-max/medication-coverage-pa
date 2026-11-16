@@ -52,7 +52,7 @@ assert(shortcut.includes('data-criteria-query="MOUNJARO"'),'Mounjaro shortcut no
 shortcutCtx.group={name:'drug generic',brands:['<unsafe>']};
 const safe=vm.runInContext('criteriaLibraryShortcut(group)',shortcutCtx);
 assert(safe.includes('&lt;unsafe&gt;')&&!safe.includes('="<unsafe>"'),'Shortcut escaped drug names incorrectly');
-assert((script.match(/\$\{criteriaLibraryShortcut\(group\)\}/g)||[]).length===2,'Both statewide and plan-specific cards need source shortcuts');
+assert(script.includes('data-card-clinical=')&&script.includes('${sourcesLink(group)}'),'Common medication card must retain direct criteria and original source access');
 assert(script.includes('el.criteriaLibrary.open = true')&&script.includes('shortcut.dataset.criteriaQuery'),'Source shortcut does not activate the library');
 
 console.log('PASS: all '+index.length+' policy source files present and tied to November PDF page/code; '+totalBytes+' source-text bytes; search returns expected guideline sections; original text safely rendered');

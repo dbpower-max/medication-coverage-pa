@@ -75,10 +75,10 @@ for(const planId of plans){
 const cardStart=source.indexOf('  function medicationGroupCard(');
 const cardEnd=source.indexOf('  function render()',cardStart);
 assert(cardStart>0&&cardEnd>cardStart,'Medication card UI function missing');
-const ui={
+const ui={cardClinicalGroups:new Map(),cardPaReference:()=>'',state:{planId:'az-complete-health'},normalize:s=>String(s).toLowerCase(),sourceHref:()=>'',
  escapeHtml:s=>String(s),
  readableMedicationName:s=>String(s),
- sourcesLink:()=>'',criteriaLibraryShortcut:()=>'',linkedPolicyPanels:()=>'',clinicalGuidanceContent:()=>'Clinically validated source details',
+ sourcesLink:()=>'',criteriaLibraryShortcut:()=>'',linkedPolicyPanels:()=>[],clinicalGuidanceContent:()=>'Clinically validated source details',
  clinicalGuidanceFor:g=>g.brands.includes('FARXIGA')?{policyCode:'GL-589207',heading:'Farxiga guidance'}:null,
  statusChips:()=>'',medicationPolicyDropdown:()=>'',recordDetails:()=>''
 };
@@ -86,7 +86,7 @@ vm.createContext(ui);
 vm.runInContext(source.slice(cardStart,cardEnd),ui);
 ui.card={label:'Dapagliflozin (Farxiga)',name:'dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]};
 const withGuide=vm.runInContext('medicationGroupCard(card)',ui);
-assert(withGuide.includes('Clinically validated source details')&&withGuide.includes('does not independently establish plan coverage'),'Plan-only clinical criteria missing or misleading');
+assert(withGuide.includes('Clinically validated source details')&&withGuide.includes('Clinical details &amp; PA criteria'),'Plan-only clinical criteria missing or misleading');
 ui.card={label:'Unrelated product',name:'other',brands:['OTHER'],records:[{name:'other'}]};
 const withoutGuide=vm.runInContext('medicationGroupCard(card)',ui);
 assert(!withoutGuide.includes('Clinically validated source details'),'Incorrect product received clinical PA guidance');

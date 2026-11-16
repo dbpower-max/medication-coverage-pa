@@ -216,7 +216,7 @@ for(const [id,brand] of inhalers){
 }
 ui.nonpreferredInhaler={name:'CICLESONIDE INHALER',brands:['ALVESCO']};
 assert(vm.runInContext('clinicalGuidanceFor(nonpreferredInhaler)',ui)===null,'Preferred-drug guideline incorrectly transferred to nonpreferred Alvesco');
-assert(source.includes('needsPa || hasStep || guidance'),'Clinically indexed preferred drug not accessible when PDL does not flag PA');
+assert(source.includes('clinicalGuidanceContent(guidance, true)'),'Clinically indexed preferred drug not accessible when PDL does not flag PA');
 assert(guidance.length>=16&&new Set(guidance.map(g=>g.policyCode)).size>=10,'New source policy coverage not retained');
 
 const sgProducts=[
