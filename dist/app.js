@@ -120,7 +120,10 @@
     // clinical products and must never share a single medication card.
     const concentration = [generic, ...brands].join(' ').match(/\bU[- ]?(100|500)\b/i);
     const variant = concentration ? `:u${concentration[1]}` : '';
-    return {key: `${record.planId}:${normalize(generic)}${variant}`, generic, brands};
+    // Device-specific supplies remain distinct despite a shared generic class.
+    const device = /\bblood glucose (?:test|monitor system)\b|\binsulin syringe\b|\bpen needles?\b|\blancets?\b/i.test(generic);
+    const deviceBrand = device && brands.length ? ':device:' + normalize(brands[0]) : '';
+    return {key: `${record.planId}:${normalize(generic)}${variant}${deviceBrand}`, generic, brands};
   }
 
   // Exact duplicate bracketed brand names are presentation artifacts.

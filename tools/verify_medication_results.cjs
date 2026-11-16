@@ -49,6 +49,11 @@ api.state.term='baseline';assert.equal(api.filteredRecords().length,0,'Provenanc
 api.state.term='Adderall XR';api.state.coverage='pa_conditional';
 assert.equal(api.render().length,1,'Conditional PA filter lost age-restricted Adderall XR');
 api.state.coverage='pa_required';assert.equal(api.render().length,0,'Conditional PA appears unconditional');
+api.state.coverage='';api.state.planId='uhc-community-az';api.state.term='CONTOUR NEXT TEST STRIP IN VITRO';
+const strips=api.render();
+assert.equal(strips.length,1,'Specific test-strip search returned other device brands');
+assert.equal(strips[0].brands.length,1,'Device card still groups incompatible meter brands');
+assert(!api.el.resultGrid.innerHTML.includes('Accu-Chek'),'Contour search exposes another meter brand');
 const epclusa=data.statewideDrugList.find(r=>r.name==='SOFOSBUVIR-VELPATASVIR TABLETS');
 assert(api.statusChips(epclusa).includes('Authorized generic only'),'Authorized-generic source restriction hidden');
 const limits=api.recordDetails(epclusa);

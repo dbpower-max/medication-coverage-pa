@@ -9,6 +9,9 @@ if(pair.length!==1||pair[0].records.length!==2||pair[0].records[1].pa!=='require
 if(groups([{name:'drug tablet',brand:'BRAND'},{name:'DRUG TABLET',brand:'Brand'}]).length!==1)throw Error('Duplicate identity');
 if(groups([{name:'drug oral tablet'},{name:'drug subcutaneous solution'},{name:'drug oral tablet ER'},{name:'drug oral tablet 5 mg'},{name:'drug oral tablet 10 mg'}]).length!==5)throw Error('Variants incorrectly merged');
 if(groups([{name:'drug',planId:'A'},{name:'drug',planId:'B'}]).length!==2)throw Error('Plans merged');
+const deviceStrips=groups([{name:'CONTOUR NEXT TEST STRIP IN VITRO (brand for blood glucose test)'},{name:'ACCU-CHEK GUIDE TEST STRIPS (brand for blood glucose test)'}]);
+if(deviceStrips.length!==2||deviceStrips.some(g=>g.brands.length!==1))throw Error('Different meter-specific test strips share one card');
+if(groups([{name:'blood glucose test (generic for CONTOUR NEXT)'},{name:'CONTOUR NEXT (brand for blood glucose test)'}]).length!==1)throw Error('Explicit same-device generic/brand pair did not group');
 if(groups([{name:'drug tablet',brand:'REFERENCE BRAND'}])[0].records.length!==1)throw Error('Invented generic product');
 const combined=groups([{name:'drug tablet (generic for BRAND)'},{name:'drug tablet',brand:'BRAND',pa:'required'}]);
 if(combined.length!==1||combined[0].records.length!==2||combined[0].records[1].pa!=='required')throw Error('Exact generic identity did not combine records without losing PA');
