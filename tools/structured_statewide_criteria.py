@@ -36,7 +36,7 @@ def blocks(source, start, end):
         value = line.group().strip()
         if not value or FURNITURE.fullmatch(value):
             continue
-        if not offsets or re.match(r'^(?:\d+\s*-\s*|\d+\.\d+(?:\.\d+)*\b|[•●▪]|AND$|OR$|AND/OR$)', value):
+        if not offsets or re.match(r'^(?:\d+\s+-\s+|\d+\.\d+(?:\.\d+)*\s+|[•●▪]|AND$|OR$|AND/OR$)', value):
             offsets.append(start + line.start())
     result = []
     for i, offset in enumerate(offsets):

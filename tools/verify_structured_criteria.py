@@ -51,6 +51,7 @@ cgm = all_structured['GL-553392']
 assert len(cgm['branches']) == 4
 assert cgm['branches'][-1]['fields']['Approval Length']['text'] == '1 Time(s)'
 assert 'United Community Plan' in cgm['supplement']['verbatim']
+assert not any(x['text'].startswith('646-4633') for b in cgm['branches'] for x in b['criteria']), 'Wrapped phone number mistaken for a numbered criterion'
 adakveo = all_structured['GL-226191']['branches'][0]
 assert [x['text'] for x in adakveo['criteria'] if x['kind'] == 'connector'] == ['AND', 'OR', 'AND', 'AND']
 assert any('2.1 BOTH' in x['text'] for x in adakveo['criteria'])
