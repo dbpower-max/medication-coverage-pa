@@ -39,7 +39,7 @@ if(groups([{name:'{28 (ivacaftor 150 mg / tezacaftor 100 mg Oral Tablet) / 28 (i
 context.inheritedStatewideRows = () => context.state.data.statewideDrugList;
 function planGroupsFor(supplement, statewide, planId) {
   context.state.planId=planId;
-  context.state.data.medications=[{id:'supplement',planId,...supplement}];
+  context.state.data.medications=[{id:'supplement',planId,recordType:'formulary',...supplement}];
   context.state.data.statewideDrugList=[{id:'statewide',planId,isStatewideReference:true,...statewide}];
   return vm.runInContext('planMedicationGroups()',context);
 }
@@ -64,29 +64,6 @@ if(planGroupsFor({name:'spinosad 9 mg/ml Medicated Shampoo'},natrobaState,'natro
   throw Error('Unbranded product incorrectly received Natroba brand-only match');
 console.log('PASS: Natroba topical suspension/9 mg/mL shampoo alias forms one card without merging other brands, strengths, or routes');
 
-
-// Product-specific clinical criteria are displayed on medication cards; do
-// not repeat their indexed class-level source as a second top-level result.
-const visibleClinicalCodes = new Set(['GL-105258']);
-function omitIndexed(record, codeSet, term) {
-  context.policyIndexRecord = record;
-  context.visibleClinicalCodes = codeSet;
-  context.activeMedicationQuery = term;
-  return vm.runInContext('redundantIndexedPolicyResult(policyIndexRecord, visibleClinicalCodes, activeMedicationQuery)', context);
-}
-if (!omitIndexed({recordType:'policy_index',policyCode:'GL-105258',name:'Pediculicides - AZM'}, visibleClinicalCodes, 'Natroba'))
-  throw Error('Natroba search repeats the already-displayed indexed Pediculicides policy');
-if (omitIndexed({recordType:'policy_index',policyCode:'GL-105258'}, visibleClinicalCodes, ''))
-  throw Error('Unfiltered policy browsing lost an indexed criteria source');
-if (omitIndexed({recordType:'policy_index',policyCode:'GL-105258'}, new Set(), 'Natroba'))
-  throw Error('Unstructured policy index hidden despite no medication-card guide');
-if (omitIndexed({recordType:'policy_index',policyCode:'GL-104978'}, visibleClinicalCodes, 'Natroba'))
-  throw Error('Different policy code incorrectly hidden');
-if (omitIndexed({recordType:'policy',policyCode:'GL-105258'}, visibleClinicalCodes, 'Natroba'))
-  throw Error('Actual plan-specific policy record incorrectly hidden');
-if (!source.includes('!redundantIndexedPolicyResult(r, clinicalPolicyCodesAlreadyDisplayed, state.term)'))
-  throw Error('Result rendering does not actually exclude duplicate indexed policy');
-console.log('PASS: structured Natroba guide suppresses duplicate indexed-source card without losing distinct policies or library records');
 
 // Audit actual deployed provider-scope records after the site build.
 const zlib = require('zlib');

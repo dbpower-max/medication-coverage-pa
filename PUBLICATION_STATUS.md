@@ -5,6 +5,7 @@
 - Baseline: `aebad20` (Batch 45), Pages run `43798489045` succeeded. Existing 239 structured guides / 202 policy sections and 481 statewide source sections retained. Older ledger entries below are historical.
 - Priority queue: (1) PA-column misclassifications and conditional wording; (2) existing criteria access; (3) policy/admin records in medication search; (4) targeted production regression/mobile checks.
 - Batch 46: nine source-reviewed products corrected: Humatin/Alkeran/Eulexin explicitly excluded; Lagevrio/Paxlovid age rules; Singulair granules/Likmez/nadolol/Synagis exemptions without inferring PA outside the exemption. November AHCCCS and October Banner PDFs checked; original values/text retained. All 205 remaining conditional statewide panels preserve source wording instead of asserting unconditional PA. Targeted PA tests and existing grouping/provider checks passed; production verification pending at commit time.
+- Batch 47: medication results/autocomplete accept formulary records only and name/brand/medication aliases only. All 239 existing structured guides and 970 selected-plan policy records remain accessible in the separate criteria library; source-only matches open that panel, without creating medication cards. Added conditional PA filter and plan-isolation/search regressions. Guide verification reuses the per-plan mapping instead of recomputing it for every guide. Targeted checks passed; production verification pending at commit time.
 
 Updated November 13, 2026 (Arizona).
 

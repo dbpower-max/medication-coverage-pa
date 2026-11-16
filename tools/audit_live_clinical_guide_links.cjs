@@ -56,14 +56,12 @@ for(const planId of plans){
     const query=(guide.matchBrands||[])[0] || (guide.matchNames||[])[0] || guide.product;
     assert(query,'Structured clinical guide lacks search identity: '+guide.id);
     ctx.clinicalQuery=query;
-    ctx.visibleGroups=groups;
+    // The criteria library searches every structured guide independently of
+    // medication cards. Do not recompute every card-to-guide mapping per query.
+    ctx.visibleGroups=[];
     const sources=vm.runInContext('clinicalPolicyOnlyGroups(clinicalQuery,visibleGroups)',ctx);
     const included=sources.some(g=>g.guide.id===guide.id);
-    if (matchedGuideIds.has(guide.id)) {
-      assert(!included,'Duplicate clinical-only card for an already represented medication: '+guide.id);
-    } else {
-      assert(included,'Unlinked clinical guide remains inaccessible in medication search: '+guide.id);
-    }
+    assert(included,'Structured guide inaccessible in criteria library: '+guide.id);
     assert(sources.every(g=>g.policyOnly===true&&g.records.length===0),'Clinical policy-only search invented formulary records');
   }
   console.log('GUIDE VISIBILITY '+planId+': '+matchedGuideIds.size+'/'+guides.length+' guide IDs attached; '+groups.length+' medication groups; '+ambiguous.length+' mixed-brand group matches');
@@ -94,4 +92,4 @@ const withoutGuide=vm.runInContext('medicationGroupCard(card)',ui);
 assert(!withoutGuide.includes('Clinically validated source details'),'Incorrect product received clinical PA guidance');
 console.log('PASS: plan-only medication cards display only their exact source-backed clinical guidance, with no inferred PA status');
 
-console.log('PASS: all clinical guide IDs reachable as exact medication cards or explicitly coverage-unknown policy-only results for each of 3 plans; no mixed-brand criteria');
+console.log('PASS: all clinical guide IDs reachable in the separate criteria library for each of 3 plans; no mixed-brand medication criteria');

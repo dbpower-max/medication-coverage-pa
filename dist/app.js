@@ -92,8 +92,8 @@
   }
 
   function recordsForPlan() {
-    return [...state.data.medications, ...state.data.policies]
-      .filter((record) => record.planId === state.planId)
+    return state.data.medications
+      .filter((record) => record.planId === state.planId && record.recordType === 'formulary')
       .concat(inheritedStatewideRows());
   }
 
@@ -152,16 +152,6 @@
       label: medicationDisplayLabel(group.name, group.brands),
       search: [group.name, ...group.brands, ...group.records.flatMap(r => [r.name, ...(r.searchAliases || [])])].join(' ')
     }));
-  }
-
-  // A verified, product-specific clinical guide is already displayed on the
-  // medication card. Keep its class-level policy index in the separate
-  // searchable clinical criteria library rather than repeating it as a
-  // second top-level medication search result. Never infer plan coverage.
-  function redundantIndexedPolicyResult(record, visibleGuideCodes, medicationQuery) {
-    return record.recordType === 'policy_index'
-      && Boolean(normalize(medicationQuery))
-      && visibleGuideCodes.has(record.policyCode);
   }
 
   function medicationRoute(name) {
@@ -260,7 +250,7 @@
   function planMedicationGroups() {
     const key = state.planId + ':' + state.data.medications.length;
     if (groupCache.has(key)) return groupCache.get(key);
-    const planGroups = medicationGroups(state.data.medications.filter(r => r.planId === state.planId));
+    const planGroups = medicationGroups(state.data.medications.filter(r => r.planId === state.planId && r.recordType === 'formulary'));
     const sharedGroups = medicationGroups(inheritedStatewideRows())
       .map(group => ({...group, isStatewide: true, statewideRecord: group.records[0]}));
     const brandIndex = new Map(), nameIndex = new Map();
@@ -297,13 +287,7 @@
   }
 
   function uniqueMedicationNames() {
-    const groups = planMedicationGroups();
-    const linked = new Set(groups.map(clinicalGuidanceFor).filter(Boolean).map(guide => guide.id));
-    const unlinkedNames = (state.data.statewideClinicalGuidance || [])
-      .filter(guide => !linked.has(guide.id))
-      .map(guide => (guide.matchBrands || [])[0] || (guide.matchNames || [])[0] || guide.product)
-      .filter(Boolean);
-    return [...new Set([...groups.map(group => group.label), ...unlinkedNames])]
+    return [...new Set(planMedicationGroups().map(group => group.label))]
       .sort((a, b) => a.localeCompare(b));
   }
 
@@ -523,6 +507,7 @@
     if (state.coverage === 'preferred') return record.preferred === 'preferred';
     if (state.coverage === 'non_preferred') return record.preferred === 'non_preferred';
     if (state.coverage === 'pa_required') return record.pa === 'required';
+    if (state.coverage === 'pa_conditional') return record.pa === 'conditional';
     return record.coverage === state.coverage;
   }
 
@@ -538,8 +523,7 @@
       .filter((record) => {
         if (selectedGroup) return selectedGroup.records.some(r => r.id === record.id);
         const haystack = normalize([
-          record.name, record.brand, record.category, record.subcategory, record.notes,
-          record.paText, record.indication, record.stage, record.rawRestrictions, record.guide?.products?.join(' '), record.searchAliases?.join(' ')
+          record.name, record.brand, record.searchAliases?.join(' ')
         ].join(' '));
         return terms.every((term) => haystack.includes(term));
       })
@@ -787,24 +771,37 @@
   }
 
   function renderCriteriaLibrary() {
-    const policies = state.data.statewidePaCriteria || [];
+    const policies = criteriaSources();
     const query = el.criteriaSearch.value;
     const matches = searchIndexedCriteria(query, policies);
+    const guides = clinicalPolicyOnlyGroups(query, []);
     const count = matches.length;
     el.criteriaCount.textContent = !normalize(query)
       ? `${policies.length} indexed guideline sections · Type a medication or policy name`
-      : `${count} matching source section${count === 1 ? '' : 's'}${count > 25 ? ' · Showing first 25' : ''}`;
-    el.criteriaResults.innerHTML = matches.slice(0, 25).map(policy => `
+      : `${guides.length} structured clinical guide${guides.length === 1 ? '' : 's'} · ${count} matching source section${count === 1 ? '' : 's'}${count > 25 ? ' · Showing first 25 source sections' : ''}`;
+    el.criteriaResults.innerHTML = guides.map(group => `<article class="criteria-source">
+        <h3>${escapeHtml(group.label)} · ${escapeHtml(group.guide.policyCode)}</h3>
+        <details class="result-disclosure"><summary>${escapeHtml(group.guide.heading)}</summary>
+          <div class="result-disclosure-body">${clinicalGuidanceContent(group.guide)}</div>
+        </details>
+      </article>`).join('') + matches.slice(0, 25).map(policy => `
       <article class="criteria-source">
         <h3>${escapeHtml(policy.name)}</h3>
-        <p>${escapeHtml(policy.policyCode)} · AHCCCS criteria effective ${escapeHtml(policy.sourceEffective)}
+        <p>${escapeHtml(policy.planId === 'ahcccs-ffs-aihp' ? 'AHCCCS statewide source' : state.data.plans.find(p => p.id === policy.planId)?.name || policy.sourceTitle)}
+          · ${escapeHtml(policy.policyCode || '')} · source effective ${escapeHtml(policy.sourceEffective)}
           · PDF pages ${Number(policy.sourcePage)}–${Number(policy.sourceLastPage)}</p>
         ${policy.notes ? `<p>${escapeHtml(policy.notes)}</p>` : ''}
+        ${policy.guide ? `<details class="approval-guide"><summary>PA criteria · ${escapeHtml(policy.indication || policy.name)}</summary>${approvalGuideContent(policy)}</details>` : ''}
         <p><a class="source-link" href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">Open original guideline PDF at this section</a></p>
-        <button type="button" class="text-button criteria-load" data-read-guideline="${escapeHtml(policy.policyCode)}">Read full guideline text</button>
+        ${policy.sourceTextUrl ? `<button type="button" class="text-button criteria-load" data-read-guideline="${escapeHtml(policy.id)}">Read full guideline text</button>` : ''}
         <pre class="guideline-verbatim" hidden></pre>
       </article>
     `).join('') || (normalize(query) ? '<p>No matching indexed sections. This does not prove a drug has no authorization requirements.</p>' : '');
+  }
+
+  function criteriaSources() {
+    return [...(state.data.statewidePaCriteria || []),
+      ...(state.data.policies || []).filter(policy => policy.planId === state.planId)];
   }
 
   function bindCriteriaLibrary() {
@@ -822,7 +819,7 @@
     el.criteriaResults.addEventListener('click', async event => {
       const button = event.target.closest('[data-read-guideline]');
       if (!button) return;
-      const policy = (state.data.statewidePaCriteria || []).find(p => p.policyCode === button.dataset.readGuideline);
+      const policy = criteriaSources().find(p => p.id === button.dataset.readGuideline);
       if (!policy || !policy.sourceTextUrl) return;
       const pre = button.closest('.criteria-source').querySelector('.guideline-verbatim');
       if (button.dataset.loaded === 'true') {
@@ -897,7 +894,7 @@
     return (state.data.statewideClinicalGuidance || [])
       .filter(guide => !linked.has(guide.id))
       .filter(guide => {
-        const names = [...(guide.matchBrands || []), ...(guide.matchNames || []), guide.product || ''];
+        const names = [...(guide.matchBrands || []), ...(guide.matchNames || []), guide.product || '', guide.policyCode || ''];
         return names.some(name => terms.every(term => normalize(name).includes(term)));
       })
       .map(guide => ({
@@ -942,6 +939,7 @@
       <ul>${guide.documentationSuggestions.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
       <p class="guide-review-status">Documentation suggestions are not a separate insurer-prescribed checklist.</p>
       <p>${escapeHtml(guide.guidelineCaution)}</p>
+      <p class="guide-review-status">Source-reviewed summary; clinician approval pending. The guideline does not independently establish plan coverage or PA status.</p>
       <p><a class="source-link" href="${escapeHtml(sourceHref(guide))}" target="_blank" rel="noopener">Source: ${escapeHtml(guide.policyCode)} · PDF page ${Number(guide.sourcePage)}${guide.sourceLastPage !== guide.sourcePage ? '–' + Number(guide.sourceLastPage) : ''}</a> · <a href="${escapeHtml(guide.sourceTextUrl)}" target="_blank" rel="noopener">Full guideline text</a></p>`;
   }
 
@@ -1073,18 +1071,14 @@
         && (!state.subcategory || normalize(r.subcategory).includes(normalize(state.subcategory)))
       )};
     });
-    const linkedPolicies = new Set(groups.flatMap(g => g.records.flatMap(r => [
-      ...(r.approvalGuideIds || []), ...(r.paPolicyAssignments || []).map(p => p.branchId),
-      ...(r.policySources || []).map(p => p.policyId).filter(Boolean)
-    ])));
-    const clinicalPolicyCodesAlreadyDisplayed = new Set(groups
-      .map(clinicalGuidanceFor).filter(Boolean).map(guide => guide.policyCode));
-    const additionalGuides = (!state.coverage || state.coverage === 'policy_only' || state.coverage === 'policy_index')
-      && !state.category && !state.subcategory
-      ? clinicalPolicyOnlyGroups(state.term, groups) : [];
-    const records = [...groups, ...additionalGuides, ...matchingRecords.filter(r => r.recordType !== 'formulary'
-      && !linkedPolicies.has(r.id)
-      && !redundantIndexedPolicyResult(r, clinicalPolicyCodesAlreadyDisplayed, state.term))];
+    const records = groups;
+    // Keep matching clinical information accessible in its own panel. Policy,
+    // administrative and source records never enter the medication results.
+    el.criteriaSearch.value = state.term;
+    renderCriteriaLibrary();
+    if (!records.length && normalize(state.term) && el.criteriaResults.innerHTML.trimStart().startsWith('<article')) {
+      el.criteriaLibrary.open = true;
+    }
     planStatus();
     el.loadingState.hidden = true;
     el.resultCount.textContent = records.length.toLocaleString();

@@ -27,7 +27,7 @@
       <div class="section-heading">
         <div>
           <p class="eyebrow">Search coverage</p>
-          <h2 id="searchTitle">Find medication and policy records</h2>
+          <h2 id="searchTitle">Find medications</h2>
         </div>
         <button type="button" class="text-button" id="clearFilters">Clear filters</button>
       </div>
@@ -73,8 +73,7 @@
             <option value="preferred">Preferred</option>
             <option value="non_preferred">Nonpreferred</option>
             <option value="pa_required">Prior authorization required</option>
-            <option value="policy_only">Policy criteria only</option>
-            <option value="policy_index">Policy source indexed</option>
+            <option value="pa_conditional">Conditional prior authorization</option>
             <option value="explicit_not_covered">Explicitly not covered</option>
           </select>
         </label>
@@ -100,7 +99,7 @@
 
     <details id="criteriaLibrary" class="plan-context criteria-library">
       <summary>Search all AHCCCS clinical authorization criteria</summary>
-      <p>Search the November 2026 statewide clinical guideline index. Open the original criteria text to review diagnoses, required treatment trials, exceptions, documentation, and renewal rules. A search match does not establish coverage or approval.</p>
+      <p>Search existing clinical guides, November 2026 statewide source sections, and the selected plan's policies. Review diagnoses, treatment trials, exceptions, documentation, and renewal rules here. A search match does not establish coverage, PA status, or approval.</p>
       <div class="field">
         <label for="criteriaSearch">Medication or policy name</label>
         <input id="criteriaSearch" autocomplete="off" placeholder="e.g., Mounjaro, insulin, SGLT-2" aria-controls="criteriaResults">
