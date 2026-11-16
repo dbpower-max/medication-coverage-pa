@@ -11,6 +11,10 @@ data = json.loads(gzip.decompress((root / '_site/data.json.gz').read_bytes()))
 reviewed = {g['policyCode'] for g in data['statewideClinicalGuidance']}
 release = json.loads((root / 'tools/structured_criteria_release.json').read_text())
 expected = reviewed | set(release['additionalPolicyCodes'])
+assert len(release['additionalPolicyCodes']) == len(set(release['additionalPolicyCodes']))
+assert len(expected) == release.get('expectedStructuredCount', len(expected))
+if len(expected) == 481:
+    assert expected == {p['policyCode'] for p in data['statewidePaCriteria']}, 'A source policy remains outside the completed queue'
 assert len(data['statewidePaCriteria']) == 481
 all_structured = {}
 for policy in data['statewidePaCriteria']:

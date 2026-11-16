@@ -181,6 +181,7 @@ criteria_release = json.loads((ROOT / 'tools/structured_criteria_release.json').
 assert criteria_release['sourceEffective'] == clinical_guidance['sourceEffective']
 criteria_codes = {g['policyCode'] for g in clinical_guidance['guides']} | set(criteria_release['additionalPolicyCodes'])
 data['structuredCriteriaCount'] = publish_structured_criteria(statewide_pa, SRC, OUT, criteria_codes)
+assert data['structuredCriteriaCount'] == criteria_release.get('expectedStructuredCount', len(criteria_codes))
 seen = set()
 # Large PDF remains on its official payer host; indexed full policy text is bundled.
 EXTERNAL_SOURCES = {
