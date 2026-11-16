@@ -305,8 +305,22 @@
       .sort((a, b) => a.localeCompare(b));
   }
 
+  // A presentation filter, independent of the payer's therapeutic category.
+  // Classify only explicit inhaler/device/form names; ambiguous solutions stay out.
+  function isInhaler(record) {
+    if (record.recordType !== 'formulary') return false;
+    const name = normalize([record.name, record.brand, record.standardName, record.standardDisplayName].filter(Boolean).join(' '));
+    if (/\b(?:nebuliz\w*|nebulis\w*|syrup|nasal|spacer|chamber|mask|adapter|accessor\w*)\b|oral (?:solution|tablet|capsule)|inhaler aids/.test(name)) return false;
+    return /\b(?:inhaler|hfa|respimat|ellipta|diskus|diskhaler|flexhaler|redihaler|respiclick|digihaler|handihaler|twisthaler|pressair|aerosphere|turbuhaler|neohaler|podhaler)\b/.test(name)
+      || /inhalation (?:spray|aerosol|powder)|(?:powder|aerosol|aepb|aerb|aers|capsules?)[^.;]*\binhalation\b|inhalable powder/.test(name);
+  }
+
+  function matchesCategory(record, category) {
+    return !category || (normalize(category) === 'inhalers' ? isInhaler(record) : normalize(record.category).includes(normalize(category)));
+  }
+
   function categoryOptions() {
-    return [...new Set(recordsForPlan().map((record) => record.category).filter(Boolean))]
+    return [...new Set([...recordsForPlan().map((record) => record.category).filter(Boolean), 'Inhalers'])]
       .sort((a, b) => a.localeCompare(b));
   }
 
@@ -325,7 +339,7 @@
   function subcategoryOptions() {
     const category = normalize(state.category);
     return [...new Set(recordsForPlan()
-      .filter((record) => !category || normalize(record.category).includes(category))
+      .filter((record) => matchesCategory(record, category))
       .map((record) => subcategoryLabel(record.subcategory))
       .filter(Boolean))]
       .sort((a, b) => a.localeCompare(b));
@@ -550,7 +564,7 @@
       ? planMedicationGroups().find(g => g.key === state.selectedMedicationKey) : null;
     const terms = normalize(state.term).split(/\s+/).filter(Boolean);
     return recordsForPlan()
-      .filter((record) => !category || normalize(record.category).includes(category))
+      .filter((record) => matchesCategory(record, category))
       .filter((record) => !subcategory || matchesSubcategory(record.subcategory, subcategory))
       .filter(matchesCoverage)
       .filter((record) => {
@@ -1404,13 +1418,13 @@
       if (!g.isStatewide) return true;
       const r = g.statewideRecord;
       return matchesCoverage(r)
-        && (!state.category || normalize(r.category).includes(normalize(state.category)))
+        && (matchesCategory(r, state.category))
         && (!state.subcategory || matchesSubcategory(r.subcategory, state.subcategory));
     }).map(g => {
       if (g.isStatewide) return g;
       return {...g, records: g.records.filter(r =>
         matchesCoverage(r)
-        && (!state.category || normalize(r.category).includes(normalize(state.category)))
+        && (matchesCategory(r, state.category))
         && (!state.subcategory || matchesSubcategory(r.subcategory, state.subcategory))
       )};
     });

@@ -35,6 +35,7 @@ jobs:
       - run: node tools/verify_medication_results.cjs
       - run: node tools/verify_compact_clinical_ui.cjs
       - run: node tools/verify_product_clinical_cards.cjs
+      - run: node tools/verify_inhaler_filter.cjs
       - run: node tools/verify_medication_sort.cjs
       - run: python tools/verify_shared_policy_pilot.py
       - run: node tools/verify_medication_grouping.cjs
