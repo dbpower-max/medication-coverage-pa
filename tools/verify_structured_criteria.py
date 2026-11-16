@@ -60,4 +60,7 @@ adakveo = all_structured['GL-226191']['branches'][0]
 assert [x['text'] for x in adakveo['criteria'] if x['kind'] == 'connector'] == ['AND', 'OR', 'AND', 'AND']
 assert any('2.1 BOTH' in x['text'] for x in adakveo['criteria'])
 assert any('hydroxyurea' in x['text'] for x in adakveo['criteria'])
+zyvox = all_structured['GL-731212']['branches'][0]
+diagnoses = next(x for x in zyvox['criteria'] if '1.3.1 ONE' in x['text'])
+assert '\nNosocomial pneumonia\nCommunity-acquired pneumonia\nSkin and skin structure infections' in diagnoses['displayText']
 print(f'PASS: {len(expected)}/481 structured policies published; all 481 policies / 1,596 branches source-validated; exact criteria, notes, fields, dates and hashes preserved')

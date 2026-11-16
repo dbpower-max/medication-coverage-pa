@@ -42,6 +42,12 @@ def blocks(source, start, end):
     for i, offset in enumerate(offsets):
         item = span(source, offset, offsets[i + 1] if i + 1 < len(offsets) else end)
         item['kind'] = 'connector' if item['text'] in ('AND', 'OR', 'AND/OR') else 'requirement'
+        printed_lines = [line.strip() for line in source[item['start']:item['end']].splitlines()
+                         if line.strip() and not FURNITURE.fullmatch(line)]
+        # Some source alternatives are unbulleted lines after a colon (e.g.
+        # Zyvox diagnoses). Keep those line breaks; do not invent list logic.
+        if len(printed_lines) > 1 and printed_lines[0].endswith(':'):
+            item['displayText'] = '\n'.join(printed_lines)
         result.append(item)
     return result
 
@@ -99,6 +105,8 @@ def validate_structure(policy, source):
     for branch in policy['branches']:
         for field in list(branch['fields'].values()) + branch['criteria'] + branch['notes']:
             assert field['text'] == text_value(source[field['start']:field['end']])
+            if field.get('displayText'):
+                assert re.sub(r'\s+', '', field['displayText']) == re.sub(r'\s+', '', field['text'])
             assert branch['start'] <= field['start'] <= field['end'] <= branch['end']
         # Compare entire clinical body, preserving every word/number/connector.
         region = source[branch['start']:branch['end']]

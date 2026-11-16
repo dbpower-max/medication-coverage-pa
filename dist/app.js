@@ -796,7 +796,7 @@
     const count = matches.length;
     const structuredCount = matches.filter(policy => policy.structuredCriteriaUrl).length;
     el.criteriaCount.textContent = !normalize(query)
-      ? `${policies.length} indexed guideline sections · Type a medication or policy name`
+      ? `${Number(state.data.structuredCriteriaCount || 0)} of ${(state.data.statewidePaCriteria || []).length} statewide policies with clinical criteria · ${policies.length} total indexed sections · Type a medication or policy name`
       : `${guides.length} structured clinical guide${guides.length === 1 ? '' : 's'} · ${structuredCount} source-transcribed clinical polic${structuredCount === 1 ? 'y' : 'ies'} · ${count} matching source section${count === 1 ? '' : 's'}${count > 25 ? ' · Showing first 25 source sections' : ''}`;
     el.criteriaResults.innerHTML = guides.map(group => `<article class="criteria-source">
         <h3>${escapeHtml(group.label)} · ${escapeHtml(group.guide.policyCode)}</h3>
@@ -837,7 +837,7 @@
     const rules = items => items.map(item => {
       const number = /^(\d+(?:\.\d+)*)\b/.exec(item.text)?.[1];
       const depth = number ? Math.min(number.split('.').length - 1, 4) : 0;
-      return `<p class="clinical-source-rule ${item.kind === 'connector' ? 'clinical-source-connector' : ''}" style="margin-left:${depth * .5}rem">${escapeHtml(item.text)}</p>`;
+      return `<p class="clinical-source-rule ${item.kind === 'connector' ? 'clinical-source-connector' : ''}" style="margin-left:${depth * .5}rem">${escapeHtml(item.displayText || item.text)}</p>`;
     }).join('');
     return `<p>Source-transcribed clinical criteria · ${escapeHtml(policy.policyCode)} · ${escapeHtml(policy.sourceEffective)}. Clinician approval pending. Follow the product, indication and AND/OR wording below; this reference does not establish selected-plan coverage or PA status.</p>`
       + policy.branches.map((branch, i) => `<details class="clinical-source-branch result-disclosure">
