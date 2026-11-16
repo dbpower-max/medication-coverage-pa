@@ -6,6 +6,7 @@
     data: null,
     planId: 'az-complete-health',
     term: '',
+    selectedMedicationKey: null,
     category: '',
     subcategory: '',
     coverage: '',
@@ -424,8 +425,10 @@
     if (name === 'plan') {
       const plan = resolvePlan(value);
       if (plan) state.planId = plan.id;
+      state.selectedMedicationKey = null;
     } else if (name === 'medication') {
       state.term = value;
+      state.selectedMedicationKey = planMedicationGroups().find(group => normalize(group.label) === normalize(value))?.key || null;
     } else if (name === 'category') {
       state.category = value;
       state.subcategory = '';
@@ -447,8 +450,10 @@
       if (name === 'plan') {
         const plan = resolvePlan(input.value);
         if (plan) state.planId = plan.id;
+        state.selectedMedicationKey = null;
       } else if (name === 'medication') {
         state.term = input.value;
+        state.selectedMedicationKey = null;
       } else if (name === 'category') {
         state.category = input.value;
         state.subcategory = '';
@@ -522,7 +527,8 @@
   function filteredRecords() {
     const category = normalize(state.category);
     const subcategory = normalize(state.subcategory);
-    const selectedGroup = planMedicationGroups().find(g => normalize(g.label) === normalize(state.term));
+    const selectedGroup = state.selectedMedicationKey
+      ? planMedicationGroups().find(g => g.key === state.selectedMedicationKey) : null;
     const terms = normalize(state.term).split(/\s+/).filter(Boolean);
     return recordsForPlan()
       .filter((record) => !category || normalize(record.category).includes(category))
@@ -1240,7 +1246,7 @@
       resetLimitAndRender();
     });
     el.clearFilters.addEventListener('click', () => {
-      Object.assign(state, { planId: 'az-complete-health', term: '', category: '', subcategory: '', coverage: '', limit: PAGE_SIZE });
+      Object.assign(state, { planId: 'az-complete-health', term: '', selectedMedicationKey: null, category: '', subcategory: '', coverage: '', limit: PAGE_SIZE });
       el.planInput.value = state.data.plans.find((plan) => plan.id === state.planId).name;
       el.medicationInput.value = '';
       el.categoryInput.value = '';
@@ -1265,6 +1271,26 @@
     el.showMore.addEventListener('click', () => { state.limit += PAGE_SIZE; render(); });
   }
 
+  function medicationSearchResult(group) {
+    const primary = group.isStatewide ? group.statewideRecord : group.records.length === 1 ? group.records[0] : null;
+    const common = field => {
+      const values = [...new Set(group.records.map(record => record[field] || 'not_specified'))];
+      return values.length === 1 ? values[0] : 'not_specified';
+    };
+    const product = record => ({
+      name: record.name, brand: record.brand || '', coverage: record.coverage,
+      preferred: record.preferred, pa: record.pa || 'not_specified', pa_text: record.paText || '',
+      step: record.step, step_text: record.stepText || '', quantity: record.qlAmount || '', quantity_interval: record.qlDays || '',
+      source: sourceHref(record), source_effective: record.sourceEffective || '',
+      source_scope: record.isStatewideReference ? 'statewide_reference' : 'selected_plan'
+    });
+    return {name: group.label, brands: group.brands, category: primary?.category || '',
+      coverage: primary?.coverage || common('coverage'), pa: primary?.pa || common('pa'),
+      source: primary ? sourceHref(primary) : '',
+      source_scope: group.isStatewide ? 'statewide_reference' : 'selected_plan',
+      products: group.records.map(product)};
+  }
+
   function registerModelTools() {
     if (!document.modelContext?.registerTool) return;
     document.modelContext.registerTool({
@@ -1282,18 +1308,15 @@
       execute: async (args) => {
         const plan = args.plan ? resolvePlan(args.plan) : null;
         if (args.plan && !plan) return { error: 'Plan not found. Use list_medication_categories or an exact visible plan name.' };
-        if (plan) { state.planId = plan.id; el.planInput.value = plan.name; }
-        if (args.medication !== undefined) { state.term = args.medication; el.medicationInput.value = args.medication; }
+        if (plan) { state.planId = plan.id; el.planInput.value = plan.name; state.selectedMedicationKey = null; }
+        if (args.medication !== undefined) { state.term = args.medication; el.medicationInput.value = args.medication; state.selectedMedicationKey = null; }
         if (args.category !== undefined) { state.category = args.category; el.categoryInput.value = args.category; }
         if (args.subcategory !== undefined) { state.subcategory = args.subcategory; el.subcategoryInput.value = args.subcategory; }
         if (args.coverage_status !== undefined) { state.coverage = args.coverage_status; el.coverageInput.value = args.coverage_status; }
         await ensurePlanData(state.planId);
         updateSubcategoryOptions();
         const matches = render();
-        return { count: matches.length, plan: state.planId, results: matches.slice(0, 25).map((r) => ({
-          name: r.name, brand: r.brand, category: r.category, subcategory: r.subcategory,
-          coverage: r.coverage, pa: r.pa, source: sourceHref(r)
-        })) };
+        return { count: matches.length, plan: state.planId, results: matches.slice(0, 25).map(medicationSearchResult) };
       }
     });
     document.modelContext.registerTool({

@@ -7,13 +7,22 @@ const script=fs.readFileSync('_site/app.js','utf8');
 const hook="document.addEventListener('DOMContentLoaded', init);";
 assert(script.includes(hook));
 const ctx={document:{querySelectorAll:()=>[]},Intl,console};vm.createContext(ctx);
-vm.runInContext(script.replace(hook,'globalThis.api={state,el,recordsForPlan,planMedicationGroups,filteredRecords,render,uniqueMedicationNames,criteriaSources,renderCriteriaLibrary,namedPlanPolicies,statusChips,recordDetails};'),ctx);
+vm.runInContext(script.replace(hook,'globalThis.api={state,el,recordsForPlan,planMedicationGroups,filteredRecords,render,uniqueMedicationNames,criteriaSources,renderCriteriaLibrary,namedPlanPolicies,statusChips,recordDetails,medicationSearchResult};'),ctx);
 const {api}=ctx;api.state.data=data;
 for(const id of ['criteriaSearch','criteriaCount','criteriaResults','criteriaLibrary','planStatus','planEvidence','evidenceList','loadingState','resultCount','effectiveDate','emptyState','resultGrid','showMore']) api.el[id]={value:'',innerHTML:'',textContent:'',hidden:false};
 for(const planId of data.plans.map(p=>p.id)) {
  api.state.planId=planId;api.state.term='Mounjaro';
  const results=api.render();
- assert.equal(results.filter(g=>/mounjaro/i.test(g.label)).length,1,'Mounjaro duplicate in '+planId);
+ assert(results.some(g=>/mounjaro/i.test(g.label)),'Mounjaro missing in '+planId);
+ if(planId==='uhc-community-az') {
+  assert(results.some(g=>g.isStatewide)&&results.some(g=>!g.isStatewide),'Typed brand name silently selected one source variant');
+  const report=api.medicationSearchResult(results.find(g=>g.isStatewide));
+  assert.equal(report.pa,'required');assert.equal(report.coverage,'listed');assert(report.source&&report.products.every(p=>p.source),'Search tool lost grouped product clinical/source fields');
+  const chosen=results.find(g=>g.isStatewide);
+  api.state.selectedMedicationKey=chosen.key;api.state.term=chosen.label;
+  assert.equal(api.render().length,1,'Explicit formulation selection did not narrow results');
+  api.state.selectedMedicationKey=null;api.state.term='Mounjaro';api.render();
+ }
  assert(results.every(g=>g.records.length&&g.records.every(r=>r.recordType==='formulary')),'Nonmedication result in '+planId);
  assert(!api.el.resultGrid.innerHTML.includes('Policy source indexed'));
  assert(api.el.criteriaResults.innerHTML.includes('gl-749236'),'Existing Mounjaro criteria inaccessible in '+planId);
