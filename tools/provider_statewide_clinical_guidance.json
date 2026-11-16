@@ -10124,6 +10124,687 @@
       "documentationSuggestions": [
         "Include diagnosis confirmation, clinical manifestations, dose/combination restrictions and specialist treatment notes."
       ]
+    },
+    {
+      "id": "gl-150126-xolremdi",
+      "policyCode": "GL-150126",
+      "product": "Xolremdi (mavorixafor)",
+      "matchBrands": [
+        "XOLREMDI"
+      ],
+      "heading": "Xolremdi (mavorixafor) — source-matched November clinical criteria",
+      "sourcePage": 2073,
+      "sourceLastPage": 2075,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Genetically proven CXCR4 WHIM syndrome with severe neutropenia, age ≥12; 6-month initial and 12-month renewal.",
+      "guidelineCaution": "Clinical criteria from the statewide November source are not plan-specific PA flags or formulary guarantees. Confirm actual Pima ACC plan and formulation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-150126.txt",
+      "sourceChecks": [
+        "Product Name:Xolremdi",
+        "WHIM (warts, hypogammaglobulinemia",
+        "CXCR4",
+        "absolute neutrophil count",
+        "Patient is 12 years of age or older"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "WHIM syndrome diagnosis confirmed.",
+            "CXCR4 genotype variant confirmed by FDA-approved or CLIA-approved test.",
+            "ANC ≤500 cells/μL.",
+            "Age ≥12.",
+            {
+              "any": [
+                "Immunologist.",
+                "Hematologist.",
+                "Geneticist.",
+                "Allergist."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive response (improved absolute neutrophil count or fewer infections)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include source-specific diagnosis, tests, prior therapies, and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-152667-rytelo",
+      "policyCode": "GL-152667",
+      "product": "Rytelo (imetelstat)",
+      "matchBrands": [
+        "RYTELO"
+      ],
+      "heading": "Rytelo (imetelstat) — source-matched November clinical criteria",
+      "sourcePage": 1558,
+      "sourceLastPage": 1560,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Low/intermediate-1 risk MDS anemia, numeric blood counts and prior ESA, no del5q or prior Revlimid/HMA; 6mo initial 12mo renewal.",
+      "guidelineCaution": "Clinical criteria from the statewide November source are not plan-specific PA flags or formulary guarantees. Confirm actual Pima ACC plan and formulation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-152667.txt",
+      "sourceChecks": [
+        "Product Name:Rytelo",
+        "low to intermediate-1 risk",
+        "Hemoglobin less than 10 g/dL",
+        "not have a confirmed mutation with deletion 5q",
+        "4 or more red blood cell units over 8 weeks"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Myelodysplastic syndrome diagnosed; low- or intermediate-1 risk.",
+            {
+              "all": [
+                "Hemoglobin <10 g/dL.",
+                "ANC ≥1.5×10⁹/L.",
+                "Platelets ≥75×10⁹/L."
+              ]
+            },
+            {
+              "all": [
+                "No del(5q) mutation.",
+                "No prior lenalidomide or hypomethylating agent."
+              ]
+            },
+            "Transfusion requirement ≥4 RBC units over 8 weeks.",
+            {
+              "any": [
+                "Inadequate response to ESA.",
+                "Lost response to ESA.",
+                "Not eligible for ESA."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "No disease progression while on Rytelo therapy."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include source-specific diagnosis, tests, prior therapies, and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-152668-iqirvo",
+      "policyCode": "GL-152668",
+      "product": "Iqirvo (elafibranor)",
+      "matchBrands": [
+        "IQIRVO"
+      ],
+      "heading": "Iqirvo (elafibranor) — source-matched November clinical criteria",
+      "sourcePage": 978,
+      "sourceLastPage": 980,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "PBC with persistent ALP after 12m UDCA + continuation OR UDCA contraindication/intolerance; never combined with Ocaliva; initial 6m, renew 12m.",
+      "guidelineCaution": "Clinical criteria from the statewide November source are not plan-specific PA flags or formulary guarantees. Confirm actual Pima ACC plan and formulation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-152668.txt",
+      "sourceChecks": [
+        "Product Name:Iqirvo",
+        "primary biliary cholangitis",
+        "at least 12 consecutive months",
+        "Ocaliva (obeticholic acid)",
+        "ALP decrease"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Primary biliary cholangitis diagnosed.",
+            {
+              "any": [
+                {
+                  "all": [
+                    "ALP ≥1.67×ULN despite ≥12 consecutive months of UDCA.",
+                    "Continue UDCA concomitantly with Iqirvo."
+                  ]
+                },
+                "Contraindicated to or intolerant of UDCA."
+              ]
+            },
+            "Not combined with Ocaliva (obeticholic acid).",
+            {
+              "any": [
+                "Hepatologist.",
+                "Gastroenterologist."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive response (ALP <1.67×ULN, bilirubin ≤ULN, or ALP decrease ≥15%).",
+            "Not combined with Ocaliva."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include source-specific diagnosis, tests, prior therapies, and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-153491-lupkynis",
+      "policyCode": "GL-153491",
+      "product": "Lupkynis (voclosporin)",
+      "matchBrands": [
+        "LUPKYNIS"
+      ],
+      "heading": "Lupkynis (voclosporin) — source-matched November clinical criteria",
+      "sourcePage": 1133,
+      "sourceLastPage": 1136,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Biopsy or contraindication, background immunosuppression, prohibits cyclophosphamide/Benlysta; after 12 months of therapy renewal requires additional nephrotoxicity risk-benefit attestation.",
+      "guidelineCaution": "Clinical criteria from the statewide November source are not plan-specific PA flags or formulary guarantees. Confirm actual Pima ACC plan and formulation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-153491.txt",
+      "sourceChecks": [
+        "Product Name:Lupkynis",
+        "Diagnosis of active lupus nephritis",
+        "Biopsy is contraindicated",
+        "Cyclophosphamide",
+        "12 or more months of Lupkynis therapy"
+      ],
+      "stages": [
+        {
+          "title": "Initial lupus-nephritis authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Active lupus nephritis.",
+            {
+              "any": [
+                "Kidney biopsy proves lupus nephritis.",
+                "Kidney biopsy contraindicated."
+              ]
+            },
+            "Concurrent background immunosuppression (e.g., mycophenolate and corticosteroids).",
+            {
+              "all": [
+                "NOT combined with cyclophosphamide.",
+                "NOT combined with Benlysta (belimumab)."
+              ]
+            },
+            {
+              "any": [
+                "Nephrologist.",
+                "Rheumatologist."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response.",
+            "Continued background immunosuppression.",
+            {
+              "all": [
+                "Not combined with cyclophosphamide.",
+                "Not combined with Benlysta."
+              ]
+            },
+            {
+              "any": [
+                "Nephrologist.",
+                "Rheumatologist."
+              ]
+            },
+            {
+              "any": [
+                "Total treatment duration <12 months.",
+                {
+                  "all": [
+                    "Has completed ≥12 months of therapy.",
+                    "Prescriber attests benefit of continuation exceeds nephrotoxicity risk in light of response and clinical course."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include source-specific diagnosis, tests, prior therapies, and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-163769-radicava",
+      "policyCode": "GL-163769",
+      "product": "Radicava IV/ORS or generic edaravone",
+      "matchBrands": [
+        "RADICAVA",
+        "RADICAVA ORS"
+      ],
+      "matchNames": [
+        "EDARAVONE"
+      ],
+      "heading": "Radicava IV/ORS or generic edaravone — source-matched November clinical criteria",
+      "sourcePage": 1449,
+      "sourceLastPage": 1451,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "ALS with pretreatment ALSFRS-R all items ≥2 and FVC ≥80% plus ALS neurologist; renewal remains 6 months.",
+      "guidelineCaution": "Clinical criteria from the statewide November source are not plan-specific PA flags or formulary guarantees. Confirm actual Pima ACC plan and formulation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-163769.txt",
+      "sourceChecks": [
+        "Product Name:Radicava IV, Radicava ORS, generic edaravone",
+        "EL Escorial and Airlie House",
+        "ALS Functional Rating Scale-Revised",
+        "forced vital capacity (%FVC)",
+        "tracheostomy"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Definite or probable ALS per revised El Escorial/Airlie House criteria.",
+            "Neurologist with ALS expertise.",
+            "ALSFRS-R score ≥2 on ALL items at treatment start.",
+            "Pretreatment percent predicted FVC ≥80%."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Positive response: slower functional decline.",
+            "Not dependent on invasive ventilation or tracheostomy."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include source-specific diagnosis, tests, prior therapies, and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-155386-austedo",
+      "policyCode": "GL-155386",
+      "product": "Austedo / Austedo XR (deutetrabenazine)",
+      "matchBrands": [
+        "AUSTEDO",
+        "AUSTEDO XR"
+      ],
+      "heading": "Austedo / Austedo XR (deutetrabenazine) — source-matched November clinical criteria",
+      "sourcePage": 187,
+      "sourceLastPage": 191,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "TD and Huntington chorea have separate AIMS vs UHDRS/gene initial criteria; limit ONE active Austedo strength, ≤48 mg/day; initial 6m and renew 12m.",
+      "guidelineCaution": "Clinical criteria from the statewide November source are not plan-specific PA flags or formulary guarantees. Confirm actual Pima ACC plan and formulation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-155386.txt",
+      "sourceChecks": [
+        "Product Name:Austedo, Austedo XR",
+        "AIMS items 1 through 9",
+        "tetrabenazine or Ingrezza",
+        "CAG",
+        "48 mg per day"
+      ],
+      "stages": [
+        {
+          "title": "Tardive dyskinesia — initial",
+          "approvalDuration": "6 months",
+          "all": [
+            "Moderate-to-severe tardive dyskinesia due to dopamine-blocking medication.",
+            "Prescribed by psychiatrist or neurologist.",
+            "Age ≥18.",
+            "AIMS item 1–9 score 3 or 4 on ≥1 item.",
+            "Not used with tetrabenazine OR Ingrezza.",
+            "Dose ≤48 mg/day."
+          ]
+        },
+        {
+          "title": "Tardive dyskinesia — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "AIMS item 1–9 score improved vs baseline.",
+            "Not combined with tetrabenazine/Ingrezza.",
+            "Dose ≤48 mg/day."
+          ]
+        },
+        {
+          "title": "Huntington chorea — initial",
+          "approvalDuration": "6 months",
+          "all": [
+            "Chorea with Huntington disease.",
+            "Neurologist.",
+            "Age ≥18.",
+            "HTT CAG repeat expansion ≥36.",
+            "UHDRS chorea item 1–7 score 1–4 on any one item.",
+            "Not used with tetrabenazine/Ingrezza.",
+            "Dose ≤48 mg/day."
+          ]
+        },
+        {
+          "title": "Huntington chorea — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "UHDRS chorea item 1–7 score improved vs baseline.",
+            "Not combined with tetrabenazine/Ingrezza.",
+            "Dose ≤48 mg/day."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include source-specific diagnosis, tests, prior therapies, and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-155390-ingrezza",
+      "policyCode": "GL-155390",
+      "product": "Ingrezza (valbenazine)",
+      "matchBrands": [
+        "INGREZZA"
+      ],
+      "heading": "Ingrezza (valbenazine) — source-matched November clinical criteria",
+      "sourcePage": 964,
+      "sourceLastPage": 967,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "TD needs AIMS ≥3, age and no Austedo; Huntington chorea branch does not require AIMS or HTT genotyping in this source. Only one active Ingrezza strength, max 80mg/day.",
+      "guidelineCaution": "Clinical criteria from the statewide November source are not plan-specific PA flags or formulary guarantees. Confirm actual Pima ACC plan and formulation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-155390.txt",
+      "sourceChecks": [
+        "Product Name:Ingrezza",
+        "AIMS items 1 through 9",
+        "not prescribed concurrently with Austedo or tetrabenazine",
+        "Dose does not exceed 80 mg per day"
+      ],
+      "stages": [
+        {
+          "title": "Tardive dyskinesia — initial",
+          "approvalDuration": "6 months",
+          "all": [
+            "Moderate-to-severe tardive dyskinesia secondary to dopamine receptor blocker.",
+            "Psychiatrist or neurologist.",
+            "Age ≥18.",
+            "AIMS item 1–9 score 3–4 on at least one item.",
+            "Not combined with Austedo or tetrabenazine.",
+            "Dose ≤80 mg/day."
+          ]
+        },
+        {
+          "title": "Tardive dyskinesia — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Improved AIMS score compared with baseline.",
+            "Not combined with Austedo or tetrabenazine.",
+            "Dose ≤80 mg/day."
+          ]
+        },
+        {
+          "title": "Huntington chorea — initial",
+          "approvalDuration": "6 months",
+          "all": [
+            "Chorea associated with Huntington disease.",
+            "Neurologist.",
+            "Age ≥18.",
+            "Dose ≤80 mg/day."
+          ]
+        },
+        {
+          "title": "Huntington chorea — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response.",
+            "Dose ≤80 mg/day."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include source-specific diagnosis, tests, prior therapies, and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-141167-cibinqo",
+      "policyCode": "GL-141167",
+      "product": "Cibinqo (abrocitinib)",
+      "matchBrands": [
+        "CIBINQO"
+      ],
+      "heading": "Cibinqo (abrocitinib) — source-matched November clinical criteria",
+      "sourcePage": 339,
+      "sourceLastPage": 341,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Age ≥12, BSA/SCORAD severity, two topical and BOTH Dupixent/Adbry 12-week steps, no concurrent biologic/potent immunosuppression.",
+      "guidelineCaution": "Clinical criteria from the statewide November source are not plan-specific PA flags or formulary guarantees. Confirm actual Pima ACC plan and formulation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-141167.txt",
+      "sourceChecks": [
+        "Product Name:Cibinqo",
+        "SCORing Atopic Dermatitis",
+        "12-week supply of Dupixent",
+        "12-week supply of Adbry",
+        "Patient is 12 years of age or older"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Moderate/severe atopic dermatitis diagnosed.",
+            {
+              "any": [
+                "At least 10% BSA involvement.",
+                "SCORAD ≥25."
+              ]
+            },
+            {
+              "any": [
+                "Dermatologist.",
+                "Allergist/immunologist."
+              ]
+            },
+            {
+              "all": [
+                "Failure/contraindication/intolerance to topical calcineurin inhibitor.",
+                "Failure/contraindication/intolerance to Eucrisa (crisaborole).",
+                "Failure of ≥12-week supply Dupixent (dupilumab).",
+                "Failure of ≥12-week supply Adbry (tralokinumab)."
+              ]
+            },
+            "Not combined with biologic immunomodulators or other potent immunosuppressants.",
+            "Age ≥12."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            {
+              "any": [
+                "Reduced affected BSA.",
+                "Reduced SCORAD."
+              ]
+            },
+            "Not combined with biologic or other immunosuppressant."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include source-specific diagnosis, tests, prior therapies, and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-135314-kalydeco",
+      "policyCode": "GL-135314",
+      "product": "Kalydeco tablet or packet (ivacaftor)",
+      "matchBrands": [
+        "KALYDECO"
+      ],
+      "heading": "Kalydeco tablet or packet (ivacaftor) — source-matched November clinical criteria",
+      "sourcePage": 1013,
+      "sourceLastPage": 1016,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "CF requires a variant in the ORIGINAL Kalydeco-responsive CFTR list, not just any CFTR mutation; follow linked table. 12-month periods.",
+      "guidelineCaution": "Clinical criteria from the statewide November source are not plan-specific PA flags or formulary guarantees. Confirm actual Pima ACC plan and formulation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-135314.txt",
+      "sourceChecks": [
+        "Product Name:Kalydeco, Kalydeco packet",
+        "cystic fibrosis transmembrane conductance regulator (CFTR)",
+        "specialist affiliated with a CF care center",
+        "percent predicted expiratory volume"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Cystic fibrosis diagnosed.",
+            "Genetic testing confirms ONE source-listed Kalydeco-responsive CFTR gene variant (see original linked mutation table, pages 1015–1016).",
+            "Prescribed by or with CF care-center specialist."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            {
+              "any": [
+                "Improved ppFEV1.",
+                "Improved BMI.",
+                "Fewer pulmonary exacerbations.",
+                "Improved CFQ-R respiratory quality-of-life score."
+              ]
+            },
+            "Prescribed by or with CF care-center specialist."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include source-specific diagnosis, tests, prior therapies, and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-150054-fabrazyme",
+      "policyCode": "GL-150054",
+      "product": "Fabrazyme (agalsidase beta)",
+      "matchBrands": [
+        "FABRAZYME"
+      ],
+      "heading": "Fabrazyme (agalsidase beta) — source-matched November clinical criteria",
+      "sourcePage": 649,
+      "sourceLastPage": 651,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Fabrazyme requires age ≥2; do not apply this brand-specific age to Elfabrio; no concurrent Galafold.",
+      "guidelineCaution": "Clinical criteria from the statewide November source are not plan-specific PA flags or formulary guarantees. Confirm actual Pima ACC plan and formulation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-150054.txt",
+      "sourceChecks": [
+        "Product Name:Fabrazyme",
+        "Patient is 2 years of age or older",
+        "GLA gene",
+        "Galafold (migalastat)"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Fabry disease diagnosis.",
+            "Age ≥2 years.",
+            {
+              "any": [
+                "Pathogenic GLA gene variant.",
+                "Deficiency of alpha-galactosidase A activity.",
+                "Significant manifestations such as neuropathic pain, cardiomyopathy, kidney disease or angiokeratomas."
+              ]
+            },
+            "NOT combined with Galafold (migalastat)."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include source-specific diagnosis, tests, prior therapies, and specialist consultation."
+      ]
+    },
+    {
+      "id": "gl-150054-elfabrio",
+      "policyCode": "GL-150054",
+      "product": "Elfabrio (pegunigalsidase alfa-iwxj)",
+      "matchBrands": [
+        "ELFABRIO"
+      ],
+      "heading": "Elfabrio (pegunigalsidase alfa-iwxj) — source-matched November clinical criteria",
+      "sourcePage": 649,
+      "sourceLastPage": 651,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Elfabrio source does NOT impose Fabrazyme's age ≥2 restriction; requires Fabry evidence and no Galafold combination.",
+      "guidelineCaution": "Clinical criteria from the statewide November source are not plan-specific PA flags or formulary guarantees. Confirm actual Pima ACC plan and formulation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-150054.txt",
+      "sourceChecks": [
+        "Product Name:Elfabrio",
+        "Diagnosis of Fabry disease",
+        "Galafold (migalastat)",
+        "positive clinical response to therapy"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Fabry disease diagnosis.",
+            {
+              "any": [
+                "Pathogenic GLA mutation.",
+                "Low alpha-galactosidase A activity.",
+                "Clinically significant Fabry manifestations."
+              ]
+            },
+            "NOT combined with Galafold (migalastat)."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include source-specific diagnosis, tests, prior therapies, and specialist consultation."
+      ]
     }
   ]
 }
