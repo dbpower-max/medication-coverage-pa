@@ -855,7 +855,7 @@
     const rules = items => items.map(item => {
       const number = /^(\d+(?:\.\d+)*)\b/.exec(item.text)?.[1];
       const depth = number ? Math.min(number.split('.').length - 1, 4) : 0;
-      return `<p class="clinical-source-rule ${item.kind === 'connector' ? 'clinical-source-connector' : /(?:all|one) of the following:/i.test(value) ? 'clinical-logic-label' : ''}" style="margin-left:${depth * .5}rem">${escapeHtml(item.displayText || item.text)}</p>`;
+      return `<p class="clinical-source-rule ${item.kind === 'connector' ? 'clinical-source-connector' : ''}" style="margin-left:${depth * .5}rem">${escapeHtml(item.displayText || item.text)}</p>`;
     }).join('');
     return `<p>Source-transcribed clinical criteria · ${escapeHtml(policy.policyCode)} · ${escapeHtml(policy.sourceEffective)}. Clinician approval pending. Follow the product, indication and AND/OR wording below; this reference does not establish selected-plan coverage or PA status.</p>`
       + policy.branches.map((branch, i) => `<details class="clinical-source-branch result-disclosure">
