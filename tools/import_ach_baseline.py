@@ -9,13 +9,16 @@ ASSUMPTION='Working assumption approved November 13, 2026: the officially linked
 STOP=set('w soln pref syr bitartrate bromide oral topical inhalation subcutaneous intramuscular intramusc intraven intravenous injection injectable nasal sublingual subcutane intrav sub q tablet tablets tab capsule capsules solution suspension cream ointment gel patch syringe syringes vial vials pen pens kit spray powder aerosol elixir suppository chewable chew chewable disintegrating odt er xr cr dr extended release delayed controlled hr hour hours 24 12 72 hcl hydrochloride hydrobromide sulfate sulphate mesylate sodium potassium mg mcg ml gm g % per actuation actuat metered dose inhaler nebulizer autoinjector cartridge prefilled pref pack pak various cf ag authorized generic only brand'.split())
 @lru_cache(maxsize=None)
 def tokens(s):
- s=re.sub(r'\([^)]*\)', ' ',s.lower());s=re.sub(r'\d+(?:\.\d+)?',' ',s)
- return set(re.findall(r'[a-z]+',s))-STOP
+ # Parentheses can contain active ingredients in RxNorm combination packs.
+ # Never discard that content as if every parenthesis were a route qualifier.
+ s=re.sub(r'\((?:ADHD|SICKLE CELL DISEASE|CHEMOTHERAPY|USP|RX ONLY)\)',' ',s,flags=re.I)
+ s=s.lower();s=re.sub(r'\d+(?:\.\d+)?',' ',s)
+ return set(re.findall(r'[a-z]+',s))-STOP-{'usp'}
 
 @lru_cache(maxsize=None)
 def forms(s):
  s=s.lower(); f=set()
- for key,pattern in {'tablet':r'tablet|\btab\b|odt','capsule':r'capsule','liquid':r'solution|suspension|elixir','cream':r'cream','ointment':r'ointment','patch':r'patch','gel':r'\bgel\b','injection':r'inject|subcut|intramusc|intraven|intraven|\bintrav\b|syringe|\bsyr\b|\bvial\b|\bpen\b','nasal':r'nasal','inhalation':r'inhal|nebulizer'}.items():
+ for key,pattern in {'tablet':r'tablet|\btab\b|odt','capsule':r'capsule','granules':r'granul|pellet','liquid':r'solution|suspension|elixir','cream':r'cream','ointment':r'ointment','patch':r'patch','gel':r'\bgel\b','injection':r'inject|subcut|intramusc|intraven|intraven|\bintrav\b|syringe|\bsyr\b|\bvial\b|\bpen\b','nasal':r'nasal','inhalation':r'inhal|nebulizer','rectal':r'suppositor|rectal','ophthalmic':r'ophthalmic|ocular','otic':r'\botic\b','vaginal':r'vaginal'}.items():
   if re.search(pattern,s):f.add(key)
  return f
 
@@ -23,9 +26,31 @@ def compatible(a,b):
  fa,fb=forms(a),forms(b)
  if fa and fb and not fa&fb:return False
  if ('injection' in fa) != ('injection' in fb) and fa and fb:return False
+ # Shared words such as "solution" do not make different routes equivalent.
+ for route in ['nasal','inhalation','rectal','ophthalmic','otic','vaginal']:
+  if (route in fa)!=(route in fb):return False
  # Do not transfer a rule across immediate/extended release formulations.
  extended=lambda s:bool(re.search(r'\b(er|xr|cr|dr)\b|extended|delayed|controlled|24.hour|12.hour',s,re.I))
- return extended(a)==extended(b)
+ if extended(a)!=extended(b):return False
+ period=lambda s:re.search(r'\b(12|24|72)\s*[- ]?(?:hr|hour)\b',s,re.I)
+ pa,pb=period(a),period(b)
+ if pa and pb and pa[1]!=pb[1]:return False
+ delayed=lambda s:bool(re.search(r'\bdr\b|delayed|enteric',s,re.I))
+ if delayed(a)!=delayed(b):return False
+ return True
+
+def explicit_brand_match(brand, source):
+ """A named brand needs named-brand evidence, not ingredient equivalence."""
+ norm=lambda s:re.sub(r'\s+',' ',s).strip().casefold()
+ if norm(brand)==norm(source.get('brand','')):return True
+ name=source['name']
+ # Notices may put the brand in the name and a route in parentheses.
+ name=re.sub(r'\s*\((?:subcutane\.?|subcutaneous|oral|topical|inhalation|nasal|intravenous|intramuscular)\)\s*$','',name,flags=re.I)
+ # The RxNorm baseline abbreviates the marketed TUDORZA PRESSAIR name.
+ # DailyMed identifies this as aclidinium bromide inhalation powder; this
+ # alias is valid only for the explicit inhalation notice, never another route.
+ if norm(brand)=='tudorza' and norm(name)=='tudorza pressair' and 'inhalation' in forms(source['name']):return True
+ return norm(brand)==norm(name)
 
 def main():
  src=ROOT/'dist/sources/ach/integrated-formulary-baseline.json.gz'
@@ -38,7 +63,7 @@ def main():
   assert len(row['plans'])==1
   p=row['plans'][0]; name=row['drug_name'];brand=re.search(r'\[([^]]+)\]',name);brand=brand.group(1) if brand else ''
   generic=re.sub(r'\[[^]]+\]','',name); nt=tokens(generic)
-  candidates=[]
+  candidates=[];held_pa=[]
   for r in current:
    rn=r['name']; rb=r.get('brand','')
    if '(AG)' in rn or 'AUTHORIZED' in rn.upper():continue
@@ -48,7 +73,16 @@ def main():
    if not compatible(name,rn):continue
    strengths=re.findall(r'\d+(?:\.\d+)?\s*(?:mg|mcg)(?:\s*/\s*ml)?',rn,re.I)
    compact=lambda s:re.sub(r'\s+','',s.lower())
-   if strengths and not all(compact(v) in compact(name) for v in strengths):continue
+   if strengths:
+    # A one-ingredient strength list contains alternatives, not a requirement
+    # that one RxNorm product contain every listed strength simultaneously.
+    alternative_strengths=len(tokens(rn))==1 and bool(re.search(r'[,;&]',rn))
+    strength_match=any if alternative_strengths else all
+    if not strength_match(compact(v) in compact(name) for v in strengths):continue
+   if brand and not explicit_brand_match(brand,r):
+    if ingredient and rb.strip().lower() in ('','various') and r.get('pa') in ('required','conditional'):
+     held_pa.append({k:r.get(k) for k in ['id','name','brand','sourceUrl','sourceEffective','sourcePage','pa','paText']})
+    continue
    if not brand and re.search(r'brand\s*only',r.get('brandGenericNotes','')+' '+r.get('notes',''),re.I):continue
    candidates.append((branded,r))
   if any(b for b,r in candidates):candidates=[(b,r) for b,r in candidates if b]
@@ -73,6 +107,10 @@ def main():
     latest=max(r.get('sourceEffective','') for r in explicit);values={r[field] for r in explicit if r.get('sourceEffective','')==latest}
     if len(values)>1:
      rec[field]='not_specified';rec['sourceConflict']='Later same-date source rows disagree; review linked source updates.';counts['same_date_conflicts']+=1
+  if rec['pa']=='not_required' and held_pa and not any(r.get('pa') in ('required','conditional','not_required') for r in candidates):
+   rec['pa']='not_specified'
+   rec['heldSourceUpdates']=held_pa
+   rec['paUncertaintyReason']='Later generic-product PA evidence exists; its application to this named brand is not established.'
   counts['with_later_updates' if candidates else 'baseline_only']+=1
   result.append(rec)
  for r in current:
