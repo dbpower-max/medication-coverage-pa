@@ -1183,7 +1183,7 @@ assert(b44('131964-ezallor').pathways.length===2
  'Ezallor under-10 exception vs established indication/formulation necessity lost');
 assert(b44('135321-veopoz').stages[0].all.some(x=>x.any?.length===4),
  'Veopoz CHAPLE symptomatic criteria missing');
-assert(b44('135325-daxxify').summary.includes('cosmetic'),
+assert(b44('135325-daxxify').summary.toLowerCase().includes('cosmetic'),
  'Daxxify cosmetic-use benefit exclusion not displayed');
 assert(b44('135381-lodoco').stages[0].all.some(x=>
  typeof x==='string'&&x.includes('0.6 mg')),
