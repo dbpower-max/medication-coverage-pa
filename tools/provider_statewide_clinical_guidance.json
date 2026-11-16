@@ -10805,6 +10805,653 @@
       "documentationSuggestions": [
         "Include source-specific diagnosis, tests, prior therapies, and specialist consultation."
       ]
+    },
+    {
+      "id": "gl-147690-nexletol",
+      "policyCode": "GL-147690",
+      "product": "Nexletol (bempedoic acid)",
+      "matchBrands": [
+        "NEXLETOL"
+      ],
+      "heading": "Nexletol (bempedoic acid) — original clinical eligibility",
+      "sourcePage": 1238,
+      "sourceLastPage": 1242,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Exact source: Nexletol allows prior generic ezetimibe OR contraindication/intolerance. Four indication-specific initial/renewal branches.",
+      "guidelineCaution": "Original November AHCCCS statewide criteria; they do not confirm drug coverage or PA status for a specific Tucson/Pima ACC plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-147690.txt",
+      "sourceChecks": [
+        "Product Name:Nexletol, Nexlizet",
+        "at least 12 consecutive weeks of generic ezetimibe",
+        "LDL-C greater than or equal to 55 mg/dL",
+        "high risk for a CVD event"
+      ],
+      "stages": [
+        {
+          "title": "HeFH or primary hyperlipidemia — initial",
+          "approvalDuration": "12 months",
+          "all": [
+            {
+              "any": [
+                "Heterozygous familial hypercholesterolemia.",
+                "Primary hyperlipidemia."
+              ]
+            },
+            {
+              "any": [
+                "Receiving ≥12 consecutive weeks of maximally tolerated statin.",
+                "Intolerant of ≥2 statins (at least one at lowest starting dose) due to persistent symptoms or significant CK/LFT changes.",
+                "FDA-labeled contraindication to all statins."
+              ]
+            },
+            {
+              "any": [
+                "LDL-C ≥55 mg/dL with ASCVD, measured in previous 120 days.",
+                "LDL-C ≥100 mg/dL without ASCVD, measured in previous 120 days."
+              ]
+            },
+            {
+              "any": [
+                "Generic ezetimibe received for ≥12 consecutive weeks.",
+                "Ezetimibe contraindication or intolerance."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "HeFH or primary hyperlipidemia — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "LDL-C decreased from baseline.",
+            {
+              "any": [
+                "Continue maximally tolerated other lipid-lowering drugs.",
+                "Documented inability to take other lipid-lowering drugs."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Established CVD or very high CVD risk — initial",
+          "approvalDuration": "12 months",
+          "all": [
+            {
+              "any": [
+                "Established coronary, cerebral or peripheral atherosclerotic disease.",
+                "High CVD event risk without established CVD."
+              ]
+            },
+            {
+              "any": [
+                "Intolerant to ≥2 statins including ≥1 at lowest starting dose.",
+                "FDA-labeled contraindication to ALL statins."
+              ]
+            },
+            {
+              "any": [
+                "LDL-C ≥55 mg/dL with ASCVD, measured in previous 120 days.",
+                "LDL-C ≥100 mg/dL without ASCVD, measured in previous 120 days."
+              ]
+            },
+            {
+              "any": [
+                "Generic ezetimibe received for ≥12 consecutive weeks.",
+                "Ezetimibe contraindication or intolerance."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "CVD prevention — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response to therapy."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document all indicated prior treatment and test results, clinical response, and specialist context."
+      ]
+    },
+    {
+      "id": "gl-147690-nexlizet",
+      "policyCode": "GL-147690",
+      "product": "Nexlizet (bempedoic acid/ezetimibe)",
+      "matchBrands": [
+        "NEXLIZET"
+      ],
+      "heading": "Nexlizet (bempedoic acid/ezetimibe) — original clinical eligibility",
+      "sourcePage": 1238,
+      "sourceLastPage": 1242,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Exact source: Nexlizet requires prior ≥12-week generic ezetimibe, without the Nexletol exception. Four indication-specific initial/renewal branches.",
+      "guidelineCaution": "Original November AHCCCS statewide criteria; they do not confirm drug coverage or PA status for a specific Tucson/Pima ACC plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-147690.txt",
+      "sourceChecks": [
+        "Product Name:Nexletol, Nexlizet",
+        "at least 12 consecutive weeks of generic ezetimibe",
+        "LDL-C greater than or equal to 55 mg/dL",
+        "high risk for a CVD event"
+      ],
+      "stages": [
+        {
+          "title": "HeFH or primary hyperlipidemia — initial",
+          "approvalDuration": "12 months",
+          "all": [
+            {
+              "any": [
+                "Heterozygous familial hypercholesterolemia.",
+                "Primary hyperlipidemia."
+              ]
+            },
+            {
+              "any": [
+                "Receiving ≥12 consecutive weeks of maximally tolerated statin.",
+                "Intolerant of ≥2 statins (at least one at lowest starting dose) due to persistent symptoms or significant CK/LFT changes.",
+                "FDA-labeled contraindication to all statins."
+              ]
+            },
+            {
+              "any": [
+                "LDL-C ≥55 mg/dL with ASCVD, measured in previous 120 days.",
+                "LDL-C ≥100 mg/dL without ASCVD, measured in previous 120 days."
+              ]
+            },
+            "Generic ezetimibe received for ≥12 consecutive weeks."
+          ]
+        },
+        {
+          "title": "HeFH or primary hyperlipidemia — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "LDL-C decreased from baseline.",
+            {
+              "any": [
+                "Continue maximally tolerated other lipid-lowering drugs.",
+                "Documented inability to take other lipid-lowering drugs."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Established CVD or very high CVD risk — initial",
+          "approvalDuration": "12 months",
+          "all": [
+            {
+              "any": [
+                "Established coronary, cerebral or peripheral atherosclerotic disease.",
+                "High CVD event risk without established CVD."
+              ]
+            },
+            {
+              "any": [
+                "Intolerant to ≥2 statins including ≥1 at lowest starting dose.",
+                "FDA-labeled contraindication to ALL statins."
+              ]
+            },
+            {
+              "any": [
+                "LDL-C ≥55 mg/dL with ASCVD, measured in previous 120 days.",
+                "LDL-C ≥100 mg/dL without ASCVD, measured in previous 120 days."
+              ]
+            },
+            "Generic ezetimibe received for ≥12 consecutive weeks."
+          ]
+        },
+        {
+          "title": "CVD prevention — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response to therapy."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document all indicated prior treatment and test results, clinical response, and specialist context."
+      ]
+    },
+    {
+      "id": "gl-149318-hetlioz-brand",
+      "policyCode": "GL-149318",
+      "product": "Brand Hetlioz capsule",
+      "matchBrands": [
+        "HETLIOZ"
+      ],
+      "matchFormulationWords": [
+        "capsule",
+        "caps"
+      ],
+      "heading": "Brand Hetlioz capsule — original clinical eligibility",
+      "sourcePage": 821,
+      "sourceLastPage": 826,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Capsules for Non-24 disorder (age ≥18, blindness) or Smith-Magenis syndrome (age ≥16). Both require three months of melatonin AND ramelteon. Brand additionally requires prior generic tasimelteon.",
+      "guidelineCaution": "Original November AHCCCS statewide criteria; they do not confirm drug coverage or PA status for a specific Tucson/Pima ACC plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-149318.txt",
+      "sourceChecks": [
+        "Brand Hetlioz capsule, generic tasimelteon capsule",
+        "patient is totally blind",
+        "Melatonin",
+        "Rozerem (ramelteon)",
+        "positive clinical response to therapy"
+      ],
+      "stages": [
+        {
+          "title": "Non-24 disorder — initial",
+          "approvalDuration": "6 months",
+          "all": [
+            "Non-24 hour sleep-wake disorder.",
+            {
+              "any": [
+                "Circadian phase marker confirms Non-24 sleep wake rhythm.",
+                {
+                  "all": [
+                    "Circadian marker assessment cannot be performed.",
+                    "Actigraphy ≥1 week AND sleep logs ≥1 month confirm Non-24."
+                  ]
+                }
+              ]
+            },
+            "Totally blind (nonblind requests only case-by-case).",
+            "Age ≥18.",
+            {
+              "all": [
+                "≥3 months continuous daily melatonin supervised by sleep specialist.",
+                "≥3 months continuous daily ramelteon supervised by sleep specialist."
+              ]
+            },
+            {
+              "any": [
+                "Sleep disorder specialist prescriber/consultation.",
+                "Neurologist prescriber/consultation."
+              ]
+            },
+            "Brand-only: failed, intolerant, or contraindicated to generic tasimelteon."
+          ]
+        },
+        {
+          "title": "Non-24 — reauthorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Clinically meaningful improvement in sleep-wake timing.",
+            "Patient sleep log documents response.",
+            "Prior failure/intolerance/contraindication to generic tasimelteon."
+          ]
+        },
+        {
+          "title": "Smith-Magenis syndrome — initial",
+          "approvalDuration": "6 months",
+          "all": [
+            "Smith-Magenis syndrome.",
+            "FISH confirms 17p11.2 microdeletion.",
+            "Age ≥16 years.",
+            "Nighttime sleep disturbances.",
+            {
+              "all": [
+                "At least 3 continuous months of melatonin.",
+                "At least 3 continuous months of ramelteon (unless contraindicated by age)."
+              ]
+            },
+            {
+              "any": [
+                "Sleep disorder specialist prescriber/consultation.",
+                "Neurologist prescriber/consultation."
+              ]
+            },
+            "Brand-only: prior generic tasimelteon failure/intolerance/contraindication."
+          ]
+        },
+        {
+          "title": "Smith-Magenis — reauthorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Improved nighttime sleep time or quality.",
+            "Sleep log documents positive response.",
+            "Brand-only: generic tasimelteon was failed/intolerant/contraindicated."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document all indicated prior treatment and test results, clinical response, and specialist context."
+      ]
+    },
+    {
+      "id": "gl-149318-tasimelteon-generic",
+      "policyCode": "GL-149318",
+      "product": "Generic tasimelteon capsule",
+      "matchNames": [
+        "TASIMELTEON"
+      ],
+      "matchFormulationWords": [
+        "capsule",
+        "caps"
+      ],
+      "heading": "Generic tasimelteon capsule — original clinical eligibility",
+      "sourcePage": 821,
+      "sourceLastPage": 826,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Capsules for Non-24 disorder (age ≥18, blindness) or Smith-Magenis syndrome (age ≥16). Both require three months of melatonin AND ramelteon. Brand additionally requires prior generic tasimelteon.",
+      "guidelineCaution": "Original November AHCCCS statewide criteria; they do not confirm drug coverage or PA status for a specific Tucson/Pima ACC plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-149318.txt",
+      "sourceChecks": [
+        "Brand Hetlioz capsule, generic tasimelteon capsule",
+        "patient is totally blind",
+        "Melatonin",
+        "Rozerem (ramelteon)",
+        "positive clinical response to therapy"
+      ],
+      "stages": [
+        {
+          "title": "Non-24 disorder — initial",
+          "approvalDuration": "6 months",
+          "all": [
+            "Non-24 hour sleep-wake disorder.",
+            {
+              "any": [
+                "Circadian phase marker confirms Non-24 sleep wake rhythm.",
+                {
+                  "all": [
+                    "Circadian marker assessment cannot be performed.",
+                    "Actigraphy ≥1 week AND sleep logs ≥1 month confirm Non-24."
+                  ]
+                }
+              ]
+            },
+            "Totally blind (nonblind requests only case-by-case).",
+            "Age ≥18.",
+            {
+              "all": [
+                "≥3 months continuous daily melatonin supervised by sleep specialist.",
+                "≥3 months continuous daily ramelteon supervised by sleep specialist."
+              ]
+            },
+            {
+              "any": [
+                "Sleep disorder specialist prescriber/consultation.",
+                "Neurologist prescriber/consultation."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Non-24 — reauthorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Clinically meaningful improvement in sleep-wake timing.",
+            "Patient sleep log documents response."
+          ]
+        },
+        {
+          "title": "Smith-Magenis syndrome — initial",
+          "approvalDuration": "6 months",
+          "all": [
+            "Smith-Magenis syndrome.",
+            "FISH confirms 17p11.2 microdeletion.",
+            "Age ≥16 years.",
+            "Nighttime sleep disturbances.",
+            {
+              "all": [
+                "At least 3 continuous months of melatonin.",
+                "At least 3 continuous months of ramelteon (unless contraindicated by age)."
+              ]
+            },
+            {
+              "any": [
+                "Sleep disorder specialist prescriber/consultation.",
+                "Neurologist prescriber/consultation."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Smith-Magenis — reauthorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Improved nighttime sleep time or quality.",
+            "Sleep log documents positive response."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document all indicated prior treatment and test results, clinical response, and specialist context."
+      ]
+    },
+    {
+      "id": "gl-149318-hetlioz-lq",
+      "policyCode": "GL-149318",
+      "product": "Hetlioz LQ oral suspension",
+      "matchBrands": [
+        "HETLIOZ LQ"
+      ],
+      "heading": "Hetlioz LQ oral suspension — original clinical eligibility",
+      "sourcePage": 825,
+      "sourceLastPage": 826,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Hetlioz LQ is suspension for Smith-Magenis syndrome age THREE THROUGH FIFTEEN with 3 months of melatonin; NOT generic capsule Non-24 rules.",
+      "guidelineCaution": "Original November AHCCCS statewide criteria; they do not confirm drug coverage or PA status for a specific Tucson/Pima ACC plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-149318.txt",
+      "sourceChecks": [
+        "Product Name:Hetlioz LQ suspension",
+        "Patient is 3 through 15 years of age",
+        "continuous therapy",
+        "melatonin",
+        "sleep log"
+      ],
+      "stages": [
+        {
+          "title": "Smith-Magenis syndrome — initial",
+          "approvalDuration": "6 months",
+          "all": [
+            "Smith-Magenis syndrome.",
+            "Chromosome 17p11.2 microdeletion confirmed by FISH.",
+            "Age 3–15 years.",
+            "Nighttime sleep disturbances.",
+            "At least 3 months continuous melatonin supervised by sleep specialist.",
+            {
+              "any": [
+                "Sleep disorder specialist prescriber/consultation.",
+                "Neurologist prescriber/consultation."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Smith-Magenis — renewal",
+          "approvalDuration": "6 months",
+          "all": [
+            "Improved nighttime sleep total time or quality.",
+            "Sleep log documents positive clinical response."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document all indicated prior treatment and test results, clinical response, and specialist context."
+      ]
+    },
+    {
+      "id": "gl-152432-ilumya",
+      "policyCode": "GL-152432",
+      "product": "Ilumya (tildrakizumab-asmn)",
+      "matchBrands": [
+        "ILUMYA"
+      ],
+      "heading": "Ilumya (tildrakizumab-asmn) — original clinical eligibility",
+      "sourcePage": 864,
+      "sourceLastPage": 867,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "New use requires multiple topicals, methotrexate, ALL three preferred agents; separate continuation pathway does not inherit all new-start drug trials.",
+      "guidelineCaution": "Original November AHCCCS statewide criteria; they do not confirm drug coverage or PA status for a specific Tucson/Pima ACC plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-152432.txt",
+      "sourceChecks": [
+        "Product Name:Ilumya",
+        "Greater than or equal to 3 percent body surface",
+        "3 month trial of methotrexate",
+        "preferred adalimumab biosimilar",
+        "not receiving Ilumya in combination"
+      ],
+      "stages": [
+        {
+          "title": "Plaque psoriasis — initial new use",
+          "approvalDuration": "12 months",
+          "all": [
+            "Chronic moderately/severely active plaque psoriasis.",
+            {
+              "any": [
+                "BSA ≥3%.",
+                "Palmoplantar/facial/genital involvement.",
+                "Severe scalp psoriasis."
+              ]
+            },
+            {
+              "any": [
+                "One prior topical steroid failure/contraindication.",
+                "One prior vitamin D analog failure/contraindication.",
+                "Tazarotene failure/contraindication.",
+                "Topical calcineurin inhibitor failure/contraindication.",
+                "Anthralin failure/contraindication.",
+                "Coal tar failure/contraindication."
+              ]
+            },
+            "Failed 3-month maximally indicated methotrexate in prior 6 months, or contraindicated/significant adverse effect.",
+            {
+              "all": [
+                "Preferred adalimumab biosimilar failure/contraindication/intolerance.",
+                "Enbrel failure/contraindication/intolerance.",
+                "Otezla failure/contraindication/intolerance."
+              ]
+            },
+            "No concurrent biologic DMARD, JAK inhibitor, or PDE4 inhibitor.",
+            "Dermatologist prescriber/consultation."
+          ]
+        },
+        {
+          "title": "Plaque psoriasis — continuation of current therapy",
+          "approvalDuration": "12 months",
+          "all": [
+            "Currently taking requested Ilumya.",
+            "Chronic moderate/severe plaque psoriasis.",
+            "No concurrent biologic DMARD, JAK inhibitor or PDE4 inhibitor.",
+            "Dermatologist prescriber/consultation."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive response to Ilumya.",
+            "No concurrent biologic DMARD, JAK inhibitor or PDE4 inhibitor.",
+            "Dermatologist prescriber/consultation."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document all indicated prior treatment and test results, clinical response, and specialist context."
+      ]
+    },
+    {
+      "id": "gl-152659-arcalyst",
+      "policyCode": "GL-152659",
+      "product": "Arcalyst (rilonacept)",
+      "matchBrands": [
+        "ARCALYST"
+      ],
+      "heading": "Arcalyst (rilonacept) — original clinical eligibility",
+      "sourcePage": 176,
+      "sourceLastPage": 179,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "CAPS initial/renewal, DIRA (remission and ≥10kg), and recurrent pericarditis initial/renewal are independent clinical branches.",
+      "guidelineCaution": "Original November AHCCCS statewide criteria; they do not confirm drug coverage or PA status for a specific Tucson/Pima ACC plan.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-152659.txt",
+      "sourceChecks": [
+        "Product Name:Arcalyst",
+        "Cryopyrin-Associated Periodic Syndromes",
+        "Deficiency of Interleukin-1 Receptor Antagonist",
+        "Recurrent Pericarditis",
+        "colchicine"
+      ],
+      "stages": [
+        {
+          "title": "CAPS — initial authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "CAPS, e.g., FCAS or Muckle-Wells, diagnosed.",
+            {
+              "any": [
+                "Immunologist.",
+                "Allergist.",
+                "Dermatologist.",
+                "Rheumatologist.",
+                "Neurologist.",
+                "Specialist experienced in CAPS."
+              ]
+            },
+            "Not combined with another biologic."
+          ]
+        },
+        {
+          "title": "CAPS — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            {
+              "any": [
+                "Improved fever/rash/joint pain/headaches/conjunctivitis.",
+                "Reduced disease flares.",
+                "Inflammatory CRP/ESR/SAA normalized.",
+                "Corticosteroid dose reduced.",
+                "Improved MD global score or joint count."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "DIRA — qualification",
+          "approvalDuration": "12 months",
+          "all": [
+            "Diagnosis of interleukin-1 receptor antagonist deficiency (DIRA).",
+            "Weight ≥10 kg.",
+            "Currently in remission (no fever/rash/bone pain, no active bone lesions, CRP <5 mg/L)."
+          ]
+        },
+        {
+          "title": "Recurrent pericarditis — initial",
+          "approvalDuration": "12 months",
+          "all": [
+            "≥2 episodes of pericarditis separated by at least 4–6 weeks.",
+            {
+              "all": [
+                "NSAID failure, contraindication or intolerance.",
+                "Colchicine failure, contraindication or intolerance.",
+                "Corticosteroid failure, contraindication or intolerance."
+              ]
+            },
+            "Cardiologist prescriber/consultation."
+          ]
+        },
+        {
+          "title": "Recurrent pericarditis — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response to Arcalyst."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Document all indicated prior treatment and test results, clinical response, and specialist context."
+      ]
     }
   ]
 }
