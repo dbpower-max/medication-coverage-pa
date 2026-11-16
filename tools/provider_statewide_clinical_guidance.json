@@ -12632,6 +12632,476 @@
       "documentationSuggestions": [
         "Include medical records, clinical history, specialist assessments, and source-directed prior treatments."
       ]
+    },
+    {
+      "id": "gl-99431-albenza",
+      "policyCode": "GL-99431",
+      "product": "Albenza / generic albendazole",
+      "matchBrands": [
+        "ALBENZA"
+      ],
+      "matchNames": [
+        "ALBENDAZOLE"
+      ],
+      "heading": "Albenza / generic albendazole — source-grounded clinical eligibility",
+      "sourcePage": 100,
+      "sourceLastPage": 102,
+      "approvalDuration": "1 month",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Albendazole: 1-month approval for nine explicitly listed parasitic diseases; neurocysticercosis has separate 6-month approval.",
+      "guidelineCaution": "Original November AHCCCS statewide clinical criteria, not an exact Pima ACC plan-specific PA/coverage determination. Select the relevant dose, condition and approval period.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99431.txt",
+      "sourceChecks": [
+        "Product Name:Brand Albenza, generic albendazole",
+        "Diagnosis of Enterobius vermicularis (pinworm)",
+        "Diagnosis of neurocysticercosis",
+        "Diagnosis of Trichuriasis"
+      ],
+      "pathways": [
+        {
+          "title": "One of nine listed parasitic infections",
+          "approvalDuration": "1 month",
+          "all": [
+            {
+              "any": [
+                "Enterobius vermicularis (pinworm).",
+                "Hydatid disease/echinococcosis.",
+                "Ancylostoma or Necator hookworm.",
+                "Ascariasis.",
+                "Mansonella perstans.",
+                "Toxocariasis.",
+                "Trichinellosis.",
+                "Trichuriasis.",
+                "Capillariasis."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Neurocysticercosis",
+          "approvalDuration": "6 months",
+          "all": [
+            "Diagnosis of neurocysticercosis."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Verify indication, trial history, clinical findings and prescriber documentation according to the source."
+      ]
+    },
+    {
+      "id": "gl-99431-stromectol",
+      "policyCode": "GL-99431",
+      "product": "Stromectol / generic ivermectin",
+      "matchBrands": [
+        "STROMECTOL"
+      ],
+      "matchNames": [
+        "IVERMECTIN"
+      ],
+      "heading": "Stromectol / generic ivermectin — source-grounded clinical eligibility",
+      "sourcePage": 100,
+      "sourceLastPage": 102,
+      "approvalDuration": "1 month",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Ivermectin original policy specifies intestinal strongyloidiasis OR onchocerciasis, 1-month authorization.",
+      "guidelineCaution": "Original November AHCCCS statewide clinical criteria, not an exact Pima ACC plan-specific PA/coverage determination. Select the relevant dose, condition and approval period.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99431.txt",
+      "sourceChecks": [
+        "Product Name:Brand Stromectol, generic ivermectin",
+        "intestinal strongyloidiasis",
+        "onchocerciasis"
+      ],
+      "pathways": [
+        {
+          "title": "One of two confirmed nematode infections",
+          "approvalDuration": "1 month",
+          "all": [
+            {
+              "any": [
+                "Intestinal strongyloidiasis due to Strongyloides stercoralis.",
+                "Onchocerciasis caused by Onchocerca volvulus."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Verify indication, trial history, clinical findings and prescriber documentation according to the source."
+      ]
+    },
+    {
+      "id": "gl-99441-corlanor",
+      "policyCode": "GL-99441",
+      "product": "Corlanor (ivabradine)",
+      "matchBrands": [
+        "CORLANOR"
+      ],
+      "heading": "Corlanor (ivabradine) — source-grounded clinical eligibility",
+      "sourcePage": 407,
+      "sourceLastPage": 409,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Corlanor's systolic HF requires EF≤35, sinus rhythm, HR≥70 and beta-blocker step; DCM has a separate less-specific route; 12-month renewal.",
+      "guidelineCaution": "Original November AHCCCS statewide clinical criteria, not an exact Pima ACC plan-specific PA/coverage determination. Select the relevant dose, condition and approval period.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99441.txt",
+      "sourceChecks": [
+        "Product Name:Corlanor",
+        "left ventricular ejection fraction (EF) less than or equal to 35%",
+        "resting heart rate greater than or equal to 70",
+        "Dilated Cardiomyopathy"
+      ],
+      "stages": [
+        {
+          "title": "Stable symptomatic chronic heart failure — initial",
+          "approvalDuration": "12 months",
+          "all": [
+            "Symptomatic chronic HF with recent worsening (NYHA II–IV).",
+            "LVEF ≤35%.",
+            "Sinus rhythm.",
+            "Resting HR ≥70 beats/min.",
+            {
+              "any": [
+                "On maximally tolerated beta-blocker.",
+                "Beta-blocker contraindicated or intolerable."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Heart failure from dilated cardiomyopathy — initial",
+          "approvalDuration": "12 months",
+          "all": [
+            "Stable symptomatic HF due to DCM.",
+            "Sinus rhythm.",
+            "Elevated heart rate."
+          ]
+        },
+        {
+          "title": "Reauthorization, both HF indications",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response to Corlanor."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Verify indication, trial history, clinical findings and prescriber documentation according to the source."
+      ]
+    },
+    {
+      "id": "gl-99485-orilissa",
+      "policyCode": "GL-99485",
+      "product": "Orilissa 150 mg and 200 mg (elagolix)",
+      "matchBrands": [
+        "ORILISSA"
+      ],
+      "heading": "Orilissa 150 mg and 200 mg (elagolix) — source-grounded clinical eligibility",
+      "sourcePage": 1339,
+      "sourceLastPage": 1342,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Orilissa 150 mg may continue in 6-month periods to 24-month total; 200 mg BID maximum six months. Dose-specific requirements are labeled explicitly.",
+      "guidelineCaution": "Original November AHCCCS statewide clinical criteria, not an exact Pima ACC plan-specific PA/coverage determination. Select the relevant dose, condition and approval period.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99485.txt",
+      "sourceChecks": [
+        "Product Name:Orilissa 150 mg",
+        "Patient is premenopausal",
+        "Treatment duration has not exceeded a total of 24 months",
+        "Product Name:Orilissa 200 mg"
+      ],
+      "stages": [
+        {
+          "title": "150 mg daily — initial",
+          "approvalDuration": "6 months",
+          "all": [
+            "Moderate-to-severe endometriosis-related pain.",
+            "Premenopausal.",
+            "Failed/contraindicated/intolerant to TWO analgesics after 3-month trials.",
+            {
+              "any": [
+                "Failed or intolerant/contraindicated after 3 months of hormonal contraceptives.",
+                "Failed or intolerant/contraindicated after 3 months of progestin."
+              ]
+            },
+            {
+              "any": [
+                "OB/GYN prescriber/consultation.",
+                "Reproductive endocrinologist prescriber/consultation."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "150 mg daily — reauthorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Positive clinical response.",
+            "Bone mineral density effects considered.",
+            "Total cumulative Orilissa 150 mg therapy not more than 24 months."
+          ]
+        },
+        {
+          "title": "200 mg twice daily — limited course",
+          "approvalDuration": "6 months",
+          "all": [
+            "Moderate-to-severe pain related to endometriosis.",
+            "Premenopausal.",
+            "TWO analgesics tried ≥3 months or contraindicated/intolerant.",
+            {
+              "any": [
+                "One hormonal contraceptive ≥3-month trial failure/contraindication/intolerance.",
+                "One progestin ≥3-month trial failure/contraindication/intolerance."
+              ]
+            },
+            {
+              "any": [
+                "OB/GYN.",
+                "Reproductive endocrinologist."
+              ]
+            },
+            "Orilissa 200 mg twice daily maximum 6 months TOTAL."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Verify indication, trial history, clinical findings and prescriber documentation according to the source."
+      ]
+    },
+    {
+      "id": "gl-99520-ancobon",
+      "policyCode": "GL-99520",
+      "product": "Ancobon / generic flucytosine",
+      "matchBrands": [
+        "ANCOBON"
+      ],
+      "matchNames": [
+        "FLUCYTOSINE"
+      ],
+      "heading": "Ancobon / generic flucytosine — source-grounded clinical eligibility",
+      "sourcePage": 684,
+      "sourceLastPage": 685,
+      "approvalDuration": "2 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Flucytosine: Candida or Cryptococcus indicated infection with amphotericin for systemic use (2m); separate specialist IDSA regimen may last up to 12m.",
+      "guidelineCaution": "Original November AHCCCS statewide clinical criteria, not an exact Pima ACC plan-specific PA/coverage determination. Select the relevant dose, condition and approval period.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99520.txt",
+      "sourceChecks": [
+        "Product Name:Brand Ancobon, generic flucytosine",
+        "Cryptococcus species",
+        "Candida species",
+        "amphotericin B"
+      ],
+      "pathways": [
+        {
+          "title": "Culture-based systemic fungal infection",
+          "approvalDuration": "2 months",
+          "all": [
+            {
+              "any": [
+                "Candida septicemia, endocarditis, or urinary tract infection.",
+                "Cryptococcus meningitis or pulmonary infection."
+              ]
+            },
+            "If systemic infection, flucytosine is combined with amphotericin B."
+          ]
+        },
+        {
+          "title": "IDSA-recommended infectious disease regimen",
+          "approvalDuration": "12 months",
+          "all": [
+            "An IDSA-recommended regimen prescribed by or in consultation with infectious disease specialist.",
+            "Duration set by provider recommendation, up to 12 months."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Verify indication, trial history, clinical findings and prescriber documentation according to the source."
+      ]
+    },
+    {
+      "id": "gl-99529-xenleta",
+      "policyCode": "GL-99529",
+      "product": "Xenleta (lefamulin)",
+      "matchBrands": [
+        "XENLETA"
+      ],
+      "heading": "Xenleta (lefamulin) — source-grounded clinical eligibility",
+      "sourcePage": 2040,
+      "sourceLastPage": 2042,
+      "approvalDuration": "7 days",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Xenleta CABP preferred 7-day source duration, alternate postdischarge/IV continuation, or specialist-supported off-label up to six months.",
+      "guidelineCaution": "Original November AHCCCS statewide clinical criteria, not an exact Pima ACC plan-specific PA/coverage determination. Select the relevant dose, condition and approval period.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99529.txt",
+      "sourceChecks": [
+        "Product Name:Xenleta",
+        "community-acquired bacterial pneumonia",
+        "As continuation of therapy",
+        "three of the following antibiotics",
+        "infectious disease specialist"
+      ],
+      "pathways": [
+        {
+          "title": "Community-acquired bacterial pneumonia",
+          "approvalDuration": "7 days",
+          "all": [
+            {
+              "any": [
+                "Continuation after discharge from hospital.",
+                "Continuation after sensitive IV antibiotic treatment.",
+                {
+                  "all": [
+                    "Community-acquired bacterial pneumonia diagnosis.",
+                    "Suspected or culture-proven susceptible organism.",
+                    "Failed, contraindicated or intolerant to THREE of amoxicillin, macrolide, doxycycline, fluoroquinolone, or beta-lactam combination."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Off-label continuation or specialist pathway",
+          "approvalDuration": "6 months",
+          "all": [
+            {
+              "any": [
+                "Continue treatment after hospital discharge.",
+                "Transition from active susceptible IV antibiotic therapy.",
+                "Prescribed by/in consultation with infectious disease specialist."
+              ]
+            },
+            "Original source caps off-label duration at 6 months, depending on provider-recommended course."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Verify indication, trial history, clinical findings and prescriber documentation according to the source."
+      ]
+    },
+    {
+      "id": "gl-99534-ophthalmic-lubricants-brands",
+      "policyCode": "GL-99534",
+      "product": "Branded ophthalmic lubricants: Systane, Refresh, Gonak, Genteal, Tears Naturale",
+      "matchBrands": [
+        "SYSTANE",
+        "REFRESH",
+        "GONAK",
+        "GENTEAL",
+        "TEARS NATURALE"
+      ],
+      "heading": "Branded ophthalmic lubricants: Systane, Refresh, Gonak, Genteal, Tears Naturale — source-grounded clinical eligibility",
+      "sourcePage": 1743,
+      "sourceLastPage": 1744,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Branded ophthalmic lubricants require BOTH generic equivalent (in matching dosage form) and sodium-chloride ophthalmic ointment failures/contraindications/intolerance.",
+      "guidelineCaution": "Original November AHCCCS statewide clinical criteria, not an exact Pima ACC plan-specific PA/coverage determination. Select the relevant dose, condition and approval period.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99534.txt",
+      "sourceChecks": [
+        "Product Name:brand Systane, brand Refresh",
+        "Generic equivalents for drops",
+        "sodium chloride ophthalmic ointment"
+      ],
+      "pathways": [
+        {
+          "title": "ALL prior product steps",
+          "approvalDuration": "12 months",
+          "all": [
+            "Failed, contraindicated or intolerant to generic equivalents of drops, ointments or gels for the requested named brand.",
+            "Failed, contraindicated or intolerant to sodium chloride ophthalmic ointment."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Verify indication, trial history, clinical findings and prescriber documentation according to the source."
+      ]
+    },
+    {
+      "id": "gl-99551-topical-calcipotriene-calcitriol",
+      "policyCode": "GL-99551",
+      "product": "Topical vitamin-D agents for psoriasis",
+      "matchBrands": [
+        "DOVONEX",
+        "CALCITRENE",
+        "VECTICAL"
+      ],
+      "matchNames": [
+        "CALCIPOTRIENE CREAM",
+        "CALCIPOTRIENE OINTMENT",
+        "CALCITRIOL OINTMENT"
+      ],
+      "heading": "Topical vitamin-D agents for psoriasis — source-grounded clinical eligibility",
+      "sourcePage": 137,
+      "sourceLastPage": 139,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Applies to named topical cream or ointment products only; step requires TWO adequately potent topical corticosteroids.",
+      "guidelineCaution": "Original November AHCCCS statewide clinical criteria, not an exact Pima ACC plan-specific PA/coverage determination. Select the relevant dose, condition and approval period.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99551.txt",
+      "sourceChecks": [
+        "Brand Dovonex cream",
+        "Diagnosis of psoriasis",
+        "TWO medium to Very high potency",
+        "corticosteroid topical treatments"
+      ],
+      "pathways": [
+        {
+          "title": "Topical vitamin-D products — psoriasis",
+          "approvalDuration": "12 months",
+          "all": [
+            "Diagnosis of psoriasis.",
+            "Failed, contraindicated or intolerant to TWO medium-to-very-high potency TOPICAL corticosteroids (see source potency table)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Verify indication, trial history, clinical findings and prescriber documentation according to the source."
+      ]
+    },
+    {
+      "id": "gl-99606-egrifta",
+      "policyCode": "GL-99606",
+      "product": "Egrifta SV (tesamorelin)",
+      "matchBrands": [
+        "EGRIFTA SV",
+        "EGRIFTA"
+      ],
+      "heading": "Egrifta SV (tesamorelin) — source-grounded clinical eligibility",
+      "sourcePage": 528,
+      "sourceLastPage": 529,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "HIV-associated lipodystrophy is the sole source-listed prerequisite; 12-month authorization.",
+      "guidelineCaution": "Original November AHCCCS statewide clinical criteria, not an exact Pima ACC plan-specific PA/coverage determination. Select the relevant dose, condition and approval period.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-99606.txt",
+      "sourceChecks": [
+        "Guideline ID GL-99606",
+        "Product Name:Egrifta SV",
+        "Diagnosis of human immunodeficiency virus (HIV)-associated lipodystrophy"
+      ],
+      "pathways": [
+        {
+          "title": "Single source indication",
+          "approvalDuration": "12 months",
+          "all": [
+            "HIV-associated lipodystrophy diagnosed."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Verify indication, trial history, clinical findings and prescriber documentation according to the source."
+      ]
     }
   ]
 }
