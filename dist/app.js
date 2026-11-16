@@ -804,6 +804,30 @@
       ...(state.data.policies || []).filter(policy => policy.planId === state.planId)];
   }
 
+  // Slice, never summarize: reconstructing these parts yields the exact source.
+  // Product headings label source branches; they do not assert applicability.
+  function policySourceBranches(text) {
+    const markers = [...text.matchAll(/^[\t ]*Product\s*Name\s*:[\t ]*([^\r\n]*)/gmi)];
+    if (!markers.length) return {intro: text, branches: []};
+    return {intro: text.slice(0, markers[0].index), branches: markers.map((marker, i) => {
+      const content = text.slice(marker.index, markers[i + 1]?.index ?? text.length);
+      const stage = content.match(/Therapy\s+Stage[\t ]*[\r\n]+\s*(Initial Authorization|Reauthorization)/i)?.[1] || '';
+      const duration = content.match(/Approval\s+Length[\t ]*[\r\n]+\s*(\d+\s+(?:month|week|day)\(s\))/i)?.[1] || '';
+      return {product: marker[1].trim() || 'Product branch (see source text)', stage, duration, text: content};
+    })};
+  }
+
+  function policySourceBranchMarkup(text) {
+    const parsed = policySourceBranches(text);
+    if (!parsed.branches.length) return '';
+    return '<p>Original source branches — select the applicable product and treatment stage. All source wording and logical connectors are preserved; these are not clinician-approved summaries.</p>'
+      + parsed.branches.map((branch, index) => `<details class="source-branch result-disclosure">
+          <summary>${escapeHtml(branch.product)}${branch.stage ? ' · ' + escapeHtml(branch.stage) : ''}${branch.duration ? ' · ' + escapeHtml(branch.duration) : ''}</summary>
+          <pre class="guideline-verbatim">${escapeHtml(branch.text)}</pre>
+        </details>`).join('')
+      + `<details class="result-disclosure"><summary>Complete unformatted source, including document notes</summary><pre class="guideline-verbatim">${escapeHtml(text)}</pre></details>`;
+  }
+
   function bindCriteriaLibrary() {
     el.criteriaSearch.addEventListener('input', renderCriteriaLibrary);
     document.addEventListener('click', event => {
@@ -824,9 +848,11 @@
       if (policy?.planId && policy.planId !== 'ahcccs-ffs-aihp' && policy.planId !== state.planId) return;
       if (!policy || !policy.sourceTextUrl) return;
       const pre = button.closest('.criteria-source').querySelector('.guideline-verbatim');
+      let branchView = button.closest('.criteria-source').querySelector('.source-branch-view');
       if (button.dataset.loaded === 'true') {
-        pre.hidden = !pre.hidden;
-        button.textContent = pre.hidden ? 'Read full guideline text' : 'Hide full guideline text';
+        const view = branchView || pre;
+        view.hidden = !view.hidden;
+        button.textContent = view.hidden ? 'Read full guideline text' : 'Hide full guideline text';
         return;
       }
       button.disabled = true;
@@ -835,7 +861,14 @@
         const response = await fetch(policy.sourceTextUrl);
         if (!response.ok) throw new Error('Source text unavailable');
         pre.textContent = await response.text();
-        pre.hidden = false;
+        const markup = policySourceBranchMarkup(pre.textContent);
+        if (markup) {
+          branchView = document.createElement('div');
+          branchView.className = 'source-branch-view';
+          branchView.innerHTML = markup;
+          pre.after(branchView);
+          pre.hidden = true;
+        } else pre.hidden = false;
         button.dataset.loaded = 'true';
         button.textContent = 'Hide full guideline text';
       } catch (error) {
