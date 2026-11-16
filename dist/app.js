@@ -1339,7 +1339,7 @@
     return `<p><strong>Quantity limit:</strong> ${amounts.length ? escapeHtml(amounts.join('; ')) + (days.length ? ' per ' + escapeHtml(days.join('; ')) + ' days' : '') : 'Applies. The formulary does not publish a numeric limit; see the quantity-limit policy below.'}</p>`;
   }
 
-  async function uhcClinicalContent(group, bindings) {
+  async function uhcClinicalContent(group, bindings, guidance = null) {
     const policies = state.data.policies.filter(p => p.planId === state.planId);
     const byRole = roles => bindings.filter(b => roles.includes(b.role));
     let primary = byRole(['product']);
@@ -1368,11 +1368,18 @@
       if (body.length) sections.push(`<section class="uhc-restriction-criteria"><h4>${kind}</h4>${body.join('')}</section>`);
     }
     const paRequired = (group.records || []).some(r => r.planId === state.planId && !r.isStatewideReference && ['required','conditional'].includes(r.pa));
-    if (paRequired && !primary.length) sections.unshift('<p>PA is required. Medication-specific approval criteria were not located in UHC’s published guideline; use the formulary reference to confirm the requirement.</p>');
+    if (paRequired && !primary.length) sections.unshift('<p>PA is required. Approval criteria have not yet been verified for this formulation. Review the linked UHC source.</p>');
     const referenceLabels = references.map(p => primary.some(b => b.policyId === p.id) ? 'PA reference' : 'QL reference');
+    if (!paRequired && !primary.length && guidance) {
+      sections.unshift(clinicalGuidanceContent(guidance, true));
+      references.unshift(guidance); referenceLabels.unshift('Clinical reference');
+    }
     if (paRequired && !primary.length) {
       const record = group.records.find(r => r.planId === state.planId && !r.isStatewideReference && ['required','conditional'].includes(r.pa));
-      if (record?.sourceUrl) { references.unshift(record); referenceLabels.unshift('PA formulary'); }
+      const relatedIds = new Set((group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference).flatMap(r => r.policySources || []).map(p => p.policyId));
+      const related = policies.find(p => relatedIds.has(p.id));
+      if (related) { references.unshift(related); referenceLabels.unshift('PA source'); }
+      else if (record?.sourceUrl) { references.unshift(record); referenceLabels.unshift('PA formulary'); }
     }
     return {html: sections.join(''), references, referenceLabels};
   }
@@ -1389,7 +1396,7 @@
     try {
       const bindings = uhcGroupBindings(group);
       if (state.planId === 'uhc-community-az' && (group.records || []).some(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays))) {
-        const content = await uhcClinicalContent(group, bindings);
+        const content = await uhcClinicalContent(group, bindings, guidance);
         if (target.isConnected === false) return;
         target.innerHTML = content.html;
         const references = details.querySelector('.card-pa-references');

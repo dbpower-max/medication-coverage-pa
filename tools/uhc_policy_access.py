@@ -6,7 +6,7 @@ from collections import defaultdict
 from structured_statewide_criteria import structure_policy, validate_structure
 
 PLAN = 'uhc-community-az'
-FORMS = r'oral|tablet|tablets|capsule|capsules|solution|suspension|injection|injectable|subcutaneous|intravenous|intramuscular|topical|cream|ointment|ophthalmic|otic|nasal|inhalation|inhaler|aerosol|powder|spray|prefilled|syringe|syringes|pen|kit|pack|vial|vials|chewable|disintegrating|hcl|hydrochloride|mg|mcg|ml|unit|units|act|actuat|dose|metered|breath|actuated|hfa|tabs|caps|soln|susp|packet|packets|reconstituted|cartridge|kwikpen|and|external|er|xr|dr|sr|pf|therapy|initiation|pk|titration|patient|month|sprinkle|sprinkles|soluble|dispersible|granules|auto|injector|transdermal|patch|recon|reconstitution|concentrate|intramuscular|patches|odt|for|rebidose'
+FORMS = r'oral|tablet|tablets|capsule|capsules|solution|suspension|injection|injectable|subcutaneous|intravenous|intramuscular|topical|cream|ointment|ophthalmic|otic|nasal|inhalation|inhaler|aerosol|powder|spray|prefilled|syringe|syringes|pen|kit|pack|vial|vials|chewable|disintegrating|hcl|hydrochloride|mg|mcg|ml|unit|units|act|actuat|dose|metered|breath|actuated|hfa|tabs|caps|soln|susp|packet|packets|reconstituted|cartridge|kwikpen|and|external|er|xr|dr|sr|pf|therapy|initiation|pk|titration|patient|month|sprinkle|sprinkles|soluble|dispersible|granules|auto|injector|transdermal|patch|recon|reconstitution|concentrate|intramuscular|patches|odt|for|rebidose|hr|hour|hours'
 
 def identity(value):
     value = re.sub(r'\([^)]*\)|\[[^]]*\]', ' ', str(value).lower())
@@ -20,7 +20,12 @@ def identity(value):
 def alias_parts(product):
     product = re.sub(r'\b([A-Za-z][A-Za-z-]+)\s*/\s*\1\b', r'\1, \1', product, flags=re.I)
     product = re.sub(r'Asmanex HFA/Twisthaler', 'Asmanex HFA, Asmanex Twisthaler',product,flags=re.I)
-    return [v.strip() for v in re.split(r'[,;]|\b(?:brand|generic)\b', product, flags=re.I) if len(identity(v)) >= 4]
+    parts=[]
+    for value in re.split(r'[,;]|\b(?:brand|generic)\b', product, flags=re.I):
+        value=value.strip()
+        if parts and re.fullmatch(r'\d+(?:\.\d+)?\s*(?:(?:mg|mcg|ml|units?|%)(?:\s*/\s*(?:hr|hour|ml))?)?',value,re.I):parts[-1]+=', '+value
+        elif value:parts.append(value)
+    return [v for v in parts if len(identity(v))>=4]
 
 def aliases(product):
     return {identity(v) for v in alias_parts(product)}
@@ -52,10 +57,15 @@ def product_matches(record, product):
         source_devices = [f for f in ['pen','syringe','vial','autoinjector'] if re.search(r'\b'+f+r'\b',lower)]
         if 'kwikpen' in lower:source_devices.append('pen')
         if source_devices and not any((f in name or (f=='pen' and 'kwikpen' in name) or (f=='autoinjector' and 'auto-injector' in name)) for f in source_devices):allowed = False
-        source_strengths = {float(n) for n in re.findall(r'\b(\d+(?:\.\d+)?)\s*mg\b', alias, re.I)}
-        if source_strengths:
-            actual = {float(n) for n in re.findall(r'\b(\d+(?:\.\d+)?)\s*mg\b',record['name'],re.I)}
-            if actual and not actual <= source_strengths:allowed = False
+        for unit in ['mg','mcg']:
+            source_strengths = {float(n) for n in re.findall(r'\b(\d+(?:\.\d+)?)\s*'+unit+r'\b',alias,re.I)}
+            actual = {float(n) for n in re.findall(r'\b(\d+(?:\.\d+)?)\s*'+unit+r'\b',record['name'],re.I)}
+            if source_strengths and actual and not actual <= source_strengths:allowed = False
+        ratio_pattern=r'\b(\d+(?:\.\d+)?)\s*(mg|mcg)\s*/\s*(\d+(?:\.\d+)?)?\s*ml\b'
+        ratios=lambda value:{(unit.lower(),float(n)/float(volume or 1)) for n,unit,volume in re.findall(ratio_pattern,value,re.I)}
+        if ratios(alias) and ratios(name) and not ratios(name)<=ratios(alias):allowed=False
+        if 'delayed release' in lower or re.search(r'\bDR\b',alias,re.I):
+            if not re.search(r'delayed release|\bdr\b',name):allowed=False
         if 'extended release' in lower or re.search(r'\b(?:ER|XR)\b',alias):
             if not re.search(r'extended release|\b(?:er|xr)\b',name):allowed = False
         source_pct = set(re.findall(r'(\d+(?:\.\d+)?)\s*%',alias))
@@ -131,6 +141,10 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         for code,indexes in sorted(matched.items()):
             pa_indexes=[];ql_indexes=[]
             for i in sorted(indexes):
+                dx=structured[code]['branches'][i]['fields'].get('Diagnosis',{})
+                scope=dx.get('displayText') or dx.get('text','')
+                if re.fullmatch(r'Non[- ]?Preferred(?: (?:Drugs|Agents|Products))?',scope,re.I) and record['preferred']!='non_preferred':continue
+                if re.fullmatch(r'Preferred(?: (?:Drugs|Agents|Products))?',scope,re.I) and record['preferred']!='preferred':continue
                 typ=structured[code]['branches'][i]['fields'].get('Guideline Type',{}).get('text','').lower()
                 (ql_indexes if 'quantity' in typ else pa_indexes).append(i)
             if pa:add(code,pa_indexes,'product')

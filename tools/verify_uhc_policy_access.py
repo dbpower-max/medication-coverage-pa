@@ -3,7 +3,7 @@ import gzip,json,sys,copy
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).parent))
 from structured_statewide_criteria import validate_structure
-from uhc_policy_access import product_matches
+from uhc_policy_access import product_matches,alias_parts
 p=json.load(gzip.open('_site/data.json.gz'))
 for f in p.get('planDataFiles',{}).values():p['medications']+=json.load(gzip.open('_site/'+f.split('?')[0].lstrip('./')))
 policies={r['id']:r for r in p['policies'] if r['planId']=='uhc-community-az'}
@@ -24,9 +24,16 @@ for r in flagged:
  for b in r.get('uhcClinicalBindings',[]):
   assert b['policyId'] in policies
   assert all(0<=i<len(structured[b['policyId']]['branches']) for i in b['branchIndexes'])
+  if b['role']=='product':
+   for i in b['branchIndexes']:
+    dx=structured[b['policyId']]['branches'][i]['fields'].get('Diagnosis',{})
+    if dx.get('text','').strip()=='Non-Preferred':assert r['preferred']=='non_preferred','Preferred product received nonpreferred criteria'
  if r.get('qlAmount') or r.get('qlDays'):assert any(b['role']=='global_quantity' for b in r['uhcClinicalBindings'])
  if r['pa'] in ['required','conditional'] and r['preferred']=='non_preferred':assert any(b['role']=='nonpreferred' for b in r['uhcClinicalBindings'])
 for r in rows:
+ if r['name'].lower().startswith('fentanyl transdermal patch'):
+  labels=[label for b in r['uhcClinicalBindings'] for label in b.get('branchLabels',{}).values()]
+  assert any('25 mcg/hr' in label and '100 mcg/hr' in label for label in labels),'Fentanyl source strengths were truncated'
  if r['name'] in ['APIDRA SOLOSTAR','APIDRA VIAL']:
   assert any(policies[b['policyId']]['policyCode']=='GL-231255' for b in r['uhcClinicalBindings'])
  if r.get('policyQuantityLimit'):
@@ -38,6 +45,10 @@ assert not product_matches({'name':'Humulin R U-100'},'Humulin R U-500 kwikpen a
 assert not product_matches({'name':'prednisolone ophthalmic solution'},'prednisolone oral solution'),'Oral policy crossed into ophthalmic form'
 assert not product_matches({'name':'lidocaine injection solution'},'lidocaine topical patch'),'Topical policy crossed into injection'
 assert product_matches({'name':'lansoprazole oral tablet delayed release dispersible 15 mg'},'generic lansoprazole ODT'),'Explicit ODT/dispersible formulation synonym missed'
+assert any('25 mcg/hr' in a and '100 mcg/hr' in a for a in alias_parts('fentanyl patches 12 mcg/hr, 25 mcg/hr, 50 mcg/hr, 75 mcg/hr, 100 mcg/hr, tramadol ER tabs')),'Multi-strength source scope truncated'
+assert not product_matches({'name':'fentanyl transdermal patch 100 mcg/hr'},'fentanyl patches 12 mcg/hr'),'Different patch dose accepted'
+assert not product_matches({'name':'lidocaine injection solution 20 mg/ml'},'lidocaine injection solution 20 mg/2 ml'),'Different concentration accepted'
+assert not product_matches({'name':'omeprazole oral capsule'},'omeprazole DR capsules'),'Unspecified release accepted for DR-only branch'
 # Compare the build input after existing approved corrections; binding must never infer PA.
 base=json.load(gzip.open('dist/data.json.gz'))
 from source_restrictions import correct_source_restrictions,correct_source_conflicts
