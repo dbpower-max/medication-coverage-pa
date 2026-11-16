@@ -2,6 +2,7 @@
 import collections, copy, gzip, hashlib, json, re
 from pathlib import Path
 from functools import lru_cache
+from source_restrictions import correct_source_restrictions
 ROOT=Path(__file__).resolve().parents[1]
 SOURCE='https://www.azcompletehealth.com/content/dam/centene/az-complete-health/json/Drugs_FAB_CNCAZCH01_AZ_Medicaid_Integrated_Formulary_eff_9-1-22_07142026131014_AZ.json'
 ASSUMPTION='Working assumption approved November 13, 2026: the officially linked JSON (declared plan year 2022) plus subsequent official updates is treated as the complete current integrated formulary. Completeness is not insurer-confirmed. Later applicable sources take precedence; source dates and baseline values remain available.'
@@ -30,6 +31,7 @@ def main():
  src=ROOT/'dist/sources/ach/integrated-formulary-baseline.json.gz'
  raw=json.loads(gzip.decompress(src.read_bytes())); assert len(raw)==4454
  d=json.loads(gzip.decompress((ROOT/'dist/data.json.gz').read_bytes()))
+ correct_source_restrictions(d['medications'])
  current=[r for r in d['medications'] if r['planId']=='az-complete-health' and r.get('validation')!='official_json_baseline_with_later_updates']
  result=[];counts=collections.Counter()
  for index,row in enumerate(raw):
@@ -59,6 +61,9 @@ def main():
    if r.get('preferred') in ('preferred','non_preferred'):rec['preferred']=r['preferred']
    if r.get('pa') in ('required','conditional','not_required'):rec['pa']=r['pa'];rec['paText']=r.get('paText','')
    if r.get('step')=='specified':rec['step']='specified';rec['stepText']=r.get('stepText','')
+   if r.get('coverage')=='explicit_not_covered':rec['coverage']='explicit_not_covered'
+   for field in ['paExceptionText','ageRestrictionText','ageLimited','coverageText']:
+    if field in r:rec[field]=r[field]
    if r.get('qlAmount') or r.get('qlDays'):rec['qlAmount']=r.get('qlAmount','');rec['qlDays']=r.get('qlDays','');rec['quantityLimited']=True
    rec['sourceUpdates'].append({k:r.get(k) for k in ['id','name','sourceTitle','sourceUrl','sourceEffective','sourcePage','preferred','pa','paText','step','stepText','qlAmount','qlDays']})
   # Conflicting rules on equally dated candidates are kept unresolved, not chosen arbitrarily.

@@ -14,6 +14,7 @@ jobs:
           python-version: '3.12'
       - run: python tools/build_provider_site.py
       - run: node --check _site/app.js
+      - run: node tools/verify_pa_column.cjs
       - run: python tools/verify_shared_policy_pilot.py
       - run: node tools/verify_medication_grouping.cjs
       - run: node tools/verify_statewide_provider.cjs

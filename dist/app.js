@@ -712,6 +712,9 @@
         ).join(' · ')}</p>`);
       }
       if (record.paText && ['required', 'conditional'].includes(record.pa)) details.push(`<p><strong>PA:</strong> ${escapeHtml(record.paText)}</p>`);
+      if (record.paExceptionText) details.push(`<p><strong>PA exception stated by source:</strong> ${escapeHtml(record.paExceptionText)}</p>`);
+      if (record.ageRestrictionText) details.push(`<p><strong>Age restriction:</strong> ${escapeHtml(record.ageRestrictionText)}</p>`);
+      if (record.coverageText) details.push(`<p><strong>Coverage restriction:</strong> ${escapeHtml(record.coverageText)}</p>`);
       if (record.stepText) details.push(`<p><strong>Step:</strong> ${escapeHtml(record.stepText)}</p>`);
       if (record.qlAmount || record.qlDays) {
         details.push(`<p><strong>Quantity limit:</strong> ${escapeHtml([record.qlAmount, record.qlDays && `per ${record.qlDays} days`].filter(Boolean).join(' '))}</p>`);
@@ -975,13 +978,17 @@
           <p class="brand">AHCCCS statewide drug list · ${escapeHtml(sourceInfo.drugListEffective || statewide.sourceEffective)}</p>
         </div>
         <div class="chips" aria-label="Statewide coverage attributes">${statusChips(statewide)}</div>
+        ${needsPa && statewide.paText ? `<p class="pa-condition"><strong>${statewide.pa === 'conditional' ? 'PA condition' : 'PA requirement'}:</strong> ${escapeHtml(statewide.paText)}</p>` : ''}
+        ${statewide.paExceptionText ? `<p><strong>PA exception stated by source:</strong> ${escapeHtml(statewide.paExceptionText)}</p>` : ''}
+        ${statewide.ageRestrictionText ? `<p><strong>Age restriction:</strong> ${escapeHtml(statewide.ageRestrictionText)}</p>` : ''}
+        ${statewide.coverageText ? `<p><strong>Coverage restriction:</strong> ${escapeHtml(statewide.coverageText)}</p>` : ''}
         ${criteriaLibraryShortcut(group)}
         ${needsPa || hasStep || guidance ? `<details class="record-detail result-disclosure" ${guidance ? 'open' : ''}>
           <summary>${guidance ? escapeHtml(guidance.heading) : (needsPa ? 'PA requirements — details not yet structured' : 'Step-therapy requirements — details not yet structured')}</summary>
           <div class="result-disclosure-body">
             ${guidance ? clinicalGuidanceContent(guidance) : `
               ${hasStep ? `<p><strong>Statewide step rule:</strong> ${escapeHtml(statewide.stepText || 'Step therapy specified')}</p>` : ''}
-              ${needsPa ? '<p><strong>PA is required by the statewide drug list.</strong></p>' : ''}
+              ${needsPa && !statewide.paText ? `<p><strong>${statewide.pa === 'conditional' ? 'PA applies only under the source conditions; review the original drug-list row.' : 'PA is required by the statewide drug list.'}</strong></p>` : ''}
               <p>The published drug list does not provide the complete trial dose, duration, exception or clinical approval pathway for this product. A product-specific clinical guideline has not yet been verified and structured in the app. Do not infer approval from this listing.</p>
               <p><a class="source-link" href="${escapeHtml(sourceInfo.paCriteriaOfficialUrl || '')}" target="_blank" rel="noopener">Search the AHCCCS statewide PA criteria document</a></p>
             `}
