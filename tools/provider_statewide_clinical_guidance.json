@@ -11452,6 +11452,258 @@
       "documentationSuggestions": [
         "Document all indicated prior treatment and test results, clinical response, and specialist context."
       ]
+    },
+    {
+      "id": "gl-206195-sunosi",
+      "policyCode": "GL-206195",
+      "product": "Sunosi (solriamfetol)",
+      "matchBrands": [
+        "SUNOSI"
+      ],
+      "heading": "Sunosi (solriamfetol) — November source-checked AHCCCS criteria",
+      "sourcePage": 1709,
+      "sourceLastPage": 1713,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Four independent stages: narcolepsy with MSLT and stimulant/armodafinil trials; OSA with diagnostic AHI, ≥1 month CPAP/BiPAP and armodafinil step.",
+      "guidelineCaution": "Source-derived statewide eligibility is not evidence of specific Tucson/Pima managed-care formulary coverage or a PA requirement.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-206195.txt",
+      "sourceChecks": [
+        "Product Name:Sunosi",
+        "mean sleep latency of less than or equal to 8 minutes",
+        "History of failure, contraindication, or intolerance to BOTH",
+        "Fifteen or more obstructive respiratory events",
+        "fully compliant"
+      ],
+      "stages": [
+        {
+          "title": "Narcolepsy — initial",
+          "approvalDuration": "12 months",
+          "all": [
+            {
+              "all": [
+                "Irresistible sleepiness or sleep lapses daily for ≥3 months.",
+                "MSLT mean sleep latency ≤8 minutes AND ≥2 SOREMPs (one may derive from previous PSG)."
+              ]
+            },
+            "Other causes of sleepiness excluded or treated.",
+            {
+              "all": [
+                {
+                  "any": [
+                    "Amphetamine-class stimulant failed/contraindicated/intolerant.",
+                    "Methylphenidate-class stimulant failed/contraindicated/intolerant."
+                  ]
+                },
+                "Armodafinil failed/contraindicated/intolerant."
+              ]
+            },
+            {
+              "any": [
+                "Neurologist.",
+                "Psychiatrist.",
+                "Sleep medicine specialist."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Narcolepsy — renewal",
+          "approvalDuration": "12 months",
+          "all": [
+            "Reduced excessive daytime sleepiness."
+          ]
+        },
+        {
+          "title": "OSA — initial",
+          "approvalDuration": "12 months",
+          "all": [
+            {
+              "any": [
+                "At least 15 obstructive events/hr on sleep study.",
+                {
+                  "all": [
+                    "At least 5 obstructive events/hr.",
+                    {
+                      "any": [
+                        "Daytime sleepiness.",
+                        "Nonrestorative sleep.",
+                        "Fatigue.",
+                        "Insomnia.",
+                        "Gasping/choking.",
+                        "Witnessed snoring.",
+                        "Observed apnea."
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "all": [
+                "CPAP/BiPAP or other airway treatment used for ≥1 month.",
+                "Fully adherent to therapy of airway obstruction."
+              ]
+            },
+            "Armodafinil failed/contraindicated/intolerant.",
+            {
+              "any": [
+                "Neurologist.",
+                "Psychiatrist.",
+                "Sleep medicine specialist."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "OSA — renewal",
+          "approvalDuration": "12 months",
+          "all": [
+            "Reduced excessive daytime sleepiness.",
+            "Remains fully compliant with ongoing CPAP/BiPAP or other airway therapy."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include source-required clinical evaluations, lab data, treatment trials, and specialty notes."
+      ]
+    },
+    {
+      "id": "gl-224202-palforzia",
+      "policyCode": "GL-224202",
+      "product": "Palforzia (peanut oral immunotherapy)",
+      "matchBrands": [
+        "PALFORZIA"
+      ],
+      "heading": "Palforzia (peanut oral immunotherapy) — November source-checked AHCCCS criteria",
+      "sourcePage": 1361,
+      "sourceLastPage": 1364,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Peanut-allergy IgE and skin testing, strict age by dosing phase, EoE/anaphylaxis/asthma contraindication history and REMS mandatory.",
+      "guidelineCaution": "Source-derived statewide eligibility is not evidence of specific Tucson/Pima managed-care formulary coverage or a PA requirement.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-224202.txt",
+      "sourceChecks": [
+        "Product Name:Palforzia",
+        "IgE level of greater than or equal to 0.35",
+        "3mm",
+        "REMS",
+        "History of eosinophilic esophagitis"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            {
+              "all": [
+                "Peanut-specific IgE ≥0.35 kUA/L.",
+                "Skin-prick wheal ≥3 mm larger than negative control."
+              ]
+            },
+            {
+              "any": [
+                {
+                  "all": [
+                    "Patient aged 1–17.",
+                    "Initial dose escalation phase."
+                  ]
+                },
+                {
+                  "all": [
+                    "Patient aged ≥1.",
+                    "Up-dosing or maintenance phase."
+                  ]
+                }
+              ]
+            },
+            "Continue peanut-avoidant diet.",
+            {
+              "all": [
+                "No prior EoE or eosinophilic gastrointestinal disease.",
+                "No severe or life-threatening anaphylaxis within past 2 months.",
+                "No severe/poorly controlled asthma."
+              ]
+            },
+            "Allergy/immunology prescriber.",
+            "Prescriber certified and enrolled in Palforzia REMS."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive response to Palforzia.",
+            "Peanut avoidance maintained.",
+            "Allergy/immunology prescriber.",
+            "Palforzia REMS-certified/enrolled prescriber."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include source-required clinical evaluations, lab data, treatment trials, and specialty notes."
+      ]
+    },
+    {
+      "id": "gl-221195-apomorphine",
+      "policyCode": "GL-221195",
+      "product": "Apokyn / Onapgo (injectable apomorphine)",
+      "matchBrands": [
+        "APOKYN",
+        "ONAPGO"
+      ],
+      "matchNames": [
+        "APOMORPHINE INJECTION"
+      ],
+      "heading": "Apokyn / Onapgo (injectable apomorphine) — November source-checked AHCCCS criteria",
+      "sourcePage": 166,
+      "sourceLastPage": 168,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Parkinson OFF after optimized carbidopa/levodopa and two prior distinct adjunctive classes; applies to injectable Apokyn/Onapgo and generic apomorphine.",
+      "guidelineCaution": "Source-derived statewide eligibility is not evidence of specific Tucson/Pima managed-care formulary coverage or a PA requirement.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-221195.txt",
+      "sourceChecks": [
+        "Product Name:Brand Apokyn, generic apomorphine injection, Onapgo",
+        "two different classes",
+        "one half-hour",
+        "carbidopa/levodopa",
+        "OFF time per day"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Parkinson's disease.",
+            "Intermittent treatment of OFF episodes.",
+            "Continuing stable carbidopa/levodopa.",
+            "≥2 hours daily OFF despite optimized levodopa.",
+            {
+              "all": [
+                "Levodopa taken away from meals/high-protein intake.",
+                "Optimized levodopa dose and dosing intervals."
+              ]
+            },
+            "Tried/failed, contraindicated or intolerant to TWO adjunctive drugs from TWO DIFFERENT classes (dopamine agonist, COMT inhibitor, MAO-B inhibitor).",
+            "Neurologist or Parkinson specialist prescriber/consultation."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response.",
+            "Continuing carbidopa/levodopa treatment."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include source-required clinical evaluations, lab data, treatment trials, and specialty notes."
+      ]
     }
   ]
 }
