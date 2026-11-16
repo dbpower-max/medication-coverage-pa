@@ -26,6 +26,18 @@ def compatible(a,b):
  fa,fb=forms(a),forms(b)
  if fa and fb and not fa&fb:return False
  if ('injection' in fa) != ('injection' in fb) and fa and fb:return False
+ devices=lambda s:{kind for kind,pattern in {
+  'vial':r'\bvial\b', 'syringe':r'syringe|\bpref\s+syr\b',
+  'autoinjector':r'auto.?inj|clickject', 'pen':r'\bpen\b'
+ }.items() if re.search(pattern,s,re.I)}
+ da,db=devices(a),devices(b)
+ if da and db and not da&db:return False
+ routes=lambda s:{kind for kind,pattern in {
+  'iv':r'intraven|\biv\b', 'sc':r'subcut|sub-q|\bsc\b|\bsq\b',
+  'im':r'intramusc|\bim\b', 'intrathecal':r'intrathecal', 'intravitreal':r'intravitreal'
+ }.items() if re.search(pattern,s,re.I)}
+ ra,rb=routes(a),routes(b)
+ if ra and rb and not ra&rb:return False
  # Shared words such as "solution" do not make different routes equivalent.
  for route in ['nasal','inhalation','rectal','ophthalmic','otic','vaginal']:
   if (route in fa)!=(route in fb):return False
@@ -104,6 +116,8 @@ def main():
    for field in ['paExceptionText','ageRestrictionText','ageLimited','coverageText']:
     if field in r:rec[field]=r[field]
    if r.get('qlAmount') or r.get('qlDays'):rec['qlAmount']=r.get('qlAmount','');rec['qlDays']=r.get('qlDays','');rec['quantityLimited']=True
+   if r.get('quantityUncertaintyReason'):
+    rec['qlAmount']='';rec['qlDays']='';rec['quantityLimited']=False;rec['quantityUncertaintyReason']=r['quantityUncertaintyReason']
    rec['sourceUpdates'].append({k:r.get(k) for k in ['id','name','sourceTitle','sourceUrl','sourceEffective','sourcePage','preferred','pa','paText','step','stepText','qlAmount','qlDays']})
   # Conflicting rules on equally dated candidates are kept unresolved, not chosen arbitrarily.
   for field in ['preferred','pa']:

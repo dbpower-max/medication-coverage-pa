@@ -60,18 +60,39 @@ def correct_source_conflicts(records):
             if record.get('pa') == 'required' and any(pa) and not all(pa):
                 fields.update(pa='not_specified', paText='',
                     paUncertaintyReason='Printed source rows disagree on PA; applicability to the selected product is unresolved.')
-        if source.endswith('uhc-az-medicaid-pdl-2026-10-01.pdf') and record.get('pa') == 'required':
+        if source.endswith('uhc-az-medicaid-pdl-2026-10-01.pdf'):
             variants = record.get('conflictSources', [])
             flags = [bool(re.search(r'(^|;)\s*PA\s*(;|$)', row.get('codes', ''))) for row in variants]
-            if flags and any(flags) and not all(flags):
+            if record.get('pa') == 'required' and flags and any(flags) and not all(flags):
                 fields.update(pa='not_specified', paText='',
                     paUncertaintyReason='PA is printed in only some conflicting product listings; universal applicability is not established.')
+            for code, field in [('ST', 'step'), ('QL', 'qlAmount'), ('AL', 'ageLimited'),
+                                ('SP', 'specialty'), ('DX2RX', 'diagnosisRequired')]:
+                flags = [bool(re.search(r'(^|;)\s*' + code + r'\s*(;|$)', row.get('codes', ''))) for row in variants]
+                if not flags or not any(flags) or all(flags):
+                    continue
+                if code == 'ST' and record.get('step') == 'specified':
+                    fields.update(step='not_specified', stepText='',
+                        stepUncertaintyReason='Step therapy appears in only some conflicting product listings.')
+                elif code == 'QL' and (record.get('qlAmount') or record.get('quantityLimited')):
+                    fields.update(qlAmount='', qlDays='', quantityLimited=False,
+                        quantityUncertaintyReason='Quantity restrictions differ between printed product listings.')
+                elif code in ('AL', 'SP', 'DX2RX') and record.get(field):
+                    fields[field] = False
+                    fields[field + 'UncertaintyReason'] = 'Flag appears in only some conflicting product listings.'
+        if source.endswith(('ahcccs-drug-list-2026-11-01.pdf', 'bufc_formulary_eff10012026_en.pdf')) and len(rows) > 1:
+            quantities = [row.get('quantity', '').strip() for row in rows]
+            if any(quantities) and not all(quantities) and (record.get('qlAmount') or record.get('quantityLimited')):
+                fields.update(qlAmount='', qlDays='', quantityLimited=False,
+                    quantityUncertaintyReason='Quantity limit appears in only some conflicting printed rows.')
         if not fields:
             continue
         record.setdefault('sourceConflictCorrection', {
             'originalPreferred': record.get('preferred'), 'originalPa': record.get('pa'),
             'originalPaText': record.get('paText'), 'originalConflict': record.get('sourceConflict')
         })
+        for key in ('step', 'stepText', 'qlAmount', 'qlDays', 'quantityLimited', 'ageLimited', 'specialty', 'diagnosisRequired'):
+            record['sourceConflictCorrection'].setdefault('original' + key[0].upper() + key[1:], record.get(key))
         record.update(fields)
         if 'paUncertaintyReason' in fields:
             record['sourceConflict'] = fields['paUncertaintyReason']
