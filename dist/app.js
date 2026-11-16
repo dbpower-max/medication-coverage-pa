@@ -794,9 +794,10 @@
     const matches = searchIndexedCriteria(query, policies);
     const guides = clinicalPolicyOnlyGroups(query, []);
     const count = matches.length;
+    const structuredCount = matches.filter(policy => policy.structuredCriteriaUrl).length;
     el.criteriaCount.textContent = !normalize(query)
       ? `${policies.length} indexed guideline sections · Type a medication or policy name`
-      : `${guides.length} structured clinical guide${guides.length === 1 ? '' : 's'} · ${count} matching source section${count === 1 ? '' : 's'}${count > 25 ? ' · Showing first 25 source sections' : ''}`;
+      : `${guides.length} structured clinical guide${guides.length === 1 ? '' : 's'} · ${structuredCount} source-transcribed clinical polic${structuredCount === 1 ? 'y' : 'ies'} · ${count} matching source section${count === 1 ? '' : 's'}${count > 25 ? ' · Showing first 25 source sections' : ''}`;
     el.criteriaResults.innerHTML = guides.map(group => `<article class="criteria-source">
         <h3>${escapeHtml(group.label)} · ${escapeHtml(group.guide.policyCode)}</h3>
         <details class="result-disclosure"><summary>${escapeHtml(group.guide.heading)}</summary>
@@ -809,6 +810,7 @@
           · ${escapeHtml(policy.policyCode || '')} · source effective ${escapeHtml(policy.sourceEffective)}
           · PDF pages ${Number(policy.sourcePage)}–${Number(policy.sourceLastPage)}</p>
         ${policy.notes ? `<p>${escapeHtml(policy.notes)}</p>` : ''}
+        ${structuredPolicyPanel(policy)}
         ${policy.guide ? `<details class="approval-guide"><summary>PA criteria · ${escapeHtml(policy.indication || policy.name)}</summary>${approvalGuideContent(policy)}</details>` : ''}
         <p><a class="source-link" href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">Open original guideline PDF at this section</a></p>
         ${policy.sourceTextUrl ? `<button type="button" class="text-button criteria-load" data-read-guideline="${escapeHtml(policy.id)}">Read full guideline text</button>` : ''}
@@ -820,6 +822,35 @@
   function criteriaSources() {
     return [...(state.data.statewidePaCriteria || []),
       ...(state.data.policies || []).filter(policy => policy.planId === state.planId)];
+  }
+
+  function structuredPolicyPanel(policy) {
+    if (policy.planId !== 'ahcccs-ffs-aihp' || !policy.structuredCriteriaUrl) return '';
+    return `<section class="structured-policy">
+      <button type="button" class="text-button" data-read-criteria="${escapeHtml(policy.id)}">View clinical criteria · ${Number(policy.structuredBranchCount)} product/indication branches</button>
+      <div class="structured-criteria-content" hidden></div>
+    </section>`;
+  }
+
+  function structuredCriteriaMarkup(policy) {
+    const field = (branch, key) => branch.fields[key]?.text || '';
+    const rules = items => items.map(item => {
+      const number = /^(\d+(?:\.\d+)*)\b/.exec(item.text)?.[1];
+      const depth = number ? Math.min(number.split('.').length - 1, 4) : 0;
+      return `<p class="clinical-source-rule ${item.kind === 'connector' ? 'clinical-source-connector' : ''}" style="margin-left:${depth * .5}rem">${escapeHtml(item.text)}</p>`;
+    }).join('');
+    return `<p>Source-transcribed clinical criteria · ${escapeHtml(policy.policyCode)} · ${escapeHtml(policy.sourceEffective)}. Clinician approval pending. Follow the product, indication and AND/OR wording below; this reference does not establish selected-plan coverage or PA status.</p>`
+      + policy.branches.map((branch, i) => `<details class="clinical-source-branch result-disclosure">
+        <summary>${escapeHtml([field(branch, 'Product Name'), field(branch, 'Diagnosis'), field(branch, 'Therapy Stage')].filter(Boolean).join(' · '))}</summary>
+        <div class="result-disclosure-body">
+          ${['Diagnosis', 'Therapy Stage', 'Approval Length', 'Guideline Type'].map(key => field(branch, key) ? `<p><strong>${escapeHtml(key === 'Approval Length' ? 'Approval duration' : key)}:</strong> ${escapeHtml(field(branch, key))}</p>` : '').join('')}
+          <p><strong>Clinical criteria — source order and logic:</strong></p>
+          ${rules(branch.criteria)}
+          ${branch.notes.length ? `<details class="result-disclosure" open><summary>Restrictions, exceptions and source notes</summary>${rules(branch.notes)}</details>` : ''}
+        </div>
+      </details>`).join('')
+      + (policy.supplement?.text ? `<details class="result-disclosure"><summary>Supporting coverage information and source tables</summary><pre class="guideline-verbatim">${escapeHtml(policy.supplement.verbatim)}</pre></details>` : '')
+      + `<details class="result-disclosure"><summary>Original policy context</summary><p>${escapeHtml(policy.context.text)}</p></details>`;
   }
 
   // Slice, never summarize: reconstructing these parts yields the exact source.
@@ -853,6 +884,35 @@
 
   function bindCriteriaLibrary() {
     el.criteriaSearch.addEventListener('input', renderCriteriaLibrary);
+    document.addEventListener('click', async event => {
+      const button = event.target.closest('[data-read-criteria]');
+      if (!button) return;
+      const policy = (state.data.statewidePaCriteria || []).find(p => p.id === button.dataset.readCriteria);
+      if (!policy?.structuredCriteriaUrl || policy.planId !== 'ahcccs-ffs-aihp') return;
+      const content = button.closest('.structured-policy').querySelector('.structured-criteria-content');
+      const label = `View clinical criteria · ${Number(policy.structuredBranchCount)} product/indication branches`;
+      if (button.dataset.loaded === 'true') {
+        content.hidden = !content.hidden;
+        button.textContent = content.hidden ? label : 'Hide clinical criteria';
+        return;
+      }
+      button.disabled = true;
+      button.textContent = 'Loading clinical criteria…';
+      try {
+        const response = await fetch(policy.structuredCriteriaUrl);
+        if (!response.ok) throw new Error('Criteria unavailable');
+        const structured = await response.json();
+        if (structured.policyCode !== policy.policyCode || structured.sourceEffective !== policy.sourceEffective) throw new Error('Wrong source');
+        content.innerHTML = structuredCriteriaMarkup(structured);
+        content.hidden = false;
+        button.dataset.loaded = 'true';
+        button.textContent = 'Hide clinical criteria';
+      } catch (error) {
+        content.textContent = 'Clinical criteria could not be loaded. Use the original PDF or full guideline text below.';
+        content.hidden = false;
+        button.textContent = 'Retry clinical criteria';
+      } finally { button.disabled = false; }
+    });
     document.addEventListener('click', event => {
       const shortcut = event.target.closest('[data-criteria-query]');
       if (!shortcut) return;
@@ -1077,6 +1137,7 @@
       <article class="criteria-source result-disclosure-body">
         <p><strong>${escapeHtml(policy.planId === 'ahcccs-ffs-aihp' ? 'AHCCCS statewide clinical reference' : plan?.name)}</strong>${policy.sourceEffective ? ' · source ' + escapeHtml(policy.sourceEffective) : ''}</p>
         <p>Review the named product, formulation, indication, initial and renewal branches, and exceptions. This related policy link does not independently establish coverage or PA status.</p>
+        ${structuredPolicyPanel(policy)}
         <p><a class="source-link" href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">Original policy PDF · pages ${Number(policy.sourcePage)}–${Number(policy.sourceLastPage)}</a></p>
         <button type="button" class="text-button criteria-load" data-read-guideline="${escapeHtml(policy.id)}">Read full guideline text</button>
         <pre class="guideline-verbatim" hidden></pre>

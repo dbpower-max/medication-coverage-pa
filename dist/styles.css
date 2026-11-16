@@ -377,6 +377,10 @@ footer p { padding-block: 1.2rem; margin-bottom: 0; color: var(--gray-500); font
 .criteria-source p { font-size: .86rem; margin: .3rem 0; }
 .criteria-load { display: inline-block; margin-top: .4rem; }
 .guideline-verbatim { margin: .6rem 0 0; padding: .75rem; white-space: pre-wrap; overflow-wrap: anywhere; max-height: 35rem; overflow-y: auto; border: 1px solid var(--gray-200); border-radius: .4rem; background: var(--gray-100); color: var(--gray-700); font-size: .82rem; line-height: 1.5; }
+.structured-policy { margin: .65rem 0; }
+.clinical-source-rule { margin: .55rem 0; overflow-wrap: anywhere; line-height: 1.55; }
+.clinical-source-connector { font-weight: 700; color: var(--teal-700, #0f766e); }
+.clinical-source-branch > summary { overflow-wrap: anywhere; }
 
 /* A card-level shortcut to exact published source text, not an approval claim. */
 .criteria-shortcut { justify-self: start; text-align: left; grid-column: 1 / -1; margin: .35rem 0; }

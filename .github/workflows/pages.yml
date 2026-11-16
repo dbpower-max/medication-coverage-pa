@@ -26,6 +26,8 @@ jobs:
       - run: python tools/verify_asset_versions.py
       - run: python tools/verify_ach_product_updates.py
       - run: python tools/verify_source_conflicts.py
+      - run: python tools/verify_structured_criteria.py
+      - run: node tools/verify_structured_criteria_ui.cjs
       - run: node --check _site/app.js
       - run: node tools/verify_pa_column.cjs
       - run: node tools/verify_policy_source_branches.cjs

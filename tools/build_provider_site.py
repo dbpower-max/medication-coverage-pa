@@ -11,6 +11,7 @@ from urllib.parse import urlsplit, unquote
 from link_provider_policies import attach_provider_policies
 from shared_policy_pilot import attach_shared_policy
 from source_restrictions import correct_source_restrictions, correct_source_conflicts
+from structured_statewide_criteria import publish_structured_criteria
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "dist"
@@ -176,6 +177,10 @@ OUT.mkdir()
 for name in ("index.html", "app.js", "styles.css", "favicon.svg"):
     shutil.copy2(SRC / name, OUT / name)
 (OUT / ".nojekyll").touch()
+criteria_release = json.loads((ROOT / 'tools/structured_criteria_release.json').read_text())
+assert criteria_release['sourceEffective'] == clinical_guidance['sourceEffective']
+criteria_codes = {g['policyCode'] for g in clinical_guidance['guides']} | set(criteria_release['additionalPolicyCodes'])
+data['structuredCriteriaCount'] = publish_structured_criteria(statewide_pa, SRC, OUT, criteria_codes)
 seen = set()
 # Large PDF remains on its official payer host; indexed full policy text is bundled.
 EXTERNAL_SOURCES = {
