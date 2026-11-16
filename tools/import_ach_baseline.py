@@ -2,7 +2,7 @@
 import collections, copy, gzip, hashlib, json, re
 from pathlib import Path
 from functools import lru_cache
-from source_restrictions import correct_source_restrictions
+from source_restrictions import correct_source_restrictions, correct_source_conflicts
 ROOT=Path(__file__).resolve().parents[1]
 SOURCE='https://www.azcompletehealth.com/content/dam/centene/az-complete-health/json/Drugs_FAB_CNCAZCH01_AZ_Medicaid_Integrated_Formulary_eff_9-1-22_07142026131014_AZ.json'
 ASSUMPTION='Working assumption approved November 13, 2026: the officially linked JSON (declared plan year 2022) plus subsequent official updates is treated as the complete current integrated formulary. Completeness is not insurer-confirmed. Later applicable sources take precedence; source dates and baseline values remain available.'
@@ -57,6 +57,7 @@ def main():
  raw=json.loads(gzip.decompress(src.read_bytes())); assert len(raw)==4454
  d=json.loads(gzip.decompress((ROOT/'dist/data.json.gz').read_bytes()))
  correct_source_restrictions(d['medications'])
+ correct_source_conflicts(d['medications'])
  current=[r for r in d['medications'] if r['planId']=='az-complete-health' and r.get('validation')!='official_json_baseline_with_later_updates']
  result=[];counts=collections.Counter()
  for index,row in enumerate(raw):
@@ -93,7 +94,11 @@ def main():
    rec['category']=r.get('category') or rec['category'];rec['subcategory']=r.get('subcategory') or rec['subcategory']
    # Only explicit later statements replace baseline fields; silence is not a reversal.
    if r.get('preferred') in ('preferred','non_preferred'):rec['preferred']=r['preferred']
+   if r.get('preferenceUncertaintyReason'):
+    rec['preferred']='not_specified';rec['preferenceUncertaintyReason']=r['preferenceUncertaintyReason']
    if r.get('pa') in ('required','conditional','not_required'):rec['pa']=r['pa'];rec['paText']=r.get('paText','')
+   if r.get('paUncertaintyReason'):
+    rec['pa']='not_specified';rec['paText']='';rec['paUncertaintyReason']=r['paUncertaintyReason']
    if r.get('step')=='specified':rec['step']='specified';rec['stepText']=r.get('stepText','')
    if r.get('coverage')=='explicit_not_covered':rec['coverage']='explicit_not_covered'
    for field in ['paExceptionText','ageRestrictionText','ageLimited','coverageText']:

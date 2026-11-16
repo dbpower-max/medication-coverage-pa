@@ -602,6 +602,7 @@
     if (record.coverageCaveat) chips.push([record.coverageCaveat, 'warning']);
     if (record.preferred === 'preferred') chips.push(['Preferred', 'positive']);
     if (record.preferred === 'non_preferred') chips.push(['Nonpreferred', 'warning']);
+    if (record.recordType === 'formulary' && record.coverage !== 'explicit_not_covered' && record.preferred === 'not_specified') chips.push(['Preference not specified', 'neutral']);
     if (/\bbrand\s*only\b/i.test(record.brandGenericNotes || record.notes || '')) chips.push(['Brand only', 'warning']);
     if (/\bauthorized\s+generic\s+only\b/i.test([record.brandGenericNotes, record.notes].join(' '))) chips.push(['Authorized generic only', 'warning']);
     if (record.tier) chips.push([`Tier ${record.tier}`, 'neutral']);

@@ -10,7 +10,7 @@ from pathlib import Path
 from urllib.parse import urlsplit, unquote
 from link_provider_policies import attach_provider_policies
 from shared_policy_pilot import attach_shared_policy
-from source_restrictions import correct_source_restrictions
+from source_restrictions import correct_source_restrictions, correct_source_conflicts
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "dist"
@@ -19,6 +19,7 @@ ALLOWED = {"az-complete-health", "banner-ufc", "uhc-community-az"}
 subprocess.run([sys.executable, str(ROOT / 'tools/import_ach_baseline.py')], check=True)
 data = json.loads(gzip.decompress((SRC / "data.json.gz").read_bytes()))
 correct_source_restrictions(data['medications'])
+correct_source_conflicts(data['medications'])
 attach_provider_policies(data)
 assert ALLOWED <= {p["id"] for p in data["plans"]}
 # A single current AHCCCS core is shared by all three ACC plan views.
