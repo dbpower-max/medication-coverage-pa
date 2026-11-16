@@ -21,6 +21,7 @@ for row in rows:
     if not reference:
         assert not row.get('standardName'), 'Unverified name mapping invented'
         continue
+    assert row['standardDisplayName'] == reference['displayName']
     assert row['standardNameProvenance']['rxcui'] == row['rxnormId']
     assert canonical_name(row['name']) == canonical_name(reference['fullName'])
     assert row['standardName'] and row['standardName'] != 'NA'
@@ -41,7 +42,7 @@ assert by_id['2634817']['standardName'].startswith('Acetaminophen/')
 # Attaching names must never modify names, IDs, PA, preference, source, etc.
 original = copy.deepcopy(data)
 for row in original['medications']:
-    for key in ('standardName', 'standardNameType', 'standardNameProvenance'):
+    for key in ('standardName', 'standardNameType', 'standardNameProvenance', 'standardDisplayName'):
         row.pop(key, None)
 original.pop('medicationNamingInfo', None)
 decorated = copy.deepcopy(original)

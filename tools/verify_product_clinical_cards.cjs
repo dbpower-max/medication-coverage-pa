@@ -14,6 +14,12 @@ for(const plan of data.plans){
  const groups=api.planMedicationGroups();
  const xigduo=groups.find(g=>g.brands.includes('XIGDUO XR')&&g.isStatewide);
  assert(xigduo,'Xigduo missing '+plan.id);
+ for (const product of groups.filter(g=>(g.records||[]).some(r=>/^Xigduo XR/.test(r.standardName||'')))) {
+  api.medicationGroupCard(product);
+  assert(api.cardClinicalGroups.get(product.key).policies.some(p=>p.structuredCriteriaUrl),'Official RxTerms name did not bridge legacy Xigduo brand');
+  const exact=targetFor(product);await api.populateCardClinical(exact.details);
+  assert(exact.target.innerHTML.includes('metformin'),'Strength-specific Xigduo criteria missing');
+ }
  const markup=api.medicationGroupCard(xigduo);
  for(const banned of ['STEP THROUGH METFORMIN','AHCCCS reference policy','Selected-plan products','Read full guideline text','data-criteria-query','View clinical criteria','guideline-verbatim']) assert(!markup.includes(banned),banned+' leaked onto card');
  const {target,details}=targetFor(xigduo);await api.populateCardClinical(details);
@@ -21,6 +27,7 @@ for(const plan of data.plans){
  assert(/(?:1500\s*mg|500\s*mg) daily for 90 days/.test(target.innerHTML.replace(/\s+/g,' ')),'Source metformin duration/dose lost');
  assert(target.innerHTML.includes('10 years')&&target.innerHTML.includes('NYHA class II-IV')&&target.innerHTML.includes('chronic kidney disease'),'Clinical pathways lost');
  assert(target.innerHTML.includes('OR')&&target.innerHTML.includes('AND'),'Source Boolean connectors lost');
+ assert.equal((target.innerHTML.match(/More clinical criteria/g)||[]).length,1,'Generic-only additions need one nonredundant expansion');
  for(const banned of ['Farxiga','Jardiance','Synjardy','Invokamet','Inpefa','PA Team Note','Product Name:','guideline-verbatim'])assert(!target.innerHTML.includes(banned),'Unrelated/admin text leaked: '+banned);
  const old=target.innerHTML;await api.populateCardClinical(details);assert.equal(target.innerHTML,old,'Reopening duplicated criteria');
  const mounjaro=groups.find(g=>g.brands.includes('MOUNJARO')&&api.clinicalGuidanceFor(g));

@@ -452,3 +452,5 @@ main { padding-top: .65rem; }
 .clinical-source-paragraph { white-space: pre-line; }
 .additional-medication-criteria > summary { color: var(--teal-dark); cursor: pointer; min-height: 44px; padding: .55rem 0; }
 .clinical-details .criteria-pathway h4, .clinical-details .criteria-stage h4 { margin-top: .75rem; }
+
+.clinical-logic-label { font-weight: 600; }

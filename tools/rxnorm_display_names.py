@@ -33,6 +33,7 @@ def attach_rxnorm_display_names(data):
         label = psn or standard['displayName']
         if not psn and standard['strength'] and standard['strength'].lower() != 'mixed':
             label += ' — ' + standard['strength'] + ' ' + standard['doseForm']
+        record['standardDisplayName'] = standard['displayName']
         record['standardName'] = label
         record['standardNameType'] = 'RxNorm PSN' if psn else 'RxTerms display fields'
         record['standardNameProvenance'] = {'rxcui': rxcui, 'release': registry['release'], 'sourceFile': standard['sourceFile'], 'retired': standard['retired']}

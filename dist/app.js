@@ -855,7 +855,7 @@
     const rules = items => items.map(item => {
       const number = /^(\d+(?:\.\d+)*)\b/.exec(item.text)?.[1];
       const depth = number ? Math.min(number.split('.').length - 1, 4) : 0;
-      return `<p class="clinical-source-rule ${item.kind === 'connector' ? 'clinical-source-connector' : ''}" style="margin-left:${depth * .5}rem">${escapeHtml(item.displayText || item.text)}</p>`;
+      return `<p class="clinical-source-rule ${item.kind === 'connector' ? 'clinical-source-connector' : /(?:all|one) of the following:/i.test(value) ? 'clinical-logic-label' : ''}" style="margin-left:${depth * .5}rem">${escapeHtml(item.displayText || item.text)}</p>`;
     }).join('');
     return `<p>Source-transcribed clinical criteria · ${escapeHtml(policy.policyCode)} · ${escapeHtml(policy.sourceEffective)}. Clinician approval pending. Follow the product, indication and AND/OR wording below; this reference does not establish selected-plan coverage or PA status.</p>`
       + policy.branches.map((branch, i) => `<details class="clinical-source-branch result-disclosure">
@@ -1130,7 +1130,7 @@
   const namedPolicyCache = new Map();
   function namedPlanPolicies(group, statewide = false) {
     const scope = statewide ? 'ahcccs-ffs-aihp' : state.planId;
-    const identities = [...new Set([...group.brands, group.name].map(normalize).filter(name => name.length >= 4 && name !== 'various'))];
+    const identities = [...new Set([...group.brands, group.name, ...(group.records || []).map(record => (record.standardDisplayName || '').replace(/\s*\([^)]*\)\s*/g, ' ').trim())].map(normalize).filter(name => name.length >= 4 && name !== 'various'))];
     const matches = new Map();
     for (const identity of identities) {
       const key = `${scope}:${identity}`;
@@ -1226,12 +1226,18 @@
     });
   }
 
-  function cardSourceRules(items) {
+  function cardSourceRules(items, additional = true) {
+    const last = items[items.length - 1]?.text || '';
+    if (additional && items.length > 2 && items[items.length - 2]?.text.trim() === 'AND'
+        && /^(?:\d+\s*-\s*)?(?:For generic\b|If the request is for generic\b)/i.test(last)) {
+      return cardSourceRules(items.slice(0, -2), false)
+        + `<details class="additional-medication-criteria"><summary>More clinical criteria</summary>${cardSourceRules(items.slice(-2), false)}</details>`;
+    }
     return items.map(item => {
       const value = item.displayText || item.text;
       const number = /^(\d+(?:\.\d+)*)\b/.exec(value)?.[1];
       const depth = number ? Math.min(number.split('.').length - 1, 4) : 1;
-      return `<p class="card-clinical-rule ${item.kind === 'connector' ? 'clinical-source-connector' : ''}" style="margin-left:${depth * .65}rem">${escapeHtml(value.replace(/^\d+(?:\.\d+)*(?:\s*-\s*|\s+(?=(?:ALL|ONE|For|If)\b))/i, '').replace(/^•\s*/, '• '))}</p>`;
+      return `<p class="card-clinical-rule ${item.kind === 'connector' ? 'clinical-source-connector' : /(?:all|one) of the following:/i.test(value) ? 'clinical-logic-label' : ''}" style="margin-left:${depth * .65}rem">${escapeHtml(value.replace(/^\d+(?:\.\d+)*(?:\s*-\s*|\s+(?=(?:ALL|ONE|For|If)\b))/i, '').replace(/^•\s*/, '• '))}</p>`;
     }).join('');
   }
 
