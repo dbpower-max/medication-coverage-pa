@@ -809,7 +809,7 @@
         <p>${escapeHtml(policy.planId === 'ahcccs-ffs-aihp' ? 'AHCCCS statewide source' : state.data.plans.find(p => p.id === policy.planId)?.name || policy.sourceTitle)}
           · ${escapeHtml(policy.policyCode || '')} · source effective ${escapeHtml(policy.sourceEffective)}
           · PDF pages ${Number(policy.sourcePage)}–${Number(policy.sourceLastPage)}</p>
-        ${policy.notes ? `<p>${escapeHtml(policy.notes)}</p>` : ''}
+        ${target === el.criteriaResults && policy.notes ? `<p>${escapeHtml(policy.notes)}</p>` : ''}
         ${structuredPolicyPanel(policy)}
         ${policy.guide ? `<details class="approval-guide"><summary>PA criteria · ${escapeHtml(policy.indication || policy.name)}</summary>${approvalGuideContent(policy)}</details>` : ''}
         <p><a class="source-link" href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">Open original guideline PDF at this section</a></p>

@@ -49,4 +49,5 @@ const shortcut={dataset:{criteriaQuery:'FLEXERIL',criteriaFallback:'cyclobenzapr
 for(const fn of handlers)fn({target:{closest:s=>s==='[data-criteria-query]'?shortcut:null}});
 assert(!content.hidden&&content.innerHTML.includes('Fexmid'),'Archived search removal stranded legacy-brand criteria');
 assert(api.el.criteriaLibrary.hidden&&!api.el.criteriaLibrary.open,'Inline lookup exposed archived search');
+assert(!content.innerHTML.includes('Named Product Name fields:'),'Technical indexing notes leaked into inline clinical view');
 console.log('PASS: one collapsed clinical dropdown/card; archived search; inline criteria; source dialog/close; 3-plan prefixes; preserved original links and PA statuses');
