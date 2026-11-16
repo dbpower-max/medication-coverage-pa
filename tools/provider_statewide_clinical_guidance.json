@@ -12386,6 +12386,242 @@
       "documentationSuggestions": [
         "Attach original source-required test results, diagnosis, claims history and specialist involvement."
       ]
+    },
+    {
+      "id": "gl-164155-rifabutin-generic",
+      "policyCode": "GL-164155",
+      "product": "Generic rifabutin (multiple indications)",
+      "matchNames": [
+        "RIFABUTIN"
+      ],
+      "heading": "Generic rifabutin (multiple indications) — exact original AHCCCS November criteria",
+      "sourcePage": 1745,
+      "sourceLastPage": 1750,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Generic rifabutin separately covers MAC prophylaxis with macrolide step, high-dose QL, off-label H. pylori triple therapy (14 days), and TB with concomitant antiretrovirals.",
+      "guidelineCaution": "Statewide original policy, not confirmation of coverage or PA under individual Tucson/Pima managed-care plans; review treatment stage and formulation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-164155.txt",
+      "sourceChecks": [
+        "Product Name:generic rifabutin",
+        "Mycobacterium Avium Complex Prophylaxis",
+        "does not exceed 450 mg per day",
+        "amoxicillin and a proton pump inhibitor",
+        "protease inhibitors or non-nucleoside"
+      ],
+      "stages": [
+        {
+          "title": "MAC prophylaxis — initial PA",
+          "approvalDuration": "12 months",
+          "all": [
+            "Mycobacterium avium complex prophylaxis indication.",
+            "Prescribed by or in consultation with HIV/infectious disease specialist.",
+            {
+              "any": [
+                "Failed azithromycin.",
+                "Failed clarithromycin.",
+                "Intolerance to a preferred macrolide due to significant adverse reaction.",
+                "Both azithromycin and clarithromycin contraindicated."
+              ]
+            },
+            "Requested dose ≤450 mg/day."
+          ]
+        },
+        {
+          "title": "MAC prophylaxis — reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response."
+          ]
+        },
+        {
+          "title": "Quantity limit for doses above 450 mg/day",
+          "approvalDuration": "12 months",
+          "all": [
+            "Higher dose supported by at least one appropriate source (FDA indication, published guideline, compendium, peer-reviewed study, or valid drug reference)."
+          ]
+        },
+        {
+          "title": "Off-label H. pylori therapy",
+          "approvalDuration": "14 days",
+          "all": [
+            "H. pylori diagnosis.",
+            "Rifabutin administered with amoxicillin AND a proton pump inhibitor."
+          ]
+        },
+        {
+          "title": "Tuberculosis/HIV therapy — initial",
+          "approvalDuration": "12 months",
+          "all": [
+            "Tuberculosis diagnosis.",
+            "HIV or infectious disease specialist.",
+            "Concurrent HIV therapy with protease inhibitor or NNRTI."
+          ]
+        },
+        {
+          "title": "Tuberculosis/HIV — renewal",
+          "approvalDuration": "12 months",
+          "all": [
+            "Clinical response to rifabutin therapy."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include medical records, clinical history, specialist assessments, and source-directed prior treatments."
+      ]
+    },
+    {
+      "id": "gl-164155-talicia",
+      "policyCode": "GL-164155",
+      "product": "Talicia (rifabutin/amoxicillin/omeprazole)",
+      "matchBrands": [
+        "TALICIA"
+      ],
+      "heading": "Talicia (rifabutin/amoxicillin/omeprazole) — exact original AHCCCS November criteria",
+      "sourcePage": 1747,
+      "sourceLastPage": 1749,
+      "approvalDuration": "14 days",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "For H. pylori 14 days, specialist; requires either bismuth + BOTH named regimen failures, or culture showing all others resistant PLUS failed rifabutin regimen.",
+      "guidelineCaution": "Statewide original policy, not confirmation of coverage or PA under individual Tucson/Pima managed-care plans; review treatment stage and formulation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-164155.txt",
+      "sourceChecks": [
+        "Product Name:Talicia",
+        "Bismuth quadruple therapy",
+        "Rifabutin triple therapy",
+        "Culture and sensitivity report"
+      ],
+      "pathways": [
+        {
+          "title": "H. pylori after treatment failure",
+          "all": [
+            "H. pylori infection confirmed.",
+            {
+              "any": [
+                "Gastroenterologist.",
+                "Infectious disease specialist."
+              ]
+            },
+            {
+              "all": [
+                "Failed/contraindicated/intolerant to bismuth quadruple therapy.",
+                {
+                  "all": [
+                    "Failed/contraindicated/intolerant to clarithromycin-based therapy or PCAB-clarithromycin triple.",
+                    "Failed/contraindicated/intolerant to rifabutin triple therapy."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "H. pylori culture and susceptibility pathway",
+          "all": [
+            "H. pylori infection confirmed.",
+            {
+              "any": [
+                "Gastroenterologist.",
+                "Infectious disease specialist."
+              ]
+            },
+            {
+              "all": [
+                "Culture and susceptibility demonstrate no susceptible first-line therapy except rifabutin-based triple therapy.",
+                "Previously trialed and FAILED rifabutin triple therapy."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include medical records, clinical history, specialist assessments, and source-directed prior treatments."
+      ]
+    },
+    {
+      "id": "gl-224208-acthar-gel",
+      "policyCode": "GL-224208",
+      "product": "Acthar Gel (corticotropin)",
+      "matchBrands": [
+        "ACTHAR GEL",
+        "ACTHAR"
+      ],
+      "heading": "Acthar Gel (corticotropin) — exact original AHCCCS November criteria",
+      "sourcePage": 20,
+      "sourceLastPage": 22,
+      "approvalDuration": "4 weeks",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Acthar Gel: 4-week infantile spasms IM sequence with defined taper, or 12-month opsoclonus-myoclonus use. Source says not medically necessary for acute multiple sclerosis exacerbations.",
+      "guidelineCaution": "Statewide original policy, not confirmation of coverage or PA under individual Tucson/Pima managed-care plans; review treatment stage and formulation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-224208.txt",
+      "sourceChecks": [
+        "Product Name:Acthar Gel vial",
+        "Infantile spasm",
+        "75 units per meters squared",
+        "Opsoclonus-myoclonus syndrome",
+        "not medically necessary"
+      ],
+      "pathways": [
+        {
+          "title": "Infantile spasms / West syndrome",
+          "approvalDuration": "4 weeks",
+          "all": [
+            "Infantile spasms (West syndrome) diagnosed.",
+            "Age younger than 2 years.",
+            "Initial IM dose 75 units/m² twice daily for 2 weeks.",
+            "After two weeks, follow source-specified dose taper: 30 units/m² mornings 3 days; 15 units/m² 3 days; 10 units/m² 3 days; then 10 units/m² every other morning 6 days (3 doses)."
+          ]
+        },
+        {
+          "title": "Opsoclonus-myoclonus syndrome",
+          "approvalDuration": "12 months",
+          "all": [
+            "Opsoclonus-myoclonus syndrome (Kinsbourne syndrome) diagnosed."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include medical records, clinical history, specialist assessments, and source-directed prior treatments."
+      ]
+    },
+    {
+      "id": "gl-224208-cortrophin-gel",
+      "policyCode": "GL-224208",
+      "product": "Cortrophin Gel",
+      "matchBrands": [
+        "CORTROPHIN",
+        "CORTROPHIN GEL"
+      ],
+      "heading": "Cortrophin Gel — exact original AHCCCS November criteria",
+      "sourcePage": 21,
+      "sourceLastPage": 22,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Cortrophin only has 12-month OMS source pathway and REQUIRES prior Acthar Gel failure/intolerance; infantile spasm pathway is for Acthar Gel vial alone.",
+      "guidelineCaution": "Statewide original policy, not confirmation of coverage or PA under individual Tucson/Pima managed-care plans; review treatment stage and formulation.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-224208.txt",
+      "sourceChecks": [
+        "Product Name:Acthar Gel, Cortrophin",
+        "Opsoclonus-myoclonus syndrome",
+        "For Cortrophin requests ONLY",
+        "Trial and failure or intolerance to Acthar Gel"
+      ],
+      "pathways": [
+        {
+          "title": "Opsoclonus-myoclonus syndrome",
+          "all": [
+            "Diagnosis of opsoclonus-myoclonus syndrome (OMS/Kinsbourne syndrome).",
+            "Cortrophin-specific: trial failure or intolerance to Acthar Gel."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include medical records, clinical history, specialist assessments, and source-directed prior treatments."
+      ]
     }
   ]
 }
