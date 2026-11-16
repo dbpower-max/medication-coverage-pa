@@ -994,24 +994,56 @@
   }
 
   const inlinePolicySources = new Map();
+  const namedPolicyCache = new Map();
+  function namedPlanPolicies(group) {
+    const identities = [...new Set([...group.brands, group.name].map(normalize).filter(name => name.length >= 4 && name !== 'various'))];
+    const matches = new Map();
+    for (const identity of identities) {
+      const key = `${state.planId}:${identity}`;
+      if (!namedPolicyCache.has(key)) {
+        const policies = (state.data.policies || []).filter(policy => {
+          if (policy.planId !== state.planId || policy.recordType !== 'policy_index' || !policy.sourceTextUrl) return false;
+          if ((policy.searchAliases || []).some(alias => normalize(alias) === identity)) return true;
+          // This field contains the extracted original Product Name headings,
+          // not medications mentioned as prior trials in clinical prose.
+          const fields = policy.notes?.match(/Named Product Name fields:\s*(.*?)\s*Policy product-field matches/s)?.[1];
+          const named = (fields || '').split(/[,;]/).map(value => normalize(value)
+            .replace(/^(?:(?:non[- ]?)?preferred(?: drugs?| agents?)?\s*:\s*)/i, '')
+            .replace(/^(?:brand|generic)\s+/i, '').trim());
+          return named.includes(identity);
+        });
+        namedPolicyCache.set(key, policies);
+      }
+      for (const policy of namedPolicyCache.get(key)) matches.set(policy.id, policy);
+    }
+    return [...matches.values()];
+  }
+
   function linkedPolicyPanels(group) {
     const links = new Map();
+    const add = policy => {
+      const signature = [policy.planId, policy.sourceUrl?.split('#')[0], policy.sourcePage, policy.sourceLastPage].join(':');
+      if (links.has(signature)) return;
+      links.set(signature, policy);
+      inlinePolicySources.set(policy.id, policy);
+    };
     for (const record of group.records || []) {
       if (record.planId !== state.planId || record.isStatewideReference) continue;
       for (const link of [...(record.policySources || []), ...(record.policySource ? [record.policySource] : [])]) {
         if (!link.textUrl) continue;
         const id = `linked:${record.planId}:${link.textUrl}`;
-        if (links.has(id)) continue;
         const policy = {
           id, planId: record.planId, name: link.title, policyCode: link.policyCode,
           sourceUrl: link.url, sourceTextUrl: link.textUrl,
           sourcePage: link.firstPage, sourceLastPage: link.lastPage,
           sourceEffective: link.effective
         };
-        links.set(id, policy);
-        inlinePolicySources.set(id, policy);
+        add(policy);
       }
     }
+    // Navigation only: a named source is not an assertion that its criteria
+    // apply to every formulation or that this medication requires PA.
+    for (const policy of namedPlanPolicies(group)) add(policy);
     const plan = state.data.plans.find(p => p.id === state.planId);
     return [...links.values()].map(policy => `<details class="record-detail result-disclosure">
       <summary>Selected-plan policy · ${escapeHtml(policy.name)}</summary>
