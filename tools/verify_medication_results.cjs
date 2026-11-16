@@ -56,6 +56,8 @@ assert.equal(strips[0].brands.length,1,'Device card still groups incompatible me
 assert(!api.el.resultGrid.innerHTML.includes('Accu-Chek'),'Contour search exposes another meter brand');
 const epclusa=data.statewideDrugList.find(r=>r.name==='SOFOSBUVIR-VELPATASVIR TABLETS');
 assert(api.statusChips(epclusa).includes('Authorized generic only'),'Authorized-generic source restriction hidden');
+const entresto=data.statewideDrugList.find(r=>r.brand==='ENTRESTO');
+assert(api.statusChips(entresto).includes('Generic only'),'Generic-only source scope hidden behind a reference brand');
 const limits=api.recordDetails(epclusa);
 assert(limits.includes('per Lifetime')&&!limits.includes('Lifetime days'),'Lifetime quantity limit mislabeled as days');
 console.log('PASS: only medication results, source-only records excluded, medication-only name matching, plan-isolated criteria, structured policy lookup and conditional PA filtering');

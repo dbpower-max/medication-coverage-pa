@@ -608,6 +608,7 @@
     if (record.recordType === 'formulary' && record.coverage !== 'explicit_not_covered' && record.preferred === 'not_specified') chips.push(['Preference not specified', 'neutral']);
     if (/\bbrand\s*only\b/i.test(record.brandGenericNotes || record.notes || '')) chips.push(['Brand only', 'warning']);
     if (/\bauthorized\s+generic\s+only\b/i.test([record.brandGenericNotes, record.notes].join(' '))) chips.push(['Authorized generic only', 'warning']);
+    else if (/\bgeneric(?:\s+formulations)?\s+only\b/i.test([record.brandGenericNotes, record.notes].join(' '))) chips.push(['Generic only', 'warning']);
     if (record.tier) chips.push([`Tier ${record.tier}`, 'neutral']);
     if (record.pa === 'required') chips.push(['PA required', 'warning']);
     else if (record.pa === 'conditional') chips.push(['Conditional PA', 'warning']);
@@ -1085,6 +1086,8 @@
       const sourceInfo = state.data.statewideSourceInfo || {};
       const guidance = clinicalGuidanceFor(group);
       const hasClinicalDetails = needsPa || hasStep || guidance;
+      const productScope = statewide.brandGenericNotes || statewide.notes || '';
+      const showProductScope = productScope && !/^(?:brand only|authorized generic only|generic only|generic formulations only|various)$/i.test(productScope.trim());
       const differs = planRows.some(record =>
         (record.preferred === 'preferred' && statewide.preferred !== 'preferred')
         || (record.pa === 'not_required' && needsPa));
@@ -1094,6 +1097,7 @@
           <p class="brand">AHCCCS statewide drug list · ${escapeHtml(sourceInfo.drugListEffective || statewide.sourceEffective)}</p>
         </div>
         <div class="chips" aria-label="Statewide coverage attributes">${statusChips(statewide)}</div>
+        ${showProductScope ? `<p><strong>Product scope:</strong> ${escapeHtml(productScope)}</p>` : ''}
         ${needsPa && statewide.paText ? `<p class="pa-condition"><strong>${statewide.pa === 'conditional' ? 'PA condition' : 'PA requirement'}:</strong> ${escapeHtml(statewide.paText)}</p>` : ''}
         ${statewide.paExceptionText ? `<p><strong>PA exception stated by source:</strong> ${escapeHtml(statewide.paExceptionText)}</p>` : ''}
         ${statewide.ageRestrictionText ? `<p><strong>Age restriction:</strong> ${escapeHtml(statewide.ageRestrictionText)}</p>` : ''}
