@@ -9865,6 +9865,265 @@
       "documentationSuggestions": [
         "Document source-required clinical history, diagnosis, supporting testing, prior treatment, and specialist review."
       ]
+    },
+    {
+      "id": "gl-139338-pombiliti",
+      "policyCode": "GL-139338",
+      "product": "Pombiliti (cipaglucosidase alfa-atga)",
+      "matchBrands": [
+        "POMBILITI"
+      ],
+      "heading": "Pombiliti (cipaglucosidase alfa-atga) — source-confirmed policy details",
+      "sourcePage": 1387,
+      "sourceLastPage": 1389,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Late-onset Pompe disease, weight ≥40 kg, MUST combine with Opfolda but not other miglustat products; initial 12, renewal 24 months.",
+      "guidelineCaution": "Original statewide source only; the three managed-care plans can have distinct formulary coverage and PA rules. No plan-specific coverage is inferred.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-139338.txt",
+      "sourceChecks": [
+        "Product Name:Pombiliti",
+        "late-onset Pompe disease",
+        "less than 40% of the lab specific normal mean",
+        "combination with Opfolda",
+        "weight is greater than or equal to 40 kg"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Late-onset Pompe disease with documented clinical manifestations (muscle weakness/respiratory difficulty).",
+            {
+              "any": [
+                "GAA enzyme activity below 40% of laboratory normal.",
+                "GAA gene pathogenic variants confirmed."
+              ]
+            },
+            "Body weight ≥40 kg.",
+            "Used WITH Opfolda (miglustat).",
+            "Not used in combination with OTHER miglustat products (Zavesca/Yargesa)."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "24 months",
+          "all": [
+            "Positive clinical response (e.g., FVC or 6-minute walking improvement).",
+            "Continue Pombiliti WITH Opfolda.",
+            "No other miglustat formulation in combination."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include diagnosis confirmation, clinical manifestations, dose/combination restrictions and specialist treatment notes."
+      ]
+    },
+    {
+      "id": "gl-139340-opfolda",
+      "policyCode": "GL-139340",
+      "product": "Opfolda (miglustat)",
+      "matchBrands": [
+        "OPFOLDA"
+      ],
+      "heading": "Opfolda (miglustat) — source-confirmed policy details",
+      "sourcePage": 1322,
+      "sourceLastPage": 1324,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Opfolda is Pombiliti's REQUIRED companion for Pompe disease, not generic alternative miglustat; same 12/24-month approvals.",
+      "guidelineCaution": "Original statewide source only; the three managed-care plans can have distinct formulary coverage and PA rules. No plan-specific coverage is inferred.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-139340.txt",
+      "sourceChecks": [
+        "Product Name:Opfolda",
+        "late-onset Pompe disease",
+        "less than 40% of the lab specific normal mean",
+        "combination with Pombiliti",
+        "not substituted with other miglustat products"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Late-onset Pompe disease with documented clinical manifestations (muscle weakness/respiratory difficulty).",
+            {
+              "any": [
+                "GAA enzyme activity below 40% of laboratory normal.",
+                "GAA gene pathogenic variants confirmed."
+              ]
+            },
+            "Body weight ≥40 kg.",
+            "Used WITH Pombiliti (cipaglucosidase alfa-atga).",
+            "Opfolda cannot be substituted with other miglustat products."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "24 months",
+          "all": [
+            "Positive response (e.g., improved FVC or 6-minute walking distance).",
+            "Continues in combination with Pombiliti.",
+            "Not substituted with Zavesca or Yargesa."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include diagnosis confirmation, clinical manifestations, dose/combination restrictions and specialist treatment notes."
+      ]
+    },
+    {
+      "id": "gl-143519-adzynma",
+      "policyCode": "GL-143519",
+      "product": "Adzynma (recombinant ADAMTS13)",
+      "matchBrands": [
+        "ADZYNMA"
+      ],
+      "heading": "Adzynma (recombinant ADAMTS13) — source-confirmed policy details",
+      "sourcePage": 62,
+      "sourceLastPage": 63,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Congenital TTP with genetic ADAMTS13 confirmation and plasma infusion prerequisite persists for reauthorization.",
+      "guidelineCaution": "Original statewide source only; the three managed-care plans can have distinct formulary coverage and PA rules. No plan-specific coverage is inferred.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-143519.txt",
+      "sourceChecks": [
+        "Product Name:Adzynma",
+        "congenital thrombotic thrombocytopenic purpura",
+        "mutations in the ADAMTS13 gene",
+        "plasma-based infusions"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Diagnosis of congenital thrombotic thrombocytopenic purpura.",
+            "ADAMTS13 pathogenic mutation confirmed genetically.",
+            "Inadequate response, contraindication or intolerance to plasma-based infusions."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response.",
+            "Inadequate response, contraindication or intolerance to plasma-based infusions documented."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include diagnosis confirmation, clinical manifestations, dose/combination restrictions and specialist treatment notes."
+      ]
+    },
+    {
+      "id": "gl-143858-skyclarys",
+      "policyCode": "GL-143858",
+      "product": "Skyclarys (omaveloxolone)",
+      "matchBrands": [
+        "SKYCLARYS"
+      ],
+      "heading": "Skyclarys (omaveloxolone) — source-confirmed policy details",
+      "sourcePage": 1616,
+      "sourceLastPage": 1617,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Friedreich ataxia with genetically confirmed FXN mutation and neurology/physiatry specialist; 12-month initial/renewal.",
+      "guidelineCaution": "Original statewide source only; the three managed-care plans can have distinct formulary coverage and PA rules. No plan-specific coverage is inferred.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-143858.txt",
+      "sourceChecks": [
+        "Product Name:Skyclarys",
+        "Diagnosis of Friedreich's ataxia",
+        "mutation in the frataxin (FXN) gene",
+        "Neurologist",
+        "positive clinical response"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Friedreich ataxia diagnosed.",
+            "FXN mutation confirmed.",
+            {
+              "any": [
+                "Neurologist prescriber/consultation.",
+                "Neurogeneticist prescriber/consultation.",
+                "Physiatrist prescriber/consultation."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive response (e.g., stabilized/slowed progression; speech, swallowing, coordination or stability improvement).",
+            {
+              "any": [
+                "Neurologist.",
+                "Neurogeneticist.",
+                "Physiatrist."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include diagnosis confirmation, clinical manifestations, dose/combination restrictions and specialist treatment notes."
+      ]
+    },
+    {
+      "id": "gl-148802-vijoice",
+      "policyCode": "GL-148802",
+      "product": "Vijoice tablets or granules (alpelisib)",
+      "matchBrands": [
+        "VIJOICE"
+      ],
+      "heading": "Vijoice tablets or granules (alpelisib) — source-confirmed policy details",
+      "sourcePage": 1948,
+      "sourceLastPage": 1950,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "PIK3CA-confirmed PROS with severe manifestations, age ≥2; tablets or granules, six-month initial and 12-month renewal.",
+      "guidelineCaution": "Original statewide source only; the three managed-care plans can have distinct formulary coverage and PA rules. No plan-specific coverage is inferred.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-148802.txt",
+      "sourceChecks": [
+        "Product Name:Vijoice tablets, Vijoice granules",
+        "PIK3CA-Related Overgrowth Spectrum",
+        "mutation in the PIK3CA gene",
+        "Patient is 2 years of age or older",
+        "20% reduction"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Diagnosis of PIK3CA-related overgrowth spectrum (PROS).",
+            "PIK3CA mutation confirmed.",
+            "Age ≥2 years.",
+            "Severe manifestations documented (e.g., CLOVES, FIL, KTS, MCAP).",
+            "Physician experienced in treatment of PROS."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive clinical response (e.g., imaging shows ≥20% reduction in target lesion volumes).",
+            "Continued PROS specialist supervision."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Include diagnosis confirmation, clinical manifestations, dose/combination restrictions and specialist treatment notes."
+      ]
     }
   ]
 }
