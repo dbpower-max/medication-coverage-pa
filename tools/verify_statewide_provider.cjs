@@ -1019,3 +1019,88 @@ assert(b42('99481-nourianz').stages[0].approvalDuration==='6 months'
  &&b42('99481-nourianz').stages[1].approvalDuration==='12 months',
  'Nourianz stage duration incorrect');
 console.log('PASS: Batch42 20 policies / 21 guides, source double-check and medication safety regressions');
+
+
+// Batch43 source double-check and independent clinical route/branch safety review.
+const batch43Ids=[
+'gl-99466-inbrija','gl-99468-lotronex','gl-99468-viberzi',
+'gl-99486-osphena','gl-99488-pretomanid','gl-99489-nonoral-progesterone',
+'gl-99492-rectiv','gl-99495-serevent','gl-99496-soriatane',
+'gl-99499-symlin','gl-99501-uloric','gl-99502-xopenex-respules',
+'gl-99503-zontivity','gl-99504-zortress','gl-99505-nocdurna',
+'gl-99511-panretin','gl-99513-tretinoin-capsules','gl-99514-aquadeks',
+'gl-99550-ecoza','gl-99567-durezol','gl-99603-cayston'
+];
+assert(batch43Ids.length===21,'Batch43 expected 21 exact product guides');
+const b43Guides=batch43Ids.map(id=>guidance.find(g=>g.id===id));
+assert(b43Guides.every(Boolean),'Batch43 guide missing');
+assert(new Set(b43Guides.map(g=>g.policyCode)).size===20,
+ 'Batch43 expected 20 distinct original source sections');
+const b43norm=s=>String(s).replace(/\s+/g,' ').toLowerCase();
+for(const g of b43Guides){
+ assert(g.sourceChecks.length>=3,'Not independently source verified: '+g.id);
+ const text=fs.readFileSync('_site/'+g.sourceTextUrl.replace(/^\//,''),'utf8');
+ const normalized=b43norm(text);
+ for(const phrase of g.sourceChecks)
+  assert(normalized.includes(b43norm(phrase)),'Original source phrase missing: '+g.id+': '+phrase);
+ const pg=[...text.matchAll(/--- PDF page (\d+) ---/g)].map(x=>Number(x[1]));
+ assert(pg.includes(g.sourcePage)&&pg.includes(g.sourceLastPage),'Original source page absent '+g.id);
+ assert(g.pathways?.length||g.stages?.length,'No structured original clinical criteria: '+g.id);
+ assert(/(?:no|not).*?(?:coverage|authorization|plan|formulary|pa confirmation|pa approval)|not proof/i.test(g.guidelineCaution),
+  'Source not separated from managed-care authorization: '+g.id);
+ if(g.matchBrands?.length&&!g.matchFormulationWords?.length){
+  ui.b43Matched={name:'UNKNOWN GENERIC',brands:[g.matchBrands[0]],records:[]};
+  assert(vm.runInContext('clinicalGuidanceFor(b43Matched)',ui)?.id===g.id,
+   'Exact brand guide not matched: '+g.id);
+  ui.b43Negative={name:'UNKNOWN GENERIC',brands:[g.matchBrands[0]+' DIFFERENT'],records:[]};
+  assert(vm.runInContext('clinicalGuidanceFor(b43Negative)',ui)===null,
+   'Substring brand contaminates unrelated medication: '+g.id);
+ }
+}
+const b43=id=>guidance.find(g=>g.id==='gl-'+id);
+assert(b43('99466-inbrija').stages[0].approvalDuration==='6 months'
+ &&b43('99466-inbrija').stages[1].approvalDuration==='12 months',
+ 'Inbrija initial/renewal durations incorrect');
+assert(b43('99468-lotronex').stages[0].all[4].any.length===3,
+ 'Lotronex 2-of-3 prior drug trials not preserved');
+assert(b43('99468-viberzi').stages[0].all[1].any.length===3,
+ 'Viberzi 2-of-3 prior drug trials not preserved');
+assert(b43('99486-osphena').stages[0].all[1].all.length===2,
+ 'Osphena requires BOTH vaginal estradiol products');
+assert(b43('99495-serevent').pathways.length===3
+ &&b43('99495-serevent').pathways[0].all.some(x=>typeof x==='string'&&x.includes('corticosteroid')),
+ 'Serevent asthma with inhaled corticosteroid vs EIB vs COPD not separated');
+assert(b43('99496-soriatane').stages[0].all[3].any.length===3,
+ 'Soriatane psoriasis area/extent criterion lost');
+assert(b43('99501-uloric').sourceGuidelineType==='Step Therapy',
+ 'Uloric source step therapy not preserved');
+assert(b43('99503-zontivity').pathways[0].all.some(x=>typeof x==='string'&&x.includes('intracranial')),
+ 'Zontivity prior hemorrhage exclusion missing');
+assert(b43('99505-nocdurna').stages[0].all.some(x=>typeof x==='string'&&/serum (?:sodium|Na)\b/i.test(x))
+ &&b43('99505-nocdurna').stages[1].all.some(x=>typeof x==='string'&&/sodium\b/i.test(x)),
+ 'Nocdurna hyponatremia screening and monitoring lost');
+assert(b43('99511-panretin').stages.length===3,
+ 'Panretin AIDS KS vs NCCN initial and renewal lost');
+assert(b43('99550-ecoza').pathways[0].all.length===9,
+ 'Ecoza requires ALL nine topical alternatives');
+assert(b43('99567-durezol').pathways[0].all.length===2,
+ 'Durezol requires BOTH ophthalmic steroids');
+const oralT=b43('99513-tretinoin-capsules');
+assert(oralT.matchFormulationWords.includes('capsule')&&oralT.stages.length===4,
+ 'Oral tretinoin must not inherit topical indications');
+ui.b43Oral={name:'TRETINOIN',brands:[],records:[{name:'TRETINOIN 10 MG CAPSULES'}]};
+ui.b43Topical={name:'TRETINOIN',brands:[],records:[{name:'TRETINOIN 0.05% CREAM'}]};
+assert(vm.runInContext('clinicalGuidanceFor(b43Oral)',ui)?.id===oralT.id,
+ 'Oral tretinoin guide did not attach to capsules');
+assert(vm.runInContext('clinicalGuidanceFor(b43Topical)',ui)===null,
+ 'Leukemia indication leaked to topical tretinoin');
+const neb=b43('99502-xopenex-respules');
+assert(neb.matchFormulationWords.includes('solution'),
+ 'Xopenex nebulizer route restriction absent');
+ui.b43Neb={name:'LEVALBUTEROL',brands:['XOPENEX'],records:[{name:'LEVALBUTEROL SOLUTION'}]};
+ui.b43Hfa={name:'LEVALBUTEROL',brands:['XOPENEX'],records:[{name:'LEVALBUTEROL HFA AEROSOL'}]};
+assert(vm.runInContext('clinicalGuidanceFor(b43Neb)',ui)?.id===neb.id,
+ 'Xopenex nebulizer did not match');
+assert(vm.runInContext('clinicalGuidanceFor(b43Hfa)',ui)===null,
+ 'Xopenex nebulizer PA rule incorrectly attached to HFA inhaler');
+console.log('PASS: Batch43 21 guides/20 policies, exact November source, route, stages, AND/OR and negative-matching review');
