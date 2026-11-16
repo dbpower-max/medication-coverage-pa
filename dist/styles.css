@@ -437,3 +437,4 @@ main { padding-top: .65rem; }
   .results-heading h2 { font-size: 1.05rem; }
   .sort-control { margin-left: 0; }
 }
+#subcategoryOptions .combobox-option { font-size: .9rem; line-height: 1.5; white-space: normal; overflow-wrap: anywhere; }

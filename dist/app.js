@@ -306,11 +306,23 @@
       .sort((a, b) => a.localeCompare(b));
   }
 
+  function subcategoryLabel(value) {
+    const clean = String(value || '').replace(/\+[A-Z]{1,3}\d{3,}\b/gi, '')
+      .replace(/\*+\s*$/, '').replace(/\banti-\s+/gi, 'anti-').replace(/\s+/g, ' ').trim();
+    const acronyms = new Map('ADHD HIV AIDS HCV HBV COPD CNS GI GU ENT OTC IV IM SC SQ HFA DPI NSAID SSRI SNRI MAOI ACE ARB PDE3 PDE4 PDE5 GLP-1 SGLT2 DPP-4 TNF IL-6 CAM GABA NMDA COMT DOPA CGRP CDK4 CDK6 JAK VEGF HMG DNA RNA'.split(' ').map(word => [word.toLowerCase(), word]));
+    acronyms.set('nsaids', 'NSAIDs');
+    return titleCase(clean).replace(/[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*/g, word => acronyms.get(word.toLowerCase()) || word);
+  }
+
+  function matchesSubcategory(value, query) {
+    return normalize(subcategoryLabel(value)).includes(normalize(subcategoryLabel(query)));
+  }
+
   function subcategoryOptions() {
     const category = normalize(state.category);
     return [...new Set(recordsForPlan()
       .filter((record) => !category || normalize(record.category).includes(category))
-      .map((record) => record.subcategory)
+      .map((record) => subcategoryLabel(record.subcategory))
       .filter(Boolean))]
       .sort((a, b) => a.localeCompare(b));
   }
@@ -535,7 +547,7 @@
     const terms = normalize(state.term).split(/\s+/).filter(Boolean);
     return recordsForPlan()
       .filter((record) => !category || normalize(record.category).includes(category))
-      .filter((record) => !subcategory || normalize(record.subcategory).includes(subcategory))
+      .filter((record) => !subcategory || matchesSubcategory(record.subcategory, subcategory))
       .filter(matchesCoverage)
       .filter((record) => {
         if (selectedGroup) return selectedGroup.records.some(r => r.id === record.id);
@@ -1228,6 +1240,19 @@
     </article>`;
   }
 
+  function medicationSortName(group) {
+    // RxNorm package counts and leading strengths are presentation, not the
+    // alphabetic drug name. Change sorting only; keep displayed/source names.
+    let name = String(group.label || '');
+    while (true) {
+      const next = name.replace(/^[\s{}()\[\]]+/, '')
+        .replace(/^\d+(?:\.\d+)?(?:\/\d+(?:\.\d+)?)?(?:\s*(?:mcg|mg|ml|gm|g|meq|units?|unt|hr|hours?))?\b\s*/i, '');
+      if (next === name) break;
+      name = next;
+    }
+    return name || group.label;
+  }
+
   function render() {
     const selectedPlan = state.planId;
     if (state.data.planDataFiles?.[selectedPlan] && !loadedPlans.has(selectedPlan)) {
@@ -1260,20 +1285,21 @@
       const r = g.statewideRecord;
       return matchesCoverage(r)
         && (!state.category || normalize(r.category).includes(normalize(state.category)))
-        && (!state.subcategory || normalize(r.subcategory).includes(normalize(state.subcategory)));
+        && (!state.subcategory || matchesSubcategory(r.subcategory, state.subcategory));
     }).map(g => {
       if (g.isStatewide) return g;
       return {...g, records: g.records.filter(r =>
         matchesCoverage(r)
         && (!state.category || normalize(r.category).includes(normalize(state.category)))
-        && (!state.subcategory || normalize(r.subcategory).includes(normalize(state.subcategory)))
+        && (!state.subcategory || matchesSubcategory(r.subcategory, state.subcategory))
       )};
     });
     // Order the complete matching set before taking the visible page.
     const direction = state.sort === 'za' ? -1 : 1;
     const collator = new Intl.Collator('en', {sensitivity: 'base', numeric: true});
     const records = groups.sort((a, b) => direction * (
-      collator.compare(a.label, b.label) || String(a.key).localeCompare(String(b.key), 'en')));
+      collator.compare(medicationSortName(a), medicationSortName(b))
+      || collator.compare(a.label, b.label) || String(a.key).localeCompare(String(b.key), 'en')));
     // Keep matching clinical information accessible in its own panel. Policy,
     // administrative and source records never enter the medication results.
     el.criteriaSearch.value = state.term;
