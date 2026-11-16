@@ -1076,8 +1076,8 @@ assert(b43('99501-uloric').sourceGuidelineType==='Step Therapy',
  'Uloric source step therapy not preserved');
 assert(b43('99503-zontivity').pathways[0].all.some(x=>typeof x==='string'&&x.includes('intracranial')),
  'Zontivity prior hemorrhage exclusion missing');
-assert(b43('99505-nocdurna').stages[0].all.some(x=>typeof x==='string'&&x.includes('sodium'))
- &&b43('99505-nocdurna').stages[1].all.some(x=>typeof x==='string'&&x.includes('sodium')),
+assert(b43('99505-nocdurna').stages[0].all.some(x=>typeof x==='string'&&/serum (?:sodium|Na)\b/i.test(x))
+ &&b43('99505-nocdurna').stages[1].all.some(x=>typeof x==='string'&&/sodium\b/i.test(x)),
  'Nocdurna hyponatremia screening and monitoring lost');
 assert(b43('99511-panretin').stages.length===3,
  'Panretin AIDS KS vs NCCN initial and renewal lost');
