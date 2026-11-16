@@ -1218,3 +1218,111 @@ assert(vm.runInContext('clinicalGuidanceFor(b44Car)',ui)?.id==='gl-104872-carbag
  'Carbaglu generic carglumic acid criteria not resolved');
 console.log('PASS: Batch44 21 source policies and 22 guides, source double-check,'
  +' route/brand safety, indication-specific initial/renewal logic audit');
+
+
+// Batch 45: independent third-pass source, formulation, brand, age, stage and
+// contraindicated-combination clinical safety audit.
+const batch45Ids=[
+'150126-xolremdi','152667-rytelo','152668-iqirvo','153491-lupkynis',
+'163769-radicava','155386-austedo','155390-ingrezza','141167-cibinqo',
+'135314-kalydeco','150054-fabrazyme','150054-elfabrio','147690-nexletol',
+'147690-nexlizet','149318-hetlioz-brand','149318-tasimelteon-generic',
+'149318-hetlioz-lq','152432-ilumya','152659-arcalyst','206195-sunosi',
+'224202-palforzia','221195-apomorphine','157633-sublocade-brixadi',
+'156840-ohtuvayre','135344-reblozyl','161707-selzentry-brand',
+'161707-maraviroc-generic','161707-fuzeon','135313-depen-titratab',
+'135313-cuprimine','135313-syprine','224200-evrysdi',
+'164155-rifabutin-generic','164155-talicia','224208-acthar-gel',
+'224208-cortrophin-gel'
+];
+const batch45=batch45Ids.map(id=>guidance.find(g=>g.id==='gl-'+id));
+assert(batch45Ids.length===35&&batch45.every(Boolean),
+ 'Batch45 35 individually checked medication products must exist');
+assert(new Set(batch45.map(g=>g.policyCode)).size===25,
+ 'Batch45 must include exactly 25 distinct original policy sections');
+const n45=s=>String(s).replace(/\s+/g,' ').toLowerCase();
+for(const g of batch45){
+ assert(g.sourceChecks?.length>=3,'At least 3 literal original source phrases: '+g.id);
+ assert(g.sourceTextUrl==='/policy-text/ahcccs-ffs-nov2026/'+g.policyCode.toLowerCase()+'.txt',
+  'Original policy code and source text URL disagree: '+g.id);
+ const text=fs.readFileSync('_site/'+g.sourceTextUrl.slice(1),'utf8');
+ const original=n45(text);
+ const pages=[...text.matchAll(/--- PDF page (\d+) ---/g)].map(x=>Number(x[1]));
+ assert(pages.includes(g.sourcePage)&&pages.includes(g.sourceLastPage),
+  'Source page range changed: '+g.id);
+ for(const phrase of g.sourceChecks)
+  assert(original.includes(n45(phrase)),'Original November phrase mismatch '+g.id);
+ const durations=[g.approvalDuration,
+  ...(g.pathways||g.stages||[]).map(branch=>branch.approvalDuration).filter(Boolean)];
+ for(const duration of durations){
+  const m=duration.match(/^(\d+)\s+(day|week|month)s?$/i);
+  assert(m,'Invalid approval period '+g.id);
+  const re=new RegExp('\\b'+m[1]+'\\s+'+m[2]+'(?:s|\\(s\\))?\\b','i');
+  assert(re.test(original),'Original policy does not contain claimed approval period '+g.id+': '+duration);
+ }
+ assert(g.matchBrands?.length||g.matchNames?.length,'No exact medication matching identity: '+g.id);
+}
+const g45=id=>guidance.find(g=>g.id==='gl-'+id);
+assert(g45('149318-hetlioz-brand').approvalDuration==='6 months'
+ &&g45('149318-tasimelteon-generic').approvalDuration==='6 months'
+ &&g45('149318-hetlioz-lq').approvalDuration==='6 months',
+ 'Hetlioz original is SIX months, not twelve');
+assert(g45('149318-hetlioz-brand').stages.length===4
+ &&g45('149318-hetlioz-lq').stages.length===2
+ &&g45('149318-hetlioz-lq').stages[0].all.some(x=>typeof x==='string'&&x.includes('3–15')),
+ 'Hetlioz capsule/non-24 vs LQ suspension/Smith-Magenis must remain separate');
+assert(g45('161707-maraviroc-generic').matchFormulationWords.includes('tablet'),
+ 'Generic maraviroc tablet source cannot apply to oral solution');
+assert(g45('150054-fabrazyme').stages[0].all.some(x=>typeof x==='string'&&x.includes('≥2'))
+ &&!g45('150054-elfabrio').stages[0].all.some(x=>typeof x==='string'&&x.includes('≥2')),
+ 'Fabrazyme age criterion improperly attached to Elfabrio');
+assert(g45('147690-nexletol').stages[0].all[3].any.length===2
+ &&typeof g45('147690-nexlizet').stages[0].all[3]==='string',
+ 'Nexletol ezetimibe contraindication exception cannot leak to Nexlizet');
+assert(g45('155386-austedo').stages.length===4
+ &&g45('155390-ingrezza').stages.length===4,
+ 'TD and Huntington chorea rules must be represented separately');
+assert(g45('152668-iqirvo').stages[0].all[1].any.length===2
+ &&g45('153491-lupkynis').stages[1].all[4].any.length===2,
+ 'UDCA alternatives or lupus-nephritis renewal nephrotoxicity check missing');
+assert(g45('141167-cibinqo').stages[0].all[3].all.length===4,
+ 'Cibinqo BOTH topical and BOTH 12-week biologic steps are required');
+assert(g45('206195-sunosi').stages.length===4
+ &&g45('206195-sunosi').stages[0].all[2].all.length===2,
+ 'Sunosi narcolepsy vs OSA or dual class prior treatment requirements missing');
+assert(g45('224202-palforzia').stages[0].all.some(x=>typeof x==='string'&&x.includes('REMS')),
+ 'Palforzia certified REMS enrollment missing');
+assert(g45('157633-sublocade-brixadi').approvalDuration==='6 months'
+ &&g45('157633-sublocade-brixadi').stages[1].approvalDuration==='12 months',
+ 'Buprenorphine depot 6-month initial and 12-month renewal incorrectly swapped');
+assert(g45('156840-ohtuvayre').stages[0].all[2].any.length===3
+ &&g45('156840-ohtuvayre').stages[1].all[0].all.length===2,
+ 'Ohtuvayre three COPD alternatives or TWO response criteria missing');
+assert(g45('135344-reblozyl').stages.length===5,
+ 'Reblozyl beta-thalassemia vs MDS after ESA and ESA-naive stages lost');
+assert(g45('224200-evrysdi').stages[1].all[0].any.length===5,
+ 'Evrysdi reauthorization must preserve five motor-function assessment options');
+assert(g45('164155-rifabutin-generic').stages.length===6
+ &&g45('164155-talicia').approvalDuration==='14 days',
+ 'Rifabutin multiple indications or Talicia short H. pylori therapy misrepresented');
+assert(g45('224208-acthar-gel').pathways.length===2
+ &&g45('224208-acthar-gel').pathways[0].approvalDuration==='4 weeks'
+ &&g45('224208-cortrophin-gel').pathways.length===1,
+ 'Acthar infantile spasm schedule wrongly attached to Cortrophin');
+ui.test45Tablet={name:'MARAVIROC',brands:[],records:[{name:'MARAVIROC 150 MG TABLET'}]};
+ui.test45Solution={name:'MARAVIROC',brands:[],records:[{name:'MARAVIROC 20 MG/ML ORAL SOLUTION'}]};
+ui.test45Mixed={name:'MARAVIROC',brands:[],records:[{name:'MARAVIROC 150 MG TABLET'},{name:'MARAVIROC ORAL SOLUTION'}]};
+assert(vm.runInContext('clinicalGuidanceFor(test45Tablet)',ui)?.id==='gl-161707-maraviroc-generic',
+ 'Generic maraviroc tablets missing clinical link');
+for(const test of ['test45Solution','test45Mixed']){
+ assert(vm.runInContext('clinicalGuidanceFor('+test+')',ui)===null,
+  'Maraviroc tablet criteria dangerously attached to solution or mixed forms: '+test);
+}
+ui.test45NoBrand={name:'TASIMELTEON',brands:[],records:[{name:'TASIMELTEON 20 MG CAPSULE'}]};
+ui.test45OtherBrand={name:'TASIMELTEON',brands:['HETLIOZ LQ'],records:[{name:'TASIMELTEON 20 MG CAPSULE'}]};
+assert(vm.runInContext('clinicalGuidanceFor(test45NoBrand)',ui)?.id==='gl-149318-tasimelteon-generic',
+ 'Generic tasimelteon capsule not matched');
+assert(vm.runInContext('clinicalGuidanceFor(test45OtherBrand)',ui)===null,
+ 'Brand-only Hetlioz LQ dosage criteria may not attach to generic capsule');
+console.log('PASS: Batch45 35 guides/25 policies; verified original source, durations,'
+ +' independent medical safety, formulation and cross-brand negative matching');
