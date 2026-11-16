@@ -8914,6 +8914,622 @@
       "documentationSuggestions": [
         "Provide dates, outcomes, or contraindication/intolerance for each of the nine prior therapies."
       ]
+    },
+    {
+      "id": "gl-107466-vonjo",
+      "policyCode": "GL-107466",
+      "product": "Vonjo (pacritinib)",
+      "matchBrands": [
+        "VONJO"
+      ],
+      "heading": "Vonjo (pacritinib) — original November clinical criteria",
+      "sourcePage": 1963,
+      "sourceLastPage": 1965,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Initial myelofibrosis 6 months and reauthorization 12 months; separate NCCN evidence level 1/2A/2B route.",
+      "guidelineCaution": "Original statewide AHCCCS clinical criteria only. Confirm exact product, route and benefit rules with the specific Tucson ACC plan; no plan-specific PA or coverage is established here.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-107466.txt",
+      "sourceChecks": [
+        "Product Name:Vonjo",
+        "Pre-treatment platelet count below 50",
+        "Disease is intermediate or high risk",
+        "Category of Evidence and"
+      ],
+      "stages": [
+        {
+          "title": "Myelofibrosis — initial authorization",
+          "approvalDuration": "6 months",
+          "all": [
+            {
+              "any": [
+                "Primary myelofibrosis.",
+                "Post-polycythemia vera myelofibrosis.",
+                "Post-essential thrombocythemia myelofibrosis."
+              ]
+            },
+            "Intermediate or high-risk disease.",
+            "Pretreatment platelets <50×10⁹/L.",
+            {
+              "any": [
+                "Hematologist prescriber/consultation.",
+                "Oncologist prescriber/consultation."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Myelofibrosis — renewal",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive response (e.g., symptomatic improvement or smaller spleen)."
+          ]
+        },
+        {
+          "title": "NCCN compendium-supported regimen",
+          "approvalDuration": "12 months",
+          "all": [
+            "NCCN Drugs and Biologics Compendium category 1, 2A or 2B supports requested use."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-required diagnosis, test results, treatment history and specialist documentation."
+      ]
+    },
+    {
+      "id": "gl-110775-igalmi",
+      "policyCode": "GL-110775",
+      "product": "Igalmi (dexmedetomidine sublingual)",
+      "matchBrands": [
+        "IGALMI"
+      ],
+      "heading": "Igalmi (dexmedetomidine sublingual) — original November clinical criteria",
+      "sourcePage": 854,
+      "sourceLastPage": 855,
+      "approvalDuration": "14 days",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Acute agitation in schizophrenia or bipolar I/II, two preferred agitation-drug alternatives and ongoing maintenance therapy; 14-day window.",
+      "guidelineCaution": "Original statewide AHCCCS clinical criteria only. Confirm exact product, route and benefit rules with the specific Tucson ACC plan; no plan-specific PA or coverage is established here.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-110775.txt",
+      "sourceChecks": [
+        "Product Name:Igalmi",
+        "Bipolar I or II disorder",
+        "For the treatment of acute agitation",
+        "at least two preferred products",
+        "maintenance medication"
+      ],
+      "pathways": [
+        {
+          "title": "Acute agitation — all criteria",
+          "all": [
+            {
+              "any": [
+                "Schizophrenia.",
+                "Bipolar I or II disorder."
+              ]
+            },
+            "Used to treat ACUTE agitation.",
+            "Tried/failed, contraindicated or intolerant to at least TWO preferred acute agitation products (e.g., olanzapine or ziprasidone).",
+            "Currently receiving maintenance medication for the underlying disorder."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-required diagnosis, test results, treatment history and specialist documentation."
+      ]
+    },
+    {
+      "id": "gl-114155-ztalmy",
+      "policyCode": "GL-114155",
+      "product": "Ztalmy (ganaxolone)",
+      "matchBrands": [
+        "ZTALMY"
+      ],
+      "heading": "Ztalmy (ganaxolone) — original November clinical criteria",
+      "sourcePage": 2131,
+      "sourceLastPage": 2133,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "CDKL5-confirmed motor seizure disorder, prior two anticonvulsants OR continuation; initial 6mo and renewal 12mo.",
+      "guidelineCaution": "Original statewide AHCCCS clinical criteria only. Confirm exact product, route and benefit rules with the specific Tucson ACC plan; no plan-specific PA or coverage is established here.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-114155.txt",
+      "sourceChecks": [
+        "Product Name:Ztalmy",
+        "CDKL5 gene",
+        "Patient is 2 years of age or older",
+        "positive clinical response to therapy"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "CDKL5 deficiency disorder confirmed.",
+            "CDKL5 genetic mutation confirmed.",
+            "At least 2 years old.",
+            "Experiencing motor seizures.",
+            {
+              "any": [
+                "Failure, contraindication or intolerance to TWO preferred anticonvulsants (e.g., valproate, levetiracetam, lamotrigine).",
+                "Continuation of established Ztalmy therapy."
+              ]
+            },
+            "Neurologist prescriber/consultation."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Motor seizure frequency reduced compared with baseline."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-required diagnosis, test results, treatment history and specialist documentation."
+      ]
+    },
+    {
+      "id": "gl-114467-valsartan-solution",
+      "policyCode": "GL-114467",
+      "product": "Valsartan oral SOLUTION",
+      "matchNames": [
+        "VALSARTAN ORAL SOLUTION"
+      ],
+      "heading": "Valsartan oral SOLUTION — original November clinical criteria",
+      "sourcePage": 1924,
+      "sourceLastPage": 1925,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Formulation-specific policy limited to oral solution for patients ≥7 unable to swallow solids; must NOT apply to valsartan tablets.",
+      "guidelineCaution": "Original statewide AHCCCS clinical criteria only. Confirm exact product, route and benefit rules with the specific Tucson ACC plan; no plan-specific PA or coverage is established here.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-114467.txt",
+      "sourceChecks": [
+        "Product Name:Valsartan oral solution",
+        "Patient is 7 years of age or older",
+        "Patient cannot take solid dosage form due to swallowing issues"
+      ],
+      "pathways": [
+        {
+          "title": "Formulation-specific requirements",
+          "all": [
+            "Age ≥7 years.",
+            "Unable to take solid oral dosage forms because of swallowing difficulties."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-required diagnosis, test results, treatment history and specialist documentation."
+      ]
+    },
+    {
+      "id": "gl-104872-carbaglu",
+      "policyCode": "GL-104872",
+      "product": "Carbaglu / generic carglumic acid",
+      "matchBrands": [
+        "CARBAGLU"
+      ],
+      "matchNames": [
+        "CARGLUMIC ACID"
+      ],
+      "heading": "Carbaglu / generic carglumic acid — original November clinical criteria",
+      "sourcePage": 298,
+      "sourceLastPage": 301,
+      "approvalDuration": "3 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Different acute etiologies and chronic NAGS pathway carry 3-month, 1-month and 12-month authorization periods; acute PA 1-month branch limits actual treatment to ≤7 days.",
+      "guidelineCaution": "Original statewide AHCCCS clinical criteria only. Confirm exact product, route and benefit rules with the specific Tucson ACC plan; no plan-specific PA or coverage is established here.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-104872.txt",
+      "sourceChecks": [
+        "Product Name:Brand Carbaglu, Generic carglumic acid",
+        "Acute Hyperammonemia due to Propionic Acidemia",
+        "Patient’s plasma ammonia level is greater than or equal to 50",
+        "Chronic Hyperammonemia due to N-acetylglutamate Synthase"
+      ],
+      "stages": [
+        {
+          "title": "Acute NAGS deficiency hyperammonemia",
+          "approvalDuration": "3 months",
+          "all": [
+            "Acute hyperammonemia caused by N-acetylglutamate synthase (NAGS) deficiency.",
+            "Adjunct to other ammonia-lowering treatments (e.g., dietary restriction, scavengers, dialysis).",
+            "Metabolic-disorder specialist prescriber/consultation."
+          ]
+        },
+        {
+          "title": "Acute propionic/methylmalonic acidemia hyperammonemia",
+          "approvalDuration": "1 month",
+          "all": [
+            "Acute hyperammonemia caused by propionic or methylmalonic acidemia.",
+            "Adjunct to other ammonia-lowering treatments (glucose, insulin, dietary measures, dialysis).",
+            "Baseline ammonia ≥50 micromol/L.",
+            "Treatment for NO LONGER THAN 7 days.",
+            "Metabolic-disorder specialist prescriber/consultation."
+          ]
+        },
+        {
+          "title": "Chronic NAGS deficiency — initial",
+          "approvalDuration": "12 months",
+          "all": [
+            "Chronic hyperammonemia due to NAGS deficiency.",
+            "NAGS deficiency genetically confirmed.",
+            "Used as maintenance treatment.",
+            "Metabolic-disorder specialist prescriber/consultation."
+          ]
+        },
+        {
+          "title": "Chronic NAGS deficiency — renewal",
+          "approvalDuration": "12 months",
+          "all": [
+            "Positive response (e.g., plasma ammonia in normal range)."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-required diagnosis, test results, treatment history and specialist documentation."
+      ]
+    },
+    {
+      "id": "gl-123730-enjaymo",
+      "policyCode": "GL-123730",
+      "product": "Enjaymo (sutimlimab-jome)",
+      "matchBrands": [
+        "ENJAYMO"
+      ],
+      "heading": "Enjaymo (sutimlimab-jome) — original November clinical criteria",
+      "sourcePage": 559,
+      "sourceLastPage": 561,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "CAD requires full DAT/titer evidence, exclusion of secondary causes, pretreatment Hb ≤10 and weight-specific dosing; reauthorization requires BOTH freedom from transfusion after week five and improved Hb.",
+      "guidelineCaution": "Original statewide AHCCCS clinical criteria only. Confirm exact product, route and benefit rules with the specific Tucson ACC plan; no plan-specific PA or coverage is established here.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-123730.txt",
+      "sourceChecks": [
+        "Product Name:Enjaymo",
+        "Cold agglutinin titer greater than or equal to 64",
+        "Baseline hemoglobin level less than or equal to 10.0",
+        "The patient has not required any blood transfusions"
+      ],
+      "stages": [
+        {
+          "title": "Cold agglutinin disease — initial",
+          "approvalDuration": "6 months",
+          "all": [
+            {
+              "all": [
+                "Chronic hemolysis documented.",
+                "Positive polyspecific direct antiglobulin test.",
+                "Monospecific direct antiglobulin test strongly positive for C3d.",
+                "Cold agglutinin titer ≥64 at 4°C.",
+                "IgG DAT strength ≤1+."
+              ]
+            },
+            "No secondary cold agglutinin syndrome due to malignancy, immunodeficiency, infection, or autoimmune disease.",
+            "Baseline Hb ≤10.0 g/dL.",
+            {
+              "any": [
+                "Weight ≥39 to <75 kg: max 6,500 mg IV day 0, 7 and q14d.",
+                "Weight ≥75 kg: max 7,500 mg IV day 0, 7 and q14d."
+              ]
+            },
+            "Hematologist prescriber/consultation."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "12 months",
+          "all": [
+            {
+              "all": [
+                "No blood transfusions since first 5 weeks of Enjaymo therapy.",
+                "Hemoglobin ≥12 g/dL OR increased ≥2 g/dL from baseline."
+              ]
+            },
+            {
+              "any": [
+                "Weight 39 to <75 kg: max 6,500 mg IV day 0, 7 and every 14 days.",
+                "Weight ≥75 kg: max 7,500 mg IV day 0, 7 and every 14 days."
+              ]
+            },
+            "Hematologist prescriber/consultation."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-required diagnosis, test results, treatment history and specialist documentation."
+      ]
+    },
+    {
+      "id": "gl-125941-lamzede",
+      "policyCode": "GL-125941",
+      "product": "Lamzede (velmanase alfa-tycv)",
+      "matchBrands": [
+        "LAMZEDE"
+      ],
+      "heading": "Lamzede (velmanase alfa-tycv) — original November clinical criteria",
+      "sourcePage": 1058,
+      "sourceLastPage": 1059,
+      "approvalDuration": "12 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Non-CNS alpha-mannosidosis with biochemical or genetic confirmation; initial 12 months, renewal 24 months.",
+      "guidelineCaution": "Original statewide AHCCCS clinical criteria only. Confirm exact product, route and benefit rules with the specific Tucson ACC plan; no plan-specific PA or coverage is established here.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-125941.txt",
+      "sourceChecks": [
+        "Product Name:Lamzede",
+        "Diagnosis of alpha-mannosidosis",
+        "mutations in the MAN2B1 gene",
+        "non-central nervous system",
+        "serum oligosaccharide"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "12 months",
+          "all": [
+            "Alpha-mannosidosis diagnosed.",
+            {
+              "any": [
+                "Alpha-mannosidase enzyme deficiency demonstrated in leukocytes or fibroblasts.",
+                "MAN2B1 mutation confirmed by molecular genetic testing."
+              ]
+            },
+            "Treatment targets NON-CNS disease manifestations."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "24 months",
+          "all": [
+            "No progressive disease while receiving therapy.",
+            {
+              "any": [
+                "Serum oligosaccharides reduced from baseline.",
+                "Clinical signs improved (e.g., stairs, walking, lung function, quality of life)."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-required diagnosis, test results, treatment history and specialist documentation."
+      ]
+    },
+    {
+      "id": "gl-128980-rebyota",
+      "policyCode": "GL-128980",
+      "product": "Rebyota (fecal microbiota)",
+      "matchBrands": [
+        "REBYOTA"
+      ],
+      "heading": "Rebyota (fecal microbiota) — original November clinical criteria",
+      "sourcePage": 662,
+      "sourceLastPage": 663,
+      "approvalDuration": "14 days",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Rebyota: ≥1 recurrent CDI, adult, positive testing, antibiotic course completed within 24–72h, controlled episode; different from Vowst.",
+      "guidelineCaution": "Original statewide AHCCCS clinical criteria only. Confirm exact product, route and benefit rules with the specific Tucson ACC plan; no plan-specific PA or coverage is established here.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-128980.txt",
+      "sourceChecks": [
+        "Product Name:Rebyota",
+        "Presence of diarrhea defined as a passage of 3 or more loose",
+        "at least 10 consecutive days",
+        "between 24 to 72 hours",
+        "Gastroenterologist"
+      ],
+      "pathways": [
+        {
+          "title": "Recurrent C. difficile prevention after antibiotic course",
+          "all": [
+            {
+              "all": [
+                "Recurrent CDI diarrhea: ≥3 loose stools per 24 hours for 2 consecutive days.",
+                "Positive stool toxin test or toxigenic C. difficile."
+              ]
+            },
+            "At least 18 years old.",
+            "At least ONE recurrent episode of CDI.",
+            {
+              "all": [
+                "At least 10 consecutive days of oral vancomycin or fidaxomicin, completed 24–72 hours before Rebyota.",
+                "Prior CDI episode clinically controlled (<3 loose stools/day for 2 consecutive days)."
+              ]
+            },
+            {
+              "any": [
+                "Gastroenterologist prescriber/consultation.",
+                "Infectious disease specialist prescriber/consultation."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-required diagnosis, test results, treatment history and specialist documentation."
+      ]
+    },
+    {
+      "id": "gl-128980-vowst",
+      "policyCode": "GL-128980",
+      "product": "Vowst (fecal microbiota spores)",
+      "matchBrands": [
+        "VOWST"
+      ],
+      "heading": "Vowst (fecal microbiota spores) — original November clinical criteria",
+      "sourcePage": 664,
+      "sourceLastPage": 665,
+      "approvalDuration": "14 days",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "Vowst requires ≥2 recurrent CDI episodes/12 months and pretreatment magnesium citrate, unlike Rebyota.",
+      "guidelineCaution": "Original statewide AHCCCS clinical criteria only. Confirm exact product, route and benefit rules with the specific Tucson ACC plan; no plan-specific PA or coverage is established here.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-128980.txt",
+      "sourceChecks": [
+        "Product Name:Vowst",
+        "two or more recurrent episodes of CDI within 12 months",
+        "magnesium citrate the day before",
+        "at least 8 hours",
+        "2-4 days prior"
+      ],
+      "pathways": [
+        {
+          "title": "Prevention of recurrent C. difficile after antibiotics",
+          "all": [
+            {
+              "all": [
+                "Recurrent CDI diarrhea: ≥3 loose stools per 24 hours for 2 consecutive days.",
+                "Positive stool toxin or toxigenic C. difficile testing."
+              ]
+            },
+            "At least 18 years old.",
+            "At least TWO recurrent CDI episodes within 12 months.",
+            {
+              "all": [
+                "At least 10 days of oral vancomycin or fidaxomicin completed 2–4 days before Vowst.",
+                "Magnesium citrate bowel preparation the day before, ≥8 hours before first dose.",
+                "Previous CDI episode clinically controlled."
+              ]
+            },
+            {
+              "any": [
+                "Gastroenterologist prescriber/consultation.",
+                "Infectious disease specialist prescriber/consultation."
+              ]
+            }
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-required diagnosis, test results, treatment history and specialist documentation."
+      ]
+    },
+    {
+      "id": "gl-128982-qalsody",
+      "policyCode": "GL-128982",
+      "product": "Qalsody (tofersen)",
+      "matchBrands": [
+        "QALSODY"
+      ],
+      "heading": "Qalsody (tofersen) — original November clinical criteria",
+      "sourcePage": 1443,
+      "sourceLastPage": 1445,
+      "approvalDuration": "6 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "SOD1 ALS with baseline function, percent SVC ≥50%, no permanent ventilation; initial and renewal each 6 months.",
+      "guidelineCaution": "Original statewide AHCCCS clinical criteria only. Confirm exact product, route and benefit rules with the specific Tucson ACC plan; no plan-specific PA or coverage is established here.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-128982.txt",
+      "sourceChecks": [
+        "Product Name:Qalsody",
+        "mutation in the SOD1 gene",
+        "slow vital capacity (%SVC) greater than or equal to 50%",
+        "does not require permanent noninvasive ventilation",
+        "slowed disease progression"
+      ],
+      "stages": [
+        {
+          "title": "Initial authorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "ALS diagnosis.",
+            "SOD1 mutation confirmed genetically.",
+            "Baseline functional capacity documented.",
+            "Pretreatment slow vital capacity ≥50% predicted.",
+            "No permanent noninvasive or invasive ventilatory requirement.",
+            "Neurologist with ALS expertise prescriber/consultation."
+          ]
+        },
+        {
+          "title": "Reauthorization",
+          "approvalDuration": "6 months",
+          "all": [
+            "Documented slowing in disease progression from baseline.",
+            "Neurologist with ALS expertise prescriber/consultation."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-required diagnosis, test results, treatment history and specialist documentation."
+      ]
+    },
+    {
+      "id": "gl-129071-qutenza",
+      "policyCode": "GL-129071",
+      "product": "Qutenza (capsaicin topical patch)",
+      "matchBrands": [
+        "QUTENZA"
+      ],
+      "heading": "Qutenza (capsaicin topical patch) — original November clinical criteria",
+      "sourcePage": 1446,
+      "sourceLastPage": 1448,
+      "approvalDuration": "3 months",
+      "sourceGuidelineType": "Prior Authorization",
+      "summary": "DPN of feet requires SIX agents including duloxetine, PHN FIVE; 3-month retreatment interval.",
+      "guidelineCaution": "Original statewide AHCCCS clinical criteria only. Confirm exact product, route and benefit rules with the specific Tucson ACC plan; no plan-specific PA or coverage is established here.",
+      "sourceUrl": "/sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf",
+      "sourceTextUrl": "/policy-text/ahcccs-ffs-nov2026/gl-129071.txt",
+      "sourceChecks": [
+        "Product Name:Qutenza",
+        "Neuropathic pain associated with postherpetic neuralgia",
+        "minimum 60-day trial of a tricyclic antidepressant",
+        "generic lidocaine 5% patch",
+        "It has been at least 3 months since the last application"
+      ],
+      "stages": [
+        {
+          "title": "Postherpetic neuralgia — initial",
+          "approvalDuration": "3 months",
+          "all": [
+            "Neuropathic pain associated with postherpetic neuralgia.",
+            {
+              "all": [
+                "Failed/contraindicated/intolerant to gabapentin.",
+                "Failed/contraindicated/intolerant to pregabalin.",
+                "Failed/contraindicated/intolerant to a tricyclic antidepressant after ≥60-day trial.",
+                "Failed/contraindicated/intolerant to generic lidocaine 5% patch.",
+                "Failed/contraindicated/intolerant to topical capsaicin cream."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Painful diabetic neuropathy of feet — initial",
+          "approvalDuration": "3 months",
+          "all": [
+            "Neuropathic pain associated with diabetic peripheral neuropathy OF FEET.",
+            {
+              "all": [
+                "Failed/contraindicated/intolerant to gabapentin.",
+                "Failed/contraindicated/intolerant to pregabalin.",
+                "Failed/contraindicated/intolerant to TCA after ≥60-day trial.",
+                "Failed/contraindicated/intolerant to generic lidocaine 5% patch.",
+                "Failed/contraindicated/intolerant to topical capsaicin cream.",
+                "Failed/contraindicated/intolerant to duloxetine."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "All indications — reauthorization",
+          "approvalDuration": "3 months",
+          "all": [
+            "At least 3 months since previous application.",
+            "Experienced pain relief from prior course.",
+            "Neuropathic pain has returned."
+          ]
+        }
+      ],
+      "documentationSuggestions": [
+        "Provide source-required diagnosis, test results, treatment history and specialist documentation."
+      ]
     }
   ]
 }
