@@ -1210,7 +1210,8 @@
       }
       for (const binding of record.uhcClinicalBindings || []) {
         const policy = state.data.policies.find(p => p.id === binding.policyId && p.planId === state.planId);
-        if (policy) add(policy);
+        if (policy) add(binding.role === 'duplication'
+          ? {...policy, scope: 'Applies when a therapeutic duplication edit is triggered.'} : policy);
       }
     }
     // Navigation only: a named source is not an assertion that its criteria
@@ -1369,7 +1370,13 @@
     let quantity = byRole(['quantity']);
     if (!quantity.length) quantity = byRole(['global_quantity']);
     const sections = [], references = [], seen = new Set();
-    for (const [kind, selected] of [['Prior authorization', primary], ['Quantity-limit exceptions', quantity]]) {
+    const duplication = byRole(['duplication']);
+    const criteriaSections = [
+      ['Prior authorization', primary],
+      ['Therapeutic duplication exceptions', duplication],
+      ['Quantity-limit exceptions', quantity]
+    ];
+    for (const [kind, selected] of criteriaSections) {
       const body = [];
       for (const binding of selected) {
         const policy = policies.find(p => p.id === binding.policyId);
@@ -1382,15 +1389,19 @@
           if (!branch) throw new Error('Clinical branch missing');
           seen.add(key);
           const scope = binding.branchLabels?.[i];
-          body.push((scope ? `<p><strong>Formulation:</strong> ${escapeHtml(scope)}</p>` : '') + cardBranchMarkup(branch));
+          const label = binding.productLabel ? `<p><strong>Product:</strong> ${escapeHtml(binding.productLabel)}</p>`
+            : scope ? `<p><strong>Formulation:</strong> ${escapeHtml(scope)}</p>` : '';
+          body.push(label + cardBranchMarkup(branch));
         }
         if (!references.some(p => p.id === policy.id)) references.push(policy);
       }
-      if (body.length) sections.push(`<section class="uhc-restriction-criteria"><h4>${kind}</h4>${body.join('')}</section>`);
+      const context = selected === duplication ? '<p>Applies when a therapeutic duplication edit is triggered.</p>' : '';
+      if (body.length) sections.push(`<section class="uhc-restriction-criteria"><h4>${kind}</h4>${context}${body.join('')}</section>`);
     }
     const paRequired = (group.records || []).some(r => r.planId === state.planId && !r.isStatewideReference && ['required','conditional'].includes(r.pa));
     if (paRequired && !primary.length) sections.unshift('<p>PA is required. Approval criteria have not yet been verified for this formulation. Review the linked UHC source.</p>');
-    const referenceLabels = references.map(p => primary.some(b => b.policyId === p.id) ? 'PA reference' : 'QL reference');
+    const referenceLabels = references.map(p => primary.some(b => b.policyId === p.id) ? 'PA reference'
+      : duplication.some(b => b.policyId === p.id) ? 'Duplication reference' : 'QL reference');
     if (!paRequired && !primary.length && guidance) {
       sections.unshift(clinicalGuidanceContent(guidance, true));
       references.unshift(guidance); referenceLabels.unshift('Clinical reference');
@@ -1475,7 +1486,11 @@
     ]).filter(Boolean))].filter(text => !/^PA is printed in at least one source row\.$/.test(text));
     return `<article class="result-card">
       <h3>${escapeHtml(group.label)}</h3>
-      ${rows.map(record => `<div class="chips" aria-label="Coverage attributes">${statusChips(record)}</div>`).join('')}
+      ${rows.map(record => {
+        const label = rows.length > 1 && record.uhcClinicalBindings?.find(binding => binding.productLabel)?.productLabel;
+        return `${label ? `<p class="coverage-product-label"><strong>${escapeHtml(label)}</strong></p>` : ''}
+          <div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${statusChips(record)}</div>`;
+      }).join('')}
       <div class="card-source-access">${sourcesLink(group)}</div>
       <details class="clinical-details result-disclosure" data-card-clinical="${escapeHtml(key)}">
         <summary><span>Clinical details &amp; PA criteria</span><span class="card-pa-references">${refs}</span></summary>

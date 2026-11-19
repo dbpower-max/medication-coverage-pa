@@ -6,6 +6,15 @@ from collections import defaultdict
 from structured_statewide_criteria import structure_policy, validate_structure
 
 PLAN = 'uhc-community-az'
+# Reviewed October PDL names mapped to the November 2026 named-product branches.
+DPP4_BRANCHES = {
+    'alogliptin benzoate': (0, 'Alogliptin'),
+    'januvia (brand for sitagliptin phosphate)': (0, 'Brand Januvia'),
+    'janumet (brand for sitagliptin phos-metformin hcl)': (0, 'Brand Janumet'),
+    'sitagliptin phos-metformin hcl (generic for janumet)': (1, 'Generic sitagliptin phosphate/metformin'),
+    'jentadueto xr': (1, 'Jentadueto XR'),
+}
+
 FORMS = r'oral|tablet|tablets|capsule|capsules|solution|suspension|injection|injectable|subcutaneous|intravenous|intramuscular|topical|cream|ointment|ophthalmic|otic|nasal|inhalation|inhaler|aerosol|powder|spray|prefilled|syringe|syringes|pen|kit|pack|vial|vials|chewable|disintegrating|hcl|hydrochloride|mg|mcg|ml|unit|units|act|actuat|dose|metered|breath|actuated|hfa|tabs|caps|soln|susp|packet|packets|reconstituted|cartridge|kwikpen|and|external|er|xr|dr|sr|pf|therapy|initiation|pk|titration|patient|month|sprinkle|sprinkles|soluble|dispersible|granules|auto|injector|transdermal|patch|recon|reconstitution|concentrate|intramuscular|patches|odt|for|rebidose|hr|hour|hours'
 
 def identity(value):
@@ -138,6 +147,17 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         for key in sorted(keys):
             for code,i,product in by_key.get(key,[]):
                 if product_matches(record,product):matched[code].add(i)
+        dpp4 = DPP4_BRANCHES.get(record['name'].lower()) if pa and record.get('sourceEffective') == '2026-10-01' else None
+        if dpp4:
+            index, label = dpp4
+            assert all(policies[code]['policyEffective'] == '2026-11-01' for code in ('GL-752241', 'GL-735259'))
+            for code, branch in (('GL-752241', index), ('GL-735259', 0)):
+                products = structured[code]['branches'][branch]['fields']['Product Name']['text']
+                assert re.search(r'(?<![\w/])' + re.escape(label) + r'(?![\w/-])', ' '.join(products.split()), re.I), (code, label)
+                matched.pop(code, None)
+            add('GL-752241', [index], 'product')
+            bindings[-1]['productLabel'] = label
+            add('GL-735259', [0], 'duplication')
         for code,indexes in sorted(matched.items()):
             pa_indexes=[];ql_indexes=[]
             for i in sorted(indexes):

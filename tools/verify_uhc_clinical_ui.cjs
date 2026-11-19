@@ -14,6 +14,38 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  const qvar=groups.find(g=>/qvar/i.test(g.label)&&a.clinicalGuidanceFor(g));if(qvar){const out=await open(qvar);assert(out.html.includes('Diagnosis of asthma'),'Existing non-PA clinical guide erased by quantity-policy loading');}
  const supplies=groups.filter(g=>g.records.some(r=>r.policyQuantityLimit));assert(supplies.length>5);
  for(const g of supplies){const out=await open(g);assert(out.html.includes('more frequent delivery of insulin'));const card=a.medicationGroupCard(g);assert(card.includes('6 pen needles per day and 6 syringes per day.'));if(g.records.every(r=>r.preferred==='preferred'))assert(!out.html.includes('unable to use a preferred'),'Preferred product got nonpreferred PA');}
+ const dpp4Cases = [
+  ['9f51490fe737364d', [['Alogliptin', 0]]],
+  ['58dba0a2f1b044a1', [['Brand Januvia', 0]]],
+  ['0bbc20aa86db36bf', [['Jentadueto XR', 1]]],
+  ['e15eed57b66af71f', [['Brand Janumet', 0], ['Generic sitagliptin phosphate/metformin', 1]]],
+ ];
+ for (const [id, products] of dpp4Cases) {
+  const g = groups.find(group => group.records.some(record => record.id === 'uhc-oct-complete-' + id));
+  assert(g, id);
+  const bindings = a.uhcGroupBindings(g);
+  const dpp4Bindings = bindings.filter(binding => binding.policyId.endsWith('gl-752241'));
+  assert.deepEqual(Array.from(dpp4Bindings, binding => [binding.productLabel, ...binding.branchIndexes]).sort(), products.sort());
+  const duplication = bindings.filter(binding => binding.policyId.endsWith('gl-735259'));
+  assert.equal(duplication.length, 1);
+  assert.equal(duplication[0].role, 'duplication');
+  const {html, ref} = await open(g);
+  const [pa, other] = html.split('<h4>Therapeutic duplication exceptions</h4>');
+  assert(pa.startsWith('<section class="uhc-restriction-criteria"><h4>Prior authorization</h4>'));
+  assert(other.includes('when a therapeutic duplication edit is triggered'));
+  assert.equal(/THREE of the following/i.test(pa), products.some(([,index]) => index === 1));
+  assert(ref.includes('page=459') && ref.includes('Duplication reference') && ref.includes('QL reference'));
+  for (const [label] of products) {
+   assert(pa.includes('<strong>Product:</strong> ' + label));
+   if (products.length > 1) assert(a.medicationGroupCard(g).includes('Coverage attributes for ' + label));
+  }
+  if (products.length > 1) {
+   const brand = pa.split('<strong>Product:</strong> Brand Janumet')[1]
+     .split('<strong>Product:</strong> Generic sitagliptin phosphate/metformin')[0];
+   assert(!/THREE of the following/i.test(brand));
+  }
+ }
+ console.log('PASS: Four DPP-4 cards show exact product PA branches and a separately labeled duplication exception.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  console.log('PASS: '+n+' restricted UHC cards load clinical content and source references; Apidra nonpreferred + QL; preferred/nonpreferred syringe branches; plan isolation');
 })().catch(e=>{console.error(e);process.exitCode=1});
