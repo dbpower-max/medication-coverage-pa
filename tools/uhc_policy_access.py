@@ -47,6 +47,16 @@ PANTOPRAZOLE_PACKETS = {
     ),
 }
 
+OAB_PRODUCTS = {
+    'myrbetriq oral suspension reconstituted er (brand for mirabegron er)': (
+        'Myrbetriq ER granules for oral suspension', 'Brand Myrbetriq granules',
+    ),
+    'myrbetriq oral tablet extended release 24 hour (brand for mirabegron er)': (
+        'Myrbetriq ER tablets', 'Brand Myrbetriq tabs',
+    ),
+    'toviaz (brand for fesoterodine fumarate er)': ('Brand Toviaz', 'Brand Toviaz'),
+}
+
 FORMS = r'oral|tablet|tablets|capsule|capsules|solution|suspension|injection|injectable|subcutaneous|intravenous|intramuscular|topical|cream|ointment|ophthalmic|otic|nasal|inhalation|inhaler|aerosol|powder|spray|prefilled|syringe|syringes|pen|kit|pack|vial|vials|chewable|disintegrating|hcl|hydrochloride|mg|mcg|ml|unit|units|act|actuat|dose|metered|breath|actuated|hfa|tabs|caps|soln|susp|packet|packets|reconstituted|cartridge|kwikpen|and|external|er|xr|dr|sr|pf|therapy|initiation|pk|titration|patient|month|sprinkle|sprinkles|soluble|dispersible|granules|auto|injector|transdermal|patch|recon|reconstitution|concentrate|intramuscular|patches|odt|for|rebidose|hr|hour|hours'
 
 def identity(value):
@@ -222,6 +232,19 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             assert branch['criteria'][-1]['text'].startswith('2 - If the request is for Brand Nexium')
             add(code, [0], 'packet_reference')
             bindings[-1]['productLabel'] = label
+        if record.get('sourceEffective') == '2026-10-01':
+            name = record['name'].lower()
+            if name == 'fesoterodine fumarate er (generic for toviaz)':
+                record['coverageProductLabel'] = 'Generic fesoterodine ER'
+            if name in OAB_PRODUCTS:
+                code = 'GL-647193'
+                label, product = OAB_PRODUCTS[name]
+                assert pa and policies[code]['policyEffective'] == '2026-08-01'
+                assert matched.pop(code) == {0}
+                branch, = structured[code]['branches']
+                assert product in branch['fields']['Product Name']['text'].split(', ')
+                add(code, [0], 'product')
+                bindings[-1]['productLabel'] = label
         for code,indexes in sorted(matched.items()):
             if code == 'GL-735259':
                 if pa:add(code,sorted(indexes),'duplication')

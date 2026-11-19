@@ -135,6 +135,11 @@
     if (record.id === 'uhc-oct-complete-b91029349d6055f8' || record.id === 'uhc-oct-complete-4848e3a8d39fd8d9') {
       return {key: `${record.planId}:pantoprazole-suspension-packets`, generic: 'Pantoprazole Sodium Packets', brands: ['PROTONIX']};
     }
+    if (record.id === 'uhc-oct-complete-9e58d3383e72691c' || record.id === 'uhc-oct-complete-136c92bbb186b8d5') {
+      const formulation = record.id === 'uhc-oct-complete-9e58d3383e72691c'
+        ? 'ER Granules for Oral Suspension' : 'ER Tablets';
+      return {key: `${record.planId}:${record.id}`, generic: `Mirabegron ${formulation}`, brands: ['MYRBETRIQ']};
+    }
     if (record.planId === 'uhc-community-az' && distinctUhcPresentations.has(record.id)) {
       return {key: `${record.planId}:${record.id}`, generic: brandFor?.[1].trim() || name, brands: []};
     }
@@ -1519,7 +1524,8 @@
     return `<article class="result-card">
       <h3>${escapeHtml(group.label)}</h3>
       ${rows.map(record => {
-        const label = rows.length > 1 && record.uhcClinicalBindings?.find(binding => binding.productLabel)?.productLabel;
+        const label = rows.length > 1 && (record.coverageProductLabel
+          || record.uhcClinicalBindings?.find(binding => binding.productLabel)?.productLabel);
         return `${label ? `<p class="coverage-product-label"><strong>${escapeHtml(label)}</strong></p>` : ''}
           <div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${statusChips(record)}</div>`;
       }).join('')}

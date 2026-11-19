@@ -137,6 +137,33 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  const nexiumPacket = await open(byId('5c3694b58912d172'));
  assert(nexiumPacket.ref.includes('page=1380') && nexiumPacket.html.includes('Brand Nexium'));
  console.log('PASS: Protonix and generic packets share one UHC card with separate tier chips and source-scoped GL-255208 criteria; tablets and Nexium keep their own scopes.');
+ const myrbetriq = [
+  ['9e58d3383e72691c', 'Myrbetriq ER granules for oral suspension', /granules for oral suspension/i, true],
+  ['136c92bbb186b8d5', 'Myrbetriq ER tablets', /ER tablets/i, false],
+ ];
+ for (const [id, label, form, ageLimited] of myrbetriq) {
+  const group = byId(id);
+  assert(group && form.test(group.label));
+  assert.match(group.search, /myrbetriq/i);
+  const card = a.medicationGroupCard(group);
+  assert(card.includes('>PA required<') && card.includes('>Quantity limit<'));
+  assert.equal(card.includes('>Age limit<'), ageLimited);
+  const result = await open(group);
+  assert(result.html.includes('<strong>Product:</strong> ' + label));
+  assert(result.ref.includes('page=1239') && result.html.includes('THREE of'));
+ }
+ const toviaz = byId('ea20f5bf0c3a4bee');
+ assert(toviaz && toviaz === byId('a366862b44246566'));
+ const toviazCard = a.medicationGroupCard(toviaz);
+ const brandChips = toviazCard.split('Coverage attributes for Brand Toviaz')[1].split('</div>')[0];
+ const genericChips = toviazCard.split('Coverage attributes for Generic fesoterodine ER')[1].split('</div>')[0];
+ assert(brandChips.includes('Tier 2') && brandChips.includes('>PA required<') && brandChips.includes('>Nonpreferred<'));
+ assert(genericChips.includes('Tier 1') && genericChips.includes('>Preferred<') && !genericChips.includes('>PA required<'));
+ for (const chips of [brandChips, genericChips]) assert(chips.includes('>Quantity limit<'));
+ const toviazResult = await open(toviaz);
+ assert.deepEqual(Array.from(a.uhcGroupBindings(toviaz).filter(b => b.policyId.endsWith('gl-647193')), b => b.productLabel), ['Brand Toviaz']);
+ assert(toviazResult.html.includes('<strong>Product:</strong> Brand Toviaz') && toviazResult.ref.includes('page=1239'));
+ console.log('PASS: Myrbetriq ER formulations retain distinct flags and criteria; the shared Toviaz card identifies brand-only PA.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  console.log('PASS: '+n+' restricted UHC cards load clinical content and source references; Apidra nonpreferred + QL; preferred/nonpreferred syringe branches; plan isolation');
 })().catch(e=>{console.error(e);process.exitCode=1});
