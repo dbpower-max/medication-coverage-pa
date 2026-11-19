@@ -9,7 +9,15 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  const groups=a.planMedicationGroups().filter(g=>g.records.some(r=>r.planId==='uhc-community-az'&&!r.isStatewideReference&&(['required','conditional'].includes(r.pa)||r.qlAmount||r.qlDays)));
  const mounjaro=a.planMedicationGroups().find(g=>/mounjaro/i.test(g.label));assert(a.medicationGroupCard(mounjaro).includes('uhc-az-clinical-pharmacy-2026-11-01.pdf'),'Initial UHC reference incorrectly points to statewide criteria');
  let n=0;
- for(const g of groups){const out=await open(g);assert(out.html.trim(),g.label+' empty');assert(out.ref.includes('href='),g.label+' no policy/formulary reference');assert(!out.html.includes('Formatted criteria for this medication are not available'),'Empty template remains');n++;}
+ for(const g of groups){const out=await open(g);assert(out.html.trim(),g.label+' empty');assert(out.ref.includes('href='),g.label+' no policy/formulary reference');assert(!out.html.includes('Formatted criteria for this medication are not available'),'Empty template remains');
+  if (a.uhcGroupBindings(g).some(binding => binding.policyId.endsWith('gl-735259'))) {
+   const [pa, exception] = out.html.split('<h4>Therapeutic duplication exceptions</h4>');
+   assert(!pa.includes('The requested medication will be used exclusively'),g.label+' shows GL-735259 as standard PA');
+   assert(exception?.includes('DUR: Therapeutic Duplication'),g.label+' missing scoped duplication');
+   assert(out.ref.includes('Duplication reference'),g.label+' mislabeled duplication reference');
+  }
+  n++;
+ }
  for(const term of ['Apidra SoloStar','Apidra Vial']){const g=groups.find(g=>g.label.toLowerCase()===term.toLowerCase());assert(g,term);assert(!a.medicationGroupCard(g).includes('PA is printed in at least one source row.'),'Internal PA-column notice leaked');const out=await open(g);assert(out.html.includes('THREE')&&out.html.includes('pharmacy claims'),'Nonpreferred criteria missing');assert(out.html.includes('requested dosage cannot be achieved'),'QL exception criteria missing');assert(out.ref.includes('page=1202')&&out.ref.includes('page=702'),'Wrong UHC source');}
  const qvar=groups.find(g=>/qvar/i.test(g.label)&&a.clinicalGuidanceFor(g));if(qvar){const out=await open(qvar);assert(out.html.includes('Diagnosis of asthma'),'Existing non-PA clinical guide erased by quantity-policy loading');}
  const supplies=groups.filter(g=>g.records.some(r=>r.policyQuantityLimit));assert(supplies.length>5);
@@ -76,6 +84,37 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(!genericCriteria.includes('at least 3'));
  assert(ref.includes('page=116'));
  console.log('PASS: Sertraline tablet and solution criteria are isolated; Pristiq and generic restrictions and clinical criteria are labeled.');
+ const tylenol = [
+  ['be91d378ac6cf394', /suspension 160 mg\/5\s*mL/i],
+  ['39c4999cab7992c8', /chewable 160 mg/i],
+  ['847afe1526008a20', /tablet 325 mg, 500 mg/i],
+  ['974130f36218cf8a', /extended release 650 mg/i],
+ ];
+ const presentations = tylenol.map(([id, form]) => {
+  const group = byId(id);
+  assert(group && form.test(group.label), id + ' missing printed Tylenol form or strength');
+  assert.match(group.search, /tylenol/i);
+  assert.match(group.search, /acetaminophen|arthritis pain/i);
+  const card = a.medicationGroupCard(group);
+  assert(card.includes('>Quantity limit</span>') && !card.includes('>PA required</span>'));
+  return group;
+ });
+ assert.equal(new Set(presentations).size, tylenol.length);
+ for (const id of ['a709d5d38c2fadd5', '54172b754703daa3']) {
+  const {html, ref} = await open(byId(id));
+  const [pa, exception] = html.split('<h4>Therapeutic duplication exceptions</h4>');
+  assert(pa.includes('postherpetic neuralgia') && exception.includes('DUR: Therapeutic Duplication'));
+  assert(ref.includes('page=729'));
+ }
+ const naprelan = await open(byId('59050bbcdc345020'));
+ assert(naprelan.html.includes('General nonpreferred PA criteria') &&
+  naprelan.html.includes('Product-specific approval criteria are unverified.'));
+ assert(a.medicationGroupCard(byId('59050bbcdc345020')).includes('>PA required</span>'));
+ const tiotropium = await open(byId('818668349b64ef42'));
+ assert(tiotropium.html.includes('The formulary lists conditional PA.'));
+ assert(!tiotropium.html.includes('PA is required.'));
+ assert.match(tiotropium.html, /Applies to:<\/strong> Spiriva Handihaler \(Brand For Tiotropium Bromide\)/i);
+ console.log('PASS: four Tylenol presentations remain distinct; Gralise product PA, Naprelan fallback and conditional tiotropium duplication are separately scoped.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  console.log('PASS: '+n+' restricted UHC cards load clinical content and source references; Apidra nonpreferred + QL; preferred/nonpreferred syringe branches; plan isolation');
 })().catch(e=>{console.error(e);process.exitCode=1});

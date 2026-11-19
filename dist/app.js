@@ -118,6 +118,9 @@
     'uhc-oct-complete-466ed897a555d892', // Vyvanse capsules
     'uhc-oct-complete-67b306246b077d76', // Vyvanse chewables, 10–50 mg
     'uhc-oct-complete-77c5b244d4cb7020', // Vyvanse chewables, 60 mg
+    'uhc-oct-complete-be91d378ac6cf394', // Tylenol oral suspension
+    'uhc-oct-complete-39c4999cab7992c8', // Tylenol chewables
+    'uhc-oct-complete-847afe1526008a20', // Tylenol standard tablets
   ]);
 
   // Group only when the generic, formulation, route, release and strength text
@@ -1375,8 +1378,11 @@
     const sections = [], references = [], seen = new Set();
     const duplication = byRole(['duplication']);
     const ageScoped = byRole(['age_scoped']);
+    const administrativeFallback = duplication.length && primary.length && primary.every(b => b.role === 'nonpreferred');
+    const paRows = (group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference && ['required','conditional'].includes(r.pa));
+    const fallbackRows = administrativeFallback ? paRows.filter(r => r.uhcClinicalBindings?.some(b => b.role === 'nonpreferred')) : [];
     const criteriaSections = [
-      ['Prior authorization', primary],
+      [administrativeFallback ? 'General nonpreferred PA criteria' : 'Prior authorization', primary],
       ['Age-specific PA criteria', ageScoped],
       ['Therapeutic duplication exceptions', duplication],
       ['Quantity-limit exceptions', quantity]
@@ -1401,21 +1407,26 @@
         if (!references.some(p => p.id === policy.id)) references.push(policy);
       }
       const context = selected === duplication ? '<p>Applies when a therapeutic duplication edit is triggered.</p>'
-        : selected === ageScoped ? '<p>The October 2026 formulary lists an age limit and leaves the PA field blank for the generic product below. The November 2026 guideline specifies these age-based criteria.</p>' : '';
+        : selected === ageScoped ? '<p>The October 2026 formulary lists an age limit and leaves the PA field blank for the generic product below. The November 2026 guideline specifies these age-based criteria.</p>'
+        : selected === primary && administrativeFallback ? (
+          (fallbackRows.length < paRows.length ? `<p><strong>Applies to:</strong> ${escapeHtml(fallbackRows.map(r => readableMedicationName(r.name)).join('; '))}</p>` : '')
+          + '<p>Product-specific approval criteria are unverified.</p>'
+        ) : '';
       if (body.length) sections.push(`<section class="uhc-restriction-criteria"><h4>${kind}</h4>${context}${body.join('')}</section>`);
     }
-    const paRequired = (group.records || []).some(r => r.planId === state.planId && !r.isStatewideReference && ['required','conditional'].includes(r.pa));
-    if (paRequired && !primary.length) sections.unshift('<p>PA is required. Approval criteria have not yet been verified for this formulation. Review the linked UHC source.</p>');
+    const conditionalOnly = duplication.length && paRows.length && paRows.every(r => r.pa === 'conditional');
+    if (conditionalOnly) sections.unshift('<p>The formulary lists conditional PA. See the formulation-specific restrictions and the duplication exception below.</p>');
+    else if (paRows.length && !primary.length) sections.unshift('<p>PA is required. Approval criteria have not yet been verified for this formulation. Review the linked UHC source.</p>');
     const referenceLabels = references.map(p => [...primary, ...ageScoped].some(b => b.policyId === p.id) ? 'PA reference'
       : duplication.some(b => b.policyId === p.id) ? 'Duplication reference' : 'QL reference');
-    if (!paRequired && !primary.length && guidance) {
+    if (!paRows.length && !primary.length && guidance) {
       sections.unshift(clinicalGuidanceContent(guidance, true));
       references.unshift(guidance); referenceLabels.unshift('Clinical reference');
     }
-    if (paRequired && !primary.length) {
-      const record = group.records.find(r => r.planId === state.planId && !r.isStatewideReference && ['required','conditional'].includes(r.pa));
+    if (paRows.length && !primary.length) {
+      const [record] = paRows;
       const relatedIds = new Set((group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference).flatMap(r => r.policySources || []).map(p => p.policyId));
-      const related = policies.find(p => relatedIds.has(p.id));
+      const related = policies.find(p => p.policyCode !== 'GL-735259' && relatedIds.has(p.id));
       if (related) { references.unshift(related); referenceLabels.unshift('PA source'); }
       else if (record?.sourceUrl) { references.unshift(record); referenceLabels.unshift('PA formulary'); }
     }
@@ -1446,7 +1457,7 @@
       let activeSource = guidance;
       // Use the selected plan's exact named product branches first. Never
       // concatenate two payer versions into one apparent set of requirements.
-      const planPolicies = policies.filter(p => p.planId === state.planId);
+      const planPolicies = policies.filter(p => p.planId === state.planId && p.policyCode !== 'GL-735259');
       const referencePolicies = policies.filter(p => p.planId === 'ahcccs-ffs-aihp');
       for (const candidates of [planPolicies, guidance ? [] : referencePolicies]) {
         for (const policy of candidates) {
@@ -1485,7 +1496,7 @@
     cardClinicalGroups.set(key, {group, policies, guidance, planId: state.planId});
     const restriction = state.planId === 'uhc-community-az' && (group.records || []).find(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays));
     const reference = (state.planId === 'uhc-community-az' ? policies.find(p => p.planId === state.planId) || restriction : guidance) || guidance || policies.find(p => p.planId === state.planId) || policies[0];
-    const refs = reference ? cardPaReference(reference) : '';
+    const refs = reference ? cardPaReference(reference, reference.policyCode === 'GL-735259' ? 'Duplication reference' : 'PA reference') : '';
     const exactAgeScopedRows = state.planId === 'uhc-community-az' && (group.records || []).filter(record =>
       record.planId === state.planId && !record.isStatewideReference && record.uhcClinicalBindings?.some(binding => binding.role === 'age_scoped'));
     const rows = group.isStatewide && !exactAgeScopedRows?.length

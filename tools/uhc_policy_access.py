@@ -133,6 +133,11 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             for f in list(b['fields'].values()) + b['criteria'] + b['notes']:
                 display = re.sub(r'UnitedHealthcare Community Plan of Arizona [–-] Clinical Pharmacy Guidelines\s*', '', f.get('displayText',f['text']))
                 if display != f['text']: f['displayText'] = display.strip()
+        if code == 'GL-735259':
+            assert len(result['branches']) == 1
+            fields = result['branches'][0]['fields']
+            assert fields['Diagnosis']['text'] == 'DUR: Therapeutic Duplication'
+            assert fields['Guideline Type']['text'] == 'Administrative'
         path = 'clinical-criteria/uhc-' + code.lower() + '.json'
         payload = json.dumps(result,ensure_ascii=False,separators=(',',':')).encode()
         (output_dir/path).write_bytes(payload)
@@ -196,6 +201,9 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             add(code, [index for index, _ in branches], 'product' if pa else 'age_scoped')
             bindings[-1]['productLabel'] = label
         for code,indexes in sorted(matched.items()):
+            if code == 'GL-735259':
+                if pa:add(code,sorted(indexes),'duplication')
+                continue
             pa_indexes=[];ql_indexes=[]
             for i in sorted(indexes):
                 dx=structured[code]['branches'][i]['fields'].get('Diagnosis',{})
