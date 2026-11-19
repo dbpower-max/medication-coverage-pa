@@ -40,10 +40,10 @@ ANTIDEPRESSANT_SCOPES = (
 
 PANTOPRAZOLE_PACKETS = {
     'pantoprazole sodium oral packet (generic for protonix)': (
-        'Generic pantoprazole packets', 'generic pantoprazole suspension packets',
+        'Generic pantoprazole granules (packets)', 'generic pantoprazole suspension packets',
     ),
     'protonix oral packet (brand for pantoprazole sodium)': (
-        'Brand Protonix packets', 'Brand Protonix suspension packets',
+        'Brand Protonix granules (packets)', 'Brand Protonix suspension packets',
     ),
 }
 

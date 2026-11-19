@@ -135,6 +135,15 @@
     ['uhc-oct-complete-aef4eca1a35449a0', 'Vivelle-Dot Estradiol Twice-Weekly Patch'],
   ]);
 
+  // Preserve the PDL's unspecified concentrations and packaging.
+  const uhcTestosteronePresentations = new Map([
+    ['uhc-oct-complete-95bdf1191fb6ac5a', 'AndroGel Testosterone Gel Pump (Concentration Unspecified)'],
+    ['uhc-oct-complete-48446e194e4aaa49', 'Testim Testosterone Gel'],
+    ['uhc-oct-complete-4f5abf9646902163', 'Vogelxo Testosterone Gel'],
+    ['uhc-oct-complete-0618ed2eee749f42', 'Depo-Testosterone Cypionate IM (Concentration Unspecified)'],
+    ['uhc-oct-complete-95f3abcf725dc69c', 'Testosterone Cypionate 200 mg/mL IM Solution (Brand Listing)'],
+  ]);
+
   // Group only when the generic, formulation, route, release and strength text
   // match exactly. All source records and individual restrictions stay separate.
   function medicationIdentity(record) {
@@ -155,6 +164,10 @@
     if (record.planId === 'uhc-community-az' && uhcEstradiolPresentations.has(record.id)) {
       const generic = uhcEstradiolPresentations.get(record.id) || `${brandFor?.[1].trim() || name} (Estradiol)`;
       return {key: `${record.planId}:${record.id}`, generic, brands: []};
+    }
+    const testosteroneLabel = uhcTestosteronePresentations.get(record.id);
+    if (record.planId === 'uhc-community-az' && testosteroneLabel) {
+      return {key: `${record.planId}:${record.id}`, generic: testosteroneLabel, brands: []};
     }
     if (record.planId === 'uhc-community-az' && distinctUhcPresentations.has(record.id)) {
       return {key: `${record.planId}:${record.id}`, generic: brandFor?.[1].trim() || name, brands: []};
@@ -341,6 +354,13 @@
       } else supplements.push(group);
     }
     const result = [...sharedGroups, ...supplements];
+    if (state.planId === 'uhc-community-az') {
+      const packets = result.find(group => group.records.some(record => record.id === 'uhc-oct-complete-b91029349d6055f8'));
+      if (packets) {
+        packets.label = 'Pantoprazole Delayed-Release Granules for Oral Suspension (Protonix Packets)';
+        packets.search += ' ' + packets.label;
+      }
+    }
     groupCache.set(key, result);
     return result;
   }

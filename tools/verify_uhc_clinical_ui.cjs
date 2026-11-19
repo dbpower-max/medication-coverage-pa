@@ -118,11 +118,12 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  const packet = byId('b91029349d6055f8');
  const tabletGroup = byId('fb9cfa1b045ef925');
  assert(packet && packet === byId('4848e3a8d39fd8d9') && tabletGroup && packet !== tabletGroup);
- assert.match(packet.label, /pantoprazole.*packets.*protonix/i);
+ assert.match(packet.label, /pantoprazole delayed-release granules for oral suspension \(protonix packets\)/i);
+ assert.match(packet.search, /granules for oral suspension/i);
  assert(!a.planMedicationGroups().some(group => /tablet/i.test(group.label) && group.records.some(record =>
   /b91029349d6055f8|4848e3a8d39fd8d9/.test(record.id))));
  const packetCard = a.medicationGroupCard(packet);
- for (const [label,tier] of [['Generic pantoprazole packets',1], ['Brand Protonix packets',2]]) {
+ for (const [label,tier] of [['Generic pantoprazole granules (packets)',1], ['Brand Protonix granules (packets)',2]]) {
   const chips = packetCard.split('Coverage attributes for ' + label)[1].split('</div>')[0];
   assert(chips.includes('Tier ' + tier) && chips.includes('Quantity limit') && chips.includes('Age limit'));
  }
@@ -191,6 +192,34 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  assert.equal(estradiolGroups.size, estradiolCases.length);
  console.log('PASS: Eight UHC estradiol listings have separate cards with their own source flags and policy scope.');
+ const testosteroneCases = [
+  ['95bdf1191fb6ac5a', /AndroGel.*Pump.*Concentration Unspecified/i, true],
+  ['48446e194e4aaa49', /Testim.*Testosterone Gel/i, false],
+  ['4f5abf9646902163', /Vogelxo.*Testosterone Gel/i, false],
+  ['0618ed2eee749f42', /Depo-Testosterone.*IM.*Concentration Unspecified/i, true],
+  ['95f3abcf725dc69c', /Testosterone Cypionate 200 mg\/mL IM Solution/i, true],
+ ];
+ const testosteroneGroups = new Set();
+ for (const [id, label, preferred] of testosteroneCases) {
+  const group = byId(id);
+  assert(group && label.test(group.label), group?.label || id);
+  assert.match(group.search, /testosterone/i);
+  assert.equal(group.records.length, 1);
+  const card = a.medicationGroupCard(group);
+  assert(card.includes('>PA required<') && card.includes('>Quantity limit<'));
+  assert.equal(card.includes('>Preferred<'), preferred);
+  assert.equal(card.includes('>Nonpreferred<'), !preferred);
+  const {html, ref} = await open(group);
+  assert(html.includes('Hypogonadism') && html.includes('Initial Authorization'));
+  assert(ref.includes('page=1689') && ref.includes('QL reference'));
+  testosteroneGroups.add(group);
+ }
+ assert.equal(testosteroneGroups.size, testosteroneCases.length);
+ for (const id of ['0ea5d84001467f7a','4532690d14e80d40','824717b27ea6c089','edf9f82d54c3283d','ee7ee2bd895649ed']) {
+  const group = byId(id);
+  assert(group && !testosteroneGroups.has(group), id);
+ }
+ console.log('PASS: Five UHC brand testosterone listings retain distinct flags, concentration scope and policy references.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  console.log('PASS: '+n+' restricted UHC cards load clinical content and source references; Apidra nonpreferred + QL; preferred/nonpreferred syringe branches; plan isolation');
 })().catch(e=>{console.error(e);process.exitCode=1});
