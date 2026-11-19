@@ -132,6 +132,9 @@
     if (record.id === 'uhc-oct-complete-c2d62d774fbaa9ab') {
       return {key: `${record.planId}:${record.id}`, generic: 'Sertraline HCl Oral Solution (Concentrate)', brands: ['ZOLOFT']};
     }
+    if (record.id === 'uhc-oct-complete-b91029349d6055f8' || record.id === 'uhc-oct-complete-4848e3a8d39fd8d9') {
+      return {key: `${record.planId}:pantoprazole-suspension-packets`, generic: 'Pantoprazole Sodium Packets', brands: ['PROTONIX']};
+    }
     if (record.planId === 'uhc-community-az' && distinctUhcPresentations.has(record.id)) {
       return {key: `${record.planId}:${record.id}`, generic: brandFor?.[1].trim() || name, brands: []};
     }
@@ -1378,12 +1381,14 @@
     const sections = [], references = [], seen = new Set();
     const duplication = byRole(['duplication']);
     const ageScoped = byRole(['age_scoped']);
+    const packetReference = byRole(['packet_reference']);
     const administrativeFallback = duplication.length && primary.length && primary.every(b => b.role === 'nonpreferred');
     const paRows = (group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference && ['required','conditional'].includes(r.pa));
     const fallbackRows = administrativeFallback ? paRows.filter(r => r.uhcClinicalBindings?.some(b => b.role === 'nonpreferred')) : [];
     const criteriaSections = [
       [administrativeFallback ? 'General nonpreferred PA criteria' : 'Prior authorization', primary],
       ['Age-specific PA criteria', ageScoped],
+      ['Packet PA guideline', packetReference],
       ['Therapeutic duplication exceptions', duplication],
       ['Quantity-limit exceptions', quantity]
     ];
@@ -1400,14 +1405,17 @@
           if (!branch) throw new Error('Clinical branch missing');
           seen.add(key);
           const scope = binding.branchLabels?.[i];
-          const label = binding.productLabel ? `<p><strong>Product:</strong> ${escapeHtml(binding.productLabel)}</p>`
+          const label = binding.productLabel && selected !== packetReference ? `<p><strong>Product:</strong> ${escapeHtml(binding.productLabel)}</p>`
             : scope ? `<p><strong>Formulation:</strong> ${escapeHtml(scope)}</p>` : '';
-          body.push(label + cardBranchMarkup(branch));
+          // The final condition and preceding AND in this shared policy apply only to brand Nexium.
+          const applicable = selected === packetReference ? {...branch, criteria: branch.criteria.slice(0, -2)} : branch;
+          body.push(label + cardBranchMarkup(applicable));
         }
         if (!references.some(p => p.id === policy.id)) references.push(policy);
       }
       const context = selected === duplication ? '<p>Applies when a therapeutic duplication edit is triggered.</p>'
         : selected === ageScoped ? '<p>The October 2026 formulary lists an age limit and leaves the PA field blank for the generic product below. The November 2026 guideline specifies these age-based criteria.</p>'
+        : selected === packetReference ? '<p>The October 2026 formulary lists age and quantity limits for both packets and leaves their PA fields blank. The UHC guideline names both packets and gives criteria by age and ability to swallow solid forms.</p>'
         : selected === primary && administrativeFallback ? (
           (fallbackRows.length < paRows.length ? `<p><strong>Applies to:</strong> ${escapeHtml(fallbackRows.map(r => readableMedicationName(r.name)).join('; '))}</p>` : '')
           + '<p>Product-specific approval criteria are unverified.</p>'
@@ -1418,8 +1426,9 @@
     if (conditionalOnly) sections.unshift('<p>The formulary lists conditional PA. See the formulation-specific restrictions and the duplication exception below.</p>');
     else if (paRows.length && !primary.length) sections.unshift('<p>PA is required. Approval criteria have not yet been verified for this formulation. Review the linked UHC source.</p>');
     const referenceLabels = references.map(p => [...primary, ...ageScoped].some(b => b.policyId === p.id) ? 'PA reference'
+      : packetReference.some(b => b.policyId === p.id) ? 'Packet PA guideline'
       : duplication.some(b => b.policyId === p.id) ? 'Duplication reference' : 'QL reference');
-    if (!paRows.length && !primary.length && guidance) {
+    if (!paRows.length && !primary.length && !packetReference.length && guidance) {
       sections.unshift(clinicalGuidanceContent(guidance, true));
       references.unshift(guidance); referenceLabels.unshift('Clinical reference');
     }
@@ -1496,10 +1505,13 @@
     cardClinicalGroups.set(key, {group, policies, guidance, planId: state.planId});
     const restriction = state.planId === 'uhc-community-az' && (group.records || []).find(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays));
     const reference = (state.planId === 'uhc-community-az' ? policies.find(p => p.planId === state.planId) || restriction : guidance) || guidance || policies.find(p => p.planId === state.planId) || policies[0];
-    const refs = reference ? cardPaReference(reference, reference.policyCode === 'GL-735259' ? 'Duplication reference' : 'PA reference') : '';
-    const exactAgeScopedRows = state.planId === 'uhc-community-az' && (group.records || []).filter(record =>
-      record.planId === state.planId && !record.isStatewideReference && record.uhcClinicalBindings?.some(binding => binding.role === 'age_scoped'));
-    const rows = group.isStatewide && !exactAgeScopedRows?.length
+    const packetGuideline = reference?.policyCode === 'GL-255208' && group.records?.some(record =>
+      record.uhcClinicalBindings?.some(binding => binding.role === 'packet_reference'));
+    const refs = reference ? cardPaReference(reference, packetGuideline ? 'Packet PA guideline'
+      : reference.policyCode === 'GL-735259' ? 'Duplication reference' : 'PA reference') : '';
+    const exactScopedRows = state.planId === 'uhc-community-az' && (group.records || []).some(record =>
+      record.planId === state.planId && !record.isStatewideReference && record.uhcClinicalBindings?.some(binding => ['age_scoped', 'packet_reference'].includes(binding.role)));
+    const rows = group.isStatewide && !exactScopedRows
       ? [group.statewideRecord] : (group.records || []).filter(record => !group.isStatewide || !record.isStatewideReference);
     const conditions = [...new Set(rows.flatMap(record => [
       ['required', 'conditional'].includes(record.pa) ? record.paText : '', record.paExceptionText, record.ageRestrictionText

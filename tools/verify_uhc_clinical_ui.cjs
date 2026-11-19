@@ -115,6 +115,28 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(!tiotropium.html.includes('PA is required.'));
  assert.match(tiotropium.html, /Applies to:<\/strong> Spiriva Handihaler \(Brand For Tiotropium Bromide\)/i);
  console.log('PASS: four Tylenol presentations remain distinct; Gralise product PA, Naprelan fallback and conditional tiotropium duplication are separately scoped.');
+ const packet = byId('b91029349d6055f8');
+ const tabletGroup = byId('fb9cfa1b045ef925');
+ assert(packet && packet === byId('4848e3a8d39fd8d9') && tabletGroup && packet !== tabletGroup);
+ assert.match(packet.label, /pantoprazole.*packets.*protonix/i);
+ assert(!a.planMedicationGroups().some(group => /tablet/i.test(group.label) && group.records.some(record =>
+  /b91029349d6055f8|4848e3a8d39fd8d9/.test(record.id))));
+ const packetCard = a.medicationGroupCard(packet);
+ for (const [label,tier] of [['Generic pantoprazole packets',1], ['Brand Protonix packets',2]]) {
+  const chips = packetCard.split('Coverage attributes for ' + label)[1].split('</div>')[0];
+  assert(chips.includes('Tier ' + tier) && chips.includes('Quantity limit') && chips.includes('Age limit'));
+ }
+ assert(!/>(?:PA required|Conditional PA)</.test(packetCard));
+ assert(packetCard.includes('Packet PA guideline') && packetCard.includes('page=1380'));
+ const packetPolicy = await open(packet);
+ assert(packetPolicy.ref.includes('page=1380') && packetPolicy.ref.includes('Packet PA guideline'));
+ assert(packetPolicy.html.includes('leaves their PA fields blank'));
+ for (const text of ['less than 18 years', '18 years of age or older', 'unable to swallow solid oral dosage forms', 'failure to lansoprazole ODT']) assert(packetPolicy.html.includes(text));
+ assert(!packetPolicy.html.includes('Brand Nexium') && !packetPolicy.html.includes('generic esomeprazole'));
+ assert(!(await open(tabletGroup)).ref.includes('page=1380'));
+ const nexiumPacket = await open(byId('5c3694b58912d172'));
+ assert(nexiumPacket.ref.includes('page=1380') && nexiumPacket.html.includes('Brand Nexium'));
+ console.log('PASS: Protonix and generic packets share one UHC card with separate tier chips and source-scoped GL-255208 criteria; tablets and Nexium keep their own scopes.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  console.log('PASS: '+n+' restricted UHC cards load clinical content and source references; Apidra nonpreferred + QL; preferred/nonpreferred syringe branches; plan isolation');
 })().catch(e=>{console.error(e);process.exitCode=1});

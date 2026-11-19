@@ -38,6 +38,15 @@ ANTIDEPRESSANT_SCOPES = (
     'Non-Preferred Drugs',
 )
 
+PANTOPRAZOLE_PACKETS = {
+    'pantoprazole sodium oral packet (generic for protonix)': (
+        'Generic pantoprazole packets', 'generic pantoprazole suspension packets',
+    ),
+    'protonix oral packet (brand for pantoprazole sodium)': (
+        'Brand Protonix packets', 'Brand Protonix suspension packets',
+    ),
+}
+
 FORMS = r'oral|tablet|tablets|capsule|capsules|solution|suspension|injection|injectable|subcutaneous|intravenous|intramuscular|topical|cream|ointment|ophthalmic|otic|nasal|inhalation|inhaler|aerosol|powder|spray|prefilled|syringe|syringes|pen|kit|pack|vial|vials|chewable|disintegrating|hcl|hydrochloride|mg|mcg|ml|unit|units|act|actuat|dose|metered|breath|actuated|hfa|tabs|caps|soln|susp|packet|packets|reconstituted|cartridge|kwikpen|and|external|er|xr|dr|sr|pf|therapy|initiation|pk|titration|patient|month|sprinkle|sprinkles|soluble|dispersible|granules|auto|injector|transdermal|patch|recon|reconstitution|concentrate|intramuscular|patches|odt|for|rebidose|hr|hour|hours'
 
 def identity(value):
@@ -199,6 +208,19 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 assert fields['Guideline Type']['text'] == 'Prior Authorization'
             matched.pop(code, None)
             add(code, [index for index, _ in branches], 'product' if pa else 'age_scoped')
+            bindings[-1]['productLabel'] = label
+        packet = PANTOPRAZOLE_PACKETS.get(record['name'].lower()) if record.get('sourceEffective') == '2026-10-01' else None
+        if packet:
+            code = 'GL-255208'
+            label, product = packet
+            assert record['pa'] == 'not_specified' and record['ageLimited']
+            assert policies[code]['policyEffective'] == '2025-06-01'
+            branch, = structured[code]['branches']
+            assert product in branch['fields']['Product Name']['text'].split(', ')
+            assert branch['fields']['Guideline Type']['text'] == 'Prior Authorization'
+            assert branch['criteria'][-2]['kind'] == 'connector'
+            assert branch['criteria'][-1]['text'].startswith('2 - If the request is for Brand Nexium')
+            add(code, [0], 'packet_reference')
             bindings[-1]['productLabel'] = label
         for code,indexes in sorted(matched.items()):
             if code == 'GL-735259':
