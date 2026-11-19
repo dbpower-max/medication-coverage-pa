@@ -111,7 +111,7 @@
   // Group only when the generic, formulation, route, release and strength text
   // match exactly. All source records and individual restrictions stay separate.
   function medicationIdentity(record) {
-    const name = (record.name || '').trim();
+    const name = (record.displayName || record.name || '').trim();
     const genericFor = name.match(/^(.*?)\s*\(generic for ([^)]+)\)\s*$/i);
     const brandFor = name.match(/^(.*?)\s*\(brand for ([^)]+)\)\s*$/i);
     const generic = genericFor ? genericFor[1].trim() : brandFor ? brandFor[2].trim() : name;
@@ -159,7 +159,7 @@
     }
     return [...groups.values()].map(group => ({...group,
       label: medicationDisplayLabel(group.name, group.brands, group.records),
-      search: [group.name, ...group.brands, ...group.records.flatMap(r => [r.name, r.standardName || '', ...(r.searchAliases || [])])].join(' ')
+      search: [group.name, ...group.brands, ...group.records.flatMap(r => [r.displayName || r.name, r.standardName || '', ...(r.searchAliases || [])])].join(' ')
     }));
   }
 
@@ -570,7 +570,7 @@
       .filter((record) => {
         if (selectedGroup) return selectedGroup.records.some(r => r.id === record.id);
         const haystack = normalize([
-          record.name, record.brand, record.searchAliases?.join(' ')
+          record.displayName || record.name, record.brand, record.searchAliases?.join(' ')
         ].join(' '));
         return terms.every((term) => haystack.includes(term));
       })
@@ -934,7 +934,7 @@
       const clinical = cardClinicalGroups.get(entry.group.key || entry.group.label);
       dialog.querySelector('#sourceDialogContent').innerHTML = entry.group.records.map(record => `<section><h3>${escapeHtml(readableMedicationName(record.name))}</h3>${recordDetails(record)}</section>`).join('')
         + (clinical?.guidance ? `<section><p>Source-reviewed summary; clinician approval pending.</p><p>${escapeHtml(clinical.guidance.guidelineCaution)}</p></section>` : '')
-        + (clinical?.policies || []).map(policy => `<section><a href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">${escapeHtml(policy.name || policy.policyCode)} · ${escapeHtml(policy.sourceEffective)}</a>${policy.sourceTextUrl ? `<p><a href="${escapeHtml(policy.sourceTextUrl)}" target="_blank" rel="noopener">Original policy text</a></p>` : ''}<p>Source-transcribed criteria; clinician approval pending. Policy references do not independently establish selected-plan coverage or PA status.</p></section>`).join('');
+        + (clinical?.policies || []).map(policy => `<section><a href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">${escapeHtml(policy.name || policy.policyCode)} · ${escapeHtml(policy.sourceEffective)}</a>${policy.scope ? `<p>${escapeHtml(policy.scope)}</p>` : ''}${policy.sourceTextUrl ? `<p><a href="${escapeHtml(policy.sourceTextUrl)}" target="_blank" rel="noopener">Original policy text</a></p>` : ''}<p>Source-transcribed criteria; clinician approval pending. Policy references do not independently establish selected-plan coverage or PA status.</p></section>`).join('');
       dialog.showModal();
     });
     document.addEventListener('click', async event => {
@@ -1188,6 +1188,11 @@
         };
         add(state.data.policies.find(p => p.id === link.policyId && p.planId === state.planId) || policy);
       }
+      if (record.scopedPolicyReference) {
+        const { id, scope } = record.scopedPolicyReference;
+        const policy = state.data.policies.find(p => p.id === id && p.planId === state.planId);
+        if (policy) add({ ...policy, scope });
+      }
       for (const binding of record.uhcClinicalBindings || []) {
         const policy = state.data.policies.find(p => p.id === binding.policyId && p.planId === state.planId);
         if (policy) add(policy);
@@ -1203,6 +1208,7 @@
       <article class="criteria-source result-disclosure-body">
         <p><strong>${escapeHtml(policy.planId === 'ahcccs-ffs-aihp' ? 'AHCCCS statewide clinical reference' : plan?.name)}</strong>${policy.sourceEffective ? ' · source ' + escapeHtml(policy.sourceEffective) : ''}</p>
         <p>Review the applicable product and indication. This policy reference does not independently establish plan coverage or PA status.</p>
+        ${policy.scope ? `<p>${escapeHtml(policy.scope)}</p>` : ''}
         ${structuredPolicyPanel(policy)}
         <p><a class="source-link" href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">PA reference · pages ${Number(policy.sourcePage)}–${Number(policy.sourceLastPage)}</a></p>
         <button type="button" class="text-button criteria-load" data-read-guideline="${escapeHtml(policy.id)}">Read full guideline text</button>

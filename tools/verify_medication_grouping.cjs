@@ -139,3 +139,10 @@ const exact=vm.runInContext('planMedicationGroups()',context);
 if(exact.length!==2||exact.find(g=>g.name.endsWith('AUTOINJECTOR')).records.length!==2||exact.find(g=>g.name.endsWith('VIAL')).records.length!==1)throw Error('Exact autoinjector source was duplicated or merged with vial');
 context.auto={name:'TOCILIZUMAB-AAZG AUTOINJECTOR',brands:['TYENNE']};context.vial={name:'TOCILIZUMAB-AAZG VIAL',brands:['TYENNE']};
 if(vm.runInContext('sameProductGroup(auto,vial)',context))throw Error('Autoinjector incorrectly considered the same as vial');
+const reviewedSensors = groups([
+  {name:'DEXCOM G7 SENSOR (brand for guardian sensor 3)', displayName:'DEXCOM G7 SENSOR'},
+  {name:'DEXCOM G7 15 DAY SENSOR (brand for guardian sensor 3)', displayName:'DEXCOM G7 15 DAY SENSOR'},
+  {name:'GUARDIAN SENSOR 3 (brand for guardian sensor 3)', displayName:'GUARDIAN SENSOR 3'}
+]);
+if (reviewedSensors.length !== 3 || reviewedSensors.filter(g => /guardian sensor 3/i.test(g.search)).length !== 1)
+  throw Error('Unrelated CGM sensor names were grouped or indexed as Guardian Sensor 3');

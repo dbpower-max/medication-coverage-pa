@@ -60,3 +60,16 @@ for r in rows:
   if key=='sourceUrl':actual,expected=actual.lstrip('./'),expected.lstrip('./')
   assert actual==expected,(r['id'],key)
 print('PASS: 449 UHC policies/1,438 branches source-exact; all 3,146 restricted records checked; 2,989 QL references; flags, original names/IDs and source records unchanged')
+
+guardian_rows = [r for r in rows if r['name'].endswith(' (brand for guardian sensor 3)')]
+assert len(guardian_rows) == 10
+assert all(r['displayName'] == r['name'].removesuffix(' (brand for guardian sensor 3)') for r in guardian_rows)
+assert sum(r['displayName'].startswith('GUARDIAN SENSOR') for r in guardian_rows) == 2
+meter_id = 'uhc-oct-complete-fe3ff8d27057990e'
+scoped = [r for r in rows if r.get('scopedPolicyReference')]
+assert [r['id'] for r in scoped] == [meter_id]
+assert scoped[0]['scopedPolicyReference']['id'] == 'uhc-nov2026-policy-gl-140734'
+for code in ('140734', '369221', '503307', '683417', '720196'):
+    path = Path('policy-text/uhc-nov2026', f'gl-{code}.txt')
+    assert (Path('_site') / path).read_text(encoding='utf-8-sig') == (Path('dist') / path).read_text(encoding='utf-8')
+    assert (Path('_site') / path).read_bytes().startswith(bytes.fromhex('efbbbf'))

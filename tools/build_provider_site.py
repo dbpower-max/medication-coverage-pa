@@ -1,4 +1,5 @@
 """Build a standalone site containing only the three provider-facing ACC plans."""
+from codecs import BOM_UTF8
 import gzip
 import hashlib
 import json
@@ -186,6 +187,26 @@ criteria_codes = {g['policyCode'] for g in clinical_guidance['guides']} | set(cr
 data['structuredCriteriaCount'] = publish_structured_criteria(statewide_pa, SRC, OUT, criteria_codes)
 assert data['structuredCriteriaCount'] == criteria_release.get('expectedStructuredCount', len(criteria_codes))
 publish_uhc_policy_access(data, SRC, OUT)
+# Keep the printed payer alias as evidence, but exclude it from device identity.
+guardian_suffix = ' (brand for guardian sensor 3)'
+for record in data['medications']:
+    if record['planId'] != 'uhc-community-az':
+        continue
+    name = record['name']
+    if name.endswith(guardian_suffix):
+        record['displayName'] = name.removesuffix(guardian_suffix)
+        if record['displayName'] == 'GUARDIAN SENSOR (3)':
+            record['searchAliases'] = [*record.get('searchAliases', []), 'Guardian Sensor 3']
+    if record['id'] == 'uhc-oct-complete-fe3ff8d27057990e':
+        record['scopedPolicyReference'] = {
+            'id': 'uhc-nov2026-policy-gl-140734',
+            'scope': 'Nonpreferred Contour NEXT EZ listing only. The policy requires visual impairment and NDC-level approval for 12 months. The preferred listing and numeric quantity limit are separate.',
+        }
+
+uhc_utf8_assets = {
+    f'policy-text/uhc-nov2026/gl-{code}.txt'
+    for code in ('140734', '369221', '503307', '683417', '720196')
+}
 seen = set()
 # Large PDF remains on its official payer host; indexed full policy text is bundled.
 EXTERNAL_SOURCES = {
@@ -204,7 +225,11 @@ def copy_asset(url):
     seen.add(path)
     target = OUT / path
     target.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(source, target)
+    if path in uhc_utf8_assets:
+        # Serve self-identifying Unicode even when plain text has no charset.
+        target.write_bytes(BOM_UTF8 + source.read_bytes().removeprefix(BOM_UTF8))
+    else:
+        shutil.copy2(source, target)
 def visit(value):
     if isinstance(value, dict):
         for key, item in value.items():
