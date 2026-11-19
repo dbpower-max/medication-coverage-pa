@@ -123,6 +123,18 @@
     'uhc-oct-complete-847afe1526008a20', // Tylenol standard tablets
   ]);
 
+  // The October PDL's shared estradiol alias does not convey route or device.
+  const uhcEstradiolPresentations = new Map([
+    ['uhc-oct-complete-4a1149afa9a553fd', 'Alora Estradiol Twice-Weekly Patch'],
+    ['uhc-oct-complete-e47a9b1dca9eed6b', 'Climara Estradiol Weekly Patch'],
+    ['uhc-oct-complete-a1fd4a9ce974ca76', null], // Keep the original Divigel strength list.
+    ['uhc-oct-complete-9565852ad73b0131', null], // Keep the concentration-only Divigel listing separate.
+    ['uhc-oct-complete-928b9ed963c27b15', 'EstroGel Estradiol Transdermal Gel Pump'],
+    ['uhc-oct-complete-4fe26eac35258974', 'Minivelle Estradiol Twice-Weekly Patch'],
+    ['uhc-oct-complete-962d779bc98c5112', 'Vagifem Estradiol Vaginal Insert'],
+    ['uhc-oct-complete-aef4eca1a35449a0', 'Vivelle-Dot Estradiol Twice-Weekly Patch'],
+  ]);
+
   // Group only when the generic, formulation, route, release and strength text
   // match exactly. All source records and individual restrictions stay separate.
   function medicationIdentity(record) {
@@ -139,6 +151,10 @@
       const formulation = record.id === 'uhc-oct-complete-9e58d3383e72691c'
         ? 'ER Granules for Oral Suspension' : 'ER Tablets';
       return {key: `${record.planId}:${record.id}`, generic: `Mirabegron ${formulation}`, brands: ['MYRBETRIQ']};
+    }
+    if (record.planId === 'uhc-community-az' && uhcEstradiolPresentations.has(record.id)) {
+      const generic = uhcEstradiolPresentations.get(record.id) || `${brandFor?.[1].trim() || name} (Estradiol)`;
+      return {key: `${record.planId}:${record.id}`, generic, brands: []};
     }
     if (record.planId === 'uhc-community-az' && distinctUhcPresentations.has(record.id)) {
       return {key: `${record.planId}:${record.id}`, generic: brandFor?.[1].trim() || name, brands: []};
@@ -1387,7 +1403,9 @@
     const duplication = byRole(['duplication']);
     const ageScoped = byRole(['age_scoped']);
     const packetReference = byRole(['packet_reference']);
-    const administrativeFallback = duplication.length && primary.length && primary.every(b => b.role === 'nonpreferred');
+    const reviewedEstradiol = group.records?.some(record => uhcEstradiolPresentations.has(record.id));
+    const administrativeFallback = (duplication.length || reviewedEstradiol)
+      && primary.length && primary.every(b => b.role === 'nonpreferred');
     const paRows = (group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference && ['required','conditional'].includes(r.pa));
     const fallbackRows = administrativeFallback ? paRows.filter(r => r.uhcClinicalBindings?.some(b => b.role === 'nonpreferred')) : [];
     const criteriaSections = [

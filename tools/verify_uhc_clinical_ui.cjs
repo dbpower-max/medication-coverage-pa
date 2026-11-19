@@ -164,6 +164,33 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert.deepEqual(Array.from(a.uhcGroupBindings(toviaz).filter(b => b.policyId.endsWith('gl-647193')), b => b.productLabel), ['Brand Toviaz']);
  assert(toviazResult.html.includes('<strong>Product:</strong> Brand Toviaz') && toviazResult.ref.includes('page=1239'));
  console.log('PASS: Myrbetriq ER formulations retain distinct flags and criteria; the shared Toviaz card identifies brand-only PA.');
+ const estradiolCases = [
+  ['4a1149afa9a553fd', /Alora.*Twice-Weekly Patch/i, false, true],
+  ['e47a9b1dca9eed6b', /Climara.*Weekly Patch/i, false, true],
+  ['a1fd4a9ce974ca76', /Divigel.*0\.25 mg\/0\.25 g.*1\.25 mg\/1\.25 g/i, true, true],
+  ['9565852ad73b0131', /Divigel.*1 mg\/g/i, true, false],
+  ['928b9ed963c27b15', /EstroGel.*Transdermal Gel Pump/i, true, false],
+  ['4fe26eac35258974', /Minivelle.*Twice-Weekly Patch/i, false, true],
+  ['962d779bc98c5112', /Vagifem.*Vaginal Insert/i, true, true],
+  ['aef4eca1a35449a0', /Vivelle-Dot.*Twice-Weekly Patch/i, false, true],
+ ];
+ const estradiolGroups = new Set();
+ for (const [id, label, pa, ql] of estradiolCases) {
+  const group = byId(id);
+  assert(group && label.test(group.label), group?.label || id);
+  assert.match(group.search, /estradiol/i);
+  assert.equal(group.records.length, 1);
+  const card = a.medicationGroupCard(group);
+  assert.equal(card.includes('>PA required<'), pa);
+  assert.equal(card.includes('>Quantity limit<'), ql);
+  const {html,ref} = await open(group);
+  assert.equal(html.includes('Product-specific approval criteria are unverified.'), pa);
+  assert.equal(html.includes('General nonpreferred PA criteria'), pa);
+  assert.equal(ref.includes('QL reference'), ql);
+  estradiolGroups.add(group);
+ }
+ assert.equal(estradiolGroups.size, estradiolCases.length);
+ console.log('PASS: Eight UHC estradiol listings have separate cards with their own source flags and policy scope.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  console.log('PASS: '+n+' restricted UHC cards load clinical content and source references; Apidra nonpreferred + QL; preferred/nonpreferred syringe branches; plan isolation');
 })().catch(e=>{console.error(e);process.exitCode=1});
