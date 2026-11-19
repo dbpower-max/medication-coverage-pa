@@ -108,12 +108,27 @@
       .replace(/\b(\d+(?:\.\d+)?)(MG|MCG|ML|MEQ|GM)\b/g, (_, amount, unit) => amount + ' ' + unitCase[unit]);
   }
 
+  // These reviewed UHC rows need their printed product names for identity.
+  // The parenthetical ingredient aliases omit formulation or strength.
+  const distinctUhcPresentations = new Set([
+    'uhc-oct-complete-aaa62ffa6b337f44', // Pulmicort suspension
+    'uhc-oct-complete-07fe2aebae5a0ba6', // Uceris, form unspecified
+    'uhc-oct-complete-dd63d43c87c2ba43', // Xarelto reconstituted oral suspension
+    'uhc-oct-complete-90ac41e8f49cde43', // Xarelto oral tablets
+    'uhc-oct-complete-466ed897a555d892', // Vyvanse capsules
+    'uhc-oct-complete-67b306246b077d76', // Vyvanse chewables, 10–50 mg
+    'uhc-oct-complete-77c5b244d4cb7020', // Vyvanse chewables, 60 mg
+  ]);
+
   // Group only when the generic, formulation, route, release and strength text
   // match exactly. All source records and individual restrictions stay separate.
   function medicationIdentity(record) {
     const name = (record.displayName || record.name || '').trim();
     const genericFor = name.match(/^(.*?)\s*\(generic for ([^)]+)\)\s*$/i);
     const brandFor = name.match(/^(.*?)\s*\(brand for ([^)]+)\)\s*$/i);
+    if (record.planId === 'uhc-community-az' && distinctUhcPresentations.has(record.id)) {
+      return {key: `${record.planId}:${record.id}`, generic: brandFor?.[1].trim() || name, brands: []};
+    }
     const generic = genericFor ? genericFor[1].trim() : brandFor ? brandFor[2].trim() : name;
     const brand = genericFor ? genericFor[2].trim() : brandFor ? brandFor[1].trim() : record.brand;
     const brands = brand && normalize(brand) !== 'various' && normalize(brand) !== normalize(generic) ? [brand.trim()] : [];

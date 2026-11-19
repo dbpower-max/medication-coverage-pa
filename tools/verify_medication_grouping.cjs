@@ -91,6 +91,38 @@ if (fs.existsSync('_site/data.json.gz')) {
   const grouped=vm.runInContext('medicationGroups(rows)',context);
   const duplicatedDisplay=grouped.filter(g=>/\[([^\]]+)\]\s*\(\1\)/i.test(g.label));
 
+  // Test final plan groups so a statewide attachment cannot rejoin the presentations.
+  context.state.planId = 'uhc-community-az';
+  context.state.data.medications = formulary;
+  context.state.data.statewideDrugList = data.statewideDrugList.map(row => ({
+    ...row, planId: 'uhc-community-az', isStatewideReference: true
+  }));
+  const uhcGroups = vm.runInContext('planMedicationGroups()', context);
+  const expectedPresentations = [
+    [/^PULMICORT SUSPENSION \(/, 'required', /Pulmicort Suspension/i],
+    [/^UCERIS \(/, 'required', /^Uceris$/i],
+    [/^XARELTO ORAL SUSPENSION RECONSTITUTED \(/, 'required', /Xarelto Oral Suspension/i],
+    [/^XARELTO ORAL TABLET \(/, 'not_specified', /Xarelto Oral Tablet/i],
+    [/^XARELTO STARTER PACK$/, 'not_specified', /Xarelto Starter Pack/i],
+    [/^VYVANSE ORAL CAPSULE \(/, 'required', /Vyvanse Oral Capsule/i],
+    [/^VYVANSE ORAL TABLET CHEWABLE 10 MG,/, 'required', /Vyvanse Oral Tablet Chewable.*50 mg/i],
+    [/^VYVANSE ORAL TABLET CHEWABLE 60 MG \(/, 'conditional', /Vyvanse Oral Tablet Chewable 60 mg/i],
+  ];
+  for (const [printedName, pa, label] of expectedPresentations) {
+    const records = formulary.filter(row => row.planId === 'uhc-community-az' && printedName.test(row.name));
+    if (records.length !== 1) throw Error('Expected one UHC source row for ' + printedName);
+    const [record] = records;
+    const matches = uhcGroups.filter(group => group.records.some(row => row.id === record.id));
+    if (matches.length !== 1 || matches[0].records.length !== 1 || !label.test(matches[0].label))
+      throw Error('UHC presentation grouped with another source row: ' + record.name);
+    if (matches[0].records[0] !== record || record.pa !== pa)
+      throw Error('UHC source restrictions changed: ' + record.name);
+    if (pa === 'conditional' && (!record.ageLimited || !record.rawRestrictions.includes('*')))
+      throw Error('Vyvanse 60 mg chewable age limit or prescriber exception missing');
+  }
+  console.log('PASS: UHC inhaled budesonide, Xarelto, and Vyvanse presentations and source restrictions stay separate.');
+
+
   console.log('LIVE DATA AUDIT: '+formulary.length+' formulary records; '+grouped.length+' search groups; '+duplicatedRaw.length+' source rows with repeated bracketed brand; '+duplicatedDisplay.length+' redundant search labels.');
   if (duplicatedDisplay.length) throw Error('Unfixed duplicate search display labels: '+duplicatedDisplay.slice(0,4).map(g=>g.label).join('; '));
   console.log('SAMPLE RAW DUPLICATES: '+JSON.stringify(duplicatedRaw.slice(0,4).map(r=>({name:r.name,brand:r.brand,planId:r.planId}))));
