@@ -46,6 +46,36 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   }
  }
  console.log('PASS: Four DPP-4 cards show exact product PA branches and a separately labeled duplication exception.');
+ const byId = id => groups.find(group => group.records.some(record => record.id === 'uhc-oct-complete-' + id));
+ const tablet = byId('c2dc81c1dae5f5c3');
+ const solution = byId('c2d62d774fbaa9ab');
+ assert(tablet && solution && tablet !== solution);
+ assert.match(tablet.label, /tablet/i);
+ assert.match(solution.label, /oral solution/i);
+ for (const group of [tablet, solution]) {
+  assert.match(group.search, /Zoloft/i);
+  const card = a.medicationGroupCard(group);
+  for (const chip of ['Preferred', 'Age limit', 'Quantity limit']) assert(card.includes('>' + chip + '</span>'));
+  assert(!card.includes('>PA required</span>'));
+  const {html, ref} = await open(group);
+  assert(html.includes('Age-specific PA criteria') && html.includes('6 years of age or younger'));
+  assert.equal(html.includes('greater than 12 years of age'), group === solution);
+  assert.equal(html.includes('unable to swallow the oral tablet/capsule'), group === solution);
+  assert(ref.includes('page=116'));
+ }
+ const pristiq = byId('e40b2afd31f1fb40');
+ assert(pristiq && pristiq === byId('094b55526d4ad05f'));
+ const card = a.medicationGroupCard(pristiq);
+ assert.match(card, /Coverage attributes for Brand Pristiq[^]*?Nonpreferred[^]*?>PA required<[^]*?<\/div>/);
+ assert.match(card, /Coverage attributes for Generic desvenlafaxine ER[^]*?>Preferred<[^]*?<\/div>/);
+ assert.equal((card.match(/>PA required</g) || []).length, 1);
+ const {html, ref} = await open(pristiq);
+ const [brandCriteria, genericCriteria] = html.split('Age-specific PA criteria');
+ assert(brandCriteria.includes('Brand Pristiq') && brandCriteria.includes('at least 3'));
+ assert(genericCriteria.includes('Generic desvenlafaxine ER') && genericCriteria.includes('6 years of age or younger'));
+ assert(!genericCriteria.includes('at least 3'));
+ assert(ref.includes('page=116'));
+ console.log('PASS: Sertraline tablet and solution criteria are isolated; Pristiq and generic restrictions and clinical criteria are labeled.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  console.log('PASS: '+n+' restricted UHC cards load clinical content and source references; Apidra nonpreferred + QL; preferred/nonpreferred syringe branches; plan isolation');
 })().catch(e=>{console.error(e);process.exitCode=1});

@@ -126,6 +126,9 @@
     const name = (record.displayName || record.name || '').trim();
     const genericFor = name.match(/^(.*?)\s*\(generic for ([^)]+)\)\s*$/i);
     const brandFor = name.match(/^(.*?)\s*\(brand for ([^)]+)\)\s*$/i);
+    if (record.id === 'uhc-oct-complete-c2d62d774fbaa9ab') {
+      return {key: `${record.planId}:${record.id}`, generic: 'Sertraline HCl Oral Solution (Concentrate)', brands: ['ZOLOFT']};
+    }
     if (record.planId === 'uhc-community-az' && distinctUhcPresentations.has(record.id)) {
       return {key: `${record.planId}:${record.id}`, generic: brandFor?.[1].trim() || name, brands: []};
     }
@@ -1371,8 +1374,10 @@
     if (!quantity.length) quantity = byRole(['global_quantity']);
     const sections = [], references = [], seen = new Set();
     const duplication = byRole(['duplication']);
+    const ageScoped = byRole(['age_scoped']);
     const criteriaSections = [
       ['Prior authorization', primary],
+      ['Age-specific PA criteria', ageScoped],
       ['Therapeutic duplication exceptions', duplication],
       ['Quantity-limit exceptions', quantity]
     ];
@@ -1395,12 +1400,13 @@
         }
         if (!references.some(p => p.id === policy.id)) references.push(policy);
       }
-      const context = selected === duplication ? '<p>Applies when a therapeutic duplication edit is triggered.</p>' : '';
+      const context = selected === duplication ? '<p>Applies when a therapeutic duplication edit is triggered.</p>'
+        : selected === ageScoped ? '<p>The October 2026 formulary lists an age limit and leaves the PA field blank for the generic product below. The November 2026 guideline specifies these age-based criteria.</p>' : '';
       if (body.length) sections.push(`<section class="uhc-restriction-criteria"><h4>${kind}</h4>${context}${body.join('')}</section>`);
     }
     const paRequired = (group.records || []).some(r => r.planId === state.planId && !r.isStatewideReference && ['required','conditional'].includes(r.pa));
     if (paRequired && !primary.length) sections.unshift('<p>PA is required. Approval criteria have not yet been verified for this formulation. Review the linked UHC source.</p>');
-    const referenceLabels = references.map(p => primary.some(b => b.policyId === p.id) ? 'PA reference'
+    const referenceLabels = references.map(p => [...primary, ...ageScoped].some(b => b.policyId === p.id) ? 'PA reference'
       : duplication.some(b => b.policyId === p.id) ? 'Duplication reference' : 'QL reference');
     if (!paRequired && !primary.length && guidance) {
       sections.unshift(clinicalGuidanceContent(guidance, true));
@@ -1480,7 +1486,10 @@
     const restriction = state.planId === 'uhc-community-az' && (group.records || []).find(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays));
     const reference = (state.planId === 'uhc-community-az' ? policies.find(p => p.planId === state.planId) || restriction : guidance) || guidance || policies.find(p => p.planId === state.planId) || policies[0];
     const refs = reference ? cardPaReference(reference) : '';
-    const rows = group.isStatewide ? [group.statewideRecord] : group.records || [];
+    const exactAgeScopedRows = state.planId === 'uhc-community-az' && (group.records || []).filter(record =>
+      record.planId === state.planId && !record.isStatewideReference && record.uhcClinicalBindings?.some(binding => binding.role === 'age_scoped'));
+    const rows = group.isStatewide && !exactAgeScopedRows?.length
+      ? [group.statewideRecord] : (group.records || []).filter(record => !group.isStatewide || !record.isStatewideReference);
     const conditions = [...new Set(rows.flatMap(record => [
       ['required', 'conditional'].includes(record.pa) ? record.paText : '', record.paExceptionText, record.ageRestrictionText
     ]).filter(Boolean))].filter(text => !/^PA is printed in at least one source row\.$/.test(text));

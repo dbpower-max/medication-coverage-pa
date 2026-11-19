@@ -15,6 +15,29 @@ DPP4_BRANCHES = {
     'jentadueto xr': (1, 'Jentadueto XR'),
 }
 
+# The October PDL flags and the November policy answer different questions.
+# Keep broad formulary flags intact and attach only the named, scoped branches.
+ANTIDEPRESSANT_BRANCHES = {
+    'sertraline hcl oral concentrate (generic for zoloft)': (
+        'Generic sertraline oral solution',
+        [(0, 'generic sertraline oral soln'), (1, 'generic sertraline tabs/oral soln')],
+    ),
+    'sertraline hcl oral tablet (generic for zoloft)': (
+        'Generic sertraline tablets', [(1, 'generic sertraline tabs/oral soln')],
+    ),
+    'desvenlafaxine succinate er (generic for pristiq)': (
+        'Generic desvenlafaxine ER', [(1, 'generic desvenlafaxine ER')],
+    ),
+    'pristiq (brand for desvenlafaxine succinate er)': (
+        'Brand Pristiq', [(2, 'Brand Pristiq')],
+    ),
+}
+ANTIDEPRESSANT_SCOPES = (
+    'Requests for patients greater than 12 years of age',
+    'PREFERRED DRUG Requests for patients 6 years of age or younger',
+    'Non-Preferred Drugs',
+)
+
 FORMS = r'oral|tablet|tablets|capsule|capsules|solution|suspension|injection|injectable|subcutaneous|intravenous|intramuscular|topical|cream|ointment|ophthalmic|otic|nasal|inhalation|inhaler|aerosol|powder|spray|prefilled|syringe|syringes|pen|kit|pack|vial|vials|chewable|disintegrating|hcl|hydrochloride|mg|mcg|ml|unit|units|act|actuat|dose|metered|breath|actuated|hfa|tabs|caps|soln|susp|packet|packets|reconstituted|cartridge|kwikpen|and|external|er|xr|dr|sr|pf|therapy|initiation|pk|titration|patient|month|sprinkle|sprinkles|soluble|dispersible|granules|auto|injector|transdermal|patch|recon|reconstitution|concentrate|intramuscular|patches|odt|for|rebidose|hr|hour|hours'
 
 def identity(value):
@@ -158,6 +181,20 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             add('GL-752241', [index], 'product')
             bindings[-1]['productLabel'] = label
             add('GL-735259', [0], 'duplication')
+        antidepressant = ANTIDEPRESSANT_BRANCHES.get(record['name'].lower()) if record.get('sourceEffective') == '2026-10-01' else None
+        if antidepressant:
+            code = 'GL-743248'
+            label, branches = antidepressant
+            assert policies[code]['policyEffective'] == '2026-11-01'
+            for index, product in branches:
+                fields = structured[code]['branches'][index]['fields']
+                products = fields['Product Name'].get('displayText', fields['Product Name']['text'])
+                assert product in products.split(', '), (code, index, product)
+                assert fields['Diagnosis']['text'] == ANTIDEPRESSANT_SCOPES[index]
+                assert fields['Guideline Type']['text'] == 'Prior Authorization'
+            matched.pop(code, None)
+            add(code, [index for index, _ in branches], 'product' if pa else 'age_scoped')
+            bindings[-1]['productLabel'] = label
         for code,indexes in sorted(matched.items()):
             pa_indexes=[];ql_indexes=[]
             for i in sorted(indexes):
