@@ -166,6 +166,34 @@
     ['uhc-oct-complete-3ea94beb4ebaf734', 'Diclofenac Epolamine 1.3% Topical Patch (Flector)'],
   ]);
 
+  // Only use a device, concentration, or size if the exact listing supports it.
+  const uhcInsulinAndSupplyLabels = new Map([
+    ['uhc-oct-complete-4b27f95aecd5c517', 'Admelog (Insulin Lispro, Device Unspecified)'],
+    ['uhc-oct-complete-7fb64d26f93768e3', 'Humalog (Insulin Lispro, Concentration and Device Unspecified)'],
+    ['uhc-oct-complete-99b7a79d60f9be27', 'Insulin Lispro (Concentration and Device Unspecified)'],
+    ['uhc-oct-complete-1a0caccc9f7c79ae', 'Humalog Junior KwikPen'],
+    ['uhc-oct-complete-d68963fe88140f42', 'Insulin Lispro Junior KwikPen Listing'],
+    ['uhc-oct-complete-a864ab78ab9356d7', 'Humalog Mix 75/25 KwikPen'],
+    ['uhc-oct-complete-6b20c512802745b5', 'Insulin Lispro Protamine / Lispro (Ratio and Device Unspecified)'],
+    ['uhc-oct-complete-96922f638bb987d2', 'Insulin Glargine-yfgn SC Solution (Device Unspecified)'],
+    ['uhc-oct-complete-4270f8a1ce19e554', 'Insulin Glargine-yfgn SC Pen Injector'],
+    ['uhc-oct-complete-31c74f821a4c856f', 'Semglee (Insulin Glargine-yfgn, Device Unspecified)'],
+    ['uhc-oct-complete-c005b426150daab6', 'BD Pen Needle Micro Ultra-Fine'],
+    ['uhc-oct-complete-d8778fc0002099ad', 'BD Pen Needle Mini Ultra-Fine'],
+    ['uhc-oct-complete-29ba3ba96676a42d', 'BD Ultra-Fine Pen Needles (Size Unspecified)'],
+    ['uhc-oct-complete-f4049ada026c8bf2', 'Embecta Nano Pen Needles'],
+    ['uhc-oct-complete-81e91bccf7a7db62', 'Embecta Nano 2 Gen Pen Needles'],
+    ['uhc-oct-complete-3d04833acbadee64', 'Embecta Ultra-Fine Pen Needles (31G × 5 mm or 8 mm)'],
+    ['uhc-oct-complete-a78b03c4eeae093a', 'Embecta Ultra-Fine Pen Needles (32G × 6 mm)'],
+    ['uhc-oct-complete-41e85281dfbe85c2', 'Insulin Pen Needles (29G × 12 mm, 31G × 5, 6 or 8 mm, or 33G × 4 mm)'],
+    ['uhc-oct-complete-73c972bcaea5b9de', 'Insulin Pen Needles (32G × 4 mm or 6 mm)'],
+    ['uhc-oct-complete-d44e6b5c3ba5f44e', 'BD Ultra-Fine Insulin Syringes (PA-Flagged Listing)'],
+    ['uhc-oct-complete-72a4f8fa78ad8fa9', 'Embecta Ultra-Fine Insulin Syringes (31G × 15/64-inch, 0.3 mL)'],
+    ['uhc-oct-complete-95af09ad92b3e0f1', 'Embecta Ultra-Fine Insulin Syringes (31G × 15/64-inch, 0.5 mL)'],
+    ['uhc-oct-complete-6746ad40c619fcaa', 'Embecta Ultra-Fine Insulin Syringes (31G × 15/64-inch, 1 mL)'],
+  ]);
+  const uhcJuniorKwikPenRows = new Set(['uhc-oct-complete-1a0caccc9f7c79ae', 'uhc-oct-complete-d68963fe88140f42']);
+
   // Group only when the generic, formulation, route, release and strength text
   // match exactly. All source records and individual restrictions stay separate.
   function medicationIdentity(record) {
@@ -189,8 +217,11 @@
     }
     const reviewedLabel = uhcTestosteronePresentations.get(record.id)
       || uhcTriptanPresentations.get(record.id) || uhcNicotinePresentations.get(record.id)
-      || uhcPCPFormLabels.get(record.id);
+      || uhcPCPFormLabels.get(record.id) || uhcInsulinAndSupplyLabels.get(record.id);
     if (record.planId === 'uhc-community-az' && reviewedLabel) {
+      if (uhcJuniorKwikPenRows.has(record.id)) {
+        return {key: `${record.planId}:reviewed-junior-kwikpen`, generic: 'Insulin Lispro Junior KwikPen (Half-Unit Increments)', brands: []};
+      }
       return {key: `${record.planId}:${record.id}`, generic: reviewedLabel, brands: []};
     }
     if (record.planId === 'uhc-community-az' && record.id === 'uhc-oct-complete-2cf325e856cd66c2') {
@@ -219,7 +250,7 @@
   function medicationDisplayLabel(name, brands, records = []) {
     if (records.length === 1 && records[0].planId === 'uhc-community-az'
         && (uhcTriptanPresentations.has(records[0].id) || uhcNicotinePresentations.has(records[0].id)
-          || uhcPCPFormLabels.has(records[0].id))) return name;
+          || uhcPCPFormLabels.has(records[0].id) || uhcInsulinAndSupplyLabels.has(records[0].id))) return name;
     // Display names come from NLM by the existing RxCUI, not from parsing
     // package syntax. A group spanning different IDs keeps its source label.
     if (records.length && records.every(record => record.standardName
@@ -1455,7 +1486,8 @@
     const ageScoped = byRole(['age_scoped']);
     const packetReference = byRole(['packet_reference']);
     const reviewedEstradiol = group.records?.some(record => uhcEstradiolPresentations.has(record.id));
-    const administrativeFallback = (duplication.length || reviewedEstradiol)
+    const reviewedInsulin = group.records?.some(record => uhcInsulinAndSupplyLabels.has(record.id));
+    const administrativeFallback = (duplication.length || reviewedEstradiol || reviewedInsulin)
       && primary.length && primary.every(b => b.role === 'nonpreferred');
     const paRows = (group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference && ['required','conditional'].includes(r.pa));
     const fallbackRows = administrativeFallback ? paRows.filter(r => r.uhcClinicalBindings?.some(b => b.role === 'nonpreferred')) : [];
@@ -1491,7 +1523,8 @@
         : selected === ageScoped ? '<p>The October 2026 formulary lists an age limit and leaves the PA field blank for the generic product below. The November 2026 guideline specifies these age-based criteria.</p>'
         : selected === packetReference ? '<p>The October 2026 formulary lists age and quantity limits for both packets and leaves their PA fields blank. The UHC guideline names both packets and gives criteria by age and ability to swallow solid forms.</p>'
         : selected === primary && administrativeFallback ? (
-          (fallbackRows.length < paRows.length ? `<p><strong>Applies to:</strong> ${escapeHtml(fallbackRows.map(r => readableMedicationName(r.name)).join('; '))}</p>` : '')
+          (fallbackRows.length < paRows.length || (reviewedInsulin && fallbackRows.length < group.records.length)
+            ? `<p><strong>Applies to:</strong> ${escapeHtml(fallbackRows.map(r => uhcInsulinAndSupplyLabels.get(r.id) || readableMedicationName(r.name)).join('; '))}</p>` : '')
           + '<p>Product-specific approval criteria are unverified.</p>'
         ) : '';
       if (body.length) sections.push(`<section class="uhc-restriction-criteria"><h4>${kind}</h4>${context}${body.join('')}</section>`);
@@ -1499,7 +1532,8 @@
     const conditionalOnly = duplication.length && paRows.length && paRows.every(r => r.pa === 'conditional');
     if (conditionalOnly) sections.unshift('<p>The formulary lists conditional PA. See the formulation-specific restrictions and the duplication exception below.</p>');
     else if (paRows.length && !primary.length) sections.unshift('<p>PA is required. Approval criteria have not yet been verified for this formulation. Review the linked UHC source.</p>');
-    const referenceLabels = references.map(p => [...primary, ...ageScoped].some(b => b.policyId === p.id) ? 'PA reference'
+    const referenceLabels = references.map(p => [...primary, ...ageScoped].some(b => b.policyId === p.id)
+      ? (reviewedInsulin && quantity.some(b => b.policyId === p.id) ? 'PA and QL reference' : 'PA reference')
       : packetReference.some(b => b.policyId === p.id) ? 'Packet PA guideline'
       : duplication.some(b => b.policyId === p.id) ? 'Duplication reference' : 'QL reference');
     if (!paRows.length && !primary.length && !packetReference.length && guidance) {
@@ -1583,8 +1617,13 @@
       record.uhcClinicalBindings?.some(binding => binding.role === 'packet_reference'));
     const scopedQuantity = reference?.policyCode === 'GL-140667' && group.records?.some(record =>
       (uhcTriptanPresentations.has(record.id) || uhcPCPFormLabels.has(record.id)) && record.pa === 'not_specified');
+    const insulinQuantity = state.planId === 'uhc-community-az' && reference
+      && !group.records?.some(record => ['required', 'conditional'].includes(record.pa))
+      && group.records?.some(record => uhcInsulinAndSupplyLabels.has(record.id)
+        && record.uhcClinicalBindings?.some(binding => binding.policyId === reference.id
+          && ['quantity', 'global_quantity'].includes(binding.role)));
     const refs = reference ? cardPaReference(reference, packetGuideline ? 'Packet PA guideline'
-      : scopedQuantity ? 'QL reference'
+      : scopedQuantity || insulinQuantity ? 'QL reference'
       : reference.policyCode === 'GL-735259' ? 'Duplication reference' : 'PA reference') : '';
     const exactScopedRows = state.planId === 'uhc-community-az' && (group.records || []).some(record =>
       record.planId === state.planId && !record.isStatewideReference && record.uhcClinicalBindings?.some(binding => ['age_scoped', 'packet_reference'].includes(binding.role)));
@@ -1596,7 +1635,8 @@
     return `<article class="result-card">
       <h3>${escapeHtml(group.label)}</h3>
       ${rows.map(record => {
-        const label = rows.length > 1 && (record.coverageProductLabel
+        const insulinLabel = state.planId === 'uhc-community-az' && uhcInsulinAndSupplyLabels.get(record.id);
+        const label = rows.length > 1 && (insulinLabel || record.coverageProductLabel
           || record.uhcClinicalBindings?.find(binding => binding.productLabel)?.productLabel);
         return `${label ? `<p class="coverage-product-label"><strong>${escapeHtml(label)}</strong></p>` : ''}
           <div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${statusChips(record)}</div>`;

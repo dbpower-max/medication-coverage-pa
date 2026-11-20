@@ -308,6 +308,55 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   assert(group && !a.medicationGroupCard(group).includes('>Age limit<'));
  }
  console.log('PASS: UHC oseltamivir, montelukast and Flector display source-supported dosage forms and exact payer flags.');
+ const insulinAndSupplies = [
+  ['4b27f95aecd5c517', /Admelog.*Device Unspecified/, true],
+  ['7fb64d26f93768e3', /Humalog.*Concentration and Device Unspecified/, true],
+  ['99b7a79d60f9be27', /Insulin Lispro.*Concentration and Device Unspecified/, false],
+  ['a864ab78ab9356d7', /Humalog Mix 75\/25 KwikPen/, true],
+  ['6b20c512802745b5', /Ratio and Device Unspecified/, false],
+  ['96922f638bb987d2', /Glargine-yfgn SC Solution.*Device Unspecified/, true],
+  ['4270f8a1ce19e554', /Glargine-yfgn SC Pen Injector/, false],
+  ['31c74f821a4c856f', /Semglee.*Device Unspecified/, true],
+  ['c005b426150daab6', /BD Pen Needle Micro Ultra-Fine/, false],
+  ['d8778fc0002099ad', /BD Pen Needle Mini Ultra-Fine/, false],
+  ['29ba3ba96676a42d', /BD Ultra-Fine Pen Needles.*Size Unspecified/, false],
+  ['f4049ada026c8bf2', /Embecta Nano Pen Needles/, false],
+  ['81e91bccf7a7db62', /Embecta Nano 2 Gen Pen Needles/, false],
+  ['3d04833acbadee64', /31G × 5 mm or 8 mm/, false],
+  ['a78b03c4eeae093a', /32G × 6 mm/, false],
+  ['41e85281dfbe85c2', /29G × 12 mm.*33G × 4 mm/, true],
+  ['73c972bcaea5b9de', /32G × 4 mm or 6 mm/, true],
+  ['d44e6b5c3ba5f44e', /BD Ultra-Fine Insulin Syringes.*PA-Flagged Listing/, true],
+  ['72a4f8fa78ad8fa9', /31G × 15\/64-inch, 0\.3 mL/, false],
+  ['95af09ad92b3e0f1', /31G × 15\/64-inch, 0\.5 mL/, false],
+  ['6746ad40c619fcaa', /31G × 15\/64-inch, 1 mL/, false],
+ ];
+ const insulinCards = new Set();
+ for (const [id,label,pa] of insulinAndSupplies) {
+  const group = byId(id);
+  assert(group && label.test(group.label), group?.label || id);
+  assert.equal(group.records.length, 1, group.label);
+  const card = a.medicationGroupCard(group);
+  assert(card.includes('>Tier 2<') && card.includes('>Quantity limit<'));
+  assert.equal(card.includes('>PA required<'), pa, group.label);
+  const {html,ref} = await open(group);
+  assert(ref.includes('QL reference'));
+  if (!pa) assert(!card.includes('PA reference') && !ref.includes('PA reference') && !html.includes('General nonpreferred PA criteria'), group.label);
+  insulinCards.add(group);
+ }
+ assert.equal(insulinCards.size, insulinAndSupplies.length);
+ const junior = byId('1a0caccc9f7c79ae');
+ assert(junior && junior === byId('d68963fe88140f42') && junior.records.length === 2);
+ assert.match(junior.label, /Half-Unit Increments/i);
+ const juniorCard = a.medicationGroupCard(junior);
+ const brandJunior = juniorCard.split('Coverage attributes for Humalog Junior KwikPen')[1].split('</div>')[0];
+ const otherJunior = juniorCard.split('Coverage attributes for Insulin Lispro Junior KwikPen Listing')[1].split('</div>')[0];
+ assert(brandJunior.includes('>PA required<') && !otherJunior.includes('>PA required<'));
+ const juniorPolicy = await open(junior);
+ assert(juniorPolicy.html.includes('General nonpreferred PA criteria'));
+ assert(juniorPolicy.html.includes('<strong>Applies to:</strong> Humalog Junior KwikPen'));
+ assert(juniorPolicy.html.includes('Product-specific approval criteria are unverified.'));
+ console.log('PASS: 23 UHC insulin/supply rows keep exact device descriptions, PA scope and quantity references across 22 cards.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  console.log('PASS: '+n+' restricted UHC cards load clinical content and source references; Apidra nonpreferred + QL; preferred/nonpreferred syringe branches; plan isolation');
 })().catch(e=>{console.error(e);process.exitCode=1});
