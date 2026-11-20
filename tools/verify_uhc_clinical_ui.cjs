@@ -280,6 +280,34 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  const injection10 = a.planMedicationGroups().find(group => group.records.some(r => r.id.endsWith('3f0646c9671a33c6')));
  assert(injection10 && injection10 !== injection);
  console.log('PASS: Verified UHC triptan policy scopes, five nicotine presentations and both triamcinolone tier labels.');
+ const pcpForms = [
+  ['e018bef948c68b97', 'Generic Oseltamivir Oral (Dosage Form Unspecified)', 1, false, false],
+  ['a71cdeaaee7ac819', 'Tamiflu (Oseltamivir, Dosage Form Unspecified)', 2, false, false],
+  ['420688dc751a74bb', 'Montelukast Oral Granules (Singulair Packets)', 1, false, true],
+  ['3ea94beb4ebaf734', 'Diclofenac Epolamine 1.3% Topical Patch (Flector)', 2, true, false],
+ ];
+ for (const [id, label, tier, pa, age] of pcpForms) {
+  const group = byId(id);
+  assert(group && group.label === label && group.records.length === 1);
+  const card = a.medicationGroupCard(group);
+  assert(card.includes('>Tier ' + tier + '<') && card.includes('>Quantity limit<'));
+  assert.equal(card.includes('>PA required<'), pa);
+  assert.equal(card.includes('>Age limit<'), age);
+  assert(card.includes(pa ? 'PA reference' : 'QL reference'));
+  const {html,ref} = await open(group);
+  assert(ref.includes('QL reference'));
+  assert.equal(ref.includes('page=1738'), pa);
+  if (pa) assert.match(html, /acute pain due to minor strains/i);
+ }
+ assert.match(byId('e018bef948c68b97').search, /Tamiflu/i);
+ assert.match(byId('420688dc751a74bb').search, /Singulair/i);
+ assert(a.planMedicationGroups().some(g => g.isStatewide && /oseltamivir.*capsules/i.test(g.label)
+  && g.records.every(r => r.isStatewideReference)));
+ for (const id of ['c1523d2c7cd562ed','856368f38bb1fe39']) {
+  const group = byId(id);
+  assert(group && !a.medicationGroupCard(group).includes('>Age limit<'));
+ }
+ console.log('PASS: UHC oseltamivir, montelukast and Flector display source-supported dosage forms and exact payer flags.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  console.log('PASS: '+n+' restricted UHC cards load clinical content and source references; Apidra nonpreferred + QL; preferred/nonpreferred syringe branches; plan isolation');
 })().catch(e=>{console.error(e);process.exitCode=1});

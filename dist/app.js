@@ -159,6 +159,13 @@
     ['uhc-oct-complete-190ba800fac4ab36', 'Thrive (Nicotine, Dosage Form Unspecified)'],
   ]);
 
+  const uhcPCPFormLabels = new Map([
+    ['uhc-oct-complete-e018bef948c68b97', 'Generic Oseltamivir Oral (Dosage Form Unspecified)'],
+    ['uhc-oct-complete-a71cdeaaee7ac819', 'Tamiflu (Oseltamivir, Dosage Form Unspecified)'],
+    ['uhc-oct-complete-420688dc751a74bb', 'Montelukast Oral Granules (Singulair Packets)'],
+    ['uhc-oct-complete-3ea94beb4ebaf734', 'Diclofenac Epolamine 1.3% Topical Patch (Flector)'],
+  ]);
+
   // Group only when the generic, formulation, route, release and strength text
   // match exactly. All source records and individual restrictions stay separate.
   function medicationIdentity(record) {
@@ -181,7 +188,8 @@
       return {key: `${record.planId}:${record.id}`, generic, brands: []};
     }
     const reviewedLabel = uhcTestosteronePresentations.get(record.id)
-      || uhcTriptanPresentations.get(record.id) || uhcNicotinePresentations.get(record.id);
+      || uhcTriptanPresentations.get(record.id) || uhcNicotinePresentations.get(record.id)
+      || uhcPCPFormLabels.get(record.id);
     if (record.planId === 'uhc-community-az' && reviewedLabel) {
       return {key: `${record.planId}:${record.id}`, generic: reviewedLabel, brands: []};
     }
@@ -210,7 +218,8 @@
   // Preserve the underlying payer product name, source links and PA records.
   function medicationDisplayLabel(name, brands, records = []) {
     if (records.length === 1 && records[0].planId === 'uhc-community-az'
-        && (uhcTriptanPresentations.has(records[0].id) || uhcNicotinePresentations.has(records[0].id))) return name;
+        && (uhcTriptanPresentations.has(records[0].id) || uhcNicotinePresentations.has(records[0].id)
+          || uhcPCPFormLabels.has(records[0].id))) return name;
     // Display names come from NLM by the existing RxCUI, not from parsing
     // package syntax. A group spanning different IDs keeps its source label.
     if (records.length && records.every(record => record.standardName
@@ -1572,10 +1581,10 @@
     const reference = (state.planId === 'uhc-community-az' ? policies.find(p => p.planId === state.planId) || restriction : guidance) || guidance || policies.find(p => p.planId === state.planId) || policies[0];
     const packetGuideline = reference?.policyCode === 'GL-255208' && group.records?.some(record =>
       record.uhcClinicalBindings?.some(binding => binding.role === 'packet_reference'));
-    const triptanQuantity = reference?.policyCode === 'GL-140667' && group.records?.some(record =>
-      uhcTriptanPresentations.has(record.id) && record.pa === 'not_specified');
+    const scopedQuantity = reference?.policyCode === 'GL-140667' && group.records?.some(record =>
+      (uhcTriptanPresentations.has(record.id) || uhcPCPFormLabels.has(record.id)) && record.pa === 'not_specified');
     const refs = reference ? cardPaReference(reference, packetGuideline ? 'Packet PA guideline'
-      : triptanQuantity ? 'QL reference'
+      : scopedQuantity ? 'QL reference'
       : reference.policyCode === 'GL-735259' ? 'Duplication reference' : 'PA reference') : '';
     const exactScopedRows = state.planId === 'uhc-community-az' && (group.records || []).some(record =>
       record.planId === state.planId && !record.isStatewideReference && record.uhcClinicalBindings?.some(binding => ['age_scoped', 'packet_reference'].includes(binding.role)));
