@@ -2,7 +2,7 @@ const fs=require('fs'),vm=require('vm'),zlib=require('zlib'),assert=require('nod
 const load=p=>{const b=fs.readFileSync(p);return JSON.parse(b[0]===31?zlib.gunzipSync(b):b)};
 const data=load('_site/data.json.gz');for(const f of Object.values(data.planDataFiles||{}))data.medications.push(...load('_site/'+f.split('?')[0].replace(/^\.\//,'')));delete data.planDataFiles;
 const ctx={Intl,console,document:{addEventListener:()=>{}},fetch:async url=>({ok:true,json:async()=>load('_site/'+url.split('?')[0].replace(/^\.\//,'')),text:async()=>fs.readFileSync('_site/'+url.split('?')[0].replace(/^\.\//,''),'utf8')})};vm.createContext(ctx);
-vm.runInContext(fs.readFileSync('_site/app.js','utf8').replace("document.addEventListener('DOMContentLoaded', init);",'globalThis.api={state,planMedicationGroups,medicationGroupCard,populateCardClinical,uhcGroupBindings,clinicalGuidanceFor};'),ctx);
+vm.runInContext(fs.readFileSync('_site/app.js','utf8').replace("document.addEventListener('DOMContentLoaded', init);",'globalThis.api={state,planMedicationGroups,medicationGroupCard,populateCardClinical,uhcGroupBindings,clinicalGuidanceFor,recordDetails};'),ctx);
 const a=ctx.api;a.state.data=data;a.state.planId='uhc-community-az';
 async function open(g){const content={innerHTML:'',isConnected:true},ref={innerHTML:''};a.medicationGroupCard(g);const d={open:true,dataset:{cardClinical:g.key||g.label},querySelector:s=>s==='.card-pa-references'?ref:content};await a.populateCardClinical(d);assert.equal(d.dataset.loaded,'true',g.label+' did not load');return {html:content.innerHTML,ref:ref.innerHTML};}
 (async()=>{
@@ -15,6 +15,12 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    assert(!pa.includes('The requested medication will be used exclusively'),g.label+' shows GL-735259 as standard PA');
    assert(exception?.includes('DUR: Therapeutic Duplication'),g.label+' missing scoped duplication');
    assert(out.ref.includes('Duplication reference'),g.label+' mislabeled duplication reference');
+  }
+  if (a.uhcGroupBindings(g).some(binding => binding.policyId.endsWith('gl-733328'))) {
+   const [pa, exceptions] = out.html.split('<h4>Therapeutic duplication exceptions</h4>');
+   assert(!pa.includes('DUR: Therapeutic Duplication'), g.label);
+   assert(exceptions?.includes('DUR: Therapeutic Duplication'), g.label);
+   assert.match(out.ref, /page=1716[^>]*>Duplication reference/);
   }
   n++;
  }
@@ -357,6 +363,94 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(juniorPolicy.html.includes('<strong>Applies to:</strong> Humalog Junior KwikPen'));
  assert(juniorPolicy.html.includes('Product-specific approval criteria are unverified.'));
  console.log('PASS: 23 UHC insulin/supply rows keep exact device descriptions, PA scope and quantity references across 22 cards.');
+ const planGroups = a.planMedicationGroups();
+ const findExact = id => planGroups.find(g => g.records.some(r => r.id === 'uhc-oct-complete-' + id));
+ const subtypeB = planGroups.filter(g => a.uhcGroupBindings(g).some(b => b.policyId.endsWith('gl-733328')));
+ const subtypeBRows = subtypeB.flatMap(g => g.records).filter(r => r.uhcClinicalBindings?.some(b => b.policyId.endsWith('gl-733328')));
+ assert.equal(subtypeB.length, 75);
+ assert.equal(subtypeBRows.length, 76);
+ assert(subtypeBRows.every(r => r.pa === 'required'));
+ assert.equal(subtypeBRows.filter(r => r.uhcClinicalBindings.some(b => b.role === 'product')).length, 61);
+ const auditedSupplies = [
+  ['3b25d168e772f4bb', /BD AutoShield Duo/, 'conflict'],
+  ['c97b122f4df189e3', /Embecta AutoShield Duo/],
+  ['c4e9ac46f2349955', /Size Unspecified/, 'conflict'],
+  ['22070f6565eaddd7', /31G × 5\/16-inch, 0.3 mL/, 'conflict'],
+  ['8f8bfca30d969dde', /Half-Unit Markings/],
+  ['f91198d15b3621e2', /30G × 1\/2-inch, 0.3 mL/],
+  ['f119ef35ec9d1e98', /30G × 1\/2-inch, 0.5 mL/],
+  ['1a93bee462473cf9', /30G × 1\/2-inch, 1 mL/],
+  ['f585b5e77ab99c2b', /31G × 5\/16-inch, 0.3 mL/],
+  ['3369cc3c10c7bce9', /31G × 5\/16-inch, 0.5 mL/],
+  ['c13ee393243d1dfe', /31G × 5\/16-inch, 1 mL/],
+  ['47f6c2b5f18c5f97', /29G × 12.7 mm/],
+  ['8a18c2c65b39a452', /29G × 12.7 mm/, 'required'],
+  ['71a7f5b0011ace42', /29G.*30G.*31G/, 'required'],
+  ['982cb3c91791283c', /0.3 or 0.5 mL/, 'required'],
+ ];
+ for (const [id, label, pa] of auditedSupplies) {
+  const g = findExact(id);
+  assert.match(g.label, label);
+  assert.equal(g.records.length, 1);
+  const card = a.medicationGroupCard(g);
+  assert.equal(card.includes('>PA listings conflict<'), pa === 'conflict', g.label);
+  assert.equal(card.includes('>PA required<'), pa === 'required', g.label);
+  if (pa === 'conflict') {
+   const details = a.recordDetails(g.records[0]);
+   assert.match(details, /Both printed listings/);
+   assert.match(details, /Tier 2; QL/);
+   assert.match(details, /Tier 2; PA; QL/);
+  }
+  const {html, ref} = await open(g);
+  assert(ref.includes('QL reference') && ref.includes('page=949'), g.label);
+  if (pa !== 'required') assert(!html.includes('<h4>Prior authorization</h4>'), g.label);
+ }
+ const solutionGroup = findExact('ef1b74ce89ce3609');
+ assert.equal(solutionGroup, findExact('3a61ac9c932595a2'));
+ const oralSolutionCard = a.medicationGroupCard(solutionGroup);
+ assert.match(oralSolutionCard, /Coverage attributes for Brand Risperdal oral solution/);
+ assert.match(oralSolutionCard, /Coverage attributes for Generic risperidone oral solution/);
+ assert.match(oralSolutionCard, /PA listings conflict/);
+ assert.match(oralSolutionCard, /age 8 and older.*age 6 and older/);
+ const risperidoneSolution = await open(solutionGroup);
+ assert.match(risperidoneSolution.html, /Brand Risperdal oral solution \/ Generic risperidone oral solution/);
+ const tablets = findExact('9218dfef977f1cc2');
+ assert.equal(tablets.records.length, 6);
+ assert(tablets !== solutionGroup);
+ assert(tablets.records.every(r => r.planId === 'uhc-community-az'));
+ const lowerTabletHtml = (await open(tablets)).html;
+ assert.match(lowerTabletHtml, /Brand Risperdal tablets.*Generic risperidone tablets 0.25–3 mg/);
+ const npSection = lowerTabletHtml.slice(lowerTabletHtml.lastIndexOf('<strong>Product:</strong>'));
+ assert.match(npSection, /Brand Risperdal tablets/);
+ assert.doesNotMatch(npSection, /Generic risperidone tablets/);
+ const four = findExact('f4378fc22a9c05ca');
+ assert.equal(four, findExact('3b293a6608a5bb5c'));
+ assert.equal(four.records.length, 2);
+ const fourCard = a.medicationGroupCard(four);
+ assert.equal((fourCard.match(/>Diagnosis required</g) || []).length, 2);
+ assert(!fourCard.includes('>Conditional PA<') && !fourCard.includes('>PA required<'));
+ assert(!(await open(four)).html.includes('<h4>Prior authorization</h4>'));
+ const consta = findExact('8e6412598dc3cc82');
+ assert.equal(consta.records.length, 5);
+ const constaCard = a.medicationGroupCard(consta);
+ assert.equal((constaCard.match(/>PA listings conflict</g) || []).length, 4);
+ assert.match((await open(consta)).html, /<strong>Product:<\/strong> Brand Risperdal Consta/);
+ const focalin = findExact('6dff573813c31f0b');
+ assert.equal(focalin, findExact('b49b6b0ee990825a'));
+ const focalinCard = a.medicationGroupCard(focalin);
+ assert.match(focalinCard, /Coverage attributes for Generic dexmethylphenidate ER[^]*?Tier 1[^]*?Coverage attributes for Brand Focalin XR[^]*?Tier 2/);
+ assert(focalinCard.includes('QL reference') && !focalinCard.includes('PA reference'));
+ const caplets = findExact('8869cd1c155ab813');
+ assert.equal(caplets.records.length, 4);
+ const capletCard = a.medicationGroupCard(caplets);
+ assert.equal((capletCard.match(/Drug Facts/g) || []).length, 4);
+ assert.match(capletCard, /Acetaminophen 250 mg \/ aspirin 250 mg \/ caffeine 65 mg per caplet/);
+ assert.doesNotMatch(a.medicationGroupCard(findExact('4df17abd4833e4f1')), /250 mg/);
+ const macro = findExact('1f745c455ddaac86'), macrobid = findExact('2304475710970aa6');
+ assert.match(macro.label, /^Nitrofurantoin Macrocrystals Capsules$/);
+ assert.match(macrobid.label, /Monohydrate \/ Macrocrystals Capsules/);
+ assert.equal(new Set([macro,macrobid,findExact('9e0eb4cf3a3dfd2b')]).size, 3);
+ console.log('PASS: 115 UHC records retain exact product restrictions, policy scope and provider-facing labels.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  console.log('PASS: '+n+' restricted UHC cards load clinical content and source references; Apidra nonpreferred + QL; preferred/nonpreferred syringe branches; plan isolation');
 })().catch(e=>{console.error(e);process.exitCode=1});

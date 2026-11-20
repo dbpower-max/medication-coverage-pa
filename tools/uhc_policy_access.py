@@ -6,6 +6,22 @@ from collections import defaultdict
 from structured_statewide_criteria import structure_policy, validate_structure
 
 PLAN = 'uhc-community-az'
+DUPLICATION_POLICIES = {'GL-735259', 'GL-733328'}
+# GL-722213 names the age-based, nonpreferred and injectable branches separately.
+RISPERIDONE_BRANCHES = {
+    'ef1b74ce89ce3609': ('Brand Risperdal oral solution', [0, 14]),
+    '3a61ac9c932595a2': ('Generic risperidone oral solution', [0, 14]),
+    '9218dfef977f1cc2': ('Brand Risperdal tablets 0.5, 1, 2 or 3 mg', [0, 14]),
+    **dict.fromkeys(
+        ('88dcfe556959a236', '5c298a57a90c3332', 'fce9a9e679b436ee',
+         'ed3c9eb0d5ff5667', '41d9e57befa93814'),
+        ('Generic risperidone tablets 0.25–3 mg', [0]),
+    ),
+    **dict.fromkeys(
+        ('8e6412598dc3cc82', '86a272013762dd71', '4a432871483f8345', 'e60cf4ef12c45d4c'),
+        ('Brand Risperdal Consta', [12]),
+    ),
+}
 # Reviewed October PDL names mapped to the November 2026 named-product branches.
 DPP4_BRANCHES = {
     'alogliptin benzoate': (0, 'Alogliptin'),
@@ -164,7 +180,7 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             for f in list(b['fields'].values()) + b['criteria'] + b['notes']:
                 display = re.sub(r'UnitedHealthcare Community Plan of Arizona [–-] Clinical Pharmacy Guidelines\s*', '', f.get('displayText',f['text']))
                 if display != f['text']: f['displayText'] = display.strip()
-        if code == 'GL-735259':
+        if code in DUPLICATION_POLICIES:
             assert len(result['branches']) == 1
             fields = result['branches'][0]['fields']
             assert fields['Diagnosis']['text'] == 'DUR: Therapeutic Duplication'
@@ -275,8 +291,20 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 assert product in branch['fields']['Product Name']['text'].split(', ')
                 add(code, [0], 'product')
                 bindings[-1]['productLabel'] = label
+        risperidone = RISPERIDONE_BRANCHES.get(record['id'].removeprefix('uhc-oct-complete-'))
+        if risperidone:
+            code = 'GL-722213'
+            label, indexes = risperidone
+            branches = structured[code]['branches']
+            assert october_name and pa and matched.get(code, set()).issuperset(indexes)
+            assert branches[0]['fields']['Diagnosis']['text'] == 'Patients Under 6 Years Old'
+            assert branches[12]['fields']['Product Name']['text'] == 'Brand Risperdal Consta, Uzedy'
+            assert branches[14]['fields']['Diagnosis']['text'] == 'Non-Preferred Drugs**'
+            matched.pop(code)
+            add(code, indexes, 'product')
+            bindings[-1]['productLabel'] = label
         for code,indexes in sorted(matched.items()):
-            if code == 'GL-735259':
+            if code in DUPLICATION_POLICIES:
                 if pa:add(code,sorted(indexes),'duplication')
                 continue
             pa_indexes=[];ql_indexes=[]

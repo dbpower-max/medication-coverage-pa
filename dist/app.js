@@ -191,7 +191,67 @@
     ['uhc-oct-complete-72a4f8fa78ad8fa9', 'Embecta Ultra-Fine Insulin Syringes (31G × 15/64-inch, 0.3 mL)'],
     ['uhc-oct-complete-95af09ad92b3e0f1', 'Embecta Ultra-Fine Insulin Syringes (31G × 15/64-inch, 0.5 mL)'],
     ['uhc-oct-complete-6746ad40c619fcaa', 'Embecta Ultra-Fine Insulin Syringes (31G × 15/64-inch, 1 mL)'],
+    ['uhc-oct-complete-3b25d168e772f4bb', 'BD AutoShield Duo Pen Needles'],
+    ['uhc-oct-complete-c97b122f4df189e3', 'Embecta AutoShield Duo Pen Needles'],
+    ['uhc-oct-complete-c4e9ac46f2349955', 'BD Ultra-Fine Insulin Syringes (Size Unspecified)'],
+    ['uhc-oct-complete-22070f6565eaddd7', 'BD Ultra-Fine Insulin Syringes (31G × 5/16-inch, 0.3 mL)'],
+    ['uhc-oct-complete-8f8bfca30d969dde', 'Embecta Ultra-Fine Insulin Syringes (Half-Unit Markings)'],
+    ['uhc-oct-complete-f91198d15b3621e2', 'Embecta Ultra-Fine Insulin Syringes (30G × 1/2-inch, 0.3 mL)'],
+    ['uhc-oct-complete-f119ef35ec9d1e98', 'Embecta Ultra-Fine Insulin Syringes (30G × 1/2-inch, 0.5 mL)'],
+    ['uhc-oct-complete-1a93bee462473cf9', 'Embecta Ultra-Fine Insulin Syringes (30G × 1/2-inch, 1 mL)'],
+    ['uhc-oct-complete-f585b5e77ab99c2b', 'Embecta Ultra-Fine Insulin Syringes (31G × 5/16-inch, 0.3 mL)'],
+    ['uhc-oct-complete-3369cc3c10c7bce9', 'Embecta Ultra-Fine Insulin Syringes (31G × 5/16-inch, 0.5 mL)'],
+    ['uhc-oct-complete-c13ee393243d1dfe', 'Embecta Ultra-Fine Insulin Syringes (31G × 5/16-inch, 1 mL)'],
+    ['uhc-oct-complete-47f6c2b5f18c5f97', 'Embecta Ultra-Fine Pen Needles (29G × 12.7 mm)'],
+    ['uhc-oct-complete-8a18c2c65b39a452', 'Insulin Pen Needles (29G × 12.7 mm)'],
+    ['uhc-oct-complete-71a7f5b0011ace42', 'Insulin Syringes (29G × 1/2-inch, 1 mL; 30G × 5/16-inch, 0.5 mL; or 31G × 5/16-inch, 1 mL)'],
+    ['uhc-oct-complete-982cb3c91791283c', 'Insulin Syringes (31G × 5/16-inch, 0.3 or 0.5 mL)'],
   ]);
+  const uhcReviewedProductGroups = new Map([
+    ['Risperidone Oral Solution 1 mg/mL (Risperdal)', [
+      ['ef1b74ce89ce3609', 'Brand Risperdal oral solution'],
+      ['3a61ac9c932595a2', 'Generic risperidone oral solution'],
+    ]],
+    ['Risperidone Oral Tablets 0.25–3 mg (Risperdal)', [
+      ['9218dfef977f1cc2', 'Brand Risperdal tablets 0.5, 1, 2 or 3 mg'],
+      ['88dcfe556959a236', 'Generic risperidone tablet 0.25 mg'],
+      ['5c298a57a90c3332', 'Generic risperidone tablet 0.5 mg'],
+      ['fce9a9e679b436ee', 'Generic risperidone tablet 1 mg'],
+      ['ed3c9eb0d5ff5667', 'Generic risperidone tablet 2 mg'],
+      ['41d9e57befa93814', 'Generic risperidone tablet 3 mg'],
+    ]],
+    ['Risperidone Oral Tablets 4 mg (Risperdal)', [
+      ['f4378fc22a9c05ca', 'Brand Risperdal tablet 4 mg'],
+      ['3b293a6608a5bb5c', 'Generic risperidone tablet 4 mg'],
+    ]],
+    ['Risperidone Microspheres ER Intramuscular Suspension (Risperdal Consta)', [
+      ['8e6412598dc3cc82', 'Brand Risperdal Consta 12.5 mg'],
+      ['86a272013762dd71', 'Brand Risperdal Consta 25 mg'],
+      ['4a432871483f8345', 'Brand Risperdal Consta 37.5 mg'],
+      ['e60cf4ef12c45d4c', 'Brand Risperdal Consta 50 mg'],
+      ['286fbac321cc9cd6', 'Generic risperidone microspheres ER (strength unspecified)'],
+    ]],
+    ['Dexmethylphenidate ER Capsules (Focalin XR)', [
+      ['6dff573813c31f0b', 'Generic dexmethylphenidate ER'],
+      ['b49b6b0ee990825a', 'Brand Focalin XR'],
+    ]],
+    ['Acetaminophen / Aspirin / Caffeine (Excedrin, Vanquish)', [
+      ['381dc96046cede50', 'Excedrin Extra Strength caplets', '691b754c-bafc-47e2-a322-cf56245c01f6'],
+      ['ea6243f0a15464a5', 'Excedrin Migraine caplets', '910d7254-d0f4-4c5c-a26e-7f8acecbe02d'],
+      ['8869cd1c155ab813', 'Excedrin Migraine Relief caplets', 'dd85f3a7-f4d2-4ea0-a7b6-18ebc0e993d8'],
+      ['7c9120dc84a697eb', 'Vanquish Extra Strength caplets', 'cbf12223-ef44-494b-9d3c-971dce3c5ade'],
+    ]],
+    ['Acetaminophen / Aspirin / Caffeine (Generic Listing for Excedrin Extra Strength)', [
+      ['4df17abd4833e4f1', 'Generic listing for Excedrin Extra Strength'],
+    ]],
+    ['Nitrofurantoin Macrocrystals Capsules', [['1f745c455ddaac86']]],
+    ['Nitrofurantoin Monohydrate / Macrocrystals Capsules (Macrobid)', [['2304475710970aa6']]],
+  ].flatMap(([group, records]) => records.map(([id, label, labelId]) => ['uhc-oct-complete-' + id, {group, label, labelId}])));
+  const uhcReviewedPaConflicts = new Set([
+    '3b25d168e772f4bb', '22070f6565eaddd7', 'c4e9ac46f2349955', '3a61ac9c932595a2',
+    '8e6412598dc3cc82', '86a272013762dd71', '4a432871483f8345', 'e60cf4ef12c45d4c',
+  ].map(id => 'uhc-oct-complete-' + id));
+  const uhcDuplicationPolicies = new Set(['GL-735259', 'GL-733328']);
   const uhcJuniorKwikPenRows = new Set(['uhc-oct-complete-1a0caccc9f7c79ae', 'uhc-oct-complete-d68963fe88140f42']);
 
   // Group only when the generic, formulation, route, release and strength text
@@ -214,6 +274,10 @@
     if (record.planId === 'uhc-community-az' && uhcEstradiolPresentations.has(record.id)) {
       const generic = uhcEstradiolPresentations.get(record.id) || `${brandFor?.[1].trim() || name} (Estradiol)`;
       return {key: `${record.planId}:${record.id}`, generic, brands: []};
+    }
+    const reviewedProduct = uhcReviewedProductGroups.get(record.id);
+    if (reviewedProduct) {
+      return {key: `${record.planId}:${reviewedProduct.group}`, generic: reviewedProduct.group, brands: []};
     }
     const reviewedLabel = uhcTestosteronePresentations.get(record.id)
       || uhcTriptanPresentations.get(record.id) || uhcNicotinePresentations.get(record.id)
@@ -251,6 +315,7 @@
     if (records.length === 1 && records[0].planId === 'uhc-community-az'
         && (uhcTriptanPresentations.has(records[0].id) || uhcNicotinePresentations.has(records[0].id)
           || uhcPCPFormLabels.has(records[0].id) || uhcInsulinAndSupplyLabels.has(records[0].id))) return name;
+    if (records.some(record => uhcReviewedProductGroups.has(record.id))) return name;
     // Display names come from NLM by the existing RxCUI, not from parsing
     // package syntax. A group spanning different IDs keeps its source label.
     if (records.length && records.every(record => record.standardName
@@ -392,6 +457,10 @@
     }
     const supplements = [];
     for (const group of planGroups) {
+      if (group.records.some(record => uhcReviewedProductGroups.has(record.id))) {
+        supplements.push(group);
+        continue;
+      }
       const candidates = new Set(nameIndex.get(normalize(group.name)) || []);
       const routeSuffix = group.name.match(/^(.*?)\s*\((subcutaneous|oral|topical|nasal|inhalation|intravenous|intramuscular)\)\s*$/i);
       if (routeSuffix) for (const match of brandIndex.get(normalize(routeSuffix[1])) || []) candidates.add(match);
@@ -775,7 +844,8 @@
     if (/\bauthorized\s+generic\s+only\b/i.test([record.brandGenericNotes, record.notes].join(' '))) chips.push(['Authorized generic only', 'warning']);
     else if (/\bgeneric(?:\s+formulations)?\s+only\b/i.test([record.brandGenericNotes, record.notes].join(' '))) chips.push(['Generic only', 'warning']);
     if (record.tier) chips.push([`Tier ${record.tier}`, 'neutral']);
-    if (record.pa === 'required') chips.push(['PA required', 'warning']);
+    if (uhcReviewedPaConflicts.has(record.id)) chips.push(['PA listings conflict', 'warning']);
+    else if (record.pa === 'required') chips.push(['PA required', 'warning']);
     else if (record.pa === 'conditional') chips.push(['Conditional PA', 'warning']);
     if (record.step === 'specified') chips.push(['Step therapy', 'warning']);
     if (record.quantityLimited || record.qlAmount || record.qlDays) chips.push(['Quantity limit', 'warning']);
@@ -1454,7 +1524,8 @@
     for (const record of group.records || []) {
       if (record.planId !== state.planId || record.isStatewideReference) continue;
       for (const binding of record.uhcClinicalBindings || []) {
-        const key = [binding.policyId, binding.role, binding.branchIndexes.join(',')].join(':');
+        const key = [binding.policyId, binding.role, binding.branchIndexes.join(','),
+          uhcReviewedProductGroups.has(record.id) ? binding.productLabel : ''].join(':');
         found.set(key, binding);
       }
     }
@@ -1491,6 +1562,7 @@
       && primary.length && primary.every(b => b.role === 'nonpreferred');
     const paRows = (group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference && ['required','conditional'].includes(r.pa));
     const fallbackRows = administrativeFallback ? paRows.filter(r => r.uhcClinicalBindings?.some(b => b.role === 'nonpreferred')) : [];
+    const reviewedProduct = group.records.some(record => uhcReviewedProductGroups.has(record.id));
     const criteriaSections = [
       [administrativeFallback ? 'General nonpreferred PA criteria' : 'Prior authorization', primary],
       ['Age-specific PA criteria', ageScoped],
@@ -1511,7 +1583,11 @@
           if (!branch) throw new Error('Clinical branch missing');
           seen.add(key);
           const scope = binding.branchLabels?.[i];
-          const label = binding.productLabel && selected !== packetReference ? `<p><strong>Product:</strong> ${escapeHtml(binding.productLabel)}</p>`
+          const productLabel = reviewedProduct
+            ? [...new Set(selected.filter(b => b.policyId === policy.id && b.branchIndexes.includes(i))
+              .map(b => b.productLabel).filter(Boolean))].join(' / ')
+            : binding.productLabel;
+          const label = productLabel && selected !== packetReference ? `<p><strong>Product:</strong> ${escapeHtml(productLabel)}</p>`
             : scope ? `<p><strong>Formulation:</strong> ${escapeHtml(scope)}</p>` : '';
           // The final condition and preceding AND in this shared policy apply only to brand Nexium.
           const applicable = selected === packetReference ? {...branch, criteria: branch.criteria.slice(0, -2)} : branch;
@@ -1543,7 +1619,7 @@
     if (paRows.length && !primary.length) {
       const [record] = paRows;
       const relatedIds = new Set((group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference).flatMap(r => r.policySources || []).map(p => p.policyId));
-      const related = policies.find(p => p.policyCode !== 'GL-735259' && relatedIds.has(p.id));
+      const related = policies.find(p => !uhcDuplicationPolicies.has(p.policyCode) && relatedIds.has(p.id));
       if (related) { references.unshift(related); referenceLabels.unshift('PA source'); }
       else if (record?.sourceUrl) { references.unshift(record); referenceLabels.unshift('PA formulary'); }
     }
@@ -1574,7 +1650,7 @@
       let activeSource = guidance;
       // Use the selected plan's exact named product branches first. Never
       // concatenate two payer versions into one apparent set of requirements.
-      const planPolicies = policies.filter(p => p.planId === state.planId && p.policyCode !== 'GL-735259');
+      const planPolicies = policies.filter(p => p.planId === state.planId && !uhcDuplicationPolicies.has(p.policyCode));
       const referencePolicies = policies.filter(p => p.planId === 'ahcccs-ffs-aihp');
       for (const candidates of [planPolicies, guidance ? [] : referencePolicies]) {
         for (const policy of candidates) {
@@ -1607,6 +1683,7 @@
   }
 
   function medicationGroupCard(group) {
+    const isUhc = state.planId === 'uhc-community-az';
     const guidance = group.policyOnly ? group.guide : clinicalGuidanceFor(group);
     const policies = group.policyOnly ? [] : linkedPolicyPanels(group, true);
     const key = group.key || group.label;
@@ -1622,9 +1699,13 @@
       && group.records?.some(record => uhcInsulinAndSupplyLabels.has(record.id)
         && record.uhcClinicalBindings?.some(binding => binding.policyId === reference.id
           && ['quantity', 'global_quantity'].includes(binding.role)));
+    const reviewedQuantity = isUhc && reference && !group.records.some(record => ['required', 'conditional'].includes(record.pa))
+      && group.records.some(record => uhcReviewedProductGroups.has(record.id)
+        && record.uhcClinicalBindings?.some(binding => binding.policyId === reference.id
+          && ['quantity', 'global_quantity'].includes(binding.role)));
     const refs = reference ? cardPaReference(reference, packetGuideline ? 'Packet PA guideline'
-      : scopedQuantity || insulinQuantity ? 'QL reference'
-      : reference.policyCode === 'GL-735259' ? 'Duplication reference' : 'PA reference') : '';
+      : scopedQuantity || insulinQuantity || reviewedQuantity ? 'QL reference'
+      : isUhc && uhcDuplicationPolicies.has(reference.policyCode) ? 'Duplication reference' : 'PA reference') : '';
     const exactScopedRows = state.planId === 'uhc-community-az' && (group.records || []).some(record =>
       record.planId === state.planId && !record.isStatewideReference && record.uhcClinicalBindings?.some(binding => ['age_scoped', 'packet_reference'].includes(binding.role)));
     const rows = group.isStatewide && !exactScopedRows
@@ -1632,14 +1713,21 @@
     const conditions = [...new Set(rows.flatMap(record => [
       ['required', 'conditional'].includes(record.pa) ? record.paText : '', record.paExceptionText, record.ageRestrictionText
     ]).filter(Boolean))].filter(text => !/^PA is printed in at least one source row\.$/.test(text));
+    const labeledCaplets = isUhc && rows.some(record => uhcReviewedProductGroups.get(record.id)?.labelId);
     return `<article class="result-card">
       <h3>${escapeHtml(group.label)}</h3>
+      ${labeledCaplets ? '<p>Acetaminophen 250 mg / aspirin 250 mg / caffeine 65 mg per caplet.</p>' : ''}
       ${rows.map(record => {
         const insulinLabel = state.planId === 'uhc-community-az' && uhcInsulinAndSupplyLabels.get(record.id);
-        const label = rows.length > 1 && (insulinLabel || record.coverageProductLabel
+        const reviewed = isUhc && uhcReviewedProductGroups.get(record.id);
+        const label = rows.length > 1 && (reviewed?.label || insulinLabel || record.coverageProductLabel
           || record.uhcClinicalBindings?.find(binding => binding.productLabel)?.productLabel);
-        return `${label ? `<p class="coverage-product-label"><strong>${escapeHtml(label)}</strong></p>` : ''}
-          <div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${statusChips(record)}</div>`;
+        const exactAge = reviewed && record.rawRestrictions?.includes('Members >= 8 years of age')
+          ? '<p class="pa-condition">The formulary says PA applies at age 8 and older, with an exemption at age 6 and older for prescriptions by a psychiatric clinician, behavioral health pediatrician, or other behavioral health provider.</p>' : '';
+        const productLabelLink = reviewed?.labelId
+          ? ` · <a class="source-link" href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=${escapeHtml(reviewed.labelId)}" target="_blank" rel="noopener">Drug Facts ↗</a>` : '';
+        return `${label ? `<p class="coverage-product-label"><strong>${escapeHtml(label)}</strong>${productLabelLink}</p>` : ''}
+          <div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${statusChips(record)}</div>${exactAge}`;
       }).join('')}
       <div class="card-source-access">${sourcesLink(group)}</div>
       <details class="clinical-details result-disclosure" data-card-clinical="${escapeHtml(key)}">
