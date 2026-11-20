@@ -220,6 +220,19 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   assert(group && !testosteroneGroups.has(group), id);
  }
  console.log('PASS: Five UHC brand testosterone listings retain distinct flags, concentration scope and policy references.');
+ const oralAzithromycin = byId('2cf325e856cd66c2');
+ assert(oralAzithromycin);
+ assert.equal(oralAzithromycin.label, 'Azithromycin Oral (Dosage Form Unspecified)');
+ assert.equal(oralAzithromycin.records.length, 1);
+ assert.match(oralAzithromycin.search, /Zithromax/i);
+ const statewideAzithromycin = a.planMedicationGroups().filter(group => group.isStatewide && /azithromycin/i.test(group.label));
+ assert(statewideAzithromycin.some(group => /tablets/i.test(group.label)));
+ assert(statewideAzithromycin.every(group => !group.records.some(record => record.id === 'uhc-oct-complete-2cf325e856cd66c2')));
+ const azithromycinCard = a.medicationGroupCard(oralAzithromycin);
+ assert(azithromycinCard.includes('>Tier 1<') && azithromycinCard.includes('>Quantity limit<'));
+ assert(!/>(?:PA required|Conditional PA)</.test(azithromycinCard));
+ assert((await open(oralAzithromycin)).ref.includes('QL reference'));
+ console.log('PASS: UHC azithromycin oral keeps its unspecified dosage form and exact PDL flags.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  console.log('PASS: '+n+' restricted UHC cards load clinical content and source references; Apidra nonpreferred + QL; preferred/nonpreferred syringe branches; plan isolation');
 })().catch(e=>{console.error(e);process.exitCode=1});

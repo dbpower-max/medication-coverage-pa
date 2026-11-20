@@ -169,6 +169,10 @@
     if (record.planId === 'uhc-community-az' && testosteroneLabel) {
       return {key: `${record.planId}:${record.id}`, generic: testosteroneLabel, brands: []};
     }
+    if (record.planId === 'uhc-community-az' && record.id === 'uhc-oct-complete-2cf325e856cd66c2') {
+      // The PDL states the route but does not identify tablets or suspension.
+      return {key: `${record.planId}:${record.id}`, generic: 'Azithromycin Oral (Dosage Form Unspecified)', brands: []};
+    }
     if (record.planId === 'uhc-community-az' && distinctUhcPresentations.has(record.id)) {
       return {key: `${record.planId}:${record.id}`, generic: brandFor?.[1].trim() || name, brands: []};
     }
