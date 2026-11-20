@@ -144,6 +144,21 @@
     ['uhc-oct-complete-95f3abcf725dc69c', 'Testosterone Cypionate 200 mg/mL IM Solution (Brand Listing)'],
   ]);
 
+  const uhcTriptanPresentations = new Map([
+    ['uhc-oct-complete-225b27c2efa3ce8d', 'Maxalt (Rizatriptan Tablets)'],
+    ['uhc-oct-complete-286fa8dd551d5183', 'Maxalt-MLT (Rizatriptan ODT)'],
+    ['uhc-oct-complete-391d5cb4040d560f', 'Generic Rizatriptan (Dosage Form Unspecified)'],
+    ['uhc-oct-complete-7a2afaed6fab2683', 'Generic Sumatriptan Oral (Dosage Form Unspecified)'],
+  ]);
+
+  const uhcNicotinePresentations = new Map([
+    ['uhc-oct-complete-d1c2937b9b38c3e1', 'NicoDerm CQ (Nicotine Patch)'],
+    ['uhc-oct-complete-3a0a37a01a0c20cd', 'Nicorette (Nicotine, Dosage Form Unspecified)'],
+    ['uhc-oct-complete-634f76b31abaf672', 'Nicorette Mini (Nicotine Lozenge)'],
+    ['uhc-oct-complete-d448da71a98f8d4c', 'Nicorette Starter Kit (Nicotine, Kit Contents Unspecified)'],
+    ['uhc-oct-complete-190ba800fac4ab36', 'Thrive (Nicotine, Dosage Form Unspecified)'],
+  ]);
+
   // Group only when the generic, formulation, route, release and strength text
   // match exactly. All source records and individual restrictions stay separate.
   function medicationIdentity(record) {
@@ -165,9 +180,10 @@
       const generic = uhcEstradiolPresentations.get(record.id) || `${brandFor?.[1].trim() || name} (Estradiol)`;
       return {key: `${record.planId}:${record.id}`, generic, brands: []};
     }
-    const testosteroneLabel = uhcTestosteronePresentations.get(record.id);
-    if (record.planId === 'uhc-community-az' && testosteroneLabel) {
-      return {key: `${record.planId}:${record.id}`, generic: testosteroneLabel, brands: []};
+    const reviewedLabel = uhcTestosteronePresentations.get(record.id)
+      || uhcTriptanPresentations.get(record.id) || uhcNicotinePresentations.get(record.id);
+    if (record.planId === 'uhc-community-az' && reviewedLabel) {
+      return {key: `${record.planId}:${record.id}`, generic: reviewedLabel, brands: []};
     }
     if (record.planId === 'uhc-community-az' && record.id === 'uhc-oct-complete-2cf325e856cd66c2') {
       // The PDL states the route but does not identify tablets or suspension.
@@ -193,6 +209,8 @@
   // Exact duplicate bracketed brand names are presentation artifacts.
   // Preserve the underlying payer product name, source links and PA records.
   function medicationDisplayLabel(name, brands, records = []) {
+    if (records.length === 1 && records[0].planId === 'uhc-community-az'
+        && (uhcTriptanPresentations.has(records[0].id) || uhcNicotinePresentations.has(records[0].id))) return name;
     // Display names come from NLM by the existing RxCUI, not from parsing
     // package syntax. A group spanning different IDs keeps its source label.
     if (records.length && records.every(record => record.standardName
@@ -1554,7 +1572,10 @@
     const reference = (state.planId === 'uhc-community-az' ? policies.find(p => p.planId === state.planId) || restriction : guidance) || guidance || policies.find(p => p.planId === state.planId) || policies[0];
     const packetGuideline = reference?.policyCode === 'GL-255208' && group.records?.some(record =>
       record.uhcClinicalBindings?.some(binding => binding.role === 'packet_reference'));
+    const triptanQuantity = reference?.policyCode === 'GL-140667' && group.records?.some(record =>
+      uhcTriptanPresentations.has(record.id) && record.pa === 'not_specified');
     const refs = reference ? cardPaReference(reference, packetGuideline ? 'Packet PA guideline'
+      : triptanQuantity ? 'QL reference'
       : reference.policyCode === 'GL-735259' ? 'Duplication reference' : 'PA reference') : '';
     const exactScopedRows = state.planId === 'uhc-community-az' && (group.records || []).some(record =>
       record.planId === state.planId && !record.isStatewideReference && record.uhcClinicalBindings?.some(binding => ['age_scoped', 'packet_reference'].includes(binding.role)));

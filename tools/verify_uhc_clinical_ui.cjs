@@ -233,6 +233,53 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(!/>(?:PA required|Conditional PA)</.test(azithromycinCard));
  assert((await open(oralAzithromycin)).ref.includes('QL reference'));
  console.log('PASS: UHC azithromycin oral keeps its unspecified dosage form and exact PDL flags.');
+ const triptans = [
+  ['225b27c2efa3ce8d', 'Maxalt (Rizatriptan Tablets)', 'Maxalt tablets'],
+  ['286fa8dd551d5183', 'Maxalt-MLT (Rizatriptan ODT)', 'Maxalt-MLT ODT'],
+  ['391d5cb4040d560f', 'Generic Rizatriptan (Dosage Form Unspecified)'],
+  ['7a2afaed6fab2683', 'Generic Sumatriptan Oral (Dosage Form Unspecified)'],
+ ];
+ for (const [id, label, product] of triptans) {
+  const group = byId(id);
+  assert(group && group.label === label);
+  assert.equal(group.records.length, 1);
+  const card = a.medicationGroupCard(group);
+  assert(card.includes(product ? '>Tier 2<' : '>Tier 1<'));
+  assert.equal(card.includes('>PA required<'), Boolean(product));
+  assert(card.includes('>Quantity limit<'));
+  const policy = a.uhcGroupBindings(group).filter(b => b.policyId.endsWith('gl-742200'));
+  const {html,ref} = await open(group);
+  assert.deepEqual(Array.from(policy, b => [b.role, ...b.branchIndexes]), product ? [['product',0],['quantity',3]] : []);
+  if (product) assert(html.includes('<strong>Product:</strong> ' + product));
+  assert.equal(ref.includes('page=1761'), Boolean(product));
+  if (!product) assert(card.includes('QL reference') && !card.includes('PA reference'));
+ }
+ assert(a.planMedicationGroups().some(group => group.isStatewide && /sumatriptan.*tablets/i.test(group.label)));
+ const nicotine = [
+  ['d1c2937b9b38c3e1', /NicoDerm CQ.*Nicotine Patch/],
+  ['3a0a37a01a0c20cd', /Nicorette.*Dosage Form Unspecified/],
+  ['634f76b31abaf672', /Nicorette Mini.*Nicotine Lozenge/],
+  ['d448da71a98f8d4c', /Nicorette Starter Kit.*Kit Contents Unspecified/],
+  ['190ba800fac4ab36', /Thrive.*Dosage Form Unspecified/],
+ ];
+ for (const [id,label] of nicotine) {
+  const group = byId(id);
+  assert(group && label.test(group.label));
+  assert.equal(group.records.length, 1);
+  const card = a.medicationGroupCard(group);
+  assert(card.includes('>Tier 2<') && card.includes('>Quantity limit<') && card.includes('>Age limit<'));
+  assert(!card.includes('>PA required<'));
+ }
+ const injection = a.planMedicationGroups().find(group => group.records.some(r => r.id.endsWith('c9674280d79f813f')));
+ assert(injection && injection.records.some(r => r.id.endsWith('79d267b3a75cff82')));
+ const injectionCard = a.medicationGroupCard(injection);
+ const generic = injectionCard.split('Coverage attributes for Generic for Kenalog-40')[1].split('</div>')[0];
+ const unspecified = injectionCard.split('Coverage attributes for Triamcinolone acetonide injection (brand unspecified in formulary)')[1].split('</div>')[0];
+ assert(generic.includes('>Tier 1<') && unspecified.includes('>Tier 2<'));
+ assert(!injectionCard.includes('>PA required<'));
+ const injection10 = a.planMedicationGroups().find(group => group.records.some(r => r.id.endsWith('3f0646c9671a33c6')));
+ assert(injection10 && injection10 !== injection);
+ console.log('PASS: Verified UHC triptan policy scopes, five nicotine presentations and both triamcinolone tier labels.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  console.log('PASS: '+n+' restricted UHC cards load clinical content and source references; Apidra nonpreferred + QL; preferred/nonpreferred syringe branches; plan isolation');
 })().catch(e=>{console.error(e);process.exitCode=1});

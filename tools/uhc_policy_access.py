@@ -47,6 +47,18 @@ PANTOPRAZOLE_PACKETS = {
     ),
 }
 
+TRIAMCINOLONE_LISTINGS = {
+    'triamcinolone acetonide suspension 40 mg/ml injection':
+        'Triamcinolone acetonide injection (brand unspecified in formulary)',
+    'triamcinolone acetonide suspension 40 mg/ml injection (generic for kenalog-40)':
+        'Generic for Kenalog-40',
+}
+
+MAXALT_PRODUCTS = {
+    'maxalt (brand for rizatriptan benzoate)': ('Maxalt tablets', 'Brand Maxalt'),
+    'maxalt-mlt (brand for rizatriptan benzoate)': ('Maxalt-MLT ODT', 'Brand Maxalt MLT'),
+}
+
 OAB_PRODUCTS = {
     'myrbetriq oral suspension reconstituted er (brand for mirabegron er)': (
         'Myrbetriq ER granules for oral suspension', 'Brand Myrbetriq granules',
@@ -172,6 +184,9 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
     totals = defaultdict(int); missing = []
     for record in data['medications']:
         if record['planId'] != PLAN or record['recordType'] != 'formulary':continue
+        october_name = record['name'].lower() if record.get('sourceEffective') == '2026-10-01' else ''
+        if october_name in TRIAMCINOLONE_LISTINGS:
+            record['coverageProductLabel'] = TRIAMCINOLONE_LISTINGS[october_name]
         pa = record['pa'] in {'required','conditional'}; ql = bool(record.get('qlAmount') or record.get('qlDays'))
         if not (pa or ql):continue
         bindings = []
@@ -194,6 +209,21 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         for key in sorted(keys):
             for code,i,product in by_key.get(key,[]):
                 if product_matches(record,product):matched[code].add(i)
+        if october_name in MAXALT_PRODUCTS:
+            code = 'GL-742200'
+            label, product = MAXALT_PRODUCTS[october_name]
+            assert pa and ql and policies[code]['policyEffective'] == '2026-11-01'
+            branches = structured[code]['branches']
+            assert product in branches[0]['fields']['Product Name']['text'].split(', ')
+            assert 'Brand Maxalt and Maxalt MLT' in branches[3]['fields']['Product Name']['text']
+            assert branches[3]['fields']['Guideline Type']['text'] == 'Quantity Limit'
+            matched.pop(code, None)
+            add(code, [0], 'product')
+            bindings[-1]['productLabel'] = label
+            add(code, [3], 'quantity')
+        if october_name == 'sumatriptan succinate oral (generic for imitrex)':
+            # The oral listing cannot inherit tablet-, nasal-, or injection-specific exceptions.
+            matched.pop('GL-742200', None)
         dpp4 = DPP4_BRANCHES.get(record['name'].lower()) if pa and record.get('sourceEffective') == '2026-10-01' else None
         if dpp4:
             index, label = dpp4
