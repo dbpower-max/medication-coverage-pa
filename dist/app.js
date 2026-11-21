@@ -208,6 +208,17 @@
     ['uhc-oct-complete-982cb3c91791283c', 'Insulin Syringes (31G × 5/16-inch, 0.3 or 0.5 mL)'],
   ]);
   const uhcReviewedProductGroups = new Map([
+    ['Dabigatran Oral Capsules (Pradaxa)', [
+      ['b6707e516d2355ba', 'Generic dabigatran oral capsules'],
+      ['009ca23afd12966f', 'Brand Pradaxa oral capsules'],
+    ]],
+    ['Dulera Metered-Dose Inhalation Aerosol', [['e27f2cb8dcfa082e']]],
+    ['Perforomist Nebulizer Solution', [['0d5d9de3ba6af1f0']]],
+    ['Lokelma Powder for Oral Suspension', [['877751e558a7560e']]],
+    ['Serevent Diskus Dry Powder Inhaler', [['629099550c0bfd47']]],
+    ['Stiolto Respimat Inhalation Spray', [['27e0a28ebfd41f7c']]],
+    ['Topamax Oral Tablets', [['8e34212b5a29106f']]],
+    ['Topamax Oral Sprinkle Capsules', [['d37573826a734ebb']]],
     ['Risperidone Oral Solution 1 mg/mL (Risperdal)', [
       ['ef1b74ce89ce3609', 'Brand Risperdal oral solution'],
       ['3a61ac9c932595a2', 'Generic risperidone oral solution'],
@@ -254,22 +265,37 @@
   const uhcDuplicationPolicies = new Set(['GL-735259', 'GL-733328']);
   const uhcJuniorKwikPenRows = new Set(['uhc-oct-complete-1a0caccc9f7c79ae', 'uhc-oct-complete-d68963fe88140f42']);
 
+  const uhcAgeEightRows = new Set([
+    'uhc-oct-complete-90702ce4eec9617a',
+    'uhc-oct-complete-c52599e942ff4716',
+    'uhc-oct-complete-f24f86de993ce49c'
+  ]);
+  const uhcBrandTopamaxRows = new Set(['uhc-oct-complete-8e34212b5a29106f', 'uhc-oct-complete-d37573826a734ebb']);
+  const genericDabigatranId = 'uhc-oct-complete-b6707e516d2355ba';
+
+  function uhcAgeEightPa(record) {
+    return record.planId === 'uhc-community-az' && !record.isStatewideReference
+      && record.sourceEffective === '2026-10-01' && record.pa === 'conditional'
+      && uhcAgeEightRows.has(record.id) && record.rawRestrictions?.includes('Members >= 8 years of age will require PA');
+  }
+
   // Group only when the generic, formulation, route, release and strength text
   // match exactly. All source records and individual restrictions stay separate.
   function medicationIdentity(record) {
     const name = (record.displayName || record.name || '').trim();
     const genericFor = name.match(/^(.*?)\s*\(generic for ([^)]+)\)\s*$/i);
     const brandFor = name.match(/^(.*?)\s*\(brand for ([^)]+)\)\s*$/i);
-    if (record.planId === 'banner-ufc') {
+    if (record.planId === 'banner-ufc' || record.planId === 'uhc-community-az') {
+      const productId = record.isStatewideReference ? record.id.split(':').pop() : record.id;
       // The payer prints the same aerosol description for two different devices.
-      if (['banner-pcp-nov10-039', 'formulary-9822'].includes(record.id)) {
-        return {key: 'banner-ufc:advair-hfa', generic: 'Fluticasone-Salmeterol Metered-Dose Inhalation Aerosol', brands: ['ADVAIR HFA']};
+      if (['banner-pcp-nov10-039', 'uhc-oct-complete-aadf073c434c4009', 'formulary-9822'].includes(productId)) {
+        return {key: record.planId + ':advair-hfa', generic: 'Fluticasone-Salmeterol Metered-Dose Inhalation Aerosol', brands: ['ADVAIR HFA']};
       }
-      if (['banner-pcp-nov10-038', 'formulary-9820'].includes(record.id)) {
-        return {key: 'banner-ufc:airduo-respiclick', generic: 'Fluticasone-Salmeterol Dry Powder Inhaler', brands: ['AIRDUO RESPICLICK']};
+      if (['banner-pcp-nov10-038', 'formulary-9820'].includes(productId)) {
+        return {key: record.planId + ':airduo-respiclick', generic: 'Fluticasone-Salmeterol Dry Powder Inhaler', brands: ['AirDuo RespiClick']};
       }
-      if (['banner-full-a2a4d1dc0085c78f', 'formulary-9821'].includes(record.id)) {
-        return {key: 'banner-ufc:airduo', generic: 'Fluticasone-Salmeterol Breath-Actuated Inhalation Powder', brands: ['AIRDUO']};
+      if (['banner-full-a2a4d1dc0085c78f', 'formulary-9821'].includes(productId)) {
+        return {key: record.planId + ':airduo', generic: 'Fluticasone-Salmeterol Breath-Actuated Inhalation Powder', brands: ['AirDuo']};
       }
     }
     if (record.id === 'uhc-oct-complete-c2d62d774fbaa9ab') {
@@ -1407,12 +1433,18 @@
       for (const binding of uhcRecordBindings(record)) {
         const policy = state.data.policies.find(p => p.id === binding.policyId && p.planId === state.planId);
         if (policy) add(binding.role === 'duplication'
-          ? {...policy, scope: 'Applies when a therapeutic duplication edit is triggered.'} : policy);
+          ? {...policy, scope: 'Applies when a therapeutic duplication edit is triggered.'}
+          : binding.role === 'nonpreferred' && record.id === 'uhc-oct-complete-009ca23afd12966f'
+          ? {...policy, scope: 'General nonpreferred guidance linked to brand Pradaxa oral capsules.'} : policy);
       }
     }
     // Navigation only: a named source is not an assertion that its criteria
     // apply to every formulation or that this medication requires PA.
-    for (const policy of [...namedPlanPolicies(group), ...namedPlanPolicies(group, true)]) add(policy);
+    for (const policy of [...namedPlanPolicies(group), ...namedPlanPolicies(group, true)]) {
+      if (policy.policyCode === 'GL-572198' && policy.planId === 'uhc-community-az'
+          && group.records.some(record => uhcBrandTopamaxRows.has(record.id) || uhcAgeEightPa(record))) continue;
+      add(policy);
+    }
     if (collectOnly) return [...links.values()];
     const plan = state.data.plans.find(p => p.id === state.planId);
     return [...links.values()].map(policy => `<section class="linked-clinical-policy">
@@ -1571,6 +1603,10 @@
 
   function uhcRecordBindings(record) {
     const bindings = record.uhcClinicalBindings || [];
+    if (uhcBrandTopamaxRows.has(record.id)) {
+      // GL-572198's 50 mg sprinkle branch is not a product match for either listing.
+      return bindings.filter(binding => binding.policyId !== 'uhc-nov2026-policy-gl-572198');
+    }
     if (record.id !== 'uhc-oct-complete-0d5d9de3ba6af1f0' || record.sourceEffective !== '2026-10-01'
         || record.isStatewideReference || record.planId !== 'uhc-community-az'
         || bindings.some(binding => binding.policyId === 'uhc-nov2026-policy-gl-735259')) return bindings;
@@ -1640,7 +1676,9 @@
     const packetReference = byRole(['packet_reference']);
     const reviewedEstradiol = group.records?.some(record => uhcEstradiolPresentations.has(record.id));
     const reviewedInsulin = group.records?.some(record => uhcInsulinAndSupplyLabels.has(record.id));
-    const administrativeFallback = (duplication.length || reviewedEstradiol || reviewedInsulin)
+    const genericDabigatran = group.records.find(record => record.id === genericDabigatranId);
+    const reviewedTopamax = group.records.some(record => uhcBrandTopamaxRows.has(record.id));
+    const administrativeFallback = (duplication.length || reviewedEstradiol || reviewedInsulin || genericDabigatran || reviewedTopamax)
       && primary.length && primary.every(b => b.role === 'nonpreferred');
     const paRows = (group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference && ['required','conditional'].includes(r.pa));
     const fallbackRows = administrativeFallback ? paRows.filter(r => r.uhcClinicalBindings?.some(b => b.role === 'nonpreferred')) : [];
@@ -1682,23 +1720,31 @@
         : selected === packetReference ? '<p>The October 2026 formulary lists age and quantity limits for both packets and leaves their PA fields blank. The UHC guideline names both packets and gives criteria by age and ability to swallow solid forms.</p>'
         : selected === primary && administrativeFallback ? (
           (fallbackRows.length < paRows.length || (reviewedInsulin && fallbackRows.length < group.records.length)
-            ? `<p><strong>Applies to:</strong> ${escapeHtml(fallbackRows.map(r => uhcInsulinAndSupplyLabels.get(r.id) || readableMedicationName(r.name)).join('; '))}</p>` : '')
+            ? `<p><strong>Applies to:</strong> ${escapeHtml(fallbackRows.map(r => uhcReviewedProductGroups.get(r.id)?.label || uhcInsulinAndSupplyLabels.get(r.id) || readableMedicationName(r.name)).join('; '))}</p>` : '')
           + '<p>Product-specific approval criteria are unverified.</p>'
         ) : '';
       if (body.length) sections.push(`<section class="uhc-restriction-criteria"><h4>${kind}</h4>${context}${body.join('')}</section>`);
     }
     const conditionalOnly = duplication.length && paRows.length && paRows.every(r => r.pa === 'conditional');
     if (conditionalOnly) sections.unshift('<p>The formulary lists conditional PA. See the formulation-specific restrictions and the duplication exception below.</p>');
-    else if (paRows.length && !primary.length) sections.unshift('<p>PA is required. Approval criteria have not yet been verified for this formulation. Review the linked UHC source.</p>');
+    else if (paRows.length && !primary.length) sections.unshift(paRows.every(r => r.pa === 'conditional')
+      ? '<p>Product-specific approval criteria are unverified. See the formulary for the conditional PA requirement.</p>'
+      : '<p>PA is required. Approval criteria have not yet been verified for this formulation. Review the linked UHC source.</p>');
     const referenceLabels = references.map(p => [...primary, ...ageScoped].some(b => b.policyId === p.id)
-      ? (reviewedInsulin && quantity.some(b => b.policyId === p.id) ? 'PA and QL reference' : 'PA reference')
+      ? (reviewedInsulin && quantity.some(b => b.policyId === p.id) ? 'PA and QL reference'
+        : genericDabigatran && p.policyCode === 'GL-231255' ? 'Brand nonpreferred reference' : 'PA reference')
       : packetReference.some(b => b.policyId === p.id) ? 'Packet PA guideline'
       : duplication.some(b => b.policyId === p.id) ? 'Duplication reference' : 'QL reference');
+    if (genericDabigatran) {
+      sections.unshift('<p><strong>Generic dabigatran oral capsules:</strong> The formulary lists PA. Product-specific approval criteria are unverified.</p>');
+      references.unshift(genericDabigatran);
+      referenceLabels.unshift('Generic PA formulary');
+    }
     if (!paRows.length && !primary.length && !packetReference.length && guidance) {
       sections.unshift(clinicalGuidanceContent(guidance, true));
       references.unshift(guidance); referenceLabels.unshift('Clinical reference');
     }
-    if (paRows.length && !primary.length) {
+    if (paRows.length && !primary.length && !genericDabigatran) {
       const [record] = paRows;
       const relatedIds = new Set((group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference).flatMap(r => r.policySources || []).map(p => p.policyId));
       const related = policies.find(p => !uhcDuplicationPolicies.has(p.policyCode) && relatedIds.has(p.id));
@@ -1787,11 +1833,15 @@
       && group.records.some(record => uhcReviewedProductGroups.has(record.id)
         && record.uhcClinicalBindings?.some(binding => binding.policyId === reference.id
           && ['quantity', 'global_quantity'].includes(binding.role)));
+    const brandCapsuleReference = isUhc && reference?.policyCode === 'GL-231255'
+      && group.records.some(record => record.id === 'uhc-oct-complete-009ca23afd12966f');
     const refs = reference ? cardPaReference(reference, packetGuideline ? 'Packet PA guideline'
       : scopedQuantity || insulinQuantity || reviewedQuantity ? 'QL reference'
+      : brandCapsuleReference ? 'Brand nonpreferred reference'
       : isUhc && uhcDuplicationPolicies.has(reference.policyCode) ? 'Duplication reference' : 'PA reference') : '';
-    const exactScopedRows = state.planId === 'uhc-community-az' && (group.records || []).some(record =>
-      record.planId === state.planId && !record.isStatewideReference && record.uhcClinicalBindings?.some(binding => ['age_scoped', 'packet_reference'].includes(binding.role)));
+    const exactScopedRows = isUhc && (group.records || []).some(record =>
+      record.planId === state.planId && !record.isStatewideReference &&
+      (uhcAgeEightPa(record) || record.uhcClinicalBindings?.some(binding => ['age_scoped', 'packet_reference'].includes(binding.role))));
     const bannerProducts = isBanner ? group.records.filter(record => [
       'banner-pcp-nov10-038', 'banner-pcp-nov10-039', 'banner-full-a2a4d1dc0085c78f'
     ].includes(record.id) && !record.isStatewideReference) : [];
@@ -1800,7 +1850,7 @@
     const rows = bannerProducts.length ? bannerProducts : group.isStatewide && !exactScopedRows && !uhcStepRows.length
       ? [group.statewideRecord] : (group.records || []).filter(record => !group.isStatewide || !record.isStatewideReference);
     const conditions = [...new Set(rows.flatMap(record => [
-      ['required', 'conditional'].includes(record.pa) ? record.paText : '', record.paExceptionText, record.ageRestrictionText
+      ['required', 'conditional'].includes(record.pa) && !(isUhc && uhcAgeEightPa(record)) ? record.paText : '', record.paExceptionText, record.ageRestrictionText
     ]).filter(Boolean))].filter(text => !/^PA is printed in at least one source row\.$/.test(text));
     const labeledCaplets = isUhc && rows.some(record => uhcReviewedProductGroups.get(record.id)?.labelId);
     const preferredNdcs = state.planId === 'banner-ufc' ? bannerAlbuterolPreferredNdcs(group) : [];
@@ -1814,7 +1864,11 @@
         const reviewed = isUhc && uhcReviewedProductGroups.get(record.id);
         const label = rows.length > 1 && (reviewed?.label || insulinLabel || record.coverageProductLabel
           || record.uhcClinicalBindings?.find(binding => binding.productLabel)?.productLabel);
-        const exactAge = reviewed && record.rawRestrictions?.includes('Members >= 8 years of age')
+        const exactAge = isUhc && uhcAgeEightPa(record)
+          ? '<p class="pa-condition">PA required at age 8 and older.</p>'
+          : isUhc && record.id === 'uhc-oct-complete-d37573826a734ebb'
+          ? '<p class="pa-condition">The formulary prints a PA flag and an age-8 PA condition. PA scope below age 8 is unverified.</p>'
+          : reviewed && record.rawRestrictions?.includes('Members >= 8 years of age')
           ? '<p class="pa-condition">The formulary says PA applies at age 8 and older, with an exemption at age 6 and older for prescriptions by a psychiatric clinician, behavioral health pediatrician, or other behavioral health provider.</p>' : '';
         const productLabelLink = reviewed?.labelId
           ? ` · <a class="source-link" href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=${escapeHtml(reviewed.labelId)}" target="_blank" rel="noopener">Drug Facts ↗</a>` : '';
@@ -1877,7 +1931,7 @@
     const groups = allGroups.filter(g => {
       if (!g.records.some(r => matchedIds.has(r.id))) return false;
       if (!g.isStatewide) return true;
-      const r = g.statewideRecord;
+      const r = selectedPlan === 'uhc-community-az' && g.records.find(uhcAgeEightPa) || g.statewideRecord;
       return matchesCoverage(r)
         && (matchesCategory(r, state.category))
         && (!state.subcategory || matchesSubcategory(r.subcategory, state.subcategory));
