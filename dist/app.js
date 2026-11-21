@@ -275,6 +275,26 @@
   const genericDabigatranId = 'uhc-oct-complete-b6707e516d2355ba';
   const uhcLowStrengthAlbuterolId = 'uhc-oct-complete-2468f91090660c63';
   const generalNonsolidPolicyId = 'uhc-nov2026-policy-gl-545275';
+  const uhcAgePaCardLabels = new Map([
+    ['uhc-oct-complete-de1ca42f17826905', 'Asmanex HFA Metered-Dose Inhalation Aerosol'],
+    ['uhc-oct-complete-14ba345bf06d2a5e', 'Enalapril Maleate Oral Solution (Generic for Epaned)'],
+    ['uhc-oct-complete-9e0eb4cf3a3dfd2b', 'Nitrofurantoin Oral Suspension (25 mg/5 mL)'],
+    ['uhc-oct-complete-e29a433265e8ba09', 'Calcitriol Oral Solution']
+  ]);
+  const uhcStandalonePolicyReferences = new Map([
+    ['general_nebulizer_reference', {
+      label: 'General nebulizer policy',
+      scope: 'General non-solid dosage form guidance. The age-specific albuterol approval criteria are unverified.'
+    }],
+    ['general_nonsolid_reference', {
+      label: 'General non-solid guidance',
+      scope: 'General non-solid dosage form guidance. Product-specific approval criteria are unverified.'
+    }],
+    ['epaned_reference', {
+      label: 'Epaned policy reference',
+      scope: 'This guideline names Epaned. Applicability to generic enalapril oral solution is unverified.'
+    }]
+  ]);
   const uhcNebulizedAlbuterol = new Map([
     [uhcLowStrengthAlbuterolId, {
       label: 'Albuterol Nebulizer Solution (0.63 mg/3 mL and 1.25 mg/3 mL)'
@@ -302,7 +322,8 @@
   function uhcAgeEightPa(record) {
     return record.planId === 'uhc-community-az' && !record.isStatewideReference
       && record.sourceEffective === '2026-10-01' && record.pa === 'conditional'
-      && uhcAgeEightRows.has(record.id) && record.rawRestrictions?.includes('Members >= 8 years of age will require PA');
+      && (uhcAgeEightRows.has(record.id) || uhcAgePaCardLabels.has(record.id))
+      && record.rawRestrictions?.includes('Members >= 8 years of age will require PA');
   }
 
   // Group only when the generic, formulation, route, release and strength text
@@ -312,6 +333,8 @@
     const reviewedForm = record.planId === 'uhc-community-az' ? uhcNebulizedAlbuterol.get(record.id)
       : record.planId === 'banner-ufc' ? bannerInsulinConflicts.get(record.id) : null;
     if (reviewedForm) return {key: `${record.planId}:${record.id}`, generic: reviewedForm.label, brands: []};
+    const agePaLabel = record.planId === 'uhc-community-az' && uhcAgePaCardLabels.get(record.id);
+    if (agePaLabel) return {key: `${record.planId}:${record.id}`, generic: agePaLabel, brands: []};
     const genericFor = name.match(/^(.*?)\s*\(generic for ([^)]+)\)\s*$/i);
     const brandFor = name.match(/^(.*?)\s*\(brand for ([^)]+)\)\s*$/i);
     if (record.planId === 'banner-ufc' || record.planId === 'uhc-community-az') {
@@ -1465,8 +1488,8 @@
         const policy = state.data.policies.find(p => p.id === binding.policyId && p.planId === state.planId);
         if (policy) add(binding.role === 'duplication'
           ? {...policy, scope: 'Applies when a therapeutic duplication edit is triggered.'}
-          : binding.role === 'general_nebulizer_reference'
-          ? {...policy, scope: 'General non-solid dosage form guidance. The age-specific albuterol approval criteria are unverified.'}
+          : uhcStandalonePolicyReferences.has(binding.role)
+          ? {...policy, scope: uhcStandalonePolicyReferences.get(binding.role).scope}
           : binding.role === 'nonpreferred' && record.id === 'uhc-oct-complete-009ca23afd12966f'
           ? {...policy, scope: 'General nonpreferred guidance linked to brand Pradaxa oral capsules.'} : policy);
       }
@@ -1636,6 +1659,17 @@
 
   function uhcRecordBindings(record) {
     const bindings = record.uhcClinicalBindings || [];
+    if (uhcAgePaCardLabels.has(record.id) && uhcAgeEightPa(record)) {
+      return bindings.map(binding => {
+        if (binding.role === 'nonsolid' && binding.policyId === generalNonsolidPolicyId) {
+          return {...binding, role: 'general_nonsolid_reference'};
+        }
+        if (record.id === 'uhc-oct-complete-14ba345bf06d2a5e' && binding.policyId === 'uhc-nov2026-policy-gl-140683') {
+          return {...binding, role: 'epaned_reference'};
+        }
+        return binding;
+      });
+    }
     if (record.id === uhcLowStrengthAlbuterolId && uhcAgeEightPa(record)) {
       return bindings.map(binding => binding.policyId === generalNonsolidPolicyId && binding.role === 'nonsolid'
         ? {...binding, role: 'general_nebulizer_reference'} : binding);
@@ -1718,10 +1752,12 @@
     const administrativeFallback = (duplication.length || reviewedEstradiol || reviewedInsulin || genericDabigatran || reviewedTopamax)
       && primary.length && primary.every(b => b.role === 'nonpreferred');
     const paRows = (group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference && ['required','conditional'].includes(r.pa));
+    const reviewedAgeRow = paRows.find(record => uhcAgePaCardLabels.has(record.id) && uhcAgeEightPa(record));
+    const asmanexHfa = reviewedAgeRow?.id === 'uhc-oct-complete-de1ca42f17826905';
     const fallbackRows = administrativeFallback ? paRows.filter(r => r.uhcClinicalBindings?.some(b => b.role === 'nonpreferred')) : [];
     const reviewedProduct = group.records.some(record => uhcReviewedProductGroups.has(record.id));
     const criteriaSections = [
-      [administrativeFallback ? 'General nonpreferred PA criteria' : 'Prior authorization', primary],
+      [asmanexHfa ? 'Asthma PA guideline' : administrativeFallback ? 'General nonpreferred PA criteria' : 'Prior authorization', primary],
       ['Age-specific PA criteria', ageScoped],
       ['Packet PA guideline', packetReference],
       ['Therapeutic duplication exceptions', duplication],
@@ -1755,6 +1791,8 @@
       const context = selected === duplication ? '<p>Applies when a therapeutic duplication edit is triggered.</p>'
         : selected === ageScoped ? '<p>The October 2026 formulary lists an age limit and leaves the PA field blank for the generic product below. The November 2026 guideline specifies these age-based criteria.</p>'
         : selected === packetReference ? '<p>The October 2026 formulary lists age and quantity limits for both packets and leaves their PA fields blank. The UHC guideline names both packets and gives criteria by age and ability to swallow solid forms.</p>'
+        : selected === primary && asmanexHfa
+        ? '<p>The guideline covers asthma. How it applies to the age and continued-use conditions in the formulary is unverified.</p>'
         : selected === primary && administrativeFallback ? (
           (fallbackRows.length < paRows.length || (reviewedInsulin && fallbackRows.length < group.records.length)
             ? `<p><strong>Applies to:</strong> ${escapeHtml(fallbackRows.map(r => uhcReviewedProductGroups.get(r.id)?.label || uhcInsulinAndSupplyLabels.get(r.id) || readableMedicationName(r.name)).join('; '))}</p>` : '')
@@ -1769,6 +1807,7 @@
       : '<p>PA is required. Approval criteria have not yet been verified for this formulation. Review the linked UHC source.</p>');
     const referenceLabels = references.map(p => [...primary, ...ageScoped].some(b => b.policyId === p.id)
       ? (reviewedInsulin && quantity.some(b => b.policyId === p.id) ? 'PA and QL reference'
+        : asmanexHfa && p.policyCode === 'GL-605215' ? 'Asthma PA guideline'
         : genericDabigatran && p.policyCode === 'GL-231255' ? 'Brand nonpreferred reference' : 'PA reference')
       : packetReference.some(b => b.policyId === p.id) ? 'Packet PA guideline'
       : duplication.some(b => b.policyId === p.id) ? 'Duplication reference' : 'QL reference');
@@ -1781,18 +1820,24 @@
       sections.unshift(clinicalGuidanceContent(guidance, true));
       references.unshift(guidance); referenceLabels.unshift('Clinical reference');
     }
-    if (paRows.length && !primary.length && !genericDabigatran) {
+    if (reviewedAgeRow?.sourceUrl) {
+      references.unshift(reviewedAgeRow);
+      referenceLabels.unshift('PA formulary');
+    } else if (paRows.length && !primary.length && !genericDabigatran) {
       const [record] = paRows;
       const relatedIds = new Set((group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference).flatMap(r => r.policySources || []).map(p => p.policyId));
       const related = policies.find(p => !uhcDuplicationPolicies.has(p.policyCode) && relatedIds.has(p.id));
       if (related) { references.unshift(related); referenceLabels.unshift('PA source'); }
       else if (record?.sourceUrl) { references.unshift(record); referenceLabels.unshift('PA formulary'); }
     }
-    const nebulizerReference = bindings.find(binding => binding.role === 'general_nebulizer_reference');
-    const nebulizerPolicy = nebulizerReference && policies.find(policy => policy.id === nebulizerReference.policyId);
-    if (nebulizerPolicy) {
-      references.push(nebulizerPolicy);
-      referenceLabels.push('General nebulizer policy');
+    for (const binding of bindings) {
+      const reference = uhcStandalonePolicyReferences.get(binding.role);
+      if (!reference) continue;
+      const policy = policies.find(item => item.id === binding.policyId);
+      if (!policy || references.some(item => item.id === policy.id)) continue;
+      references.push(policy);
+      referenceLabels.push(reference.label);
+      if (binding.role !== 'general_nebulizer_reference') sections.push(`<p>${escapeHtml(reference.scope)}</p>`);
     }
     return {html: sections.join(''), references, referenceLabels};
   }
@@ -1864,8 +1909,9 @@
     const key = group.key || group.label;
     cardClinicalGroups.set(key, {group, policies, guidance, bannerGuide, planId: state.planId});
     const restriction = state.planId === 'uhc-community-az' && (group.records || []).find(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays));
-    const albuterolPa = isUhc && restriction?.id === uhcLowStrengthAlbuterolId && uhcAgeEightPa(restriction);
-    const reference = (isUhc ? (albuterolPa ? restriction : policies.find(p => p.planId === state.planId) || restriction) : guidance) || guidance || policies.find(p => p.planId === state.planId) || policies[0];
+    const agePaFormulary = isUhc && restriction &&
+      (restriction.id === uhcLowStrengthAlbuterolId || uhcAgePaCardLabels.has(restriction.id)) && uhcAgeEightPa(restriction);
+    const reference = (isUhc ? (agePaFormulary ? restriction : policies.find(p => p.planId === state.planId) || restriction) : guidance) || guidance || policies.find(p => p.planId === state.planId) || policies[0];
     const packetGuideline = reference?.policyCode === 'GL-255208' && group.records?.some(record =>
       record.uhcClinicalBindings?.some(binding => binding.role === 'packet_reference'));
     const scopedQuantity = isUhc && reference?.policyCode === 'GL-140667';
@@ -1881,7 +1927,7 @@
     const brandCapsuleReference = isUhc && reference?.policyCode === 'GL-231255'
       && group.records.some(record => record.id === 'uhc-oct-complete-009ca23afd12966f');
     const refs = reference ? cardPaReference(reference, packetGuideline ? 'Packet PA guideline'
-      : albuterolPa ? 'PA formulary'
+      : agePaFormulary ? 'PA formulary'
       : scopedQuantity || insulinQuantity || reviewedQuantity ? 'QL reference'
       : brandCapsuleReference ? 'Brand nonpreferred reference'
       : isUhc && uhcDuplicationPolicies.has(reference.policyCode) ? 'Duplication reference' : 'PA reference') : '';
@@ -1923,11 +1969,14 @@
         const productLabelLink = reviewed?.labelId
           ? ` · <a class="source-link" href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=${escapeHtml(reviewed.labelId)}" target="_blank" rel="noopener">Drug Facts ↗</a>` : '';
         const step = uhcStepRows.includes(record) ? uhcRespiratorySteps.get(record.id) : '';
+        const continuedUse = isUhc && record.id === 'uhc-oct-complete-de1ca42f17826905' && uhcAgeEightPa(record)
+          && record.rawRestrictions?.includes('Continued use of two or more drugs in this class may require prior authorization')
+          ? '<p class="pa-condition">Continued use of two or more drugs in this class may require PA.</p>' : '';
         const limit = bannerProducts.includes(record) && record.qlAmount && record.qlDays
           ? `<p class="pa-condition"><strong>Quantity limit:</strong> ${escapeHtml(record.qlAmount)} per ${escapeHtml(record.qlDays)} days. The formulary does not specify a unit.</p>` : '';
         return `${label ? `<p class="coverage-product-label"><strong>${escapeHtml(label)}</strong>${productLabelLink}</p>` : ''}
           <div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${statusChips(record)}${preferredNdcs.length && record === rows[0] ? '<span class="chip positive">Preferred for listed products</span>' : ''}${step && record.step !== 'specified' ? '<span class="chip warning">Step therapy</span>' : ''}</div>
-          ${exactAge}${limit}${nebulizerNote ? `<p class="pa-condition">${escapeHtml(nebulizerNote)}</p>` : ''}
+          ${exactAge}${continuedUse}${limit}${nebulizerNote ? `<p class="pa-condition">${escapeHtml(nebulizerNote)}</p>` : ''}
           ${step ? `<p class="pa-condition"><strong>Step therapy:</strong> ${escapeHtml(step)} <a class="source-link" href="${escapeHtml(sourceHref({...record, sourcePage: 36}))}" target="_blank" rel="noopener">UHC formulary · step table ↗</a></p>` : ''}`;
       }).join('')}
       <div class="card-source-access">${sourcesLink(group)}</div>
