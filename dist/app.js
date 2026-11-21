@@ -260,6 +260,18 @@
     const name = (record.displayName || record.name || '').trim();
     const genericFor = name.match(/^(.*?)\s*\(generic for ([^)]+)\)\s*$/i);
     const brandFor = name.match(/^(.*?)\s*\(brand for ([^)]+)\)\s*$/i);
+    if (record.planId === 'banner-ufc') {
+      // The payer prints the same aerosol description for two different devices.
+      if (['banner-pcp-nov10-039', 'formulary-9822'].includes(record.id)) {
+        return {key: 'banner-ufc:advair-hfa', generic: 'Fluticasone-Salmeterol Metered-Dose Inhalation Aerosol', brands: ['ADVAIR HFA']};
+      }
+      if (['banner-pcp-nov10-038', 'formulary-9820'].includes(record.id)) {
+        return {key: 'banner-ufc:airduo-respiclick', generic: 'Fluticasone-Salmeterol Dry Powder Inhaler', brands: ['AIRDUO RESPICLICK']};
+      }
+      if (['banner-full-a2a4d1dc0085c78f', 'formulary-9821'].includes(record.id)) {
+        return {key: 'banner-ufc:airduo', generic: 'Fluticasone-Salmeterol Breath-Actuated Inhalation Powder', brands: ['AIRDUO']};
+      }
+    }
     if (record.id === 'uhc-oct-complete-c2d62d774fbaa9ab') {
       return {key: `${record.planId}:${record.id}`, generic: 'Sertraline HCl Oral Solution (Concentrate)', brands: ['ZOLOFT']};
     }
@@ -1392,7 +1404,7 @@
         const policy = state.data.policies.find(p => p.id === id && p.planId === state.planId);
         if (policy) add({ ...policy, scope });
       }
-      for (const binding of record.uhcClinicalBindings || []) {
+      for (const binding of uhcRecordBindings(record)) {
         const policy = state.data.policies.find(p => p.id === binding.policyId && p.planId === state.planId);
         if (policy) add(binding.role === 'duplication'
           ? {...policy, scope: 'Applies when a therapeutic duplication edit is triggered.'} : policy);
@@ -1518,6 +1530,56 @@
   }
 
   const cardClinicalGroups = new Map();
+  const bannerRespiratoryGuides = new Map([
+    ['banner-pcp-nov10-041', {
+      name: 'Stiolto Respimat', policyCode: 'GL-269199', sourcePage: 1049, sourceLastPage: 1050,
+      pathways: [{title: 'COPD', all: [
+        'Diagnosis of chronic obstructive pulmonary disease (COPD).',
+        {any: [
+          'History of failure, contraindication, or intolerance to treatment with a 30-day trial of a long-acting beta agonist.',
+          'History of failure, contraindication, or intolerance to treatment with a 30-day trial of an orally inhaled anticholinergic.'
+        ]}
+      ]}]
+    }],
+    ['banner-full-9e2ca54467b1006f', {
+      name: 'Serevent Diskus', policyCode: 'GL-99495', sourcePage: 1564, sourceLastPage: 1566,
+      pathways: [
+        {title: 'Asthma', all: ['Diagnosis of asthma.', 'Age 4 years or older.', 'Also receiving treatment with an inhaled corticosteroid.']},
+        {title: 'Exercise-induced bronchospasm', all: ['Diagnosis of exercise-induced bronchospasm.', 'Used for prevention.', 'Age 4 years or older.']},
+        {title: 'COPD-associated bronchospasm', all: ['Diagnosis of bronchospasm associated with COPD.']}
+      ]
+    }]
+  ]);
+
+  function bannerRespiratoryGuide(group) {
+    const record = group.records.find(row => !row.isStatewideReference && row.planId === 'banner-ufc'
+      && row.sourceEffective === '2026-10-01' && row.pa === 'required' && bannerRespiratoryGuides.has(row.id));
+    if (!record) return null;
+    const guide = bannerRespiratoryGuides.get(record.id);
+    return {
+      ...guide, planId: 'banner-ufc', approvalDuration: '12 months', sourceEffective: '2026-11-01',
+      sourceUrl: 'https://www.bannerhealth.com/bhpprovider/-/media/files/project/bhpprovider/pharmacy/medicaid/prov-bufc_pharmacy-pa-criteria_eff11012026_en.pdf?hash=383206F074F0B301767EC09CEC9F35FA&sc_lang=en',
+      sourceTextUrl: `./banner-policy-text/12-${guide.sourcePage}.txt`,
+      guidelineCaution: 'The policy does not specify an initial or renewal stage.'
+    };
+  }
+
+  const uhcRespiratorySteps = new Map([
+    ['uhc-oct-complete-aadf073c434c4009', '30-day trial of one inhaled corticosteroid, a long-acting beta agonist, or an orally inhaled anticholinergic.'],
+    ['uhc-oct-complete-e27f2cb8dcfa082e', '30-day trial of one inhaled corticosteroid.']
+  ]);
+
+  function uhcRecordBindings(record) {
+    const bindings = record.uhcClinicalBindings || [];
+    if (record.id !== 'uhc-oct-complete-0d5d9de3ba6af1f0' || record.sourceEffective !== '2026-10-01'
+        || record.isStatewideReference || record.planId !== 'uhc-community-az'
+        || bindings.some(binding => binding.policyId === 'uhc-nov2026-policy-gl-735259')) return bindings;
+    return [...bindings, {
+      policyId: 'uhc-nov2026-policy-gl-735259', role: 'duplication', branchIndexes: [0],
+      productLabel: 'Perforomist nebulizer solution'
+    }];
+  }
+
   const clinicalSourceLoads = new Map();
   async function loadClinicalSource(policy) {
     const url = policy.structuredCriteriaUrl || policy.sourceTextUrl;
@@ -1543,7 +1605,7 @@
     const found = new Map();
     for (const record of group.records || []) {
       if (record.planId !== state.planId || record.isStatewideReference) continue;
-      for (const binding of record.uhcClinicalBindings || []) {
+      for (const binding of uhcRecordBindings(record)) {
         const key = [binding.policyId, binding.role, binding.branchIndexes.join(','),
           uhcReviewedProductGroups.has(record.id) ? binding.productLabel : ''].join(':');
         found.set(key, binding);
@@ -1650,6 +1712,7 @@
     if (!details.open || details.dataset.loaded === 'true' || details.dataset.loading === 'true') return;
     const entry = cardClinicalGroups.get(details.dataset.cardClinical);
     if (!entry || entry.planId !== state.planId) return;
+    if (entry.bannerGuide) return;
     const {group, policies, guidance} = entry;
     const target = details.querySelector('.card-clinical-content');
     if (!policies.length && !(state.planId === 'uhc-community-az' && (group.records || []).some(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays)))) return;
@@ -1704,16 +1767,17 @@
 
   function medicationGroupCard(group) {
     const isUhc = state.planId === 'uhc-community-az';
-    const guidance = group.policyOnly ? group.guide : clinicalGuidanceFor(group);
-    const policies = group.policyOnly ? [] : linkedPolicyPanels(group, true);
+    const isBanner = state.planId === 'banner-ufc';
+    const bannerGuide = isBanner && !group.policyOnly ? bannerRespiratoryGuide(group) : null;
+    const guidance = group.policyOnly ? group.guide : bannerGuide || clinicalGuidanceFor(group);
+    const policies = group.policyOnly ? [] : bannerGuide ? [bannerGuide] : linkedPolicyPanels(group, true);
     const key = group.key || group.label;
-    cardClinicalGroups.set(key, {group, policies, guidance, planId: state.planId});
+    cardClinicalGroups.set(key, {group, policies, guidance, bannerGuide, planId: state.planId});
     const restriction = state.planId === 'uhc-community-az' && (group.records || []).find(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays));
     const reference = (state.planId === 'uhc-community-az' ? policies.find(p => p.planId === state.planId) || restriction : guidance) || guidance || policies.find(p => p.planId === state.planId) || policies[0];
     const packetGuideline = reference?.policyCode === 'GL-255208' && group.records?.some(record =>
       record.uhcClinicalBindings?.some(binding => binding.role === 'packet_reference'));
-    const scopedQuantity = reference?.policyCode === 'GL-140667' && group.records?.some(record =>
-      (uhcTriptanPresentations.has(record.id) || uhcPCPFormLabels.has(record.id)) && record.pa === 'not_specified');
+    const scopedQuantity = isUhc && reference?.policyCode === 'GL-140667';
     const insulinQuantity = state.planId === 'uhc-community-az' && reference
       && !group.records?.some(record => ['required', 'conditional'].includes(record.pa))
       && group.records?.some(record => uhcInsulinAndSupplyLabels.has(record.id)
@@ -1728,7 +1792,12 @@
       : isUhc && uhcDuplicationPolicies.has(reference.policyCode) ? 'Duplication reference' : 'PA reference') : '';
     const exactScopedRows = state.planId === 'uhc-community-az' && (group.records || []).some(record =>
       record.planId === state.planId && !record.isStatewideReference && record.uhcClinicalBindings?.some(binding => ['age_scoped', 'packet_reference'].includes(binding.role)));
-    const rows = group.isStatewide && !exactScopedRows
+    const bannerProducts = isBanner ? group.records.filter(record => [
+      'banner-pcp-nov10-038', 'banner-pcp-nov10-039', 'banner-full-a2a4d1dc0085c78f'
+    ].includes(record.id) && !record.isStatewideReference) : [];
+    const uhcStepRows = isUhc ? group.records.filter(record => record.planId === state.planId && !record.isStatewideReference
+      && record.sourceEffective === '2026-10-01' && uhcRespiratorySteps.has(record.id)) : [];
+    const rows = bannerProducts.length ? bannerProducts : group.isStatewide && !exactScopedRows && !uhcStepRows.length
       ? [group.statewideRecord] : (group.records || []).filter(record => !group.isStatewide || !record.isStatewideReference);
     const conditions = [...new Set(rows.flatMap(record => [
       ['required', 'conditional'].includes(record.pa) ? record.paText : '', record.paExceptionText, record.ageRestrictionText
@@ -1749,8 +1818,12 @@
           ? '<p class="pa-condition">The formulary says PA applies at age 8 and older, with an exemption at age 6 and older for prescriptions by a psychiatric clinician, behavioral health pediatrician, or other behavioral health provider.</p>' : '';
         const productLabelLink = reviewed?.labelId
           ? ` · <a class="source-link" href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=${escapeHtml(reviewed.labelId)}" target="_blank" rel="noopener">Drug Facts ↗</a>` : '';
+        const step = uhcStepRows.includes(record) ? uhcRespiratorySteps.get(record.id) : '';
+        const limit = bannerProducts.includes(record) && record.qlAmount && record.qlDays
+          ? `<p class="pa-condition"><strong>Quantity limit:</strong> ${escapeHtml(record.qlAmount)} per ${escapeHtml(record.qlDays)} days. The formulary does not specify a unit.</p>` : '';
         return `${label ? `<p class="coverage-product-label"><strong>${escapeHtml(label)}</strong>${productLabelLink}</p>` : ''}
-          <div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${statusChips(record)}${preferredNdcs.length && record === rows[0] ? '<span class="chip positive">Preferred for listed products</span>' : ''}</div>${exactAge}`;
+          <div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${statusChips(record)}${preferredNdcs.length && record === rows[0] ? '<span class="chip positive">Preferred for listed products</span>' : ''}${step && record.step !== 'specified' ? '<span class="chip warning">Step therapy</span>' : ''}</div>
+          ${exactAge}${limit}${step ? `<p class="pa-condition"><strong>Step therapy:</strong> ${escapeHtml(step)} <a class="source-link" href="${escapeHtml(sourceHref({...record, sourcePage: 36}))}" target="_blank" rel="noopener">UHC formulary · step table ↗</a></p>` : ''}`;
       }).join('')}
       <div class="card-source-access">${sourcesLink(group)}</div>
       ${preferredNdcs.length ? `<details class="result-disclosure">
@@ -1762,7 +1835,8 @@
         <div class="result-disclosure-body">
           ${conditions.map(text => `<p class="pa-condition">${escapeHtml(text)}</p>`).join('')}
           ${uhcRestrictionSummary(group)}
-          <div class="card-clinical-content">${guidance ? clinicalGuidanceContent(guidance, true) : !policies.length ? '<p>Formatted criteria for this medication are not available.</p>' : ''}</div>
+          <div class="card-clinical-content">${guidance ? clinicalGuidanceContent(guidance, true) : !policies.length ? '<p>Formatted criteria for this medication are not available.</p>' : ''}
+          ${bannerGuide ? `<p>${escapeHtml(bannerGuide.guidelineCaution)} <a class="source-link" href="${escapeHtml(bannerGuide.sourceTextUrl)}" target="_blank" rel="noopener">Original policy text ↗</a></p>` : ''}</div>
         </div>
       </details>`}
     </article>`;
