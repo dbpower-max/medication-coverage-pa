@@ -1127,9 +1127,11 @@
       if (!button) return;
       const entry = cardSourceGroups.get(button.dataset.cardSources);
       if (!entry || entry.planId !== state.planId) return;
-      dialog.querySelector('#sourceDialogTitle').textContent = 'Sources — ' + entry.group.label;
+      const preferredNdcs = bannerAlbuterolPreferredNdcs(entry.group);
+      dialog.querySelector('#sourceDialogTitle').textContent = 'Sources — ' + (preferredNdcs.length ? 'Albuterol HFA inhaler' : entry.group.label);
       const clinical = cardClinicalGroups.get(entry.group.key || entry.group.label);
-      dialog.querySelector('#sourceDialogContent').innerHTML = entry.group.records.map(record => `<section><h3>${escapeHtml(readableMedicationName(record.name))}</h3>${recordDetails(record)}</section>`).join('')
+      const originalRows = entry.group.records.map(record => `<section><h3>${escapeHtml(readableMedicationName(record.name))}</h3>${recordDetails(record)}</section>`).join('');
+      dialog.querySelector('#sourceDialogContent').innerHTML = (preferredNdcs.length ? bannerAlbuterolSources(entry.group, originalRows) : originalRows)
         + (clinical?.guidance ? `<section><p>Source-reviewed summary; clinician approval pending.</p><p>${escapeHtml(clinical.guidance.guidelineCaution)}</p></section>` : '')
         + (clinical?.policies || []).map(policy => `<section><a href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">${escapeHtml(policy.name || policy.policyCode)} · ${escapeHtml(policy.sourceEffective)}</a>${policy.scope ? `<p>${escapeHtml(policy.scope)}</p>` : ''}${policy.sourceTextUrl ? `<p><a href="${escapeHtml(policy.sourceTextUrl)}" target="_blank" rel="noopener">Original policy text</a></p>` : ''}<p>Source-transcribed criteria; clinician approval pending. Policy references do not independently establish selected-plan coverage or PA status.</p></section>`).join('');
       dialog.showModal();
@@ -1416,6 +1418,24 @@
   }
 
   const cardSourceGroups = new Map();
+  function bannerAlbuterolPreferredNdcs(group) {
+    if (state.planId !== 'banner-ufc' || normalize(group.name) !== 'albuterol sulfate inhaler') return [];
+    return [...new Set(group.records.filter(record => record.planId === state.planId && !record.isStatewideReference
+      && /Source preferred-status wording:\s*Preferred Albuterol NDCs\b/i.test(record.notes || ''))
+      .flatMap(record => [...record.notes.matchAll(/\bNDC\s+(\d{11})\b/gi)].map(match => match[1])))];
+  }
+
+  function bannerAlbuterolSources(group, originalRows) {
+    const sources = new Map();
+    for (const record of group.records) {
+      if (!record.sourceUrl || sources.has(record.sourceUrl)) continue;
+      sources.set(record.sourceUrl, `<li>${record.isStatewideReference ? 'Statewide reference: ' : 'Banner formulary: '}
+        <a href="${escapeHtml(sourceHref(record))}" target="_blank" rel="noopener">${escapeHtml(record.sourceTitle)} · effective ${escapeHtml(record.sourceEffective)}</a></li>`);
+    }
+    return `<ul>${[...sources.values()].join('')}</ul>
+      <details class="result-disclosure"><summary>Original source rows</summary>${originalRows}</details>`;
+  }
+
   function sourcesLink(group) {
     const key = group.key || group.label;
     cardSourceGroups.set(key, {group, planId: state.planId});
@@ -1714,8 +1734,11 @@
       ['required', 'conditional'].includes(record.pa) ? record.paText : '', record.paExceptionText, record.ageRestrictionText
     ]).filter(Boolean))].filter(text => !/^PA is printed in at least one source row\.$/.test(text));
     const labeledCaplets = isUhc && rows.some(record => uhcReviewedProductGroups.get(record.id)?.labelId);
+    const preferredNdcs = state.planId === 'banner-ufc' ? bannerAlbuterolPreferredNdcs(group) : [];
+    const hideEmptyPa = preferredNdcs.length && !guidance && !policies.length && !conditions.length
+      && !group.records.some(record => ['required', 'conditional'].includes(record.pa) || record.policySource);
     return `<article class="result-card">
-      <h3>${escapeHtml(group.label)}</h3>
+      <h3>${escapeHtml(preferredNdcs.length ? 'Albuterol HFA inhaler' : group.label)}</h3>
       ${labeledCaplets ? '<p>Acetaminophen 250 mg / aspirin 250 mg / caffeine 65 mg per caplet.</p>' : ''}
       ${rows.map(record => {
         const insulinLabel = state.planId === 'uhc-community-az' && uhcInsulinAndSupplyLabels.get(record.id);
@@ -1727,17 +1750,21 @@
         const productLabelLink = reviewed?.labelId
           ? ` · <a class="source-link" href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=${escapeHtml(reviewed.labelId)}" target="_blank" rel="noopener">Drug Facts ↗</a>` : '';
         return `${label ? `<p class="coverage-product-label"><strong>${escapeHtml(label)}</strong>${productLabelLink}</p>` : ''}
-          <div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${statusChips(record)}</div>${exactAge}`;
+          <div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${statusChips(record)}${preferredNdcs.length && record === rows[0] ? '<span class="chip positive">Preferred for listed products</span>' : ''}</div>${exactAge}`;
       }).join('')}
       <div class="card-source-access">${sourcesLink(group)}</div>
-      <details class="clinical-details result-disclosure" data-card-clinical="${escapeHtml(key)}">
+      ${preferredNdcs.length ? `<details class="result-disclosure">
+        <summary>View ${preferredNdcs.length} preferred NDCs</summary>
+        <div class="result-disclosure-body"><ul>${preferredNdcs.map(ndc => `<li>${escapeHtml(ndc)}</li>`).join('')}</ul></div>
+      </details>` : ''}
+      ${hideEmptyPa ? '' : `<details class="clinical-details result-disclosure" data-card-clinical="${escapeHtml(key)}">
         <summary><span>Clinical details &amp; PA criteria</span><span class="card-pa-references">${refs}</span></summary>
         <div class="result-disclosure-body">
           ${conditions.map(text => `<p class="pa-condition">${escapeHtml(text)}</p>`).join('')}
           ${uhcRestrictionSummary(group)}
           <div class="card-clinical-content">${guidance ? clinicalGuidanceContent(guidance, true) : !policies.length ? '<p>Formatted criteria for this medication are not available.</p>' : ''}</div>
         </div>
-      </details>
+      </details>`}
     </article>`;
   }
 
