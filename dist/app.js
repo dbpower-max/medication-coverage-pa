@@ -606,7 +606,20 @@
   const fluticasoneUnspecified = 'Fluticasone Propionate Oral Inhalation (Dosage Form Unspecified)';
   const tiotropiumCapsules = 'Tiotropium Inhalation Capsules (Spiriva HandiHaler)';
   const spirivaSpray = 'Spiriva Respimat Metered Inhalation Spray';
+  const epiPenAutoInjector = 'Epinephrine Anaphylaxis Autoinjector (EpiPen Reference)';
+  const bannerEpiPenIds = new Set(['banner-full-2d2738513f664b31', 'banner-full-450fe20ea940c46c']);
+  const bannerEpiPenDisplay = {label: epiPenAutoInjector, note: 'Banner: Viatris SP authorized generic only. Quantity limit: 2 per 30 days. PA is required above 2 per month.'};
+  const augmentinSuspension = 'Amoxicillin/Clavulanate Oral Suspension (Augmentin Reference)';
   const reviewedCardPresentations = new Map([
+    ...[...bannerEpiPenIds].map(id => [id, bannerEpiPenDisplay]),
+    ['formulary-11033', {label: epiPenAutoInjector, note: 'The statewide listing applies to its named authorized generic. Exact selected-plan package eligibility is unverified.'}],
+    ['uhc-oct-complete-55381c317387d023', {label: 'AUVI-Q Epinephrine Autoinjector (Brand)', generalPa: true}],
+    ['uhc-oct-complete-feedc25102cbbdb1', {label: 'Epinephrine 0.15 mg/0.3 mL Autoinjector (EpiPen Jr Reference)'}],
+    ['uhc-oct-complete-e1546021b5a54dde', {label: 'Epinephrine 0.3 mg/0.3 mL Autoinjector (AUVI-Q Reference)'}],
+    ['uhc-oct-complete-347f997a8ebe87f9', {label: 'Amoxicillin/Clavulanate Oral Suspension (Augmentin ES-600 Reference)', note: 'Label reference strength: 600 mg/42.9 mg per 5 mL. UHC does not identify eligible packages.', labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=59979859-8c9b-4173-a5e3-2e6312fd9d79'}],
+    ['uhc-oct-complete-9b7855078f1fa6e3', {label: 'Augmentin (Dosage Form and Strength Unspecified by UHC)'}],
+    ['banner-full-30e8484da347ad72', {label: augmentinSuspension, scope: 'Banner formulary · October 1, 2026', note: 'The formulary does not specify a strength, preference, PA, step therapy or quantity limit.'}],
+    ['formulary-10929', {label: augmentinSuspension, note: 'The statewide list does not specify strength or restrictions for this listing.'}],
     ['uhc-oct-complete-836fcbdd50338512', {label: 'Symbicort Metered-Dose Inhalation Aerosol', generalPa: true}],
     ['uhc-oct-complete-d286297ad03ac6d9', {label: 'Budesonide/Formoterol Inhalation Aerosol 80/4.5 mcg per actuation', note: symbicortGenericNote}],
     ['uhc-oct-complete-be916cf5ebe9501f', {label: 'Budesonide/Formoterol Inhalation Aerosol 160/4.5 mcg per actuation', note: symbicortGenericNote}],
@@ -632,7 +645,8 @@
     const reviewed = reviewedCardPresentations.get(id);
     if (reviewed) return reviewed;
     if (record.planId === 'az-complete-health' && record.id?.startsWith('ach-json-')
-        && /\btiotropium\b/i.test(record.name) && !/olodaterol/i.test(record.name)) {
+        && ((/\btiotropium\b/i.test(record.name) && !/olodaterol/i.test(record.name))
+          || (/amoxicillin/i.test(record.name) && /clavulan/i.test(record.name) && /suspension/i.test(record.name)))) {
       return {scope: 'Historical Arizona Complete Health formulary (2022). Current benefits are unverified.', historical: true};
     }
     return null;
@@ -2145,10 +2159,12 @@
       [uhcMotegrityId, uhcLinzessId, bannerLubiprostoneId, achNotice?.id].includes(record.id));
     const reviewedExactRows = group.records.filter(record => !record.isStatewideReference
       && reviewedCardPresentation(record) && !reviewedCardPresentation(record).historical);
-    const rows = constipationRows.length ? constipationRows : reviewedExactRows.length ? reviewedExactRows : bannerProducts.length ? bannerProducts : group.isStatewide && !exactScopedRows && !uhcStepRows.length
+    const exactDisplayRows = reviewedExactRows.length === 2 && reviewedExactRows.every(record => bannerEpiPenIds.has(record.id))
+      ? reviewedExactRows.slice(0, 1) : reviewedExactRows;
+    const rows = constipationRows.length ? constipationRows : exactDisplayRows.length ? exactDisplayRows : bannerProducts.length ? bannerProducts : group.isStatewide && !exactScopedRows && !uhcStepRows.length
       ? [group.statewideRecord] : (group.records || []).filter(record => !group.isStatewide || !record.isStatewideReference);
     const conditions = [...new Set(rows.flatMap(record => [
-      ['required', 'conditional'].includes(record.pa) && !reviewedCardPresentation(record)?.note?.includes(tiotropiumContinuation) && !achHistorical && !constipationGenericRows.has(record.id) && !(isUhc && uhcAgeEightPa(record)) ? record.paText : '', record.paExceptionText, record.ageRestrictionText
+      ['required', 'conditional'].includes(record.pa) && !bannerEpiPenIds.has(record.id) && !reviewedCardPresentation(record)?.note?.includes(tiotropiumContinuation) && !achHistorical && !constipationGenericRows.has(record.id) && !(isUhc && uhcAgeEightPa(record)) ? record.paText : '', record.paExceptionText, record.ageRestrictionText
     ]).filter(Boolean))].filter(text => !/^PA is printed in at least one source row\.$/.test(text));
     const labeledCaplets = isUhc && rows.some(record => uhcReviewedProductGroups.get(record.id)?.labelId);
     const preferredNdcs = state.planId === 'banner-ufc' ? bannerAlbuterolPreferredNdcs(group) : [];
