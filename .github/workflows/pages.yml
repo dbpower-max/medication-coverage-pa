@@ -45,7 +45,7 @@ jobs:
       - run: node tools/audit_live_clinical_guide_links.cjs
       - run: node tools/verify_statewide_library.cjs
       - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5.0.0
         id: pages_artifact
         with:
           path: _site
