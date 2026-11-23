@@ -326,6 +326,19 @@
     ['uhc-oct-complete-0a0a7a86b6fe2cd4', 'Accu-Chek SmartView Test Strips']
   ]);
   const uhcTestStripPolicyId = 'uhc-nov2026-policy-gl-369221';
+  const twiceDailyStripNote = 'One PDL row allows twice-daily testing for members who do not use insulin. The other prints step therapy without a sequence. The plan does not identify which packages correspond to these rows.';
+  const contourMeterNote = 'UHC lists both a nonpreferred Tier 2 row with PA and a preferred Tier 2 row with no PA field. Both print QL. Package-specific preference and PA are unverified.';
+  const contourStripNote = 'UHC lists a nonpreferred Tier 2 row with PA and a preferred Tier 2 row with step therapy. Both print QL. Package applicability and the step sequence are unverified.';
+  const uhcReviewedGlucoseSupplies = new Map([
+    ['uhc-oct-complete-fda008f4a380e9be', {label: 'OneTouch Ultra Blood Glucose Test Strips', note: twiceDailyStripNote, pages: [118], strip: true}],
+    ['uhc-oct-complete-b63e51cd8be09d8d', {label: 'OneTouch Verio Blood Glucose Test Strips', note: twiceDailyStripNote, pages: [118], strip: true}],
+    ['uhc-oct-complete-fe3ff8d27057990e', {label: 'Contour NEXT EZ Blood Glucose Meter Kit', note: contourMeterNote, pages: [117, 118], meterPolicy: true}],
+    ['uhc-oct-complete-5cc8dca197dd0e7c', {label: 'Contour NEXT GEN Blood Glucose Meter Kit', note: contourMeterNote, pages: [117, 118]}],
+    ['uhc-oct-complete-b1c1c0d0058a712f', {label: 'Contour NEXT Blood Glucose Test Strips', note: contourStripNote, pages: [117, 118], strip: true}],
+    ['uhc-oct-complete-30d30a1af87b546e', {label: 'Contour Blood Glucose Test Strips', note: contourStripNote, pages: [117, 119], strip: true}],
+    ['uhc-oct-complete-a2688cb7eea9b098', {label: 'OneTouch Verio Flex Blood Glucose Meter Kit', meterPolicy: true}]
+  ]);
+  const uhcMeterPolicyId = 'uhc-nov2026-policy-gl-140734';
   const gvokeHypoPenDoses = '0.5 mg/0.1 mL or 1 mg/0.2 mL per autoinjector';
   const uhcGvokePresentations = new Map([
     ['uhc-oct-complete-5fcb0ddd3560f776', {
@@ -365,7 +378,7 @@
     if (agePaLabel) return {key: `${record.planId}:${record.id}`, generic: agePaLabel, brands: []};
     if (isUhcOctoberRow(record)) {
       const label = record.id === uhcAvivaDeviceId ? 'Accu-Chek Aviva Blood Glucose Meter'
-        : uhcReviewedTestStrips.get(record.id) || uhcGvokePresentations.get(record.id)?.label;
+        : uhcReviewedTestStrips.get(record.id) || uhcReviewedGlucoseSupplies.get(record.id)?.label || uhcGvokePresentations.get(record.id)?.label;
       if (label) return {key: record.planId + ':' + record.id, generic: label, brands: []};
     }
     const genericFor = name.match(/^(.*?)\s*\(generic for ([^)]+)\)\s*$/i);
@@ -1722,6 +1735,15 @@
 
   function uhcRecordBindings(record) {
     const bindings = record.uhcClinicalBindings || [];
+    const glucoseSupply = isUhcOctoberRow(record) && uhcReviewedGlucoseSupplies.get(record.id);
+    if (glucoseSupply?.strip || glucoseSupply?.meterPolicy) {
+      const policyId = glucoseSupply.strip ? uhcTestStripPolicyId : uhcMeterPolicyId;
+      return [
+        ...bindings.filter(binding => binding.role !== 'nonpreferred' && binding.policyId !== policyId),
+        {policyId, role: 'product', branchIndexes: [0]},
+        ...(glucoseSupply.strip ? [{policyId, role: 'quantity', branchIndexes: [1]}] : [])
+      ];
+    }
     if (isUhcOctoberRow(record) && uhcReviewedTestStrips.has(record.id)
         && (record.qlAmount || record.qlDays) && !bindings.some(binding => binding.policyId === uhcTestStripPolicyId)) {
       // GL-369221 branch 1 applies to QL exceptions for preferred and nonpreferred strips.
@@ -1826,8 +1848,10 @@
     const asmanexHfa = reviewedAgeRow?.id === 'uhc-oct-complete-de1ca42f17826905';
     const fallbackRows = administrativeFallback ? paRows.filter(r => r.uhcClinicalBindings?.some(b => b.role === 'nonpreferred')) : [];
     const reviewedProduct = group.records.some(record => uhcReviewedProductGroups.has(record.id));
+    const glucoseSupply = group.records.map(r => uhcReviewedGlucoseSupplies.get(r.id)).find(Boolean);
+    const glucosePolicyLabel = glucoseSupply?.strip ? 'Test strip PA and QL guideline' : 'Nonpreferred meter PA guideline';
     const criteriaSections = [
-      [asmanexHfa ? 'Asthma PA guideline' : administrativeFallback ? 'General nonpreferred PA criteria' : 'Prior authorization', primary],
+      [glucoseSupply?.strip || glucoseSupply?.meterPolicy ? glucosePolicyLabel : asmanexHfa ? 'Asthma PA guideline' : administrativeFallback ? 'General nonpreferred PA criteria' : 'Prior authorization', primary],
       ['Age-specific PA criteria', ageScoped],
       ['Packet PA guideline', packetReference],
       ['Therapeutic duplication exceptions', duplication],
@@ -1862,6 +1886,10 @@
       const context = selected === duplication ? '<p>Applies when a therapeutic duplication edit is triggered.</p>'
         : selected === ageScoped ? '<p>The October 2026 formulary lists an age limit and leaves the PA field blank for the generic product below. The November 2026 guideline specifies these age-based criteria.</p>'
         : selected === packetReference ? '<p>The October 2026 formulary lists age and quantity limits for both packets and leaves their PA fields blank. The UHC guideline names both packets and gives criteria by age and ability to swallow solid forms.</p>'
+        : selected === primary && glucoseSupply?.strip
+        ? '<p>PA criteria apply to nonpreferred strip products. The quantity-limit exception below also covers preferred strips.</p>'
+        : selected === primary && glucoseSupply?.meterPolicy
+        ? '<p>Applies to a nonpreferred meter listing with approval at NDC level. Confirm the exact covered package.</p>'
         : selected === primary && asmanexHfa
         ? '<p>The guideline covers asthma. How it applies to the age and continued-use conditions in the formulary is unverified.</p>'
         : selected === primary && administrativeFallback ? (
@@ -1883,7 +1911,8 @@
     }
     const referenceLabels = references.map(p => p.id === constipationPolicyId && datedGeneric && !primary.length
       ? 'UHC October 18 policy' : [...primary, ...ageScoped].some(b => b.policyId === p.id)
-      ? (reviewedInsulin && quantity.some(b => b.policyId === p.id) ? 'PA and QL reference'
+      ? ([uhcTestStripPolicyId, uhcMeterPolicyId].includes(p.id) && glucoseSupply ? glucosePolicyLabel
+        : reviewedInsulin && quantity.some(b => b.policyId === p.id) ? 'PA and QL reference'
         : asmanexHfa && p.policyCode === 'GL-605215' ? 'Asthma PA guideline'
         : reviewedGvoke && p.policyCode === 'GL-231255' ? 'General nonpreferred PA reference'
         : genericDabigatran && p.policyCode === 'GL-231255' ? 'Brand nonpreferred reference' : 'PA reference')
@@ -2023,6 +2052,10 @@
     const reference = (isUhc ? (agePaFormulary ? restriction : policies.find(p => p.planId === state.planId) || restriction) : guidance) || guidance || policies.find(p => p.planId === state.planId) || policies[0];
     const packetGuideline = reference?.policyCode === 'GL-255208' && group.records?.some(record =>
       record.uhcClinicalBindings?.some(binding => binding.role === 'packet_reference'));
+    const glucoseSupply = isUhc && group.records.find(record => uhcReviewedGlucoseSupplies.has(record.id));
+    const glucoseDisplay = glucoseSupply && uhcReviewedGlucoseSupplies.get(glucoseSupply.id);
+    const glucosePolicy = glucoseDisplay && policies.find(policy =>
+      glucoseDisplay.strip ? policy.id === uhcTestStripPolicyId : glucoseDisplay.meterPolicy && policy.id === uhcMeterPolicyId);
     const stripQuantity = isUhc && group.records.some(record => isUhcOctoberRow(record) && uhcReviewedTestStrips.has(record.id))
       && policies.find(policy => policy.id === uhcTestStripPolicyId);
     const scopedQuantity = isUhc && reference?.policyCode === 'GL-140667';
@@ -2040,6 +2073,7 @@
     const constipationPolicy = (constipationGeneric || linzess) && state.data.policies.find(policy => policy.id === constipationPolicyId);
     const refs = constipationPolicy ? cardPaReference(constipationPolicy,
       linzess ? 'Linzess PA guideline' : 'UHC October 18 policy')
+      : glucosePolicy ? cardPaReference(glucosePolicy, glucoseDisplay.strip ? 'Test strip PA and QL guideline' : 'Nonpreferred meter PA guideline')
       : stripQuantity ? cardPaReference(stripQuantity, 'Test strip QL reference')
       : reference ? cardPaReference(reference, packetGuideline ? 'Packet PA guideline'
       : agePaFormulary ? 'PA formulary'
@@ -2103,6 +2137,7 @@
         return `${label ? `<p class="coverage-product-label"><strong>${escapeHtml(label)}</strong>${productLabelLink}</p>` : ''}
           ${statewideScope}
           <div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${badges}${preferredNdcs.length && record === rows[0] ? '<span class="chip positive">Preferred for listed products</span>' : ''}${step && record.step !== 'specified' ? '<span class="chip warning">Step therapy</span>' : ''}</div>
+          ${glucoseSupply === record && glucoseDisplay.note ? `<p class="pa-condition"><strong>UHC formulary disagreement:</strong> ${escapeHtml(glucoseDisplay.note)} ${glucoseDisplay.pages.map(page => `<a class="source-link" href="${escapeHtml(sourceHref({...record, sourcePage: page}))}" target="_blank" rel="noopener">PDL p. ${page} ↗</a>`).join(' · ')}</p>` : ''}
           ${avivaConflict ? '<p class="pa-condition"><strong>UHC source conflict:</strong> The formulary names the Aviva device and aliases it to a control solution. Exact meter package eligibility is unverified.</p>' : ''}
           ${gvoke ? `<p class="pa-condition"><strong>FDA-labeled presentation:</strong> ${escapeHtml(gvoke.dose)}. UHC does not specify eligible strengths. <a class="source-link" href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=92385737-dbad-98c5-e053-2995a90a2805" target="_blank" rel="noopener">Drug label ↗</a></p>` : ''}
           ${constipationCoverageNote(record)}${exactAge}${continuedUse}${limit}${nebulizerNote ? `<p class="pa-condition">${escapeHtml(nebulizerNote)}</p>` : ''}
