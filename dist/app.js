@@ -610,7 +610,22 @@
   const bannerEpiPenIds = new Set(['banner-full-2d2738513f664b31', 'banner-full-450fe20ea940c46c']);
   const bannerEpiPenDisplay = {label: epiPenAutoInjector, note: 'Banner: Viatris SP authorized generic only. Quantity limit: 2 per 30 days. PA is required above 2 per month.'};
   const augmentinSuspension = 'Amoxicillin/Clavulanate Oral Suspension (Augmentin Reference)';
+  const rosuvastatinTablets = 'Rosuvastatin Tablets (Crestor Reference)';
+  const simvastatinTablets = 'Simvastatin Tablets (Zocor Reference)';
+  const genericStatinNote = 'UHC lists a quantity limit without specifying the numeric amount.';
   const reviewedCardPresentations = new Map([
+    ['uhc-oct-complete-d6b49b27961f969c', {label: 'Vascepa (Icosapent Ethyl) Oral Capsules', generalPa: true}],
+    ['uhc-oct-complete-552f551a574d06dd', {label: 'Crestor (Rosuvastatin) Oral Tablets', generalPa: true}],
+    ['uhc-oct-complete-49482f69ae796c31', {label: 'Zocor (Simvastatin) Oral Tablets', generalPa: true}],
+    ['uhc-oct-complete-6520d7a7c776b0eb', {label: 'Livalo (Pitavastatin Calcium) Oral Tablets', generalPa: true}],
+    ['uhc-oct-complete-4001483fb5296830', {label: 'Zypitamag (Pitavastatin Magnesium) Oral Tablets', generalPa: true}],
+    ['uhc-oct-complete-e1d7e6930656b4b2', {label: 'Vytorin (Ezetimibe/Simvastatin) Oral Tablets', generalPa: true}],
+    ['uhc-oct-complete-6152d1a90840a215', {label: rosuvastatinTablets, note: genericStatinNote}],
+    ['uhc-oct-complete-8dcccfa13dad2bf9', {label: simvastatinTablets, note: genericStatinNote}],
+    ['banner-source-review-12-2-48', {label: rosuvastatinTablets, scope: 'Banner formulary · October 1, 2026', note: 'Banner quantity limit: 30 per 30 days.'}],
+    ['banner-pcp-nov10-046', {label: simvastatinTablets, scope: 'Banner formulary · October 1, 2026', note: 'Banner quantity limit: 30 per 30 days.'}],
+    ['formulary-10079', {label: rosuvastatinTablets, note: 'Statewide quantity limit: 30 per 30 days.'}],
+    ['formulary-10080', {label: simvastatinTablets, note: 'Statewide quantity limit: 30 per 30 days.'}],
     ...[...bannerEpiPenIds].map(id => [id, bannerEpiPenDisplay]),
     ['formulary-11033', {label: epiPenAutoInjector, note: 'The statewide listing applies to its named authorized generic. Exact selected-plan package eligibility is unverified.'}],
     ['uhc-oct-complete-55381c317387d023', {label: 'AUVI-Q Epinephrine Autoinjector (Brand)', generalPa: true}],
@@ -721,7 +736,7 @@
   }
 
   function uniqueMedicationNames() {
-    return [...new Set(planMedicationGroups().map(group => group.label))]
+    return [...new Set([...planMedicationGroups().map(group => group.label), tirosintSolutionLabel])]
       .sort((a, b) => a.localeCompare(b));
   }
 
@@ -993,7 +1008,7 @@
       .filter((record) => {
         if (selectedGroup) return selectedGroup.records.some(r => r.id === record.id);
         const haystack = normalize([
-          record.displayName || record.name, record.brand, record.searchAliases?.join(' ')
+          record.displayName || record.name, record.brand, record.searchAliases?.join(' '), reviewedCardPresentation(record)?.label
         ].join(' '));
         return terms.every((term) => haystack.includes(term));
       })
@@ -2089,7 +2104,15 @@
     return '';
   }
 
+  const tirosintSolutionLabel = 'Tirosint-SOL (Levothyroxine Sodium Oral Solution)';
+  const tirosintSolutionSource = 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5d378add-f13d-40f2-99dc-0f2340ab44b7';
+
   function medicationGroupCard(group) {
+    if (group.identityOnly) return `<article class="result-card">
+      <h3>${escapeHtml(tirosintSolutionLabel)}</h3>
+      <p>Plan coverage, preference and restrictions are unverified.</p>
+      <a class="source-link" href="${escapeHtml(tirosintSolutionSource)}" target="_blank" rel="noopener">FDA drug label ↗</a>
+    </article>`;
     const isUhc = state.planId === 'uhc-community-az';
     const isBanner = state.planId === 'banner-ufc';
     const insulinConflict = isBanner && group.records.find(record => bannerInsulinConflicts.has(record.id));
@@ -2289,6 +2312,11 @@
     // Order the complete matching set before taking the visible page.
     const direction = state.sort === 'za' ? -1 : 1;
     const collator = new Intl.Collator('en', {sensitivity: 'base', numeric: true});
+    if (!state.coverage && !state.category && !state.subcategory
+        && (normalize(state.term) === normalize(tirosintSolutionLabel)
+          || /^(?:tirosint(?:[- ]sol)?|levothyroxine(?: sodium)? oral solution)$/.test(normalize(state.term)))) {
+      groups.push({key: 'tirosint-sol-identity', label: tirosintSolutionLabel, identityOnly: true, records: []});
+    }
     const records = groups.sort((a, b) => direction * (
       collator.compare(medicationSortName(a), medicationSortName(b))
       || collator.compare(a.label, b.label) || String(a.key).localeCompare(String(b.key), 'en')));
@@ -2363,6 +2391,10 @@
   }
 
   function medicationSearchResult(group) {
+    if (group.identityOnly) return {
+      name: group.label, brands: ['Tirosint-SOL'], coverage: 'not_specified', pa: 'not_specified',
+      source: tirosintSolutionSource, source_scope: 'drug_label_only', products: []
+    };
     const primary = group.isStatewide ? group.statewideRecord : group.records.length === 1 ? group.records[0] : null;
     const common = field => {
       const values = [...new Set(group.records.map(record => record[field] || 'not_specified'))];
