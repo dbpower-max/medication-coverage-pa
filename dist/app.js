@@ -379,7 +379,11 @@
     if (isUhcOctoberRow(record)) {
       const label = record.id === uhcAvivaDeviceId ? 'Accu-Chek Aviva Blood Glucose Meter'
         : uhcReviewedTestStrips.get(record.id) || uhcReviewedGlucoseSupplies.get(record.id)?.label || uhcGvokePresentations.get(record.id)?.label;
-      if (label) return {key: record.planId + ':' + record.id, generic: label, brands: []};
+      if (label) {
+        const sourceBrand = uhcReviewedGlucoseSupplies.has(record.id)
+          ? name.match(/^(.*?)\s*\(brand for /i)?.[1] : '';
+        return {key: record.planId + ':' + record.id, generic: label, brands: sourceBrand ? [sourceBrand] : []};
+      }
     }
     const genericFor = name.match(/^(.*?)\s*\(generic for ([^)]+)\)\s*$/i);
     const brandFor = name.match(/^(.*?)\s*\(brand for ([^)]+)\)\s*$/i);
@@ -448,6 +452,7 @@
   // Exact duplicate bracketed brand names are presentation artifacts.
   // Preserve the underlying payer product name, source links and PA records.
   function medicationDisplayLabel(name, brands, records = []) {
+    if (records.length === 1 && uhcReviewedGlucoseSupplies.has(records[0].id)) return name;
     if (records.length === 1 && records[0].planId === 'uhc-community-az'
         && (uhcTriptanPresentations.has(records[0].id) || uhcNicotinePresentations.has(records[0].id)
           || uhcPCPFormLabels.has(records[0].id) || uhcInsulinAndSupplyLabels.has(records[0].id))) return name;
