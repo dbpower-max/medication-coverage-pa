@@ -225,6 +225,20 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         for key in sorted(keys):
             for code,i,product in by_key.get(key,[]):
                 if product_matches(record,product):matched[code].add(i)
+        constipation_code = 'GL-720196'
+        if october_name.startswith(('lubiprostone capsule ', 'prucalopride succinate (generic for ')):
+            # The October 18 policy removed these generics from its PA targets.
+            # Keep October 1 PDL flags as source evidence and never bind brand criteria.
+            matched.pop(constipation_code, None)
+        if october_name == 'linzess':
+            # The PDL prints DX2RX and QL. The named policy is independently
+            # relevant without turning its existence into a PDL PA flag.
+            branches = structured[constipation_code]['branches']
+            assert branches[2]['fields']['Product Name']['text'] == 'Linzess'
+            assert 'Linzess' in branches[7]['fields']['Product Name']['text'].split(', ')
+            matched.pop(constipation_code, None)
+            add(constipation_code, [2, 7], 'product')
+            bindings[-1]['productLabel'] = 'Linzess oral capsules'
         if october_name in MAXALT_PRODUCTS:
             code = 'GL-742200'
             label, product = MAXALT_PRODUCTS[october_name]

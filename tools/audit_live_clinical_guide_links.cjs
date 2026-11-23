@@ -72,7 +72,7 @@ for(const planId of plans){
 }
 // Confirm that existing plan-only medication cards actually render their
 // source-verified clinical guidance rather than merely matching it internally.
-const cardStart=source.indexOf('  function medicationGroupCard(');
+const cardStart=source.indexOf('  function constipationCoverageNote(');
 const cardEnd=source.indexOf('  function render()',cardStart);
 assert(cardStart>0&&cardEnd>cardStart,'Medication card UI function missing');
 const ui={cardClinicalGroups:new Map(),uhcRestrictionSummary:()=>'',cardPaReference:()=>'',state:{planId:'az-complete-health'},normalize:s=>String(s).toLowerCase(),sourceHref:()=>'',
@@ -83,7 +83,8 @@ const ui={cardClinicalGroups:new Map(),uhcRestrictionSummary:()=>'',cardPaRefere
  statusChips:()=>'',medicationPolicyDropdown:()=>'',recordDetails:()=>''
 };
 vm.createContext(ui);
-vm.runInContext(source.slice(cardStart,cardEnd),ui);
+const constipationDefinitions=source.slice(source.indexOf('  const constipationGenericRows ='),source.indexOf('  function planMedicationGroups('));
+vm.runInContext(constipationDefinitions+source.slice(cardStart,cardEnd),ui);
 ui.card={label:'Dapagliflozin (Farxiga)',name:'dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]};
 const withGuide=vm.runInContext('medicationGroupCard(card)',ui);
 assert(withGuide.includes('Clinically validated source details')&&withGuide.includes('Clinical details &amp; PA criteria'),'Plan-only clinical criteria missing or misleading');

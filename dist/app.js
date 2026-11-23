@@ -531,6 +531,27 @@
   // Preserve unmatched products as the selected plan's supplement. Attach only
   // unambiguous equivalent products to the statewide entry; never blend rules.
   const groupCache = new Map();
+  const constipationGenericRows = new Map([
+    ['uhc-oct-complete-1648922bcbfb41de', 'Generic lubiprostone 24 mcg oral capsule'],
+    ['uhc-oct-complete-62acb905190fdbd1', 'Generic lubiprostone 8 mcg oral capsule'],
+    ['uhc-oct-complete-a75bf7c192276842', 'Generic prucalopride oral tablet']
+  ]);
+  const uhcLinzessId = 'uhc-oct-complete-856ab149c565f2d6';
+  const uhcMotegrityId = 'uhc-oct-complete-e1b4c7a47cd7c144';
+  const bannerLubiprostoneId = 'banner-full-df398cde927a2a85';
+  const achConstipationLabels = new Map([
+    ['ach-notice-13846', 'Linzess (linaclotide) oral capsules'],
+    ['ach-notice-13847', 'Lubiprostone oral capsules (authorized generic)'],
+    ['ach-notice-13848', 'Lubiprostone oral capsules (generic)'],
+    ['ach-notice-13849', 'Prucalopride oral tablets']
+  ]);
+  const statewideConstipationIds = new Set(['formulary-10718', 'formulary-10721', 'formulary-10735']);
+  const constipationPolicyId = 'uhc-nov2026-policy-gl-720196';
+
+  function isStatewideConstipation(record) {
+    return record.isStatewideReference && statewideConstipationIds.has(record.id.split(':').at(-1));
+  }
+
   function planMedicationGroups() {
     const key = state.planId + ':' + state.data.medications.length;
     if (groupCache.has(key)) return groupCache.get(key);
@@ -580,6 +601,15 @@
       if (packets) {
         packets.label = 'Pantoprazole Delayed-Release Granules for Oral Suspension (Protonix Packets)';
         packets.search += ' ' + packets.label;
+      }
+    }
+    if (state.planId === 'uhc-community-az') {
+      const linzess = result.find(group => group.records.some(record => record.id === uhcLinzessId));
+      const statewideIndex = result.findIndex(group => group.statewideRecord?.id.endsWith(':formulary-10735'));
+      if (linzess && statewideIndex >= 0) {
+        const [statewide] = result.splice(statewideIndex, 1);
+        linzess.records.push(statewide.statewideRecord);
+        linzess.search += ' ' + statewide.search;
       }
     }
     groupCache.set(key, result);
@@ -1751,7 +1781,8 @@
     const reviewedTopamax = group.records.some(record => uhcBrandTopamaxRows.has(record.id));
     const administrativeFallback = (duplication.length || reviewedEstradiol || reviewedInsulin || genericDabigatran || reviewedTopamax)
       && primary.length && primary.every(b => b.role === 'nonpreferred');
-    const paRows = (group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference && ['required','conditional'].includes(r.pa));
+    const paRows = (group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference
+      && !constipationGenericRows.has(r.id) && ['required','conditional'].includes(r.pa));
     const reviewedAgeRow = paRows.find(record => uhcAgePaCardLabels.has(record.id) && uhcAgeEightPa(record));
     const asmanexHfa = reviewedAgeRow?.id === 'uhc-oct-complete-de1ca42f17826905';
     const fallbackRows = administrativeFallback ? paRows.filter(r => r.uhcClinicalBindings?.some(b => b.role === 'nonpreferred')) : [];
@@ -1779,7 +1810,8 @@
           const productLabel = reviewedProduct
             ? [...new Set(selected.filter(b => b.policyId === policy.id && b.branchIndexes.includes(i))
               .map(b => b.productLabel).filter(Boolean))].join(' / ')
-            : binding.productLabel;
+            : binding.productLabel || (binding.policyId === constipationPolicyId
+              && group.records.some(record => record.id === uhcMotegrityId) ? 'Brand Motegrity oral tablets' : '');
           const label = productLabel && selected !== packetReference ? `<p><strong>Product:</strong> ${escapeHtml(productLabel)}</p>`
             : scope ? `<p><strong>Formulation:</strong> ${escapeHtml(scope)}</p>` : '';
           // The final condition and preceding AND in this shared policy apply only to brand Nexium.
@@ -1805,7 +1837,13 @@
     else if (paRows.length && !primary.length) sections.unshift(paRows.every(r => r.pa === 'conditional')
       ? '<p>Product-specific approval criteria are unverified. See the formulary for the conditional PA requirement.</p>'
       : '<p>PA is required. Approval criteria have not yet been verified for this formulation. Review the linked UHC source.</p>');
-    const referenceLabels = references.map(p => [...primary, ...ageScoped].some(b => b.policyId === p.id)
+    const datedGeneric = group.records.some(record => constipationGenericRows.has(record.id));
+    if (datedGeneric && !references.some(policy => policy.id === constipationPolicyId)) {
+      const datedPolicy = policies.find(policy => policy.id === constipationPolicyId);
+      if (datedPolicy) references.unshift(datedPolicy);
+    }
+    const referenceLabels = references.map(p => p.id === constipationPolicyId && datedGeneric && !primary.length
+      ? 'UHC October 18 policy' : [...primary, ...ageScoped].some(b => b.policyId === p.id)
       ? (reviewedInsulin && quantity.some(b => b.policyId === p.id) ? 'PA and QL reference'
         : asmanexHfa && p.policyCode === 'GL-605215' ? 'Asthma PA guideline'
         : genericDabigatran && p.policyCode === 'GL-231255' ? 'Brand nonpreferred reference' : 'PA reference')
@@ -1899,11 +1937,41 @@
     return `<a class="source-link card-pa-reference" href="${escapeHtml(sourceHref(source))}" target="_blank" rel="noopener" title="${escapeHtml(source.policyCode || source.name || 'PA source')} · ${escapeHtml(source.sourceEffective || '')}">${escapeHtml(label)} ↗</a>`;
   }
 
+  function constipationCoverageNote(record) {
+    if (constipationGenericRows.has(record.id)) {
+      const step = record.id === 'uhc-oct-complete-a75bf7c192276842' ? ''
+        : ' Its duplicate rows disagree on step therapy.';
+      return `<p class="pa-condition">UHC October 1, 2026 formulary lists PA and a quantity limit.${step} The October 18, 2026 policy says generic is preferred without PA. Current claim requirements are unverified.</p>`;
+    }
+    if (record.id === uhcLinzessId) {
+      return '<p class="pa-condition">UHC October 1, 2026 formulary lists a diagnosis requirement and a quantity limit, with PA unspecified. UHC’s October 18, 2026 policy publishes Linzess PA criteria.</p>';
+    }
+    if (record.id === bannerLubiprostoneId) {
+      return '<p class="pa-condition"><strong>Banner quantity limit:</strong> 180 per 90 days. The formulary does not specify a unit.</p>';
+    }
+    if (achConstipationLabels.has(record.id)) {
+      return '<p class="pa-condition">Arizona Complete Health October 1, 2026 notice lists this option as preferred. Product-specific restrictions are unspecified in the notice.</p>';
+    }
+    if (/^ach-json-(616578|794639)$/.test(record.id)) {
+      return '<p class="pa-condition">Historical Arizona Complete Health formulary (2022). It listed PA. Current strength-specific requirements are unverified.</p>';
+    }
+    return '';
+  }
+
   function medicationGroupCard(group) {
     const isUhc = state.planId === 'uhc-community-az';
     const isBanner = state.planId === 'banner-ufc';
     const insulinConflict = isBanner && group.records.find(record => bannerInsulinConflicts.has(record.id));
     const bannerGuide = isBanner && !group.policyOnly ? bannerRespiratoryGuide(group) : null;
+    const achNotice = group.records.find(record => achConstipationLabels.has(record.id));
+    const constipationGeneric = group.records.find(record => constipationGenericRows.has(record.id));
+    const constipationBrand = group.records.find(record => record.id === uhcMotegrityId);
+    const linzess = group.records.find(record => record.id === uhcLinzessId);
+    const achHistorical = group.records.some(record => /^ach-json-(616578|794639)$/.test(record.id));
+    const title = achNotice ? achConstipationLabels.get(achNotice.id)
+      : linzess ? 'Linzess (linaclotide) oral capsules'
+      : constipationBrand ? 'Prucalopride oral tablets (Motegrity)'
+      : constipationGeneric ? 'Lubiprostone oral capsules (Amitiza reference)' : group.label;
     const guidance = group.policyOnly ? group.guide : insulinConflict ? null : bannerGuide || clinicalGuidanceFor(group);
     const policies = group.policyOnly || insulinConflict ? [] : bannerGuide ? [bannerGuide] : linkedPolicyPanels(group, true);
     const key = group.key || group.label;
@@ -1926,7 +1994,10 @@
           && ['quantity', 'global_quantity'].includes(binding.role)));
     const brandCapsuleReference = isUhc && reference?.policyCode === 'GL-231255'
       && group.records.some(record => record.id === 'uhc-oct-complete-009ca23afd12966f');
-    const refs = reference ? cardPaReference(reference, packetGuideline ? 'Packet PA guideline'
+    const constipationPolicy = (constipationGeneric || linzess) && state.data.policies.find(policy => policy.id === constipationPolicyId);
+    const refs = constipationPolicy ? cardPaReference(constipationPolicy,
+      linzess ? 'Linzess PA guideline' : 'UHC October 18 policy')
+      : reference ? cardPaReference(reference, packetGuideline ? 'Packet PA guideline'
       : agePaFormulary ? 'PA formulary'
       : scopedQuantity || insulinQuantity || reviewedQuantity ? 'QL reference'
       : brandCapsuleReference ? 'Brand nonpreferred reference'
@@ -1939,17 +2010,19 @@
     ].includes(record.id) && !record.isStatewideReference) : [];
     const uhcStepRows = isUhc ? group.records.filter(record => record.planId === state.planId && !record.isStatewideReference
       && record.sourceEffective === '2026-10-01' && uhcRespiratorySteps.has(record.id)) : [];
-    const rows = bannerProducts.length ? bannerProducts : group.isStatewide && !exactScopedRows && !uhcStepRows.length
+    const constipationRows = group.records.filter(record => constipationGenericRows.has(record.id) ||
+      [uhcMotegrityId, uhcLinzessId, bannerLubiprostoneId, achNotice?.id].includes(record.id));
+    const rows = constipationRows.length ? constipationRows : bannerProducts.length ? bannerProducts : group.isStatewide && !exactScopedRows && !uhcStepRows.length
       ? [group.statewideRecord] : (group.records || []).filter(record => !group.isStatewide || !record.isStatewideReference);
     const conditions = [...new Set(rows.flatMap(record => [
-      ['required', 'conditional'].includes(record.pa) && !(isUhc && uhcAgeEightPa(record)) ? record.paText : '', record.paExceptionText, record.ageRestrictionText
+      ['required', 'conditional'].includes(record.pa) && !achHistorical && !constipationGenericRows.has(record.id) && !(isUhc && uhcAgeEightPa(record)) ? record.paText : '', record.paExceptionText, record.ageRestrictionText
     ]).filter(Boolean))].filter(text => !/^PA is printed in at least one source row\.$/.test(text));
     const labeledCaplets = isUhc && rows.some(record => uhcReviewedProductGroups.get(record.id)?.labelId);
     const preferredNdcs = state.planId === 'banner-ufc' ? bannerAlbuterolPreferredNdcs(group) : [];
     const hideEmptyPa = insulinConflict || (preferredNdcs.length && !guidance && !policies.length && !conditions.length
       && !group.records.some(record => ['required', 'conditional'].includes(record.pa) || record.policySource));
     return `<article class="result-card">
-      <h3>${escapeHtml(preferredNdcs.length ? 'Albuterol HFA inhaler' : group.label)}</h3>
+      <h3>${escapeHtml(preferredNdcs.length ? 'Albuterol HFA inhaler' : title)}</h3>
       ${labeledCaplets ? '<p>Acetaminophen 250 mg / aspirin 250 mg / caffeine 65 mg per caplet.</p>' : ''}
       ${rows.map(record => {
         const insulinWarning = insulinConflict && bannerInsulinConflicts.get(record.id);
@@ -1958,7 +2031,8 @@
         const nebulizerNote = isUhc && uhcNebulizedAlbuterol.get(record.id)?.note;
         const insulinLabel = state.planId === 'uhc-community-az' && uhcInsulinAndSupplyLabels.get(record.id);
         const reviewed = isUhc && uhcReviewedProductGroups.get(record.id);
-        const label = rows.length > 1 && (reviewed?.label || insulinLabel || record.coverageProductLabel
+        const label = rows.length > 1 && (constipationGenericRows.get(record.id) ||
+          (record.id === uhcMotegrityId ? 'Brand Motegrity oral tablets' : '') || reviewed?.label || insulinLabel || record.coverageProductLabel
           || record.uhcClinicalBindings?.find(binding => binding.productLabel)?.productLabel);
         const exactAge = isUhc && uhcAgeEightPa(record)
           ? '<p class="pa-condition">PA required at age 8 and older.</p>'
@@ -1974,11 +2048,19 @@
           ? '<p class="pa-condition">Continued use of two or more drugs in this class may require PA.</p>' : '';
         const limit = bannerProducts.includes(record) && record.qlAmount && record.qlDays
           ? `<p class="pa-condition"><strong>Quantity limit:</strong> ${escapeHtml(record.qlAmount)} per ${escapeHtml(record.qlDays)} days. The formulary does not specify a unit.</p>` : '';
+        const badges = constipationGenericRows.has(record.id) ? statusChips({...record, pa: 'not_specified', step: 'not_specified'})
+          + '<span class="chip warning">PA sources conflict</span>'
+          : achHistorical ? '' : achConstipationLabels.has(record.id)
+          ? statusChips({...record, coverageCaveat: ''}) : statusChips(record);
+        const statewideScope = isStatewideConstipation(record)
+          ? '<p class="pa-condition">AHCCCS statewide reference</p>' : '';
         return `${label ? `<p class="coverage-product-label"><strong>${escapeHtml(label)}</strong>${productLabelLink}</p>` : ''}
-          <div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${statusChips(record)}${preferredNdcs.length && record === rows[0] ? '<span class="chip positive">Preferred for listed products</span>' : ''}${step && record.step !== 'specified' ? '<span class="chip warning">Step therapy</span>' : ''}</div>
-          ${exactAge}${continuedUse}${limit}${nebulizerNote ? `<p class="pa-condition">${escapeHtml(nebulizerNote)}</p>` : ''}
+          ${statewideScope}
+          <div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${badges}${preferredNdcs.length && record === rows[0] ? '<span class="chip positive">Preferred for listed products</span>' : ''}${step && record.step !== 'specified' ? '<span class="chip warning">Step therapy</span>' : ''}</div>
+          ${constipationCoverageNote(record)}${exactAge}${continuedUse}${limit}${nebulizerNote ? `<p class="pa-condition">${escapeHtml(nebulizerNote)}</p>` : ''}
           ${step ? `<p class="pa-condition"><strong>Step therapy:</strong> ${escapeHtml(step)} <a class="source-link" href="${escapeHtml(sourceHref({...record, sourcePage: 36}))}" target="_blank" rel="noopener">UHC formulary · step table ↗</a></p>` : ''}`;
       }).join('')}
+      ${linzess || achNotice?.id === 'ach-notice-13846' ? '<p class="pa-condition">AHCCCS statewide reference lists PA.</p>' : ''}
       <div class="card-source-access">${sourcesLink(group)}</div>
       ${preferredNdcs.length ? `<details class="result-disclosure">
         <summary>View ${preferredNdcs.length} preferred NDCs</summary>
@@ -2130,13 +2212,17 @@
       medication_id: record.id, rxcui: record.rxnormId || null,
       display_name: record.standardName || record.name,
       display_name_standard: record.standardNameType || null,
-      preferred: record.preferred, pa: record.pa || 'not_specified', pa_text: record.paText || '',
+      preferred: record.preferred, pa: constipationGenericRows.has(record.id) ? 'conflicting' : record.pa || 'not_specified',
+      pa_text: constipationGenericRows.has(record.id)
+        ? 'UHC October 1, 2026 PDL lists PA. October 18, 2026 policy lists generic as preferred without PA. Current claim requirements are unverified.'
+        : record.paText || '',
       step: record.step, step_text: record.stepText || '', quantity: record.qlAmount || '', quantity_interval: record.qlDays || '',
       source: sourceHref(record), source_effective: record.sourceEffective || '',
       source_scope: record.isStatewideReference ? 'statewide_reference' : 'selected_plan'
     });
     return {name: group.label, brands: group.brands, category: primary?.category || '',
-      coverage: primary?.coverage || common('coverage'), pa: primary?.pa || common('pa'),
+      coverage: primary?.coverage || common('coverage'),
+      pa: group.records.some(record => constipationGenericRows.has(record.id)) ? 'conflicting' : primary?.pa || common('pa'),
       source: primary ? sourceHref(primary) : '',
       source_scope: group.isStatewide ? 'statewide_reference' : 'selected_plan',
       products: group.records.map(product)};

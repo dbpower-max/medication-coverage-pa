@@ -36,7 +36,9 @@ const ctx={cardClinicalGroups:new Map(),uhcRestrictionSummary:()=>'',cardPaRefer
  linkedPolicyPanels:()=>[],clinicalGuidanceFor:()=>null,criteriaLibraryShortcut:()=>'',statusChips:()=>'',
  readableMedicationName:s=>String(s),sourcesLink:()=>'',recordDetails:()=>'',medicationPolicyDropdown:()=>''};
 vm.createContext(ctx);
-vm.runInContext(source.slice(source.indexOf('  function medicationGroupCard('),source.indexOf('  function render()')),ctx);
+const constipationDefinitions=source.slice(source.indexOf('  const constipationGenericRows ='),source.indexOf('  function planMedicationGroups('));
+const cardFunctions=source.slice(source.indexOf('  function constipationCoverageNote('),source.indexOf('  function render()'));
+vm.runInContext(constipationDefinitions + cardFunctions,ctx);
 const conditional=rows.filter(r=>r.pa==='conditional');
 for(const row of conditional) {
  ctx.group={label:row.name,brands:[],records:[row],isStatewide:true,statewideRecord:row};
