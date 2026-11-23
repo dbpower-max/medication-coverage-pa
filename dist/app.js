@@ -319,6 +319,34 @@
     }]
   ]);
 
+  const uhcAvivaDeviceId = 'uhc-oct-complete-a89f51ba9ac72dbf';
+  const uhcReviewedTestStrips = new Map([
+    ['uhc-oct-complete-46893ffdc5e59e64', 'Accu-Chek Aviva Plus Test Strips'],
+    ['uhc-oct-complete-8e024e8124a5df6a', 'Accu-Chek Guide Test Strips'],
+    ['uhc-oct-complete-0a0a7a86b6fe2cd4', 'Accu-Chek SmartView Test Strips']
+  ]);
+  const uhcTestStripPolicyId = 'uhc-nov2026-policy-gl-369221';
+  const gvokeHypoPenDoses = '0.5 mg/0.1 mL or 1 mg/0.2 mL per autoinjector';
+  const uhcGvokePresentations = new Map([
+    ['uhc-oct-complete-5fcb0ddd3560f776', {
+      label: 'Gvoke HypoPen Subcutaneous Autoinjector (1-Pack)', dose: gvokeHypoPenDoses
+    }],
+    ['uhc-oct-complete-7caf82e6ee33bfff', {
+      label: 'Gvoke HypoPen Subcutaneous Autoinjector (2-Pack)', dose: gvokeHypoPenDoses
+    }],
+    ['uhc-oct-complete-a5fa4856ca09e8de', {
+      label: 'Gvoke PFS Subcutaneous Prefilled Syringe', dose: '1 mg/0.2 mL per prefilled syringe'
+    }],
+    ['uhc-oct-complete-5eca184f4914d610', {
+      label: 'Gvoke Kit Ready-to-Use Subcutaneous Solution (Vial and Syringe)', dose: '1 mg/0.2 mL per vial'
+    }]
+  ]);
+
+  function isUhcOctoberRow(record) {
+    return record.planId === 'uhc-community-az' && !record.isStatewideReference
+      && record.sourceEffective === '2026-10-01';
+  }
+
   function uhcAgeEightPa(record) {
     return record.planId === 'uhc-community-az' && !record.isStatewideReference
       && record.sourceEffective === '2026-10-01' && record.pa === 'conditional'
@@ -335,6 +363,11 @@
     if (reviewedForm) return {key: `${record.planId}:${record.id}`, generic: reviewedForm.label, brands: []};
     const agePaLabel = record.planId === 'uhc-community-az' && uhcAgePaCardLabels.get(record.id);
     if (agePaLabel) return {key: `${record.planId}:${record.id}`, generic: agePaLabel, brands: []};
+    if (isUhcOctoberRow(record)) {
+      const label = record.id === uhcAvivaDeviceId ? 'Accu-Chek Aviva Blood Glucose Meter'
+        : uhcReviewedTestStrips.get(record.id) || uhcGvokePresentations.get(record.id)?.label;
+      if (label) return {key: record.planId + ':' + record.id, generic: label, brands: []};
+    }
     const genericFor = name.match(/^(.*?)\s*\(generic for ([^)]+)\)\s*$/i);
     const brandFor = name.match(/^(.*?)\s*\(brand for ([^)]+)\)\s*$/i);
     if (record.planId === 'banner-ufc' || record.planId === 'uhc-community-az') {
@@ -1689,6 +1722,11 @@
 
   function uhcRecordBindings(record) {
     const bindings = record.uhcClinicalBindings || [];
+    if (isUhcOctoberRow(record) && uhcReviewedTestStrips.has(record.id)
+        && (record.qlAmount || record.qlDays) && !bindings.some(binding => binding.policyId === uhcTestStripPolicyId)) {
+      // GL-369221 branch 1 applies to QL exceptions for preferred and nonpreferred strips.
+      return [...bindings, {policyId: uhcTestStripPolicyId, role: 'quantity', branchIndexes: [1]}];
+    }
     if (uhcAgePaCardLabels.has(record.id) && uhcAgeEightPa(record)) {
       return bindings.map(binding => {
         if (binding.role === 'nonsolid' && binding.policyId === generalNonsolidPolicyId) {
@@ -1779,7 +1817,8 @@
     const reviewedInsulin = group.records?.some(record => uhcInsulinAndSupplyLabels.has(record.id));
     const genericDabigatran = group.records.find(record => record.id === genericDabigatranId);
     const reviewedTopamax = group.records.some(record => uhcBrandTopamaxRows.has(record.id));
-    const administrativeFallback = (duplication.length || reviewedEstradiol || reviewedInsulin || genericDabigatran || reviewedTopamax)
+    const reviewedGvoke = group.records.some(record => uhcGvokePresentations.has(record.id));
+    const administrativeFallback = (duplication.length || reviewedEstradiol || reviewedInsulin || genericDabigatran || reviewedTopamax || reviewedGvoke)
       && primary.length && primary.every(b => b.role === 'nonpreferred');
     const paRows = (group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference
       && !constipationGenericRows.has(r.id) && ['required','conditional'].includes(r.pa));
@@ -1846,9 +1885,11 @@
       ? 'UHC October 18 policy' : [...primary, ...ageScoped].some(b => b.policyId === p.id)
       ? (reviewedInsulin && quantity.some(b => b.policyId === p.id) ? 'PA and QL reference'
         : asmanexHfa && p.policyCode === 'GL-605215' ? 'Asthma PA guideline'
+        : reviewedGvoke && p.policyCode === 'GL-231255' ? 'General nonpreferred PA reference'
         : genericDabigatran && p.policyCode === 'GL-231255' ? 'Brand nonpreferred reference' : 'PA reference')
       : packetReference.some(b => b.policyId === p.id) ? 'Packet PA guideline'
-      : duplication.some(b => b.policyId === p.id) ? 'Duplication reference' : 'QL reference');
+      : duplication.some(b => b.policyId === p.id) ? 'Duplication reference'
+      : p.id === uhcTestStripPolicyId ? 'Test strip QL reference' : 'QL reference');
     if (genericDabigatran) {
       sections.unshift('<p><strong>Generic dabigatran oral capsules:</strong> The formulary lists PA. Product-specific approval criteria are unverified.</p>');
       references.unshift(genericDabigatran);
@@ -1982,6 +2023,8 @@
     const reference = (isUhc ? (agePaFormulary ? restriction : policies.find(p => p.planId === state.planId) || restriction) : guidance) || guidance || policies.find(p => p.planId === state.planId) || policies[0];
     const packetGuideline = reference?.policyCode === 'GL-255208' && group.records?.some(record =>
       record.uhcClinicalBindings?.some(binding => binding.role === 'packet_reference'));
+    const stripQuantity = isUhc && group.records.some(record => isUhcOctoberRow(record) && uhcReviewedTestStrips.has(record.id))
+      && policies.find(policy => policy.id === uhcTestStripPolicyId);
     const scopedQuantity = isUhc && reference?.policyCode === 'GL-140667';
     const insulinQuantity = state.planId === 'uhc-community-az' && reference
       && !group.records?.some(record => ['required', 'conditional'].includes(record.pa))
@@ -1997,6 +2040,7 @@
     const constipationPolicy = (constipationGeneric || linzess) && state.data.policies.find(policy => policy.id === constipationPolicyId);
     const refs = constipationPolicy ? cardPaReference(constipationPolicy,
       linzess ? 'Linzess PA guideline' : 'UHC October 18 policy')
+      : stripQuantity ? cardPaReference(stripQuantity, 'Test strip QL reference')
       : reference ? cardPaReference(reference, packetGuideline ? 'Packet PA guideline'
       : agePaFormulary ? 'PA formulary'
       : scopedQuantity || insulinQuantity || reviewedQuantity ? 'QL reference'
@@ -2040,6 +2084,8 @@
           ? '<p class="pa-condition">The formulary prints a PA flag and an age-8 PA condition. PA scope below age 8 is unverified.</p>'
           : reviewed && record.rawRestrictions?.includes('Members >= 8 years of age')
           ? '<p class="pa-condition">The formulary says PA applies at age 8 and older, with an exemption at age 6 and older for prescriptions by a psychiatric clinician, behavioral health pediatrician, or other behavioral health provider.</p>' : '';
+        const avivaConflict = isUhc && isUhcOctoberRow(record) && record.id === uhcAvivaDeviceId;
+        const gvoke = isUhc && isUhcOctoberRow(record) && uhcGvokePresentations.get(record.id);
         const productLabelLink = reviewed?.labelId
           ? ` · <a class="source-link" href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=${escapeHtml(reviewed.labelId)}" target="_blank" rel="noopener">Drug Facts ↗</a>` : '';
         const step = uhcStepRows.includes(record) ? uhcRespiratorySteps.get(record.id) : '';
@@ -2057,6 +2103,8 @@
         return `${label ? `<p class="coverage-product-label"><strong>${escapeHtml(label)}</strong>${productLabelLink}</p>` : ''}
           ${statewideScope}
           <div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${badges}${preferredNdcs.length && record === rows[0] ? '<span class="chip positive">Preferred for listed products</span>' : ''}${step && record.step !== 'specified' ? '<span class="chip warning">Step therapy</span>' : ''}</div>
+          ${avivaConflict ? '<p class="pa-condition"><strong>UHC source conflict:</strong> The formulary names the Aviva device and aliases it to a control solution. Exact meter package eligibility is unverified.</p>' : ''}
+          ${gvoke ? `<p class="pa-condition"><strong>FDA-labeled presentation:</strong> ${escapeHtml(gvoke.dose)}. UHC does not specify eligible strengths. <a class="source-link" href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=92385737-dbad-98c5-e053-2995a90a2805" target="_blank" rel="noopener">Drug label ↗</a></p>` : ''}
           ${constipationCoverageNote(record)}${exactAge}${continuedUse}${limit}${nebulizerNote ? `<p class="pa-condition">${escapeHtml(nebulizerNote)}</p>` : ''}
           ${step ? `<p class="pa-condition"><strong>Step therapy:</strong> ${escapeHtml(step)} <a class="source-link" href="${escapeHtml(sourceHref({...record, sourcePage: 36}))}" target="_blank" rel="noopener">UHC formulary · step table ↗</a></p>` : ''}`;
       }).join('')}
