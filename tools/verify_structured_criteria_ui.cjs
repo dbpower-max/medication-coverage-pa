@@ -19,3 +19,8 @@ assert(html.includes('&lt;script&gt;')&&!html.includes('<script>'),'Source text 
 assert(src.includes('structured.policyCode !== policy.policyCode')&&src.includes('structured.sourceEffective !== policy.sourceEffective'),'Reader fails to verify source identity');
 assert(src.includes('content.hidden = !content.hidden')&&src.includes('Retry clinical criteria'),'Toggle or retry missing');
 console.log('PASS: structured clinical panels, scope isolation, initial/renewal branches, source escaping and source identity guards');
+
+ctx.policy=JSON.parse(fs.readFileSync('_site/clinical-criteria/gl-509188.json','utf8'));
+ctx.pdf={sourceUrl:'./sources/policy.pdf',sourcePage:2013,sourceLastPage:2019};
+html=vm.runInContext('structuredCriteriaMarkup(policy,pdf)',ctx);
+assert(html.includes('policy.pdf#page=2018'), 'Later-page product criteria lost their PDF position');

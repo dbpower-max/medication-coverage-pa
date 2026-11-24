@@ -3,7 +3,7 @@ import hashlib
 import json
 import re
 from collections import defaultdict
-from structured_statewide_criteria import structure_policy, validate_structure
+from structured_statewide_criteria import assign_branch_pages, structure_policy, validate_structure
 
 PLAN = 'uhc-community-az'
 DUPLICATION_POLICIES = {'GL-735259', 'GL-733328'}
@@ -188,6 +188,7 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             branch = {'start':start,'end':end,'fields':{},'criteria':blocks(source,criteria_start,criteria_end),'notes':blocks(source,criteria_start+notes.end(),end) if notes else []}
             for i,f in enumerate(fields):branch['fields'][f[1].rstrip(':')] = span(source,f.end(),fields[i+1].start() if i+1<len(fields) else header_end)
             result = dict(schemaVersion=1,policyCode=code,title=policy['name'],sourceEffective=policy['sourceEffective'],sourcePage=policy['sourcePage'],sourceLastPage=policy['sourceLastPage'],sourceSha256=hashlib.sha256(source.encode()).hexdigest(),editorialStatus='Source-transcribed clinical fields; clinician approval pending',context=span(source,0,start),branches=[branch],supplement={**span(source,end,history),'verbatim':source[end:history]},history=span(source,history,len(source)))
+            assign_branch_pages(result, source)
             validate_structure(result,source)
         else:result = structure_policy(policy, source)
         # Repeated PDF running headers are furniture, never a clinical requirement.
@@ -240,6 +241,21 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         for key in sorted(keys):
             for code,i,product in by_key.get(key,[]):
                 if product_matches(record,product):matched[code].add(i)
+        if october_name in {'desmopressin acetate injection (generic for ddavp)',
+                            'desmopressin acetate pf (generic for ddavp pf)'}:
+            # GL-565277 names tablets, nasal spray and Desmoda oral solution.
+            matched.pop('GL-565277', None)
+            record['unverifiedPolicyCode'] = 'GL-565277'
+        antipsychotic_scope = {
+            'invega (brand for paliperidone er)': (14, 'Brand Invega'),
+            'clozapine oral tablet (generic for clozaril)': (2, 'generic clozapine'),
+        }.get(october_name)
+        if antipsychotic_scope:
+            code = 'GL-722213'
+            index, product = antipsychotic_scope
+            fields = structured[code]['branches'][index]['fields']
+            assert product in ' '.join(fields['Product Name']['text'].split()).split(', ')
+            matched[code] = {index}
         constipation_code = 'GL-720196'
         if october_name.startswith(('lubiprostone capsule ', 'prucalopride succinate (generic for ')):
             # The October 18 policy removed these generics from its PA targets.

@@ -1416,7 +1416,7 @@
         ${target === el.criteriaResults && policy.notes ? `<p>${escapeHtml(policy.notes)}</p>` : ''}
         ${structuredPolicyPanel(policy)}
         ${policy.guide ? `<details class="approval-guide"><summary>PA criteria · ${escapeHtml(policy.indication || policy.name)}</summary>${approvalGuideContent(policy)}</details>` : ''}
-        <p><a class="source-link" href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">Open original guideline PDF at this section</a></p>
+        <p><a class="source-link" href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">Open policy chapter · PDF</a></p>
         ${policy.sourceTextUrl ? `<button type="button" class="text-button criteria-load" data-read-guideline="${escapeHtml(policy.id)}">Read full guideline text</button>` : ''}
         <pre class="guideline-verbatim" hidden></pre>
       </article>
@@ -1436,7 +1436,14 @@
     </section>`;
   }
 
-  function structuredCriteriaMarkup(policy) {
+  function branchPageLink(branch, policy) {
+    if (!policy?.sourceUrl || !Number.isInteger(branch.sourcePage)
+        || branch.sourcePage < policy.sourcePage || branch.sourcePage > policy.sourceLastPage) return '';
+    const href = policy.sourceUrl.split('#')[0] + '#page=' + branch.sourcePage;
+    return `<p><a class="source-link" href="${escapeHtml(href)}" target="_blank" rel="noopener">Product criteria · PDF page ${branch.sourcePage}</a></p>`;
+  }
+
+  function structuredCriteriaMarkup(policy, source) {
     const field = (branch, key) => branch.fields[key]?.text || '';
     const rules = items => items.map(item => {
       const number = /^(\d+(?:\.\d+)*)\b/.exec(item.text)?.[1];
@@ -1447,6 +1454,7 @@
       + policy.branches.map((branch, i) => `<details class="clinical-source-branch result-disclosure">
         <summary>${escapeHtml([field(branch, 'Product Name'), field(branch, 'Diagnosis'), field(branch, 'Therapy Stage')].filter(Boolean).join(' · '))}</summary>
         <div class="result-disclosure-body">
+          ${branchPageLink(branch, source)}
           ${['Diagnosis', 'Therapy Stage', 'Approval Length', 'Guideline Type'].map(key => field(branch, key) ? `<p><strong>${escapeHtml(key === 'Approval Length' ? 'Approval duration' : key)}:</strong> ${escapeHtml(field(branch, key))}</p>` : '').join('')}
           <p><strong>Clinical criteria — source order and logic:</strong></p>
           ${rules(branch.criteria)}
@@ -1460,6 +1468,8 @@
   // Slice, never summarize: reconstructing these parts yields the exact source.
   // Product headings label source branches; they do not assert applicability.
   function policySourceBranches(text) {
+    const pages = [...text.matchAll(/^(?:--- PDF page (\d+) ---|=== PDF PAGE (\d+) ===)\s*$/gmi)];
+    let pageIndex = 0;
     const markers = [...text.matchAll(/^[\t ]*Product\s*Name\s*:[\t ]*([^\r\n]*)/gmi)];
     if (!markers.length) return {intro: text, branches: []};
     return {intro: text.slice(0, markers[0].index), branches: markers.map((marker, i) => {
@@ -1471,16 +1481,20 @@
         .join(' ').replace(/\s+/g, ' ').trim();
       const stage = content.match(/Therapy\s+Stage[\t ]*[\r\n]+\s*(Initial Authorization|Reauthorization)/i)?.[1] || '';
       const duration = content.match(/Approval\s+Length[\t ]*[\r\n]+\s*(\d+\s+(?:month|week|day)\(s\))/i)?.[1] || '';
-      return {product: product || 'Product branch (see source text)', stage, duration, text: content};
+      while (pageIndex + 1 < pages.length && pages[pageIndex + 1].index <= marker.index) pageIndex++;
+      const page = pages[pageIndex];
+      const sourcePage = page && page.index <= marker.index ? Number(page[1] || page[2]) : null;
+      return {sourcePage, product: product || 'Product branch (see source text)', stage, duration, text: content};
     })};
   }
 
-  function policySourceBranchMarkup(text) {
+  function policySourceBranchMarkup(text, policy) {
     const parsed = policySourceBranches(text);
     if (!parsed.branches.length) return '';
     return '<p>Original source branches — select the applicable product and treatment stage. All source wording and logical connectors are preserved; these are not clinician-approved summaries.</p>'
       + parsed.branches.map((branch, index) => `<details class="source-branch result-disclosure">
           <summary>${escapeHtml(branch.product)}${branch.stage ? ' · ' + escapeHtml(branch.stage) : ''}${branch.duration ? ' · ' + escapeHtml(branch.duration) : ''}</summary>
+          ${policy ? branchPageLink(branch, policy) : ''}
           <pre class="guideline-verbatim">${escapeHtml(branch.text)}</pre>
         </details>`).join('')
       + `<details class="result-disclosure"><summary>Complete unformatted source, including document notes</summary><pre class="guideline-verbatim">${escapeHtml(text)}</pre></details>`;
@@ -1530,7 +1544,7 @@
         if (!response.ok) throw new Error('Criteria unavailable');
         const structured = await response.json();
         if (structured.policyCode !== policy.policyCode || structured.sourceEffective !== policy.sourceEffective) throw new Error('Wrong source');
-        content.innerHTML = structuredCriteriaMarkup(structured);
+        content.innerHTML = structuredCriteriaMarkup(structured, policy);
         content.hidden = false;
         button.dataset.loaded = 'true';
         button.textContent = 'Hide clinical criteria';
@@ -1586,7 +1600,7 @@
         const response = await fetch(policy.sourceTextUrl);
         if (!response.ok) throw new Error('Source text unavailable');
         pre.textContent = await response.text();
-        const markup = policySourceBranchMarkup(pre.textContent);
+        const markup = policySourceBranchMarkup(pre.textContent, policy);
         if (markup) {
           branchView = document.createElement('div');
           branchView.className = 'source-branch-view';
@@ -1780,6 +1794,7 @@
     // Navigation only: a named source is not an assertion that its criteria
     // apply to every formulation or that this medication requires PA.
     for (const policy of [...namedPlanPolicies(group), ...namedPlanPolicies(group, true)]) {
+      if (group.records.some(record => record.unverifiedPolicyCode === policy.policyCode)) continue;
       if (policy.policyCode === 'GL-572198' && policy.planId === 'uhc-community-az'
           && group.records.some(record => uhcBrandTopamaxRows.has(record.id) || uhcAgeEightPa(record))) continue;
       add(policy);
@@ -1866,18 +1881,19 @@
     }).join('');
   }
 
-  function cardBranchMarkup(branch) {
+  function cardBranchMarkup(branch, policy) {
     const field = key => branch.fields?.[key]?.displayText || branch.fields?.[key]?.text || '';
     // Administrative dispensing instructions are retained in the source, not clinical UI.
     const notes = (branch.notes || []).filter(item => !/^PA Team Note:/i.test(item.text));
     return `<section class="card-clinical-branch">
+      ${branchPageLink(branch, policy)}
       ${['Diagnosis', 'Therapy Stage', 'Approval Length'].filter(key => field(key)).map(key => `<p><strong>${key === 'Approval Length' ? 'Approval duration' : key === 'Therapy Stage' ? 'Treatment stage' : key}:</strong> ${escapeHtml(field(key))}</p>`).join('')}
       ${cardSourceRules(branch.criteria || [])}
       ${notes.length ? `<div class="clinical-exceptions"><strong>Restrictions &amp; exceptions</strong>${cardSourceRules(notes)}</div>` : ''}
     </section>`;
   }
 
-  function cardTextBranchMarkup(branch) {
+  function cardTextBranchMarkup(branch, policy) {
     const text = branch.text.replace(/^\s*(?:--- PDF page \d+ ---|=== PDF PAGE \d+ ===|Page \d+)\s*$/gmi, '');
     const body = text.split(/Approval\s+Criteria\s*:?/i)[1];
     if (!body) return '<p>Formatted criteria for this medication are not available. See the PA reference.</p>';
@@ -1894,6 +1910,7 @@
       else paragraphs[paragraphs.length - 1] += ' ' + line;
     }
     return `<section class="card-clinical-branch">
+      ${branchPageLink(branch, policy)}
       ${branch.stage ? `<p><strong>Treatment stage:</strong> ${escapeHtml(branch.stage)}</p>` : ''}
       ${branch.duration ? `<p><strong>Approval duration:</strong> ${escapeHtml(branch.duration)}</p>` : ''}
       ${cardSourceRules(paragraphs.map(text => ({text, kind: /^(?:AND|OR)$/.test(text) ? 'connector' : 'requirement'})))}
@@ -2085,7 +2102,7 @@
             : scope ? `<p><strong>Formulation:</strong> ${escapeHtml(scope)}</p>` : '';
           // The final condition and preceding AND in this shared policy apply only to brand Nexium.
           const applicable = selected === packetReference ? {...branch, criteria: branch.criteria.slice(0, -2)} : branch;
-          body.push(label + cardBranchMarkup(applicable));
+          body.push(label + cardBranchMarkup(applicable, policy));
         }
         if (!references.some(p => p.id === policy.id)) references.push(policy);
       }
@@ -2194,7 +2211,7 @@
             const signature = JSON.stringify(branch.fields ? [branch.fields, branch.criteria, branch.notes] : branch.text);
             if (seen.has(signature)) return false;
             seen.add(signature); return true;
-          }).map(branch => branch.fields ? cardBranchMarkup(branch) : cardTextBranchMarkup(branch));
+          }).map(branch => branch.fields ? cardBranchMarkup(branch, policy) : cardTextBranchMarkup(branch, policy));
           break;
         }
         if (sections.length) break;
@@ -2210,7 +2227,8 @@
   }
 
   function cardPaReference(source, label = 'PA reference') {
-    return `<a class="source-link card-pa-reference" href="${escapeHtml(sourceHref(source))}" target="_blank" rel="noopener" title="${escapeHtml(source.policyCode || source.name || 'PA source')} · ${escapeHtml(source.sourceEffective || '')}">${escapeHtml(label)} ↗</a>`;
+    const chapter = source.recordType === 'policy_index' && source.sourcePage ? ' · chapter p. ' + source.sourcePage : '';
+    return `<a class="source-link card-pa-reference" href="${escapeHtml(sourceHref(source))}" target="_blank" rel="noopener" title="PDF source · ${escapeHtml(source.policyCode || source.name || 'PA source')} · ${escapeHtml(source.sourceEffective || '')}">${escapeHtml(label)} ↗${escapeHtml(chapter)}</a>`;
   }
 
   function constipationCoverageNote(record) {
@@ -2403,6 +2421,7 @@
           ${scope ? `<p class="pa-condition">${escapeHtml(scope)}</p>` : ''}
           <div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${badges}${preferredNdcs.length && record === rows[0] ? '<span class="chip positive">Preferred for listed products</span>' : ''}${step && record.step !== 'specified' ? '<span class="chip warning">Step therapy</span>' : ''}</div>
           ${glucoseSupply === record && glucoseDisplay.note ? `<p class="pa-condition"><strong>UHC formulary disagreement:</strong> ${escapeHtml(glucoseDisplay.note)} ${glucoseDisplay.pages.map(page => `<a class="source-link" href="${escapeHtml(sourceHref({...record, sourcePage: page}))}" target="_blank" rel="noopener">PDL p. ${page} ↗</a>`).join(' · ')}</p>` : ''}
+          ${record.unverifiedPolicyCode ? '<p class="pa-condition">UHC lists PA. Criteria for this exact presentation are unverified.</p>' : ''}
           ${avivaConflict ? '<p class="pa-condition"><strong>UHC source conflict:</strong> The formulary names the Aviva device and aliases it to a control solution. Exact meter package eligibility is unverified.</p>' : ''}
           ${gvoke ? `<p class="pa-condition"><strong>FDA-labeled presentation:</strong> ${escapeHtml(gvoke.dose)}. UHC does not specify eligible strengths. <a class="source-link" href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=92385737-dbad-98c5-e053-2995a90a2805" target="_blank" rel="noopener">Drug label ↗</a></p>` : ''}
           ${presentation?.note ? `<p class="pa-condition">${escapeHtml(presentation.note)}</p>` : ''}

@@ -7,6 +7,24 @@ const a=ctx.api;a.state.data=data;a.state.planId='uhc-community-az';
 async function open(g){const content={innerHTML:'',isConnected:true},ref={innerHTML:''};a.medicationGroupCard(g);const d={open:true,dataset:{cardClinical:g.key||g.label},querySelector:s=>s==='.card-pa-references'?ref:content};await a.populateCardClinical(d);assert.equal(d.dataset.loaded,'true',g.label+' did not load');return {html:content.innerHTML,ref:ref.innerHTML};}
 (async()=>{
  const groups=a.planMedicationGroups().filter(g=>g.records.some(r=>r.planId==='uhc-community-az'&&!r.isStatewideReference&&(['required','conditional'].includes(r.pa)||r.qlAmount||r.qlDays)));
+ for (const suffix of ['9cd407726d2e7fc5','6fc882e449630255']) {
+   const id='uhc-oct-complete-'+suffix;
+   const g=groups.find(group=>group.records.some(r=>r.id===id));
+   const card=a.medicationGroupCard(g);
+   const detail=await open(g);
+   assert.equal(g.records.find(r=>r.id===id).pa,'required');
+   assert(card.includes('Criteria for this exact presentation are unverified.'));
+   assert(![card,detail.html,detail.ref].join('').includes('gl-565277'));
+   assert(!detail.html.includes('For Desmoda ONLY'));
+ }
+ for (const [suffix,pages] of [['87576cc498d5cebd',[135]],['06139dd1f71f96aa',[149]],['b979e34950fd619d',[135,149]]]) {
+   const id='uhc-oct-complete-'+suffix;
+   const g=groups.find(group=>group.records.some(r=>r.id===id));
+   const output=await open(g);
+   for(const page of [133,135,149]) {
+     assert.equal(output.html.includes('Product criteria · PDF page '+page+'<'),pages.includes(page),id+' page '+page);
+   }
+ }
  const mounjaro=a.planMedicationGroups().find(g=>/mounjaro/i.test(g.label));assert(a.medicationGroupCard(mounjaro).includes('uhc-az-clinical-pharmacy-2026-11-01.pdf'),'Initial UHC reference incorrectly points to statewide criteria');
  let n=0;
  for(const g of groups){const out=await open(g);assert(out.html.trim(),g.label+' empty');assert(out.ref.includes('href='),g.label+' no policy/formulary reference');assert(!out.html.includes('Formatted criteria for this medication are not available'),'Empty template remains');
