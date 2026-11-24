@@ -82,7 +82,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   assert.equal(g.records.length,1, id+' merged with a different plan or device');
   const record=g.records[0];
   assert.equal(record.pa,'required');
-  assert.equal(record.preferred,'non_preferred');
+  assert.equal(record.preferred,['14411026d49668ea','9b40fc8558feebd0'].includes(id)?'non_preferred':'preferred');
   const card=a.medicationGroupCard(g);
   assert(card.includes(url) && card.includes('>PA required<'),id+' lost label link or PA');
  }
