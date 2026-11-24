@@ -2620,6 +2620,7 @@
   }
 
   async function init() {
+    initTheme();
     ids.forEach((id) => { el[id] = document.getElementById(id); });
     try {
       const response = await fetch('./data.json.gz');
@@ -2652,6 +2653,31 @@
       el.loadingState.textContent = 'Coverage data could not be loaded. Please refresh or try again later.';
       console.error(error);
     }
+  }
+
+  function initTheme() {
+    const control = document.getElementById('themeChoice');
+    const preference = window.matchMedia('(prefers-color-scheme: dark)');
+    const storageKey = 'coverage-theme';
+    try {
+      const saved = localStorage.getItem(storageKey);
+      if (saved === 'dark' || saved === 'light') control.value = saved;
+    } catch { /* Storage can be disabled in private browsing. */ }
+
+    function applyTheme() {
+      document.documentElement.dataset.theme = control.value === 'system'
+        ? (preference.matches ? 'dark' : 'light')
+        : control.value;
+    }
+    control.addEventListener('change', () => {
+      applyTheme();
+      try {
+        if (control.value === 'system') localStorage.removeItem(storageKey);
+        else localStorage.setItem(storageKey, control.value);
+      } catch { /* The selection still applies for this page. */ }
+    });
+    preference.addEventListener('change', applyTheme);
+    applyTheme();
   }
 
   document.addEventListener('DOMContentLoaded', init);
