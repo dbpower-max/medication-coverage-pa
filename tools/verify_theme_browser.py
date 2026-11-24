@@ -38,9 +38,12 @@ def verify_coverage_labels(page, width):
     plan_sources.click()
 
     def check_position(card):
-        heading = card.get_by_role("heading").first.bounding_box()
-        package = card.get_by_text("Vial size: 10 mL", exact=True).bounding_box()
-        badge = card.locator(".chips .chip").first.bounding_box()
+        # Smooth scrolling can move between separate viewport-coordinate reads.
+        heading, package, badge = card.evaluate("""node => {
+            const vial = [...node.querySelectorAll('p')].find(p => p.textContent === 'Vial size: 10 mL');
+            return [node.querySelector('h3'), vial, node.querySelector('.chips .chip')]
+                .map(element => element.getBoundingClientRect().toJSON());
+        }""")
         assert abs(package["x"] - heading["x"]) < 2
         if width > 580:
             assert badge["x"] >= heading["x"] + heading["width"]
