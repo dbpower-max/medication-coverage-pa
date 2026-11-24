@@ -95,10 +95,10 @@ api.state.coverage = '';
 assert(api.render().some(group => group.label === 'doxepin HCl 10 MG Oral Capsule'));
 // The cards and search tool must agree on the source of each displayed benefit.
 for (const [term, id, expected] of [
-  ['lispro', 'ach-json-242120', {'2022 baseline · presumed': ['Covered', 'Preferred', 'Quantity limit']}],
-  ['Tudorza', 'ach-json-1303107', {'Plan notice': ['Covered', 'Nonpreferred', 'PA required']}],
-  ['clozapine', 'ach-json-1006801', {'Plan notice': ['Covered', 'Preferred'],
-    'AHCCCS Statewide': ['Conditional PA'], '2022 baseline · presumed': ['Quantity limit']}]
+  ['lispro', 'ach-json-242120', [['Covered', 'Preferred', 'Quantity limit']]],
+  ['Tudorza', 'ach-json-1303107', [['Plan notice', 'Covered', 'Nonpreferred', 'PA required']]],
+  ['clozapine', 'ach-json-1006801', [['Quantity limit'], ['Plan notice', 'Covered', 'Preferred'],
+    ['AHCCCS Statewide', 'Conditional PA']]]
 ]) {
   api.state.term = term;
   const group = api.render().find(g => g.records.some(r => r.id === id));
@@ -109,9 +109,10 @@ for (const [term, id, expected] of [
   const card = api.medicationGroupCard({...group, records: [record], isStatewide: false});
   const chips = Array.from(card.matchAll(/<div class="chips"[^>]*>([\s\S]*?)<\/div>/g),
     line => Array.from(line[1].matchAll(/<span[^>]*>([^<]+)<\/span>/g), match => match[1]));
-  for (const [scope, flags] of Object.entries(expected)) {
-    assert.deepEqual(chips.find(row => row[0] === scope), [scope, ...flags], id + ' ' + scope);
-  }
+  assert.deepEqual(chips, expected, id);
+  assert(!/presum|baseline/i.test(card.replace(/<[^>]+>/g, '')), id);
+  assert(!/presum|baseline/i.test(api.recordDetails(record).replace(/<[^>]+>/g, '')), id);
+  assert(api.recordDetails(record).includes(`row ${record.sourceRow}`), id);
 }
 api.state.planId = null;
 assert.equal(api.render().length, 0);

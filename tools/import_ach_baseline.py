@@ -149,7 +149,7 @@ def with_ach_baseline(d):
   if any(b for b,r in candidates):candidates=[(b,r) for b,r in candidates if b]
   candidates=[r for b,r in candidates]
   candidates.sort(key=lambda r:r.get('sourceEffective',''))
-  rec=dict(id='ach-json-'+row['rxnorm_id'],recordType='formulary',planId='az-complete-health',name=name,brand=brand,category='Other',subcategory='Integrated formulary',coverage='listed',listingLabel='Covered',preferred='preferred' if p.get('drug_tier')=='PREFERRED' else 'not_specified',pa='required' if p.get('prior_authorization') else ('not_required' if p.get('prior_authorization') is False else 'not_specified'),paText='Prior authorization required by the JSON baseline.' if p.get('prior_authorization') else '',step='specified' if p.get('step_therapy') else 'not_specified',stepText='Step therapy required; the JSON does not provide the steps.' if p.get('step_therapy') else '',quantityLimited=bool(p.get('quantity_limit')),qlAmount='',qlDays='',conditions=[],notes=SOURCE_SCOPE,sourceTitle='Arizona Complete Health official integrated JSON baseline (declared plan year 2022)',sourceEffective='2022',sourceUrl='/sources/ach/integrated-formulary-baseline.json.gz',sourceRow=index+1,rxnormId=row['rxnorm_id'],validation='official_json_baseline_with_later_updates',baselineSource={'url':SOURCE,'declaredPlanYears':p['years'],'row':index+1,'values':p},sourceUpdates=[])
+  rec=dict(id='ach-json-'+row['rxnorm_id'],recordType='formulary',planId='az-complete-health',name=name,brand=brand,category='Other',subcategory='Integrated formulary',coverage='listed',listingLabel='Covered',preferred='preferred' if p.get('drug_tier')=='PREFERRED' else 'not_specified',pa='required' if p.get('prior_authorization') else ('not_required' if p.get('prior_authorization') is False else 'not_specified'),paText='The formulary lists prior authorization.' if p.get('prior_authorization') else '',step='specified' if p.get('step_therapy') else 'not_specified',stepText='The formulary requires step therapy but does not specify the steps.' if p.get('step_therapy') else '',quantityLimited=bool(p.get('quantity_limit')),qlAmount='',qlDays='',conditions=[],notes='',sourceTitle='Arizona Complete Health official integrated JSON baseline (declared plan year 2022)',sourceEffective='2022',sourceUrl='/sources/ach/integrated-formulary-baseline.json.gz',sourceRow=index+1,rxnormId=row['rxnorm_id'],validation='official_json_baseline_with_later_updates',baselineSource={'url':SOURCE,'declaredPlanYears':p['years'],'row':index+1,'values':p},sourceUpdates=[])
   for r in candidates:
    rec['category']=r.get('category') or rec['category'];rec['subcategory']=r.get('subcategory') or rec['subcategory']
    update={k:r.get(k) for k in ['id','name','sourceTitle','sourceUrl','sourceEffective','sourcePage','preferred','pa','paText','step','stepText','qlAmount','qlDays']}
@@ -168,9 +168,10 @@ def with_ach_baseline(d):
    r['sourceTitle']='AHCCCS drug list adopted as ACH minimum';r['notes']='Statewide minimum listing. Exact-plan product restrictions require separate verification.'
  d['medications']=[r for r in d['medications'] if r['planId']!='az-complete-health']+current+result
  for plan in d['plans']:
-  if plan['id']=='az-complete-health':plan.update(status='baseline_plus_updates',detail=f'{len(raw):,} strength-specific JSON baseline entries plus {len(current):,} later source entries. '+SOURCE_SCOPE,effective='Presumed 2022 baseline and dated updates')
+  if plan['id']=='az-complete-health':plan.update(status='baseline_plus_updates',detail='A complete current Arizona Complete Health formulary has not been verified.',effective='Arizona Complete Health formulary and updates')
  for e in d['planEvidence']:
-  if e['planId']=='az-complete-health':e.update(topic='Formulary source of truth and precedence',evidence=SOURCE_SCOPE,sourceUrl=SOURCE,sourceEffective='2022 baseline')
+  if e['planId']=='az-complete-health':e.update(topic='Arizona Complete Health formulary',evidence='Original product listings and benefit flags.',sourceUrl=SOURCE,sourceEffective='2022')
+ d['meta']['achFormularyEvidenceRule']=SOURCE_SCOPE
  d['meta']['asOf']='2026-11-13'
  # Counts include lazy-loaded plan datasets as in the existing export.
  d['meta']['recordCount']+=len(result)-prior_baselines

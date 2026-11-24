@@ -864,10 +864,6 @@
     ['ach-json-847252', lisproProducts.mixPen]
   ]);
 
-  const baselineCoverageSource = {
-    label: '2022 baseline · presumed',
-    description: 'Arizona Complete Health’s 2022 formulary is presumed to apply where newer evidence has not changed this product’s benefits.'
-  };
   const statewideCoverageSource = {
     label: 'AHCCCS Statewide',
     description: 'AHCCCS statewide reference. Exact-plan coverage and restrictions are unverified.'
@@ -875,7 +871,6 @@
 
   function coverageSource(record) {
     if (record.isStatewideReference || record.auditScope === 'statewide_reference') return statewideCoverageSource;
-    if (record.baselineSource) return baselineCoverageSource;
     return null;
   }
 
@@ -1258,7 +1253,7 @@
       commercial_guide_import: 'Formulary guide imported · match exact pharmacy plan',
       reference_guide_import: 'PDL reference imported · benefit coverage unverified',
       verified_published_source: 'Current published sources verified',
-      baseline_plus_updates: 'JSON baseline + subsequent updates',
+      baseline_plus_updates: 'Formulary and updates',
       mandated_minimum_incomplete: 'Verified mandated minimum · additional plan data needed',
       policy_sources_indexed: 'Plan policy sources indexed',
       selected_records_loaded: 'Selected exact-plan records loaded',
@@ -1330,8 +1325,8 @@
   function baselineBadgeRows(record) {
     const origins = record.benefitSources;
     const sources = [
+      ['presumed_2022', ''],
       ['selected_plan', 'Plan notice'],
-      ['presumed_2022', baselineCoverageSource.label],
       ['statewide_reference', statewideCoverageSource.label]
     ];
     const lines = sources.map(([scope, label]) => {
@@ -1345,7 +1340,8 @@
       }, belongs('coverage'));
       const preference = belongs('coverage') && record.coverage === 'listed' && record.preferred === 'not_specified'
         && !record.preferenceUncertaintyReason ? '<span class="chip neutral">Preference not specified</span>' : '';
-      return badges ? `<div class="chips" aria-label="${escapeHtml(label)} coverage attributes"><span class="chip neutral">${escapeHtml(label)}</span>${badges}${preference}</div>` : '';
+      const sourceChip = label ? `<span class="chip neutral">${escapeHtml(label)}</span>` : '';
+      return badges ? `<div class="chips" aria-label="${escapeHtml(label || 'Plan')} coverage attributes">${sourceChip}${badges}${preference}</div>` : '';
     }).join('');
     const holds = [...new Set([record.sourceConflict, record.paUncertaintyReason].filter(Boolean))];
     return lines + holds.map(reason => `<p class="pa-condition">${escapeHtml(reason)}</p>`).join('');
@@ -1447,7 +1443,7 @@
     }
     if (record.sourceUpdates?.length) details.push('<p><strong>Later applicable sources:</strong></p>' + record.sourceUpdates.map(item =>
       `<p>${item.scope === 'statewide_reference' ? 'AHCCCS Statewide' : 'Plan notice'} · <a href="${escapeHtml(sourceHref(item))}" target="_blank" rel="noopener">${escapeHtml(item.name)} · ${escapeHtml(item.sourceEffective)}</a>${item.paText ? ' · ' + escapeHtml(item.paText) : ''}</p>`).join(''));
-    if (record.quantityLimited && !record.qlAmount && !record.qlDays) details.push('<p><strong>Quantity limit:</strong> Required by the JSON source; amount and interval are not supplied.</p>');
+    if (record.quantityLimited && !record.qlAmount && !record.qlDays) details.push('<p><strong>Quantity limit:</strong> The source lists a limit without specifying an amount or interval.</p>');
     if (hasVerifiedMandatedCoverage(record)) details.push('<p><strong>Coverage source:</strong> AHCCCS-mandated minimum</p>');
     if (record.policyEffective) details.push(`<p><strong>Policy effective:</strong> ${escapeHtml(record.policyEffective)} · source document snapshot ${escapeHtml(record.sourceEffective)}</p>`);
     if (record.individualEffectiveMissing) details.push('<p><strong>Policy effective date:</strong> not stated in this source section. The document snapshot date is shown separately.</p>');
@@ -1518,7 +1514,8 @@
     }
     if (record.sourceTextUrl && !record.guide) details.push(`<p><a class="source-link" href="${escapeHtml(record.sourceTextUrl)}" target="_blank" rel="noopener">Read full source text · PDF pages ${Number(record.sourcePage)}–${Number(record.sourceLastPage)}</a></p>`);
     if (record.planId === 'banner-ufc' && /ERYTHROMYCIN.*GEL/i.test(record.name)) details.push('<p>FDA lists the 63739-053-66 and 63739-053-68 erythromycin gel packages as discontinued. Exact claim eligibility is unverified.</p>');
-    const sourceLabel = [record.sourceTitle, record.sourceEffective && `effective ${record.sourceEffective}`, record.sourcePage && `page ${record.sourcePage}`].filter(Boolean).join(' · ');
+    const sourceTitle = record.baselineSource ? 'Archived Arizona Complete Health formulary' : record.sourceTitle;
+    const sourceLabel = [sourceTitle, record.sourceEffective && `effective ${record.sourceEffective}`, record.sourcePage && `page ${record.sourcePage}`].filter(Boolean).join(' · ');
     if (!record.guide) details.push(`<a class="source-link" href="${escapeHtml(sourceHref(record))}" target="_blank" rel="noopener">${escapeHtml(sourceLabel || 'Open source')}</a>`);
     return details.join('');
   }
