@@ -2391,6 +2391,30 @@
       }
       let sections = [];
       let activeSource = guidance;
+      // DEC-12/13: use explicitly reviewed exact-plan stage pages for these rows.
+      // Never fall back to other product, statewide policy or stage if the reviewed branch is missing.
+      const exactRows = (group.records || []).filter(r => r.planId === 'banner-ufc' && !r.isStatewideReference);
+      const scoped = state.planId === 'banner-ufc' && exactRows.some(r => r.reviewedBannerBranches);
+      if (scoped) {
+        const bindings = exactRows.map(r => r.reviewedBannerBranches);
+        const unique = new Set(bindings.map(b => JSON.stringify(b)));
+        if (bindings.some(b => !b) || unique.size !== 1) throw new Error('Mixed Banner branch scope');
+        const b = bindings[0], policy = policies.find(p => p.id === b.policyId && p.planId === 'banner-ufc');
+        if (!policy) throw new Error('Missing exact Banner policy');
+        const source = await loadClinicalSource(policy);
+        const selected = [['Initial Authorization', b.initialPage], ['Reauthorization', b.renewalPage]].map(([stage,page]) => {
+          const matches = source.branches.filter(branch => branch.stage === stage && branch.sourcePage === page && new RegExp('(?:^|[^a-z])'+b.product+'(?:[^a-z]|$)', 'i').test(branch.product));
+          if (matches.length !== 1) throw new Error('Exact Banner product/stage branch not verified');
+          return {...matches[0], text: matches[0].text.split(/\n\s*2\s*\.\s*Revision History/i)[0]};
+        });
+        const exclusion = b.exclusionPage ? source.branches.filter(branch => branch.sourcePage === b.exclusionPage && /^All products\b/i.test(branch.product) && /Idiopathic Short Stature/i.test(branch.product)) : [];
+        if (b.exclusionPage && exclusion.length !== 1) throw new Error('Missing reviewed exclusion');
+        target.innerHTML = selected.map(branch => cardTextBranchMarkup(branch, policy)).join('') + (exclusion.length ? '<h4>Separate indication exclusion</h4>'+cardTextBranchMarkup(exclusion[0], policy) : '');
+        const references = details.querySelector('.card-pa-references');
+        if (references) references.innerHTML = cardPaReference(policy);
+        details.dataset.loaded = 'true';
+        return;
+      }
       // Use the selected plan's exact named product branches first. Never
       // concatenate two payer versions into one apparent set of requirements.
       const planPolicies = policies.filter(p => p.planId === state.planId && !uhcDuplicationPolicies.has(p.policyCode));
