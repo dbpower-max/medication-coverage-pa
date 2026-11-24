@@ -274,6 +274,21 @@ for(const id of ['banner-full-0265ef7d56628527','banner-full-cc76cd1e0045dbf1','
  const card=api.medicationGroupCard(group);
  assert(card.includes(record.reviewedPresentation.note) && !card.includes('data-card-clinical='));
 }
+// Exact Banner MS links retain the formulary's unknown preference and device distinctions.
+for(const [id,product] of [
+ ['banner-full-b20b5312833f8841','Avonex'],
+ ['banner-full-46cc6b2b57f100b3','Avonex'],
+ ['banner-full-fe7518236db69cb0','Rebif']
+]){
+ const group=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(group,id+' missing');
+ const record=group.records.find(r=>r.id===id);
+ assert.equal(record.planId,'banner-ufc');assert.equal(record.pa,'required');assert.equal(record.preferred,'not_specified');
+ const link=record.policySources.find(p=>p.policyId==='banner-policy-12-1193');
+ assert(link && link.matchedProduct===product && link.firstPage===1193 && link.scope.includes('positive clinical response') && link.scope.includes('Exact device/package eligibility is unverified'),id+' missing correct scope');
+ api.medicationGroupCard(group);
+ assert(api.cardClinicalGroups.get(group.key).policies.some(p=>p.id==='banner-policy-12-1193' && p.planId==='banner-ufc'),id+' missing exact-plan policy');
+}
+console.log('PASS: three Banner MS listings preserve original PA and preference and named guideline scope.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
