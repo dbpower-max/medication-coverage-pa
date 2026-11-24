@@ -1794,7 +1794,7 @@
     // Navigation only: a named source is not an assertion that its criteria
     // apply to every formulation or that this medication requires PA.
     for (const policy of [...namedPlanPolicies(group), ...namedPlanPolicies(group, true)]) {
-      if (group.records.some(record => record.unverifiedPolicyCode === policy.policyCode)) continue;
+      if (group.records.some(record => record.unverifiedPolicyCode === policy.policyCode || record.excludedPolicyCode === policy.policyCode)) continue;
       if (policy.policyCode === 'GL-572198' && policy.planId === 'uhc-community-az'
           && group.records.some(record => uhcBrandTopamaxRows.has(record.id) || uhcAgeEightPa(record))) continue;
       add(policy);

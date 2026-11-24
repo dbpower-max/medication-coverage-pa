@@ -36,6 +36,23 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    const binding=record.uhcClinicalBindings.find(b=>b.policyId.endsWith(code)&&b.role==='product');
    assert.deepEqual(binding.branchIndexes,expected,name);
  }
+ for (const [suffix,expectedPages,excludedPage] of [
+   ['367d1f3038b2b927',[],93],
+   ['c4664159ec823baf',[1389,1391],335],
+   ['96f164d71a0d7aab',[986,987],1488],
+   ['a2446a6eca08c16e',[986,987],1488],
+ ]) {
+   const id='uhc-oct-complete-'+suffix;
+   const group=groups.find(g=>g.records.some(r=>r.id===id));
+   const result=await open(group);
+   for(const page of expectedPages) assert(result.html.includes('Criteria source · PDF page '+page+'<'),id);
+   assert(!result.html.includes('Criteria source · PDF page '+excludedPage+'<'),id);
+   if(!expectedPages.length) assert(a.medicationGroupCard(group).includes('Criteria for this exact presentation are unverified.'));
+ }
+ const samsca=groups.find(g=>g.records.some(r=>r.name.startsWith('SAMSCA (brand')));
+ const samscaContent=await open(samsca);
+ assert(samscaContent.html.includes('Criteria source · PDF page 1488<'));
+ assert(!samscaContent.html.includes('Criteria source · PDF page 986<'));
  const mounjaro=a.planMedicationGroups().find(g=>/mounjaro/i.test(g.label));assert(a.medicationGroupCard(mounjaro).includes('uhc-az-clinical-pharmacy-2026-11-01.pdf'),'Initial UHC reference incorrectly points to statewide criteria');
  let n=0;
  for(const g of groups){const out=await open(g);assert(out.html.trim(),g.label+' empty');assert(out.ref.includes('href='),g.label+' no policy/formulary reference');assert(!out.html.includes('Formatted criteria for this medication are not available'),'Empty template remains');
