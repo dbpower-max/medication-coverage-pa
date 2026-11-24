@@ -93,12 +93,6 @@
     return statewideProjectionCache.get(state.planId);
   }
 
-  function selectedPlanRecords() {
-    return state.data.medications
-      .filter(record => record.planId === state.planId && record.recordType === 'formulary')
-      .map(scopedAchRecord);
-  }
-
   function recordsForPlan() {
     return selectedPlanRecords().concat(inheritedStatewideRows());
   }
@@ -725,6 +719,12 @@
       auditScope: exact.length ? 'selected_plan' : latest ? 'statewide_reference' : 'historical_2022',
       sourceEffective: latest?.sourceEffective || '', sourcePage: latest?.sourcePage || null,
       sourceTitle: latest?.sourceTitle || record.sourceTitle, sourceUrl: latest?.sourceUrl || record.sourceUrl};
+  }
+
+  function selectedPlanRecords() {
+    return state.data.medications
+      .filter(record => record.planId === state.planId && record.recordType === 'formulary')
+      .map(scopedAchRecord);
   }
 
   function planMedicationGroups() {
