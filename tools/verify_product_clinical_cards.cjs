@@ -91,6 +91,18 @@ for(const [id,label,pid,page,preference,note] of [
 }
 console.log('PASS: two named Banner source links preserve generic versus brand scope, PA and original preference.');
 
+// Fasenra devices must not obscure the syringe-only pediatric dose.
+api.state.planId='banner-ufc';
+for(const [id,label,note] of [["banner-full-f280cb398b11247e","Fasenra Pen (Benralizumab) Subcutaneous Autoinjector","FDA label: 30 mg/mL pen only. The 10 mg pediatric asthma dose requires the prefilled syringe"],["banner-full-bc2f140b456dcb21","Fasenra (Benralizumab) Subcutaneous Prefilled Syringe","FDA label: 10 mg/0.5 mL or 30 mg/mL syringes"]]){
+ const g=api.planMedicationGroups().find(x=>x.records.some(r=>r.id===id));
+ assert(g,id+' missing');assert.equal(g.label,label);assert.equal(g.records.length,1);
+ const r=g.records[0];assert.equal(r.planId,'banner-ufc');assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');
+ const markup=api.medicationGroupCard(g);
+ assert(markup.includes(note)&&markup.includes('Exact covered strength/package remains unverified')&&markup.includes('da6aca1a-19ed-44a4-abb7-696c7d58b784'),id+' lost device scope');
+ assert(api.cardClinicalGroups.get(g.key).policies.some(p=>p.planId==='banner-ufc'&&p.sourcePage===647),id+' lost exact policy');
+}
+console.log('PASS: Fasenra pen and syringe remain separate, with unchanged PA/preference and named Banner policy.');
+
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
