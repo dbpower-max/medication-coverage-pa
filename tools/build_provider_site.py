@@ -20,7 +20,32 @@ ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "dist"
 OUT = ROOT / "_site"
 ALLOWED = {"az-complete-health", "banner-ufc", "uhc-community-az"}
-data = with_ach_baseline(json.loads(gzip.decompress((SRC / 'data.json.gz').read_bytes())))
+data = json.loads(gzip.decompress((SRC / 'data.json.gz').read_bytes()))
+# Dated plan notices establish only the listed product preference and billing route.
+for brand, ingredient, preference, payer_name, label_id in (
+    ('Prolia', 'denosumab', 'non_preferred', 'Prolia (SC)',
+     '49e5afe9-a0c7-40c4-af9f-f287a80c5c88'),
+    ('Bildyos', 'denosumab-nxxp', 'preferred', 'Bildyos syringe (SC)',
+     'b9e32bf7-d70a-4083-8577-c15751c7f769'),
+):
+    data['medications'].append({
+        'id': 'ach-apr2026-' + brand.lower(), 'planId': 'az-complete-health',
+        'recordType': 'formulary', 'name': payer_name, 'brand': brand,
+        'category': 'Bone Resorption Suppression and Related Agents',
+        'subcategory': 'Denosumab products', 'coverage': 'listed', 'preferred': preference,
+        'pa': 'not_specified', 'step': 'not_specified', 'conditions': [],
+        'sourceEffective': '2026-04-01', 'sourceTitle': 'Arizona Complete Health April formulary notice',
+        'sourceUrl': 'https://www.azcompletehealth.com/newsroom/PU26023.html',
+        'reviewedPresentation': {
+            'label': f'{brand} ({ingredient}) subcutaneous prefilled syringe',
+            'policyUnverified': True,
+            'scope': 'Arizona Complete Health · April 1, 2026',
+            'note': 'Labeled strength: 60 mg/mL. Pharmacy billing only. Pharmacy PA criteria and quantity limits are unverified.',
+            'billingUrl': 'https://www.azcompletehealth.com/newsroom/PU26021.html',
+            'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + label_id,
+        },
+    })
+data = with_ach_baseline(data)
 correct_source_restrictions(data['medications'])
 correct_source_conflicts(data['medications'])
 attach_provider_policies(data)
@@ -172,30 +197,6 @@ data["medications"] = [r for r in data["medications"]
     if r.get("validation") != "mandated_statewide_minimum_with_plan_adoption_evidence"]
 for key, identity in (("plans", "id"), ("medications", "planId"), ("policies", "planId"), ("planEvidence", "planId")):
     data[key] = [r for r in data[key] if r.get(identity) in ALLOWED]
-# Dated plan notices establish only the listed product preference and billing route.
-for brand, ingredient, preference, payer_name, label_id in (
-    ('Prolia', 'denosumab', 'non_preferred', 'Prolia (SC)',
-     '49e5afe9-a0c7-40c4-af9f-f287a80c5c88'),
-    ('Bildyos', 'denosumab-nxxp', 'preferred', 'Bildyos syringe (SC)',
-     'b9e32bf7-d70a-4083-8577-c15751c7f769'),
-):
-    data['medications'].append({
-        'id': 'ach-apr2026-' + brand.lower(), 'planId': 'az-complete-health',
-        'recordType': 'formulary', 'name': payer_name, 'brand': brand,
-        'category': 'Bone Resorption Suppression and Related Agents',
-        'subcategory': 'Denosumab products', 'coverage': 'listed', 'preferred': preference,
-        'pa': 'not_specified', 'step': 'not_specified', 'conditions': [],
-        'sourceEffective': '2026-04-01', 'sourceTitle': 'Arizona Complete Health April formulary notice',
-        'sourceUrl': 'https://www.azcompletehealth.com/newsroom/PU26023.html',
-        'reviewedPresentation': {
-            'label': f'{brand} ({ingredient}) subcutaneous prefilled syringe',
-            'policyUnverified': True,
-            'scope': 'Arizona Complete Health · April 1, 2026',
-            'note': 'Labeled strength: 60 mg/mL. Pharmacy billing only. Pharmacy PA criteria and quantity limits are unverified.',
-            'billingUrl': 'https://www.azcompletehealth.com/newsroom/PU26021.html',
-            'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + label_id,
-        },
-    })
 data['medications'].append({
     'id': 'banner-oct2026-j1306', 'planId': 'banner-ufc', 'recordType': 'formulary',
     'name': 'Injection, inclisiran, 1 mg', 'brand': 'Leqvio', 'category': 'Cardiovascular',

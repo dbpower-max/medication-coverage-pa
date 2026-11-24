@@ -856,7 +856,7 @@
     ['formulary-9809', {label: fluticasoneUnspecified}]
   ]);
 
-  const historicalLisproPackages = new Map([
+  const baselineLisproPackages = new Map([
     ['ach-json-242120', lisproProducts.lisproVial],
     ['ach-json-1652639', lisproProducts.lisproPen],
     ['ach-json-1926331', lisproProducts.juniorPen],
@@ -864,18 +864,18 @@
     ['ach-json-847252', lisproProducts.mixPen]
   ]);
 
-  const historicalCoverageSource = {
-    label: 'Historical listing',
-    description: 'Historical Arizona Complete Health formulary (2022). Current benefits are unverified.'
+  const baselineCoverageSource = {
+    label: '2022 baseline · presumed',
+    description: 'Arizona Complete Health’s 2022 formulary is presumed to apply where newer evidence has not changed this product’s benefits.'
   };
   const statewideCoverageSource = {
     label: 'AHCCCS Statewide',
     description: 'AHCCCS statewide reference. Exact-plan coverage and restrictions are unverified.'
   };
 
-  function coverageSource(record, presentation) {
+  function coverageSource(record) {
     if (record.isStatewideReference || record.auditScope === 'statewide_reference') return statewideCoverageSource;
-    if (record.auditScope === 'historical_2022' || presentation?.historical) return historicalCoverageSource;
+    if (record.baselineSource) return baselineCoverageSource;
     return null;
   }
 
@@ -883,43 +883,14 @@
     const id = record.isStatewideReference ? record.id.split(':').at(-1) : record.id;
     const reviewed = record.reviewedPresentation || reviewedCardPresentations.get(id);
     if (reviewed) return reviewed;
-    if (record.auditScope === 'statewide_reference') return {scope: statewideCoverageSource.label};
-    if (record.auditScope === 'selected_plan') return {scope: 'Arizona Complete Health October 2026 notice. See Sources for the named product.'};
-    if (record.planId === 'az-complete-health' && record.id?.startsWith('ach-json-')
-        && !record.sourceUpdates?.length) {
-      const historical = {historical: true};
-      const product = historicalLisproPackages.get(record.id);
-      if (product) return {...historical, ...product, separate: true,
-        packageQualifier: product === lisproProducts.lisproVial ? 'The historical listing does not specify a preferred vial size.' : ''};
-      return historical;
-    }
+    const product = record.baselineSource && baselineLisproPackages.get(record.id);
+    if (product) return {...product, separate: true,
+      packageQualifier: product === lisproProducts.lisproVial ? 'The plan does not specify a preferred vial size.' : ''};
     return null;
   }
 
-  // Keep 2022 baseline attributes in Sources. Only dated updates supply current flags.
-  function scopedAchRecord(record) {
-    if (!record.baselineSource || record.planId !== 'az-complete-health') return record;
-    const updates = record.sourceUpdates || [];
-    const exact = updates.filter(update => update.id.startsWith('ach-notice-'));
-    const applicable = exact.length ? exact : updates;
-    const latest = applicable.at(-1);
-    const field = key => {
-      const values = [...new Set(applicable.map(update => update[key] || ''))];
-      return values.length === 1 ? values[0] : '';
-    };
-    return {...record, coverage: latest ? 'listed' : 'not_specified',
-      preferred: field('preferred') || 'not_specified', pa: field('pa') || 'not_specified',
-      step: field('step') || 'not_specified', paText: field('paText'), stepText: field('stepText'),
-      qlAmount: field('qlAmount'), qlDays: field('qlDays'), quantityLimited: Boolean(field('qlAmount') || field('qlDays')),
-      auditScope: exact.length ? 'selected_plan' : latest ? 'statewide_reference' : 'historical_2022',
-      sourceEffective: latest?.sourceEffective || '', sourcePage: latest?.sourcePage || null,
-      sourceTitle: latest?.sourceTitle || record.sourceTitle, sourceUrl: latest?.sourceUrl || record.sourceUrl};
-  }
-
   function selectedPlanRecords() {
-    return state.data.medications
-      .filter(record => record.planId === state.planId && record.recordType === 'formulary')
-      .map(scopedAchRecord);
+    return state.data.medications.filter(record => record.planId === state.planId && record.recordType === 'formulary');
   }
 
   function planMedicationGroups() {
@@ -1239,7 +1210,6 @@
 
   function matchesCoverage(record) {
     if (!state.coverage) return true;
-    if (reviewedCardPresentation(record)?.historical) return false;
     if (record.planId === 'banner-ufc' && bannerInsulinConflicts.has(record.id)
         && ['listed', 'preferred'].includes(state.coverage)) return false;
     if (state.coverage === 'listed') return record.recordType === 'formulary' && record.coverage !== 'explicit_not_covered';
@@ -1322,7 +1292,7 @@
       && record.validation === 'mandated_statewide_minimum_with_plan_adoption_evidence';
   }
 
-  function statusChips(record) {
+  function statusChips(record, showCoverage = true) {
     const chips = [];
     // Description-correction provenance remains in the source records.
     if (record.planId === 'uhc-community-az' && record.sourceEffective === '2026-07-01') {
@@ -1331,14 +1301,14 @@
     if (record.suppressCoverageAndPaBadges) return '';
     if (record.recordType === 'policy') chips.push([record.guide ? 'PA guide · clinical review pending' : 'Policy criteria', 'warning']);
     else if (record.recordType === 'policy_index') chips.push(['Policy source indexed', 'warning']);
-    else if (record.coverage !== 'explicit_not_covered') {
+    else if (showCoverage && record.coverage !== 'explicit_not_covered') {
       const listingLabel = record.isStatewideReference || record.planId === 'ahcccs-statewide' ? 'Covered'
         : record.planId === 'uhc-community-az' && record.sourceEffective === '2026-07-01' ? 'On archived formulary' : record.coverage === 'listed' ? 'Covered' : 'On formulary';
       const verifiedCoverage = hasVerifiedMandatedCoverage(record);
       chips.push([verifiedCoverage ? 'Covered' : (/exact.plan preference notice/i.test(record.listingLabel || '') ? 'On formulary' : record.listingLabel) || listingLabel, verifiedCoverage || !record.listingLabel ? 'positive' : 'neutral', 'Appears in this source. Listed restrictions still apply.']);
     }
     if (record.guide?.ambiguity) chips.push(['Source clarification needed', 'negative']);
-    if (record.coverage === 'explicit_not_covered') chips.push(['Explicitly not covered', 'negative']);
+    if (showCoverage && record.coverage === 'explicit_not_covered') chips.push(['Explicitly not covered', 'negative']);
     if (record.coverageCaveat) chips.push([record.coverageCaveat, 'warning']);
     if (record.preferred === 'preferred') chips.push(['Preferred', 'positive']);
     if (record.preferred === 'non_preferred') chips.push(['Nonpreferred', 'warning']);
@@ -1355,6 +1325,30 @@
     if (record.specialty) chips.push(['Specialty', 'warning']);
     if (record.diagnosisRequired) chips.push(['Diagnosis required', 'warning']);
     return chips.filter(([text]) => !/conflicting source listings\s*=\s*conservative status|PA not addressed by notice|exact.plan preference notice/i.test(text)).map(([text, kind, help]) => `<span class="chip ${kind}"${help ? ` title="${escapeHtml(help)}"` : ''}>${escapeHtml(text)}</span>`).join('');
+  }
+
+  function baselineBadgeRows(record) {
+    const origins = record.benefitSources;
+    const sources = [
+      ['selected_plan', 'Plan notice'],
+      ['presumed_2022', baselineCoverageSource.label],
+      ['statewide_reference', statewideCoverageSource.label]
+    ];
+    const lines = sources.map(([scope, label]) => {
+      const belongs = field => origins[field] === scope;
+      const badges = statusChips({
+        recordType: 'formulary', coverage: record.coverage,
+        preferred: belongs('preferred') && record.preferred,
+        pa: belongs('pa') && record.pa, step: belongs('step') && record.step,
+        quantityLimited: belongs('quantityLimited') && record.quantityLimited,
+        ageLimited: belongs('ageLimited') && record.ageLimited
+      }, belongs('coverage'));
+      const preference = belongs('coverage') && record.coverage === 'listed' && record.preferred === 'not_specified'
+        && !record.preferenceUncertaintyReason ? '<span class="chip neutral">Preference not specified</span>' : '';
+      return badges ? `<div class="chips" aria-label="${escapeHtml(label)} coverage attributes"><span class="chip neutral">${escapeHtml(label)}</span>${badges}${preference}</div>` : '';
+    }).join('');
+    const holds = [...new Set([record.sourceConflict, record.paUncertaintyReason].filter(Boolean))];
+    return lines + holds.map(reason => `<p class="pa-condition">${escapeHtml(reason)}</p>`).join('');
   }
 
   function resolvedPolicyGuide(record) {
@@ -1433,12 +1427,8 @@
   function recordDetails(record) {
     const details = [];
     const presentation = reviewedCardPresentation(record);
-    const scope = coverageSource(record, presentation);
+    const scope = coverageSource(record);
     if (scope) details.push(`<p>${escapeHtml(scope.description)}</p>`);
-    if (scope === historicalCoverageSource) {
-      if (presentation?.packageQualifier) details.push(`<p>${escapeHtml(presentation.packageQualifier)}</p>`);
-      if (/^ach-json-(616578|794639)$/.test(record.id)) details.push('<p>The 2022 source listed PA. Current strength-specific requirements are unverified.</p>');
-    }
     const formRx = presentation?.uhcFormRx;
     if (formRx) details.push(`<p><a href="https://legacy.providerlookuponline.com/mrf/optumrx/drugs/2877216/JSON_Drugs_UHCCPAZ.json" target="_blank" rel="noopener">UHC electronic formulary</a> · UCSAZQ3, 2026 · RxCUI ${escapeHtml(formRx)} · file dated October 20, 2026.</p>`);
     for (const position of bannerRepeatPositions.get(record.id) || []) {
@@ -1450,8 +1440,13 @@
       details.push(`<p><strong>Dosage form:</strong> ${escapeHtml(form)} · <a href="https://mor.nlm.nih.gov/RxNav/search?searchBy=RXCUI&amp;searchTerm=${Number(exampleRxcui)}" target="_blank" rel="noopener">RxNorm product example ↗</a> (RxTerms, November 2026). This identifies the form only. See the payer row for listed strengths and restrictions.</p>`);
     }
     if (record.standardName) details.push(`<p><strong>Standardized name:</strong> ${escapeHtml(record.standardName)}<br>${escapeHtml(record.standardNameType)} · RxCUI ${escapeHtml(record.rxnormId)} · NLM release ${escapeHtml(record.standardNameProvenance.release)} · ${escapeHtml(record.standardNameProvenance.sourceFile)}</p>`);
-    if (record.baselineSource) details.push(`<p><strong>Baseline source:</strong> JSON row ${Number(record.sourceRow)} · RxNorm ${escapeHtml(record.rxnormId)} · declared plan year ${escapeHtml(record.baselineSource.declaredPlanYears.join(', '))}</p>`);
-    if (record.sourceUpdates?.length) details.push('<p><strong>Later source updates (applied in date order):</strong></p>' + record.sourceUpdates.map((item) => `<p><a href="${escapeHtml(sourceHref(item))}" target="_blank" rel="noopener">${escapeHtml(item.name)} · ${escapeHtml(item.sourceEffective)}</a>${item.paText ? ' · ' + escapeHtml(item.paText) : ''}</p>`).join(''));
+    if (record.baselineSource) {
+      const baseline = record.baselineSource;
+      details.push(`<p><strong>2022 plan source:</strong> <a href="${escapeHtml(baseline.url)}" target="_blank" rel="noopener">Arizona Complete Health formulary</a> · row ${Number(baseline.row)} · RxNorm ${escapeHtml(record.rxnormId)}.</p>`);
+      if (record.paUncertaintyReason) details.push(`<p>${escapeHtml(record.paUncertaintyReason)}</p>`);
+    }
+    if (record.sourceUpdates?.length) details.push('<p><strong>Later applicable sources:</strong></p>' + record.sourceUpdates.map(item =>
+      `<p>${item.scope === 'statewide_reference' ? 'AHCCCS Statewide' : 'Plan notice'} · <a href="${escapeHtml(sourceHref(item))}" target="_blank" rel="noopener">${escapeHtml(item.name)} · ${escapeHtml(item.sourceEffective)}</a>${item.paText ? ' · ' + escapeHtml(item.paText) : ''}</p>`).join(''));
     if (record.quantityLimited && !record.qlAmount && !record.qlDays) details.push('<p><strong>Quantity limit:</strong> Required by the JSON source; amount and interval are not supplied.</p>');
     if (hasVerifiedMandatedCoverage(record)) details.push('<p><strong>Coverage source:</strong> AHCCCS-mandated minimum</p>');
     if (record.policyEffective) details.push(`<p><strong>Policy effective:</strong> ${escapeHtml(record.policyEffective)} · source document snapshot ${escapeHtml(record.sourceEffective)}</p>`);
@@ -2468,7 +2463,6 @@
     const constipationGeneric = group.records.find(record => constipationGenericRows.has(record.id));
     const constipationBrand = group.records.find(record => record.id === uhcMotegrityId);
     const linzess = group.records.find(record => record.id === uhcLinzessId);
-    const achHistorical = group.records.some(record => /^ach-json-(616578|794639)$/.test(record.id));
     const title = achNotice ? achConstipationLabels.get(achNotice.id)
       : linzess ? 'Linzess (linaclotide) oral capsules'
       : constipationBrand ? 'Prucalopride oral tablets (Motegrity)'
@@ -2525,13 +2519,13 @@
     const constipationRows = group.records.filter(record => constipationGenericRows.has(record.id) ||
       [uhcMotegrityId, uhcLinzessId, bannerLubiprostoneId, achNotice?.id].includes(record.id));
     const reviewedExactRows = group.records.filter(record => !record.isStatewideReference
-      && reviewedCardPresentation(record) && !reviewedCardPresentation(record).historical);
+      && reviewedCardPresentation(record) && !record.baselineSource);
     const conflictGroup = reviewedExactRows.some(record => reviewedCardPresentation(record)?.conflict);
     const exactDisplayRows = conflictGroup ? group.records.filter(record => !record.isStatewideReference)
       : reviewedExactRows.length === 2 && reviewedExactRows.every(record => bannerEpiPenIds.has(record.id))
       ? reviewedExactRows.slice(0, 1) : reviewedExactRows;
     const directRows = group.records.filter(record => !record.isStatewideReference);
-    const mixedPlanRows = directRows.filter(record => !record.baselineSource && !reviewedCardPresentation(record)?.historical);
+    const mixedPlanRows = directRows.filter(record => !record.baselineSource);
     const scopeFields = ['coverage','preferred','pa','step','qlAmount','qlDays','ageRestrictionText','paExceptionText','stepText'];
     const showStatewideRow = group.isStatewide && (!mixedPlanRows.length || mixedPlanRows.some(record =>
       scopeFields.some(field => (record[field] || '') !== (group.statewideRecord[field] || ''))
@@ -2544,17 +2538,22 @@
     else if (group.isStatewide && !exactScopedRows && !uhcStepRows.length) {
       rows = showStatewideRow ? [...mixedPlanRows, group.statewideRecord] : mixedPlanRows;
     }
+    // Keep every strength-specific plan row visible alongside any shared reference.
+    if (directRows.some(record => record.baselineSource)) {
+      rows = [...new Set([...rows, ...directRows.filter(record => record.baselineSource)])];
+      if (group.isStatewide && !rows.includes(group.statewideRecord)) rows.push(group.statewideRecord);
+    }
     const conditions = [...new Set(rows.flatMap(record => [
-      ['required', 'conditional'].includes(record.pa) && !bannerEpiPenIds.has(record.id) && !reviewedCardPresentation(record)?.note?.includes(tiotropiumContinuation) && !achHistorical && !constipationGenericRows.has(record.id) && !(isUhc && uhcAgeEightPa(record)) ? record.paText : '', record.paExceptionText, record.ageRestrictionText
+      ['required', 'conditional'].includes(record.pa) && !bannerEpiPenIds.has(record.id) && !reviewedCardPresentation(record)?.note?.includes(tiotropiumContinuation) && !record.baselineSource && !constipationGenericRows.has(record.id) && !(isUhc && uhcAgeEightPa(record)) ? record.paText : '', record.paExceptionText, record.ageRestrictionText
     ].filter(text => text && text !== 'PA is printed in at least one source row.').map(text =>
-      group.isStatewide && mixedPlanRows.length ? (record.isStatewideReference ? 'AHCCCS statewide reference' : planScopeLabel) + ' · ' + text : text)))];
+      !record.baselineSource && group.isStatewide && mixedPlanRows.length ? (record.isStatewideReference ? 'AHCCCS statewide reference' : planScopeLabel) + ' · ' + text : text)))];
     const labeledCaplets = isUhc && rows.some(record => uhcReviewedProductGroups.get(record.id)?.labelId);
     const preferredNdcs = state.planId === 'banner-ufc' ? bannerAlbuterolPreferredNdcs(group) : [];
     const hideEmptyPa = insulinConflict || noticeOnly || (preferredNdcs.length && !guidance && !policies.length && !conditions.length
       && !group.records.some(record => ['required', 'conditional'].includes(record.pa) || record.policySource));
     const compact = compactPresentation(group);
     const packageQualifiers = compact ? [...new Set(rows.map(r => reviewedCardPresentation(r))
-      .filter(p => !p?.historical).map(p => p?.packageQualifier).filter(Boolean))] : [];
+      .map(p => p?.packageQualifier).filter(Boolean))] : [];
     const commonLabelUrl = compact && rows.length && rows.every(r => reviewedCardPresentation(r)?.labelUrl === compact.labelUrl)
       ? compact.labelUrl : '';
     return `<article class="result-card${compact ? ' compact-prescription' : ''}">
@@ -2579,7 +2578,7 @@
         const presentation = reviewedCardPresentation(record);
         const label = rows.length > 1 && (presentation?.option || constipationGenericRows.get(record.id) ||
           (record.id === uhcMotegrityId ? 'Brand Motegrity oral tablets' : '') || reviewed?.label || insulinLabel || record.coverageProductLabel
-          || record.uhcClinicalBindings?.find(binding => binding.productLabel)?.productLabel || (conflictGroup && record.name)
+          || record.uhcClinicalBindings?.find(binding => binding.productLabel)?.productLabel || ((conflictGroup || record.baselineSource) && record.name)
           || (group.isStatewide && mixedPlanRows.includes(record) && readableMedicationName(record.name)));
         const exactAge = isUhc && uhcAgeEightPa(record)
           ? '<p class="pa-condition">PA required at age 8 and older.</p>'
@@ -2598,17 +2597,16 @@
         const limit = (bannerProducts.includes(record) || (isBanner && group.isStatewide && mixedPlanRows.includes(record)))
           && /^\d+(?:\.\d+)?$/.test(record.qlAmount) && /^\d+$/.test(record.qlDays)
           ? `<p class="pa-condition"><strong>Quantity limit:</strong> ${escapeHtml(record.qlAmount)} per ${escapeHtml(record.qlDays)} days. The formulary does not specify a unit.</p>` : '';
-        const source = coverageSource(record, presentation);
-        const badges = source === historicalCoverageSource ? ''
-          : presentation?.explicitPa ? statusChips({...record, pa: 'required'})
+        const source = coverageSource(record);
+        const badges = record.baselineSource ? '' : presentation?.explicitPa ? statusChips({...record, pa: 'required'})
           : constipationGenericRows.has(record.id) ? statusChips({...record, pa: 'not_specified', step: 'not_specified'})
           + '<span class="chip warning">PA sources conflict</span>'
-          : achHistorical ? '' : achConstipationLabels.has(record.id)
+          : achConstipationLabels.has(record.id)
           ? statusChips({...record, coverageCaveat: ''}) : statusChips(record);
         const scope = !source && (presentation?.scope || (group.isStatewide && mixedPlanRows.includes(record) ? planScopeLabel : ''));
         return `${label ? `<p class="coverage-product-label"><strong>${escapeHtml(label)}</strong>${productLabelLink}</p>` : ''}
           ${scope ? `<p class="pa-condition">${escapeHtml(scope)}</p>` : ''}
-          <div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${source ? `<span class="chip neutral">${escapeHtml(source.label)}</span>` : ''}${badges}${preferredNdcs.length && record === rows[0] ? '<span class="chip positive">Preferred for listed products</span>' : ''}${step && record.step !== 'specified' ? '<span class="chip warning">Step therapy</span>' : ''}</div>
+          ${record.baselineSource ? baselineBadgeRows(record) : `<div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${source ? `<span class="chip neutral">${escapeHtml(source.label)}</span>` : ''}${badges}${preferredNdcs.length && record === rows[0] ? '<span class="chip positive">Preferred for listed products</span>' : ''}${step && record.step !== 'specified' ? '<span class="chip warning">Step therapy</span>' : ''}</div>`}
           ${glucoseSupply === record && glucoseDisplay.note ? `<p class="pa-condition"><strong>UHC formulary disagreement:</strong> ${escapeHtml(glucoseDisplay.note)} ${glucoseDisplay.pages.map(page => `<a class="source-link" href="${escapeHtml(sourceHref({...record, sourcePage: page}))}" target="_blank" rel="noopener">PDL p. ${page} ↗</a>`).join(' · ')}</p>` : ''}
           ${record.unverifiedPolicyCode ? '<p class="pa-condition">UHC lists PA. Criteria for this exact presentation are unverified.</p>' : ''}
           ${avivaConflict ? '<p class="pa-condition"><strong>UHC source conflict:</strong> The formulary names the Aviva device and aliases it to a control solution. Exact meter package eligibility is unverified.</p>' : ''}
@@ -2798,13 +2796,15 @@
         : record.paText || '',
       step: record.step, step_text: record.stepText || '', quantity: record.qlAmount || '', quantity_interval: record.qlDays || '',
       source: sourceHref(record), source_effective: record.sourceEffective || '',
+      ...(record.baselineSource ? {quantity_limited: record.quantityUncertaintyReason ? null : record.quantityLimited,
+        benefit_sources: record.benefitSources, source_updates: record.sourceUpdates} : {}),
       source_scope: record.auditScope || (record.isStatewideReference ? 'statewide_reference' : 'selected_plan')
     });
     return {name: dosageFormHeading(group), brands: group.brands, category: primary?.category || '',
       coverage: primary?.coverage || common('coverage'),
       pa: group.records.some(record => constipationGenericRows.has(record.id)) ? 'conflicting' : primary?.pa || common('pa'),
       source: primary ? sourceHref(primary) : '',
-      source_scope: group.isStatewide ? 'statewide_reference' : primary?.auditScope || (group.records.every(record => record.auditScope === 'historical_2022') ? 'historical_2022' : 'selected_plan'),
+      source_scope: group.isStatewide ? 'statewide_reference' : primary?.auditScope || (group.records.every(record => record.auditScope === 'presumed_2022') ? 'presumed_2022' : group.records.some(record => record.baselineSource) ? 'mixed_sources' : 'selected_plan'),
       products: group.records.map(product)};
   }
 

@@ -5,7 +5,7 @@ from functools import lru_cache
 from source_restrictions import correct_source_restrictions, correct_source_conflicts
 ROOT=Path(__file__).resolve().parents[1]
 SOURCE='https://www.azcompletehealth.com/content/dam/centene/az-complete-health/json/Drugs_FAB_CNCAZCH01_AZ_Medicaid_Integrated_Formulary_eff_9-1-22_07142026131014_AZ.json'
-SOURCE_SCOPE='The 2022 integrated formulary is historical. Later Arizona Complete Health notices establish only their named changes. AHCCCS listings provide statewide reference evidence. A complete current exact-plan formulary remains unverified.'
+SOURCE_SCOPE='Use the 2022 Arizona Complete Health formulary as the presumed baseline. Later applicable sources update only the fields they address. AHCCCS listings identify statewide benefits. A complete current plan formulary remains unverified.'
 STOP=set('w soln pref syr bitartrate bromide oral topical inhalation subcutaneous intramuscular intramusc intraven intravenous injection injectable nasal sublingual subcutane intrav sub q tablet tablets tab capsule capsules solution suspension cream ointment gel patch syringe syringes vial vials pen pens kit spray powder aerosol elixir suppository chewable chew chewable disintegrating odt er xr cr dr extended release delayed controlled hr hour hours 24 12 72 hcl hydrochloride hydrobromide sulfate sulphate mesylate sodium potassium mg mcg ml gm g % per actuation actuat metered dose inhaler nebulizer autoinjector cartridge prefilled pref pack pak various cf ag authorized generic only brand'.split())
 @lru_cache(maxsize=None)
 def tokens(s):
@@ -64,6 +64,54 @@ def explicit_brand_match(brand, source):
  if norm(brand)=='tudorza' and norm(name)=='tudorza pressair' and 'inhalation' in forms(source['name']):return True
  return norm(brand)==norm(name)
 
+def apply_benefit_updates(record, candidates):
+ """Resolve each benefit independently and keep the source of the displayed value."""
+ baseline = 'presumed_2022'
+ origins = dict.fromkeys(('coverage', 'preferred', 'pa', 'step', 'quantityLimited'), baseline)
+ groups = (
+  ('coverage', ('coverage', 'coverageText'), None),
+  ('preferred', ('preferred',), 'preferenceUncertaintyReason'),
+  ('pa', ('pa', 'paText', 'paExceptionText'), 'paUncertaintyReason'),
+  ('step', ('step', 'stepText'), 'stepUncertaintyReason'),
+  ('quantityLimited', ('quantityLimited', 'qlAmount', 'qlDays'), 'quantityUncertaintyReason'),
+  ('ageLimited', ('ageLimited', 'ageRestrictionText'), 'ageLimitedUncertaintyReason'),
+ )
+ for field, keys, uncertainty in groups:
+  relevant = [r for r in candidates if r.get(uncertainty) or
+              r.get(field) not in (None, '', False, 'not_specified') or
+              (field == 'quantityLimited' and (r.get('qlAmount') or r.get('qlDays'))) or
+              (field == 'ageLimited' and r.get('ageRestrictionText'))]
+  if not relevant:
+   continue
+  # A plan notice establishes the plan's field. A statewide statement retains
+  # its own attribution, even when it is the only newer source for that field.
+  exact = [r for r in relevant if r.get('validation') != 'mandated_statewide_minimum_with_plan_adoption_evidence']
+  scope = 'selected_plan' if exact else 'statewide_reference'
+  applicable = exact or relevant
+  date = max(r['sourceEffective'] for r in applicable)
+  latest = [r for r in applicable if r['sourceEffective'] == date]
+  def values(r):
+   vals = [r.get(k) for k in keys]
+   if field == 'quantityLimited':
+    vals[0] = bool(r.get('quantityLimited') or r.get('qlAmount') or r.get('qlDays'))
+   if field == 'ageLimited':
+    vals[0] = bool(r.get('ageLimited') or r.get('ageRestrictionText'))
+   return tuple(v if v is not None else '' for v in vals)
+  options = {values(r) for r in latest}
+  reasons = [r[uncertainty] for r in latest if r.get(uncertainty)]
+  if reasons or len(options) > 1:
+   for key in keys:
+    record[key] = ''
+   record[field] = False if field in ('quantityLimited', 'ageLimited') else 'not_specified'
+   reason = ' '.join(dict.fromkeys(reasons)) or f'Same-date sources disagree about {field}.'
+   record[uncertainty or 'sourceConflict'] = reason
+   record['sourceConflict'] = reason
+  else:
+   record.update(zip(keys, options.pop()))
+  origins[field] = scope
+ record['benefitSources'] = origins
+ record['auditScope'] = baseline if not candidates else 'mixed_sources'
+
 def with_ach_baseline(d):
  src=ROOT/'dist/sources/ach/integrated-formulary-baseline.json.gz'
  raw=json.loads(gzip.decompress(src.read_bytes())); assert len(raw)==4454
@@ -101,31 +149,13 @@ def with_ach_baseline(d):
   if any(b for b,r in candidates):candidates=[(b,r) for b,r in candidates if b]
   candidates=[r for b,r in candidates]
   candidates.sort(key=lambda r:r.get('sourceEffective',''))
-  rec=dict(id='ach-json-'+row['rxnorm_id'],recordType='formulary',planId='az-complete-health',name=name,brand=brand,category='Other',subcategory='Integrated formulary',coverage='listed',listingLabel='Covered',preferred='preferred' if p['drug_tier']=='PREFERRED' else 'not_specified',pa='required' if p['prior_authorization'] else 'not_required',paText='Prior authorization required by the JSON baseline.' if p['prior_authorization'] else '',step='specified' if p['step_therapy'] else 'not_specified',stepText='Step therapy required; the JSON does not provide the steps.' if p['step_therapy'] else '',quantityLimited=bool(p['quantity_limit']),qlAmount='',qlDays='',conditions=[],notes=SOURCE_SCOPE,sourceTitle='Arizona Complete Health official integrated JSON baseline (declared plan year 2022)',sourceEffective='',sourceUrl='/sources/ach/integrated-formulary-baseline.json.gz',sourceRow=index+1,rxnormId=row['rxnorm_id'],validation='official_json_baseline_with_later_updates',baselineSource={'url':SOURCE,'declaredPlanYears':p['years'],'row':index+1,'values':p},sourceUpdates=[])
+  rec=dict(id='ach-json-'+row['rxnorm_id'],recordType='formulary',planId='az-complete-health',name=name,brand=brand,category='Other',subcategory='Integrated formulary',coverage='listed',listingLabel='Covered',preferred='preferred' if p.get('drug_tier')=='PREFERRED' else 'not_specified',pa='required' if p.get('prior_authorization') else ('not_required' if p.get('prior_authorization') is False else 'not_specified'),paText='Prior authorization required by the JSON baseline.' if p.get('prior_authorization') else '',step='specified' if p.get('step_therapy') else 'not_specified',stepText='Step therapy required; the JSON does not provide the steps.' if p.get('step_therapy') else '',quantityLimited=bool(p.get('quantity_limit')),qlAmount='',qlDays='',conditions=[],notes=SOURCE_SCOPE,sourceTitle='Arizona Complete Health official integrated JSON baseline (declared plan year 2022)',sourceEffective='2022',sourceUrl='/sources/ach/integrated-formulary-baseline.json.gz',sourceRow=index+1,rxnormId=row['rxnorm_id'],validation='official_json_baseline_with_later_updates',baselineSource={'url':SOURCE,'declaredPlanYears':p['years'],'row':index+1,'values':p},sourceUpdates=[])
   for r in candidates:
    rec['category']=r.get('category') or rec['category'];rec['subcategory']=r.get('subcategory') or rec['subcategory']
-   # Only explicit later statements replace baseline fields; silence is not a reversal.
-   if r.get('preferred') in ('preferred','non_preferred'):rec['preferred']=r['preferred']
-   if r.get('preferenceUncertaintyReason'):
-    rec['preferred']='not_specified';rec['preferenceUncertaintyReason']=r['preferenceUncertaintyReason']
-   if r.get('pa') in ('required','conditional','not_required'):rec['pa']=r['pa'];rec['paText']=r.get('paText','')
-   if r.get('paUncertaintyReason'):
-    rec['pa']='not_specified';rec['paText']='';rec['paUncertaintyReason']=r['paUncertaintyReason']
-   if r.get('step')=='specified':rec['step']='specified';rec['stepText']=r.get('stepText','')
-   if r.get('coverage')=='explicit_not_covered':rec['coverage']='explicit_not_covered'
-   for field in ['paExceptionText','ageRestrictionText','ageLimited','coverageText']:
-    if field in r:rec[field]=r[field]
-   if r.get('qlAmount') or r.get('qlDays'):rec['qlAmount']=r.get('qlAmount','');rec['qlDays']=r.get('qlDays','');rec['quantityLimited']=True
-   if r.get('quantityUncertaintyReason'):
-    rec['qlAmount']='';rec['qlDays']='';rec['quantityLimited']=False;rec['quantityUncertaintyReason']=r['quantityUncertaintyReason']
-   rec['sourceUpdates'].append({k:r.get(k) for k in ['id','name','sourceTitle','sourceUrl','sourceEffective','sourcePage','preferred','pa','paText','step','stepText','qlAmount','qlDays']})
-  # Conflicting rules on equally dated candidates are kept unresolved, not chosen arbitrarily.
-  for field in ['preferred','pa']:
-   explicit=[r for r in candidates if r.get(field) not in (None,'','not_specified')]
-   if explicit:
-    latest=max(r.get('sourceEffective','') for r in explicit);values={r[field] for r in explicit if r.get('sourceEffective','')==latest}
-    if len(values)>1:
-     rec[field]='not_specified';rec['sourceConflict']='Later same-date source rows disagree; review linked source updates.';counts['same_date_conflicts']+=1
+   update={k:r.get(k) for k in ['id','name','sourceTitle','sourceUrl','sourceEffective','sourcePage','preferred','pa','paText','step','stepText','qlAmount','qlDays']}
+   update['scope']='statewide_reference' if r.get('validation')=='mandated_statewide_minimum_with_plan_adoption_evidence' else 'selected_plan'
+   rec['sourceUpdates'].append(update)
+  apply_benefit_updates(rec, candidates)
   if rec['pa']=='not_required' and held_pa and not any(r.get('pa') in ('required','conditional','not_required') for r in candidates):
    rec['pa']='not_specified'
    rec['heldSourceUpdates']=held_pa
@@ -138,9 +168,9 @@ def with_ach_baseline(d):
    r['sourceTitle']='AHCCCS drug list adopted as ACH minimum';r['notes']='Statewide minimum listing. Exact-plan product restrictions require separate verification.'
  d['medications']=[r for r in d['medications'] if r['planId']!='az-complete-health']+current+result
  for plan in d['plans']:
-  if plan['id']=='az-complete-health':plan.update(status='baseline_plus_updates',detail=f'{len(raw):,} strength-specific JSON baseline entries plus {len(current):,} later source entries. '+SOURCE_SCOPE,effective='Historical 2022 baseline and dated plan/statewide updates')
+  if plan['id']=='az-complete-health':plan.update(status='baseline_plus_updates',detail=f'{len(raw):,} strength-specific JSON baseline entries plus {len(current):,} later source entries. '+SOURCE_SCOPE,effective='Presumed 2022 baseline and dated updates')
  for e in d['planEvidence']:
-  if e['planId']=='az-complete-health':e.update(topic='Formulary source of truth and precedence',evidence=SOURCE_SCOPE,sourceUrl=SOURCE,sourceEffective='2022 historical baseline')
+  if e['planId']=='az-complete-health':e.update(topic='Formulary source of truth and precedence',evidence=SOURCE_SCOPE,sourceUrl=SOURCE,sourceEffective='2022 baseline')
  d['meta']['asOf']='2026-11-13'
  # Counts include lazy-loaded plan datasets as in the existing export.
  d['meta']['recordCount']+=len(result)-prior_baselines
