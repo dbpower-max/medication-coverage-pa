@@ -596,7 +596,6 @@
     ['ach-notice-13848', 'Lubiprostone oral capsules (generic)'],
     ['ach-notice-13849', 'Prucalopride oral tablets']
   ]);
-  const statewideConstipationIds = new Set(['formulary-10718', 'formulary-10721', 'formulary-10735']);
   const constipationPolicyId = 'uhc-nov2026-policy-gl-720196';
 
   const symbicortGenericNote = 'UHC source rows disagree on step therapy. Both print a quantity limit. The plan does not specify the applicable step or which packages it affects.';
@@ -728,10 +727,6 @@
       return {scope: 'Historical Arizona Complete Health formulary (2022). Current benefits are unverified.', historical: true};
     }
     return null;
-  }
-
-  function isStatewideConstipation(record) {
-    return record.isStatewideReference && statewideConstipationIds.has(record.id.split(':').at(-1));
   }
 
   // Keep 2022 baseline attributes in Sources. Only dated updates supply current flags.
@@ -2374,8 +2369,9 @@
           + '<span class="chip warning">PA sources conflict</span>'
           : achHistorical ? '' : achConstipationLabels.has(record.id)
           ? statusChips({...record, coverageCaveat: ''}) : statusChips(record);
-        const scope = presentation?.scope || ((presentation || isStatewideConstipation(record)) && record.isStatewideReference
-          ? 'AHCCCS statewide reference · November 1, 2026' : '');
+        const scope = record.isStatewideReference || record.auditScope === 'statewide_reference'
+          ? 'AHCCCS statewide reference. Exact-plan coverage and restrictions are unverified.'
+          : presentation?.scope;
         return `${label ? `<p class="coverage-product-label"><strong>${escapeHtml(label)}</strong>${productLabelLink}</p>` : ''}
           ${scope ? `<p class="pa-condition">${escapeHtml(scope)}</p>` : ''}
           <div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${badges}${preferredNdcs.length && record === rows[0] ? '<span class="chip positive">Preferred for listed products</span>' : ''}${step && record.step !== 'specified' ? '<span class="chip warning">Step therapy</span>' : ''}</div>

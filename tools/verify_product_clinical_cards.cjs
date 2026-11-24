@@ -12,6 +12,11 @@ function targetFor(group){const target={innerHTML:'',isConnected:true};return {t
 for(const plan of data.plans){
  api.state.planId=plan.id;
  const groups=api.planMedicationGroups();
+ const acamprosate=groups.find(group=>group.statewideRecord?.id.endsWith(':statewide:formulary-9707'));
+ assert(acamprosate, 'Missing statewide acamprosate in '+plan.id);
+ const acamprosateCard=api.medicationGroupCard(acamprosate).split('<div class="card-source-access">')[0];
+ assert(acamprosateCard.includes('AHCCCS statewide reference. Exact-plan coverage and restrictions are unverified.'),
+   'Statewide badges lack a visible source qualifier in '+plan.id);
  const xigduo=groups.find(g=>g.brands.includes('XIGDUO XR')&&g.isStatewide);
  assert(xigduo,'Xigduo missing '+plan.id);
  for (const product of groups.filter(g=>(g.records||[]).some(r=>/^Xigduo XR/.test(r.standardName||'')))) {
