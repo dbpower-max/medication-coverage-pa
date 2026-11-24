@@ -68,6 +68,15 @@ def attach_provider_policies(data):
  assert found_banner==set(banner_reviewed), 'Missing reviewed Banner formulary row'
  # Exact source rows with reviewed named policy; retain existing renderer presentation.
  banner_exact_links = {
+  "banner-full-24223240af77db72": ("banner-policy-12-1321", "GL-731214", "Imbruvica", "IBRUTINIB CAPSULES", "required", "not_specified", "Oral oncology NCCN category 1, 2A or 2B; 12 months. Capsule package not specified; the separate imatinib brand step does not apply."),
+  "banner-full-3562c19cd796ad78": ("banner-policy-12-1321", "GL-731214", "Imbruvica", "IBRUTINIB SUSPENSION", "required", "not_specified", "Oral oncology NCCN category 1, 2A or 2B; 12 months. Suspension package not specified; the separate imatinib brand step does not apply."),
+  "banner-full-1ae1517495876514": ("banner-policy-12-811", "GL-525295", "Generic icatibant", "ICATIBANT ACETATE SOLUTION", "required", "preferred", "Preferred generic acute HAE branch, age 18 or older; 12 months. Nonpreferred-agent step does not apply. Exact package eligibility unverified."),
+  "banner-full-559d389f3b8ed5ff": ("banner-policy-12-1321", "GL-731214", "Brand Gleevec, generic imatinib, Imkeldi", "IMATINIB MESYLATE TABLETS", "required", "not_specified", "Cancer NCCN category 1, 2A or 2B; 12 months. The additional generic imatinib failure requirement applies to brand Gleevec or Imkeldi requests only. This tablet row does not establish brand eligibility."),
+  "banner-full-2a684512a53f1ec8": ("banner-policy-12-1321", "GL-731214", "Brand Tykerb, generic lapatinib", "LAPATINIB DITOSYLATE TABLETS", "required", "not_specified", "Named oral oncology cancer branch; NCCN category 1, 2A or 2B; 12 months. The separate imatinib step does not apply. Exact package eligibility unverified."),
+  "banner-full-21719e40e35b7441": ("banner-policy-12-1321", "GL-731214", "Brand Revlimid, generic lenalidomide", "LENALIDOMIDE CAPSULE", "required", "not_specified", "Named oral oncology cancer branch; NCCN category 1, 2A or 2B; 12 months. October brand-only restriction retained; the generic mention in the guideline does not establish generic coverage."),
+  "banner-full-a485618380e6e997": ("banner-policy-12-1071", "GL-427190", "Leucovorin tablets", "LEUCOVORIN CALCIUM TABLETS", "required", "not_specified", "Tablet policy: methotrexate toxicity prophylaxis, hematologic toxicity from folic acid antagonists, or documented cerebral folate deficiency. Twelve months; no separate renewal. Do not transfer to injection."),
+  "banner-full-1710dea660c37719": ("banner-policy-12-468", "GL-357222", "Xiidra", "LIFITEGRAST SOLUTION", "required", "not_specified", "Xiidra preferred in guideline; October preference unspecified. Separate 12-month initial and renewal branches. Initial requires qualifying diagnosis, documented testing, lubricant trial, specialist and brand Restasis single-dose trial unless contraindicated; renewal requires positive response."),
+  "banner-full-a4a289cc6cd11b2a": ("banner-policy-12-379", "GL-715189", "Linzess", "LINACLOTIDE CAPSULES", "required", "not_specified", "Separate 12-month initial and renewal. IBS-C age 7 or older; CIC age 18 or older; functional constipation age 2–17 only for 72 mcg requests. Generic lubiprostone and prucalopride steps both apply to new starts only. Exact package eligibility unverified."),
   "banner-full-015b1506addec038": ("banner-policy-12-351", "GL-356254", "famciclovir tabs", "FAMCICLOVIR TABLETS", "required", "not_specified", "Named famciclovir tablet branch, 12-month approval; separate renewal stage not specified. Do not infer brand eligibility."),
   "banner-full-b1b2bf86bd6d4857": ("banner-policy-12-1099", "GL-611235", "fentanyl transdermal", "FENTANYL PATCH 72-HOUR 12mcg, 25mcg, 50mcg, 75mcg & 100mcg", "required", "preferred", "Preferred transdermal patch rates: 12, 25, 50, 75 and 100 mcg/hr; distinct cancer/hospice and noncancer initial/renewal pathways and separate DUR, MME and quantity-review branches. This is not the transmucosal fentanyl policy."),
   "banner-full-e6a1b62352bfbc70": ("banner-policy-12-351", "GL-356254", "Foscavir inj", "FOSCARENT SODIUM", "required", "not_specified", "Named Foscavir injection criteria; CMV and compendium-supported covered indications; 12-month approval, separate renewal stage not specified. Original payer spelling retained."),
@@ -109,8 +118,24 @@ def attach_provider_policies(data):
   assert code in raw and product.lower() in ' '.join(raw.lower().split())
   link=dict(policyId=pid,title=p['name'],policyCode=code,firstPage=p['sourcePage'],lastPage=p.get('sourceLastPage',p['sourcePage']),url=p['sourceUrl'],textUrl=p['sourceTextUrl'],effective=p.get('policyEffective') or p.get('sourceEffective',''),matchedProduct=product,scope=scope)
   links=r.setdefault('policySources',[])
-  if not any(x.get('policyId')==pid or x.get('textUrl')==link['textUrl'] for x in links):links.insert(0,link);count+=1;records.add(r['id'])
+  same=next((i for i,x in enumerate(links) if x.get('policyId')==pid or x.get('textUrl')==link['textUrl']),None)
+  if same is None:links.insert(0,link);count+=1;records.add(r['id'])
+  else:links[same]={**links[same],**link}
   found.add(r['id'])
  assert found==set(banner_exact_links), 'Missing exact Banner policy-linked row'
+ # Preserve the exact payer's pediatric PA exception without presenting it as clinical endorsement.
+ cough_safety={
+  "banner-full-71027bfebf274e67": ("GUAIFENESIN-CODEINE SYRUP", "Guaifenesin / Codeine Oral Syrup"),
+  "banner-full-997a2746536fd44b": ("HYDROCODONE W/ HOMATROPINE SYRUP", "Hydrocodone / Homatropine Oral Syrup"),
+  "banner-full-a17980fe85989bde": ("HYDROCODONE W/ HOMATROPINE TABLETS", "Hydrocodone / Homatropine Oral Tablets"),
+ }
+ seen_cough=set()
+ for r in data['medications']:
+  if r['id'] not in cough_safety:continue
+  name,label=cough_safety[r['id']]
+  assert r['planId']=='banner-ufc' and r['name']==name and r['pa']=='conditional' and r['preferred']=='not_specified'
+  r['reviewedPresentation']={**r.get('reviewedPresentation',{}),'separate':True,'label':label,'note':"FDA labeling for prescription opioid cough products limits use to adults 18 and older. The payer's under-18 PA exception is not FDA-labeled pediatric use or a prescribing recommendation. Exact package eligibility unverified.",'labelUrl':"https://www.fda.gov/drugs/postmarket-drug-safety-information-patients-and-providers/codeine-information"}
+  seen_cough.add(r['id'])
+ assert seen_cough==set(cough_safety), 'Missing exact cough safety row'
  print(f'Added {count} same-plan policy links across {len(records)} medication records')
  return count
