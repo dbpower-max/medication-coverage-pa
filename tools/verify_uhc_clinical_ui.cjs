@@ -570,6 +570,9 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    assert(link&&link.scope.includes(caution),id+' route/indication scope missing');
    assert(a.medicationGroupCard(g).includes(caution),id+' missing visible option-specific caveat');
    assert(a.recordDetails(r).includes(caution),id+' missing source caveat');
+    assert(r.reviewedPresentation.policyUnverified===true,id+' unresolved branch applicability');
+    assert(!a.medicationGroupCard(g).includes('data-card-clinical'),id+' unsafe automatic criteria');
+    assert(a.recordDetails(r).includes('Read full source text'),id+' related source inaccessible');
  }
  const infliximab=bannerGroups.find(g=>g.records.some(r=>r.id==='banner-full-719caae0c9978dca'));
  assert(infliximab);
