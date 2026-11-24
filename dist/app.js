@@ -333,6 +333,10 @@
       label: 'General non-solid guidance',
       scope: 'General non-solid dosage form guidance. Product-specific approval criteria are unverified.'
     }],
+    ['methadose_pain_reference', {
+      label: 'Related UHC pain guideline',
+      scope: 'The guideline names Methadose for pain. The FDA label is for opioid addiction treatment, not analgesia; OUD authorization criteria are unverified.'
+    }],
     ['epaned_reference', {
       label: 'Epaned policy reference',
       scope: 'This guideline names Epaned. Applicability to generic enalapril oral solution is unverified.'
@@ -1497,7 +1501,7 @@
       if (record.notes) details.push(`<p><strong>Notes:</strong> ${escapeHtml(record.notes)}</p>`);
       if (record.rawRestrictions) details.push(`<p><strong>Source restrictions:</strong> ${escapeHtml(record.rawRestrictions)}</p>`);
       // The injectable grid uses HCPCS billing units, not prescribing doses.
-      if (record.id === 'banner-oct2026-j1306' && presentation?.note) {
+      if ((record.id === 'banner-oct2026-j1306' || presentation?.opioidScope) && presentation?.note) {
         details.push(`<p><strong>Prescribing presentation:</strong> ${escapeHtml(presentation.note)}${presentation.labelUrl ? ` <a class="source-link" href="${escapeHtml(presentation.labelUrl)}" target="_blank" rel="noopener">Drug label ↗</a>` : ''}</p>`);
       }
       if (record.policySource) {
@@ -2136,6 +2140,19 @@
 
   function uhcRecordBindings(record) {
     const bindings = record.uhcClinicalBindings || [];
+    // Keep the source binding intact in data. Render its scope, not an implied
+    // authorization for an indication that the verified label does not support.
+    const opioidScope = isUhcOctoberRow(record) && record.reviewedPresentation?.opioidScope;
+    if (opioidScope === 'oud_only') return bindings.map(binding =>
+      binding.policyId.endsWith('gl-620192') ? {...binding, role: 'methadose_pain_reference'} : binding);
+    if (opioidScope === 'pain') return bindings.flatMap(binding => {
+      if (!binding.policyId.endsWith('gl-620192') || binding.role !== 'product') return [binding];
+      return [
+        {...binding, branchIndexes: binding.branchIndexes.filter(i => [1,4,7].includes(i))},
+        {...binding, role: 'concurrent_opioid_dur', branchIndexes: binding.branchIndexes.filter(i => i === 0)},
+        {...binding, role: 'mme_exception', branchIndexes: binding.branchIndexes.filter(i => [9,10,11].includes(i))}
+      ].filter(b => b.branchIndexes.length);
+    });
     const glucoseSupply = isUhcOctoberRow(record) && uhcReviewedGlucoseSupplies.get(record.id);
     if (glucoseSupply?.strip || glucoseSupply?.meterPolicy) {
       const policyId = glucoseSupply.strip ? uhcTestStripPolicyId : uhcMeterPolicyId;
@@ -2254,6 +2271,8 @@
       ['Age-specific PA criteria', ageScoped],
       ['Packet PA guideline', packetReference],
       ['Therapeutic duplication exceptions', duplication],
+      ['Concurrent opioid therapy (DUR)', byRole(['concurrent_opioid_dur'])],
+      ['Cumulative MME exceptions', byRole(['mme_exception'])],
       ['Quantity-limit exceptions', quantity]
     ];
     for (const [kind, selected] of criteriaSections) {
@@ -2334,7 +2353,7 @@
       const [record] = paRows;
       const relatedIds = new Set((group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference).flatMap(r => r.policySources || []).map(p => p.policyId));
       const related = policies.find(p => !uhcDuplicationPolicies.has(p.policyCode) && relatedIds.has(p.id));
-      if (related) { references.unshift(related); referenceLabels.unshift('PA source'); }
+      if (related && !bindings.some(b => b.policyId === related.id && b.role === 'methadose_pain_reference')) { references.unshift(related); referenceLabels.unshift('PA source'); }
       else if (record?.sourceUrl) { references.unshift(record); referenceLabels.unshift('PA formulary'); }
     }
     for (const binding of bindings) {

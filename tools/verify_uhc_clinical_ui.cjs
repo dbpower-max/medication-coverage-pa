@@ -549,6 +549,39 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert.match(macrobid.label, /Monohydrate \/ Macrocrystals Capsules/);
  assert.equal(new Set([macro,macrobid,findExact('9e0eb4cf3a3dfd2b')]).size, 3);
  console.log('PASS: 115 UHC records retain exact product restrictions, policy scope and provider-facing labels.');
+ const opioidCases = [
+  ['1d645b57ce2be32c','pain','opioid-tolerant patients'],
+  ['4949e672408e143c','oud_only','not analgesia'],
+  ['554823c89afb7621','oud_only','not analgesia'],
+  ['aa1a241874624dc7','unmatched','product-specific criteria are unverified'],
+  ['a0d71228114f9c0a','pain','does not identify an exact package']
+ ];
+ for(const [suffix,scope,caution] of opioidCases){
+   const id='uhc-oct-complete-'+suffix;
+   const g=groups.find(g=>g.records.some(r=>r.id===id));assert(g,id);
+   const r=g.records.find(r=>r.id===id);
+   assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');
+   assert.equal(r.reviewedPresentation.opioidScope,scope);
+   assert(a.medicationGroupCard(g).includes(caution),id+' visible caution');
+   assert(a.recordDetails(r).includes(caution),id+' source caution');
+   assert(a.recordDetails(r).includes(r.reviewedPresentation.labelUrl),id+' label citation');
+   const bindings=a.uhcGroupBindings(g),out=await open(g);
+   if(scope==='pain'){
+     assert(bindings.some(b=>b.role==='concurrent_opioid_dur'&&b.branchIndexes.join(',')==='0'));
+     assert(bindings.some(b=>b.role==='mme_exception'&&b.branchIndexes.join(',')==='9,10,11'));
+     assert(bindings.some(b=>b.role==='product'&&b.branchIndexes.join(',')==='1,4,7'));
+     assert(out.html.includes('Concurrent opioid therapy (DUR)'));
+     assert(out.html.includes('Cumulative MME exceptions'));
+     assert(out.html.includes('Quantity-limit exceptions'));
+     for(const p of [1063,1067,1073])assert(out.html.includes('Criteria source · PDF page '+p+'<'),id+' source page '+p);
+   }else{
+     assert(!bindings.some(b=>b.policyId.endsWith('gl-620192')&&b.role==='product'),id+' unsafe pain branch');
+     assert(!out.html.includes('Criteria source · PDF page 1067<'));
+     assert(out.html.includes('Approval criteria have not yet been verified'));
+     if(scope==='oud_only')assert(out.ref.includes('Related UHC pain guideline'),id+' related source inaccessible');
+   }
+ }
+ console.log('PASS: Five exact UHC opioid rows preserve benefits, label caveats, and scoped PA/DUR/MME/QL references.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  const bannerGroups=a.planMedicationGroups();
  const igRows=[
