@@ -99,3 +99,15 @@ api.state.planId = 'banner-ufc';
 api.state.term = 'Humalog';
 assert(api.render().some(group => group.records.some(record => record.planId === 'banner-ufc')));
 console.log('PASS: source-attributed filters, verified notice controls and pending plan selection');
+
+api.state.planId='banner-ufc';
+api.state.coverage='';
+api.state.term='Adderall XR';
+api.render();
+assert(api.el.resultGrid.innerHTML.includes('50 per 90 days'), 'Banner Adderall XR quantity hidden by statewide value');
+assert(api.el.resultGrid.innerHTML.includes('AHCCCS statewide reference'), 'Missing separate statewide source');
+api.state.planId='uhc-community-az';
+api.state.term='Zenzedi';
+api.state.coverage='pa_conditional';
+api.render();
+assert(!api.el.resultGrid.innerHTML.includes('generic for ZENZEDI'), 'Nonmatching UHC option remained in filtered results');
