@@ -16,6 +16,7 @@
   --gray-500: #607286;
   --gray-700: #34495e;
   --white: #fff;
+  --link: #1756a9;
   --shadow: 0 12px 34px rgba(11, 31, 51, .08);
 }
 
@@ -414,7 +415,7 @@ main { padding-top: .65rem; }
 .clinical-details > .result-disclosure-body { padding-top: .5rem; margin-top: .2rem; }
 .linked-clinical-policy { margin: .7rem 0; }
 .linked-clinical-policy > h4 { margin: .5rem 0 .3rem; }
-.source-action, .clinical-details .source-link { color: #1756a9; font-size: .82rem; }
+.source-action, .clinical-details .source-link { color: var(--link); font-size: .82rem; }
 .source-action { min-height: 44px; padding: .5rem .25rem; text-align: left; }
 .inline-criteria-results { display: grid; gap: .5rem; }
 #sourceDialog { width: min(900px, calc(100% - 1.5rem)); max-height: 85vh; border: 1px solid var(--gray-200); border-radius: .65rem; color: var(--navy); padding: 1rem; overflow: auto; overflow-wrap: anywhere; }
@@ -424,7 +425,7 @@ main { padding-top: .65rem; }
 .source-dialog-heading button { min-height: 44px; flex-shrink: 0; }
 #sourceDialogContent section { margin: .8rem 0; padding-top: .6rem; border-top: 1px solid var(--gray-200); }
 #sourceDialogContent { font-size: .86rem; }
-#sourceDialogContent a { color: #1756a9; }
+#sourceDialogContent a { color: var(--link); }
 @media (max-width: 580px) {
   .primary-filters, .additional-filters .filter-grid { grid-template-columns: 1fr; }
   .header-subtitle { display: none; }
@@ -456,3 +457,43 @@ main { padding-top: .65rem; }
 .clinical-logic-label { font-weight: 600; }
 .uhc-restriction-criteria + .uhc-restriction-criteria { border-top: 1px solid var(--gray-200); margin-top: .85rem; padding-top: .5rem; }
 .uhc-restriction-criteria > h4 { margin-bottom: .65rem; }
+
+.theme-control { display: grid; gap: .15rem; margin-inline-start: auto; font-size: .85rem; }
+.theme-control select { padding: .3rem; }
+.theme-control + .as-of { margin-inline-start: 0; }
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --navy: #eef5fa;
+  --navy-2: #dae9f3;
+  --teal: #7ddbcf;
+  --teal-dark: #9aeade;
+  --teal-soft: #163d3c;
+  --blue-soft: #223848;
+  --amber: #ffcf7d;
+  --amber-soft: #44341b;
+  --red: #ffb6ac;
+  --red-soft: #4b282c;
+  --gray-50: #101820;
+  --gray-100: #23313e;
+  --gray-200: #455765;
+  --gray-500: #b1c2cf;
+  --gray-700: #d3e0eb;
+  --white: #192630;
+  --link: #a4ceff;
+  --teal-700: var(--teal-dark);
+}
+[data-theme="dark"] .site-header { background: #132737; color: var(--navy); }
+[data-theme="dark"] .as-of strong { color: var(--navy); }
+[data-theme="dark"] .brand-mark { color: var(--white); }
+[data-theme="dark"] .approval-guide { background: var(--teal-soft); }
+[data-theme="dark"] .approval-guide summary { color: var(--teal-dark); }
+[data-theme="dark"] .guide-review-status { color: var(--gray-500); }
+[data-theme="dark"] .guide-ambiguity { background: var(--amber-soft); }
+[data-theme="dark"] .scope-alert, [data-theme="dark"] .chip.warning { color: var(--amber); }
+[data-theme="dark"] .plan-status:is(.historical_snapshot, .mixed_current_historical) { background: var(--red-soft); }
+[data-theme="dark"] :focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+@media (max-width: 640px) {
+  .header-inner { flex-wrap: wrap; }
+  .theme-control { margin-inline-start: 0; }
+}
