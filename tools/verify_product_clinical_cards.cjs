@@ -116,6 +116,22 @@ for(const [id,label,pid,page,preference,note] of [["banner-full-3896cdde40e8e8a1
 }
 console.log('PASS: four named specialty policy bindings retain original payer flags and formulation scope.');
 
+// Banner's combined C1 inhibitor row must retain its scope; weekly/monthly Brixadi is not a single interchangeable dose.
+api.state.planId='banner-ufc';
+for(const [id,label,preference,caveat,source] of [
+ ['banner-full-ea0529db441446f6','Berinert (C1 Esterase Inhibitor) IV Powder for Solution (Banner Formulary)','preferred','acute hereditary angioedema attacks','approved-blood-products/berinert'],
+ ['banner-full-81af49ca953b804f','Cinryze / Haegarda (C1 Esterase Inhibitor) Reconstituted Injection (Banner Combined Listing)','not_specified','Cinryze intravenous; Haegarda subcutaneous','approved-blood-products/haegarda'],
+ ['banner-full-63b29ba46f628277','Brixadi (Buprenorphine) Subcutaneous Extended-Release Prefilled Syringe (Banner Formulary)','preferred','weekly and monthly formulations','5d8a8fd0-8619-422a-a664-d1d2e8970f48']
+]){
+ const g=api.planMedicationGroups().find(x=>x.records.some(r=>r.id===id));
+ assert(g,id+' missing');assert.equal(g.label,label);assert.equal(g.records.length,1);
+ const r=g.records[0];assert.equal(r.planId,'banner-ufc');assert.equal(r.pa,'required');assert.equal(r.preferred,preference);
+ const card=api.medicationGroupCard(g);assert(card.includes(caveat)&&card.includes(source),id+' lost label evidence');
+ if(id==='banner-full-81af49ca953b804f')assert(card.includes('individual product/package eligibility'),id+' lost combined-listing caveat');
+ if(id==='banner-full-63b29ba46f628277')assert(card.includes('does not specify covered schedule or strength'),id+' lost schedule hold');
+}
+console.log('PASS: Banner C1 inhibitor acute versus prophylactic routes and Brixadi schedule caveats preserve exact source rows and payer flags.');
+
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
