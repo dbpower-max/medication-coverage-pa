@@ -2,6 +2,7 @@
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+import re
 import shutil
 from threading import Thread
 
@@ -15,23 +16,26 @@ def verify_coverage_labels(page, width):
     vials = page.get_by_role("article").filter(
         has=page.get_by_role("heading", name="Insulin lispro 100 units/mL multidose vial", exact=True)
     )
-    baseline = vials.filter(has_text="2022 baseline · presumed")
+    baseline = vials.filter(has_text="The plan does not specify a preferred vial size.")
     statewide = vials.filter(has_text="AHCCCS Statewide")
-    for card, scope, explanation in (
-        (baseline, "2022 baseline · presumed", "Arizona Complete Health’s 2022 formulary is presumed to apply where newer evidence has not changed this product’s benefits."),
-        (statewide, "AHCCCS Statewide", "AHCCCS statewide reference. Exact-plan coverage and restrictions are unverified."),
+    for card, expected, evidence in (
+        (baseline, ["Covered", "Preferred", "Quantity limit"], "row 2170"),
+        (statewide, ["AHCCCS Statewide", "Covered", "Preferred", "Authorized generic only"],
+         "AHCCCS statewide reference. Exact-plan coverage and restrictions are unverified."),
     ):
-        card.get_by_text(scope, exact=True).wait_for()
-        assert card.get_by_text(explanation, exact=True).count() == 0
+        card.wait_for()
         chips = card.locator(".chips .chip").all_text_contents()
-        if scope == "2022 baseline · presumed":
-            assert chips == [scope, "Covered", "Preferred", "Quantity limit"], chips
-        else:
-            assert {scope, "Covered", "Preferred", "Authorized generic only"}.issubset(chips), chips
+        assert chips == expected, chips
         card.get_by_role("button", name="Sources").click()
         dialog = page.get_by_role("dialog")
-        dialog.get_by_text(explanation, exact=True).wait_for()
+        dialog.get_by_text(evidence, exact=False).wait_for()
+        assert not re.search(r"presum|baseline", dialog.inner_text(), re.I)
         dialog.get_by_role("button", name="Close").click()
+
+    plan_sources = page.get_by_text("Plan information and sources", exact=True)
+    plan_sources.click()
+    assert not re.search(r"presum|baseline", page.locator("body").inner_text(), re.I)
+    plan_sources.click()
 
     def check_position(card):
         heading = card.get_by_role("heading").first.bounding_box()
