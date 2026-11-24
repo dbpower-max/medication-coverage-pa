@@ -103,6 +103,19 @@ for(const [id,label,note] of [["banner-full-f280cb398b11247e","Fasenra Pen (Benr
 }
 console.log('PASS: Fasenra pen and syringe remain separate, with unchanged PA/preference and named Banner policy.');
 
+// Exact named Banner specialty policy links; do not transfer preference or formulation.
+api.state.planId='banner-ufc';
+for(const [id,label,pid,page,preference,note] of [["banner-full-3896cdde40e8e8a1","Mvasi (Bevacizumab-awwb) Injection","banner-policy-12-237",237,"not_specified","The named October 2025 guideline identifies Mvasi and Zirabev as preferred. The October 2026 formulary does not specify preference for this row. Exact package eligibility is unverified."],["banner-full-6c72cfb332a399ef","Zirabev (Bevacizumab-bvzr) Injection","banner-policy-12-237",237,"not_specified","The named October 2025 guideline identifies Mvasi and Zirabev as preferred. The October 2026 formulary does not specify preference for this row. Exact package eligibility is unverified."],["banner-full-96013cd1d8204447","Bexarotene Capsules","banner-policy-12-1754",1754,"not_specified","The named guideline includes both capsules and Targretin gel. This formulary row is capsules only. Separate CTCL and NCCN initial and renewal criteria apply; gel coverage is not established by this row."],["banner-full-04d6c166dbdc7a8a","Bosentan Tablets for Oral Suspension (Tracleer Reference)","banner-policy-12-1422",1422,"preferred","The September 2026 guideline identifies generic tablets for oral suspension as preferred, but brand Tracleer and generic conventional tablets as nonpreferred. Exact brand/package eligibility is unverified."]]){
+ const g=api.planMedicationGroups().find(x=>x.records.some(r=>r.id===id));
+ assert(g,id+' missing');assert.equal(g.label,label);assert.equal(g.records.length,1);
+ const r=g.records[0];assert.equal(r.planId,'banner-ufc');assert.equal(r.pa,'required');assert.equal(r.preferred,preference);
+ assert(r.policySources.some(p=>p.policyId===pid&&p.firstPage===page),id+' named policy source missing');
+ const markup=api.medicationGroupCard(g);
+ assert(markup.includes(note),id+' scope caveat missing');
+ assert(api.cardClinicalGroups.get(g.key).policies.some(p=>p.id===pid&&p.planId==='banner-ufc'&&p.sourcePage===page),id+' exact policy missing');
+}
+console.log('PASS: four named specialty policy bindings retain original payer flags and formulation scope.');
+
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
