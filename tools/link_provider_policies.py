@@ -80,7 +80,7 @@ def attach_provider_policies(data):
  for r in data['medications']:
   if r['id'] not in banner_exact_links:continue
   pid,code,product,original,pa,preference,scope=banner_exact_links[r['id']]
-  assert r['planId']=='banner-ufc' and r['name']==original and r['pa']==pa and r['preference']==preference
+  assert r['planId']=='banner-ufc' and r['name']==original and r['pa']==pa and r['preferred']==preference
   p=policies[pid];assert p['planId']=='banner-ufc'
   raw=(ROOT/'dist'/p['sourceTextUrl'].lstrip('./')).read_text()
   assert code in raw and product.lower() in raw.lower()
