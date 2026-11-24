@@ -15,7 +15,7 @@ for(const plan of data.plans){
  const acamprosate=groups.find(group=>group.statewideRecord?.id.endsWith(':statewide:formulary-9707'));
  assert(acamprosate, 'Missing statewide acamprosate in '+plan.id);
  const acamprosateCard=api.medicationGroupCard(acamprosate).split('<div class="card-source-access">')[0];
- assert(acamprosateCard.includes(plan.id==='banner-ufc' ? 'Banner formulary' : 'AHCCCS statewide reference. Exact-plan coverage and restrictions are unverified.'),
+ assert(acamprosateCard.includes(plan.id==='banner-ufc' ? 'Banner formulary' : '>AHCCCS Statewide<'),
    'Statewide badges lack a visible source qualifier in '+plan.id);
  const xigduo=groups.find(g=>g.brands.includes('XIGDUO XR')&&g.isStatewide);
  assert(xigduo,'Xigduo missing '+plan.id);

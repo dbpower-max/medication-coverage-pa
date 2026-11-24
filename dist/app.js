@@ -864,15 +864,30 @@
     ['ach-json-847252', lisproProducts.mixPen]
   ]);
 
+  const historicalCoverageSource = {
+    label: 'Historical listing',
+    description: 'Historical Arizona Complete Health formulary (2022). Current benefits are unverified.'
+  };
+  const statewideCoverageSource = {
+    label: 'AHCCCS Statewide',
+    description: 'AHCCCS statewide reference. Exact-plan coverage and restrictions are unverified.'
+  };
+
+  function coverageSource(record, presentation) {
+    if (record.isStatewideReference || record.auditScope === 'statewide_reference') return statewideCoverageSource;
+    if (record.auditScope === 'historical_2022' || presentation?.historical) return historicalCoverageSource;
+    return null;
+  }
+
   function reviewedCardPresentation(record) {
     const id = record.isStatewideReference ? record.id.split(':').at(-1) : record.id;
     const reviewed = record.reviewedPresentation || reviewedCardPresentations.get(id);
     if (reviewed) return reviewed;
-    if (record.auditScope === 'statewide_reference') return {scope: 'AHCCCS statewide reference · November 2026. Exact-plan restrictions are unverified.'};
+    if (record.auditScope === 'statewide_reference') return {scope: statewideCoverageSource.label};
     if (record.auditScope === 'selected_plan') return {scope: 'Arizona Complete Health October 2026 notice. See Sources for the named product.'};
     if (record.planId === 'az-complete-health' && record.id?.startsWith('ach-json-')
         && !record.sourceUpdates?.length) {
-      const historical = {scope: 'Historical Arizona Complete Health formulary (2022). Current benefits are unverified.', historical: true};
+      const historical = {historical: true};
       const product = historicalLisproPackages.get(record.id);
       if (product) return {...historical, ...product, separate: true,
         packageQualifier: product === lisproProducts.lisproVial ? 'The historical listing does not specify a preferred vial size.' : ''};
@@ -1417,7 +1432,14 @@
 
   function recordDetails(record) {
     const details = [];
-    const formRx = reviewedCardPresentation(record)?.uhcFormRx;
+    const presentation = reviewedCardPresentation(record);
+    const scope = coverageSource(record, presentation);
+    if (scope) details.push(`<p>${escapeHtml(scope.description)}</p>`);
+    if (scope === historicalCoverageSource) {
+      if (presentation?.packageQualifier) details.push(`<p>${escapeHtml(presentation.packageQualifier)}</p>`);
+      if (/^ach-json-(616578|794639)$/.test(record.id)) details.push('<p>The 2022 source listed PA. Current strength-specific requirements are unverified.</p>');
+    }
+    const formRx = presentation?.uhcFormRx;
     if (formRx) details.push(`<p><a href="https://legacy.providerlookuponline.com/mrf/optumrx/drugs/2877216/JSON_Drugs_UHCCPAZ.json" target="_blank" rel="noopener">UHC electronic formulary</a> · UCSAZQ3, 2026 · RxCUI ${escapeHtml(formRx)} · file dated October 20, 2026.</p>`);
     for (const position of bannerRepeatPositions.get(record.id) || []) {
       const [, page, table, row] = position.match(/BAN-P(\d+)-T(\d+)-R(\d+)/);
@@ -2404,9 +2426,6 @@
     if (achConstipationLabels.has(record.id)) {
       return '<p class="pa-condition">Arizona Complete Health October 1, 2026 notice lists this option as preferred. Product-specific restrictions are unspecified in the notice.</p>';
     }
-    if (/^ach-json-(616578|794639)$/.test(record.id)) {
-      return '<p class="pa-condition">Historical Arizona Complete Health formulary (2022). It listed PA. Current strength-specific requirements are unverified.</p>';
-    }
     return '';
   }
 
@@ -2534,15 +2553,22 @@
     const hideEmptyPa = insulinConflict || noticeOnly || (preferredNdcs.length && !guidance && !policies.length && !conditions.length
       && !group.records.some(record => ['required', 'conditional'].includes(record.pa) || record.policySource));
     const compact = compactPresentation(group);
-    const packageQualifiers = compact ? [...new Set(rows.map(r => reviewedCardPresentation(r)?.packageQualifier).filter(Boolean))] : [];
+    const packageQualifiers = compact ? [...new Set(rows.map(r => reviewedCardPresentation(r))
+      .filter(p => !p?.historical).map(p => p?.packageQualifier).filter(Boolean))] : [];
+    const commonLabelUrl = compact && rows.length && rows.every(r => reviewedCardPresentation(r)?.labelUrl === compact.labelUrl)
+      ? compact.labelUrl : '';
     return `<article class="result-card${compact ? ' compact-prescription' : ''}">
+      <div class="prescribing-details">
       <h3>${escapeHtml(preferredNdcs.length ? 'Albuterol HFA inhaler' : dosageFormHeading(group, title))}</h3>
       ${compact ? `<p class="package-line">${escapeHtml(compact.packageLine)}</p>` : ''}
       ${packageQualifiers.map(note => `<p class="pa-condition">${escapeHtml(note)}</p>`).join('')}
+      ${commonLabelUrl ? `<p><a class="source-link" href="${escapeHtml(commonLabelUrl)}" target="_blank" rel="noopener">Drug label ↗</a></p>` : ''}
       ${formularyStrengthDetails(group, title)}
       ${[...new Map(group.records.filter(r => r.agePolicyConflict).map(r => [r.agePolicyConflict.url, r.agePolicyConflict])).values()].map(conflict =>
         `<p class="pa-condition">${escapeHtml(conflict.note)} <a class="source-link" href="${escapeHtml(conflict.url)}" target="_blank" rel="noopener">Banner guideline · PDF page ${escapeHtml(conflict.page)} ↗</a></p>`).join('')}
       ${labeledCaplets ? '<p>Acetaminophen 250 mg / aspirin 250 mg / caffeine 65 mg per caplet.</p>' : ''}
+      </div>
+      <div class="coverage-options">
       ${rows.map(record => {
         const insulinWarning = insulinConflict && bannerInsulinConflicts.get(record.id);
         if (insulinWarning) return `<div class="chips"><span class="chip warning">Banner source conflict</span></div>
@@ -2572,18 +2598,17 @@
         const limit = (bannerProducts.includes(record) || (isBanner && group.isStatewide && mixedPlanRows.includes(record)))
           && /^\d+(?:\.\d+)?$/.test(record.qlAmount) && /^\d+$/.test(record.qlDays)
           ? `<p class="pa-condition"><strong>Quantity limit:</strong> ${escapeHtml(record.qlAmount)} per ${escapeHtml(record.qlDays)} days. The formulary does not specify a unit.</p>` : '';
-        const badges = presentation?.historical ? ''
+        const source = coverageSource(record, presentation);
+        const badges = source === historicalCoverageSource ? ''
           : presentation?.explicitPa ? statusChips({...record, pa: 'required'})
           : constipationGenericRows.has(record.id) ? statusChips({...record, pa: 'not_specified', step: 'not_specified'})
           + '<span class="chip warning">PA sources conflict</span>'
           : achHistorical ? '' : achConstipationLabels.has(record.id)
           ? statusChips({...record, coverageCaveat: ''}) : statusChips(record);
-        const scope = record.isStatewideReference || record.auditScope === 'statewide_reference'
-          ? 'AHCCCS statewide reference. Exact-plan coverage and restrictions are unverified.'
-          : presentation?.scope || (group.isStatewide && mixedPlanRows.includes(record) ? planScopeLabel : '');
+        const scope = !source && (presentation?.scope || (group.isStatewide && mixedPlanRows.includes(record) ? planScopeLabel : ''));
         return `${label ? `<p class="coverage-product-label"><strong>${escapeHtml(label)}</strong>${productLabelLink}</p>` : ''}
           ${scope ? `<p class="pa-condition">${escapeHtml(scope)}</p>` : ''}
-          <div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${badges}${preferredNdcs.length && record === rows[0] ? '<span class="chip positive">Preferred for listed products</span>' : ''}${step && record.step !== 'specified' ? '<span class="chip warning">Step therapy</span>' : ''}</div>
+          <div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${source ? `<span class="chip neutral">${escapeHtml(source.label)}</span>` : ''}${badges}${preferredNdcs.length && record === rows[0] ? '<span class="chip positive">Preferred for listed products</span>' : ''}${step && record.step !== 'specified' ? '<span class="chip warning">Step therapy</span>' : ''}</div>
           ${glucoseSupply === record && glucoseDisplay.note ? `<p class="pa-condition"><strong>UHC formulary disagreement:</strong> ${escapeHtml(glucoseDisplay.note)} ${glucoseDisplay.pages.map(page => `<a class="source-link" href="${escapeHtml(sourceHref({...record, sourcePage: page}))}" target="_blank" rel="noopener">PDL p. ${page} ↗</a>`).join(' · ')}</p>` : ''}
           ${record.unverifiedPolicyCode ? '<p class="pa-condition">UHC lists PA. Criteria for this exact presentation are unverified.</p>' : ''}
           ${avivaConflict ? '<p class="pa-condition"><strong>UHC source conflict:</strong> The formulary names the Aviva device and aliases it to a control solution. Exact meter package eligibility is unverified.</p>' : ''}
@@ -2591,10 +2616,11 @@
           ${presentation?.note ? `<p class="pa-condition">${escapeHtml(presentation.note)}</p>` : ''}
 
           ${presentation?.billingUrl ? `<p><a class="source-link" href="${escapeHtml(presentation.billingUrl)}" target="_blank" rel="noopener">Plan billing notice ↗</a></p>` : ''}
-          ${presentation?.labelUrl ? `<p><a class="source-link" href="${escapeHtml(presentation.labelUrl)}" target="_blank" rel="noopener">Drug label ↗</a></p>` : ''}
+          ${presentation?.labelUrl && !commonLabelUrl ? `<p><a class="source-link" href="${escapeHtml(presentation.labelUrl)}" target="_blank" rel="noopener">Drug label ↗</a></p>` : ''}
           ${constipationCoverageNote(record)}${exactAge}${continuedUse}${limit}${nebulizerNote ? `<p class="pa-condition">${escapeHtml(nebulizerNote)}</p>` : ''}
           ${step ? `<p class="pa-condition"><strong>Step therapy:</strong> ${escapeHtml(step)} <a class="source-link" href="${escapeHtml(sourceHref({...record, sourcePage: 36}))}" target="_blank" rel="noopener">UHC formulary · step table ↗</a></p>` : ''}`;
       }).join('')}
+      </div>
       ${achSmart ? '<p class="pa-condition">Arizona Complete Health’s October 1, 2026 SMART notice identifies the authorized generic and Teva generic. Product-specific preference, PA, step therapy and quantity limits are unspecified in the notice. <a class="source-link" href="https://www.azcompletehealth.com/newsroom/PU26135.html" target="_blank" rel="noopener">Plan notice ↗</a></p>' : ''}
       ${linzess || achNotice?.id === 'ach-notice-13846' ? '<p class="pa-condition">AHCCCS statewide reference lists PA.</p>' : ''}
       <div class="card-source-access">${sourcesLink(group)}</div>
