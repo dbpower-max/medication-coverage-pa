@@ -58,6 +58,23 @@ for(const [id,label,caveat,url] of bannerCases){
 }
 console.log('PASS: three Banner source rows preserve distinct FDA presentations, label links, unresolved payer package and explicit PA.');
 
+// Exact-source card safety: initiation-only product and adult/pediatric CGRP distinction.
+const scopedCases=[
+ ['banner-ufc','banner-full-25a305f34bbe1d14','Aristada Initio (Aripiprazole Lauroxil) IM Initiation Injection','not for repeated maintenance dosing','b18fdfd9-31cd-4a2f-9f1c-ebc70d7a9403','conditional'],
+ ['banner-ufc','banner-full-753b957d55158ac0','Abilify Asimtufii (Aripiprazole) Extended-Release IM Suspension','distinct from monthly Abilify Maintena','da4c07fd-1130-4341-bb44-63acfa4162be','conditional'],
+ ['uhc-community-az','uhc-oct-complete-8989a933ae7b4319','Aimovig (Erenumab-aooe) Subcutaneous Injection','not Aimovig','b998ed05-94b0-47fd-b28f-cddd1e128fd8','required'],
+ ['uhc-community-az','uhc-oct-complete-f4bec275aa84db05','Ajovy (Fremanezumab-vfrm) Subcutaneous Injection','episodic migraine only','98e344ea-5916-4947-b6f2-4a76ccc04b6b','required']
+];
+for(const [plan,id,label,note,sourceId,pa] of scopedCases){
+ api.state.planId=plan;
+ const g=api.planMedicationGroups().find(x=>x.records.some(r=>r.id===id));
+ assert(g,id+' missing');assert.equal(g.label,label);assert.equal(g.records.length,1);
+ assert.equal(g.records[0].planId,plan);assert.equal(g.records[0].pa,pa);assert.equal(g.records[0].preferred,'preferred');
+ const card=api.medicationGroupCard(g);
+ assert(card.includes(note)&&card.includes(sourceId),id+' lost scope or label evidence');
+}
+console.log('PASS: four exact source cards preserve original PA/preference and noninterchangeability or indication scope.');
+
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
