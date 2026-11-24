@@ -8,6 +8,54 @@ from threading import Thread
 from playwright.sync_api import sync_playwright
 
 
+def verify_coverage_labels(page, width):
+    query = page.get_by_role("combobox", name="Medication name")
+    query.fill("lispro")
+    query.press("Escape")
+    vials = page.get_by_role("article").filter(
+        has=page.get_by_role("heading", name="Insulin lispro 100 units/mL multidose vial", exact=True)
+    )
+    historical = vials.filter(has_text="Historical listing")
+    statewide = vials.filter(has_text="AHCCCS Statewide")
+    for card, scope, explanation in (
+        (historical, "Historical listing", "Historical Arizona Complete Health formulary (2022). Current benefits are unverified."),
+        (statewide, "AHCCCS Statewide", "AHCCCS statewide reference. Exact-plan coverage and restrictions are unverified."),
+    ):
+        card.get_by_text(scope, exact=True).wait_for()
+        assert card.get_by_text(explanation, exact=True).count() == 0
+        chips = card.locator(".chips .chip").all_text_contents()
+        if scope == "Historical listing":
+            assert chips == [scope], chips
+        else:
+            assert {scope, "Covered", "Preferred", "Authorized generic only"}.issubset(chips), chips
+        card.get_by_role("button", name="Sources").click()
+        dialog = page.get_by_role("dialog")
+        dialog.get_by_text(explanation, exact=True).wait_for()
+        dialog.get_by_role("button", name="Close").click()
+
+    def check_position(card):
+        heading = card.get_by_role("heading").first.bounding_box()
+        package = card.get_by_text("Vial size: 10 mL", exact=True).bounding_box()
+        badge = card.locator(".chips .chip").first.bounding_box()
+        assert abs(package["x"] - heading["x"]) < 2
+        if width > 580:
+            assert badge["x"] >= heading["x"] + heading["width"]
+            assert abs(badge["y"] - heading["y"]) < 8
+        else:
+            assert badge["y"] >= package["y"] + package["height"]
+            assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
+
+    check_position(historical)
+    check_position(statewide)
+    page.get_by_role("combobox", name="Insurance plan").fill("UnitedHealthcare")
+    page.get_by_role("option", name="AHCCCS: UnitedHealthcare — AHCCCS Complete Care").click()
+    exact_plan = vials.filter(has_text="UHC does not specify a preferred vial size.")
+    exact_plan.get_by_text("Tier 2", exact=True).wait_for()
+    assert exact_plan.get_by_text("Preferred", exact=True).is_visible()
+    assert exact_plan.get_by_text("AHCCCS Statewide", exact=True).count() == 0
+    check_position(exact_plan)
+
+
 def verify(browser, url, width):
     page = browser.new_page(viewport={"width": width, "height": 850}, color_scheme="dark")
     page.goto(url)
@@ -47,6 +95,8 @@ def verify(browser, url, width):
     page.locator("[data-card-sources]").first.click()
     page.locator("#sourceDialog[open]").wait_for()
     assert page.locator("#sourceDialog").evaluate("e => getComputedStyle(e).colorScheme") == "dark"
+    page.get_by_role("dialog").get_by_role("button", name="Close").click()
+    verify_coverage_labels(page, width)
     page.close()
     print(f"PASS: {width}px theme, reload, OS preference, source dialog and viewport")
 
