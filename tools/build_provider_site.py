@@ -204,13 +204,13 @@ data['medications'].append({
     'coverage': 'not_specified', 'listingLabel': 'Injectable PA grid', 'step': 'not_specified',
     'conditions': [], 'sourceEffective': '2026-10-01', 'sourcePage': 4,
     'sourceTitle': 'Banner University Family Care ACC pharmacy PA grid',
-    'sourceUrl': 'https://www.bannerhealth.com/bhpprovider/-/media/files/project/bhpprovider/prior-auth/pa-grids/2026/prov_bufc-pa-grid_eff10012026_en.pdf',
+    'sourceUrl': 'https://www.bannerhealth.com/bhpprovider/-/media/files/project/bhpprovider/prior-auth/pa-grids/2026/prov_bufc-pa-grid_eff10012026_en.pdf?hash=BED5B049AF66FBC2888AF8A45747E496&sc_lang=en',
     'reviewedPresentation': {
-        'label': 'Leqvio (inclisiran) subcutaneous prefilled syringe',
+        'label': 'Leqvio (inclisiran) 284 mg/1.5 mL subcutaneous prefilled syringe',
         'dosageForm': 'solution',
         'policyUnverified': True,
         'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6fc0afca-4513-4c35-b594-6544aee29a44',
-        'note': 'Labeled syringe: 284 mg/1.5 mL. Banner processes J1306, billed in 1 mg units. Initial and renewal criteria are unverified.',
+        'note': 'FDA-labeled 284 mg/1.5 mL (189 mg/mL) single-dose syringe, administered by a healthcare professional. Banner processes J1306; 1 mg is a billing unit, not a dose or package. Exact medical-benefit initial and renewal criteria and application of the pharmacy guideline remain unverified.',
     },
 })
 attach_dosage_forms(data["medications"] + statewide_drugs)
