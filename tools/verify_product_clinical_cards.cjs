@@ -38,6 +38,26 @@ for(const plan of data.plans){
  assert(!more.target.innerHTML.includes('More clinical criteria'),'Redundant second lookup remains');
  assert(!more.target.innerHTML.includes('View clinical criteria'),'Whole-policy reader remains');
 }
+// Banner label evidence must not collapse source rows or imply a verified package.
+api.state.planId='banner-ufc';
+const bannerGroups=api.planMedicationGroups();
+const bannerCases=[
+ ['banner-full-150d0a331d6c46df','Alpha1-Proteinase Inhibitor (Prolastin-C / Glassia; IV Form Unresolved)','Exact covered brand, formulation and package are unverified','https://www.fda.gov/vaccines-blood-biologics/approved-blood-products/alpha1-proteinase-inhibitor'],
+ ['banner-full-c50d5a831e1c6a83','Aralast NP (Alpha1-Proteinase Inhibitor) IV Powder for Solution','require reconstitution','https://www.fda.gov/media/69965/download?attachment='],
+ ['banner-full-79924464664746a2','Adefovir Dipivoxil Oral Tablets (Hepsera Reference)','does not specify strength','https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=08e07fae-3191-b6a3-c894-d3a8cc53923f']
+];
+for(const [id,label,caveat,url] of bannerCases){
+ const g=bannerGroups.find(x=>x.records.some(r=>r.id===id));
+ assert(g,id+' missing');
+ assert.equal(g.label,label);
+ assert.equal(g.records.length,1,id+' merged with another presentation or reference');
+ assert.equal(g.records[0].planId,'banner-ufc');
+ assert.equal(g.records[0].pa,'required');
+ const card=api.medicationGroupCard(g);
+ assert(card.includes(caveat)&&card.includes(url)&&card.includes('>PA required<'),id+' lost label scope or PA');
+}
+console.log('PASS: three Banner source rows preserve distinct FDA presentations, label links, unresolved payer package and explicit PA.');
+
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
