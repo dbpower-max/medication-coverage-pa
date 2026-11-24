@@ -68,6 +68,10 @@ def attach_provider_policies(data):
  assert found_banner==set(banner_reviewed), 'Missing reviewed Banner formulary row'
  # Exact source rows with reviewed named policy; retain existing renderer presentation.
  banner_exact_links = {
+  "banner-full-b720c6ff93fb1ac3": ("banner-policy-12-1576", "GL-709190", "generic hydromorphone tablets", "HYDROMORPHONE HCL TABLETS", "conditional", "not_specified", "Printed PA applies to more than two short-acting opioids in 30 days. Corresponding policy branch pp1578–1579 covers dose adjustment, replacement, or documented necessity; duration up to 12 months. Generic tablets preferred in guideline; brand Dilaudid nonpreferred. Other DUR/MME/QL branches separate."),
+  "banner-full-852b41b52868cf72": ("banner-policy-12-78", "GL-105169", "Intron A", "INTERFERON ALFA-2B SOLUTION", "required", "not_specified", "Intron A branch pp78–80: documentation of one of the listed indications, 12 months. No distinct renewal; do not apply Alferon N criteria. Current package availability unverified."),
+  "banner-full-30fc4f26a9ae9605": ("banner-policy-12-78", "GL-105169", "Alferon N", "INTERFERON ALFA-N3 SOLUTION", "required", "not_specified", "Alferon N branch pp80–81: refractory or recurrent external HPV condylomata acuminata, documented; eight weeks. No distinct renewal; do not apply Intron A criteria. Current package availability unverified."),
+  "banner-full-0272cfe23aa2123e": ("banner-policy-12-1365", "GL-105258", "Sklice", "IVERMECTIN LOTION", "required", "not_specified", "Topical head lice branch, 30 days. Generic spinosad failure requirement applies to brand Natroba only. No separate renewal; exact package eligibility unverified."),
   "banner-full-24223240af77db72": ("banner-policy-12-1321", "GL-731214", "Imbruvica", "IBRUTINIB CAPSULES", "required", "not_specified", "Oral oncology NCCN category 1, 2A or 2B; 12 months. Capsule package not specified; the separate imatinib brand step does not apply."),
   "banner-full-3562c19cd796ad78": ("banner-policy-12-1321", "GL-731214", "Imbruvica", "IBRUTINIB SUSPENSION", "required", "not_specified", "Oral oncology NCCN category 1, 2A or 2B; 12 months. Suspension package not specified; the separate imatinib brand step does not apply."),
   "banner-full-1ae1517495876514": ("banner-policy-12-811", "GL-525295", "Generic icatibant", "ICATIBANT ACETATE SOLUTION", "required", "preferred", "Preferred generic acute HAE branch, age 18 or older; 12 months. Nonpreferred-agent step does not apply. Exact package eligibility unverified."),
@@ -137,5 +141,18 @@ def attach_provider_policies(data):
   r['reviewedPresentation']={**r.get('reviewedPresentation',{}),'separate':True,'label':label,'note':"FDA labeling for prescription opioid cough products limits use to adults 18 and older. The payer's under-18 PA exception is not FDA-labeled pediatric use or a prescribing recommendation. Exact package eligibility unverified.",'labelUrl':"https://www.fda.gov/drugs/postmarket-drug-safety-information-patients-and-providers/codeine-information"}
   seen_cough.add(r['id'])
  assert seen_cough==set(cough_safety), 'Missing exact cough safety row'
+ # Keep concentration-specific PA unresolved rather than applying Lidoderm 5% criteria.
+ topical_holds={
+  "banner-full-53ebd7131685b7bf": ("LIDOCAINE PATCH", "Lidocaine Topical Patch (ZTlido Reference)", "Formulary PA applies only to 1.8% and 3.5% strengths. The named Lidoderm 5% policy is not verified for those concentrations; exact product-specific criteria are unavailable. Printed conditional PA and quantity limit retained."),
+  "banner-full-89f80c3b6125808a": ("LIDOCAINE HCL LOTION", "Lidocaine HCl Topical Lotion (Lido-Sorb Reference)", "Formulary PA applies only to 3% lotion. Exact concentration-specific policy is unavailable; do not apply patch criteria. Printed conditional PA retained."),
+ }
+ found_topical=set()
+ for r in data['medications']:
+  if r['id'] not in topical_holds:continue
+  name,label,note=topical_holds[r['id']]
+  assert r['planId']=='banner-ufc' and r['name']==name and r['pa']=='conditional' and r['preferred']=='not_specified'
+  r['reviewedPresentation']={**r.get('reviewedPresentation',{}),'separate':True,'label':label,'note':note,'policyUnverified':True}
+  found_topical.add(r['id'])
+ assert found_topical==set(topical_holds), 'Missing topical PA hold row'
  print(f'Added {count} same-plan policy links across {len(records)} medication records')
  return count
