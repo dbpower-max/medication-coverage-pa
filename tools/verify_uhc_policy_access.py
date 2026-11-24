@@ -76,3 +76,16 @@ for code in ('140734', '369221', '503307', '683417', '720196'):
     path = Path('policy-text/uhc-nov2026', f'gl-{code}.txt')
     assert (Path('_site') / path).read_text(encoding='utf-8-sig') == (Path('dist') / path).read_text(encoding='utf-8')
     assert (Path('_site') / path).read_bytes().startswith(bytes.fromhex('efbbbf'))
+
+# Exact October PDL records: no transfer of the Acthar vial-only branch to Cortrophin.
+for short_id, expected, labels in (
+    ('14411026d49668ea', [0, 1], {'0': 'Acthar Gel vial only (PDL device unspecified)', '1': 'Acthar Gel - OMS (confirm covered device)'}),
+    ('9b40fc8558feebd0', [1], {'1': 'Cortrophin Gel - OMS (confirm covered vial or syringe)'}),
+):
+    r = next(r for r in rows if r['id'] == 'uhc-oct-complete-' + short_id)
+    named, = [b for b in r['uhcClinicalBindings'] if b['policyId'].endswith('gl-235210')]
+    assert named['role'] == 'product' and named['branchIndexes'] == expected
+    assert named['branchLabels'] == labels
+    assert r['pa'] == 'required' and r['preferred'] == 'non_preferred'
+    assert any(b['role'] == 'global_quantity' for b in r['uhcClinicalBindings'])
+print('PASS: Acthar and Cortrophin named policy scopes preserve the vial-only branch and unchanged formulary flags.')
