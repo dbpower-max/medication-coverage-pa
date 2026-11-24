@@ -630,16 +630,16 @@
     ["uhc-oct-complete-e8904add38dcca50", {"separate": true, "label": "Prednisolone Acetate P-F (Exact Product Unverified)", "note": "See the exact UHC listing for product-specific restrictions."}],
     ["uhc-oct-complete-fdb09a3969cbeac7", {"separate": true, "label": "Bosentan Oral Tablets", "note": "See the exact UHC listing for product-specific restrictions."}],
     ["uhc-oct-complete-369ff35242ddaf80", {"separate": true, "label": "Bosentan Tablets for Oral Suspension", "note": "See the exact UHC listing for product-specific restrictions."}],
-    ["uhc-oct-complete-cbe335d8e93b76c3", {"note": "UHC lists preferred | non preferred (tiers 1 | 1). Printed flags by listing: *, QL, AL | PA, *, QL, AL. Exact package applicability is unverified."}],
-    ["uhc-oct-complete-4de408fad3af28c5", {"note": "UHC lists preferred | preferred (tiers 2 | 2). Printed flags by listing: (blank) | QL. Exact package applicability is unverified."}],
-    ["uhc-oct-complete-68d7ca7f971d686d", {"note": "UHC lists preferred | preferred (tiers 2 | 2). Printed flags by listing: (blank) | QL. Exact package applicability is unverified."}],
-    ["uhc-oct-complete-54d557b57f0fd561", {"note": "UHC lists preferred | preferred (tiers 1 | 2). Printed flags by listing: QL | QL. Exact package applicability is unverified."}],
-    ["uhc-oct-complete-9a605f6f7577f349", {"note": "UHC lists preferred | preferred (tiers 1 | 2). Printed flags by listing: QL | QL. Exact package applicability is unverified."}],
-    ["uhc-oct-complete-8e6412598dc3cc82", {"note": "UHC lists preferred | preferred (tiers 2 | 2). Printed flags by listing: DX2RX, ST, *, QL, AL | PA, ST, *, QL, AL. Exact package applicability is unverified."}],
-    ["uhc-oct-complete-86a272013762dd71", {"note": "UHC lists preferred | preferred (tiers 2 | 2). Printed flags by listing: DX2RX, ST, *, QL, AL | PA, ST, *, QL, AL. Exact package applicability is unverified."}],
-    ["uhc-oct-complete-4a432871483f8345", {"note": "UHC lists preferred | preferred (tiers 2 | 2). Printed flags by listing: DX2RX, ST, *, QL, AL | PA, ST, *, QL, AL. Exact package applicability is unverified."}],
-    ["uhc-oct-complete-e60cf4ef12c45d4c", {"note": "UHC lists preferred | preferred (tiers 2 | 2). Printed flags by listing: DX2RX, ST, *, QL, AL | PA, ST, *, QL, AL. Exact package applicability is unverified."}],
-    ["uhc-oct-complete-daf39dbb5aa3d6ba", {"note": "UHC lists preferred | preferred (tiers 1 | 2). Printed flags by listing: QL | QL. Exact package applicability is unverified."}],
+    ["uhc-oct-complete-cbe335d8e93b76c3", {"conflict": true, "note": "UHC lists preferred | non preferred (tiers 1 | 1). Printed flags by listing: *, QL, AL | PA, *, QL, AL. Exact package applicability is unverified."}],
+    ["uhc-oct-complete-4de408fad3af28c5", {"conflict": true, "note": "UHC lists preferred | preferred (tiers 2 | 2). Printed flags by listing: (blank) | QL. Exact package applicability is unverified."}],
+    ["uhc-oct-complete-68d7ca7f971d686d", {"conflict": true, "note": "UHC lists preferred | preferred (tiers 2 | 2). Printed flags by listing: (blank) | QL. Exact package applicability is unverified."}],
+    ["uhc-oct-complete-54d557b57f0fd561", {"conflict": true, "note": "UHC lists preferred | preferred (tiers 1 | 2). Printed flags by listing: QL | QL. Exact package applicability is unverified."}],
+    ["uhc-oct-complete-9a605f6f7577f349", {"conflict": true, "note": "UHC lists preferred | preferred (tiers 1 | 2). Printed flags by listing: QL | QL. Exact package applicability is unverified."}],
+    ["uhc-oct-complete-8e6412598dc3cc82", {"conflict": true, "note": "UHC lists preferred | preferred (tiers 2 | 2). Printed flags by listing: DX2RX, ST, *, QL, AL | PA, ST, *, QL, AL. Exact package applicability is unverified."}],
+    ["uhc-oct-complete-86a272013762dd71", {"conflict": true, "note": "UHC lists preferred | preferred (tiers 2 | 2). Printed flags by listing: DX2RX, ST, *, QL, AL | PA, ST, *, QL, AL. Exact package applicability is unverified."}],
+    ["uhc-oct-complete-4a432871483f8345", {"conflict": true, "note": "UHC lists preferred | preferred (tiers 2 | 2). Printed flags by listing: DX2RX, ST, *, QL, AL | PA, ST, *, QL, AL. Exact package applicability is unverified."}],
+    ["uhc-oct-complete-e60cf4ef12c45d4c", {"conflict": true, "note": "UHC lists preferred | preferred (tiers 2 | 2). Printed flags by listing: DX2RX, ST, *, QL, AL | PA, ST, *, QL, AL. Exact package applicability is unverified."}],
+    ["uhc-oct-complete-daf39dbb5aa3d6ba", {"conflict": true, "note": "UHC lists preferred | preferred (tiers 1 | 2). Printed flags by listing: QL | QL. Exact package applicability is unverified."}],
     ["banner-full-cbfa838935217cc6", {"label": "Clindamycin Phosphate / Benzoyl Peroxide (Form Unspecified)", "note": "Banner prints “refrigerate” on the continuation of its October listing, page 24. Eligible concentration is unspecified."}],
     ["banner-pcp-nov10-004", {"label": "Insulin Lispro U-100 Solution Pen (Humalog Junior KwikPen)", "note": "FDA-labeled device delivers 0.5-unit increments up to 30 units per injection."}],
     ["formulary-9981", {"label": "Insulin Lispro U-100 Solution Pen (Humalog Junior KwikPen)", "note": "FDA-labeled device delivers 0.5-unit increments up to 30 units per injection."}],
@@ -2273,7 +2273,9 @@
       [uhcMotegrityId, uhcLinzessId, bannerLubiprostoneId, achNotice?.id].includes(record.id));
     const reviewedExactRows = group.records.filter(record => !record.isStatewideReference
       && reviewedCardPresentation(record) && !reviewedCardPresentation(record).historical);
-    const exactDisplayRows = reviewedExactRows.length === 2 && reviewedExactRows.every(record => bannerEpiPenIds.has(record.id))
+    const conflictGroup = reviewedExactRows.some(record => reviewedCardPresentation(record)?.conflict);
+    const exactDisplayRows = conflictGroup ? group.records.filter(record => !record.isStatewideReference)
+      : reviewedExactRows.length === 2 && reviewedExactRows.every(record => bannerEpiPenIds.has(record.id))
       ? reviewedExactRows.slice(0, 1) : reviewedExactRows;
     const rows = constipationRows.length ? constipationRows : exactDisplayRows.length ? exactDisplayRows : bannerProducts.length ? bannerProducts : group.isStatewide && !exactScopedRows && !uhcStepRows.length
       ? [group.statewideRecord] : (group.records || []).filter(record => !group.isStatewide || !record.isStatewideReference);
@@ -2297,7 +2299,7 @@
         const presentation = reviewedCardPresentation(record);
         const label = rows.length > 1 && (presentation?.option || constipationGenericRows.get(record.id) ||
           (record.id === uhcMotegrityId ? 'Brand Motegrity oral tablets' : '') || reviewed?.label || insulinLabel || record.coverageProductLabel
-          || record.uhcClinicalBindings?.find(binding => binding.productLabel)?.productLabel);
+          || record.uhcClinicalBindings?.find(binding => binding.productLabel)?.productLabel || (conflictGroup && record.name));
         const exactAge = isUhc && uhcAgeEightPa(record)
           ? '<p class="pa-condition">PA required at age 8 and older.</p>'
           : isUhc && record.id === 'uhc-oct-complete-d37573826a734ebb'
