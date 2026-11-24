@@ -136,3 +136,7 @@ for (const [plan, term, heading] of [
 Object.assign(api.state, {planId:'uhc-community-az', term:'Uceris'});
 api.render();
 assert.match(api.el.resultGrid.innerHTML, /<h3>Uceris — dosage form unverified<\/h3>/i);
+
+api.state.term = 'Freestyle Libre 3 Reader';
+api.render();
+assert.match(api.el.resultGrid.innerHTML, /<h3>Freestyle Libre 3 Reader<\/h3>/i);

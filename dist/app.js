@@ -107,7 +107,7 @@
   }
 
   const formWords = /\b(?:tablets?|capsules?|caplets?|solutions?|suspensions?|creams?|ointments?|gels?|lotions?|liquids?|syrups?|elixirs?|emulsions?|aerosols?|powders?|granules?|pellets?|patch(?:es)?|sprays?|drops?|suppositor(?:y|ies)|foams?|films?|lozenges?|troches?|gums?|inserts?|implants?|inhalers?|inhalants?|injections?|injectables?|shampoos?|enemas?|wafers?|wipes?|pastes?|mouthwash|rinse|toothpaste|medicated pads?|pledgets?|soap|tincture|douche|gas|sponge|transdermal system|intrauterine system|vaginal system|ring)\b/i;
-  const supplyWords = /\b(?:test strips?|strips?|meters?|lancets?|needles?|syringe needles?|insulin syringes?|glucose monitor(?:ing)?(?: systems?| kits?)?|receivers?|lancing devices?|insulin pumps?|infusion sets?|transmitters?|sensors?|spacers?|chambers?|masks?|dressings?|bandages?|swabs?|alcohol pads?|pen caps?|batter(?:y|ies)|control solutions?|sharps containers?)\b/i;
+  const supplyWords = /\b(?:test strips?|strips?|meters?|readers?|condoms?|diaphragms?|lancets?|needles?|syringe needles?|insulin syringes?|glucose monitor(?:ing)?(?: systems?| kits?)?|receivers?|lancing devices?|insulin pumps?|infusion sets?|transmitters?|sensors?|spacers?|chambers?|masks?|dressings?|bandages?|swabs?|alcohol (?:prep(?: pads?)?|pads?)|ketone tests?|blood glucose tests?|pen caps?|batter(?:y|ies)|control solutions?|sharps containers?)\b/i;
   const formAbbreviations = {tab: 'Tablet', tabs: 'Tablets', caps: 'Capsules', cap: 'Capsule', inj: 'Injection',
     soln: 'Solution', susp: 'Suspension', oint: 'Ointment', pwdr: 'Powder', arsl: 'Aerosol',
     supp: 'Suppository', odt: 'Orally Disintegrating Tablet'};
@@ -124,7 +124,9 @@
     const labeledForm = records[0] && reviewedCardPresentation(records[0])?.dosageForm;
     if (labeledForm && records.every(r => reviewedCardPresentation(r)?.dosageForm === labeledForm)
         && !title.toLowerCase().includes(labeledForm.toLowerCase())) return title + ' — ' + labeledForm;
-    if (formWords.test(title) || supplyWords.test(title) || /\bform (?:unspecified|unverified|unresolved)\b/i.test(title)) return title;
+    if (formWords.test(title) || supplyWords.test(title)
+        || (records.length && records.every(r => r.subcategory === 'Diabetes - Glucose Monitoring'))
+        || /\bform (?:unspecified|unverified|unresolved)\b/i.test(title)) return title;
     // Each counted RxNorm pack component must end in the same explicit dosage form.
     if (records.length && records.every(r => r.rxnormId && r.name.startsWith('{'))) {
       const components = records.flatMap(r => r.name.split('}')[0].split(/\b\d+ \(/).slice(1));
