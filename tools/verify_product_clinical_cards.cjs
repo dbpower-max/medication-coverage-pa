@@ -75,6 +75,22 @@ for(const [plan,id,label,note,sourceId,pa] of scopedCases){
 }
 console.log('PASS: four exact source cards preserve original PA/preference and noninterchangeability or indication scope.');
 
+// Newly located named Banner policy links retain source-specific benefit flags.
+api.state.planId='banner-ufc';
+for(const [id,label,pid,page,preference,note] of [
+ ['banner-full-df471ac18a4edcdf','Ambrisentan Tablets (Letairis Reference)','banner-policy-12-1422',1422,'preferred','brand Letairis as nonpreferred'],
+ ['banner-full-42e11b3c0513cedb','Anastrozole Tablets (Arimidex Reference)','banner-policy-12-259',259,'not_specified','separate NCCN initial and renewal branches']
+]){
+ const g=api.planMedicationGroups().find(x=>x.records.some(r=>r.id===id));
+ assert(g,id+' missing');assert.equal(g.label,label);assert.equal(g.records.length,1);
+ const r=g.records[0];assert.equal(r.planId,'banner-ufc');assert.equal(r.pa,'required');assert.equal(r.preferred,preference);
+ assert(r.policySources.some(p=>p.policyId===pid&&p.firstPage===page),'Named Banner source link missing');
+ const markup=api.medicationGroupCard(g);
+ assert(markup.includes(note),'Source scope caveat missing');
+ assert(api.cardClinicalGroups.get(g.key).policies.some(p=>p.id===pid&&p.planId==='banner-ufc'&&p.sourcePage===page),'Exact-plan policy missing from card');
+}
+console.log('PASS: two named Banner source links preserve generic versus brand scope, PA and original preference.');
+
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
