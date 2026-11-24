@@ -228,6 +228,58 @@ criteria_codes = {g['policyCode'] for g in clinical_guidance['guides']} | set(cr
 data['structuredCriteriaCount'] = publish_structured_criteria(statewide_pa, SRC, OUT, criteria_codes)
 assert data['structuredCriteriaCount'] == criteria_release.get('expectedStructuredCount', len(criteria_codes))
 publish_uhc_policy_access(data, SRC, OUT)
+# DEC-04/05/08/09/12/13/14/19/20: reviewed October UHC prescribing rows.
+# Keep raw source wording, benefit fields and original policy bindings intact.
+# Label evidence is not confirmation of the payer's exact package or OUD benefit.
+opioid_reviews = {
+    '1d645b57ce2be32c': (
+        'fentanyl transdermal patch 72 hour 100 mcg/hr, 12 mcg/hr, 25 mcg/hr, 50 mcg/hr, 75 mcg/hr',
+        'Fentanyl 72-hour transdermal patch (12, 25, 50, 75, 100 mcg/hr)',
+        'patch', '2a2238e9-4b5d-c56d-8663-dd354ff9ae0c', 'pain',
+        'FDA labeling restricts fentanyl patches to opioid-tolerant patients with severe persistent pain; not for acute, postoperative or as-needed pain. UHC lists these five delivery rates; intermediate rates are separate. The payer pain criteria do not override the label. Exact package and numeric quantity limit are unverified.'),
+    '4949e672408e143c': (
+        'METHADOSE ORAL CONCENTRATE 10 MG/ML (brand for methadone hcl)',
+        'Methadose 10 mg/mL oral concentrate (cherry-flavored)',
+        'oral concentrate', '808a9d0b-720b-4034-a862-5122ff514608', 'oud_only',
+        'FDA labeling is for opioid addiction detoxification and maintenance, not analgesia; opioid treatment program distribution conditions apply. UHC GL-620192 names Methadose in pain criteria, but this does not establish an appropriate pain indication or an OUD authorization pathway. Exact package and OUD benefit are unverified.'),
+    '554823c89afb7621': (
+        'METHADOSE SUGAR-FREE (brand for methadone hcl)',
+        'Methadose Sugar-Free oral concentrate (10 mg/mL per label)',
+        'oral concentrate', '808a9d0b-720b-4034-a862-5122ff514608', 'oud_only',
+        'FDA labeling is for opioid addiction detoxification and maintenance, not analgesia; opioid treatment program distribution conditions apply. UHC GL-620192 names Methadose in pain criteria, but this does not establish an appropriate pain indication or an OUD authorization pathway. Sugar-free, dye-free and unflavored; exact package and OUD benefit are unverified.'),
+    'aa1a241874624dc7': (
+        'methadone hcl intensol (generic for METHADONE HCL INTENSOL)',
+        'Methadone HCl Intensol oral concentrate (generic listing)',
+        'oral concentrate', 'd0e6a966-179a-45e0-8444-4c1b8523f8d2', 'unmatched',
+        'The Intensol reference label describes a 10 mg/mL oral concentrate with pain and opioid addiction indications and distinct distribution conditions. This generic payer alias does not identify an exact package. UHC lists PA; product-specific criteria are unverified. Pain criteria cannot establish an OUD authorization pathway.'),
+    'a0d71228114f9c0a': (
+        'methadone hcl oral (generic for METHADONE HCL INTENSOL)',
+        'Methadone HCl oral concentrate (Intensol reference)',
+        'oral concentrate', 'd0e6a966-179a-45e0-8444-4c1b8523f8d2', 'pain',
+        'The Intensol reference label describes a 10 mg/mL oral concentrate with pain and opioid addiction indications and distinct distribution conditions. This generic payer alias does not identify an exact package. The linked pain criteria do not establish an OUD authorization pathway.'),
+}
+opioid_seen = set()
+for record in data['medications']:
+    rid = record['id'].removeprefix('uhc-oct-complete-')
+    if rid not in opioid_reviews:
+        continue
+    name, label, form, label_id, scope, note = opioid_reviews[rid]
+    assert record['id'] == 'uhc-oct-complete-' + rid and record['planId'] == 'uhc-community-az'
+    assert record['name'].lower() == name.lower() and record['sourceEffective'] == '2026-10-01'
+    assert record['preferred'] == 'preferred' and record['pa'] == 'required'
+    relevant = [b for b in record.get('uhcClinicalBindings', []) if b['policyId'].endswith('gl-620192')]
+    if scope == 'unmatched':
+        assert not relevant
+    else:
+        assert any(b['role'] == 'product' and b['branchIndexes'] == [0, 1, 4, 7, 9, 10, 11] for b in relevant)
+        assert any(b['role'] == 'quantity' and b['branchIndexes'] == [8] for b in relevant)
+    record['reviewedPresentation'] = {
+        **record.get('reviewedPresentation', {}), 'separate': True, 'label': label,
+        'dosageForm': form, 'opioidScope': scope, 'note': note,
+        'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + label_id,
+    }
+    opioid_seen.add(rid)
+assert opioid_seen == set(opioid_reviews), 'Missing exact UHC opioid review row'
 # Keep the printed payer alias as evidence, but exclude it from device identity.
 guardian_suffix = ' (brand for guardian sensor 3)'
 for record in data['medications']:
