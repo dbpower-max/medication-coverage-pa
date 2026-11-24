@@ -332,6 +332,27 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             matched.pop(code)
             add(code, indexes, 'product')
             bindings[-1]['productLabel'] = label
+        # The October PDL prints only ACTHAR and CORTROPHIN, without a device.
+        # The November source retains the vial-only infantile spasms branch
+        # separately from the OMS branch; never extend vial criteria to injectors.
+        if october_name in {'acthar', 'cortrophin'}:
+            code = 'GL-235210'
+            expected_ids = {'acthar': '14411026d49668ea', 'cortrophin': '9b40fc8558feebd0'}
+            assert record['id'] == 'uhc-oct-complete-' + expected_ids[october_name]
+            assert pa and ql and policies[code]['policyEffective'] == '2025-05-01'
+            first, second = structured[code]['branches']
+            assert first['fields']['Product Name']['text'] == 'Acthar Gel vial'
+            assert second['fields']['Product Name']['text'] == 'Acthar Gel, Cortrophin Gel'
+            assert 'Infantile spasm' in first['fields']['Diagnosis']['text']
+            assert 'Opsoclonus-myoclonus' in second['fields']['Diagnosis']['text']
+            matched.pop(code, None)
+            indexes = [0, 1] if october_name == 'acthar' else [1]
+            add(code, indexes, 'product')
+            bindings[-1]['branchLabels'] = (
+                {'0': 'Acthar Gel vial only (PDL device unspecified)',
+                 '1': 'Acthar Gel - OMS (confirm covered device)'}
+                if october_name == 'acthar' else
+                {'1': 'Cortrophin Gel - OMS (confirm covered vial or syringe)'})
         reviewed = PCP_POLICY_ROWS.get(record['id'].removeprefix('uhc-oct-complete-'))
         if reviewed and october_name and pa:
             code, pa_indexes, quantity_indexes, product = reviewed

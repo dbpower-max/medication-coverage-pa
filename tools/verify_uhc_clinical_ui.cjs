@@ -61,6 +61,18 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  console.log('PASS: Four DPP-4 cards show exact product PA branches and a separately labeled duplication exception.');
  const byId = id => groups.find(group => group.records.some(record => record.id === 'uhc-oct-complete-' + id));
+ const acthar = byId('14411026d49668ea'), cortrophin = byId('9b40fc8558feebd0');
+ assert(acthar && cortrophin && acthar !== cortrophin);
+ for (const [group, indexes, scope] of [[acthar, [0,1], 'Acthar Gel vial only (PDL device unspecified)'], [cortrophin, [1], 'Cortrophin Gel - OMS (confirm covered vial or syringe)']]) {
+  const binding = a.uhcGroupBindings(group).find(b => b.policyId.endsWith('gl-235210'));
+  assert.deepEqual(Array.from(binding.branchIndexes), indexes);
+  const {html, ref} = await open(group);
+  assert(html.includes(scope) && html.includes('Opsoclonus-myoclonus'));
+  assert.equal(html.includes('Infantile spasm'), group === acthar);
+  assert(ref.includes('page=17'));
+  assert(a.medicationGroupCard(group).includes('>PA required<'));
+ }
+ console.log('PASS: Acthar vial-only PA branch and Cortrophin OMS branch remain distinct in generated cards.');
  const tablet = byId('c2dc81c1dae5f5c3');
  const solution = byId('c2d62d774fbaa9ab');
  assert(tablet && solution && tablet !== solution);
