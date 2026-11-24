@@ -643,6 +643,15 @@
     ["formulary-9981", {"label": "Insulin Lispro U-100 Solution Pen (Humalog Junior KwikPen)", "note": "FDA-labeled device delivers 0.5-unit increments up to 30 units per injection."}],
     ["banner-pcp-nov10-005", {"label": "Insulin Lispro U-100 Solution Pen (Humalog KwikPen)", "note": "FDA-labeled device delivers 1-unit increments up to 60 units per injection."}],
     ["formulary-9982", {"label": "Insulin Lispro U-100 Solution Pen (Humalog KwikPen)", "note": "FDA-labeled device delivers 1-unit increments up to 60 units per injection."}],
+    ['uhc-oct-complete-4d48c8bd9a3822ca', {
+      label: 'Nurtec ODT (rimegepant) orally disintegrating tablet', note: 'Labeled strength: 75 mg.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9ef08e09-1098-35cc-e053-2a95a90a3e1d'
+    }],
+    ['uhc-oct-complete-a7836b3702968dcc', {
+      label: 'Pradaxa (dabigatran etexilate) oral pellet packets',
+      note: 'Labeled packet strengths: 20, 30, 40, 50, 110 and 150 mg. UHC lists the packet without specifying eligible strengths.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9ac0a64a-8666-45f7-9d4f-40fd894f7e6d'
+    }],
     ['uhc-oct-complete-d6b49b27961f969c', {label: 'Vascepa (Icosapent Ethyl) Oral Capsules', generalPa: true}],
     ['uhc-oct-complete-552f551a574d06dd', {label: 'Crestor (Rosuvastatin) Oral Tablets', generalPa: true}],
     ['uhc-oct-complete-49482f69ae796c31', {label: 'Zocor (Simvastatin) Oral Tablets', generalPa: true}],
@@ -686,7 +695,7 @@
 
   function reviewedCardPresentation(record) {
     const id = record.isStatewideReference ? record.id.split(':').at(-1) : record.id;
-    const reviewed = reviewedCardPresentations.get(id);
+    const reviewed = record.reviewedPresentation || reviewedCardPresentations.get(id);
     if (reviewed) return reviewed;
     if (record.auditScope === 'statewide_reference') return {scope: 'AHCCCS statewide reference · November 2026. Exact-plan restrictions are unverified.'};
     if (record.auditScope === 'selected_plan') return {scope: 'Arizona Complete Health October 2026 notice. See Sources for the named product.'};
@@ -2003,14 +2012,11 @@
     const duplication = byRole(['duplication']);
     const ageScoped = byRole(['age_scoped']);
     const packetReference = byRole(['packet_reference']);
-    const reviewedEstradiol = group.records?.some(record => uhcEstradiolPresentations.has(record.id));
     const reviewedInsulin = group.records?.some(record => uhcInsulinAndSupplyLabels.has(record.id));
     const genericDabigatran = group.records.find(record => record.id === genericDabigatranId);
-    const reviewedTopamax = group.records.some(record => uhcBrandTopamaxRows.has(record.id));
     const reviewedGvoke = group.records.some(record => uhcGvokePresentations.has(record.id));
     const generalPaPresentation = group.records.some(record => reviewedCardPresentation(record)?.generalPa);
-    const administrativeFallback = (generalPaPresentation || duplication.length || reviewedEstradiol || reviewedInsulin || genericDabigatran || reviewedTopamax || reviewedGvoke)
-      && primary.length && primary.every(b => b.role === 'nonpreferred');
+    const administrativeFallback = primary.length && primary.every(binding => binding.role === 'nonpreferred');
     const paRows = (group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference
       && !constipationGenericRows.has(r.id) && ['required','conditional'].includes(r.pa));
     const reviewedAgeRow = paRows.find(record => uhcAgePaCardLabels.has(record.id) && uhcAgeEightPa(record));
@@ -2203,6 +2209,7 @@
   function medicationGroupCard(group) {
     if (group.identityOnly) return `<article class="result-card">
       <h3>${escapeHtml(tirosintSolutionLabel)}</h3>
+      <details><summary>Labeled concentrations (mcg/mL)</summary><p>13, 25, 37.5, 44, 50, 62.5, 75, 88, 100, 112, 125, 137, 150, 175 and 200 mcg/mL.</p></details>
       <p>Plan coverage, preference and restrictions are unverified.</p>
       <a class="source-link" href="${escapeHtml(tirosintSolutionSource)}" target="_blank" rel="noopener">FDA drug label ↗</a>
     </article>`;
@@ -2223,8 +2230,9 @@
       : linzess ? 'Linzess (linaclotide) oral capsules'
       : constipationBrand ? 'Prucalopride oral tablets (Motegrity)'
       : constipationGeneric ? 'Lubiprostone oral capsules (Amitiza reference)' : group.label;
-    const guidance = group.policyOnly ? group.guide : (insulinConflict || bannerIcs) ? null : bannerGuide || clinicalGuidanceFor(group);
-    const policies = group.policyOnly || insulinConflict || bannerIcs ? [] : bannerGuide ? [bannerGuide] : linkedPolicyPanels(group, true);
+    const noticeOnly = group.records.some(record => record.reviewedPresentation?.policyUnverified);
+    const guidance = group.policyOnly ? group.guide : (insulinConflict || bannerIcs || noticeOnly) ? null : bannerGuide || clinicalGuidanceFor(group);
+    const policies = group.policyOnly || insulinConflict || bannerIcs || noticeOnly ? [] : bannerGuide ? [bannerGuide] : linkedPolicyPanels(group, true);
     const key = group.key || group.label;
     cardClinicalGroups.set(key, {group, policies, guidance, bannerGuide, bannerIcs, planId: state.planId});
     const restriction = state.planId === 'uhc-community-az' && (group.records || []).find(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays));
@@ -2286,7 +2294,7 @@
     ]).filter(Boolean))].filter(text => !/^PA is printed in at least one source row\.$/.test(text));
     const labeledCaplets = isUhc && rows.some(record => uhcReviewedProductGroups.get(record.id)?.labelId);
     const preferredNdcs = state.planId === 'banner-ufc' ? bannerAlbuterolPreferredNdcs(group) : [];
-    const hideEmptyPa = insulinConflict || (preferredNdcs.length && !guidance && !policies.length && !conditions.length
+    const hideEmptyPa = insulinConflict || noticeOnly || (preferredNdcs.length && !guidance && !policies.length && !conditions.length
       && !group.records.some(record => ['required', 'conditional'].includes(record.pa) || record.policySource));
     return `<article class="result-card">
       <h3>${escapeHtml(preferredNdcs.length ? 'Albuterol HFA inhaler' : title)}</h3>
@@ -2333,6 +2341,7 @@
           ${avivaConflict ? '<p class="pa-condition"><strong>UHC source conflict:</strong> The formulary names the Aviva device and aliases it to a control solution. Exact meter package eligibility is unverified.</p>' : ''}
           ${gvoke ? `<p class="pa-condition"><strong>FDA-labeled presentation:</strong> ${escapeHtml(gvoke.dose)}. UHC does not specify eligible strengths. <a class="source-link" href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=92385737-dbad-98c5-e053-2995a90a2805" target="_blank" rel="noopener">Drug label ↗</a></p>` : ''}
           ${presentation?.note ? `<p class="pa-condition">${escapeHtml(presentation.note)}</p>` : ''}
+          ${presentation?.billingUrl ? `<p><a class="source-link" href="${escapeHtml(presentation.billingUrl)}" target="_blank" rel="noopener">Plan billing notice ↗</a></p>` : ''}
           ${presentation?.labelUrl ? `<p><a class="source-link" href="${escapeHtml(presentation.labelUrl)}" target="_blank" rel="noopener">Drug label ↗</a></p>` : ''}
           ${constipationCoverageNote(record)}${exactAge}${continuedUse}${limit}${nebulizerNote ? `<p class="pa-condition">${escapeHtml(nebulizerNote)}</p>` : ''}
           ${step ? `<p class="pa-condition"><strong>Step therapy:</strong> ${escapeHtml(step)} <a class="source-link" href="${escapeHtml(sourceHref({...record, sourcePage: 36}))}" target="_blank" rel="noopener">UHC formulary · step table ↗</a></p>` : ''}`;

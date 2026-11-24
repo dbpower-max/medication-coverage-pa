@@ -173,6 +173,45 @@ data["medications"] = [r for r in data["medications"]
     if r.get("validation") != "mandated_statewide_minimum_with_plan_adoption_evidence"]
 for key, identity in (("plans", "id"), ("medications", "planId"), ("policies", "planId"), ("planEvidence", "planId")):
     data[key] = [r for r in data[key] if r.get(identity) in ALLOWED]
+# Dated plan notices establish only the listed product preference and billing route.
+for brand, ingredient, preference, payer_name, label_id in (
+    ('Prolia', 'denosumab', 'non_preferred', 'Prolia (SC)',
+     '49e5afe9-a0c7-40c4-af9f-f287a80c5c88'),
+    ('Bildyos', 'denosumab-nxxp', 'preferred', 'Bildyos syringe (SC)',
+     'b9e32bf7-d70a-4083-8577-c15751c7f769'),
+):
+    data['medications'].append({
+        'id': 'ach-apr2026-' + brand.lower(), 'planId': 'az-complete-health',
+        'recordType': 'formulary', 'name': payer_name, 'brand': brand,
+        'category': 'Bone Resorption Suppression and Related Agents',
+        'subcategory': 'Denosumab products', 'coverage': 'listed', 'preferred': preference,
+        'pa': 'not_specified', 'step': 'not_specified', 'conditions': [],
+        'sourceEffective': '2026-04-01', 'sourceTitle': 'Arizona Complete Health April formulary notice',
+        'sourceUrl': 'https://www.azcompletehealth.com/newsroom/PU26023.html',
+        'reviewedPresentation': {
+            'label': f'{brand} ({ingredient}) subcutaneous prefilled syringe',
+            'policyUnverified': True,
+            'scope': 'Arizona Complete Health · April 1, 2026',
+            'note': 'Labeled strength: 60 mg/mL. Pharmacy billing only. Pharmacy PA criteria and quantity limits are unverified.',
+            'billingUrl': 'https://www.azcompletehealth.com/newsroom/PU26021.html',
+            'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + label_id,
+        },
+    })
+data['medications'].append({
+    'id': 'banner-oct2026-j1306', 'planId': 'banner-ufc', 'recordType': 'formulary',
+    'name': 'Injection, inclisiran, 1 mg', 'brand': 'Leqvio', 'category': 'Cardiovascular',
+    'subcategory': 'Lipid lowering', 'preferred': 'not_specified', 'pa': 'required',
+    'coverage': 'not_specified', 'listingLabel': 'Injectable PA grid', 'step': 'not_specified',
+    'conditions': [], 'sourceEffective': '2026-10-01', 'sourcePage': 4,
+    'sourceTitle': 'Banner University Family Care ACC pharmacy PA grid',
+    'sourceUrl': 'https://www.bannerhealth.com/bhpprovider/-/media/files/project/bhpprovider/prior-auth/pa-grids/2026/prov_bufc-pa-grid_eff10012026_en.pdf',
+    'reviewedPresentation': {
+        'label': 'Leqvio (inclisiran) subcutaneous prefilled syringe',
+        'policyUnverified': True,
+        'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6fc0afca-4513-4c35-b594-6544aee29a44',
+        'note': 'Labeled syringe: 284 mg/1.5 mL. Banner processes J1306, billed in 1 mg units. Initial and renewal criteria are unverified.',
+    },
+})
 attach_shared_policy(data)
 data["planDataFiles"] = {k: v for k, v in data.get("planDataFiles", {}).items() if k in ALLOWED}
 if OUT.exists():

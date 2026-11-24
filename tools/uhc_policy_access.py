@@ -85,6 +85,21 @@ OAB_PRODUCTS = {
     'toviaz (brand for fesoterodine fumarate er)': ('Brand Toviaz', 'Brand Toviaz'),
 }
 
+# October ACC rows reconciled against named branches in the November compilation.
+# Quantity exceptions are kept separate from initial and renewal PA branches.
+PCP_POLICY_ROWS = {
+    '900b6f543a871255': ('GL-503307', [0, 1], [], 'all brands'),
+    'c48e74b3ca337637': ('GL-503307', [0, 1], [], 'all brands'),
+    '7643ae6c318710a6': ('GL-588187', [0, 1], [], 'Omnipod 5'),
+    'fcc058d760894f93': ('GL-588187', [0, 1], [2], 'Omnipod 5'),
+    '51396cfcdf274256': ('GL-369221', [0], [1], 'Test Strip Products'),
+    'a0d828aff68fd9cc': ('GL-369221', [0], [1], 'Test Strip Products'),
+    'a7836b3702968dcc': ('GL-714282', [0], [], 'Pradaxa Pellet Packs'),
+    '466ed897a555d892': ('GL-689195', [0], [], 'Brand Vyvanse caps/chew tabs'),
+    '67b306246b077d76': ('GL-689195', [0], [], 'Brand Vyvanse caps/chew tabs'),
+    '4d48c8bd9a3822ca': ('GL-720193', [6, 7, 8, 9], [], 'Nurtec ODT'),
+}
+
 FORMS = r'oral|tablet|tablets|capsule|capsules|solution|suspension|injection|injectable|subcutaneous|intravenous|intramuscular|topical|cream|ointment|ophthalmic|otic|nasal|inhalation|inhaler|aerosol|powder|spray|prefilled|syringe|syringes|pen|kit|pack|vial|vials|chewable|disintegrating|hcl|hydrochloride|mg|mcg|ml|unit|units|act|actuat|dose|metered|breath|actuated|hfa|tabs|caps|soln|susp|packet|packets|reconstituted|cartridge|kwikpen|and|external|er|xr|dr|sr|pf|therapy|initiation|pk|titration|patient|month|sprinkle|sprinkles|soluble|dispersible|granules|auto|injector|transdermal|patch|recon|reconstitution|concentrate|intramuscular|patches|odt|for|rebidose|hr|hour|hours'
 
 def identity(value):
@@ -317,6 +332,16 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             matched.pop(code)
             add(code, indexes, 'product')
             bindings[-1]['productLabel'] = label
+        reviewed = PCP_POLICY_ROWS.get(record['id'].removeprefix('uhc-oct-complete-'))
+        if reviewed and october_name and pa:
+            code, pa_indexes, quantity_indexes, product = reviewed
+            for index in pa_indexes + quantity_indexes:
+                assert product in structured[code]['branches'][index]['fields']['Product Name']['text']
+            matched.pop(code, None)
+            add(code, pa_indexes, 'product')
+            bindings[-1]['productLabel'] = record['name'].split(' (')[0]
+            if ql:
+                add(code, quantity_indexes, 'quantity')
         for code,indexes in sorted(matched.items()):
             if code in DUPLICATION_POLICIES:
                 if pa:add(code,sorted(indexes),'duplication')
