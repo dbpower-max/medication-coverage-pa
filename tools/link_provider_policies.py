@@ -66,5 +66,28 @@ def attach_provider_policies(data):
   r['reviewedPresentation']={'separate':True,'label':label,'note':note}
   found_banner.add(r['id'])
  assert found_banner==set(banner_reviewed), 'Missing reviewed Banner formulary row'
+ # Exact source rows with reviewed named policy; retain existing renderer presentation.
+ banner_exact_links = {
+  'banner-full-ea0529db441446f6': ('banner-policy-12-811', 'GL-525295', 'Berinert', 'C1 ESTERASE INHIBITOR (HUMAN) SOLUTION', 'required', 'preferred', 'Acute HAE branch; product-specific age and step conditions must not be transferred.'),
+  'banner-full-81af49ca953b804f': ('banner-policy-12-811', 'GL-525295', 'Cinryze, Haegarda', 'C1 ESTERASE INHIBITOR (HUMAN) SOLUTION RECONSTITUTED', 'required', 'not_specified', 'Prophylaxis branch names both; acute off-label branch names Cinryze only. Individual package eligibility is unverified.'),
+  'banner-full-f1d24c36af2451fa': ('banner-policy-12-105', 'GL-545202', 'Xcopri', 'CENOBAMATE TAB THER PACK', 'required', 'not_specified', 'Named Xcopri policy; therapeutic pack not separately named.'),
+  'banner-full-b2b56363cbca0ab9': ('banner-policy-12-105', 'GL-545202', 'Xcopri', 'CENOBAMATE TABLET', 'required', 'not_specified', 'Named Xcopri policy; other agents have different criteria.'),
+  'banner-full-ffeacef3b187fde3': ('banner-policy-12-156', 'GL-126970', 'generic clorazepate dipotassium', 'CLORAZEPATE DIPOTASSIUM TAB 15 MG', 'conditional', 'not_specified', 'Under-six or concurrent anxiolytic DUR branches; preserve printed quantity limit.'),
+  'banner-full-289217947e14a99e': ('banner-policy-12-156', 'GL-126970', 'generic clorazepate dipotassium', 'CLORAZEPATE DIPOTASSIUM TAB 3.75 MG', 'conditional', 'not_specified', 'Under-six or concurrent anxiolytic DUR branches; preserve printed quantity limit.'),
+  'banner-full-08918817a94bbfa0': ('banner-policy-12-156', 'GL-126970', 'generic clorazepate dipotassium', 'CLORAZEPATE DIPOTASSIUM TAB 7.5 MG', 'conditional', 'not_specified', 'Under-six or concurrent anxiolytic DUR branches; preserve printed quantity limit.'),
+ }
+ found=set()
+ for r in data['medications']:
+  if r['id'] not in banner_exact_links:continue
+  pid,code,product,original,pa,preference,scope=banner_exact_links[r['id']]
+  assert r['planId']=='banner-ufc' and r['name']==original and r['pa']==pa and r['preference']==preference
+  p=policies[pid];assert p['planId']=='banner-ufc'
+  raw=(ROOT/'dist'/p['sourceTextUrl'].lstrip('./')).read_text()
+  assert code in raw and product.lower() in raw.lower()
+  link=dict(policyId=pid,title=p['name'],policyCode=code,firstPage=p['sourcePage'],lastPage=p.get('sourceLastPage',p['sourcePage']),url=p['sourceUrl'],textUrl=p['sourceTextUrl'],effective=p.get('policyEffective') or p.get('sourceEffective',''),matchedProduct=product,scope=scope)
+  links=r.setdefault('policySources',[])
+  if not any(x.get('policyId')==pid or x.get('textUrl')==link['textUrl'] for x in links):links.insert(0,link);count+=1;records.add(r['id'])
+  found.add(r['id'])
+ assert found==set(banner_exact_links), 'Missing exact Banner policy-linked row'
  print(f'Added {count} same-plan policy links across {len(records)} medication records')
  return count
