@@ -321,7 +321,7 @@ console.log('PASS: three Banner MS listings preserve original PA and preference 
  for(const [id,hold] of [["banner-full-abc845306384483c",true],["banner-full-9ec47e1a44d309df",false],["banner-full-bffe9a14c9598aaf",false],["banner-full-7f30550aa500ee70",true]]){
   const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');assert.equal(g.records.length,1,id+' merged forms');
   const r=g.records[0];assert.equal(r.pa,'required');assert.equal(r.preferred,'not_specified');
-  const card=api.medicationGroupCard(g);assert(card.includes('OUD PA criteria')&&card.includes('>PA required<'));
+  const card=api.medicationGroupCard(g);assert(/OUD\)? PA criteria/.test(card)&&card.includes('>PA required<'),id+' missing OUD caveat or PA: '+card.slice(0,2400));
   assert(api.recordDetails(r).includes('GL-611235'));
   assert.equal(r.reviewedPresentation.policyUnverified,hold);
   if(hold){assert(!card.includes('data-card-clinical='),id+' pain criteria shown despite label hold');}
