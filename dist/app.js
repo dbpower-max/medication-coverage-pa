@@ -690,6 +690,8 @@
     const id = record.isStatewideReference ? record.id.split(':').at(-1) : record.id;
     const reviewed = reviewedCardPresentations.get(id);
     if (reviewed) return reviewed;
+    if (record.auditScope === 'statewide_reference') return {scope: 'AHCCCS statewide reference · November 2026. Exact-plan restrictions are unverified.'};
+    if (record.auditScope === 'selected_plan') return {scope: 'Arizona Complete Health October 2026 notice. See Sources for the named product.'};
     if (record.planId === 'az-complete-health' && record.id?.startsWith('ach-json-')
         && !record.sourceUpdates?.length) {
       return {scope: 'Historical Arizona Complete Health formulary (2022). Current benefits are unverified.', historical: true};
@@ -701,10 +703,30 @@
     return record.isStatewideReference && statewideConstipationIds.has(record.id.split(':').at(-1));
   }
 
+  // Keep 2022 baseline attributes in Sources. Only dated updates supply current flags.
+  function scopedAchRecord(record) {
+    if (!record.baselineSource || record.planId !== 'az-complete-health') return record;
+    const updates = record.sourceUpdates || [];
+    const exact = updates.filter(update => update.id.startsWith('ach-notice-'));
+    const applicable = exact.length ? exact : updates;
+    const latest = applicable.at(-1);
+    const field = key => {
+      const values = [...new Set(applicable.map(update => update[key] || ''))];
+      return values.length === 1 ? values[0] : '';
+    };
+    return {...record, coverage: latest ? 'listed' : 'not_specified',
+      preferred: field('preferred') || 'not_specified', pa: field('pa') || 'not_specified',
+      step: field('step') || 'not_specified', paText: field('paText'), stepText: field('stepText'),
+      qlAmount: field('qlAmount'), qlDays: field('qlDays'), quantityLimited: Boolean(field('qlAmount') || field('qlDays')),
+      auditScope: exact.length ? 'selected_plan' : latest ? 'statewide_reference' : 'historical_2022',
+      sourceEffective: latest?.sourceEffective || '', sourcePage: latest?.sourcePage || null,
+      sourceTitle: latest?.sourceTitle || record.sourceTitle, sourceUrl: latest?.sourceUrl || record.sourceUrl};
+  }
+
   function planMedicationGroups() {
     const key = state.planId + ':' + state.data.medications.length;
     if (groupCache.has(key)) return groupCache.get(key);
-    const planGroups = medicationGroups(state.data.medications.filter(r => r.planId === state.planId && r.recordType === 'formulary'));
+    const planGroups = medicationGroups(state.data.medications.filter(r => r.planId === state.planId && r.recordType === 'formulary').map(scopedAchRecord));
     const sharedGroups = medicationGroups(inheritedStatewideRows())
       .map(group => ({...group, isStatewide: true, statewideRecord: group.records[0]}));
     const brandIndex = new Map(), nameIndex = new Map();
@@ -2480,13 +2502,13 @@
         : record.paText || '',
       step: record.step, step_text: record.stepText || '', quantity: record.qlAmount || '', quantity_interval: record.qlDays || '',
       source: sourceHref(record), source_effective: record.sourceEffective || '',
-      source_scope: record.isStatewideReference ? 'statewide_reference' : 'selected_plan'
+      source_scope: record.auditScope || (record.isStatewideReference ? 'statewide_reference' : 'selected_plan')
     });
     return {name: group.label, brands: group.brands, category: primary?.category || '',
       coverage: primary?.coverage || common('coverage'),
       pa: group.records.some(record => constipationGenericRows.has(record.id)) ? 'conflicting' : primary?.pa || common('pa'),
       source: primary ? sourceHref(primary) : '',
-      source_scope: group.isStatewide ? 'statewide_reference' : 'selected_plan',
+      source_scope: group.isStatewide ? 'statewide_reference' : primary?.auditScope || (group.records.every(record => record.auditScope === 'historical_2022') ? 'historical_2022' : 'selected_plan'),
       products: group.records.map(product)};
   }
 
