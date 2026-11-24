@@ -306,6 +306,17 @@ console.log('PASS: three Banner MS listings preserve original PA and preference 
   assert(api.recordDetails(r).includes('Exact')&&api.recordDetails(r).includes('unverified'));
  }
  console.log('PASS: five reviewed Banner rows show precise initial/renewal links and separate Increlex ISS exclusion.');
+ for(const id of ['banner-full-a500a55a6c2da52e','banner-full-9d81da2b37ae5a9a']){
+  const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+  const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'not_specified');
+  assert.equal(r.reviewedBannerBranches.unstagedPage,87);assert(r.policySources.some(p=>p.policyId==='banner-policy-12-87'&&p.scope.includes('not separately labeled')));
+  api.medicationGroupCard(g);const expanded=targetFor(g);await api.populateCardClinical(expanded.details);
+  const html=expanded.target.innerHTML;assert.equal(expanded.details.dataset.loaded,'true',id+' criteria failed '+html);
+  assert(html.includes('Criteria source · PDF page 87<')&&html.includes('Authorization stage is not separately labeled')&&html.includes('dementia of the Alzheimer’s type')&&html.includes('12 month(s)'));
+  assert(!html.includes('Parkinson')&&!html.includes('Adlarity')&&!html.includes('Criteria source · PDF page 88<')&&!html.includes('Treatment stage:'));
+  assert(api.recordDetails(r).includes('Exact covered package eligibility is unverified'));
+ }
+ console.log('PASS: two exact Banner memantine rows retain PA and unknown preference, unstaged criteria page and product scope.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
