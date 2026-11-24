@@ -153,6 +153,16 @@ for(const [id,pid,page,pa,pref] of [
 }
 console.log('PASS: seven exact Banner named policy links with unchanged PA/preference and scoped HAE distinction.');
 
+// Xalkori oral pellets and capsules have distinct handling and strengths.
+api.state.planId='banner-ufc';
+for(const [id,label,caveat] of [["banner-full-300d0c135e0cb20c","Xalkori (Crizotinib) Oral Pellets (Banner Formulary)","Do not swallow the shell"],["banner-full-98c661a1f951a1e3","Xalkori (Crizotinib) Oral Capsules (Banner Formulary)","Swallow whole"]]){
+ const g=api.planMedicationGroups().find(x=>x.records.some(r=>r.id===id));
+ assert(g,id+' missing');assert.equal(g.label,label);assert.equal(g.records.length,1);
+ const r=g.records[0];assert.equal(r.planId,'banner-ufc');assert.equal(r.pa,'required');assert.equal(r.preferred,'not_specified');
+ const markup=api.medicationGroupCard(g);assert(markup.includes(caveat)&&markup.includes('2a51b0de-47d6-455e-a94c-d2c737b04ff7')&&markup.includes('exact covered strengths and packages are unverified'),id+' missing label evidence or payer hold');
+}
+console.log('PASS: Banner Xalkori capsules and pellets preserve distinct handling, source rows and payer flags.');
+
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
