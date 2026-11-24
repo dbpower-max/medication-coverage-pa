@@ -596,7 +596,6 @@
     ['ach-notice-13848', 'Lubiprostone oral capsules (generic)'],
     ['ach-notice-13849', 'Prucalopride oral tablets']
   ]);
-  const statewideConstipationIds = new Set(['formulary-10718', 'formulary-10721', 'formulary-10735']);
   const constipationPolicyId = 'uhc-nov2026-policy-gl-720196';
 
   const symbicortGenericNote = 'UHC source rows disagree on step therapy. Both print a quantity limit. The plan does not specify the applicable step or which packages it affects.';
@@ -611,9 +610,19 @@
   const rosuvastatinTablets = 'Rosuvastatin Tablets (Crestor Reference)';
   const simvastatinTablets = 'Simvastatin Tablets (Zocor Reference)';
   const genericStatinNote = 'UHC lists a quantity limit without specifying the numeric amount.';
+  const butransPatches = 'Buprenorphine Transdermal Patches (Butrans)';
   const reviewedCardPresentations = new Map([
     ["banner-full-300d0c135e0cb20c",{"separate":true,"label":"Xalkori (Crizotinib) Oral Pellets (Banner Formulary)","note":"FDA-labeled oral pellets: 20 mg, 50 mg and 150 mg. Open the shell; administer the pellets without chewing or crushing. Do not swallow the shell. Banner GL-99695 names Xalkori without a form-specific branch; exact covered strengths and packages are unverified.","labelUrl":"https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=2a51b0de-47d6-455e-a94c-d2c737b04ff7"}],
     ["banner-full-98c661a1f951a1e3",{"separate":true,"label":"Xalkori (Crizotinib) Oral Capsules (Banner Formulary)","note":"FDA-labeled capsules: 200 mg and 250 mg. Swallow whole; do not split, crush or chew. Distinct from oral pellets. Banner GL-99695 names Xalkori without a form-specific branch; exact covered strengths and packages are unverified.","labelUrl":"https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=2a51b0de-47d6-455e-a94c-d2c737b04ff7"}],
+    ['uhc-oct-complete-1f6816a7379d66cd', {
+      label: butransPatches, option: 'Generic buprenorphine patches', separate: true,
+      note: 'UHC lists a quantity limit. The October formulary row omits patch strengths and the numeric limit.'
+    }],
+    ['uhc-oct-complete-907ff55568d6ecfb', {
+      label: butransPatches, option: 'Brand Butrans patches', separate: true,
+      note: 'UHC requires a failed trial, contraindication or intolerance to generic buprenorphine patches for brand Butrans. The formulary omits eligible strengths.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=794aa355-66de-41b8-aedf-f2c40f6bc664'
+    }],
     ["banner-full-ea0529db441446f6",{"separate":true,"label":"Berinert (C1 Esterase Inhibitor) IV Powder for Solution (Banner Formulary)","note":"FDA label: intravenous treatment of acute hereditary angioedema attacks; not a routine prophylaxis product. Banner prints a brand-only preferred PA listing without package details. Banner GL-525295 acute branch: documented HAE, acute treatment, no concurrent approved acute agent, allergist/immunologist; 12 months. Product-specific age/step conditions for other drugs do not apply to Berinert. Exact covered package remains unverified.","labelUrl":"https://www.fda.gov/vaccines-blood-biologics/approved-blood-products/berinert"}],
     ["banner-full-81af49ca953b804f",{"separate":true,"label":"Cinryze / Haegarda (C1 Esterase Inhibitor) Reconstituted Injection (Banner Combined Listing)","note":"Distinct FDA-labeled prophylaxis presentations: Cinryze intravenous; Haegarda subcutaneous. Not interchangeable by route. Banner prints both brands in one brand-only PA row; individual product/package eligibility remains unverified. Banner GL-525295 prophylaxis: confirmed HAE, age 6 or older, allergist/immunologist; 12 months. Acute off-label criteria name Cinryze only, not Haegarda. The guideline lists both as preferred, but the formulary row does not specify preference.","labelUrl":"https://www.fda.gov/vaccines-blood-biologics/approved-blood-products/haegarda"}],
     ["banner-full-63b29ba46f628277",{"separate":true,"label":"Brixadi (Buprenorphine) Subcutaneous Extended-Release Prefilled Syringe (Banner Formulary)","note":"FDA label distinguishes weekly and monthly formulations; the weekly formulation is used for initiation after a tolerated test dose in patients not currently receiving buprenorphine. Do not sum weekly doses to determine a monthly dose. Banner does not specify covered schedule or strength. GL-157633 has separate initial and renewal pathways.","labelUrl":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5d8a8fd0-8619-422a-a664-d1d2e8970f48"}],
@@ -730,10 +739,6 @@
       return {scope: 'Historical Arizona Complete Health formulary (2022). Current benefits are unverified.', historical: true};
     }
     return null;
-  }
-
-  function isStatewideConstipation(record) {
-    return record.isStatewideReference && statewideConstipationIds.has(record.id.split(':').at(-1));
   }
 
   // Keep 2022 baseline attributes in Sources. Only dated updates supply current flags.
@@ -1335,7 +1340,7 @@
     }
     if (record.policySources?.length) {
       details.push('<p><strong>Related PA and internal policy sources:</strong></p>' + record.policySources.map((policy) =>
-        `<p><a class="source-link" href="${escapeHtml(policy.url)}#page=${Number(policy.firstPage)}" target="_blank" rel="noopener">${escapeHtml(policy.title)} · pages ${Number(policy.firstPage)}–${Number(policy.lastPage)} ${policy.effective ? `· effective ${escapeHtml(policy.effective)}` : ''}</a> · <a href="${escapeHtml(policy.textUrl)}" target="_blank" rel="noopener">Read full source text</a></p>`
+        `<p><a class="source-link" href="${escapeHtml(policy.url)}#page=${Number(policy.firstPage)}" target="_blank" rel="noopener">${escapeHtml(policy.title)} · pages ${Number(policy.firstPage)}–${Number(policy.lastPage)} ${policy.effective ? `· effective ${escapeHtml(policy.effective)}` : ''}</a> · <a href="${escapeHtml(policy.textUrl)}" target="_blank" rel="noopener">Read full source text</a></p>${record.planId === 'banner-ufc' && policy.scope ? `<p>${escapeHtml(policy.scope)}</p>` : ''}`
       ).join('') + '<p>Check the full indication, initial/renewal criteria and exceptions. Related-source links do not establish eligibility or approval.</p>');
     }
     if (record.sourceTextUrl && !record.guide) details.push(`<p><a class="source-link" href="${escapeHtml(record.sourceTextUrl)}" target="_blank" rel="noopener">Read full source text · PDF pages ${Number(record.sourcePage)}–${Number(record.sourceLastPage)}</a></p>`);
@@ -2330,11 +2335,24 @@
     const exactDisplayRows = conflictGroup ? group.records.filter(record => !record.isStatewideReference)
       : reviewedExactRows.length === 2 && reviewedExactRows.every(record => bannerEpiPenIds.has(record.id))
       ? reviewedExactRows.slice(0, 1) : reviewedExactRows;
-    const rows = constipationRows.length ? constipationRows : exactDisplayRows.length ? exactDisplayRows : bannerProducts.length ? bannerProducts : group.isStatewide && !exactScopedRows && !uhcStepRows.length
-      ? [group.statewideRecord] : (group.records || []).filter(record => !group.isStatewide || !record.isStatewideReference);
+    const directRows = group.records.filter(record => !record.isStatewideReference);
+    const mixedPlanRows = directRows.filter(record => !record.baselineSource && !reviewedCardPresentation(record)?.historical);
+    const scopeFields = ['coverage','preferred','pa','step','qlAmount','qlDays','ageRestrictionText','paExceptionText','stepText'];
+    const showStatewideRow = group.isStatewide && (!mixedPlanRows.length || mixedPlanRows.some(record =>
+      scopeFields.some(field => (record[field] || '') !== (group.statewideRecord[field] || ''))
+      || (record.pa === 'conditional' && record.paText !== group.statewideRecord.paText)));
+    const planScopeLabel = isBanner ? 'Banner formulary' : isUhc ? 'UHC formulary' : 'Arizona Complete Health notice';
+    let rows = directRows;
+    if (constipationRows.length) rows = constipationRows;
+    else if (exactDisplayRows.length) rows = exactDisplayRows;
+    else if (bannerProducts.length) rows = bannerProducts;
+    else if (group.isStatewide && !exactScopedRows && !uhcStepRows.length) {
+      rows = showStatewideRow ? [...mixedPlanRows, group.statewideRecord] : mixedPlanRows;
+    }
     const conditions = [...new Set(rows.flatMap(record => [
       ['required', 'conditional'].includes(record.pa) && !bannerEpiPenIds.has(record.id) && !reviewedCardPresentation(record)?.note?.includes(tiotropiumContinuation) && !achHistorical && !constipationGenericRows.has(record.id) && !(isUhc && uhcAgeEightPa(record)) ? record.paText : '', record.paExceptionText, record.ageRestrictionText
-    ]).filter(Boolean))].filter(text => !/^PA is printed in at least one source row\.$/.test(text));
+    ].filter(text => text && text !== 'PA is printed in at least one source row.').map(text =>
+      group.isStatewide && mixedPlanRows.length ? (record.isStatewideReference ? 'AHCCCS statewide reference' : planScopeLabel) + ' · ' + text : text)))];
     const labeledCaplets = isUhc && rows.some(record => uhcReviewedProductGroups.get(record.id)?.labelId);
     const preferredNdcs = state.planId === 'banner-ufc' ? bannerAlbuterolPreferredNdcs(group) : [];
     const hideEmptyPa = insulinConflict || noticeOnly || (preferredNdcs.length && !guidance && !policies.length && !conditions.length
@@ -2353,7 +2371,8 @@
         const presentation = reviewedCardPresentation(record);
         const label = rows.length > 1 && (presentation?.option || constipationGenericRows.get(record.id) ||
           (record.id === uhcMotegrityId ? 'Brand Motegrity oral tablets' : '') || reviewed?.label || insulinLabel || record.coverageProductLabel
-          || record.uhcClinicalBindings?.find(binding => binding.productLabel)?.productLabel || (conflictGroup && record.name));
+          || record.uhcClinicalBindings?.find(binding => binding.productLabel)?.productLabel || (conflictGroup && record.name)
+          || (group.isStatewide && mixedPlanRows.includes(record) && readableMedicationName(record.name)));
         const exactAge = isUhc && uhcAgeEightPa(record)
           ? '<p class="pa-condition">PA required at age 8 and older.</p>'
           : isUhc && record.id === 'uhc-oct-complete-d37573826a734ebb'
@@ -2368,7 +2387,8 @@
         const continuedUse = isUhc && record.id === 'uhc-oct-complete-de1ca42f17826905' && uhcAgeEightPa(record)
           && record.rawRestrictions?.includes('Continued use of two or more drugs in this class may require prior authorization')
           ? '<p class="pa-condition">Continued use of two or more drugs in this class may require PA.</p>' : '';
-        const limit = bannerProducts.includes(record) && record.qlAmount && record.qlDays
+        const limit = (bannerProducts.includes(record) || (isBanner && group.isStatewide && mixedPlanRows.includes(record)))
+          && /^\d+(?:\.\d+)?$/.test(record.qlAmount) && /^\d+$/.test(record.qlDays)
           ? `<p class="pa-condition"><strong>Quantity limit:</strong> ${escapeHtml(record.qlAmount)} per ${escapeHtml(record.qlDays)} days. The formulary does not specify a unit.</p>` : '';
         const badges = presentation?.historical ? ''
           : presentation?.explicitPa ? statusChips({...record, pa: 'required'})
@@ -2376,8 +2396,9 @@
           + '<span class="chip warning">PA sources conflict</span>'
           : achHistorical ? '' : achConstipationLabels.has(record.id)
           ? statusChips({...record, coverageCaveat: ''}) : statusChips(record);
-        const scope = presentation?.scope || ((presentation || isStatewideConstipation(record)) && record.isStatewideReference
-          ? 'AHCCCS statewide reference · November 1, 2026' : '');
+        const scope = record.isStatewideReference || record.auditScope === 'statewide_reference'
+          ? 'AHCCCS statewide reference. Exact-plan coverage and restrictions are unverified.'
+          : presentation?.scope || (group.isStatewide && mixedPlanRows.includes(record) ? planScopeLabel : '');
         return `${label ? `<p class="coverage-product-label"><strong>${escapeHtml(label)}</strong>${productLabelLink}</p>` : ''}
           ${scope ? `<p class="pa-condition">${escapeHtml(scope)}</p>` : ''}
           <div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${badges}${preferredNdcs.length && record === rows[0] ? '<span class="chip positive">Preferred for listed products</span>' : ''}${step && record.step !== 'specified' ? '<span class="chip warning">Step therapy</span>' : ''}</div>
@@ -2456,21 +2477,15 @@
     // while preserving explicit coverage/category filters.
     const allGroups = planMedicationGroups();
     const matchedIds = new Set(medicationRows.map(r => r.id));
-    const groups = allGroups.filter(g => {
-      if (!g.records.some(r => matchedIds.has(r.id))) return false;
-      if (!g.isStatewide) return true;
-      const r = selectedPlan === 'uhc-community-az' && g.records.find(uhcAgeEightPa) || g.statewideRecord;
-      return matchesCoverage(r)
-        && (matchesCategory(r, state.category))
-        && (!state.subcategory || matchesSubcategory(r.subcategory, state.subcategory));
-    }).map(g => {
-      if (g.isStatewide) return g;
-      return {...g, records: g.records.filter(r =>
-        matchesCoverage(r)
-        && (matchesCategory(r, state.category))
-        && (!state.subcategory || matchesSubcategory(r.subcategory, state.subcategory))
-      )};
-    }).filter(group => group.records.length > 0);
+    const groups = allGroups.filter(group => group.records.some(record => matchedIds.has(record.id)))
+      .map(group => {
+        if (!state.coverage && !state.category && !state.subcategory) return group;
+        const records = group.records.filter(record => matchesCoverage(record)
+          && matchesCategory(record, state.category)
+          && (!state.subcategory || matchesSubcategory(record.subcategory, state.subcategory)));
+        const statewideRecord = group.isStatewide && records.find(record => record.isStatewideReference);
+        return {...group, records, isStatewide: Boolean(statewideRecord), statewideRecord};
+      }).filter(group => group.records.length);
     // Order the complete matching set before taking the visible page.
     const direction = state.sort === 'za' ? -1 : 1;
     const collator = new Intl.Collator('en', {sensitivity: 'base', numeric: true});

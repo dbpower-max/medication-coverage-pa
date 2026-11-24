@@ -59,7 +59,7 @@ def attach_provider_policies(data):
   assert r['planId']=='banner-ufc' and r['name']==original and r['pa']=='required'
   p=policies[pid];assert p['planId']=='banner-ufc'
   raw=(ROOT/'dist'/p['sourceTextUrl'].lstrip('./')).read_text()
-  assert code in raw and product.lower() in raw.lower()
+  assert code in raw and product.lower() in ' '.join(raw.lower().split())
   link=dict(policyId=pid,title=p['name'],policyCode=code,firstPage=p['sourcePage'],lastPage=p.get('sourceLastPage',p['sourcePage']),url=p['sourceUrl'],textUrl=p['sourceTextUrl'],effective=p.get('policyEffective') or p.get('sourceEffective',''),matchedProduct=product,scope='Named same-plan policy; review the applicable product, indication and stage.')
   links=r.setdefault('policySources',[])
   if not any(x.get('policyId')==pid or x.get('textUrl')==link['textUrl'] for x in links):links.insert(0,link);count+=1;records.add(r['id'])
@@ -68,6 +68,12 @@ def attach_provider_policies(data):
  assert found_banner==set(banner_reviewed), 'Missing reviewed Banner formulary row'
  # Exact source rows with reviewed named policy; retain existing renderer presentation.
  banner_exact_links = {
+  "banner-full-1ecc15f32d5c5aa0": ("banner-policy-12-1193", "GL-715190", "generic dalfampridine", "DALFAMPRIDINE TABLET ER 12HR", "required", "not_specified", "MS guideline: generic dalfampridine is preferred; brand Ampyra is nonpreferred. Separate initial and renewal branches. The formulary row does not specify preference; exact brand/package eligibility is unverified."),
+  "banner-full-c3c6e41b892ea1d1": ("banner-policy-12-681", "GL-731220", "Bildyos", "DENOSUMAB-NXXP SOLN PREF SYR", "required", "not_specified", "Bildyos osteoporosis branch; preferred in the guideline, preference unspecified in the formulary. Separate initial and renewal criteria. The shared renewal text refers to cumulative PTH analog use, not a verified Bildyos lifetime cap."),
+  "banner-full-b93efaf3c38dcf21": ("banner-policy-12-183", "GL-155386", "Austedo XR", "DEUTETRABENAZINE TABLET ER 24HR", "required", "not_specified", "Austedo XR tablet: separate tardive dyskinesia and Huntington chorea initial and renewal criteria. One active strength PA; titration-kit eligibility is not established. Preserve the XR tablet quantity limit."),
+  "banner-full-13ebf33d7a321470": ("banner-policy-12-1193", "GL-715190", "generic dimethyl fumarate capsules", "DIMETHYL FUMARATE CAPSULE DELAYED RELEASE", "required", "not_specified", "Generic dimethyl fumarate capsules are preferred in the guideline, branded Tecfidera capsules and starter packs are nonpreferred. Formulary preference and exact brand/package eligibility are unverified."),
+  "banner-full-c144470bcd338e8c": ("banner-policy-12-811", "GL-525295", "Kalbitor", "ECALLANTIDE SOLUTION", "required", "preferred", "Preferred acute HAE branch: age 12 or older; nonpreferred-agent step requirements do not apply. Exact package eligibility is unverified."),
+  "banner-full-30fc49366041be95": ("banner-policy-12-601", "GL-642233", "Afinitor Disperz", "EVEROLIMUS SOLUBLE TABLET", "required", "not_specified", "Generic tablet for oral suspension preferred in the guideline; brand Afinitor Disperz nonpreferred. Preferred product approval is NDC-specific. Exact package eligibility is unverified; do not transfer transplant or conventional-tablet coverage."),
   'banner-full-ea0529db441446f6': ('banner-policy-12-811', 'GL-525295', 'Berinert', 'C1 ESTERASE INHIBITOR (HUMAN) SOLUTION', 'required', 'preferred', 'Acute HAE branch; product-specific age and step conditions must not be transferred.'),
   'banner-full-81af49ca953b804f': ('banner-policy-12-811', 'GL-525295', 'Cinryze, Haegarda', 'C1 ESTERASE INHIBITOR (HUMAN) SOLUTION RECONSTITUTED', 'required', 'not_specified', 'Prophylaxis branch names both; acute off-label branch names Cinryze only. Individual package eligibility is unverified.'),
   'banner-full-f1d24c36af2451fa': ('banner-policy-12-105', 'GL-545202', 'Xcopri', 'CENOBAMATE TAB THER PACK', 'required', 'not_specified', 'Named Xcopri policy; therapeutic pack not separately named.'),
@@ -83,7 +89,7 @@ def attach_provider_policies(data):
   assert r['planId']=='banner-ufc' and r['name']==original and r['pa']==pa and r['preferred']==preference
   p=policies[pid];assert p['planId']=='banner-ufc'
   raw=(ROOT/'dist'/p['sourceTextUrl'].lstrip('./')).read_text()
-  assert code in raw and product.lower() in raw.lower()
+  assert code in raw and product.lower() in ' '.join(raw.lower().split())
   link=dict(policyId=pid,title=p['name'],policyCode=code,firstPage=p['sourcePage'],lastPage=p.get('sourceLastPage',p['sourcePage']),url=p['sourceUrl'],textUrl=p['sourceTextUrl'],effective=p.get('policyEffective') or p.get('sourceEffective',''),matchedProduct=product,scope=scope)
   links=r.setdefault('policySources',[])
   if not any(x.get('policyId')==pid or x.get('textUrl')==link['textUrl'] for x in links):links.insert(0,link);count+=1;records.add(r['id'])
