@@ -7,7 +7,7 @@ const script=fs.readFileSync('_site/app.js','utf8');
 const hook="document.addEventListener('DOMContentLoaded', init);";
 assert(script.includes(hook));
 const ctx={document:{querySelectorAll:()=>[]},Intl,console};vm.createContext(ctx);
-vm.runInContext(script.replace(hook,'globalThis.api={state,el,recordsForPlan,planMedicationGroups,filteredRecords,render,uniqueMedicationNames,criteriaSources,renderCriteriaLibrary,namedPlanPolicies,statusChips,recordDetails,medicationSearchResult,policyLookupQuery,searchIndexedCriteria,cardClinicalGroups};'),ctx);
+vm.runInContext(script.replace(hook,'globalThis.api={state,el,medicationGroupCard,recordsForPlan,planMedicationGroups,filteredRecords,render,uniqueMedicationNames,criteriaSources,renderCriteriaLibrary,namedPlanPolicies,statusChips,recordDetails,medicationSearchResult,policyLookupQuery,searchIndexedCriteria,cardClinicalGroups};'),ctx);
 const {api}=ctx;api.state.data=data;
 for(const id of ['criteriaSearch','criteriaCount','criteriaResults','criteriaLibrary','planStatus','planEvidence','evidenceList','loadingState','resultCount','effectiveDate','emptyState','resultGrid','showMore']) api.el[id]={value:'',innerHTML:'',textContent:'',hidden:false};
 for(const planId of data.plans.map(p=>p.id)) {
@@ -88,9 +88,31 @@ for (const [filter, notice] of [['preferred', 'ach-notice-13796'], ['pa_required
 }
 api.state.term = 'doxepin';
 api.state.coverage = 'preferred';
+assert(api.render().some(group => group.label === 'doxepin HCl 10 MG Oral Capsule'));
+api.state.coverage = 'non_preferred';
 assert(!api.render().some(group => group.label === 'doxepin HCl 10 MG Oral Capsule'));
 api.state.coverage = '';
 assert(api.render().some(group => group.label === 'doxepin HCl 10 MG Oral Capsule'));
+// The cards and search tool must agree on the source of each displayed benefit.
+for (const [term, id, expected] of [
+  ['lispro', 'ach-json-242120', {'2022 baseline · presumed': ['Covered', 'Preferred', 'Quantity limit']}],
+  ['Tudorza', 'ach-json-1303107', {'Plan notice': ['Covered', 'Nonpreferred', 'PA required']}],
+  ['clozapine', 'ach-json-1006801', {'Plan notice': ['Covered', 'Preferred'],
+    'AHCCCS Statewide': ['Conditional PA'], '2022 baseline · presumed': ['Quantity limit']}]
+]) {
+  api.state.term = term;
+  const group = api.render().find(g => g.records.some(r => r.id === id));
+  assert(group, id);
+  const record = group.records.find(r => r.id === id);
+  const report = api.medicationSearchResult(group).products.find(p => p.medication_id === id);
+  assert.equal(report.benefit_sources.pa, record.benefitSources.pa);
+  const card = api.medicationGroupCard({...group, records: [record], isStatewide: false});
+  const chips = Array.from(card.matchAll(/<div class="chips"[^>]*>([\s\S]*?)<\/div>/g),
+    line => Array.from(line[1].matchAll(/<span[^>]*>([^<]+)<\/span>/g), match => match[1]));
+  for (const [scope, flags] of Object.entries(expected)) {
+    assert.deepEqual(chips.find(row => row[0] === scope), [scope, ...flags], id + ' ' + scope);
+  }
+}
 api.state.planId = null;
 assert.equal(api.render().length, 0);
 assert.equal(api.el.resultGrid.innerHTML, '');
