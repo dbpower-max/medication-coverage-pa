@@ -2402,14 +2402,15 @@
         const b = bindings[0], policy = policies.find(p => p.id === b.policyId && p.planId === 'banner-ufc');
         if (!policy) throw new Error('Missing exact Banner policy');
         const source = await loadClinicalSource(policy);
-        const selected = [['Initial Authorization', b.initialPage], ['Reauthorization', b.renewalPage]].map(([stage,page]) => {
+        const stages = b.unstagedPage ? [['', b.unstagedPage]] : [['Initial Authorization', b.initialPage], ['Reauthorization', b.renewalPage]];
+        const selected = stages.map(([stage,page]) => {
           const matches = source.branches.filter(branch => branch.stage === stage && branch.sourcePage === page && new RegExp('(?:^|[^a-z])'+b.product+'(?:[^a-z]|$)', 'i').test(branch.product));
           if (matches.length !== 1) throw new Error('Exact Banner product/stage branch not verified');
           return {...matches[0], text: matches[0].text.split(/\n\s*2\s*\.\s*Revision History/i)[0]};
         });
         const exclusion = b.exclusionPage ? source.branches.filter(branch => branch.sourcePage === b.exclusionPage && /^All products\b/i.test(branch.product) && /Idiopathic Short Stature/i.test(branch.product)) : [];
         if (b.exclusionPage && exclusion.length !== 1) throw new Error('Missing reviewed exclusion');
-        target.innerHTML = selected.map(branch => cardTextBranchMarkup(branch, policy)).join('') + (exclusion.length ? '<h4>Separate indication exclusion</h4>'+cardTextBranchMarkup(exclusion[0], policy) : '');
+        target.innerHTML = (b.unstagedPage ? '<p>Authorization stage is not separately labeled in the source.</p>' : '') + selected.map(branch => cardTextBranchMarkup(branch, policy)).join('') + (exclusion.length ? '<h4>Separate indication exclusion</h4>'+cardTextBranchMarkup(exclusion[0], policy) : '');
         const references = details.querySelector('.card-pa-references');
         if (references) references.innerHTML = cardPaReference(policy);
         details.dataset.loaded = 'true';
