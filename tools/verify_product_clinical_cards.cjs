@@ -259,13 +259,13 @@ console.log('PASS: five distinct labeled depot options and two exact kit holds; 
 
 api.state.planId='banner-ufc';
 const auditedBannerGroups=api.planMedicationGroups();
-const ageRows=data.medications.filter(r=>r.reviewedPresentation?.policyPageUrl?.endsWith('#page=123'));
-assert.equal(ageRows.length,6);
+const ageRows=data.medications.filter(r=>r.agePolicyConflict);
+assert.equal(ageRows.length,32);
 for(const row of ageRows){
  const group=auditedBannerGroups.find(g=>g.records.some(r=>r.id===row.id));
  const card=api.medicationGroupCard(group);
  assert.equal(row.pa,'conditional');
- assert(card.includes('at exactly age 6 is unresolved') && card.includes('#page=123'));
+ assert(card.includes(row.agePolicyConflict.note) && card.includes('#page='+row.agePolicyConflict.page));
 }
 for(const id of ['banner-full-0265ef7d56628527','banner-full-cc76cd1e0045dbf1','banner-full-a1e8bea060c802c9']){
  const group=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));

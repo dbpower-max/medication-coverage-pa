@@ -180,13 +180,11 @@ def attach_provider_policies(data):
   found_depot.add(r['id'])
  assert found_depot==set(depot_presentations), 'Missing depot presentation row'
  # The October formulary and November guideline disagree at exactly age six.
- age_six_records = {
-     'banner-full-1b7460bbb581a72e': ('AMITRIPTYLINE HCL TABLETS', 'Amitriptyline HCl tablets'),
-     'banner-full-f8dd5da2de6ea2a3': ('AMOXAPINE TABLETS', 'Amoxapine tablets'),
-     'banner-full-deee6db5d952c451': ('NORTRIPTYLINE HCL CAPSULES', 'Nortriptyline HCl capsules'),
-     'banner-full-eaf219d40869396b': ('NORTRIPTYLINE HCL SOLUTION', 'Nortriptyline HCl solution'),
-     'banner-full-f5a70f59a5fc4da2': ('PROTRIPTYLINE HCL TABLETS', 'Protriptyline HCl tablets'),
-     'banner-full-735414b74c685477': ('TRIMIPRAMINE MALEATE', 'Trimipramine maleate (form unspecified in formulary)'),
+ age_six_ingredients = {
+     'AMITRIPTYLINE', 'AMOXAPINE', 'BUPROPION', 'CITALOPRAM', 'CLOMIPRAMINE',
+     'DESIPRAMINE', 'DESVENLAFAXINE', 'DOXEPIN', 'DULOXETINE', 'ESCITALOPRAM',
+     'FLUOXETINE', 'FLUVOXAMINE', 'IMIPRAMINE', 'MIRTAZAPINE', 'NORTRIPTYLINE',
+     'PAROXETINE', 'PROTRIPTYLINE', 'SERTRALINE', 'TRAZODONE', 'TRIMIPRAMINE', 'VENLAFAXINE',
  }
  held_presentations = {
      'banner-full-0265ef7d56628527': (
@@ -200,19 +198,21 @@ def attach_provider_policies(data):
          'Banner lists PA and a quantity limit for the sprinkle capsule. Its Ingrezza guideline does not identify the sprinkle presentation. Exact criteria are unverified.'),
  }
  seen_holds = set()
- seen_age_six = set()
  for record in data['medications']:
-     if record['id'] in age_six_records:
-         name, label = age_six_records[record['id']]
-         assert record['name'] == name and record['planId'] == 'banner-ufc'
-         assert record['paText'] == 'PA REQUIRED for Ages < 6 years of age'
+     ingredient = record['name'].split()[0]
+     if (record['planId'] == 'banner-ufc' and record.get('sourceEffective') == '2026-10-01'
+         and '< 6 years' in record.get('paText', '')
+         and any(link.get('firstPage') == 122 for link in record.get('policySources', []))
+         and (ingredient in age_six_ingredients or ingredient == 'MAPROTILINE')):
          policy = next(p for p in data['policies'] if p['id'] == 'banner-policy-12-122')
-         record['reviewedPresentation'] = {
-             **record.get('reviewedPresentation', {}), 'separate': True, 'label': label,
-             'note': 'Banner lists PA below age 6. Its November guideline includes age 6. The PA requirement at exactly age 6 is unresolved.',
-             'policyPageUrl': policy['sourceUrl'].split('#')[0] + '#page=123',
-         }
-         seen_age_six.add(record['id'])
+         if ingredient == 'MAPROTILINE':
+             page = 126
+             note = 'Banner lists PA below age 6. Its November guideline lists maprotiline under nonpreferred drugs, without that age threshold. Exact age applicability is unresolved.'
+         else:
+             page = 123
+             note = 'Banner lists PA below age 6. Its November guideline includes age 6 for the listed preferred presentations. The PA requirement at exactly age 6 is unresolved.'
+         record['agePolicyConflict'] = {'note': note, 'page': page,
+                                        'url': policy['sourceUrl'].split('#')[0] + f'#page={page}'}
      elif record['id'] in held_presentations:
          name, label, chapter, note = held_presentations[record['id']]
          assert record['name'] == name and record['pa'] == 'required' and record['planId'] == 'banner-ufc'
@@ -224,6 +224,5 @@ def attach_provider_policies(data):
                                     if link.get('textUrl') != f'./banner-policy-text/12-{chapter}.txt']
          seen_holds.add(record['id'])
  assert seen_holds == set(held_presentations)
- assert seen_age_six == set(age_six_records)
  print(f'Added {count} same-plan policy links across {len(records)} medication records')
  return count
