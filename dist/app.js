@@ -2333,11 +2333,24 @@
     const exactDisplayRows = conflictGroup ? group.records.filter(record => !record.isStatewideReference)
       : reviewedExactRows.length === 2 && reviewedExactRows.every(record => bannerEpiPenIds.has(record.id))
       ? reviewedExactRows.slice(0, 1) : reviewedExactRows;
-    const rows = constipationRows.length ? constipationRows : exactDisplayRows.length ? exactDisplayRows : bannerProducts.length ? bannerProducts : group.isStatewide && !exactScopedRows && !uhcStepRows.length
-      ? [group.statewideRecord] : (group.records || []).filter(record => !group.isStatewide || !record.isStatewideReference);
+    const directRows = group.records.filter(record => !record.isStatewideReference);
+    const mixedPlanRows = directRows.filter(record => !record.baselineSource && !reviewedCardPresentation(record)?.historical);
+    const scopeFields = ['coverage','preferred','pa','step','qlAmount','qlDays','ageRestrictionText','paExceptionText','stepText'];
+    const showStatewideRow = group.isStatewide && (!mixedPlanRows.length || mixedPlanRows.some(record =>
+      scopeFields.some(field => (record[field] || '') !== (group.statewideRecord[field] || ''))
+      || (record.pa === 'conditional' && record.paText !== group.statewideRecord.paText)));
+    const planScopeLabel = isBanner ? 'Banner formulary' : isUhc ? 'UHC formulary' : 'Arizona Complete Health notice';
+    let rows = directRows;
+    if (constipationRows.length) rows = constipationRows;
+    else if (exactDisplayRows.length) rows = exactDisplayRows;
+    else if (bannerProducts.length) rows = bannerProducts;
+    else if (group.isStatewide && !exactScopedRows && !uhcStepRows.length) {
+      rows = showStatewideRow ? [...mixedPlanRows, group.statewideRecord] : mixedPlanRows;
+    }
     const conditions = [...new Set(rows.flatMap(record => [
       ['required', 'conditional'].includes(record.pa) && !bannerEpiPenIds.has(record.id) && !reviewedCardPresentation(record)?.note?.includes(tiotropiumContinuation) && !achHistorical && !constipationGenericRows.has(record.id) && !(isUhc && uhcAgeEightPa(record)) ? record.paText : '', record.paExceptionText, record.ageRestrictionText
-    ]).filter(Boolean))].filter(text => !/^PA is printed in at least one source row\.$/.test(text));
+    ].filter(text => text && text !== 'PA is printed in at least one source row.').map(text =>
+      group.isStatewide && mixedPlanRows.length ? (record.isStatewideReference ? 'AHCCCS statewide reference' : planScopeLabel) + ' · ' + text : text)))];
     const labeledCaplets = isUhc && rows.some(record => uhcReviewedProductGroups.get(record.id)?.labelId);
     const preferredNdcs = state.planId === 'banner-ufc' ? bannerAlbuterolPreferredNdcs(group) : [];
     const hideEmptyPa = insulinConflict || noticeOnly || (preferredNdcs.length && !guidance && !policies.length && !conditions.length
@@ -2356,7 +2369,8 @@
         const presentation = reviewedCardPresentation(record);
         const label = rows.length > 1 && (presentation?.option || constipationGenericRows.get(record.id) ||
           (record.id === uhcMotegrityId ? 'Brand Motegrity oral tablets' : '') || reviewed?.label || insulinLabel || record.coverageProductLabel
-          || record.uhcClinicalBindings?.find(binding => binding.productLabel)?.productLabel || (conflictGroup && record.name));
+          || record.uhcClinicalBindings?.find(binding => binding.productLabel)?.productLabel || (conflictGroup && record.name)
+          || (group.isStatewide && mixedPlanRows.includes(record) && readableMedicationName(record.name)));
         const exactAge = isUhc && uhcAgeEightPa(record)
           ? '<p class="pa-condition">PA required at age 8 and older.</p>'
           : isUhc && record.id === 'uhc-oct-complete-d37573826a734ebb'
@@ -2371,7 +2385,8 @@
         const continuedUse = isUhc && record.id === 'uhc-oct-complete-de1ca42f17826905' && uhcAgeEightPa(record)
           && record.rawRestrictions?.includes('Continued use of two or more drugs in this class may require prior authorization')
           ? '<p class="pa-condition">Continued use of two or more drugs in this class may require PA.</p>' : '';
-        const limit = bannerProducts.includes(record) && record.qlAmount && record.qlDays
+        const limit = (bannerProducts.includes(record) || (isBanner && group.isStatewide && mixedPlanRows.includes(record)))
+          && /^\d+(?:\.\d+)?$/.test(record.qlAmount) && /^\d+$/.test(record.qlDays)
           ? `<p class="pa-condition"><strong>Quantity limit:</strong> ${escapeHtml(record.qlAmount)} per ${escapeHtml(record.qlDays)} days. The formulary does not specify a unit.</p>` : '';
         const badges = presentation?.historical ? ''
           : presentation?.explicitPa ? statusChips({...record, pa: 'required'})
@@ -2381,7 +2396,7 @@
           ? statusChips({...record, coverageCaveat: ''}) : statusChips(record);
         const scope = record.isStatewideReference || record.auditScope === 'statewide_reference'
           ? 'AHCCCS statewide reference. Exact-plan coverage and restrictions are unverified.'
-          : presentation?.scope;
+          : presentation?.scope || (group.isStatewide && mixedPlanRows.includes(record) ? planScopeLabel : '');
         return `${label ? `<p class="coverage-product-label"><strong>${escapeHtml(label)}</strong>${productLabelLink}</p>` : ''}
           ${scope ? `<p class="pa-condition">${escapeHtml(scope)}</p>` : ''}
           <div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${badges}${preferredNdcs.length && record === rows[0] ? '<span class="chip positive">Preferred for listed products</span>' : ''}${step && record.step !== 'specified' ? '<span class="chip warning">Step therapy</span>' : ''}</div>
@@ -2460,21 +2475,15 @@
     // while preserving explicit coverage/category filters.
     const allGroups = planMedicationGroups();
     const matchedIds = new Set(medicationRows.map(r => r.id));
-    const groups = allGroups.filter(g => {
-      if (!g.records.some(r => matchedIds.has(r.id))) return false;
-      if (!g.isStatewide) return true;
-      const r = selectedPlan === 'uhc-community-az' && g.records.find(uhcAgeEightPa) || g.statewideRecord;
-      return matchesCoverage(r)
-        && (matchesCategory(r, state.category))
-        && (!state.subcategory || matchesSubcategory(r.subcategory, state.subcategory));
-    }).map(g => {
-      if (g.isStatewide) return g;
-      return {...g, records: g.records.filter(r =>
-        matchesCoverage(r)
-        && (matchesCategory(r, state.category))
-        && (!state.subcategory || matchesSubcategory(r.subcategory, state.subcategory))
-      )};
-    }).filter(group => group.records.length > 0);
+    const groups = allGroups.filter(group => group.records.some(record => matchedIds.has(record.id)))
+      .map(group => {
+        if (!state.coverage && !state.category && !state.subcategory) return group;
+        const records = group.records.filter(record => matchesCoverage(record)
+          && matchesCategory(record, state.category)
+          && (!state.subcategory || matchesSubcategory(record.subcategory, state.subcategory)));
+        const statewideRecord = group.isStatewide && records.find(record => record.isStatewideReference);
+        return {...group, records, isStatewide: Boolean(statewideRecord), statewideRecord};
+      }).filter(group => group.records.length);
     // Order the complete matching set before taking the visible page.
     const direction = state.sort === 'za' ? -1 : 1;
     const collator = new Intl.Collator('en', {sensitivity: 'base', numeric: true});
