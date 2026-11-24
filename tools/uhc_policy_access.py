@@ -3,7 +3,7 @@ import hashlib
 import json
 import re
 from collections import defaultdict
-from structured_statewide_criteria import structure_policy, validate_structure
+from structured_statewide_criteria import assign_branch_pages, structure_policy, validate_structure
 
 PLAN = 'uhc-community-az'
 DUPLICATION_POLICIES = {'GL-735259', 'GL-733328'}
@@ -23,6 +23,17 @@ RISPERIDONE_BRANCHES = {
     ),
 }
 # Reviewed October PDL names mapped to the November 2026 named-product branches.
+# Match the payer's printed product field when aliases cross brand or release boundaries.
+OCTOBER_POLICY_PRODUCTS = {
+    'invega (brand for paliperidone er)': ('GL-722213', 'Brand Invega'),
+    'clozapine oral tablet (generic for clozaril)': ('GL-722213', 'generic clozapine'),
+    'dronabinol oral capsule (generic for marinol)': ('GL-397200', 'generic dronabinol'),
+    'forteo (brand for teriparatide)': ('GL-755194', 'Brand Forteo'),
+    'trokendi xr (brand for topiramate er)': ('GL-572198', 'Brand Trokendi XR'),
+    'topiramate er oral capsule er 24 hour sprinkle': ('GL-572198', 'generic topiramate ER sprinkle'),
+    'xeljanz xr (brand for tofacitinib citrate er)': ('GL-657310', 'Brand Xeljanz XR tabs'),
+}
+
 DPP4_BRANCHES = {
     'alogliptin benzoate': (0, 'Alogliptin'),
     'januvia (brand for sitagliptin phosphate)': (0, 'Brand Januvia'),
@@ -188,6 +199,7 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             branch = {'start':start,'end':end,'fields':{},'criteria':blocks(source,criteria_start,criteria_end),'notes':blocks(source,criteria_start+notes.end(),end) if notes else []}
             for i,f in enumerate(fields):branch['fields'][f[1].rstrip(':')] = span(source,f.end(),fields[i+1].start() if i+1<len(fields) else header_end)
             result = dict(schemaVersion=1,policyCode=code,title=policy['name'],sourceEffective=policy['sourceEffective'],sourcePage=policy['sourcePage'],sourceLastPage=policy['sourceLastPage'],sourceSha256=hashlib.sha256(source.encode()).hexdigest(),editorialStatus='Source-transcribed clinical fields; clinician approval pending',context=span(source,0,start),branches=[branch],supplement={**span(source,end,history),'verbatim':source[end:history]},history=span(source,history,len(source)))
+            assign_branch_pages(result, source)
             validate_structure(result,source)
         else:result = structure_policy(policy, source)
         # Repeated PDF running headers are furniture, never a clinical requirement.
@@ -240,6 +252,22 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         for key in sorted(keys):
             for code,i,product in by_key.get(key,[]):
                 if product_matches(record,product):matched[code].add(i)
+        if october_name in {'desmopressin acetate injection (generic for ddavp)',
+                            'desmopressin acetate pf (generic for ddavp pf)'}:
+            # GL-565277 names tablets, nasal spray and Desmoda oral solution.
+            matched.pop('GL-565277', None)
+            record['unverifiedPolicyCode'] = 'GL-565277'
+        exact_product = OCTOBER_POLICY_PRODUCTS.get(october_name)
+        if exact_product:
+            code, product = exact_product
+            indexes = set()
+            for i, branch in enumerate(structured[code]['branches']):
+                field = branch['fields']['Product Name']
+                names = ' '.join(field.get('displayText', field['text']).split()).split(', ')
+                if product in names:
+                    indexes.add(i)
+            assert indexes, (code, product)
+            matched[code] = indexes
         constipation_code = 'GL-720196'
         if october_name.startswith(('lubiprostone capsule ', 'prucalopride succinate (generic for ')):
             # The October 18 policy removed these generics from its PA targets.

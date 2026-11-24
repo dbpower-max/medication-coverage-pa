@@ -52,6 +52,18 @@ def blocks(source, start, end):
     return result
 
 
+def assign_branch_pages(policy, source):
+    markers = list(re.finditer(r'^--- PDF page (\d+) ---$', source, re.M))
+    marker_index = 0
+    for branch in policy['branches']:
+        while marker_index + 1 < len(markers) and markers[marker_index + 1].start() <= branch['start']:
+            marker_index += 1
+        assert markers and markers[marker_index].start() <= branch['start'], policy['policyCode']
+        page = int(markers[marker_index][1])
+        assert policy['sourcePage'] <= page <= policy['sourceLastPage'], policy['policyCode']
+        branch['sourcePage'] = page
+
+
 def structure_policy(policy, source):
     positions = [m.start() for m in PRODUCT.finditer(source)]
     assert positions, 'No named product: ' + policy['policyCode']
@@ -90,6 +102,7 @@ def structure_policy(policy, source):
         if notes:
             branch['notes'] = blocks(source, criteria_start + notes.end(), stop)
         result['branches'].append(branch)
+    assign_branch_pages(result, source)
     validate_structure(result, source)
     return result
 
