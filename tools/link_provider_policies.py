@@ -41,5 +41,26 @@ def attach_provider_policies(data):
    link=dict(policyId=p['id'],title=p['name'],policyCode=p['policyCode'],firstPage=p['sourcePage'],lastPage=p.get('sourceLastPage',p['sourcePage']),url=p['sourceUrl'],textUrl=p['sourceTextUrl'],effective=p.get('policyEffective') or p.get('sourceEffective',''),matchedProduct=matches[0],scope='Related same-plan source; verify formulation, indication, age, and authorization branch.')
    links=r.setdefault('policySources',[])
    if not any(x.get('policyId')==p['id'] for x in links):links.append(link);count+=1;records.add(r['id'])
+ # Exact Banner November source branches independently reviewed against the
+ # archived text and October formulary rows. These are navigation bindings,
+ # not new benefit flags or a machine-generated approval algorithm.
+ banner_reviewed = {
+  'banner-full-df471ac18a4edcdf': ('banner-policy-12-1422', 'GL-700354', 'generic ambrisentan', 'AMBRISENTAN TABLETS', 'Ambrisentan Tablets (Letairis Reference)', 'The September 1 policy identifies generic ambrisentan as preferred and brand Letairis as nonpreferred. The October formulary lists ambrisentan tablets with Letairis as the reference brand. Exact brand/package eligibility is unverified.'),
+  'banner-full-42e11b3c0513cedb': ('banner-policy-12-259', 'GL-99541', 'generic anastrozole', 'ANASTROZOLE TABLETS', 'Anastrozole Tablets (Arimidex Reference)', 'The October formulary lists PA and does not specify preference. The named policy has a breast cancer branch and separate NCCN initial and renewal branches; review the applicable branch.'),
+ }
+ found_banner=set()
+ for r in data['medications']:
+  if r['id'] not in banner_reviewed:continue
+  pid,code,product,original,label,note=banner_reviewed[r['id']]
+  assert r['planId']=='banner-ufc' and r['name']==original and r['pa']=='required'
+  p=policies[pid];assert p['planId']=='banner-ufc'
+  raw=(ROOT/'dist'/p['sourceTextUrl'].lstrip('./')).read_text()
+  assert code in raw and product.lower() in raw.lower()
+  link=dict(policyId=pid,title=p['name'],policyCode=code,firstPage=p['sourcePage'],lastPage=p.get('sourceLastPage',p['sourcePage']),url=p['sourceUrl'],textUrl=p['sourceTextUrl'],effective=p.get('policyEffective') or p.get('sourceEffective',''),matchedProduct=product,scope='Named same-plan policy; review the applicable product, indication and stage.')
+  links=r.setdefault('policySources',[])
+  if not any(x.get('policyId')==pid or x.get('textUrl')==link['textUrl'] for x in links):links.insert(0,link);count+=1;records.add(r['id'])
+  r['reviewedPresentation']={'separate':True,'label':label,'note':note}
+  found_banner.add(r['id'])
+ assert found_banner==set(banner_reviewed), 'Missing reviewed Banner formulary row'
  print(f'Added {count} same-plan policy links across {len(records)} medication records')
  return count
