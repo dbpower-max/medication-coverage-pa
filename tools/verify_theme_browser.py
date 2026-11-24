@@ -49,3 +49,41 @@ if __name__ == "__main__":
             verify(browser, f"http://127.0.0.1:{server.server_port}", width)
         browser.close()
         server.shutdown()
+
+# One-time beta run against the published provider site.
+if __name__ == "__main__":
+    import re
+    from playwright.sync_api import expect
+    with sync_playwright() as runtime:
+        browser = runtime.chromium.launch(executable_path=shutil.which("google-chrome"))
+        cases = [("Arizona Complete", "Acamprosate", "statewide reference"), ("Banner", "Adderall XR", "50 per 90 days"), ("UnitedHealthcare|UHC", "Butrans", "Tier 2")]
+        for width in (360, 412, 1280):
+            page = browser.new_page(viewport={"width": width, "height": 840}, has_touch=width<500)
+            page.goto("https://dbpower-max.github.io/medication-coverage-pa/")
+            for plan, medication, qualifier in cases:
+                page.get_by_role("button", name="Show insurance plan options").click()
+                page.get_by_role("option", name=re.compile(plan,re.I)).click()
+                search = page.get_by_role("combobox",name="Medication name")
+                search.fill(medication)
+                search.press("Escape")
+                card = page.locator("article").filter(has=page.get_by_role("heading", name=re.compile(medication,re.I))).first
+                expect(card).to_contain_text(re.compile(qualifier,re.I))
+                card.get_by_role("button",name="Sources",exact=True).click()
+                modal = page.get_by_role("dialog")
+                expect(modal).to_be_visible()
+                links = modal.locator('a[href*="#page="]:visible')
+                links.first.wait_for()
+                targets = links.evaluate_all("items => items.map(a=>a.href)")
+                assert all(re.search(r"#page=[1-9][0-9]*$", u) for u in targets), targets
+                assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
+                assert modal.evaluate("d=>d.getBoundingClientRect().right <= innerWidth")
+                with page.expect_popup() as opened:
+                    links.first.click()
+                dest = opened.value
+                dest.wait_for_load_state("commit")
+                print("BETA",width,plan,medication,targets,"clicked",dest.url,flush=True)
+                dest.close()
+                modal.get_by_role("button",name="Close").click()
+                expect(modal).not_to_be_visible()
+            page.close()
+        browser.close()
