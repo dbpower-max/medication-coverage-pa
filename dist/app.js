@@ -93,10 +93,14 @@
     return statewideProjectionCache.get(state.planId);
   }
 
-  function recordsForPlan() {
+  function selectedPlanRecords() {
     return state.data.medications
-      .filter((record) => record.planId === state.planId && record.recordType === 'formulary')
-      .concat(inheritedStatewideRows());
+      .filter(record => record.planId === state.planId && record.recordType === 'formulary')
+      .map(scopedAchRecord);
+  }
+
+  function recordsForPlan() {
+    return selectedPlanRecords().concat(inheritedStatewideRows());
   }
 
   // Presentation only: do not alter the original payer text or its coverage record.
@@ -726,7 +730,7 @@
   function planMedicationGroups() {
     const key = state.planId + ':' + state.data.medications.length;
     if (groupCache.has(key)) return groupCache.get(key);
-    const planGroups = medicationGroups(state.data.medications.filter(r => r.planId === state.planId && r.recordType === 'formulary').map(scopedAchRecord));
+    const planGroups = medicationGroups(selectedPlanRecords());
     const sharedGroups = medicationGroups(inheritedStatewideRows())
       .map(group => ({...group, isStatewide: true, statewideRecord: group.records[0]}));
     const brandIndex = new Map(), nameIndex = new Map();
@@ -846,6 +850,7 @@
     if (name === 'plan') return [...state.data.plans]
       .sort((a, b) => planGroup(a) - planGroup(b) || a.name.localeCompare(b.name))
       .map(displayPlanName);
+    if (!state.planId) return [];
     if (name === 'medication') return uniqueMedicationNames();
     if (name === 'category') return categoryOptions();
     return subcategoryOptions();
@@ -969,7 +974,7 @@
     input.addEventListener('input', () => {
       if (name === 'plan') {
         const plan = resolvePlan(input.value);
-        if (plan) state.planId = plan.id;
+        state.planId = plan?.id || null;
         state.selectedMedicationKey = null;
       } else if (name === 'medication') {
         state.term = input.value;
@@ -1006,9 +1011,6 @@
 
     input.addEventListener('blur', () => {
       window.setTimeout(() => {
-        if (name === 'plan' && !resolvePlan(input.value)) {
-          input.value = state.data.plans.find((plan) => plan.id === state.planId)?.name || '';
-        }
         if (!input.closest('.combobox').contains(document.activeElement)) closeCombobox(name);
       }, 120);
     });
@@ -2363,6 +2365,20 @@
 
   function render() {
     const selectedPlan = state.planId;
+    if (!selectedPlan) {
+      el.resultGrid.innerHTML = '';
+      el.resultCount.textContent = '0';
+      el.planStatus.textContent = '';
+      el.planEvidence.hidden = true;
+      el.effectiveDate.textContent = '';
+      el.criteriaResults.innerHTML = '';
+      el.criteriaCount.textContent = '';
+      el.loadingState.hidden = false;
+      el.loadingState.textContent = 'Select an insurance plan to see medication results.';
+      el.emptyState.hidden = true;
+      el.showMore.hidden = true;
+      return [];
+    }
     if (state.data.planDataFiles?.[selectedPlan] && !loadedPlans.has(selectedPlan)) {
       planStatus();
       el.loadingState.hidden = false;
@@ -2401,7 +2417,7 @@
         && (matchesCategory(r, state.category))
         && (!state.subcategory || matchesSubcategory(r.subcategory, state.subcategory))
       )};
-    });
+    }).filter(group => group.records.length > 0);
     // Order the complete matching set before taking the visible page.
     const direction = state.sort === 'za' ? -1 : 1;
     const collator = new Intl.Collator('en', {sensitivity: 'base', numeric: true});
@@ -2536,6 +2552,7 @@
         if (args.category !== undefined) { state.category = args.category; el.categoryInput.value = args.category; }
         if (args.subcategory !== undefined) { state.subcategory = args.subcategory; el.subcategoryInput.value = args.subcategory; }
         if (args.coverage_status !== undefined) { state.coverage = args.coverage_status; el.coverageInput.value = args.coverage_status; }
+        if (!state.planId) return { error: 'Select an insurance plan.' };
         await ensurePlanData(state.planId);
         updateSubcategoryOptions();
         const matches = render();
@@ -2574,8 +2591,8 @@
       state.subcategory = el.subcategoryInput.value;
       state.coverage = el.coverageInput.value;
       state.sort = el.sortInput.value === 'za' ? 'za' : 'az';
-      state.planId = resolvePlan(el.planInput.value)?.id || state.planId;
-      populateControls();
+      if (el.planInput.value.trim()) state.planId = resolvePlan(el.planInput.value)?.id || null;
+      if (state.planId) populateControls();
       bindEvents();
       bindCriteriaLibrary();
       render();

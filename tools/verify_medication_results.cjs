@@ -77,3 +77,25 @@ assert.equal(fallback,'cyclobenzaprine');
 assert(api.searchIndexedCriteria(fallback,api.criteriaSources()).length>0,'Legacy-brand shortcut cannot find the existing generic source');
 assert.equal(api.policyLookupQuery('METFORMIN-SITAGLIPTIN TABLETS'),'metformin sitagliptin','Combination components were lost in source discovery');
 console.log('PASS: only medication results, source-only records excluded, medication-only name matching, plan-isolated criteria, structured policy lookup and conditional PA filtering');
+
+// Run the complete search and card pipeline against the dated ACH records.
+for (const [filter, notice] of [['preferred', 'ach-notice-13796'], ['pa_required', 'ach-notice-13791']]) {
+  api.state.term = '';
+  api.state.coverage = filter;
+  const groups = api.render();
+  assert(groups.every(group => group.records.length > 0), filter + ' returned empty medication cards');
+  assert(groups.some(group => group.records.some(record => record.id === notice)), filter + ' lost a verified notice');
+}
+api.state.term = 'doxepin';
+api.state.coverage = 'preferred';
+assert(!api.render().some(group => group.label === 'doxepin HCl 10 MG Oral Capsule'));
+api.state.coverage = '';
+assert(api.render().some(group => group.label === 'doxepin HCl 10 MG Oral Capsule'));
+api.state.planId = null;
+assert.equal(api.render().length, 0);
+assert.equal(api.el.resultGrid.innerHTML, '');
+assert.match(api.el.loadingState.textContent, /Select an insurance plan/);
+api.state.planId = 'banner-ufc';
+api.state.term = 'Humalog';
+assert(api.render().some(group => group.records.some(record => record.planId === 'banner-ufc')));
+console.log('PASS: source-attributed filters, verified notice controls and pending plan selection');
