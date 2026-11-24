@@ -73,6 +73,32 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   assert(a.medicationGroupCard(group).includes('>PA required<'));
  }
  console.log('PASS: Acthar vial-only PA branch and Cortrophin OMS branch remain distinct in generated cards.');
+
+ // Specialty presentation labels must not merge named devices, invent eligible packages, or change PA.
+ const specialties = [["14411026d49668ea","Acthar Gel (Repository Corticotropin Injection; Device Unspecified by UHC)","https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30"],["9b40fc8558feebd0","Cortrophin Gel (Repository Corticotropin Injection; Device Unspecified by UHC)","https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f27544ee-a0e2-4d84-b193-1c9efdf9e34c"],["e4f26f2f128c5fba","Actimmune (Interferon Gamma-1b) Subcutaneous Injection","https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5d0b1256-1981-4519-94f4-a4a2f98bd8a3"],["649c128564a43176","Hadlima PushTouch (Adalimumab-bwwd) Subcutaneous Autoinjector","https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4774a951-3ce8-43b6-80b1-e6b23752aae6"],["ea00e4f93f96d5d5","Hadlima (Adalimumab-bwwd) Subcutaneous Solution (Device Unspecified by UHC)","https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4774a951-3ce8-43b6-80b1-e6b23752aae6"]];
+ for (const [id, label, url] of specialties) {
+  const g=byId(id);
+  assert(g && g.label===label, id+' incorrect presentation');
+  assert.equal(g.records.length,1, id+' merged with a different plan or device');
+  const record=g.records[0];
+  assert.equal(record.pa,'required');
+  assert.equal(record.preferred,['14411026d49668ea','9b40fc8558feebd0'].includes(id)?'non_preferred':'preferred');
+  const card=a.medicationGroupCard(g);
+  assert(card.includes(url) && card.includes('>PA required<'),id+' lost label link or PA');
+ }
+ assert.notEqual(byId('649c128564a43176'),byId('ea00e4f93f96d5d5'));
+ assert(a.medicationGroupCard(byId('649c128564a43176')).includes('package-specific'));
+ assert(a.medicationGroupCard(byId('ea00e4f93f96d5d5')).includes('confirm exact NDC'));
+ const immune=byId('e4f26f2f128c5fba');
+ assert.deepEqual(Array.from(a.uhcGroupBindings(immune).find(b=>b.policyId.endsWith('gl-140909')).branchIndexes),[0,1,2,3,4,5,6,7]);
+ const immuneHtml=await open(immune);
+ assert(immuneHtml.html.includes('Initial Authorization') && immuneHtml.html.includes('Reauthorization'));
+ for(const id of ['649c128564a43176','ea00e4f93f96d5d5']){
+  const g=byId(id), b=a.uhcGroupBindings(g).find(b=>b.policyId.endsWith('gl-541212'));
+  assert.deepEqual(Array.from(b.branchIndexes),Array.from({length:15},(_,i)=>i));
+ }
+ console.log('PASS: Five specialty cards preserve exact plan scope, policy stages, label links and device distinctions.');
+
  const tablet = byId('c2dc81c1dae5f5c3');
  const solution = byId('c2d62d774fbaa9ab');
  assert(tablet && solution && tablet !== solution);
