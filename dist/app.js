@@ -643,6 +643,13 @@
     ["formulary-9981", {"label": "Insulin Lispro U-100 Solution Pen (Humalog Junior KwikPen)", "note": "FDA-labeled device delivers 0.5-unit increments up to 30 units per injection."}],
     ["banner-pcp-nov10-005", {"label": "Insulin Lispro U-100 Solution Pen (Humalog KwikPen)", "note": "FDA-labeled device delivers 1-unit increments up to 60 units per injection."}],
     ["formulary-9982", {"label": "Insulin Lispro U-100 Solution Pen (Humalog KwikPen)", "note": "FDA-labeled device delivers 1-unit increments up to 60 units per injection."}],
+    ['uhc-oct-complete-7643ae6c318710a6', {
+      label: 'Omnipod 5 Dexcom insulin pump intro kit', separate: true,
+      note: 'The formulary lists an intro kit. The higher-quantity exception is specific to pods.'
+    }],
+    ['uhc-oct-complete-fcc058d760894f93', {
+      label: 'Omnipod 5 Dexcom insulin pump pods', separate: true
+    }],
     ['uhc-oct-complete-4d48c8bd9a3822ca', {
       label: 'Nurtec ODT (rimegepant) orally disintegrating tablet', note: 'Labeled strength: 75 mg.',
       labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9ef08e09-1098-35cc-e053-2a95a90a3e1d'
@@ -2206,6 +2213,23 @@
   const tirosintSolutionLabel = 'Tirosint-SOL (Levothyroxine Sodium Oral Solution)';
   const tirosintSolutionSource = 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5d378add-f13d-40f2-99dc-0f2340ab44b7';
 
+  function formularyStrengthDetails(group, title) {
+    const units = /\d(?:[\d.,/-]*\d)?\s*(?:mcg|mg|grams?|gm|g|units?|meq|%)(?![a-z])/i;
+    const rows = new Map();
+    for (const record of group.records) {
+      // Only quote dated, direct formulary rows. Baseline mappings, billing
+      // units, reference aliases and statewide projections have different scopes.
+      if (record.isStatewideReference || record.baselineSource || record.reviewedPresentation
+          || record.sourceEffective !== '2026-10-01' || !record.sourcePage
+          || !['banner-ufc', 'uhc-community-az'].includes(record.planId)) continue;
+      const product = readableMedicationName(record.name.split(/\s+\((?:brand|generic) for /i)[0]);
+      if (!units.test(product) || normalize(title).includes(normalize(product))) continue;
+      const url = sourceHref(record);
+      rows.set(product + '|' + url, `<li>${escapeHtml(product)} · <a href="${escapeHtml(url)}" target="_blank" rel="noopener">p. ${Number(record.sourcePage)}</a></li>`);
+    }
+    return rows.size ? `<details class="result-disclosure"><summary>Strengths listed in the plan formulary</summary><ul>${[...rows.values()].join('')}</ul></details>` : '';
+  }
+
   function medicationGroupCard(group) {
     if (group.identityOnly) return `<article class="result-card">
       <h3>${escapeHtml(tirosintSolutionLabel)}</h3>
@@ -2298,6 +2322,7 @@
       && !group.records.some(record => ['required', 'conditional'].includes(record.pa) || record.policySource));
     return `<article class="result-card">
       <h3>${escapeHtml(preferredNdcs.length ? 'Albuterol HFA inhaler' : title)}</h3>
+      ${formularyStrengthDetails(group, title)}
       ${labeledCaplets ? '<p>Acetaminophen 250 mg / aspirin 250 mg / caffeine 65 mg per caplet.</p>' : ''}
       ${rows.map(record => {
         const insulinWarning = insulinConflict && bannerInsulinConflicts.get(record.id);
