@@ -317,6 +317,23 @@ console.log('PASS: three Banner MS listings preserve original PA and preference 
   assert(api.recordDetails(r).includes('Exact covered package eligibility is unverified'));
  }
  console.log('PASS: two exact Banner memantine rows retain PA and unknown preference, unstaged criteria page and product scope.');
+// Methadone FDA label and payer indication must remain distinct for all four Banner rows.
+ for(const [id,hold] of [["banner-full-abc845306384483c",true],["banner-full-9ec47e1a44d309df",false],["banner-full-bffe9a14c9598aaf",false],["banner-full-7f30550aa500ee70",true]]){
+  const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');assert.equal(g.records.length,1,id+' merged forms');
+  const r=g.records[0];assert.equal(r.pa,'required');assert.equal(r.preferred,'not_specified');
+  const card=api.medicationGroupCard(g);assert(card.includes('OUD PA criteria')&&card.includes('>PA required<'));
+  assert(api.recordDetails(r).includes('GL-611235'));
+  assert.equal(r.reviewedPresentation.policyUnverified,hold);
+  if(hold){assert(!card.includes('data-card-clinical='),id+' pain criteria shown despite label hold');}
+  else{const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
+   assert.equal(e.details.dataset.loaded,'true',id+' expanded pain source failed '+html);
+   for(const p of [1100,1104,1110,1099,1111,1112])assert(html.includes('Criteria source · PDF page '+p+'<'),id+' missing '+p);
+   assert(html.includes('pain only')&&html.includes('Opioid use disorder authorization is unverified')&&html.includes('Separate conditional review references'));
+   assert(html.includes('Cancer-related pain')&&html.includes('Initial Authorization')&&html.includes('Reauthorization'));
+   for(const p of [1101,1102,1105,1108,1113,1114,1115])assert(!html.includes('Criteria source · PDF page '+p+'<'),id+' unrelated policy branch');
+  }
+ }
+ console.log('PASS: four Banner methadone forms, PA flags, label conflicts and distinct indication/DUR scopes.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
