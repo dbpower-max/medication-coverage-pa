@@ -610,7 +610,17 @@
   const rosuvastatinTablets = 'Rosuvastatin Tablets (Crestor Reference)';
   const simvastatinTablets = 'Simvastatin Tablets (Zocor Reference)';
   const genericStatinNote = 'UHC lists a quantity limit without specifying the numeric amount.';
+  const butransPatches = 'Buprenorphine Transdermal Patches (Butrans)';
   const reviewedCardPresentations = new Map([
+    ['uhc-oct-complete-1f6816a7379d66cd', {
+      label: butransPatches, option: 'Generic buprenorphine patches', separate: true,
+      note: 'UHC lists a quantity limit. The October formulary row omits patch strengths and the numeric limit.'
+    }],
+    ['uhc-oct-complete-907ff55568d6ecfb', {
+      label: butransPatches, option: 'Brand Butrans patches', separate: true,
+      note: 'UHC requires a failed trial, contraindication or intolerance to generic buprenorphine patches for brand Butrans. The formulary omits eligible strengths.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=794aa355-66de-41b8-aedf-f2c40f6bc664'
+    }],
     ["banner-full-ea0529db441446f6",{"separate":true,"label":"Berinert (C1 Esterase Inhibitor) IV Powder for Solution (Banner Formulary)","note":"FDA label: intravenous treatment of acute hereditary angioedema attacks; not a routine prophylaxis product. Banner prints a brand-only preferred PA listing without package details. Banner GL-525295 acute branch: documented HAE, acute treatment, no concurrent approved acute agent, allergist/immunologist; 12 months. Product-specific age/step conditions for other drugs do not apply to Berinert. Exact covered package remains unverified.","labelUrl":"https://www.fda.gov/vaccines-blood-biologics/approved-blood-products/berinert"}],
     ["banner-full-81af49ca953b804f",{"separate":true,"label":"Cinryze / Haegarda (C1 Esterase Inhibitor) Reconstituted Injection (Banner Combined Listing)","note":"Distinct FDA-labeled prophylaxis presentations: Cinryze intravenous; Haegarda subcutaneous. Not interchangeable by route. Banner prints both brands in one brand-only PA row; individual product/package eligibility remains unverified. Banner GL-525295 prophylaxis: confirmed HAE, age 6 or older, allergist/immunologist; 12 months. Acute off-label criteria name Cinryze only, not Haegarda. The guideline lists both as preferred, but the formulary row does not specify preference.","labelUrl":"https://www.fda.gov/vaccines-blood-biologics/approved-blood-products/haegarda"}],
     ["banner-full-63b29ba46f628277",{"separate":true,"label":"Brixadi (Buprenorphine) Subcutaneous Extended-Release Prefilled Syringe (Banner Formulary)","note":"FDA label distinguishes weekly and monthly formulations; the weekly formulation is used for initiation after a tolerated test dose in patients not currently receiving buprenorphine. Do not sum weekly doses to determine a monthly dose. Banner does not specify covered schedule or strength. GL-157633 has separate initial and renewal pathways.","labelUrl":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5d8a8fd0-8619-422a-a664-d1d2e8970f48"}],

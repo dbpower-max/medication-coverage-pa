@@ -43,6 +43,16 @@ for(const plan of data.plans){
  assert(!more.target.innerHTML.includes('More clinical criteria'),'Redundant second lookup remains');
  assert(!more.target.innerHTML.includes('View clinical criteria'),'Whole-policy reader remains');
 }
+api.state.planId='uhc-community-az';
+const patchGroup=api.planMedicationGroups().find(g=>g.records.some(r=>r.id==='uhc-oct-complete-907ff55568d6ecfb'));
+assert.deepEqual(Array.from(patchGroup.records, r=>r.id).sort(), ['uhc-oct-complete-1f6816a7379d66cd','uhc-oct-complete-907ff55568d6ecfb']);
+const patchCard=api.medicationGroupCard(patchGroup);
+for(const expected of ['Transdermal Patches','Generic buprenorphine patches','Brand Butrans patches','Tier 1','Tier 2','PA required','Quantity limit']) assert(patchCard.includes(expected),expected);
+assert(!patchCard.includes('Conditional PA') && !patchCard.includes('unless the member is pregnant'));
+const patchDetails=targetFor(patchGroup);
+await api.populateCardClinical(patchDetails.details);
+assert(patchDetails.target.innerHTML.includes('generic buprenorphine patches'));
+assert(!patchDetails.target.innerHTML.includes('unless the member is pregnant'));
 // Banner label evidence must not collapse source rows or imply a verified package.
 api.state.planId='banner-ufc';
 const bannerGroups=api.planMedicationGroups();
