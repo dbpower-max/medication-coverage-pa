@@ -26,6 +26,19 @@ def verify(browser, url, width):
     assert control.input_value() == "light"
     assert card.evaluate("e => getComputedStyle(e).backgroundColor") == "rgb(255, 255, 255)"
     page.screenshot(path=f"theme-previews/light-{width}.png")
+    toggle = page.get_by_role("button", name="Carbon Gray")
+    toggle.click()
+    assert toggle.get_attribute("aria-pressed") == "true"
+    assert card.evaluate("e => getComputedStyle(e).backgroundColor") == "rgb(57, 57, 57)"
+    assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
+    page.screenshot(path=f"theme-previews/carbon-{width}.png")
+    page.reload()
+    card.wait_for()
+    assert control.input_value() == "carbon"
+    toggle.focus()
+    toggle.press("Space")
+    assert control.input_value() == "light"
+    assert toggle.get_attribute("aria-pressed") == "false"
     control.select_option("system")
     assert page.locator("html").get_attribute("data-theme") == "dark"
     page.emulate_media(color_scheme="light")
