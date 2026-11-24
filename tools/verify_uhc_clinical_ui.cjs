@@ -550,5 +550,50 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert.equal(new Set([macro,macrobid,findExact('9e0eb4cf3a3dfd2b')]).size, 3);
  console.log('PASS: 115 UHC records retain exact product restrictions, policy scope and provider-facing labels.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
+ const bannerGroups=a.planMedicationGroups();
+ const igRows=[
+  ['3a476647011e0ef8','not_specified','Gammagard Liquid'],
+  ['b99ccac646481857','preferred','Octagam 5%'],
+  ['31c646f5de1a7360','preferred','Gammagard S/D'],
+  ['8e1bca979c1c79f5','preferred','do not transfer that dosing to SC'],
+  ['3393fbf3661bfb25','preferred','do not transfer that dosing to SC'],
+  ['449f33903bd3010c','not_specified','cannot be transferred to this SC product'],
+  ['20163d7b5f42cae1','preferred','cannot be transferred to this SC product']
+ ];
+ for(const [suffix,pref,caution] of igRows){
+   const id='banner-full-'+suffix;
+   const g=bannerGroups.find(g=>g.records.some(r=>r.id===id));
+   assert(g,id);
+   const r=g.records.find(r=>r.id===id);
+   assert.equal(r.pa,'required');assert.equal(r.preferred,pref);
+   const link=r.policySources.find(p=>p.policyCode==='GL-525296');
+   assert(link&&link.scope.includes(caution),id+' route/indication scope missing');
+   assert(a.medicationGroupCard(g).includes(caution),id+' missing visible option-specific caveat');
+   assert(a.recordDetails(r).includes(caution),id+' missing source caveat');
+    assert(r.reviewedPresentation.policyUnverified===true,id+' unresolved branch applicability');
+    assert(!a.medicationGroupCard(g).includes('data-card-clinical'),id+' unsafe automatic criteria');
+    assert(a.recordDetails(r).includes('Read full source text'),id+' related source inaccessible');
+ }
+ const infliximab=bannerGroups.find(g=>g.records.some(r=>r.id==='banner-full-719caae0c9978dca'));
+ assert(infliximab);
+ const infliximabRow=infliximab.records.find(r=>r.id==='banner-full-719caae0c9978dca');
+ assert.equal(infliximabRow.pa,'required');assert.equal(infliximabRow.preferred,'preferred');
+ assert(infliximabRow.reviewedPresentation.policyUnverified);
+ assert(a.medicationGroupCard(infliximab).includes('not a separately licensed biosimilar'));
+ console.log('PASS: Eight exact Banner IG/infliximab options retain flags and route/product caveats.');
+ const leqvio=bannerGroups.find(g=>g.records.some(r=>r.id==='banner-oct2026-j1306'));
+ assert(leqvio,'Leqvio J1306 row missing');
+ const leqvioRow=leqvio.records.find(r=>r.id==='banner-oct2026-j1306');
+ assert.equal(leqvioRow.name,'Injection, inclisiran, 1 mg');
+ assert.equal(leqvioRow.pa,'required');
+ assert.equal(leqvioRow.preferred,'not_specified');
+ assert.equal(leqvioRow.coverage,'not_specified');
+ assert.equal(leqvioRow.sourcePage,4);
+ assert(leqvioRow.reviewedPresentation.policyUnverified);
+ assert(a.medicationGroupCard(leqvio).includes('284 mg/1.5 mL subcutaneous prefilled syringe'));
+ assert(a.recordDetails(leqvioRow).includes('1 mg is a billing unit'));
+ assert(a.recordDetails(leqvioRow).includes('Exact medical-benefit initial and renewal criteria'));
+ console.log('PASS: Leqvio clinical syringe is distinguished from J1306 billing unit, with original PA and uncertainty preserved.');
+
  console.log('PASS: '+n+' restricted UHC cards load clinical content and source references; Apidra nonpreferred + QL; preferred/nonpreferred syringe branches; plan isolation');
 })().catch(e=>{console.error(e);process.exitCode=1});

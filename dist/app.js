@@ -1496,6 +1496,10 @@
       }
       if (record.notes) details.push(`<p><strong>Notes:</strong> ${escapeHtml(record.notes)}</p>`);
       if (record.rawRestrictions) details.push(`<p><strong>Source restrictions:</strong> ${escapeHtml(record.rawRestrictions)}</p>`);
+      // The injectable grid uses HCPCS billing units, not prescribing doses.
+      if (record.id === 'banner-oct2026-j1306' && presentation?.note) {
+        details.push(`<p><strong>Prescribing presentation:</strong> ${escapeHtml(presentation.note)}${presentation.labelUrl ? ` <a class="source-link" href="${escapeHtml(presentation.labelUrl)}" target="_blank" rel="noopener">Drug label ↗</a>` : ''}</p>`);
+      }
       if (record.policySource) {
         const policy = record.policySource;
         details.push(`<p><strong>Exact-plan PA policy source:</strong> <a class="source-link" href="${escapeHtml(policy.url)}#page=${policy.firstPage}" target="_blank" rel="noopener">${escapeHtml(policy.title)} · ${escapeHtml(policy.policyCode)} · PDF pages ${policy.firstPage}–${policy.lastPage} · effective ${escapeHtml(policy.effective)}</a><br>Detailed criteria are indexed for review, not yet structured or clinician-approved here.</p>`);
