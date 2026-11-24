@@ -5,7 +5,7 @@ for(const file of Object.values(data.planDataFiles||{})) data.medications.push(.
 delete data.planDataFiles;
 const source=fs.readFileSync('_site/app.js','utf8');
 const ctx={Intl,console,document:{addEventListener:()=>{}},fetch:async url=>({ok:true,json:async()=>read('_site/'+url.split('?')[0].replace(/^\.\//,'')),text:async()=>fs.readFileSync('_site/'+url.split('?')[0].replace(/^\.\//,''),'utf8')})};
-vm.createContext(ctx);vm.runInContext(source.replace("document.addEventListener('DOMContentLoaded', init);",'globalThis.api={state,planMedicationGroups,medicationGroupCard,populateCardClinical,matchingClinicalBranches,cardBranchMarkup,cardClinicalGroups,clinicalGuidanceFor};'),ctx);
+vm.createContext(ctx);vm.runInContext(source.replace("document.addEventListener('DOMContentLoaded', init);",'globalThis.api={state,planMedicationGroups,medicationGroupCard,populateCardClinical,matchingClinicalBranches,cardBranchMarkup,cardClinicalGroups,clinicalGuidanceFor,recordDetails};'),ctx);
 const api=ctx.api;api.state.data=data;
 function targetFor(group){const target={innerHTML:'',isConnected:true};return {target,details:{open:true,dataset:{cardClinical:group.key||group.label},querySelector:selector=>selector==='.card-pa-references'?{innerHTML:''}:target}};}
 (async()=>{
@@ -167,6 +167,17 @@ for(const [id,pid,page,pa,pref] of [
  if(id==='banner-full-81af49ca953b804f')assert(markup.includes('Cinryze only, not Haegarda'),'Acute off-label branch scope lost');
 }
 console.log('PASS: seven exact Banner named policy links with unchanged PA/preference and scoped HAE distinction.');
+
+// Same-plan source links, original flags and visible option-specific policy scope.
+api.state.planId='banner-ufc';
+for(const [id,pid,page,pref,scope] of [["banner-full-1ecc15f32d5c5aa0","banner-policy-12-1193",1193,"not_specified","MS guideline: generic dalfampridine is preferred; brand Ampyra is nonpreferred. Separate initial and renewal branches. The formulary row does not specify preference; exact brand/package eligibility is unverified."],["banner-full-c3c6e41b892ea1d1","banner-policy-12-681",681,"not_specified","Bildyos osteoporosis branch; preferred in the guideline, preference unspecified in the formulary. Separate initial and renewal criteria. The shared renewal text refers to cumulative PTH analog use, not a verified Bildyos lifetime cap."],["banner-full-b93efaf3c38dcf21","banner-policy-12-183",183,"not_specified","Austedo XR tablet: separate tardive dyskinesia and Huntington chorea initial and renewal criteria. One active strength PA; titration-kit eligibility is not established. Preserve the XR tablet quantity limit."],["banner-full-13ebf33d7a321470","banner-policy-12-1193",1193,"not_specified","Generic dimethyl fumarate capsules are preferred in the guideline, branded Tecfidera capsules and starter packs are nonpreferred. Formulary preference and exact brand/package eligibility are unverified."],["banner-full-c144470bcd338e8c","banner-policy-12-811",811,"preferred","Preferred acute HAE branch: age 12 or older; nonpreferred-agent step requirements do not apply. Exact package eligibility is unverified."],["banner-full-30fc49366041be95","banner-policy-12-601",601,"not_specified","Generic tablet for oral suspension preferred in the guideline; brand Afinitor Disperz nonpreferred. Preferred product approval is NDC-specific. Exact package eligibility is unverified; do not transfer transplant or conventional-tablet coverage."]]){
+ const g=api.planMedicationGroups().find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.planId,'banner-ufc');assert.equal(r.pa,'required');assert.equal(r.preferred,pref);
+ assert(r.policySources.some(p=>p.policyId===pid&&p.firstPage===page&&p.scope===scope),id+' missing named policy binding');
+ api.medicationGroupCard(g);assert(api.cardClinicalGroups.get(g.key).policies.some(p=>p.id===pid&&p.planId==='banner-ufc'),id+' exact policy missing from card');
+ assert(api.recordDetails(r).includes(scope),id+' missing policy scope in Sources');
+}
+console.log('PASS: six newly verified Banner named policy links and visible source scope.');
 
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
