@@ -578,6 +578,19 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(infliximabRow.reviewedPresentation.policyUnverified);
  assert(a.medicationGroupCard(infliximab).includes('not a separately licensed biosimilar'));
  console.log('PASS: Eight exact Banner IG/infliximab options retain flags and route/product caveats.');
+ const leqvio=bannerGroups.find(g=>g.records.some(r=>r.id==='banner-oct2026-j1306'));
+ assert(leqvio,'Leqvio J1306 row missing');
+ const leqvioRow=leqvio.records.find(r=>r.id==='banner-oct2026-j1306');
+ assert.equal(leqvioRow.name,'Injection, inclisiran, 1 mg');
+ assert.equal(leqvioRow.pa,'required');
+ assert.equal(leqvioRow.preferred,'not_specified');
+ assert.equal(leqvioRow.coverage,'not_specified');
+ assert.equal(leqvioRow.sourcePage,4);
+ assert(leqvioRow.reviewedPresentation.policyUnverified);
+ assert(a.medicationGroupCard(leqvio).includes('284 mg/1.5 mL subcutaneous prefilled syringe'));
+ assert(a.recordDetails(leqvioRow).includes('1 mg is a billing unit'));
+ assert(a.recordDetails(leqvioRow).includes('Exact medical-benefit initial and renewal criteria'));
+ console.log('PASS: Leqvio clinical syringe is distinguished from J1306 billing unit, with original PA and uncertainty preserved.');
 
  console.log('PASS: '+n+' restricted UHC cards load clinical content and source references; Apidra nonpreferred + QL; preferred/nonpreferred syringe branches; plan isolation');
 })().catch(e=>{console.error(e);process.exitCode=1});
