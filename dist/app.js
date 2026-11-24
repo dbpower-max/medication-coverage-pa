@@ -612,6 +612,8 @@
   const genericStatinNote = 'UHC lists a quantity limit without specifying the numeric amount.';
   const butransPatches = 'Buprenorphine Transdermal Patches (Butrans)';
   const reviewedCardPresentations = new Map([
+    ["banner-full-300d0c135e0cb20c",{"separate":true,"label":"Xalkori (Crizotinib) Oral Pellets (Banner Formulary)","note":"FDA-labeled oral pellets: 20 mg, 50 mg and 150 mg. Open the shell; administer the pellets without chewing or crushing. Do not swallow the shell. Banner GL-99695 names Xalkori without a form-specific branch; exact covered strengths and packages are unverified.","labelUrl":"https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=2a51b0de-47d6-455e-a94c-d2c737b04ff7"}],
+    ["banner-full-98c661a1f951a1e3",{"separate":true,"label":"Xalkori (Crizotinib) Oral Capsules (Banner Formulary)","note":"FDA-labeled capsules: 200 mg and 250 mg. Swallow whole; do not split, crush or chew. Distinct from oral pellets. Banner GL-99695 names Xalkori without a form-specific branch; exact covered strengths and packages are unverified.","labelUrl":"https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=2a51b0de-47d6-455e-a94c-d2c737b04ff7"}],
     ['uhc-oct-complete-1f6816a7379d66cd', {
       label: butransPatches, option: 'Generic buprenorphine patches', separate: true,
       note: 'UHC lists a quantity limit. The October formulary row omits patch strengths and the numeric limit.'
