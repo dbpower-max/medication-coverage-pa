@@ -132,6 +132,27 @@ for(const [id,label,preference,caveat,source] of [
 }
 console.log('PASS: Banner C1 inhibitor acute versus prophylactic routes and Brixadi schedule caveats preserve exact source rows and payer flags.');
 
+// Explicit same-plan named policy bindings; retain exact payer flags.
+api.state.planId='banner-ufc';
+for(const [id,pid,page,pa,pref] of [
+ ['banner-full-ea0529db441446f6','banner-policy-12-811',811,'required','preferred'],
+ ['banner-full-81af49ca953b804f','banner-policy-12-811',811,'required','not_specified'],
+ ['banner-full-f1d24c36af2451fa','banner-policy-12-105',105,'required','not_specified'],
+ ['banner-full-b2b56363cbca0ab9','banner-policy-12-105',105,'required','not_specified'],
+ ['banner-full-ffeacef3b187fde3','banner-policy-12-156',156,'conditional','not_specified'],
+ ['banner-full-289217947e14a99e','banner-policy-12-156',156,'conditional','not_specified'],
+ ['banner-full-08918817a94bbfa0','banner-policy-12-156',156,'conditional','not_specified']
+]){
+ const g=api.planMedicationGroups().find(x=>x.records.some(r=>r.id===id));
+ assert(g,id+' missing');const r=g.records.find(r=>r.id===id);
+ assert.equal(r.pa,pa);assert.equal(r.preferred,pref);
+ assert(r.policySources.some(p=>p.policyId===pid&&p.firstPage===page),id+' missing named link');
+ const markup=api.medicationGroupCard(g);
+ assert(api.cardClinicalGroups.get(g.key).policies.some(p=>p.id===pid&&p.planId==='banner-ufc'&&p.sourcePage===page),id+' card missing exact-plan policy');
+ if(id==='banner-full-81af49ca953b804f')assert(markup.includes('Cinryze only, not Haegarda'),'Acute off-label branch scope lost');
+}
+console.log('PASS: seven exact Banner named policy links with unchanged PA/preference and scoped HAE distinction.');
+
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
