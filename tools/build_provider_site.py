@@ -206,6 +206,7 @@ data['medications'].append({
     'sourceUrl': 'https://www.bannerhealth.com/bhpprovider/-/media/files/project/bhpprovider/prior-auth/pa-grids/2026/prov_bufc-pa-grid_eff10012026_en.pdf',
     'reviewedPresentation': {
         'label': 'Leqvio (inclisiran) subcutaneous prefilled syringe',
+        'dosageForm': 'solution',
         'policyUnverified': True,
         'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6fc0afca-4513-4c35-b594-6544aee29a44',
         'note': 'Labeled syringe: 284 mg/1.5 mL. Banner processes J1306, billed in 1 mg units. Initial and renewal criteria are unverified.',
