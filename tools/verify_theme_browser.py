@@ -66,7 +66,7 @@ if __name__ == "__main__":
                 search = page.get_by_role("combobox",name="Medication name")
                 search.fill(medication)
                 search.press("Escape")
-                card = page.locator("article").filter(has=page.get_by_role("heading", name=re.compile(medication,re.I))).first
+                card = page.locator("article").filter(has=page.get_by_role("heading", name=re.compile(medication,re.I))).filter(has_text=re.compile(qualifier,re.I)).first
                 expect(card).to_contain_text(re.compile(qualifier,re.I))
                 card.get_by_role("button",name="Sources",exact=True).click()
                 modal = page.get_by_role("dialog")
@@ -77,8 +77,10 @@ if __name__ == "__main__":
                 assert all(re.search(r"#page=[1-9][0-9]*$", u) for u in targets), targets
                 assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
                 assert modal.evaluate("d=>d.getBoundingClientRect().right <= innerWidth")
+                target = {"Acamprosate":"ahcccs-drug-list-2026-11-01.pdf#page=3", "Adderall XR":"bufc_formulary_eff10012026_en.pdf#page=1", "Butrans":"uhc-az-medicaid-pdl-2026-10-01.pdf#page=202"}[medication]
+                assert any(u.endswith(target) for u in targets), targets
                 with page.expect_popup() as opened:
-                    links.first.click()
+                    modal.locator('a[href*="'+target+'"]:visible').first.click()
                 dest = opened.value
                 dest.wait_for_load_state("commit")
                 print("BETA",width,plan,medication,targets,"clicked",dest.url,flush=True)
