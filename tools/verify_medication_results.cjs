@@ -111,3 +111,28 @@ api.state.term='Zenzedi';
 api.state.coverage='pa_conditional';
 api.render();
 assert(!api.el.resultGrid.innerHTML.includes('generic for ZENZEDI'), 'Nonmatching UHC option remained in filtered results');
+
+
+for (const [plan, term, heading] of [
+  ['uhc-community-az', 'Soolantra cream', /Ivermectin \(Soolantra\) 1% topical cream/i],
+  ['uhc-community-az', 'Acuvail solution', /Acuvail.*Ophthalmic Solution/i],
+  ['uhc-community-az', 'acitretin capsule', /acitretin.*Oral Capsule/i],
+  ['uhc-community-az', 'acarbose tablet', /acarbose.*tablet/i],
+  ['banner-ufc', 'acarbose', /Acarbose Tablets/i],
+  ['az-complete-health', 'acarbose', /acarbose 25 MG Oral Tablet/i]
+]) {
+  Object.assign(api.state, {planId:plan, term, selectedMedicationKey:null, category:'', subcategory:'', coverage:''});
+  const results = api.render();
+  const titles = Array.from(api.el.resultGrid.innerHTML.matchAll(/<h3>(.*?)<\/h3>/g), match => match[1]);
+  assert(titles.some(title => heading.test(title)), plan + ' ' + term);
+  if (term === 'Soolantra cream') {
+    assert.equal(results.length, 1);
+    const card = api.el.resultGrid.innerHTML;
+    for (const text of ['10 mg/g', 'exact presentation are unverified', 'PA required', 'Quantity limit']) assert(card.includes(text));
+    const policies = api.cardClinicalGroups.get(results[0].key).policies;
+    assert(policies.every(p => !['GL-99431','GL-140680'].includes(p.policyCode)));
+  }
+}
+Object.assign(api.state, {planId:'uhc-community-az', term:'Uceris'});
+api.render();
+assert.match(api.el.resultGrid.innerHTML, /<h3>Uceris — dosage form unverified<\/h3>/i);

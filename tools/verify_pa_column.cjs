@@ -36,7 +36,8 @@ const ctx={cardClinicalGroups:new Map(),uhcRestrictionSummary:()=>'',cardPaRefer
  linkedPolicyPanels:()=>[],clinicalGuidanceFor:()=>null,criteriaLibraryShortcut:()=>'',statusChips:()=>'',
  readableMedicationName:s=>String(s),sourcesLink:()=>'',recordDetails:()=>'',medicationPolicyDropdown:()=>''};
 vm.createContext(ctx);
-const constipationDefinitions=source.slice(source.indexOf('  const constipationGenericRows ='),source.indexOf('  function planMedicationGroups('));
+const dosageFormDefinitions=source.slice(source.indexOf('  const formWords ='),source.indexOf('  // These reviewed UHC rows'));
+const constipationDefinitions=dosageFormDefinitions+source.slice(source.indexOf('  const constipationGenericRows ='),source.indexOf('  function planMedicationGroups('));
 const cardFunctions=source.slice(source.indexOf('  function constipationCoverageNote('),source.indexOf('  function render()'));
 vm.runInContext(constipationDefinitions + cardFunctions,ctx);
 const conditional=rows.filter(r=>r.pa==='conditional');

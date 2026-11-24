@@ -83,7 +83,8 @@ const ui={cardClinicalGroups:new Map(),uhcRestrictionSummary:()=>'',cardPaRefere
  statusChips:()=>'',medicationPolicyDropdown:()=>'',recordDetails:()=>''
 };
 vm.createContext(ui);
-const constipationDefinitions=source.slice(source.indexOf('  const constipationGenericRows ='),source.indexOf('  function planMedicationGroups('));
+const dosageFormDefinitions=source.slice(source.indexOf('  const formWords ='),source.indexOf('  // These reviewed UHC rows'));
+const constipationDefinitions=dosageFormDefinitions+source.slice(source.indexOf('  const constipationGenericRows ='),source.indexOf('  function planMedicationGroups('));
 vm.runInContext(constipationDefinitions+source.slice(cardStart,cardEnd),ui);
 ui.card={label:'Dapagliflozin (Farxiga)',name:'dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]};
 const withGuide=vm.runInContext('medicationGroupCard(card)',ui);

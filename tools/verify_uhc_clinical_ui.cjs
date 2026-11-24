@@ -456,7 +456,9 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  const findExact = id => planGroups.find(g => g.records.some(r => r.id === 'uhc-oct-complete-' + id));
  const subtypeB = planGroups.filter(g => a.uhcGroupBindings(g).some(b => b.policyId.endsWith('gl-733328')));
  const subtypeBRows = subtypeB.flatMap(g => g.records).filter(r => r.uhcClinicalBindings?.some(b => b.policyId.endsWith('gl-733328')));
- assert.equal(subtypeB.length, 75);
+ // The generic row references Glatopa. Its payer attributes belong on a separate card from Copaxone.
+ assert.notEqual(findExact('f39eb58c8f337264'), findExact('874cc6f50f122e2b'));
+ assert.equal(subtypeB.length, 76);
  assert.equal(subtypeBRows.length, 76);
  assert(subtypeBRows.every(r => r.pa === 'required'));
  assert.equal(subtypeBRows.filter(r => r.uhcClinicalBindings.some(b => b.role === 'product')).length, 61);

@@ -6,6 +6,7 @@ import json
 import re
 import shutil
 from import_ach_baseline import with_ach_baseline
+from medication_dosage_forms import attach_dosage_forms
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
 from link_provider_policies import attach_provider_policies
@@ -210,6 +211,7 @@ data['medications'].append({
         'note': 'Labeled syringe: 284 mg/1.5 mL. Banner processes J1306, billed in 1 mg units. Initial and renewal criteria are unverified.',
     },
 })
+attach_dosage_forms(data["medications"] + statewide_drugs)
 attach_shared_policy(data)
 data["planDataFiles"] = {k: v for k, v in data.get("planDataFiles", {}).items() if k in ALLOWED}
 if OUT.exists():

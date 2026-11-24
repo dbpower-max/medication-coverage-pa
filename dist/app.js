@@ -106,6 +106,45 @@
       .replace(/\b(\d+(?:\.\d+)?)(MG|MCG|ML|MEQ|GM)\b/g, (_, amount, unit) => amount + ' ' + unitCase[unit]);
   }
 
+  const formWords = /\b(?:tablets?|capsules?|caplets?|solutions?|suspensions?|creams?|ointments?|gels?|lotions?|liquids?|syrups?|elixirs?|emulsions?|aerosols?|powders?|granules?|pellets?|patch(?:es)?|sprays?|drops?|suppositor(?:y|ies)|foams?|films?|lozenges?|troches?|gums?|inserts?|implants?|inhalers?|inhalants?|injections?|injectables?|shampoos?|enemas?|wafers?|wipes?|pastes?|mouthwash|rinse|toothpaste|medicated pads?|pledgets?|soap|tincture|douche|gas|sponge|transdermal system|intrauterine system|vaginal system|ring)\b/i;
+  const supplyWords = /\b(?:test strips?|strips?|meters?|lancets?|needles?|syringe needles?|insulin syringes?|glucose monitors?|transmitters?|sensors?|spacers?|chambers?|masks?|dressings?|bandages?|swabs?|alcohol pads?|pen caps?|batter(?:y|ies)|control solutions?|sharps containers?)\b/i;
+  const formAbbreviations = {tab: 'Tablet', tabs: 'Tablets', caps: 'Capsules', cap: 'Capsule',
+    soln: 'Solution', susp: 'Suspension', oint: 'Ointment', pwdr: 'Powder', arsl: 'Aerosol',
+    supp: 'Suppository', odt: 'Orally Disintegrating Tablet'};
+  function expandFormWords(name) {
+    // Expand standalone formulary terms, preserving hyphenated trade names and supply names.
+    if (supplyWords.test(name)) return name;
+    return name.replace(/(^|\s)(tab|tabs|caps|cap|soln|susp|oint|pwdr|arsl|supp|odt)(?=\s|$|[),])/gi,
+      (_, space, word) => space + formAbbreviations[word.toLowerCase()]);
+  }
+
+  function dosageFormHeading(group, label = group.label) {
+    const title = expandFormWords(label);
+    if (formWords.test(title) || supplyWords.test(title) || /\bform (?:unspecified|unverified|unresolved)\b/i.test(title)) return title;
+    const records = group.records || [];
+    // Each counted RxNorm pack component must end in the same explicit dosage form.
+    if (records.length && records.every(r => r.rxnormId && r.name.startsWith('{'))) {
+      const components = records.flatMap(r => r.name.split('}')[0].split(/\b\d+ \(/).slice(1));
+      const forms = components.map(c => c.match(/\b((?:(?:extended release|delayed release|chewable|oral) )*(?:tablet|capsule|solution|suspension))\)\s*(?:\/\s*)?$/i)?.[1].toLowerCase());
+      if (forms[0] && forms.every(form => form === forms[0])) return title + ' — ' + forms[0];
+    }
+    // Some reviewed headings retain the device while the payer also specifies the physical form.
+    const printed = records.map(r => {
+      const product = expandFormWords(r.name.split(/\s+\((?:brand|generic) for /i)[0]);
+      const matches = [...product.matchAll(/\b(solution|suspension|cream|ointment|capsule|tablet)s?\b/gi)];
+      // Multi-form descriptions and reconstitution instructions require the complete wording.
+      return matches.length === 1 && !/reconst|powder|granul|\bfor\b|\b(?:er|xr|sr|dr)\b|delayed.release|extended.release/i.test(product)
+        && !r.sourceConflict && !r.descriptionCorrection ? matches[0][1].toLowerCase() : '';
+    });
+    if (printed[0] && printed.every(form => form === printed[0])) return title + ' — ' + printed[0];
+    const forms = new Set(records.map(r => r.rxTermsForm?.form));
+    if (forms.size === 1 && records[0]?.rxTermsForm) {
+      const form = records[0].rxTermsForm.form;
+      return normalize(title).includes(normalize(form)) ? title : title + ' — ' + form;
+    }
+    return title + ' — dosage form unverified';
+  }
+
   // These reviewed UHC rows need their printed product names for identity.
   // The parenthetical ingredient aliases omit formulation or strength.
   const distinctUhcPresentations = new Set([
@@ -435,7 +474,13 @@
     // Device-specific supplies remain distinct despite a shared generic class.
     const device = /\bblood glucose (?:test|monitor system)\b|\binsulin syringe\b|\bpen needles?\b|\blancets?\b/i.test(generic);
     const deviceBrand = device && brands.length ? ':device:' + normalize(brands[0]) : '';
-    return {key: `${record.planId}:${normalize(generic)}${variant}${deviceBrand}`, generic, brands};
+    // A payer's parenthetical ingredient alias can hide different presentations.
+    // Keep the printed products separate when that alias cannot establish equivalence.
+    const pairedBrand = brandFor?.[1] || genericFor?.[2];
+    const distinctProduct = pairedBrand && !device && (!formWords.test(expandFormWords(generic))
+      || (brandFor && (formWords.test(expandFormWords(pairedBrand)) || /\d/.test(pairedBrand))));
+    const productKey = distinctProduct ? ':product:' + normalize(pairedBrand) : '';
+    return {key: `${record.planId}:${normalize(generic)}${variant}${deviceBrand}${productKey}`, generic, brands};
   }
 
   // Exact duplicate bracketed brand names are presentation artifacts.
@@ -502,7 +547,8 @@
     if (/disintegrat|\bodt\b/.test(n)) return 'odt';
     if (/tablet|\btab\b/.test(n)) return 'tablet';
     if (/capsule|\bcap\b/.test(n)) return 'capsule';
-    if (/suspension|solution|liquid|syrup|elixir/.test(n)) return 'liquid';
+    const form = expandFormWords(n).match(/\b(solution|suspension|liquid|syrup|elixir|cream|ointment|gel|lotion|foam|powder|spray)\b/i);
+    if (form) return form[1].toLowerCase();
     return '';
   }
 
@@ -548,11 +594,15 @@
     if (concentrationA !== concentrationB || concentrationA === 'mixed') return false;
     const sameName = normalize(planGroup.name) === normalize(sharedGroup.name);
     const sharedBrand = planGroup.brands.some(brand => sharedGroup.brands.some(b => normalize(b) === normalize(brand)));
+    if (planGroup.key?.includes(':product:') && !sharedBrand) return false;
     // Verified plan notices may identify a trade name with a route suffix,
     // without populating the separate brand field (e.g. MOUNJARO (SUBCUTANEOUS)).
     const routeSuffix = planGroup.name.match(/^(.*?)\s*\((subcutaneous|oral|topical|nasal|inhalation|intravenous|intramuscular)\)\s*$/i);
     const routeBrand = routeSuffix && sharedGroup.brands.some(b => normalize(b) === normalize(routeSuffix[1]));
     if (!sameName && !sharedBrand && !routeBrand) return false;
+    const resolvedForms = group => new Set((group.records || []).map(r => r.rxTermsForm?.form).filter(Boolean));
+    const left = resolvedForms(planGroup), right = resolvedForms(sharedGroup);
+    if (left.size && right.size && new Set([...left, ...right]).size > 1) return false;
     const a = medicationRoute(planGroup.name), b = medicationRoute(sharedGroup.name);
     if (!a || !b || a !== b) return sameName && a === b;
     const formA = medicationForm(planGroup.name), formB = medicationForm(sharedGroup.name);
@@ -560,7 +610,7 @@
     // forms and release mechanisms must never be merged.
     if (formA && formB && formA !== formB) {
       const injectionPackage = new Set(['auto-injector', 'syringe', 'vial', 'pen']);
-      if (!(a === 'injection' && (!injectionPackage.has(formA) || !injectionPackage.has(formB)))) return false;
+      if (!(a === 'injection' && injectionPackage.has(formA) !== injectionPackage.has(formB))) return false;
     }
     if (releaseKind(planGroup.name) !== releaseKind(sharedGroup.name)) return false;
     const strengthA = strengthTokens(planGroup.name), strengthB = strengthTokens(sharedGroup.name);
@@ -619,6 +669,11 @@
     ["formulary-9981", {"label": "Insulin Lispro U-100 Prefilled Pen (Humalog Junior KwikPen, 0.5-Unit Increments)", "note": "3 mL authorized generic pen. Doses increase by 0.5 unit up to 30 units.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97d5e596-aae1-42c9-ae89-c3780959c467"}],
     ["banner-pcp-nov10-005", {"label": "Insulin Lispro U-100 Prefilled Pen (Humalog KwikPen, 1-Unit Increments)", "note": "3 mL authorized generic pen. Doses increase by 1 unit up to 60 units.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97d5e596-aae1-42c9-ae89-c3780959c467"}],
     ["formulary-9982", {"label": "Insulin Lispro U-100 Prefilled Pen (Humalog KwikPen, 1-Unit Increments)", "note": "3 mL authorized generic pen. Doses increase by 1 unit up to 60 units.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97d5e596-aae1-42c9-ae89-c3780959c467"}],
+    ['uhc-oct-complete-367d1f3038b2b927', {
+      separate: true, label: 'Ivermectin (Soolantra) 1% topical cream',
+      note: 'The drug label specifies 10 mg/g. UHC lists the brand without a form, strength or numeric quantity limit.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b1d5b166-ab06-4ab5-b0c6-31126238118a'
+    }],
     ["banner-full-300d0c135e0cb20c",{"separate":true,"label":"Xalkori (Crizotinib) Oral Pellets (Banner Formulary)","note":"FDA-labeled oral pellets: 20 mg, 50 mg and 150 mg. Open the shell; administer the pellets without chewing or crushing. Do not swallow the shell. Banner GL-99695 names Xalkori without a form-specific branch; exact covered strengths and packages are unverified.","labelUrl":"https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=2a51b0de-47d6-455e-a94c-d2c737b04ff7"}],
     ["banner-full-98c661a1f951a1e3",{"separate":true,"label":"Xalkori (Crizotinib) Oral Capsules (Banner Formulary)","note":"FDA-labeled capsules: 200 mg and 250 mg. Swallow whole; do not split, crush or chew. Distinct from oral pellets. Banner GL-99695 names Xalkori without a form-specific branch; exact covered strengths and packages are unverified.","labelUrl":"https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=2a51b0de-47d6-455e-a94c-d2c737b04ff7"}],
     ['uhc-oct-complete-1f6816a7379d66cd', {
@@ -840,7 +895,7 @@
   }
 
   function uniqueMedicationNames() {
-    return [...new Set([...planMedicationGroups().map(group => group.label), tirosintSolutionLabel])]
+    return [...new Set([...planMedicationGroups().map(group => dosageFormHeading(group)), tirosintSolutionLabel])]
       .sort((a, b) => a.localeCompare(b));
   }
 
@@ -942,7 +997,7 @@
 
   function rankedValues(values, query, name) {
     if (!query) return values;
-    const medicationSearch = name === 'medication' ? new Map(planMedicationGroups().map(g => [g.label, normalize(g.search)])) : new Map();
+    const medicationSearch = name === 'medication' ? new Map(planMedicationGroups().map(g => [dosageFormHeading(g), normalize(g.search + ' ' + dosageFormHeading(g))])) : new Map();
     return values
       .filter((value) => normalize(value).includes(query) || medicationSearch.get(value)?.includes(query))
       .sort((a, b) => {
@@ -1001,7 +1056,7 @@
       state.selectedMedicationKey = null;
     } else if (name === 'medication') {
       state.term = value;
-      state.selectedMedicationKey = planMedicationGroups().find(group => normalize(group.label) === normalize(value))?.key || null;
+      state.selectedMedicationKey = planMedicationGroups().find(group => normalize(dosageFormHeading(group)) === normalize(value))?.key || null;
     } else if (name === 'category') {
       state.category = value;
       state.subcategory = '';
@@ -1111,7 +1166,7 @@
       .filter((record) => {
         if (selectedGroup) return selectedGroup.records.some(r => r.id === record.id);
         const haystack = normalize([
-          record.displayName || record.name, record.brand, record.searchAliases?.join(' '), reviewedCardPresentation(record)?.label
+          record.displayName || record.name, expandFormWords(record.name), record.brand, record.standardName, record.rxTermsForm?.form, record.searchAliases?.join(' '), reviewedCardPresentation(record)?.label
         ].join(' '));
         return terms.every((term) => haystack.includes(term));
       })
@@ -1280,6 +1335,10 @@
     for (const position of bannerRepeatPositions.get(record.id) || []) {
       const [, page, table, row] = position.match(/BAN-P(\d+)-T(\d+)-R(\d+)/);
       details.push(`<a href="${escapeHtml(record.sourceUrl)}#page=${page}" target="_blank" rel="noopener">Banner page ${page}, table ${table}, row ${row}</a>`);
+    }
+    if (record.rxTermsForm) {
+      const {form, exampleRxcui} = record.rxTermsForm;
+      details.push(`<p><strong>Dosage form:</strong> ${escapeHtml(form)} · <a href="https://mor.nlm.nih.gov/RxNav/search?searchBy=RXCUI&amp;searchTerm=${Number(exampleRxcui)}" target="_blank" rel="noopener">RxNorm product example ↗</a> (RxTerms, November 2026). This identifies the form only. See the payer row for listed strengths and restrictions.</p>`);
     }
     if (record.standardName) details.push(`<p><strong>Standardized name:</strong> ${escapeHtml(record.standardName)}<br>${escapeHtml(record.standardNameType)} · RxCUI ${escapeHtml(record.rxnormId)} · NLM release ${escapeHtml(record.standardNameProvenance.release)} · ${escapeHtml(record.standardNameProvenance.sourceFile)}</p>`);
     if (record.baselineSource) details.push(`<p><strong>Baseline source:</strong> JSON row ${Number(record.sourceRow)} · RxNorm ${escapeHtml(record.rxnormId)} · declared plan year ${escapeHtml(record.baselineSource.declaredPlanYears.join(', '))}</p>`);
@@ -1527,7 +1586,7 @@
       const entry = cardSourceGroups.get(button.dataset.cardSources);
       if (!entry || entry.planId !== state.planId) return;
       const preferredNdcs = bannerAlbuterolPreferredNdcs(entry.group);
-      dialog.querySelector('#sourceDialogTitle').textContent = 'Sources — ' + (preferredNdcs.length ? 'Albuterol HFA inhaler' : entry.group.label);
+      dialog.querySelector('#sourceDialogTitle').textContent = 'Sources — ' + (preferredNdcs.length ? 'Albuterol HFA inhaler' : dosageFormHeading(entry.group));
       const clinical = cardClinicalGroups.get(entry.group.key || entry.group.label);
       const originalRows = entry.group.records.map(record => `<section><h3>${escapeHtml(readableMedicationName(record.name))}</h3>${recordDetails(record)}</section>`).join('');
       dialog.querySelector('#sourceDialogContent').innerHTML = (preferredNdcs.length ? bannerAlbuterolSources(entry.group, originalRows) : originalRows)
@@ -1804,6 +1863,8 @@
     // Navigation only: a named source is not an assertion that its criteria
     // apply to every formulation or that this medication requires PA.
     for (const policy of [...namedPlanPolicies(group), ...namedPlanPolicies(group, true)]) {
+      if (policy.planId === 'ahcccs-ffs-aihp' && policy.policyCode === 'GL-99431'
+          && group.records.some(record => record.id === 'uhc-oct-complete-367d1f3038b2b927')) continue;
       if (group.records.some(record => record.unverifiedPolicyCode === policy.policyCode || record.excludedPolicyCode === policy.policyCode)) continue;
       if (policy.policyCode === 'GL-572198' && policy.planId === 'uhc-community-az'
           && group.records.some(record => uhcBrandTopamaxRows.has(record.id) || uhcAgeEightPa(record))) continue;
@@ -2386,7 +2447,7 @@
     const hideEmptyPa = insulinConflict || noticeOnly || (preferredNdcs.length && !guidance && !policies.length && !conditions.length
       && !group.records.some(record => ['required', 'conditional'].includes(record.pa) || record.policySource));
     return `<article class="result-card">
-      <h3>${escapeHtml(preferredNdcs.length ? 'Albuterol HFA inhaler' : title)}</h3>
+      <h3>${escapeHtml(preferredNdcs.length ? 'Albuterol HFA inhaler' : dosageFormHeading(group, title))}</h3>
       ${formularyStrengthDetails(group, title)}
       ${[...new Map(group.records.filter(r => r.agePolicyConflict).map(r => [r.agePolicyConflict.url, r.agePolicyConflict])).values()].map(conflict =>
         `<p class="pa-condition">${escapeHtml(conflict.note)} <a class="source-link" href="${escapeHtml(conflict.url)}" target="_blank" rel="noopener">Banner guideline · PDF page ${escapeHtml(conflict.page)} ↗</a></p>`).join('')}
@@ -2622,7 +2683,7 @@
       source: sourceHref(record), source_effective: record.sourceEffective || '',
       source_scope: record.auditScope || (record.isStatewideReference ? 'statewide_reference' : 'selected_plan')
     });
-    return {name: group.label, brands: group.brands, category: primary?.category || '',
+    return {name: dosageFormHeading(group), brands: group.brands, category: primary?.category || '',
       coverage: primary?.coverage || common('coverage'),
       pa: group.records.some(record => constipationGenericRows.has(record.id)) ? 'conflicting' : primary?.pa || common('pa'),
       source: primary ? sourceHref(primary) : '',
