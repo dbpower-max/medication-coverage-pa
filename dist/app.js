@@ -2402,15 +2402,17 @@
         const b = bindings[0], policy = policies.find(p => p.id === b.policyId && p.planId === 'banner-ufc');
         if (!policy) throw new Error('Missing exact Banner policy');
         const source = await loadClinicalSource(policy);
-        const stages = b.unstagedPage ? [['', b.unstagedPage]] : [['Initial Authorization', b.initialPage], ['Reauthorization', b.renewalPage]];
-        const selected = stages.map(([stage,page]) => {
+        const stages = b.painPages ? [['', 1100, 'Cancer-related pain / hospice / end-of-life (stage not separately labeled)'], ['Initial Authorization', 1104, 'Noncancer pain / non-hospice / non-end-of-life'], ['Reauthorization', 1110, 'Noncancer pain / non-hospice / non-end-of-life']] : b.unstagedPage ? [['', b.unstagedPage]] : [['Initial Authorization', b.initialPage], ['Reauthorization', b.renewalPage]];
+        const selected = stages.map(([stage,page,heading]) => {
           const matches = source.branches.filter(branch => branch.stage === stage && branch.sourcePage === page && new RegExp('(?:^|[^a-z])'+b.product+'(?:[^a-z]|$)', 'i').test(branch.product));
           if (matches.length !== 1) throw new Error('Exact Banner product/stage branch not verified');
-          return {...matches[0], text: matches[0].text.split(/\n\s*2\s*\.\s*Revision History/i)[0]};
+          return {...matches[0], heading, text: matches[0].text.split(/\n\s*2\s*\.\s*Revision History/i)[0]};
         });
         const exclusion = b.exclusionPage ? source.branches.filter(branch => branch.sourcePage === b.exclusionPage && /^All products\b/i.test(branch.product) && /Idiopathic Short Stature/i.test(branch.product)) : [];
         if (b.exclusionPage && exclusion.length !== 1) throw new Error('Missing reviewed exclusion');
-        target.innerHTML = (b.unstagedPage ? '<p>Authorization stage is not separately labeled in the source.</p>' : '') + selected.map(branch => cardTextBranchMarkup(branch, policy)).join('') + (exclusion.length ? '<h4>Separate indication exclusion</h4>'+cardTextBranchMarkup(exclusion[0], policy) : '');
+        const painScope = b.painPages ? '<p>These criteria apply to pain only. Opioid use disorder authorization is unverified.</p>' : '';
+        const conditional = b.painPages ? '<h4>Separate conditional review references</h4><p>Not routine pain PA criteria or OUD approval:</p>' + [[1099,'Concurrent MAT / opioid DUR'],[1111,'Quantity limit review'],[1112,'MME review']].map(([page,label]) => '<p>'+escapeHtml(label)+'</p>'+branchPageLink({sourcePage:page},policy)).join('') : '';
+        target.innerHTML = painScope + (b.unstagedPage ? '<p>Authorization stage is not separately labeled in the source.</p>' : '') + selected.map(branch => (branch.heading ? '<h4>'+escapeHtml(branch.heading)+'</h4>' : '') + cardTextBranchMarkup(branch, policy)).join('') + conditional + (exclusion.length ? '<h4>Separate indication exclusion</h4>'+cardTextBranchMarkup(exclusion[0], policy) : '');
         const references = details.querySelector('.card-pa-references');
         if (references) references.innerHTML = cardPaReference(policy);
         details.dataset.loaded = 'true';
