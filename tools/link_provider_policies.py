@@ -179,5 +179,50 @@ def attach_provider_policies(data):
   r['reviewedPresentation']=presentation
   found_depot.add(r['id'])
  assert found_depot==set(depot_presentations), 'Missing depot presentation row'
+ # The October formulary and November guideline disagree at exactly age six.
+ age_six_ingredients = {
+     'AMITRIPTYLINE', 'AMOXAPINE', 'BUPROPION', 'CITALOPRAM', 'CLOMIPRAMINE',
+     'DESIPRAMINE', 'DESVENLAFAXINE', 'DOXEPIN', 'DULOXETINE', 'ESCITALOPRAM',
+     'FLUOXETINE', 'FLUVOXAMINE', 'IMIPRAMINE', 'MIRTAZAPINE', 'NORTRIPTYLINE',
+     'PAROXETINE', 'PROTRIPTYLINE', 'SERTRALINE', 'TRAZODONE', 'TRIMIPRAMINE', 'VENLAFAXINE',
+ }
+ held_presentations = {
+     'banner-full-0265ef7d56628527': (
+         'MIGLUSTAT(AG) ORAL', 'Miglustat oral (authorized generic only)', 1312,
+         'Banner lists PA for the authorized generic. The row omits strength, dosage form and reference product. The Opfolda criteria cannot be verified for this listing.'),
+     'banner-full-cc76cd1e0045dbf1': (
+         'VALBENAZINE TOSYLATE CAP THER PACK', 'Valbenazine capsule therapy pack', 957,
+         'Banner lists PA and a therapy-pack quantity limit. Its Ingrezza guideline does not identify this pack. Exact pack criteria are unverified.'),
+     'banner-full-a1e8bea060c802c9': (
+         'VALBENAZINE TOSYLATE CAPSULE SPRINKLE', 'Valbenazine sprinkle capsule', 957,
+         'Banner lists PA and a quantity limit for the sprinkle capsule. Its Ingrezza guideline does not identify the sprinkle presentation. Exact criteria are unverified.'),
+ }
+ seen_holds = set()
+ for record in data['medications']:
+     ingredient = record['name'].split()[0]
+     if (record['planId'] == 'banner-ufc' and record.get('sourceEffective') == '2026-10-01'
+         and '< 6 years' in record.get('paText', '')
+         and any(link.get('firstPage') == 122 for link in record.get('policySources', []))
+         and (ingredient in age_six_ingredients or ingredient == 'MAPROTILINE')):
+         policy = next(p for p in data['policies'] if p['id'] == 'banner-policy-12-122')
+         if ingredient == 'MAPROTILINE':
+             page = 126
+             note = 'Banner lists PA below age 6. Its November guideline lists maprotiline under nonpreferred drugs, without that age threshold. Exact age applicability is unresolved.'
+         else:
+             page = 123
+             note = 'Banner lists PA below age 6. Its November guideline includes age 6 for the listed preferred presentations. The PA requirement at exactly age 6 is unresolved.'
+         record['agePolicyConflict'] = {'note': note, 'page': page,
+                                        'url': policy['sourceUrl'].split('#')[0] + f'#page={page}'}
+     elif record['id'] in held_presentations:
+         name, label, chapter, note = held_presentations[record['id']]
+         assert record['name'] == name and record['pa'] == 'required' and record['planId'] == 'banner-ufc'
+         record['reviewedPresentation'] = {
+             **record.get('reviewedPresentation', {}), 'separate': True, 'label': label,
+             'note': note, 'policyUnverified': True,
+         }
+         record['policySources'] = [link for link in record.get('policySources', [])
+                                    if link.get('textUrl') != f'./banner-policy-text/12-{chapter}.txt']
+         seen_holds.add(record['id'])
+ assert seen_holds == set(held_presentations)
  print(f'Added {count} same-plan policy links across {len(records)} medication records')
  return count

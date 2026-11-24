@@ -22,7 +22,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    const g=groups.find(group=>group.records.some(r=>r.id===id));
    const output=await open(g);
    for(const page of [133,135,149]) {
-     assert.equal(output.html.includes('Product criteria · PDF page '+page+'<'),pages.includes(page),id+' page '+page);
+     assert.equal(output.html.includes('Criteria source · PDF page '+page+'<'),pages.includes(page),id+' page '+page);
    }
  }
  for (const [name,code,expected] of [
