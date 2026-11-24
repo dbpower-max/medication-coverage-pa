@@ -25,6 +25,17 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
      assert.equal(output.html.includes('Product criteria · PDF page '+page+'<'),pages.includes(page),id+' page '+page);
    }
  }
+ for (const [name,code,expected] of [
+   ['dronabinol oral capsule (generic for MARINOL)','397200',[1,3]],
+   ['FORTEO (brand for teriparatide)','755194',[0,2]],
+   ['TROKENDI XR (brand for topiramate er)','572198',[12]],
+   ['topiramate er oral capsule er 24 hour sprinkle','572198',[12]],
+   ['XELJANZ XR (brand for tofacitinib citrate er)','657310',[0,1,3,4,5,6,7,8]]
+ ]) {
+   const record=data.medications.find(r=>r.planId===a.state.planId&&r.sourceEffective==='2026-10-01'&&r.name===name);
+   const binding=record.uhcClinicalBindings.find(b=>b.policyId.endsWith(code)&&b.role==='product');
+   assert.deepEqual(binding.branchIndexes,expected,name);
+ }
  const mounjaro=a.planMedicationGroups().find(g=>/mounjaro/i.test(g.label));assert(a.medicationGroupCard(mounjaro).includes('uhc-az-clinical-pharmacy-2026-11-01.pdf'),'Initial UHC reference incorrectly points to statewide criteria');
  let n=0;
  for(const g of groups){const out=await open(g);assert(out.html.trim(),g.label+' empty');assert(out.ref.includes('href='),g.label+' no policy/formulary reference');assert(!out.html.includes('Formatted criteria for this medication are not available'),'Empty template remains');

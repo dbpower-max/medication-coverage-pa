@@ -23,6 +23,17 @@ RISPERIDONE_BRANCHES = {
     ),
 }
 # Reviewed October PDL names mapped to the November 2026 named-product branches.
+# Match the payer's printed product field when aliases cross brand or release boundaries.
+OCTOBER_POLICY_PRODUCTS = {
+    'invega (brand for paliperidone er)': ('GL-722213', 'Brand Invega'),
+    'clozapine oral tablet (generic for clozaril)': ('GL-722213', 'generic clozapine'),
+    'dronabinol oral capsule (generic for marinol)': ('GL-397200', 'generic dronabinol'),
+    'forteo (brand for teriparatide)': ('GL-755194', 'Brand Forteo'),
+    'trokendi xr (brand for topiramate er)': ('GL-572198', 'Brand Trokendi XR'),
+    'topiramate er oral capsule er 24 hour sprinkle': ('GL-572198', 'generic topiramate ER sprinkle'),
+    'xeljanz xr (brand for tofacitinib citrate er)': ('GL-657310', 'Brand Xeljanz XR tabs'),
+}
+
 DPP4_BRANCHES = {
     'alogliptin benzoate': (0, 'Alogliptin'),
     'januvia (brand for sitagliptin phosphate)': (0, 'Brand Januvia'),
@@ -246,16 +257,17 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             # GL-565277 names tablets, nasal spray and Desmoda oral solution.
             matched.pop('GL-565277', None)
             record['unverifiedPolicyCode'] = 'GL-565277'
-        antipsychotic_scope = {
-            'invega (brand for paliperidone er)': (14, 'Brand Invega'),
-            'clozapine oral tablet (generic for clozaril)': (2, 'generic clozapine'),
-        }.get(october_name)
-        if antipsychotic_scope:
-            code = 'GL-722213'
-            index, product = antipsychotic_scope
-            fields = structured[code]['branches'][index]['fields']
-            assert product in ' '.join(fields['Product Name']['text'].split()).split(', ')
-            matched[code] = {index}
+        exact_product = OCTOBER_POLICY_PRODUCTS.get(october_name)
+        if exact_product:
+            code, product = exact_product
+            indexes = set()
+            for i, branch in enumerate(structured[code]['branches']):
+                field = branch['fields']['Product Name']
+                names = ' '.join(field.get('displayText', field['text']).split()).split(', ')
+                if product in names:
+                    indexes.add(i)
+            assert indexes, (code, product)
+            matched[code] = indexes
         constipation_code = 'GL-720196'
         if october_name.startswith(('lubiprostone capsule ', 'prucalopride succinate (generic for ')):
             # The October 18 policy removed these generics from its PA targets.
