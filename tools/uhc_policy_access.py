@@ -24,6 +24,15 @@ RISPERIDONE_BRANCHES = {
 }
 # Reviewed October PDL names mapped to the November 2026 named-product branches.
 # Match the payer's printed product field when aliases cross brand or release boundaries.
+# A generic name shared between two products cannot transfer indication or route.
+EXCLUDED_OCTOBER_POLICIES = {
+    'soolantra (brand for ivermectin)': 'GL-140680',
+    'tadalafil (pah) (generic for alyq)': 'GL-140729',
+    'jynarque oral tablet (brand for tolvaptan)': 'GL-140869',
+    'jynarque oral tablet therapy pack (brand for tolvaptan)': 'GL-140869',
+    'samsca (brand for tolvaptan (hyponatremia))': 'GL-369225',
+}
+
 OCTOBER_POLICY_PRODUCTS = {
     'invega (brand for paliperidone er)': ('GL-722213', 'Brand Invega'),
     'clozapine oral tablet (generic for clozaril)': ('GL-722213', 'generic clozapine'),
@@ -257,6 +266,12 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             # GL-565277 names tablets, nasal spray and Desmoda oral solution.
             matched.pop('GL-565277', None)
             record['unverifiedPolicyCode'] = 'GL-565277'
+        excluded_code = EXCLUDED_OCTOBER_POLICIES.get(october_name)
+        if excluded_code:
+            matched.pop(excluded_code, None)
+            record['excludedPolicyCode'] = excluded_code
+            if october_name == 'soolantra (brand for ivermectin)':
+                record['unverifiedPolicyCode'] = excluded_code
         exact_product = OCTOBER_POLICY_PRODUCTS.get(october_name)
         if exact_product:
             code, product = exact_product
