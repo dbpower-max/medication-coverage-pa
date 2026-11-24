@@ -120,6 +120,18 @@ def attach_provider_policies(data):
   'banner-full-289217947e14a99e': ('banner-policy-12-156', 'GL-126970', 'generic clorazepate dipotassium', 'CLORAZEPATE DIPOTASSIUM TAB 3.75 MG', 'conditional', 'not_specified', 'Under-six or concurrent anxiolytic DUR branches; preserve printed quantity limit.'),
   'banner-full-08918817a94bbfa0': ('banner-policy-12-156', 'GL-126970', 'generic clorazepate dipotassium', 'CLORAZEPATE DIPOTASSIUM TAB 7.5 MG', 'conditional', 'not_specified', 'Under-six or concurrent anxiolytic DUR branches; preserve printed quantity limit.'),
  }
+ # Named chapter reference only; route and indication applicability remain scoped.
+ banner_ig_scope = {
+  "banner-full-3a476647011e0ef8": ("IMMUNE GLOBULIN (HUMAN) IV OR SUBCUTANEOUS SOLUTION", "not_specified", "Gammagard liquid", "Gammagard Liquid, Gammaked and Gamunex-C named. PI branch distinguishes IV and SC dosing (pp929–931); MMN (pp910–912) and DM/PM (pp889–891) are IVIG-specific. FDA-labeled adult MMN applies to Gammagard Liquid, not Liquid ERC or all grouped products. Exact brand/package and indication require separate verification."),
+  "banner-full-b99ccac646481857": ("IMMUNE GLOBULIN (HUMAN) IV SOLUTION", "preferred", "Bivigam", "Shared IV product row. Octagam 5% labeled PI; 10% labeled adult ITP/dermatomyositis. DM/PM (pp889–891), MMN (pp910–912) and PI (pp929–931) have separate criteria; no blanket transfer to every IV product. Exact package/indication unverified."),
+  "banner-full-31c646f5de1a7360": ("IMMUNE GLOBULIN (HUMAN) IV SOLUTION RECONSTITUTED", "preferred", "Gammagard S-D", "Gammagard S/D is a reconstituted IV product, distinct from Liquid and Liquid ERC. PI pp929–931; broad MMN and DM/PM branches do not establish a labeled indication or benefit for S/D."),
+  "banner-full-8e1bca979c1c79f5": ("IMMUNE GLOBULIN (HUMAN) SUBCUTANEOUS SOLN PREF SYR", "preferred", "Hizentra", "Hizentra SC prefilled syringe: PI pp929–931 uses labeled SC dosing. CIDP initial pp885–886, DM/PM pp889–891 and MMN pp910–912 specify IVIG dosing; do not transfer that dosing to SC. Hizentra adult CIDP maintenance label does not resolve payer SC CIDP criteria. Exact package unverified."),
+  "banner-full-3393fbf3661bfb25": ("IMMUNE GLOBULIN (HUMAN) SUBCUTANEOUS SOLUTION", "preferred", "Hizentra", "Hizentra SC solution: PI pp929–931 uses labeled SC dosing. CIDP initial pp885–886, DM/PM pp889–891 and MMN pp910–912 specify IVIG dosing; do not transfer that dosing to SC. Hizentra adult CIDP maintenance label does not resolve payer SC CIDP criteria. Exact package unverified."),
+  "banner-full-449f33903bd3010c": ("IMMUNE GLOBULIN (HUMAN)- HIPP SOLUTION", "not_specified", "Cutaquig", "Cutaquig 16.5% SC, labeled PI. PI pp929–931 distinguishes SC dosing; CIDP, DM/PM and MMN branches specify IVIG dosing and cannot be transferred to this SC product. Exact package and other indications unverified."),
+  "banner-full-20163d7b5f42cae1": ("IMMUNE GLOBULIN (HUMAN)- KLHW SOLUTION", "preferred", "Xembify", "Xembify 20% SC, labeled PI. PI pp929–931 distinguishes SC dosing; CIDP, DM/PM and MMN branches specify IVIG dosing and cannot be transferred to this SC product. Exact package and other indications unverified."),
+ }
+ for rid,(name,pref,product,note) in banner_ig_scope.items():
+  banner_exact_links[rid]=('banner-policy-12-877','GL-525296',product,name,'required',pref,note)
  found=set()
  for r in data['medications']:
   if r['id'] not in banner_exact_links:continue
@@ -135,6 +147,22 @@ def attach_provider_policies(data):
   else:links[same]={**links[same],**link}
   found.add(r['id'])
  assert found==set(banner_exact_links), 'Missing exact Banner policy-linked row'
+ # Keep broad chapter source references, but make route-specific cautions visible at the prescribing option.
+ # No additional structured approval rule or preference inference is introduced.
+ seen_ig=set()
+ seen_infliximab=False
+ for r in data['medications']:
+  if r['id'] in banner_ig_scope:
+   name,pref,product,note=banner_ig_scope[r['id']]
+   assert r['planId']=='banner-ufc' and r['name']==name and r['pa']=='required' and r['preferred']==pref
+   r['reviewedPresentation']={**r.get('reviewedPresentation',{}),'note':note}
+   seen_ig.add(r['id'])
+  if r['id']=='banner-full-719caae0c9978dca':
+   assert r['planId']=='banner-ufc' and r['name']=='INFLIXIMAB SOLUTION RECONSTITUTED' and r['pa']=='required' and r['preferred']=='preferred'
+   r['reviewedPresentation']={**r.get('reviewedPresentation',{}),'separate':True,'label':'Infliximab (Janssen unbranded Remicade reference) IV powder for reconstitution','note':'October formulary prints Janssen authorized biosimilar only. The manufacturer identifies unbranded infliximab as Remicade under the same BLA, not a separately licensed biosimilar. Reference label: 100 mg IV single-use vial. Exact covered package and Banner indication/stage policy remain unverified; do not transfer preference to separate biosimilars or SC products.','labelUrl':'https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a0a046c1-056d-45a9-bfd9-13b47c24f257','policyUnverified':True}
+   seen_infliximab=True
+ assert seen_ig==set(banner_ig_scope) and seen_infliximab, 'Missing reviewed IG or infliximab source row'
+
  # Preserve the exact payer's pediatric PA exception without presenting it as clinical endorsement.
  cough_safety={
   "banner-full-71027bfebf274e67": ("GUAIFENESIN-CODEINE SYRUP", "Guaifenesin / Codeine Oral Syrup"),
