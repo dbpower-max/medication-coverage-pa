@@ -155,7 +155,9 @@ def attach_provider_policies(data):
   if r['id'] in banner_ig_scope:
    name,pref,product,note=banner_ig_scope[r['id']]
    assert r['planId']=='banner-ufc' and r['name']==name and r['pa']=='required' and r['preferred']==pref
-   r['reviewedPresentation']={**r.get('reviewedPresentation',{}),'note':note}
+   # Broad product-list matching cannot safely assign these indication/route branches.
+   # Retain the exact related chapter in Sources without automatic approval criteria.
+   r['reviewedPresentation']={**r.get('reviewedPresentation',{}),'note':note,'policyUnverified':True}
    seen_ig.add(r['id'])
   if r['id']=='banner-full-719caae0c9978dca':
    assert r['planId']=='banner-ufc' and r['name']=='INFLIXIMAB SOLUTION RECONSTITUTED' and r['pa']=='required' and r['preferred']=='preferred'
