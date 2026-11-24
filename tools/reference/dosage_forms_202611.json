@@ -1,0 +1,2656 @@
+{
+  "sourceUrl": "https://data.lhncbc.nlm.nih.gov/public/rxterms/release/RxTerms202611.zip",
+  "sha256": "fc1392663e6c4e5c15e49069ef6bfc8cbd73a2e7c574de0eac65fecefd787b47",
+  "names": {
+    "abirtega": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2702601
+    },
+    "abrysvo": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 2642148
+    },
+    "absorica": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 1299203
+    },
+    "acamprosate calcium": {
+      "form": "Delayed Release Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 835726
+    },
+    "acarbose": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 199149
+    },
+    "accrufer": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 2539949
+    },
+    "accutane": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 206880
+    },
+    "acitretin": {
+      "form": "Oral Capsule",
+      "kind": "ingredient",
+      "exampleRxcui": 199689
+    },
+    "acuvail": {
+      "form": "Ophthalmic Solution",
+      "kind": "brand",
+      "exampleRxcui": 858366
+    },
+    "addaprin": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 900434
+    },
+    "adefovir dipivoxil": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 881341
+    },
+    "adempas": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1439894
+    },
+    "adynovate": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 1741409
+    },
+    "afrezza": {
+      "form": "Inhalation Powder",
+      "kind": "brand",
+      "exampleRxcui": 1543207
+    },
+    "afstyla": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 1796384
+    },
+    "aftera": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1598658
+    },
+    "aklief": {
+      "form": "Topical Cream",
+      "kind": "brand",
+      "exampleRxcui": 2205647
+    },
+    "alaway": {
+      "form": "Ophthalmic Solution",
+      "kind": "brand",
+      "exampleRxcui": 707594
+    },
+    "alecensa": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 1727485
+    },
+    "allerclear": {
+      "form": "Extended Release Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1369753
+    },
+    "alphanine sd": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 1666309
+    },
+    "altalube": {
+      "form": "Ophthalmic Ointment",
+      "kind": "brand",
+      "exampleRxcui": 1088146
+    },
+    "altuviiio": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 2631093
+    },
+    "alunbrig": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1921228
+    },
+    "alyq": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2110455
+    },
+    "ambrisentan": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 722116
+    },
+    "amerithroid": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2743051
+    },
+    "amnesteem": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 404058
+    },
+    "amoxapine": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 197363
+    },
+    "amvuttra": {
+      "form": "Prefilled Syringe",
+      "kind": "brand",
+      "exampleRxcui": 2604794
+    },
+    "anastrozole": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 199224
+    },
+    "annovera": {
+      "form": "Vaginal System",
+      "kind": "brand",
+      "exampleRxcui": 2055989
+    },
+    "arcalyst": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 763457
+    },
+    "arexvy": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 2636599
+    },
+    "aristada": {
+      "form": "Prefilled Syringe",
+      "kind": "brand",
+      "exampleRxcui": 1673274
+    },
+    "armodafinil": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 724859
+    },
+    "armour thyroid": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 208534
+    },
+    "atorvaliq": {
+      "form": "Oral Suspension",
+      "kind": "brand",
+      "exampleRxcui": 2631867
+    },
+    "auvelity": {
+      "form": "Extended Release Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2611266
+    },
+    "avlayah": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 2740025
+    },
+    "azasan": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 404475
+    },
+    "azasite": {
+      "form": "Ophthalmic Solution",
+      "kind": "brand",
+      "exampleRxcui": 706872
+    },
+    "azstarys": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 2562186
+    },
+    "bafiertam": {
+      "form": "Delayed Release Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 2393593
+    },
+    "balversa": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2123137
+    },
+    "baqsimi": {
+      "form": "Nasal Powder",
+      "kind": "brand",
+      "exampleRxcui": 2180671
+    },
+    "belbuca": {
+      "form": "Buccal Film",
+      "kind": "brand",
+      "exampleRxcui": 1716063
+    },
+    "belsomra": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1547110
+    },
+    "benzamycin": {
+      "form": "Topical Gel",
+      "kind": "brand",
+      "exampleRxcui": 213082
+    },
+    "benznidazole": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 430551
+    },
+    "berinert": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 867381
+    },
+    "besivance": {
+      "form": "Ophthalmic Suspension",
+      "kind": "brand",
+      "exampleRxcui": 850309
+    },
+    "betaseron": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 207059
+    },
+    "bethkis": {
+      "form": "Inhalation Solution",
+      "kind": "brand",
+      "exampleRxcui": 1314768
+    },
+    "betimol": {
+      "form": "Ophthalmic Solution",
+      "kind": "brand",
+      "exampleRxcui": 208560
+    },
+    "bexsero": {
+      "form": "Prefilled Syringe",
+      "kind": "brand",
+      "exampleRxcui": 1601407
+    },
+    "bicalutamide": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 199123
+    },
+    "biktarvy": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1999673
+    },
+    "biltricide": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 208975
+    },
+    "bisoprolol": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 854901
+    },
+    "bisoprolol fumarate": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 854901
+    },
+    "bonine": {
+      "form": "Chewable Tablet",
+      "kind": "brand",
+      "exampleRxcui": 995634
+    },
+    "braftovi": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 2049117
+    },
+    "breyanzi": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 2479145
+    },
+    "brilinta": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1116639
+    },
+    "brixadi": {
+      "form": "Prefilled Syringe",
+      "kind": "brand",
+      "exampleRxcui": 2639027
+    },
+    "butenafine": {
+      "form": "Topical Cream",
+      "kind": "ingredient",
+      "exampleRxcui": 1298448
+    },
+    "cabergoline": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 199703
+    },
+    "cablivi": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 2110618
+    },
+    "cabometyx": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1790167
+    },
+    "cafergot": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1293506
+    },
+    "capecitabine": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 200327
+    },
+    "caprelsa": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1114074
+    },
+    "capvaxive": {
+      "form": "Prefilled Syringe",
+      "kind": "brand",
+      "exampleRxcui": 2686978
+    },
+    "carglumic acid": {
+      "form": "Tablet for Oral Suspension",
+      "kind": "ingredient",
+      "exampleRxcui": 905390
+    },
+    "cayston": {
+      "form": "Inhalation Solution",
+      "kind": "brand",
+      "exampleRxcui": 901614
+    },
+    "celontin": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 207088
+    },
+    "cequa": {
+      "form": "Ophthalmic Solution",
+      "kind": "brand",
+      "exampleRxcui": 2055026
+    },
+    "cerdelga": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 1547231
+    },
+    "chemet": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 207949
+    },
+    "chloroquine phosphate": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 1116758
+    },
+    "chlorthalidone": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 197498
+    },
+    "cholbam": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 1608274
+    },
+    "cibinqo": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2591487
+    },
+    "cilostazol": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 242461
+    },
+    "cimduo": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2003255
+    },
+    "cinryze": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 809871
+    },
+    "claravis": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 404059
+    },
+    "clenpiq": {
+      "form": "Oral Solution",
+      "kind": "brand",
+      "exampleRxcui": 1991509
+    },
+    "clodan": {
+      "form": "Medicated Shampoo",
+      "kind": "brand",
+      "exampleRxcui": 1541099
+    },
+    "clozaril": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 104775
+    },
+    "coagadex": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 1719240
+    },
+    "coartem": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 847734
+    },
+    "combigan": {
+      "form": "Ophthalmic Solution",
+      "kind": "brand",
+      "exampleRxcui": 861637
+    },
+    "comfort gel": {
+      "form": "Oral Suspension",
+      "kind": "brand",
+      "exampleRxcui": 643496
+    },
+    "complera": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1147337
+    },
+    "copaxone": {
+      "form": "Prefilled Syringe",
+      "kind": "brand",
+      "exampleRxcui": 1111642
+    },
+    "cortifoam": {
+      "form": "Rectal Foam",
+      "kind": "brand",
+      "exampleRxcui": 1545174
+    },
+    "cosopt": {
+      "form": "Ophthalmic Solution",
+      "kind": "brand",
+      "exampleRxcui": 1922784
+    },
+    "cotellic": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1722376
+    },
+    "cozaar": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 979482
+    },
+    "crestor": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 859421
+    },
+    "crotan": {
+      "form": "Topical Lotion",
+      "kind": "brand",
+      "exampleRxcui": 2049603
+    },
+    "cuvitru": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 1813415
+    },
+    "cycloserine": {
+      "form": "Oral Capsule",
+      "kind": "ingredient",
+      "exampleRxcui": 197551
+    },
+    "cycloset": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 859081
+    },
+    "cystagon": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 209788
+    },
+    "cystaran": {
+      "form": "Ophthalmic Solution",
+      "kind": "brand",
+      "exampleRxcui": 1313785
+    },
+    "d-vi-sol": {
+      "form": "Oral Solution",
+      "kind": "brand",
+      "exampleRxcui": 1794559
+    },
+    "danazol": {
+      "form": "Oral Capsule",
+      "kind": "ingredient",
+      "exampleRxcui": 197554
+    },
+    "dayvigo": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2272414
+    },
+    "delstrigo": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2055815
+    },
+    "dengvaxia": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 2197703
+    },
+    "depo-estradiol": {
+      "form": "Injectable Solution",
+      "kind": "brand",
+      "exampleRxcui": 206417
+    },
+    "depo-testosterone": {
+      "form": "Injectable Solution",
+      "kind": "brand",
+      "exampleRxcui": 835831
+    },
+    "descovy": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1747697
+    },
+    "dhivy": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2586032
+    },
+    "diamode": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 978012
+    },
+    "dimethyl fumarate": {
+      "form": "Delayed Release Oral Capsule",
+      "kind": "ingredient",
+      "exampleRxcui": 1373483
+    },
+    "dipentum": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 905164
+    },
+    "disulfiram": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 197623
+    },
+    "docusate calcium": {
+      "form": "Oral Capsule",
+      "kind": "ingredient",
+      "exampleRxcui": 1245376
+    },
+    "dofetilide": {
+      "form": "Oral Capsule",
+      "kind": "ingredient",
+      "exampleRxcui": 310003
+    },
+    "dotti": {
+      "form": "Transdermal System",
+      "kind": "brand",
+      "exampleRxcui": 2110774
+    },
+    "dovato": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2122526
+    },
+    "droxia": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 213282
+    },
+    "duavee": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1441740
+    },
+    "dulera": {
+      "form": "Metered Dose Inhaler",
+      "kind": "brand",
+      "exampleRxcui": 1246310
+    },
+    "dutasteride": {
+      "form": "Oral Capsule",
+      "kind": "ingredient",
+      "exampleRxcui": 351172
+    },
+    "edarbi": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1091650
+    },
+    "edarbyclor": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1235150
+    },
+    "elaprase": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 647118
+    },
+    "elelyso": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 1292881
+    },
+    "elestrin": {
+      "form": "Topical Gel",
+      "kind": "brand",
+      "exampleRxcui": 706467
+    },
+    "elidel": {
+      "form": "Topical Cream",
+      "kind": "brand",
+      "exampleRxcui": 352085
+    },
+    "ella": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1005928
+    },
+    "elmiron": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 211140
+    },
+    "eluryng": {
+      "form": "Vaginal System",
+      "kind": "brand",
+      "exampleRxcui": 2266506
+    },
+    "elyxyb": {
+      "form": "Oral Solution",
+      "kind": "brand",
+      "exampleRxcui": 2373460
+    },
+    "empagliflozin": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 1545658
+    },
+    "empaveli": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 2557391
+    },
+    "emverm": {
+      "form": "Chewable Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1737789
+    },
+    "endari": {
+      "form": "Powder for Oral Solution",
+      "kind": "brand",
+      "exampleRxcui": 1928941
+    },
+    "endocet": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1049216
+    },
+    "enilloring": {
+      "form": "Vaginal System",
+      "kind": "brand",
+      "exampleRxcui": 2644707
+    },
+    "enspryng": {
+      "form": "Prefilled Syringe",
+      "kind": "brand",
+      "exampleRxcui": 2391560
+    },
+    "enstilar": {
+      "form": "Topical Foam",
+      "kind": "brand",
+      "exampleRxcui": 1716099
+    },
+    "entacapone": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 317094
+    },
+    "epidiolex": {
+      "form": "Oral Solution",
+      "kind": "brand",
+      "exampleRxcui": 2058906
+    },
+    "eplerenone": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 351256
+    },
+    "erivedge": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 1242998
+    },
+    "erleada": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1999587
+    },
+    "estrogel": {
+      "form": "Topical Gel",
+      "kind": "brand",
+      "exampleRxcui": 581549
+    },
+    "eszopiclone": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 485440
+    },
+    "etravirine": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 754761
+    },
+    "eucrisa": {
+      "form": "Topical Ointment",
+      "kind": "brand",
+      "exampleRxcui": 1865962
+    },
+    "evamist": {
+      "form": "Topical Spray",
+      "kind": "brand",
+      "exampleRxcui": 728122
+    },
+    "evotaz": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1601660
+    },
+    "ex-lax ultra": {
+      "form": "Delayed Release Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 404165
+    },
+    "exemestane": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 310261
+    },
+    "eysuvis": {
+      "form": "Ophthalmic Suspension",
+      "kind": "brand",
+      "exampleRxcui": 2464843
+    },
+    "ezetimibe": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 349556
+    },
+    "famciclovir": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 198382
+    },
+    "fanapt": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 848726
+    },
+    "farxiga": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1486977
+    },
+    "febuxostat": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 834235
+    },
+    "ferate": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 261385
+    },
+    "fetzima": {
+      "form": "Extended Release Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 1433223
+    },
+    "filspari": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2630546
+    },
+    "finasteride": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 200172
+    },
+    "fintepla": {
+      "form": "Oral Solution",
+      "kind": "brand",
+      "exampleRxcui": 2381144
+    },
+    "firvanq": {
+      "form": "Oral Solution",
+      "kind": "brand",
+      "exampleRxcui": 2000133
+    },
+    "flarex": {
+      "form": "Ophthalmic Suspension",
+      "kind": "brand",
+      "exampleRxcui": 1249631
+    },
+    "fludrocortisone acetate": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 313979
+    },
+    "flurbiprofen sodium": {
+      "form": "Ophthalmic Solution",
+      "kind": "ingredient",
+      "exampleRxcui": 1243585
+    },
+    "fulphila": {
+      "form": "Prefilled Syringe",
+      "kind": "brand",
+      "exampleRxcui": 2048025
+    },
+    "fylnetra": {
+      "form": "Prefilled Syringe",
+      "kind": "brand",
+      "exampleRxcui": 2602787
+    },
+    "gallifrey": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2696255
+    },
+    "gefitinib": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 349472
+    },
+    "gemtesa": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2472321
+    },
+    "generlac": {
+      "form": "Oral Solution",
+      "kind": "brand",
+      "exampleRxcui": 544455
+    },
+    "genvoya": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1721619
+    },
+    "gilotrif": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1430449
+    },
+    "glatopa": {
+      "form": "Prefilled Syringe",
+      "kind": "brand",
+      "exampleRxcui": 1654630
+    },
+    "glyburide": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 197737
+    },
+    "glyxambi": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1602115
+    },
+    "gormel": {
+      "form": "Topical Cream",
+      "kind": "brand",
+      "exampleRxcui": 212426
+    },
+    "gormel 10": {
+      "form": "Topical Lotion",
+      "kind": "brand",
+      "exampleRxcui": 212432
+    },
+    "granisol": {
+      "form": "Oral Solution",
+      "kind": "brand",
+      "exampleRxcui": 763507
+    },
+    "haegarda": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 1926823
+    },
+    "hemangeol": {
+      "form": "Oral Solution",
+      "kind": "brand",
+      "exampleRxcui": 1495064
+    },
+    "her style": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1855519
+    },
+    "hyftor": {
+      "form": "Topical Gel",
+      "kind": "brand",
+      "exampleRxcui": 2596869
+    },
+    "hymovis": {
+      "form": "Prefilled Syringe",
+      "kind": "brand",
+      "exampleRxcui": 2109981
+    },
+    "iclusig": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1364358
+    },
+    "idelvion": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 1743999
+    },
+    "idhifa": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1940372
+    },
+    "ilevro": {
+      "form": "Ophthalmic Suspension",
+      "kind": "brand",
+      "exampleRxcui": 1365866
+    },
+    "ilumya": {
+      "form": "Prefilled Syringe",
+      "kind": "brand",
+      "exampleRxcui": 2053458
+    },
+    "imipramine pamoate": {
+      "form": "Oral Capsule",
+      "kind": "ingredient",
+      "exampleRxcui": 835572
+    },
+    "inbrija": {
+      "form": "Inhalation Powder",
+      "kind": "brand",
+      "exampleRxcui": 2107621
+    },
+    "increlex": {
+      "form": "Injectable Solution",
+      "kind": "brand",
+      "exampleRxcui": 615882
+    },
+    "indapamide": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 197815
+    },
+    "inlyta": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1243010
+    },
+    "intestinex": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 1090749
+    },
+    "inveltys": {
+      "form": "Ophthalmic Suspension",
+      "kind": "brand",
+      "exampleRxcui": 2055286
+    },
+    "invokana": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1373469
+    },
+    "irbesartan": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 200094
+    },
+    "iressa": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 402091
+    },
+    "isotretinoin": {
+      "form": "Oral Capsule",
+      "kind": "ingredient",
+      "exampleRxcui": 197843
+    },
+    "ixinity": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 1666328
+    },
+    "januvia": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 665036
+    },
+    "jardiance": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1545664
+    },
+    "juluca": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1989506
+    },
+    "k-phos": {
+      "form": "Oral Solution",
+      "kind": "brand",
+      "exampleRxcui": 1101778
+    },
+    "kalbitor": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 884702
+    },
+    "katerzia": {
+      "form": "Oral Suspension",
+      "kind": "brand",
+      "exampleRxcui": 2184126
+    },
+    "kazano": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1368391
+    },
+    "kesimpta": {
+      "form": "Pen Injector",
+      "kind": "brand",
+      "exampleRxcui": 2390954
+    },
+    "kloxxado": {
+      "form": "Nasal Spray",
+      "kind": "brand",
+      "exampleRxcui": 2540709
+    },
+    "koate": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 1718970
+    },
+    "kourzeq": {
+      "form": "Oral Paste",
+      "kind": "brand",
+      "exampleRxcui": 2665617
+    },
+    "krintafel": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2109239
+    },
+    "lagevrio": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 2603740
+    },
+    "latuda": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1040036
+    },
+    "laxacin": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2106884
+    },
+    "leflunomide": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 205284
+    },
+    "letairis": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 722120
+    },
+    "letrozole": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 200064
+    },
+    "levoxyl": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 966157
+    },
+    "lialda": {
+      "form": "Delayed Release Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 686433
+    },
+    "likmez": {
+      "form": "Oral Suspension",
+      "kind": "brand",
+      "exampleRxcui": 2667648
+    },
+    "linzess": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 1307415
+    },
+    "liomny": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2723581
+    },
+    "livalo": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 861646
+    },
+    "livtencity": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2586079
+    },
+    "lokelma": {
+      "form": "Powder for Oral Suspension",
+      "kind": "brand",
+      "exampleRxcui": 2047639
+    },
+    "lonsurf": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1670322
+    },
+    "loradamed": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1020126
+    },
+    "lorbrena": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2103175
+    },
+    "lubiprostone": {
+      "form": "Oral Capsule",
+      "kind": "ingredient",
+      "exampleRxcui": 616578
+    },
+    "lubrifresh p.m.": {
+      "form": "Ophthalmic Ointment",
+      "kind": "brand",
+      "exampleRxcui": 1086613
+    },
+    "lumigan": {
+      "form": "Ophthalmic Solution",
+      "kind": "brand",
+      "exampleRxcui": 1009341
+    },
+    "lupkynis": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 2475406
+    },
+    "lurasidone": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 1040031
+    },
+    "lurbiro": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2720355
+    },
+    "lybalvi": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2570398
+    },
+    "lyllana": {
+      "form": "Transdermal System",
+      "kind": "brand",
+      "exampleRxcui": 2399892
+    },
+    "lysodren": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 207373
+    },
+    "malathion": {
+      "form": "Topical Lotion",
+      "kind": "ingredient",
+      "exampleRxcui": 204119
+    },
+    "matulane": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 207588
+    },
+    "mayzent": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2121096
+    },
+    "mektovi": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2049133
+    },
+    "methazolamide": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 197939
+    },
+    "methenamine hippurate": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 992150
+    },
+    "methimazole": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 197941
+    },
+    "metolazone": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 197978
+    },
+    "micaderm": {
+      "form": "Topical Cream",
+      "kind": "brand",
+      "exampleRxcui": 998501
+    },
+    "miglustat": {
+      "form": "Oral Capsule",
+      "kind": "ingredient",
+      "exampleRxcui": 401938
+    },
+    "misoprostol": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 311727
+    },
+    "mitigare": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 1550946
+    },
+    "modafinil": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 205324
+    },
+    "motegrity": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2107351
+    },
+    "movantik": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1551923
+    },
+    "moviprep": {
+      "form": "Powder for Oral Solution",
+      "kind": "brand",
+      "exampleRxcui": 800918
+    },
+    "mulpleta": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2054995
+    },
+    "multaq": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 854859
+    },
+    "my choice": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1922759
+    },
+    "my way": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1426881
+    },
+    "myfembree": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2556800
+    },
+    "myfortic": {
+      "form": "Delayed Release Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 616449
+    },
+    "nabumetone": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 311892
+    },
+    "nadolol": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 198006
+    },
+    "nalocet": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2045500
+    },
+    "narcan": {
+      "form": "Nasal Spray",
+      "kind": "brand",
+      "exampleRxcui": 1725064
+    },
+    "natacyn": {
+      "form": "Ophthalmic Suspension",
+      "kind": "brand",
+      "exampleRxcui": 207100
+    },
+    "nateglinide": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 311919
+    },
+    "natesto": {
+      "form": "Nasal Gel",
+      "kind": "brand",
+      "exampleRxcui": 1596782
+    },
+    "nayzilam": {
+      "form": "Nasal Spray",
+      "kind": "brand",
+      "exampleRxcui": 2173500
+    },
+    "nebusal": {
+      "form": "Inhalation Solution",
+      "kind": "brand",
+      "exampleRxcui": 1146217
+    },
+    "nemluvio": {
+      "form": "Auto-Injector",
+      "kind": "brand",
+      "exampleRxcui": 2691328
+    },
+    "nevanac": {
+      "form": "Ophthalmic Suspension",
+      "kind": "brand",
+      "exampleRxcui": 603978
+    },
+    "new day": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2003710
+    },
+    "nexletol": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2282414
+    },
+    "nexlizet": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2283236
+    },
+    "niacor": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 311944
+    },
+    "nitro-bid": {
+      "form": "Topical Ointment",
+      "kind": "brand",
+      "exampleRxcui": 207273
+    },
+    "nityr": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1941470
+    },
+    "niva thyroid": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2642816
+    },
+    "norethindrone": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 198042
+    },
+    "norethindrone acetate": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 1000405
+    },
+    "norliqva": {
+      "form": "Oral Solution",
+      "kind": "brand",
+      "exampleRxcui": 2599179
+    },
+    "nourianz": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2199026
+    },
+    "nubeqa": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2180336
+    },
+    "nuedexta": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 1040058
+    },
+    "nurtec": {
+      "form": "Disintegrating Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2282320
+    },
+    "nuvessa": {
+      "form": "Vaginal Gel",
+      "kind": "brand",
+      "exampleRxcui": 1604336
+    },
+    "nystop": {
+      "form": "Topical Powder",
+      "kind": "brand",
+      "exampleRxcui": 261178
+    },
+    "nyvepria": {
+      "form": "Prefilled Syringe",
+      "kind": "brand",
+      "exampleRxcui": 2469340
+    },
+    "obizur": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 1593156
+    },
+    "odefsey": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1741739
+    },
+    "odomzo": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 1659927
+    },
+    "ofev": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 1592748
+    },
+    "onexton": {
+      "form": "Topical Gel",
+      "kind": "brand",
+      "exampleRxcui": 1598826
+    },
+    "ongentys": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 2362178
+    },
+    "onpattro": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 2053529
+    },
+    "opcicon one-step": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1549091
+    },
+    "opcon-a": {
+      "form": "Ophthalmic Solution",
+      "kind": "brand",
+      "exampleRxcui": 1043708
+    },
+    "opsumit": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1442143
+    },
+    "option 2": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1736014
+    },
+    "opzelura": {
+      "form": "Topical Cream",
+      "kind": "brand",
+      "exampleRxcui": 2570757
+    },
+    "orgovyx": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2472789
+    },
+    "orilissa": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2049858
+    },
+    "osphena": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1370982
+    },
+    "oxlumo": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 2467158
+    },
+    "pacerone": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 834346
+    },
+    "panzyga": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 2102440
+    },
+    "pedvaxhib": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 798451
+    },
+    "penbraya": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 2670566
+    },
+    "penmenvy": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 2705467
+    },
+    "pentacel": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 805378
+    },
+    "pentasa": {
+      "form": "Extended Release Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 206791
+    },
+    "periogard": {
+      "form": "Mouthwash",
+      "kind": "brand",
+      "exampleRxcui": 834137
+    },
+    "perseris": {
+      "form": "Prefilled Syringe",
+      "kind": "brand",
+      "exampleRxcui": 2055672
+    },
+    "pharbetol": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1293942
+    },
+    "pheburane": {
+      "form": "Oral Pellet",
+      "kind": "brand",
+      "exampleRxcui": 2610134
+    },
+    "phospha 250 neutral": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 656742
+    },
+    "pifeltro": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2055766
+    },
+    "pimecrolimus": {
+      "form": "Topical Cream",
+      "kind": "ingredient",
+      "exampleRxcui": 562806
+    },
+    "pimozide": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 198103
+    },
+    "plan b one-step": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 858079
+    },
+    "plerixafor": {
+      "form": "Injection",
+      "kind": "ingredient",
+      "exampleRxcui": 828700
+    },
+    "poly-vi-sol": {
+      "form": "Oral Solution",
+      "kind": "brand",
+      "exampleRxcui": 876861
+    },
+    "polyvinyl alcohol": {
+      "form": "Ophthalmic Solution",
+      "kind": "ingredient",
+      "exampleRxcui": 142004
+    },
+    "pravastatin sodium": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 904458
+    },
+    "praziquantel": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 198140
+    },
+    "pred forte": {
+      "form": "Ophthalmic Suspension",
+      "kind": "brand",
+      "exampleRxcui": 1548724
+    },
+    "prednisolone acetate": {
+      "form": "Ophthalmic Suspension",
+      "kind": "ingredient",
+      "exampleRxcui": 1376336
+    },
+    "prevnar 20": {
+      "form": "Prefilled Syringe",
+      "kind": "brand",
+      "exampleRxcui": 2566314
+    },
+    "primaquine phosphate": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 904170
+    },
+    "priorix": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 2603514
+    },
+    "probenecid": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 198152
+    },
+    "prolensa": {
+      "form": "Ophthalmic Solution",
+      "kind": "brand",
+      "exampleRxcui": 1375922
+    },
+    "pylera": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 1294621
+    },
+    "pyquvi": {
+      "form": "Oral Suspension",
+      "kind": "brand",
+      "exampleRxcui": 2719198
+    },
+    "pyrazinamide": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 198181
+    },
+    "pyridium": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1094109
+    },
+    "pyrimethamine": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 198182
+    },
+    "qelbree": {
+      "form": "Extended Release Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 2536554
+    },
+    "qulipta": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2571842
+    },
+    "quviviq": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2591508
+    },
+    "ramelteon": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 577348
+    },
+    "rasuvo": {
+      "form": "Auto-Injector",
+      "kind": "brand",
+      "exampleRxcui": 1544383
+    },
+    "ravicti": {
+      "form": "Oral Solution",
+      "kind": "brand",
+      "exampleRxcui": 1368459
+    },
+    "rayaldee": {
+      "form": "Extended Release Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 1855072
+    },
+    "rebinyn": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 1990862
+    },
+    "rena-vite": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 877466
+    },
+    "repaglinide": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 200256
+    },
+    "restasis": {
+      "form": "Ophthalmic Suspension",
+      "kind": "brand",
+      "exampleRxcui": 402092
+    },
+    "revlimid": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 616114
+    },
+    "rextovy": {
+      "form": "Nasal Spray",
+      "kind": "brand",
+      "exampleRxcui": 2680741
+    },
+    "rexulti": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1658325
+    },
+    "rhofade": {
+      "form": "Topical Cream",
+      "kind": "brand",
+      "exampleRxcui": 1869821
+    },
+    "rhopressa": {
+      "form": "Ophthalmic Solution",
+      "kind": "brand",
+      "exampleRxcui": 1992873
+    },
+    "riastap": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 831509
+    },
+    "rifapentine": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 242671
+    },
+    "rituximab-abbs": {
+      "form": "Injection",
+      "kind": "ingredient",
+      "exampleRxcui": 2105826
+    },
+    "rituximab-pvvr": {
+      "form": "Injection",
+      "kind": "ingredient",
+      "exampleRxcui": 2273512
+    },
+    "rocklatan": {
+      "form": "Ophthalmic Solution",
+      "kind": "brand",
+      "exampleRxcui": 2119706
+    },
+    "rosuvastatin calcium": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 859419
+    },
+    "rotarix": {
+      "form": "Oral Suspension",
+      "kind": "brand",
+      "exampleRxcui": 805579
+    },
+    "rotateq": {
+      "form": "Oral Suspension",
+      "kind": "brand",
+      "exampleRxcui": 798300
+    },
+    "rubraca": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1862590
+    },
+    "ruconest": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 1599841
+    },
+    "ryaltris": {
+      "form": "Metered Dose Nasal Spray",
+      "kind": "brand",
+      "exampleRxcui": 2591812
+    },
+    "rybelsus": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2200650
+    },
+    "ryclora": {
+      "form": "Oral Solution",
+      "kind": "brand",
+      "exampleRxcui": 2183912
+    },
+    "rydapt": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 1919094
+    },
+    "salycim": {
+      "form": "Topical Cream",
+      "kind": "brand",
+      "exampleRxcui": 2671250
+    },
+    "samsca": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 849831
+    },
+    "saphris": {
+      "form": "Sublingual Tablet",
+      "kind": "brand",
+      "exampleRxcui": 859979
+    },
+    "savaysa": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1599549
+    },
+    "segluromet": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1992691
+    },
+    "senna-time": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 763296
+    },
+    "shewise": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2730936
+    },
+    "signifor": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 1364114
+    },
+    "siklos": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1999314
+    },
+    "simbrinza": {
+      "form": "Ophthalmic Suspension",
+      "kind": "brand",
+      "exampleRxcui": 1421456
+    },
+    "simply sleep": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1092466
+    },
+    "sirturo": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1364515
+    },
+    "skyclarys": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 2631942
+    },
+    "sogroya": {
+      "form": "Pen Injector",
+      "kind": "brand",
+      "exampleRxcui": 2557403
+    },
+    "soliqua": {
+      "form": "Pen Injector",
+      "kind": "brand",
+      "exampleRxcui": 1859000
+    },
+    "soliris": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 700387
+    },
+    "solosec": {
+      "form": "Oral Granules",
+      "kind": "brand",
+      "exampleRxcui": 1946698
+    },
+    "somavert": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 404457
+    },
+    "soolantra": {
+      "form": "Topical Cream",
+      "kind": "brand",
+      "exampleRxcui": 1598073
+    },
+    "sorilux": {
+      "form": "Topical Foam",
+      "kind": "brand",
+      "exampleRxcui": 1020039
+    },
+    "sotyktu": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2612098
+    },
+    "spinosad": {
+      "form": "Medicated Shampoo",
+      "kind": "ingredient",
+      "exampleRxcui": 1085816
+    },
+    "sprycel": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 643173
+    },
+    "ssd": {
+      "form": "Topical Cream",
+      "kind": "brand",
+      "exampleRxcui": 208185
+    },
+    "steglatro": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1992816
+    },
+    "steglujan": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1992832
+    },
+    "stimufend": {
+      "form": "Prefilled Syringe",
+      "kind": "brand",
+      "exampleRxcui": 2613769
+    },
+    "stivarga": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1312408
+    },
+    "strensiq": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 1720268
+    },
+    "stribild": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1306298
+    },
+    "sublocade": {
+      "form": "Prefilled Syringe",
+      "kind": "brand",
+      "exampleRxcui": 1996189
+    },
+    "sulfadiazine": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 198228
+    },
+    "sulindac": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 198238
+    },
+    "sunosi": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2121764
+    },
+    "sutab": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2465556
+    },
+    "sutent": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 616283
+    },
+    "symfi": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2001430
+    },
+    "sympazan": {
+      "form": "Oral Film",
+      "kind": "brand",
+      "exampleRxcui": 2102713
+    },
+    "symproic": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1876609
+    },
+    "symtuza": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2049677
+    },
+    "tabrecta": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2362240
+    },
+    "tadliq": {
+      "form": "Oral Suspension",
+      "kind": "brand",
+      "exampleRxcui": 2613569
+    },
+    "tagrisso": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1721571
+    },
+    "take action": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1490063
+    },
+    "talicia": {
+      "form": "Delayed Release Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 2262032
+    },
+    "taliglucerase alfa": {
+      "form": "Injection",
+      "kind": "ingredient",
+      "exampleRxcui": 1292879
+    },
+    "tarpeyo": {
+      "form": "Delayed Release Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 2587889
+    },
+    "tasigna": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 746609
+    },
+    "tavalisse": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2044928
+    },
+    "tekturna": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1011738
+    },
+    "telmisartan": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 205304
+    },
+    "tepmetko": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2477272
+    },
+    "teriflunomide": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 1310525
+    },
+    "testim": {
+      "form": "Topical Gel",
+      "kind": "brand",
+      "exampleRxcui": 1597132
+    },
+    "tetrabenazine": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 199592
+    },
+    "the magic bullet": {
+      "form": "Rectal Suppository",
+      "kind": "brand",
+      "exampleRxcui": 284283
+    },
+    "thrive": {
+      "form": "Chewing Gum",
+      "kind": "brand",
+      "exampleRxcui": 1011870
+    },
+    "tiglutik": {
+      "form": "Oral Suspension",
+      "kind": "brand",
+      "exampleRxcui": 2059266
+    },
+    "tikosyn": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 284404
+    },
+    "tinidazole": {
+      "form": "Oral Tablet",
+      "kind": "ingredient",
+      "exampleRxcui": 199519
+    },
+    "torpenz": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2685202
+    },
+    "tradjenta": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1100706
+    },
+    "tretten": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 1488304
+    },
+    "trexall": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 284592
+    },
+    "treximet": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 849452
+    },
+    "trifluridine": {
+      "form": "Ophthalmic Solution",
+      "kind": "ingredient",
+      "exampleRxcui": 313477
+    },
+    "trintellix": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1790886
+    },
+    "triptodur": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 1944389
+    },
+    "trulicity": {
+      "form": "Auto-Injector",
+      "kind": "brand",
+      "exampleRxcui": 1551300
+    },
+    "trumenba": {
+      "form": "Prefilled Syringe",
+      "kind": "brand",
+      "exampleRxcui": 1593140
+    },
+    "truvada": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 639888
+    },
+    "turalio": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 2626399
+    },
+    "twyneo": {
+      "form": "Topical Cream",
+      "kind": "brand",
+      "exampleRxcui": 2565812
+    },
+    "tymlos": {
+      "form": "Pen Injector",
+      "kind": "brand",
+      "exampleRxcui": 1921081
+    },
+    "tyrvaya": {
+      "form": "Nasal Spray",
+      "kind": "brand",
+      "exampleRxcui": 2572371
+    },
+    "ubrelvy": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2268227
+    },
+    "unithroid": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 966228
+    },
+    "ureacin-10": {
+      "form": "Topical Lotion",
+      "kind": "brand",
+      "exampleRxcui": 212434
+    },
+    "ureacin-20": {
+      "form": "Topical Cream",
+      "kind": "brand",
+      "exampleRxcui": 212428
+    },
+    "uzedy": {
+      "form": "Prefilled Syringe",
+      "kind": "brand",
+      "exampleRxcui": 2636039
+    },
+    "vandazole": {
+      "form": "Vaginal Gel",
+      "kind": "brand",
+      "exampleRxcui": 608934
+    },
+    "vascepa": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 1304985
+    },
+    "vaxneuvance": {
+      "form": "Prefilled Syringe",
+      "kind": "brand",
+      "exampleRxcui": 2566422
+    },
+    "veltassa": {
+      "form": "Powder for Oral Suspension",
+      "kind": "brand",
+      "exampleRxcui": 1716215
+    },
+    "verkazia": {
+      "form": "Ophthalmic Suspension",
+      "kind": "brand",
+      "exampleRxcui": 2590613
+    },
+    "verquvo": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2475852
+    },
+    "versacloz": {
+      "form": "Oral Suspension",
+      "kind": "brand",
+      "exampleRxcui": 1369831
+    },
+    "verzenio": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1946836
+    },
+    "viberzi": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1653792
+    },
+    "vigamox": {
+      "form": "Ophthalmic Solution",
+      "kind": "brand",
+      "exampleRxcui": 404473
+    },
+    "viibryd": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1086776
+    },
+    "viokace": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1247381
+    },
+    "virasal": {
+      "form": "Topical Solution",
+      "kind": "brand",
+      "exampleRxcui": 1095693
+    },
+    "visine": {
+      "form": "Ophthalmic Solution",
+      "kind": "brand",
+      "exampleRxcui": 1088126
+    },
+    "vistogard": {
+      "form": "Oral Granules",
+      "kind": "brand",
+      "exampleRxcui": 1739800
+    },
+    "vivitrol": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 637216
+    },
+    "vivjoa": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 2602588
+    },
+    "vogelxo": {
+      "form": "Topical Gel",
+      "kind": "brand",
+      "exampleRxcui": 1596785
+    },
+    "vonvendi": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 1812598
+    },
+    "vosevi": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1939335
+    },
+    "votrient": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 867506
+    },
+    "vowst": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 2636548
+    },
+    "vpriv": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 901812
+    },
+    "vraylar": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 1667666
+    },
+    "vtama": {
+      "form": "Topical Cream",
+      "kind": "brand",
+      "exampleRxcui": 2602306
+    },
+    "vumerity": {
+      "form": "Delayed Release Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 2261794
+    },
+    "vyndamax": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 2168540
+    },
+    "vytorin": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1245420
+    },
+    "vyvgart": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 2587729
+    },
+    "vyzulta": {
+      "form": "Ophthalmic Solution",
+      "kind": "brand",
+      "exampleRxcui": 1988399
+    },
+    "wakix": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2197890
+    },
+    "winlevi": {
+      "form": "Topical Cream",
+      "kind": "brand",
+      "exampleRxcui": 2474349
+    },
+    "xaciato": {
+      "form": "Vaginal Gel",
+      "kind": "brand",
+      "exampleRxcui": 2587815
+    },
+    "xcopri": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2265701
+    },
+    "xembify": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 2196297
+    },
+    "xepi": {
+      "form": "Topical Cream",
+      "kind": "brand",
+      "exampleRxcui": 1994750
+    },
+    "xerac ac": {
+      "form": "Topical Solution",
+      "kind": "brand",
+      "exampleRxcui": 206193
+    },
+    "xgeva": {
+      "form": "Injection",
+      "kind": "brand",
+      "exampleRxcui": 1046402
+    },
+    "xhance": {
+      "form": "Metered Dose Nasal Spray",
+      "kind": "brand",
+      "exampleRxcui": 1946589
+    },
+    "xiidra": {
+      "form": "Ophthalmic Solution",
+      "kind": "brand",
+      "exampleRxcui": 1801840
+    },
+    "xospata": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2105817
+    },
+    "xromi": {
+      "form": "Oral Solution",
+      "kind": "brand",
+      "exampleRxcui": 2696079
+    },
+    "xultophy": {
+      "form": "Pen Injector",
+      "kind": "brand",
+      "exampleRxcui": 1860172
+    },
+    "xyosted": {
+      "form": "Auto-Injector",
+      "kind": "brand",
+      "exampleRxcui": 2099686
+    },
+    "xyrem": {
+      "form": "Oral Solution",
+      "kind": "brand",
+      "exampleRxcui": 352257
+    },
+    "xywav": {
+      "form": "Oral Solution",
+      "kind": "brand",
+      "exampleRxcui": 2393794
+    },
+    "yonsa": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2046585
+    },
+    "your choice": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2749389
+    },
+    "yulithira": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2745127
+    },
+    "yutrepia": {
+      "form": "Inhalation Powder",
+      "kind": "brand",
+      "exampleRxcui": 2714664
+    },
+    "yuvafem": {
+      "form": "Vaginal Insert",
+      "kind": "brand",
+      "exampleRxcui": 1797113
+    },
+    "zaditor": {
+      "form": "Ophthalmic Solution",
+      "kind": "brand",
+      "exampleRxcui": 284380
+    },
+    "zafemy": {
+      "form": "Transdermal System",
+      "kind": "brand",
+      "exampleRxcui": 2531285
+    },
+    "zarxio": {
+      "form": "Prefilled Syringe",
+      "kind": "brand",
+      "exampleRxcui": 1605071
+    },
+    "zavesca": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 541070
+    },
+    "zelboraf": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1147228
+    },
+    "zenatane": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 1373333
+    },
+    "zenpep": {
+      "form": "Delayed Release Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 1594673
+    },
+    "zeposia": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 2288412
+    },
+    "ziana": {
+      "form": "Topical Gel",
+      "kind": "brand",
+      "exampleRxcui": 882550
+    },
+    "ziextenzo": {
+      "form": "Prefilled Syringe",
+      "kind": "brand",
+      "exampleRxcui": 2260709
+    },
+    "zioptan": {
+      "form": "Ophthalmic Solution",
+      "kind": "brand",
+      "exampleRxcui": 1244616
+    },
+    "zocor": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 104490
+    },
+    "zolinza": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 668606
+    },
+    "zomacton": {
+      "form": "Injectable Solution",
+      "kind": "brand",
+      "exampleRxcui": 1648160
+    },
+    "zonegran": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 284408
+    },
+    "zonisade": {
+      "form": "Oral Suspension",
+      "kind": "brand",
+      "exampleRxcui": 2606788
+    },
+    "zubsolv": {
+      "form": "Sublingual Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1431083
+    },
+    "zurzuvae": {
+      "form": "Oral Capsule",
+      "kind": "brand",
+      "exampleRxcui": 2669916
+    },
+    "zylet": {
+      "form": "Ophthalmic Suspension",
+      "kind": "brand",
+      "exampleRxcui": 545259
+    },
+    "zypitamag": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 2001264
+    },
+    "zytiga": {
+      "form": "Oral Tablet",
+      "kind": "brand",
+      "exampleRxcui": 1100079
+    }
+  }
+}

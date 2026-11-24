@@ -106,6 +106,48 @@
       .replace(/\b(\d+(?:\.\d+)?)(MG|MCG|ML|MEQ|GM)\b/g, (_, amount, unit) => amount + ' ' + unitCase[unit]);
   }
 
+  const formWords = /\b(?:tablets?|capsules?|caplets?|solutions?|suspensions?|creams?|ointments?|gels?|lotions?|liquids?|syrups?|elixirs?|emulsions?|aerosols?|powders?|granules?|pellets?|patch(?:es)?|sprays?|drops?|suppositor(?:y|ies)|foams?|films?|lozenges?|troches?|gums?|inserts?|implants?|inhalers?|inhalants?|injections?|injectables?|shampoos?|enemas?|wafers?|wipes?|pastes?|mouthwash|rinse|toothpaste|medicated pads?|pledgets?|soap|tincture|douche|gas|sponge|transdermal system|intrauterine system|vaginal system|ring)\b/i;
+  const supplyWords = /\b(?:test strips?|strips?|meters?|lancets?|needles?|syringe needles?|insulin syringes?|glucose monitor(?:ing)?(?: systems?| kits?)?|receivers?|lancing devices?|insulin pumps?|infusion sets?|transmitters?|sensors?|spacers?|chambers?|masks?|dressings?|bandages?|swabs?|alcohol pads?|pen caps?|batter(?:y|ies)|control solutions?|sharps containers?)\b/i;
+  const formAbbreviations = {tab: 'Tablet', tabs: 'Tablets', caps: 'Capsules', cap: 'Capsule', inj: 'Injection',
+    soln: 'Solution', susp: 'Suspension', oint: 'Ointment', pwdr: 'Powder', arsl: 'Aerosol',
+    supp: 'Suppository', odt: 'Orally Disintegrating Tablet'};
+  function expandFormWords(name) {
+    // Expand standalone formulary terms, preserving hyphenated trade names and supply names.
+    if (supplyWords.test(name)) return name;
+    return name.replace(/(^|\s)(tab|tabs|caps|cap|inj|soln|susp|oint|pwdr|arsl|supp|odt)(?=\s|$|[),])/gi,
+      (_, space, word) => space + formAbbreviations[word.toLowerCase()]);
+  }
+
+  function dosageFormHeading(group, label = group.label) {
+    const title = expandFormWords(label);
+    const records = group.records || [];
+    const labeledForm = records[0] && reviewedCardPresentation(records[0])?.dosageForm;
+    if (labeledForm && records.every(r => reviewedCardPresentation(r)?.dosageForm === labeledForm)
+        && !title.toLowerCase().includes(labeledForm.toLowerCase())) return title + ' — ' + labeledForm;
+    if (formWords.test(title) || supplyWords.test(title) || /\bform (?:unspecified|unverified|unresolved)\b/i.test(title)) return title;
+    // Each counted RxNorm pack component must end in the same explicit dosage form.
+    if (records.length && records.every(r => r.rxnormId && r.name.startsWith('{'))) {
+      const components = records.flatMap(r => r.name.split('}')[0].split(/\b\d+ \(/).slice(1));
+      const forms = components.map(c => c.match(/\b((?:(?:extended release|delayed release|chewable|oral) )*(?:tablet|capsule|solution|suspension))\)\s*(?:\/\s*)?$/i)?.[1].toLowerCase());
+      if (forms[0] && forms.every(form => form === forms[0])) return title + ' — ' + forms[0];
+    }
+    // Some reviewed headings retain the device while the payer also specifies the physical form.
+    const printed = records.map(r => {
+      const product = expandFormWords(r.name.split(/\s+\((?:brand|generic) for /i)[0]);
+      const matches = [...product.matchAll(/\b(solution|suspension|cream|ointment|capsule|tablet)s?\b/gi)];
+      // Multi-form descriptions and reconstitution instructions require the complete wording.
+      return matches.length === 1 && !/reconst|powder|granul|\bfor\b|\b(?:er|xr|sr|dr)\b|delayed.release|extended.release/i.test(product)
+        && !r.sourceConflict && !r.descriptionCorrection ? matches[0][1].toLowerCase() : '';
+    });
+    if (printed[0] && printed.every(form => form === printed[0])) return title + ' — ' + printed[0];
+    const forms = new Set(records.map(r => r.rxTermsForm?.form));
+    if (forms.size === 1 && records[0]?.rxTermsForm) {
+      const form = records[0].rxTermsForm.form;
+      return normalize(title).includes(normalize(form)) ? title : title + ' — ' + form;
+    }
+    return title + ' — dosage form unverified';
+  }
+
   // These reviewed UHC rows need their printed product names for identity.
   // The parenthetical ingredient aliases omit formulation or strength.
   const distinctUhcPresentations = new Set([
@@ -435,7 +477,13 @@
     // Device-specific supplies remain distinct despite a shared generic class.
     const device = /\bblood glucose (?:test|monitor system)\b|\binsulin syringe\b|\bpen needles?\b|\blancets?\b/i.test(generic);
     const deviceBrand = device && brands.length ? ':device:' + normalize(brands[0]) : '';
-    return {key: `${record.planId}:${normalize(generic)}${variant}${deviceBrand}`, generic, brands};
+    // A payer's parenthetical ingredient alias can hide different presentations.
+    // Keep the printed products separate when that alias cannot establish equivalence.
+    const pairedBrand = brandFor?.[1] || genericFor?.[2];
+    const distinctProduct = pairedBrand && !device && (!formWords.test(expandFormWords(generic))
+      || (brandFor && (formWords.test(expandFormWords(pairedBrand)) || /\d/.test(pairedBrand))));
+    const productKey = distinctProduct ? ':product:' + normalize(pairedBrand) : '';
+    return {key: `${record.planId}:${normalize(generic)}${variant}${deviceBrand}${productKey}`, generic, brands};
   }
 
   // Exact duplicate bracketed brand names are presentation artifacts.
@@ -502,7 +550,8 @@
     if (/disintegrat|\bodt\b/.test(n)) return 'odt';
     if (/tablet|\btab\b/.test(n)) return 'tablet';
     if (/capsule|\bcap\b/.test(n)) return 'capsule';
-    if (/suspension|solution|liquid|syrup|elixir/.test(n)) return 'liquid';
+    const form = expandFormWords(n).match(/\b(solution|suspension|liquid|syrup|elixir|cream|ointment|gel|lotion|foam|powder|spray)\b/i);
+    if (form) return form[1].toLowerCase();
     return '';
   }
 
@@ -548,11 +597,15 @@
     if (concentrationA !== concentrationB || concentrationA === 'mixed') return false;
     const sameName = normalize(planGroup.name) === normalize(sharedGroup.name);
     const sharedBrand = planGroup.brands.some(brand => sharedGroup.brands.some(b => normalize(b) === normalize(brand)));
+    if (planGroup.key?.includes(':product:') && !sharedBrand) return false;
     // Verified plan notices may identify a trade name with a route suffix,
     // without populating the separate brand field (e.g. MOUNJARO (SUBCUTANEOUS)).
     const routeSuffix = planGroup.name.match(/^(.*?)\s*\((subcutaneous|oral|topical|nasal|inhalation|intravenous|intramuscular)\)\s*$/i);
     const routeBrand = routeSuffix && sharedGroup.brands.some(b => normalize(b) === normalize(routeSuffix[1]));
     if (!sameName && !sharedBrand && !routeBrand) return false;
+    const resolvedForms = group => new Set((group.records || []).map(r => r.rxTermsForm?.form).filter(Boolean));
+    const left = resolvedForms(planGroup), right = resolvedForms(sharedGroup);
+    if (left.size && right.size && new Set([...left, ...right]).size > 1) return false;
     const a = medicationRoute(planGroup.name), b = medicationRoute(sharedGroup.name);
     if (!a || !b || a !== b) return sameName && a === b;
     const formA = medicationForm(planGroup.name), formB = medicationForm(sharedGroup.name);
@@ -560,7 +613,7 @@
     // forms and release mechanisms must never be merged.
     if (formA && formB && formA !== formB) {
       const injectionPackage = new Set(['auto-injector', 'syringe', 'vial', 'pen']);
-      if (!(a === 'injection' && (!injectionPackage.has(formA) || !injectionPackage.has(formB)))) return false;
+      if (!(a === 'injection' && injectionPackage.has(formA) !== injectionPackage.has(formB))) return false;
     }
     if (releaseKind(planGroup.name) !== releaseKind(sharedGroup.name)) return false;
     const strengthA = strengthTokens(planGroup.name), strengthB = strengthTokens(sharedGroup.name);
@@ -601,24 +654,29 @@
   const genericStatinNote = 'UHC lists a quantity limit without specifying the numeric amount.';
   const butransPatches = 'Buprenorphine Transdermal Patches (Butrans)';
   const reviewedCardPresentations = new Map([
-    ["uhc-oct-complete-2dbe0497f9246f1b", {"label": "Insulin Lispro U-100 Prefilled Pen (1-Unit Increments)", "separate": true, "uhcFormRx": "1652639", "note": "3 mL KwikPen.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97d5e596-aae1-42c9-ae89-c3780959c467"}],
-    ["uhc-oct-complete-99b7a79d60f9be27", {"label": "Insulin Lispro U-100 Injection Solution (Labeled Vial)", "separate": true, "uhcFormRx": "242120", "note": "The labeled presentation is a 10 mL multidose vial. UHC lists the solution without specifying vial size or package.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97d5e596-aae1-42c9-ae89-c3780959c467"}],
-    ["uhc-oct-complete-d68963fe88140f42", {"label": "Insulin Lispro Junior KwikPen U-100 Prefilled Pen (0.5-Unit Increments)", "separate": true, "uhcFormRx": "1926331", "option": "Insulin Lispro Junior KwikPen Listing", "note": "3 mL prefilled pen.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97d5e596-aae1-42c9-ae89-c3780959c467"}],
-    ["uhc-oct-complete-1a0caccc9f7c79ae", {"label": "Insulin Lispro Junior KwikPen U-100 Prefilled Pen (0.5-Unit Increments)", "separate": true, "uhcFormRx": "1926332", "option": "Humalog Junior KwikPen", "note": "UHC’s printed list flags PA. Its electronic list flags step therapy and reports no PA. Verify the restriction before prescribing.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c8ecbd7a-0e22-4fc7-a503-faa58c1b6f3f"}],
-    ["uhc-oct-complete-6b20c512802745b5", {"label": "Insulin Lispro Protamine / Lispro 75/25 U-100 Prefilled Pen", "separate": true, "uhcFormRx": "847252", "note": "3 mL premixed suspension pen.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e49f701d-c19f-4cb2-b63f-01a917b33abc"}],
-    ["uhc-oct-complete-4b27f95aecd5c517", {"label": "Admelog (Insulin Lispro) U-100 Injection Solution (Labeled Vial)", "separate": true, "uhcFormRx": "1992169", "note": "The label lists 3 mL and 10 mL vials. UHC does not identify eligible vial sizes. UHC’s printed list flags PA. Its electronic list flags step therapy and reports no PA. Verify the restriction before prescribing.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=12ec9e3f-e2ac-43a1-b334-8b6538cf2bb0"}],
-    ["uhc-oct-complete-b66766253ca867d5", {"label": "Admelog SoloStar (Insulin Lispro) U-100 Prefilled Pen", "separate": true, "uhcFormRx": "1992171", "note": "UHC’s printed list flags PA. Its electronic list flags step therapy and reports no PA. Verify the restriction before prescribing.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=12ec9e3f-e2ac-43a1-b334-8b6538cf2bb0"}],
-    ["uhc-oct-complete-7fb64d26f93768e3", {"label": "Humalog (Insulin Lispro) U-100 Injection — Vial or Cartridge", "separate": true, "uhcFormRx": "865098, 1652646", "note": "UHC’s electronic list distinguishes U-100 solution and 3 mL cartridge. The printed Humalog row does not distinguish them. UHC’s printed list flags PA. Its electronic list flags step therapy and reports no PA. Verify the restriction before prescribing.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c8ecbd7a-0e22-4fc7-a503-faa58c1b6f3f"}],
-    ["uhc-oct-complete-bdf84a7dca46a5c9", {"label": "Humalog KwikPen (Insulin Lispro) Prefilled Pen", "separate": true, "uhcFormRx": "1652640", "note": "UHC’s electronic list identifies the U-100 pen. The label also includes U-200. Its benefit is unverified. UHC’s printed list flags PA. Its electronic list flags step therapy and reports no PA. Verify the restriction before prescribing.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c8ecbd7a-0e22-4fc7-a503-faa58c1b6f3f"}],
+    ["uhc-oct-complete-2dbe0497f9246f1b", {"dosageForm":"solution", "label": "Insulin Lispro U-100 Prefilled Pen (1-Unit Increments)", "separate": true, "uhcFormRx": "1652639", "note": "3 mL KwikPen.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97d5e596-aae1-42c9-ae89-c3780959c467"}],
+    ["uhc-oct-complete-99b7a79d60f9be27", {"dosageForm":"solution", "label": "Insulin Lispro U-100 Injection Solution (Labeled Vial)", "separate": true, "uhcFormRx": "242120", "note": "The labeled presentation is a 10 mL multidose vial. UHC lists the solution without specifying vial size or package.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97d5e596-aae1-42c9-ae89-c3780959c467"}],
+    ["uhc-oct-complete-d68963fe88140f42", {"dosageForm":"solution", "label": "Insulin Lispro Junior KwikPen U-100 Prefilled Pen (0.5-Unit Increments)", "separate": true, "uhcFormRx": "1926331", "option": "Insulin Lispro Junior KwikPen Listing", "note": "3 mL prefilled pen.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97d5e596-aae1-42c9-ae89-c3780959c467"}],
+    ["uhc-oct-complete-1a0caccc9f7c79ae", {"dosageForm":"solution", "label": "Insulin Lispro Junior KwikPen U-100 Prefilled Pen (0.5-Unit Increments)", "separate": true, "uhcFormRx": "1926332", "option": "Humalog Junior KwikPen", "note": "UHC’s printed list flags PA. Its electronic list flags step therapy and reports no PA. Verify the restriction before prescribing.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c8ecbd7a-0e22-4fc7-a503-faa58c1b6f3f"}],
+    ["uhc-oct-complete-6b20c512802745b5", {"dosageForm":"suspension", "label": "Insulin Lispro Protamine / Lispro 75/25 U-100 Prefilled Pen", "separate": true, "uhcFormRx": "847252", "note": "3 mL premixed suspension pen.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e49f701d-c19f-4cb2-b63f-01a917b33abc"}],
+    ["uhc-oct-complete-4b27f95aecd5c517", {"dosageForm":"solution", "label": "Admelog (Insulin Lispro) U-100 Injection Solution (Labeled Vial)", "separate": true, "uhcFormRx": "1992169", "note": "The label lists 3 mL and 10 mL vials. UHC does not identify eligible vial sizes. UHC’s printed list flags PA. Its electronic list flags step therapy and reports no PA. Verify the restriction before prescribing.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=12ec9e3f-e2ac-43a1-b334-8b6538cf2bb0"}],
+    ["uhc-oct-complete-b66766253ca867d5", {"dosageForm":"solution", "label": "Admelog SoloStar (Insulin Lispro) U-100 Prefilled Pen", "separate": true, "uhcFormRx": "1992171", "note": "UHC’s printed list flags PA. Its electronic list flags step therapy and reports no PA. Verify the restriction before prescribing.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=12ec9e3f-e2ac-43a1-b334-8b6538cf2bb0"}],
+    ["uhc-oct-complete-7fb64d26f93768e3", {"dosageForm":"solution", "label": "Humalog (Insulin Lispro) U-100 Injection — Vial or Cartridge", "separate": true, "uhcFormRx": "865098, 1652646", "note": "UHC’s electronic list distinguishes U-100 solution and 3 mL cartridge. The printed Humalog row does not distinguish them. UHC’s printed list flags PA. Its electronic list flags step therapy and reports no PA. Verify the restriction before prescribing.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c8ecbd7a-0e22-4fc7-a503-faa58c1b6f3f"}],
+    ["uhc-oct-complete-bdf84a7dca46a5c9", {"dosageForm":"solution", "label": "Humalog KwikPen (Insulin Lispro) Prefilled Pen", "separate": true, "uhcFormRx": "1652640", "note": "UHC’s electronic list identifies the U-100 pen. The label also includes U-200. Its benefit is unverified. UHC’s printed list flags PA. Its electronic list flags step therapy and reports no PA. Verify the restriction before prescribing.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c8ecbd7a-0e22-4fc7-a503-faa58c1b6f3f"}],
     ["uhc-oct-complete-bdd6e173aa27ca29", {"label": "Humalog Mix 75/25 U-100 Injection Suspension (Labeled Vial)", "separate": true, "uhcFormRx": "752388", "note": "The label identifies a 10 mL vial. UHC lists the suspension without a package size. UHC’s printed list flags PA. Its electronic list flags step therapy and reports no PA. Verify the restriction before prescribing.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c73da51a-1899-45ad-b6cf-9c52c36a25dd"}],
-    ["uhc-oct-complete-a864ab78ab9356d7", {"label": "Humalog Mix 75/25 KwikPen (Insulin Lispro Mix) U-100 Prefilled Pen", "separate": true, "uhcFormRx": "847254", "note": "UHC’s printed list flags PA. Its electronic list flags step therapy and reports no PA. Verify the restriction before prescribing.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c73da51a-1899-45ad-b6cf-9c52c36a25dd"}],
-    ["uhc-oct-complete-ae4326cd39db152e", {"label": "Humalog Mix 50/50 KwikPen (Insulin Lispro Mix) U-100 Prefilled Pen", "separate": true, "uhcFormRx": "847213", "note": "3 mL premixed suspension pen.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b34cd3ff-d0af-4852-b4ef-2a8b4a93aeae"}],
-    ["banner-oct26-028", {"label": "Insulin Lispro Injection Solution (Container Unspecified) (Humalog Reference)", "note": "The authorized generic label identifies a U-100 multidose vial. The formulary does not specify a container or vial size for this solution.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97d5e596-aae1-42c9-ae89-c3780959c467"}],
-    ["formulary-9980", {"label": "Insulin Lispro Injection Solution (Container Unspecified) (Humalog Reference)", "note": "The authorized generic label identifies a U-100 multidose vial. The formulary does not specify a container or vial size for this solution.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97d5e596-aae1-42c9-ae89-c3780959c467"}],
-    ["banner-pcp-nov10-004", {"label": "Insulin Lispro U-100 Prefilled Pen (Humalog Junior KwikPen, 0.5-Unit Increments)", "note": "3 mL authorized generic pen. Doses increase by 0.5 unit up to 30 units.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97d5e596-aae1-42c9-ae89-c3780959c467"}],
-    ["formulary-9981", {"label": "Insulin Lispro U-100 Prefilled Pen (Humalog Junior KwikPen, 0.5-Unit Increments)", "note": "3 mL authorized generic pen. Doses increase by 0.5 unit up to 30 units.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97d5e596-aae1-42c9-ae89-c3780959c467"}],
-    ["banner-pcp-nov10-005", {"label": "Insulin Lispro U-100 Prefilled Pen (Humalog KwikPen, 1-Unit Increments)", "note": "3 mL authorized generic pen. Doses increase by 1 unit up to 60 units.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97d5e596-aae1-42c9-ae89-c3780959c467"}],
-    ["formulary-9982", {"label": "Insulin Lispro U-100 Prefilled Pen (Humalog KwikPen, 1-Unit Increments)", "note": "3 mL authorized generic pen. Doses increase by 1 unit up to 60 units.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97d5e596-aae1-42c9-ae89-c3780959c467"}],
+    ["uhc-oct-complete-a864ab78ab9356d7", {"dosageForm":"suspension", "label": "Humalog Mix 75/25 KwikPen (Insulin Lispro Mix) U-100 Prefilled Pen", "separate": true, "uhcFormRx": "847254", "note": "UHC’s printed list flags PA. Its electronic list flags step therapy and reports no PA. Verify the restriction before prescribing.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c73da51a-1899-45ad-b6cf-9c52c36a25dd"}],
+    ["uhc-oct-complete-ae4326cd39db152e", {"dosageForm":"suspension", "label": "Humalog Mix 50/50 KwikPen (Insulin Lispro Mix) U-100 Prefilled Pen", "separate": true, "uhcFormRx": "847213", "note": "3 mL premixed suspension pen.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b34cd3ff-d0af-4852-b4ef-2a8b4a93aeae"}],
+    ["banner-oct26-028", {"dosageForm":"solution", "label": "Insulin Lispro Injection Solution (Container Unspecified) (Humalog Reference)", "note": "The authorized generic label identifies a U-100 multidose vial. The formulary does not specify a container or vial size for this solution.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97d5e596-aae1-42c9-ae89-c3780959c467"}],
+    ["formulary-9980", {"dosageForm":"solution", "label": "Insulin Lispro Injection Solution (Container Unspecified) (Humalog Reference)", "note": "The authorized generic label identifies a U-100 multidose vial. The formulary does not specify a container or vial size for this solution.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97d5e596-aae1-42c9-ae89-c3780959c467"}],
+    ["banner-pcp-nov10-004", {"dosageForm":"solution", "label": "Insulin Lispro U-100 Prefilled Pen (Humalog Junior KwikPen, 0.5-Unit Increments)", "note": "3 mL authorized generic pen. Doses increase by 0.5 unit up to 30 units.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97d5e596-aae1-42c9-ae89-c3780959c467"}],
+    ["formulary-9981", {"dosageForm":"solution", "label": "Insulin Lispro U-100 Prefilled Pen (Humalog Junior KwikPen, 0.5-Unit Increments)", "note": "3 mL authorized generic pen. Doses increase by 0.5 unit up to 30 units.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97d5e596-aae1-42c9-ae89-c3780959c467"}],
+    ["banner-pcp-nov10-005", {"dosageForm":"solution", "label": "Insulin Lispro U-100 Prefilled Pen (Humalog KwikPen, 1-Unit Increments)", "note": "3 mL authorized generic pen. Doses increase by 1 unit up to 60 units.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97d5e596-aae1-42c9-ae89-c3780959c467"}],
+    ["formulary-9982", {"dosageForm":"solution", "label": "Insulin Lispro U-100 Prefilled Pen (Humalog KwikPen, 1-Unit Increments)", "note": "3 mL authorized generic pen. Doses increase by 1 unit up to 60 units.", "labelUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97d5e596-aae1-42c9-ae89-c3780959c467"}],
+    ['uhc-oct-complete-367d1f3038b2b927', {
+      separate: true, label: 'Ivermectin (Soolantra) 1% topical cream',
+      note: 'The drug label specifies 10 mg/g. UHC lists the brand without a form, strength or numeric quantity limit.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b1d5b166-ab06-4ab5-b0c6-31126238118a'
+    }],
     ["banner-full-300d0c135e0cb20c",{"separate":true,"label":"Xalkori (Crizotinib) Oral Pellets (Banner Formulary)","note":"FDA-labeled oral pellets: 20 mg, 50 mg and 150 mg. Open the shell; administer the pellets without chewing or crushing. Do not swallow the shell. Banner GL-99695 names Xalkori without a form-specific branch; exact covered strengths and packages are unverified.","labelUrl":"https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=2a51b0de-47d6-455e-a94c-d2c737b04ff7"}],
     ["banner-full-98c661a1f951a1e3",{"separate":true,"label":"Xalkori (Crizotinib) Oral Capsules (Banner Formulary)","note":"FDA-labeled capsules: 200 mg and 250 mg. Swallow whole; do not split, crush or chew. Distinct from oral pellets. Banner GL-99695 names Xalkori without a form-specific branch; exact covered strengths and packages are unverified.","labelUrl":"https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=2a51b0de-47d6-455e-a94c-d2c737b04ff7"}],
     ['uhc-oct-complete-1f6816a7379d66cd', {
@@ -633,8 +691,8 @@
     ["banner-full-ea0529db441446f6",{"separate":true,"label":"Berinert (C1 Esterase Inhibitor) IV Powder for Solution (Banner Formulary)","note":"FDA label: intravenous treatment of acute hereditary angioedema attacks; not a routine prophylaxis product. Banner prints a brand-only preferred PA listing without package details. Banner GL-525295 acute branch: documented HAE, acute treatment, no concurrent approved acute agent, allergist/immunologist; 12 months. Product-specific age/step conditions for other drugs do not apply to Berinert. Exact covered package remains unverified.","labelUrl":"https://www.fda.gov/vaccines-blood-biologics/approved-blood-products/berinert"}],
     ["banner-full-81af49ca953b804f",{"separate":true,"label":"Cinryze / Haegarda (C1 Esterase Inhibitor) Reconstituted Injection (Banner Combined Listing)","note":"Distinct FDA-labeled prophylaxis presentations: Cinryze intravenous; Haegarda subcutaneous. Not interchangeable by route. Banner prints both brands in one brand-only PA row; individual product/package eligibility remains unverified. Banner GL-525295 prophylaxis: confirmed HAE, age 6 or older, allergist/immunologist; 12 months. Acute off-label criteria name Cinryze only, not Haegarda. The guideline lists both as preferred, but the formulary row does not specify preference.","labelUrl":"https://www.fda.gov/vaccines-blood-biologics/approved-blood-products/haegarda"}],
     ["banner-full-63b29ba46f628277",{"separate":true,"label":"Brixadi (Buprenorphine) Subcutaneous Extended-Release Prefilled Syringe (Banner Formulary)","note":"FDA label distinguishes weekly and monthly formulations; the weekly formulation is used for initiation after a tolerated test dose in patients not currently receiving buprenorphine. Do not sum weekly doses to determine a monthly dose. Banner does not specify covered schedule or strength. GL-157633 has separate initial and renewal pathways.","labelUrl":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5d8a8fd0-8619-422a-a664-d1d2e8970f48"}],
-    ["banner-full-f280cb398b11247e",{"separate":true,"label":"Fasenra Pen (Benralizumab) Subcutaneous Autoinjector","note":"FDA label: 30 mg/mL pen only. The 10 mg pediatric asthma dose requires the prefilled syringe. Exact covered strength/package remains unverified. Banner GL-642200 separates asthma, EGPA and HES initial and renewal criteria.","labelUrl":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=da6aca1a-19ed-44a4-abb7-696c7d58b784"}],
-    ["banner-full-bc2f140b456dcb21",{"separate":true,"label":"Fasenra (Benralizumab) Subcutaneous Prefilled Syringe","note":"FDA label: 10 mg/0.5 mL or 30 mg/mL syringes. Exact covered strength/package remains unverified. Banner GL-642200 separates asthma, EGPA and HES initial and renewal criteria.","labelUrl":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=da6aca1a-19ed-44a4-abb7-696c7d58b784"}],
+    ["banner-full-f280cb398b11247e",{"separate":true,"dosageForm":"solution", "label":"Fasenra Pen (Benralizumab) Subcutaneous Autoinjector","note":"FDA label: 30 mg/mL pen only. The 10 mg pediatric asthma dose requires the prefilled syringe. Exact covered strength/package remains unverified. Banner GL-642200 separates asthma, EGPA and HES initial and renewal criteria.","labelUrl":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=da6aca1a-19ed-44a4-abb7-696c7d58b784"}],
+    ["banner-full-bc2f140b456dcb21",{"separate":true,"dosageForm":"solution", "label":"Fasenra (Benralizumab) Subcutaneous Prefilled Syringe","note":"FDA label: 10 mg/0.5 mL or 30 mg/mL syringes. Exact covered strength/package remains unverified. Banner GL-642200 separates asthma, EGPA and HES initial and renewal criteria.","labelUrl":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=da6aca1a-19ed-44a4-abb7-696c7d58b784"}],
     ["banner-full-25a305f34bbe1d14",{"separate":true,"label":"Aristada Initio (Aripiprazole Lauroxil) IM Initiation Injection","note":"FDA label: 675 mg/2.4 mL single initiation or reinitiation dose; not interchangeable with Aristada and not for repeated maintenance dosing. Banner's printed quantity limit does not establish a maintenance regimen.","labelUrl":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b18fdfd9-31cd-4a2f-9f1c-ebc70d7a9403"}],
     ["banner-full-753b957d55158ac0",{"separate":true,"label":"Abilify Asimtufii (Aripiprazole) Extended-Release IM Suspension","note":"FDA label: 720 mg and 960 mg prefilled syringes for every-two-month dosing; distinct from monthly Abilify Maintena. Banner does not specify strength or exact eligible package.","labelUrl":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=da4c07fd-1130-4341-bb44-63acfa4162be"}],
     ["uhc-oct-complete-8989a933ae7b4319",{"separate":true,"label":"Aimovig (Erenumab-aooe) Subcutaneous Injection","note":"FDA label: 70 mg/mL or 140 mg/mL single-dose autoinjector or prefilled syringe. UHC GL-720193 pediatric exception applies to Ajovy only, not Aimovig. Exact device, package and numeric quantity limit are unverified.","labelUrl":"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b998ed05-94b0-47fd-b28f-cddd1e128fd8"}],
@@ -840,7 +898,7 @@
   }
 
   function uniqueMedicationNames() {
-    return [...new Set([...planMedicationGroups().map(group => group.label), tirosintSolutionLabel])]
+    return [...new Set([...planMedicationGroups().map(group => dosageFormHeading(group)), tirosintSolutionLabel])]
       .sort((a, b) => a.localeCompare(b));
   }
 
@@ -942,7 +1000,7 @@
 
   function rankedValues(values, query, name) {
     if (!query) return values;
-    const medicationSearch = name === 'medication' ? new Map(planMedicationGroups().map(g => [g.label, normalize(g.search)])) : new Map();
+    const medicationSearch = name === 'medication' ? new Map(planMedicationGroups().map(g => [dosageFormHeading(g), normalize(g.search + ' ' + dosageFormHeading(g))])) : new Map();
     return values
       .filter((value) => normalize(value).includes(query) || medicationSearch.get(value)?.includes(query))
       .sort((a, b) => {
@@ -1001,7 +1059,7 @@
       state.selectedMedicationKey = null;
     } else if (name === 'medication') {
       state.term = value;
-      state.selectedMedicationKey = planMedicationGroups().find(group => normalize(group.label) === normalize(value))?.key || null;
+      state.selectedMedicationKey = planMedicationGroups().find(group => normalize(dosageFormHeading(group)) === normalize(value))?.key || null;
     } else if (name === 'category') {
       state.category = value;
       state.subcategory = '';
@@ -1111,7 +1169,7 @@
       .filter((record) => {
         if (selectedGroup) return selectedGroup.records.some(r => r.id === record.id);
         const haystack = normalize([
-          record.displayName || record.name, record.brand, record.searchAliases?.join(' '), reviewedCardPresentation(record)?.label
+          record.displayName || record.name, expandFormWords(record.name), record.brand, record.standardName, record.rxTermsForm?.form, reviewedCardPresentation(record)?.dosageForm, record.searchAliases?.join(' '), reviewedCardPresentation(record)?.label
         ].join(' '));
         return terms.every((term) => haystack.includes(term));
       })
@@ -1280,6 +1338,10 @@
     for (const position of bannerRepeatPositions.get(record.id) || []) {
       const [, page, table, row] = position.match(/BAN-P(\d+)-T(\d+)-R(\d+)/);
       details.push(`<a href="${escapeHtml(record.sourceUrl)}#page=${page}" target="_blank" rel="noopener">Banner page ${page}, table ${table}, row ${row}</a>`);
+    }
+    if (record.rxTermsForm) {
+      const {form, exampleRxcui} = record.rxTermsForm;
+      details.push(`<p><strong>Dosage form:</strong> ${escapeHtml(form)} · <a href="https://mor.nlm.nih.gov/RxNav/search?searchBy=RXCUI&amp;searchTerm=${Number(exampleRxcui)}" target="_blank" rel="noopener">RxNorm product example ↗</a> (RxTerms, November 2026). This identifies the form only. See the payer row for listed strengths and restrictions.</p>`);
     }
     if (record.standardName) details.push(`<p><strong>Standardized name:</strong> ${escapeHtml(record.standardName)}<br>${escapeHtml(record.standardNameType)} · RxCUI ${escapeHtml(record.rxnormId)} · NLM release ${escapeHtml(record.standardNameProvenance.release)} · ${escapeHtml(record.standardNameProvenance.sourceFile)}</p>`);
     if (record.baselineSource) details.push(`<p><strong>Baseline source:</strong> JSON row ${Number(record.sourceRow)} · RxNorm ${escapeHtml(record.rxnormId)} · declared plan year ${escapeHtml(record.baselineSource.declaredPlanYears.join(', '))}</p>`);
@@ -1527,7 +1589,7 @@
       const entry = cardSourceGroups.get(button.dataset.cardSources);
       if (!entry || entry.planId !== state.planId) return;
       const preferredNdcs = bannerAlbuterolPreferredNdcs(entry.group);
-      dialog.querySelector('#sourceDialogTitle').textContent = 'Sources — ' + (preferredNdcs.length ? 'Albuterol HFA inhaler' : entry.group.label);
+      dialog.querySelector('#sourceDialogTitle').textContent = 'Sources — ' + (preferredNdcs.length ? 'Albuterol HFA inhaler' : dosageFormHeading(entry.group));
       const clinical = cardClinicalGroups.get(entry.group.key || entry.group.label);
       const originalRows = entry.group.records.map(record => `<section><h3>${escapeHtml(readableMedicationName(record.name))}</h3>${recordDetails(record)}</section>`).join('');
       dialog.querySelector('#sourceDialogContent').innerHTML = (preferredNdcs.length ? bannerAlbuterolSources(entry.group, originalRows) : originalRows)
@@ -1804,6 +1866,8 @@
     // Navigation only: a named source is not an assertion that its criteria
     // apply to every formulation or that this medication requires PA.
     for (const policy of [...namedPlanPolicies(group), ...namedPlanPolicies(group, true)]) {
+      if (policy.planId === 'ahcccs-ffs-aihp' && policy.policyCode === 'GL-99431'
+          && group.records.some(record => record.id === 'uhc-oct-complete-367d1f3038b2b927')) continue;
       if (group.records.some(record => record.unverifiedPolicyCode === policy.policyCode || record.excludedPolicyCode === policy.policyCode)) continue;
       if (policy.policyCode === 'GL-572198' && policy.planId === 'uhc-community-az'
           && group.records.some(record => uhcBrandTopamaxRows.has(record.id) || uhcAgeEightPa(record))) continue;
@@ -2386,7 +2450,7 @@
     const hideEmptyPa = insulinConflict || noticeOnly || (preferredNdcs.length && !guidance && !policies.length && !conditions.length
       && !group.records.some(record => ['required', 'conditional'].includes(record.pa) || record.policySource));
     return `<article class="result-card">
-      <h3>${escapeHtml(preferredNdcs.length ? 'Albuterol HFA inhaler' : title)}</h3>
+      <h3>${escapeHtml(preferredNdcs.length ? 'Albuterol HFA inhaler' : dosageFormHeading(group, title))}</h3>
       ${formularyStrengthDetails(group, title)}
       ${[...new Map(group.records.filter(r => r.agePolicyConflict).map(r => [r.agePolicyConflict.url, r.agePolicyConflict])).values()].map(conflict =>
         `<p class="pa-condition">${escapeHtml(conflict.note)} <a class="source-link" href="${escapeHtml(conflict.url)}" target="_blank" rel="noopener">Banner guideline · PDF page ${escapeHtml(conflict.page)} ↗</a></p>`).join('')}
@@ -2622,7 +2686,7 @@
       source: sourceHref(record), source_effective: record.sourceEffective || '',
       source_scope: record.auditScope || (record.isStatewideReference ? 'statewide_reference' : 'selected_plan')
     });
-    return {name: group.label, brands: group.brands, category: primary?.category || '',
+    return {name: dosageFormHeading(group), brands: group.brands, category: primary?.category || '',
       coverage: primary?.coverage || common('coverage'),
       pa: group.records.some(record => constipationGenericRows.has(record.id)) ? 'conflicting' : primary?.pa || common('pa'),
       source: primary ? sourceHref(primary) : '',
