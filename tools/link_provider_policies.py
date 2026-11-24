@@ -68,6 +68,8 @@ def attach_provider_policies(data):
  assert found_banner==set(banner_reviewed), 'Missing reviewed Banner formulary row'
  # Exact source rows with reviewed named policy; retain existing renderer presentation.
  banner_exact_links = {
+  "banner-full-a500a55a6c2da52e": ("banner-policy-12-87", "GL-109871", "memantine", "MEMANTINE HCL SOLUTION", "required", "not_specified", "GL-109871 names brand Namenda/Namenda XR and generic memantine/memantine XR (page 87): Alzheimer-type dementia diagnosis, 12 months; authorization stage is not separately labeled. Parkinson-associated dementia and Adlarity step criteria apply to other products, not this branch. Exact covered package eligibility is unverified; October preference is unspecified."),
+  "banner-full-9d81da2b37ae5a9a": ("banner-policy-12-87", "GL-109871", "memantine", "MEMANTINE HCL TABLETS", "required", "not_specified", "GL-109871 names brand Namenda/Namenda XR and generic memantine/memantine XR (page 87): Alzheimer-type dementia diagnosis, 12 months; authorization stage is not separately labeled. Parkinson-associated dementia and Adlarity step criteria apply to other products, not this branch. Exact covered package eligibility is unverified; October preference is unspecified."),
   "banner-full-32585265928bf196": ("banner-policy-12-1193", "GL-715190", "Rebif", "INTERFERON BETA-1A SOLN PREF SYR", "required", "not_specified", "Rebif is named in the preferred MS initial branch (page 1193), 12 months; positive clinical response for renewal (page 1195), 12 months. October formulary preference is unspecified. Exact device/package eligibility is unverified; nonpreferred step does not apply to the named preferred branch."),
   "banner-full-5f7934d566956f29": ("banner-policy-12-737", "GL-730187", "Increlex", "MECASERMIN SOLUTION", "required", "not_specified", "Named Increlex initial (pages 764–765) and renewal (page 766) for severe primary IGF-1 deficiency or growth hormone gene deletion. Idiopathic short stature is a separate all-products benefit exclusion (page 737). Exact package eligibility is unverified; October formulary preference is unspecified."),
   "banner-full-b20b5312833f8841": ("banner-policy-12-1193", "GL-715190", "Avonex", "INTERFERON BETA-1A AUTO-INJECTOR KIT", "required", "not_specified", "Avonex is named in the preferred MS initial branch (page 1193), 12 months; positive clinical response for renewal (page 1195), 12 months. October formulary preference is unspecified. Exact device/package eligibility is unverified; nonpreferred step does not apply to the named preferred branch."),
@@ -156,6 +158,8 @@ def attach_provider_policies(data):
    r['reviewedBannerBranches'] = {'policyId':'banner-policy-12-1193','product':banner_exact_links[r['id']][2],'initialPage':1193,'renewalPage':1195}
   elif r['id']=='banner-full-5f7934d566956f29':
    r['reviewedBannerBranches'] = {'policyId':'banner-policy-12-737','product':'Increlex','initialPage':764,'renewalPage':766,'exclusionPage':737}
+  elif r['id'] in {'banner-full-a500a55a6c2da52e','banner-full-9d81da2b37ae5a9a'}:
+   r['reviewedBannerBranches'] = {'policyId':'banner-policy-12-87','product':'memantine','unstagedPage':87}
  # Keep broad chapter source references, but make route-specific cautions visible at the prescribing option.
  # No additional structured approval rule or preference inference is introduced.
  seen_ig=set()
