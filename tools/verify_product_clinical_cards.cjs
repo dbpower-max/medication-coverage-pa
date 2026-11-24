@@ -227,6 +227,24 @@ for(const [id,label] of [["banner-full-71027bfebf274e67","Guaifenesin / Codeine 
 }
 console.log('PASS: nine scoped Banner named-policy links and three opioid cough safety warnings; payer flags retained.');
 
+// AUT-01: additional named scopes and concentration-specific holds.
+api.state.planId='banner-ufc';
+for(const [id,pid,page,pa,pref,scope] of [["banner-full-b720c6ff93fb1ac3","banner-policy-12-1576",1576,"conditional","not_specified","Printed PA applies to more than two short-acting opioids in 30 days. Corresponding policy branch pp1578–1579 covers dose adjustment, replacement, or documented necessity; duration up to 12 months. Generic tablets preferred in guideline; brand Dilaudid nonpreferred. Other DUR/MME/QL branches separate."],["banner-full-852b41b52868cf72","banner-policy-12-78",78,"required","not_specified","Intron A branch pp78–80: documentation of one of the listed indications, 12 months. No distinct renewal; do not apply Alferon N criteria. Current package availability unverified."],["banner-full-30fc4f26a9ae9605","banner-policy-12-78",78,"required","not_specified","Alferon N branch pp80–81: refractory or recurrent external HPV condylomata acuminata, documented; eight weeks. No distinct renewal; do not apply Intron A criteria. Current package availability unverified."],["banner-full-0272cfe23aa2123e","banner-policy-12-1365",1365,"required","not_specified","Topical head lice branch, 30 days. Generic spinosad failure requirement applies to brand Natroba only. No separate renewal; exact package eligibility unverified."]]){
+ const g=api.planMedicationGroups().find(x=>x.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.planId,'banner-ufc');assert.equal(r.pa,pa);assert.equal(r.preferred,pref);
+ assert(r.policySources.some(p=>p.policyId===pid&&p.firstPage===page&&p.scope===scope),id+' missing exact named link');
+ api.medicationGroupCard(g);assert(api.cardClinicalGroups.get(g.key).policies.some(p=>p.id===pid&&p.planId==='banner-ufc'),id+' missing card policy');
+ assert(api.recordDetails(r).includes(scope),id+' missing source scope');
+}
+for(const [id,label,notice] of [["banner-full-53ebd7131685b7bf","Lidocaine Topical Patch (ZTlido Reference)","Formulary PA applies only to 1.8% and 3.5% strengths. The named Lidoderm 5% policy is not verified for those concentrations; exact product-specific criteria are unavailable. Printed conditional PA and quantity limit retained."],["banner-full-89f80c3b6125808a","Lidocaine HCl Topical Lotion (Lido-Sorb Reference)","Formulary PA applies only to 3% lotion. Exact concentration-specific policy is unavailable; do not apply patch criteria. Printed conditional PA retained."]]){
+ const g=api.planMedicationGroups().find(x=>x.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'conditional');assert.equal(r.preferred,'not_specified');assert.equal(g.label,label);
+ const markup=api.medicationGroupCard(g);assert(markup.includes(notice),id+' missing exact concentration hold');
+ const clinical=api.cardClinicalGroups.get(g.key);assert(!clinical.guidance&&!clinical.policies.length,id+' incorrectly attached policy');
+ if(id==='banner-full-53ebd7131685b7bf')assert.equal(String(r.qlAmount),'60');
+}
+console.log('PASS: four named Banner policy links and two topical concentration-specific holds.');
+
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
