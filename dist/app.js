@@ -2698,22 +2698,35 @@
     const control = document.getElementById('themeChoice');
     const preference = window.matchMedia('(prefers-color-scheme: dark)');
     const storageKey = 'coverage-theme';
+    const toggle = document.getElementById('carbonToggle');
+    let previous = 'system';
     try {
+      const prior = localStorage.getItem('coverage-theme-previous');
+      if (prior === 'dark' || prior === 'light') previous = prior;
       const saved = localStorage.getItem(storageKey);
-      if (saved === 'dark' || saved === 'light') control.value = saved;
+      if (['dark', 'light', 'carbon'].includes(saved)) control.value = saved;
     } catch { /* Storage can be disabled in private browsing. */ }
 
     function applyTheme() {
-      document.documentElement.dataset.theme = control.value === 'system'
+      const carbon = control.value === 'carbon';
+      if (!carbon) previous = control.value;
+      toggle.setAttribute('aria-pressed', String(carbon));
+      document.documentElement.toggleAttribute('data-carbon', carbon);
+      document.documentElement.dataset.theme = carbon ? 'dark' : control.value === 'system'
         ? (preference.matches ? 'dark' : 'light')
         : control.value;
     }
     control.addEventListener('change', () => {
       applyTheme();
       try {
+        localStorage.setItem('coverage-theme-previous', previous);
         if (control.value === 'system') localStorage.removeItem(storageKey);
         else localStorage.setItem(storageKey, control.value);
       } catch { /* The selection still applies for this page. */ }
+    });
+    toggle.addEventListener('click', () => {
+      control.value = control.value === 'carbon' ? previous : 'carbon';
+      control.dispatchEvent(new Event('change'));
     });
     preference.addEventListener('change', applyTheme);
     applyTheme();
