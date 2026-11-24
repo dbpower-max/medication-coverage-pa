@@ -614,6 +614,37 @@
   const simvastatinTablets = 'Simvastatin Tablets (Zocor Reference)';
   const genericStatinNote = 'UHC lists a quantity limit without specifying the numeric amount.';
   const reviewedCardPresentations = new Map([
+    ["uhc-oct-complete-f11674b52f81253c", {"separate": true, "label": "Amlodipine / Valsartan Oral Tablets (10/160, 10/320, 5/320 mg)", "note": "The October listing leaves quantity limits unspecified for these strengths."}],
+    ["uhc-oct-complete-9bf5fd9f94e8ba52", {"separate": true, "label": "Amlodipine / Valsartan Oral Tablets (5/160 mg)", "note": "UHC prints a quantity limit for this strength. Numeric limit unverified."}],
+    ["uhc-oct-complete-2eb0fcc9c7447507", {"separate": true, "label": "Repatha 140 mg/mL Subcutaneous Autoinjector", "note": "UHC lists NDCs starting with 72511 as preferred with PA. Exact eligible packages are unverified."}],
+    ["uhc-oct-complete-bf8defb2317fedf5", {"separate": true, "label": "Praluent (Alirocumab) Subcutaneous Prefilled Pen", "note": "FDA-labeled strengths are 75 and 150 mg/mL. UHC does not identify eligible strengths."}],
+    ["uhc-oct-complete-f89f65a34a3d7b1a", {"separate": true, "label": "Nexletol (Bempedoic Acid) Oral Tablet", "note": "FDA-labeled strength 180 mg. UHC lists the brand without a strength."}],
+    ["uhc-oct-complete-0dba4b21951729c0", {"separate": true, "label": "Nexlizet (Bempedoic Acid / Ezetimibe) Oral Tablet", "note": "FDA-labeled strength 180 mg/10 mg. UHC lists the brand without a strength."}],
+    ["uhc-oct-complete-add3a1f5176903ed", {"separate": true, "label": "Sodium Phenylbutyrate Oral Powder", "note": "See the exact UHC listing for product-specific restrictions."}],
+    ["uhc-oct-complete-3819c4b013640e1d", {"separate": true, "label": "Sodium Phenylbutyrate Oral Tablets", "note": "See the exact UHC listing for product-specific restrictions."}],
+    ["uhc-oct-complete-da625a05b2d95ed6", {"separate": true, "label": "Phyrago 100 mg Oral Tablets", "note": "See the exact UHC listing for product-specific restrictions."}],
+    ["uhc-oct-complete-58e7c253ac91773a", {"separate": true, "label": "Sprycel (Dasatinib Tablets)", "note": "See the exact UHC listing for product-specific restrictions."}],
+    ["uhc-oct-complete-f9bd87e671c0b1b4", {"separate": true, "label": "Promacta Oral Suspension Powder Packets", "note": "See the exact UHC listing for product-specific restrictions."}],
+    ["uhc-oct-complete-66aa6db51c8641f9", {"separate": true, "label": "Promacta Oral Tablets", "note": "See the exact UHC listing for product-specific restrictions."}],
+    ["uhc-oct-complete-73bdfcbd8ed83459", {"separate": true, "label": "Pred Forte Ophthalmic Suspension", "note": "See the exact UHC listing for product-specific restrictions."}],
+    ["uhc-oct-complete-e8904add38dcca50", {"separate": true, "label": "Prednisolone Acetate P-F (Exact Product Unverified)", "note": "See the exact UHC listing for product-specific restrictions."}],
+    ["uhc-oct-complete-fdb09a3969cbeac7", {"separate": true, "label": "Bosentan Oral Tablets", "note": "See the exact UHC listing for product-specific restrictions."}],
+    ["uhc-oct-complete-369ff35242ddaf80", {"separate": true, "label": "Bosentan Tablets for Oral Suspension", "note": "See the exact UHC listing for product-specific restrictions."}],
+    ["uhc-oct-complete-cbe335d8e93b76c3", {"note": "UHC lists preferred | non preferred (tiers 1 | 1). Printed flags by listing: *, QL, AL | PA, *, QL, AL. Exact package applicability is unverified."}],
+    ["uhc-oct-complete-4de408fad3af28c5", {"note": "UHC lists preferred | preferred (tiers 2 | 2). Printed flags by listing: (blank) | QL. Exact package applicability is unverified."}],
+    ["uhc-oct-complete-68d7ca7f971d686d", {"note": "UHC lists preferred | preferred (tiers 2 | 2). Printed flags by listing: (blank) | QL. Exact package applicability is unverified."}],
+    ["uhc-oct-complete-54d557b57f0fd561", {"note": "UHC lists preferred | preferred (tiers 1 | 2). Printed flags by listing: QL | QL. Exact package applicability is unverified."}],
+    ["uhc-oct-complete-9a605f6f7577f349", {"note": "UHC lists preferred | preferred (tiers 1 | 2). Printed flags by listing: QL | QL. Exact package applicability is unverified."}],
+    ["uhc-oct-complete-8e6412598dc3cc82", {"note": "UHC lists preferred | preferred (tiers 2 | 2). Printed flags by listing: DX2RX, ST, *, QL, AL | PA, ST, *, QL, AL. Exact package applicability is unverified."}],
+    ["uhc-oct-complete-86a272013762dd71", {"note": "UHC lists preferred | preferred (tiers 2 | 2). Printed flags by listing: DX2RX, ST, *, QL, AL | PA, ST, *, QL, AL. Exact package applicability is unverified."}],
+    ["uhc-oct-complete-4a432871483f8345", {"note": "UHC lists preferred | preferred (tiers 2 | 2). Printed flags by listing: DX2RX, ST, *, QL, AL | PA, ST, *, QL, AL. Exact package applicability is unverified."}],
+    ["uhc-oct-complete-e60cf4ef12c45d4c", {"note": "UHC lists preferred | preferred (tiers 2 | 2). Printed flags by listing: DX2RX, ST, *, QL, AL | PA, ST, *, QL, AL. Exact package applicability is unverified."}],
+    ["uhc-oct-complete-daf39dbb5aa3d6ba", {"note": "UHC lists preferred | preferred (tiers 1 | 2). Printed flags by listing: QL | QL. Exact package applicability is unverified."}],
+    ["banner-full-cbfa838935217cc6", {"label": "Clindamycin Phosphate / Benzoyl Peroxide (Form Unspecified)", "note": "Banner prints “refrigerate” on the continuation of its October listing, page 24. Eligible concentration is unspecified."}],
+    ["banner-pcp-nov10-004", {"label": "Insulin Lispro U-100 Solution Pen (Humalog Junior KwikPen)", "note": "FDA-labeled device delivers 0.5-unit increments up to 30 units per injection."}],
+    ["formulary-9981", {"label": "Insulin Lispro U-100 Solution Pen (Humalog Junior KwikPen)", "note": "FDA-labeled device delivers 0.5-unit increments up to 30 units per injection."}],
+    ["banner-pcp-nov10-005", {"label": "Insulin Lispro U-100 Solution Pen (Humalog KwikPen)", "note": "FDA-labeled device delivers 1-unit increments up to 60 units per injection."}],
+    ["formulary-9982", {"label": "Insulin Lispro U-100 Solution Pen (Humalog KwikPen)", "note": "FDA-labeled device delivers 1-unit increments up to 60 units per injection."}],
     ['uhc-oct-complete-d6b49b27961f969c', {label: 'Vascepa (Icosapent Ethyl) Oral Capsules', generalPa: true}],
     ['uhc-oct-complete-552f551a574d06dd', {label: 'Crestor (Rosuvastatin) Oral Tablets', generalPa: true}],
     ['uhc-oct-complete-49482f69ae796c31', {label: 'Zocor (Simvastatin) Oral Tablets', generalPa: true}],
@@ -660,8 +691,7 @@
     const reviewed = reviewedCardPresentations.get(id);
     if (reviewed) return reviewed;
     if (record.planId === 'az-complete-health' && record.id?.startsWith('ach-json-')
-        && ((/\btiotropium\b/i.test(record.name) && !/olodaterol/i.test(record.name))
-          || (/amoxicillin/i.test(record.name) && /clavulan/i.test(record.name) && /suspension/i.test(record.name)))) {
+        && !record.sourceUpdates?.length) {
       return {scope: 'Historical Arizona Complete Health formulary (2022). Current benefits are unverified.', historical: true};
     }
     return null;
@@ -687,7 +717,7 @@
     }
     const supplements = [];
     for (const group of planGroups) {
-      if (group.records.some(record => uhcReviewedProductGroups.has(record.id))) {
+      if (group.records.some(record => uhcReviewedProductGroups.has(record.id) || reviewedCardPresentation(record)?.separate)) {
         supplements.push(group);
         continue;
       }
@@ -984,6 +1014,7 @@
 
   function matchesCoverage(record) {
     if (!state.coverage) return true;
+    if (reviewedCardPresentation(record)?.historical) return false;
     if (record.planId === 'banner-ufc' && bannerInsulinConflicts.has(record.id)
         && ['listed', 'preferred'].includes(state.coverage)) return false;
     if (state.coverage === 'listed') return record.recordType === 'formulary' && record.coverage !== 'explicit_not_covered';
@@ -1137,8 +1168,45 @@
     </div>`;
   }
 
+  const bannerRepeatPositions = new Map([
+    ["banner-full-fa62279e75a1c387", ["BAN-P1-T1-R15", "BAN-P13-T2-R10"]],
+    ["banner-full-f31c38d5659b78f6", ["BAN-P3-T2-R10", "BAN-P11-T2-R30"]],
+    ["banner-full-9e2ca54467b1006f", ["BAN-P7-T2-R9", "BAN-P7-T2-R10"]],
+    ["banner-full-40c3115ef1ad1803", ["BAN-P8-T2-R13", "BAN-P8-T2-R14"]],
+    ["banner-full-852b41b52868cf72", ["BAN-P14-T2-R57", "BAN-P14-T2-R58"]],
+    ["banner-full-f22f49c3477e4037", ["BAN-P33-T1-R4", "BAN-P33-T1-R49"]],
+    ["banner-full-ff1d139c33245527", ["BAN-P33-T1-R5", "BAN-P33-T1-R50"]],
+    ["banner-full-5052f7a967c11f83", ["BAN-P33-T1-R6", "BAN-P33-T1-R51"]],
+    ["banner-full-80442cb908e5bcba", ["BAN-P33-T1-R7", "BAN-P33-T1-R52"]],
+    ["banner-full-65339b73f8166d78", ["BAN-P33-T1-R9", "BAN-P33-T1-R54"]],
+    ["banner-full-c3ae43b283a26835", ["BAN-P33-T1-R11", "BAN-P33-T2-R3"]],
+    ["banner-full-ac4a6de41fe9232c", ["BAN-P33-T1-R12", "BAN-P33-T2-R4"]],
+    ["banner-full-40d2ce2b10232236", ["BAN-P33-T1-R13", "BAN-P33-T2-R5"]],
+    ["banner-full-8ce1a180298156cf", ["BAN-P33-T1-R14", "BAN-P33-T2-R6"]],
+    ["banner-full-c76993e33965759b", ["BAN-P33-T1-R15", "BAN-P33-T2-R7"]],
+    ["banner-full-b3ceeabcf5ba0a55", ["BAN-P33-T1-R16", "BAN-P33-T2-R8"]],
+    ["banner-full-133d83c6be5e530a", ["BAN-P33-T1-R30", "BAN-P34-T1-R4"]],
+    ["banner-full-c5f5752e2b231544", ["BAN-P33-T1-R31", "BAN-P34-T1-R5"]],
+    ["banner-full-7fd6bb53bef2f899", ["BAN-P33-T1-R33", "BAN-P34-T1-R7"]],
+    ["banner-full-709064318758552a", ["BAN-P33-T1-R34", "BAN-P34-T1-R8"]],
+    ["banner-full-74245884da8150ee", ["BAN-P33-T1-R35", "BAN-P34-T1-R9"]],
+    ["banner-full-d87ee3b1f4f054ac", ["BAN-P33-T1-R36", "BAN-P34-T1-R10"]],
+    ["banner-full-64478e6c4d093c63", ["BAN-P33-T1-R37", "BAN-P34-T1-R11"]],
+    ["banner-full-8181f169d42f5dbb", ["BAN-P33-T1-R38", "BAN-P34-T1-R12"]],
+    ["banner-full-338a2c1a943dcb71", ["BAN-P33-T1-R39", "BAN-P34-T1-R13"]],
+    ["banner-full-e9d3201769338c6c", ["BAN-P33-T1-R41", "BAN-P34-T1-R15"]],
+    ["banner-full-3f55e627c5259328", ["BAN-P33-T1-R42", "BAN-P34-T1-R16"]],
+    ["banner-full-ae17a433c5207130", ["BAN-P33-T1-R43", "BAN-P34-T1-R17"]],
+    ["banner-full-345351bab03d7259", ["BAN-P33-T1-R44", "BAN-P34-T1-R18"]],
+    ["banner-full-5871af4cc5e1eb9b", ["BAN-P33-T1-R45", "BAN-P34-T1-R19"]]
+  ]);
+
   function recordDetails(record) {
     const details = [];
+    for (const position of bannerRepeatPositions.get(record.id) || []) {
+      const [, page, table, row] = position.match(/BAN-P(\d+)-T(\d+)-R(\d+)/);
+      details.push(`<a href="${escapeHtml(record.sourceUrl)}#page=${page}" target="_blank" rel="noopener">Banner page ${page}, table ${table}, row ${row}</a>`);
+    }
     if (record.standardName) details.push(`<p><strong>Standardized name:</strong> ${escapeHtml(record.standardName)}<br>${escapeHtml(record.standardNameType)} · RxCUI ${escapeHtml(record.rxnormId)} · NLM release ${escapeHtml(record.standardNameProvenance.release)} · ${escapeHtml(record.standardNameProvenance.sourceFile)}</p>`);
     if (record.baselineSource) details.push(`<p><strong>Baseline source:</strong> JSON row ${Number(record.sourceRow)} · RxNorm ${escapeHtml(record.rxnormId)} · declared plan year ${escapeHtml(record.baselineSource.declaredPlanYears.join(', '))}</p>`);
     if (record.sourceUpdates?.length) details.push('<p><strong>Later source updates (applied in date order):</strong></p>' + record.sourceUpdates.map((item) => `<p><a href="${escapeHtml(sourceHref(item))}" target="_blank" rel="noopener">${escapeHtml(item.name)} · ${escapeHtml(item.sourceEffective)}</a>${item.paText ? ' · ' + escapeHtml(item.paText) : ''}</p>`).join(''));
@@ -1212,6 +1280,7 @@
       ).join('') + '<p>Check the full indication, initial/renewal criteria and exceptions. Related-source links do not establish eligibility or approval.</p>');
     }
     if (record.sourceTextUrl && !record.guide) details.push(`<p><a class="source-link" href="${escapeHtml(record.sourceTextUrl)}" target="_blank" rel="noopener">Read full source text · PDF pages ${Number(record.sourcePage)}–${Number(record.sourceLastPage)}</a></p>`);
+    if (record.planId === 'banner-ufc' && /ERYTHROMYCIN.*GEL/i.test(record.name)) details.push('<p>FDA lists the 63739-053-66 and 63739-053-68 erythromycin gel packages as discontinued. Exact claim eligibility is unverified.</p>');
     const sourceLabel = [record.sourceTitle, record.sourceEffective && `effective ${record.sourceEffective}`, record.sourcePage && `page ${record.sourcePage}`].filter(Boolean).join(' · ');
     if (!record.guide) details.push(`<a class="source-link" href="${escapeHtml(sourceHref(record))}" target="_blank" rel="noopener">${escapeHtml(sourceLabel || 'Open source')}</a>`);
     return details.join('');
@@ -2247,7 +2316,7 @@
       <div class="card-source-access">${sourcesLink(group)}</div>
       ${preferredNdcs.length ? `<details class="result-disclosure">
         <summary>View ${preferredNdcs.length} preferred NDCs</summary>
-        <div class="result-disclosure-body"><ul>${preferredNdcs.map(ndc => `<li>${escapeHtml(ndc)}</li>`).join('')}</ul></div>
+        <div class="result-disclosure-body"><ul>${preferredNdcs.map(ndc => `<li>${escapeHtml(ndc)}${['00254100752', '72572001401'].includes(ndc) ? ' · FDA lists this package as discontinued' : ''}</li>`).join('')}</ul></div>
       </details>` : ''}
       ${hideEmptyPa ? '' : `<details class="clinical-details result-disclosure" data-card-clinical="${escapeHtml(key)}">
         <summary><span>Clinical details &amp; PA criteria</span><span class="card-pa-references">${refs}</span></summary>
