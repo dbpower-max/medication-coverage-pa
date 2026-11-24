@@ -289,6 +289,23 @@ for(const [id,product] of [
  assert(api.cardClinicalGroups.get(group.key).policies.some(p=>p.id==='banner-policy-12-1193' && p.planId==='banner-ufc'),id+' missing exact-plan policy');
 }
 console.log('PASS: three Banner MS listings preserve original PA and preference and named guideline scope.');
+ // Reviewed Banner stage selections use exact pages, not nonpreferred MS or other growth-hormone products.
+ for(const [id,initial,renewal,exclude] of [
+  ['banner-full-b20b5312833f8841',1193,1195,null], ['banner-full-46cc6b2b57f100b3',1193,1195,null],
+  ['banner-full-fe7518236db69cb0',1193,1195,null], ['banner-full-32585265928bf196',1193,1195,null],
+  ['banner-full-5f7934d566956f29',764,766,737]
+ ]){
+  const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+  const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'not_specified');
+  assert(r.reviewedBannerBranches);api.medicationGroupCard(g);const expanded=targetFor(g);await api.populateCardClinical(expanded.details);
+  const html=expanded.target.innerHTML;assert.equal(expanded.details.dataset.loaded,'true',id+' expanded criteria failed: '+html);
+  for(const p of [initial,renewal])assert(html.includes('Criteria source · PDF page '+p+'<'),id+' missing stage page '+p);
+  assert(!html.includes('Criteria source · PDF page 1194<'),id+' unrelated nonpreferred MS criteria');
+  if(exclude){assert(html.includes('Criteria source · PDF page '+exclude+'<'));assert(html.includes('Separate indication exclusion'));assert(html.includes('Idiopathic Short Stature'));assert(html.includes('neutralizing antibodies'));assert(!html.includes('Revision History'));}
+  else{assert(html.includes('Diagnosis of multiple sclerosis'));assert(html.includes('positive clinical response'));}
+  assert(api.recordDetails(r).includes('Exact')&&api.recordDetails(r).includes('unverified'));
+ }
+ console.log('PASS: five reviewed Banner rows show precise initial/renewal links and separate Increlex ISS exclusion.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
