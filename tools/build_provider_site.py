@@ -5,8 +5,7 @@ import hashlib
 import json
 import re
 import shutil
-import subprocess
-import sys
+from import_ach_baseline import with_ach_baseline
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
 from link_provider_policies import attach_provider_policies
@@ -20,8 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "dist"
 OUT = ROOT / "_site"
 ALLOWED = {"az-complete-health", "banner-ufc", "uhc-community-az"}
-subprocess.run([sys.executable, str(ROOT / 'tools/import_ach_baseline.py')], check=True)
-data = json.loads(gzip.decompress((SRC / "data.json.gz").read_bytes()))
+data = with_ach_baseline(json.loads(gzip.decompress((SRC / 'data.json.gz').read_bytes())))
 correct_source_restrictions(data['medications'])
 correct_source_conflicts(data['medications'])
 attach_provider_policies(data)

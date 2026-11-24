@@ -1,11 +1,11 @@
-"""Use the official linked JSON plus later sources under the user's provisional completeness assumption."""
+"""Combine the historical 2022 Arizona Complete Health formulary with dated source evidence."""
 import collections, copy, gzip, hashlib, json, re
 from pathlib import Path
 from functools import lru_cache
 from source_restrictions import correct_source_restrictions, correct_source_conflicts
 ROOT=Path(__file__).resolve().parents[1]
 SOURCE='https://www.azcompletehealth.com/content/dam/centene/az-complete-health/json/Drugs_FAB_CNCAZCH01_AZ_Medicaid_Integrated_Formulary_eff_9-1-22_07142026131014_AZ.json'
-ASSUMPTION='Working assumption approved November 13, 2026: the officially linked JSON (declared plan year 2022) plus subsequent official updates is treated as the complete current integrated formulary. Completeness is not insurer-confirmed. Later applicable sources take precedence; source dates and baseline values remain available.'
+SOURCE_SCOPE='The 2022 integrated formulary is historical. Later Arizona Complete Health notices establish only their named changes. AHCCCS listings provide statewide reference evidence. A complete current exact-plan formulary remains unverified.'
 STOP=set('w soln pref syr bitartrate bromide oral topical inhalation subcutaneous intramuscular intramusc intraven intravenous injection injectable nasal sublingual subcutane intrav sub q tablet tablets tab capsule capsules solution suspension cream ointment gel patch syringe syringes vial vials pen pens kit spray powder aerosol elixir suppository chewable chew chewable disintegrating odt er xr cr dr extended release delayed controlled hr hour hours 24 12 72 hcl hydrochloride hydrobromide sulfate sulphate mesylate sodium potassium mg mcg ml gm g % per actuation actuat metered dose inhaler nebulizer autoinjector cartridge prefilled pref pack pak various cf ag authorized generic only brand'.split())
 @lru_cache(maxsize=None)
 def tokens(s):
@@ -64,10 +64,10 @@ def explicit_brand_match(brand, source):
  if norm(brand)=='tudorza' and norm(name)=='tudorza pressair' and 'inhalation' in forms(source['name']):return True
  return norm(brand)==norm(name)
 
-def main():
+def with_ach_baseline(d):
  src=ROOT/'dist/sources/ach/integrated-formulary-baseline.json.gz'
  raw=json.loads(gzip.decompress(src.read_bytes())); assert len(raw)==4454
- d=json.loads(gzip.decompress((ROOT/'dist/data.json.gz').read_bytes()))
+ prior_baselines=sum(r.get('validation')=='official_json_baseline_with_later_updates' for r in d['medications'])
  correct_source_restrictions(d['medications'])
  correct_source_conflicts(d['medications'])
  current=[r for r in d['medications'] if r['planId']=='az-complete-health' and r.get('validation')!='official_json_baseline_with_later_updates']
@@ -101,7 +101,7 @@ def main():
   if any(b for b,r in candidates):candidates=[(b,r) for b,r in candidates if b]
   candidates=[r for b,r in candidates]
   candidates.sort(key=lambda r:r.get('sourceEffective',''))
-  rec=dict(id='ach-json-'+row['rxnorm_id'],recordType='formulary',planId='az-complete-health',name=name,brand=brand,category='Other',subcategory='Integrated formulary',coverage='listed',listingLabel='Covered',preferred='preferred' if p['drug_tier']=='PREFERRED' else 'not_specified',pa='required' if p['prior_authorization'] else 'not_required',paText='Prior authorization required by the JSON baseline.' if p['prior_authorization'] else '',step='specified' if p['step_therapy'] else 'not_specified',stepText='Step therapy required; the JSON does not provide the steps.' if p['step_therapy'] else '',quantityLimited=bool(p['quantity_limit']),qlAmount='',qlDays='',conditions=[],notes=ASSUMPTION,sourceTitle='Arizona Complete Health official integrated JSON baseline (declared plan year 2022)',sourceEffective='',sourceUrl='/sources/ach/integrated-formulary-baseline.json.gz',sourceRow=index+1,rxnormId=row['rxnorm_id'],validation='official_json_baseline_with_later_updates',baselineSource={'url':SOURCE,'declaredPlanYears':p['years'],'row':index+1,'values':p},sourceUpdates=[])
+  rec=dict(id='ach-json-'+row['rxnorm_id'],recordType='formulary',planId='az-complete-health',name=name,brand=brand,category='Other',subcategory='Integrated formulary',coverage='listed',listingLabel='Covered',preferred='preferred' if p['drug_tier']=='PREFERRED' else 'not_specified',pa='required' if p['prior_authorization'] else 'not_required',paText='Prior authorization required by the JSON baseline.' if p['prior_authorization'] else '',step='specified' if p['step_therapy'] else 'not_specified',stepText='Step therapy required; the JSON does not provide the steps.' if p['step_therapy'] else '',quantityLimited=bool(p['quantity_limit']),qlAmount='',qlDays='',conditions=[],notes=SOURCE_SCOPE,sourceTitle='Arizona Complete Health official integrated JSON baseline (declared plan year 2022)',sourceEffective='',sourceUrl='/sources/ach/integrated-formulary-baseline.json.gz',sourceRow=index+1,rxnormId=row['rxnorm_id'],validation='official_json_baseline_with_later_updates',baselineSource={'url':SOURCE,'declaredPlanYears':p['years'],'row':index+1,'values':p},sourceUpdates=[])
   for r in candidates:
    rec['category']=r.get('category') or rec['category'];rec['subcategory']=r.get('subcategory') or rec['subcategory']
    # Only explicit later statements replace baseline fields; silence is not a reversal.
@@ -135,15 +135,19 @@ def main():
  for r in current:
   if r.get('coverageCaveat')=='Additional plan products not fully published':r.pop('coverageCaveat')
   if r.get('validation')=='mandated_statewide_minimum_with_plan_adoption_evidence':
-   r['sourceTitle']='AHCCCS drug list adopted as ACH minimum';r['notes']=r['notes'].replace('This is not the complete exact-plan formulary. Other plan products and restrictions may apply.', 'Additional plan entries are supplied by the official JSON baseline under the documented completeness assumption.')
+   r['sourceTitle']='AHCCCS drug list adopted as ACH minimum';r['notes']='Statewide minimum listing. Exact-plan product restrictions require separate verification.'
  d['medications']=[r for r in d['medications'] if r['planId']!='az-complete-health']+current+result
  for plan in d['plans']:
-  if plan['id']=='az-complete-health':plan.update(status='baseline_plus_updates',detail=f'{len(raw):,} strength-specific JSON baseline entries plus {len(current):,} later source entries. '+ASSUMPTION,effective='Official JSON baseline + official October/November 2026 updates')
+  if plan['id']=='az-complete-health':plan.update(status='baseline_plus_updates',detail=f'{len(raw):,} strength-specific JSON baseline entries plus {len(current):,} later source entries. '+SOURCE_SCOPE,effective='Historical 2022 baseline and dated plan/statewide updates')
  for e in d['planEvidence']:
-  if e['planId']=='az-complete-health':e.update(topic='Formulary source of truth and precedence',evidence=ASSUMPTION,sourceUrl=SOURCE,sourceEffective='Baseline declared 2022; updates October/November 2026')
+  if e['planId']=='az-complete-health':e.update(topic='Formulary source of truth and precedence',evidence=SOURCE_SCOPE,sourceUrl=SOURCE,sourceEffective='2022 historical baseline')
  d['meta']['asOf']='2026-11-13'
  # Counts include lazy-loaded plan datasets as in the existing export.
- old=json.loads(gzip.decompress((ROOT/'dist/data.json.gz').read_bytes()));d['meta']['recordCount']=old['meta']['recordCount']+len(result)-sum(r.get('validation')=='official_json_baseline_with_later_updates' for r in old['medications'])
- (ROOT/'dist/data.json.gz').write_bytes(gzip.compress(json.dumps(d,ensure_ascii=False,separators=(',',':')).encode(),mtime=0))
+ d['meta']['recordCount']+=len(result)-prior_baselines
  print(json.dumps(dict(imported=len(result),existingLaterEntries=len(current),**counts)))
-if __name__=='__main__':main()
+ return d
+
+if __name__=='__main__':
+ path=ROOT/'dist/data.json.gz'
+ data=with_ach_baseline(json.loads(gzip.decompress(path.read_bytes())))
+ path.write_bytes(gzip.compress(json.dumps(data,ensure_ascii=False,separators=(',',':')).encode(),mtime=0))
