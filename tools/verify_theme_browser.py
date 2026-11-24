@@ -60,6 +60,7 @@ if __name__ == "__main__":
         for width in (360, 412, 1280):
             page = browser.new_page(viewport={"width": width, "height": 840}, has_touch=width<500)
             page.goto("https://dbpower-max.github.io/medication-coverage-pa/")
+            page.locator("article.result-card").first.wait_for(timeout=60000)
             for plan, medication, qualifier in cases:
                 page.get_by_role("button", name="Show insurance plan options").click()
                 page.get_by_role("option", name=re.compile(plan,re.I)).click()
