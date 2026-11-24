@@ -1440,7 +1440,7 @@
     if (!policy?.sourceUrl || !Number.isInteger(branch.sourcePage)
         || branch.sourcePage < policy.sourcePage || branch.sourcePage > policy.sourceLastPage) return '';
     const href = policy.sourceUrl.split('#')[0] + '#page=' + branch.sourcePage;
-    return `<p><a class="source-link" href="${escapeHtml(href)}" target="_blank" rel="noopener">Product criteria · PDF page ${branch.sourcePage}</a></p>`;
+    return `<p><a class="source-link" href="${escapeHtml(href)}" target="_blank" rel="noopener">Criteria source · PDF page ${branch.sourcePage}</a></p>`;
   }
 
   function structuredCriteriaMarkup(policy, source) {
@@ -2425,6 +2425,7 @@
           ${avivaConflict ? '<p class="pa-condition"><strong>UHC source conflict:</strong> The formulary names the Aviva device and aliases it to a control solution. Exact meter package eligibility is unverified.</p>' : ''}
           ${gvoke ? `<p class="pa-condition"><strong>FDA-labeled presentation:</strong> ${escapeHtml(gvoke.dose)}. UHC does not specify eligible strengths. <a class="source-link" href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=92385737-dbad-98c5-e053-2995a90a2805" target="_blank" rel="noopener">Drug label ↗</a></p>` : ''}
           ${presentation?.note ? `<p class="pa-condition">${escapeHtml(presentation.note)}</p>` : ''}
+          ${presentation?.policyPageUrl ? `<p><a class="source-link" href="${escapeHtml(presentation.policyPageUrl)}" target="_blank" rel="noopener">Banner guideline · PDF page 123 ↗</a></p>` : ''}
           ${presentation?.billingUrl ? `<p><a class="source-link" href="${escapeHtml(presentation.billingUrl)}" target="_blank" rel="noopener">Plan billing notice ↗</a></p>` : ''}
           ${presentation?.labelUrl ? `<p><a class="source-link" href="${escapeHtml(presentation.labelUrl)}" target="_blank" rel="noopener">Drug label ↗</a></p>` : ''}
           ${constipationCoverageNote(record)}${exactAge}${continuedUse}${limit}${nebulizerNote ? `<p class="pa-condition">${escapeHtml(nebulizerNote)}</p>` : ''}
