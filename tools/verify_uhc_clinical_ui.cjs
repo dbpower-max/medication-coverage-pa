@@ -399,11 +399,11 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  console.log('PASS: UHC oseltamivir, montelukast and Flector display source-supported dosage forms and exact payer flags.');
  const insulinAndSupplies = [
-  ['4b27f95aecd5c517', /Admelog.*Device Unspecified/, true],
-  ['7fb64d26f93768e3', /Humalog.*Concentration and Device Unspecified/, true],
-  ['99b7a79d60f9be27', /Insulin Lispro.*Concentration and Device Unspecified/, false],
+  ['4b27f95aecd5c517', /Admelog.*Labeled Vial/, true],
+  ['7fb64d26f93768e3', /Humalog.*Vial or Cartridge/, true],
+  ['99b7a79d60f9be27', /Insulin Lispro U-100.*Labeled Vial/, false],
   ['a864ab78ab9356d7', /Humalog Mix 75\/25 KwikPen/, true],
-  ['6b20c512802745b5', /Ratio and Device Unspecified/, false],
+  ['6b20c512802745b5', /75\/25 U-100 Prefilled Pen/, false],
   ['96922f638bb987d2', /Glargine-yfgn SC Solution.*Device Unspecified/, true],
   ['4270f8a1ce19e554', /Glargine-yfgn SC Pen Injector/, false],
   ['31c74f821a4c856f', /Semglee.*Device Unspecified/, true],
@@ -435,9 +435,14 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   insulinCards.add(group);
  }
  assert.equal(insulinCards.size, insulinAndSupplies.length);
+ const standardLispro = byId('2dbe0497f9246f1b');
+ assert.equal(standardLispro.label, 'Insulin Lispro U-100 Prefilled Pen (1-Unit Increments)');
+ assert.equal(standardLispro.records.length, 1);
+ assert(!a.medicationGroupCard(standardLispro).includes('>PA required<'));
+ assert(a.medicationGroupCard(byId('99b7a79d60f9be27')).includes('without specifying vial size or package'));
  const junior = byId('1a0caccc9f7c79ae');
  assert(junior && junior === byId('d68963fe88140f42') && junior.records.length === 2);
- assert.match(junior.label, /Half-Unit Increments/i);
+ assert.match(junior.label, /Prefilled Pen.*0\.5-Unit Increments/i);
  const juniorCard = a.medicationGroupCard(junior);
  const brandJunior = juniorCard.split('Coverage attributes for Humalog Junior KwikPen')[1].split('</div>')[0];
  const otherJunior = juniorCard.split('Coverage attributes for Insulin Lispro Junior KwikPen Listing')[1].split('</div>')[0];
