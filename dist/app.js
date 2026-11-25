@@ -2075,7 +2075,9 @@
 
   function cardTextBranchMarkup(branch, policy) {
     const text = branch.text.replace(/^\s*(?:--- PDF page \d+ ---|=== PDF PAGE \d+ ===|Page \d+)\s*$/gmi, '');
-    const body = text.split(/Approval\s+Criteria\s*:?/i)[1];
+    // Split at the first actual heading, not at subsequent inline references to approval criteria.
+    const heading = /^[\t ]*Approval[\t ]+Criteria[\t ]*:?[ \t]*$/im.exec(text);
+    const body = heading ? text.slice(heading.index + heading[0].length) : '';
     if (!body) return '<p>Formatted criteria for this medication are not available. See the PA reference.</p>';
     // Original clinical text is retained verbatim, with only line-break/page
     // furniture cleanup. Administrative PA-team dispensing notes stay internal.
@@ -2406,7 +2408,13 @@
         const selected = stages.map(([stage,page,heading]) => {
           const matches = source.branches.filter(branch => branch.stage === stage && branch.sourcePage === page && new RegExp('(?:^|[^a-z])'+b.product+'(?:[^a-z]|$)', 'i').test(branch.product));
           if (matches.length !== 1) throw new Error('Exact Banner product/stage branch not verified');
-          return {...matches[0], heading, text: matches[0].text.split(/\n\s*2\s*\.\s*Revision History/i)[0]};
+          let text = matches[0].text.split(/\n\s*2\s*\.\s*Revision History/i)[0];
+          if (b.omitOtherProductStep) {
+            const otherStep = /\n\s*AND\s*\n\s*3\s*-\s*For Norliqva and Sdamlo requests ONLY:/i.exec(text);
+            if (!otherStep) throw new Error('Reviewed other-product step not verified');
+            text = text.slice(0, otherStep.index);
+          }
+          return {...matches[0], heading, text};
         });
         const exclusion = b.exclusionPage ? source.branches.filter(branch => branch.sourcePage === b.exclusionPage && /^All products\b/i.test(branch.product) && /Idiopathic Short Stature/i.test(branch.product)) : [];
         if (b.exclusionPage && exclusion.length !== 1) throw new Error('Missing reviewed exclusion');

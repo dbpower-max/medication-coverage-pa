@@ -334,6 +334,22 @@ console.log('PASS: three Banner MS listings preserve original PA and preference 
   }
  }
  console.log('PASS: four Banner methadone forms, PA flags, label conflicts and distinct indication/DUR scopes.');
+for(const [id,route] of [['banner-full-89559c60a03b28df','NOT IV'],['banner-full-6c6a47cf0133d553','IV/IM solution']]){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');assert.equal(g.records.length,1);
+ const r=g.records[0];assert.equal(r.pa,'required');assert.equal(r.preferred,'not_specified');
+ const card=api.medicationGroupCard(g);assert(card.includes(route)&&card.includes('>PA required<')&&!card.includes('data-card-clinical='),id+' lost route or hold');
+ assert(r.reviewedPresentation.policyUnverified&&r.reviewedPresentation.labelUrl);
+}
+{
+ const id='banner-full-7c0d8ee13a73e22b',g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');assert.equal(g.records.length,1);
+ const r=g.records[0];assert.equal(r.pa,'conditional');assert.equal(r.preferred,'not_specified');
+ const card=api.medicationGroupCard(g);assert(card.includes('over age 10')&&card.includes('pediatric safety and effectiveness not established'));
+ const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
+ assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
+ assert(html.includes('Criteria source · PDF page 1249<')&&html.includes('Authorization stage is not separately labeled')&&html.includes('generic equivalent')&&html.includes('unable to swallow')&&html.includes('12 month(s)'),html);
+ for(const other of ['Norliqva','Sdamlo','Katerzia','Subvenite','Criteria source · PDF page 1248<'])assert(!html.includes(other),'unrelated step '+other);
+}
+console.log('PASS: two injectable route/criteria holds and conditional Lopressor product branch with age and label caveats.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
