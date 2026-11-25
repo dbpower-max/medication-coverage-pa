@@ -87,7 +87,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(!avlayahRow.uhcClinicalBindings.some(b=>b.role==='product'));
  const avlayahCard=a.medicationGroupCard(avlayah);
  for(const phrase of ['Avlayah (Tividenofusp alfa-eknm) IV Infusion','150 mg lyophilized','Boxed warning: anaphylaxis','Exact UHC initial/renewal criteria are unverified']) assert(avlayahCard.includes(phrase),'Avlayah missing '+phrase);
- assert(a.recordDetails(avlayahRow).includes(avlayahRow.reviewedPresentation.labelUrl),'Avlayah label citation missing');
+ assert(avlayahCard.includes('href="'+avlayahRow.reviewedPresentation.labelUrl+'"'),'Avlayah label citation missing from prescribing card');
  const samsca=groups.find(g=>g.records.some(r=>r.name.startsWith('SAMSCA (brand')));
  const samscaContent=await open(samsca);
  assert(samscaContent.html.includes('Criteria source · PDF page 1488<'));
