@@ -566,6 +566,26 @@ for(const [id,form,pages] of [
  else assert(card.includes('exact brand eligibility')&&!/MME Exceeded|Quantity Limit Override|Conzip/i.test(html),id+' unrelated opioid policy branch');
 }
 console.log('PASS: Xeljanz IR five staged indications and generic tramadol ER three pain branches; product holds retained.');
+
+for(const [id,pa,form,pages] of [
+ ['banner-full-5b8daa67d76d4afd','required','Toremifene Oral Tablets',[260,261,261]],
+ ['banner-full-2d903aad91549aef','conditional','Immediate-Release Oral Tablets',[1578]]
+]){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,pa);assert.equal(r.preferred,'not_specified');
+ const card=api.medicationGroupCard(g);assert(card.includes(form)&&card.includes('data-card-clinical='),id+' form or action missing');
+ const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
+ assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
+ assert.deepEqual([...html.matchAll(/Criteria source · PDF page (\d+)</g)].map(m=>Number(m[1])),pages,id+' incorrect branches');
+ if(pa==='required'){
+  assert(card.includes('QT prolongation')&&/metastatic breast cancer/i.test(html)&&/positive clinical response/i.test(html),id+' indication, renewal or label warning missing');
+  assert(!/adjuvant treatment|progression following tamoxifen/i.test(html),id+' unrelated cancer criteria');
+ }else{
+  assert(card.includes('30 days')&&card.includes('tonsillectomy/adenoidectomy')&&/adjust the dose/i.test(html)&&/medically necessary/i.test(html),id+' conditional trigger or safety warning missing');
+  assert(!/history of failure, contraindication or intolerance|MME exceeded|concurrent opioid therapy/i.test(html),id+' unrelated opioid criteria');
+ }
+}
+console.log('PASS: exact Fareston three cancer branches and tramadol 50 mg conditional PA; original flags and label cautions retained.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
