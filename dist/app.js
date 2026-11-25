@@ -2431,7 +2431,7 @@
             text = cleaned.slice(0, vpriv.index);
           }
           if (b.scopePahGeneric && stage === 'Initial Authorization') {
-            if (b.policyId !== 'banner-policy-12-1422' || page !== 1422 || !['generic sildenafil tablets','generic tadalafil'].includes(b.product)) throw new Error('Unverified PAH scope');
+            if (b.policyId !== 'banner-policy-12-1422' || page !== 1422 || !['generic sildenafil tablets','generic tadalafil','Orenitram','Yutrepia'].includes(b.product)) throw new Error('Unverified PAH scope');
             const cleaned = text.replace(/^(?:=== PDF PAGE \d+ ===|Page \d+)\s*$/gmi, '');
             const age = /2\s*-\s*One of the following:\s*2\.1 Patient is 18 years of age or older\s*OR\s*2\.2 One of the following:[\s\S]*?(?=\n\s*AND\s*\n\s*3\s*-\s*Pulmonary arterial hypertension is symptomatic)/i;
             const nonpreferred = /\n\s*AND\s*\n\s*6\s*-\s*If the patient is requesting a non-preferred product/i;

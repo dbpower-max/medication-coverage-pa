@@ -604,6 +604,23 @@ for(const [id,preferred] of [["banner-full-910fdc030a0e440e",false],["banner-ful
  assert(!g.records.some(r=>r.id==='banner-full-910fdc030a0e440e'),id+' collapsed conflicting form');
 }
 console.log('PASS: trastuzumab product-specific restriction and Kanjinti solution hold; original flags retained.');
+
+for(const [id,form,warning] of [
+ ['banner-full-ef9bc93d53ee9c80','Extended-Release Oral Tablets','swallow whole with food'],
+ ['banner-full-917087991e3a1d92','Extended-Release Oral Tablet Therapy Pack','exact month and contents'],
+ ['banner-full-a6ce2a3f193366dd','Inhalation Powder Capsules','DO NOT SWALLOW']
+]){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'not_specified');
+ const card=api.medicationGroupCard(g);assert(card.includes(form)&&card.includes(warning)&&card.includes('data-card-clinical='),id+' form or warning missing');
+ assert(!g.records.some(r=>r.id!==id&&['banner-full-ef9bc93d53ee9c80','banner-full-917087991e3a1d92','banner-full-a6ce2a3f193366dd'].includes(r.id)),id+' unsafe form merge');
+ const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
+ assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
+ assert.deepEqual([...html.matchAll(/Criteria source · PDF page (\d+)</g)].map(m=>Number(m[1])),[1422,1425],id+' wrong PAH branches');
+ assert(/18 years of age or older/i.test(html)&&/right heart catheterization/i.test(html)&&/positive clinical response/i.test(html),id+' lost PAH clinical requirements');
+ assert(!/Requests for Tracleer|Requests for Uptravi|request is for Brand Adcirca|request is for Opsynvi|non-preferred product|CTEPH|PH-ILD/i.test(html),id+' unrelated age or product criteria');
+}
+console.log('PASS: Orenitram tablets, titration pack and Yutrepia inhalation capsule separate; adult PAH stages and no-swallow warning preserved.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
