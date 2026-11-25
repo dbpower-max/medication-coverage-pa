@@ -415,6 +415,38 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
         # GL-231255 and GL-140667 are administrative, not named product criteria.
         label_holds = {
+            'uhc-oct-complete-013b59b93699a5c4': (
+                'onexton (brand for clindamycin phos-benzoyl perox)', 'Onexton (Clindamycin Phosphate / Benzoyl Peroxide) Topical Gel', 'topical gel',
+                'FDA label: 1.2% clindamycin phosphate / 3.75% benzoyl peroxide gel for topical use, not oral, ophthalmic or intravaginal. Contraindicated with history of regional enteritis, ulcerative colitis or antibiotic-associated colitis. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                '697e760a-c206-4565-8f4e-a8085e215827', True),
+            'uhc-oct-complete-add6e7e9261e4c8f': (
+                'clindesse', 'Clindesse (Clindamycin Phosphate) Vaginal Cream', 'vaginal cream',
+                'FDA label: 2% cream, single 5 g prefilled vaginal applicator; not a multidose regimen or topical skin product. Avoid latex or rubber barrier contraceptives during treatment and for 5 days afterward. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                'fe8bb204-f173-44fe-803b-b08f2ec5aa31', True),
+            'uhc-oct-complete-8e1f189a8596a674': (
+                'combipatch', 'CombiPatch (Estradiol / Norethindrone Acetate) Twice-Weekly Transdermal Patch', 'transdermal patch',
+                'FDA label: estradiol 0.05 mg/day with norethindrone acetate 0.14 or 0.25 mg/day; twice-weekly system, not weekly Climara Pro. Payer listing does not distinguish strengths. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                '83198ef1-11c4-11e4-9191-0800200c9a66', True),
+            'uhc-oct-complete-b9ec5dd97103ff2a': (
+                'nascobal (brand for cyanocobalamin)', 'Nascobal (Cyanocobalamin) Nasal Spray', 'nasal spray',
+                'FDA label: 500 mcg single-use nasal spray, not oral or injectable cyanocobalamin. Defer during nasal congestion, allergic rhinitis or upper respiratory infection until symptoms subside. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                '697e0e52-c01b-4b53-9994-f79c46eb6b4f', True),
+            'uhc-oct-complete-8b9ddaaef849c561': (
+                'crysvita subcutaneous solution 20 mg/ml', 'Crysvita (Burosumab-twza) 20 mg/mL Subcutaneous Solution', 'subcutaneous injection solution',
+                'FDA label: single-dose 1 mL vial, healthcare provider administration only. Contraindicated with oral phosphate or active vitamin D analogs, normal/high age-adjusted phosphorus, or severe renal impairment/ESRD. Medical-benefit policy applicability to this pharmacy listing is unverified. Exact UHC product-specific initial/renewal criteria are unverified.',
+                '102f96a0-6e3a-4fc1-b204-34d604683af6', False),
+            'uhc-oct-complete-8ac95e39cc071af9': (
+                'cimduo', 'Cimduo (Lamivudine / Tenofovir Disoproxil Fumarate) Oral Tablet', 'oral tablet',
+                'FDA label: fixed 300 mg/300 mg tablet; not tenofovir alafenamide. Not recommended with CrCl below 50 mL/min or ESRD requiring hemodialysis. Boxed warning for HBV exacerbation after discontinuation. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                'a300f04d-118f-4136-aaf3-ddfd00197f86', True),
+            'uhc-oct-complete-3ce934e09340ac9a': (
+                'clenpiq', 'Clenpiq (Sodium Picosulfate / Magnesium Oxide / Citric Acid) Oral Solution', 'oral solution',
+                'FDA label: ready-to-drink 175 mL solution, not a powder for reconstitution. Contraindicated with CrCl below 30 mL/min or bowel obstruction, ileus, perforation, toxic colitis/megacolon or gastric retention. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                'e95fff66-4ec0-4001-a727-33e66a5ec7d5', True),
+            'uhc-oct-complete-65b8740769a16e55': (
+                'climara pro', 'Climara Pro (Estradiol / Levonorgestrel) Weekly Transdermal Patch', 'transdermal patch',
+                'FDA label: 0.045 mg estradiol and 0.015 mg levonorgestrel per day; weekly system, not estradiol-only Climara or twice-weekly CombiPatch. Exact UHC product-specific initial/renewal criteria are unverified.',
+                '184d3092-7fc6-4375-816b-1ab06bb99cfd', False),
             'uhc-oct-complete-ea99523e63092e14': (
                 'sorilux (brand for calcipotriene)', 'Sorilux (Calcipotriene) Topical Foam', 'topical foam',
                 'FDA label: 0.005% foam for skin/scalp; avoid flame during and immediately after use. Contraindicated in known hypercalcemia. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',

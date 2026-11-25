@@ -106,6 +106,14 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(avlayahCard.includes('href="'+avlayahRow.reviewedPresentation.labelUrl+'"'),'Avlayah label citation missing from prescribing card');
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["8b9ddaaef849c561","Crysvita (Burosumab-twza) 20 mg/mL Subcutaneous Solution","Medical-benefit policy applicability to this pharmacy listing is unverified",false],
+  ["8ac95e39cc071af9","Cimduo (Lamivudine / Tenofovir Disoproxil Fumarate) Oral Tablet","not tenofovir alafenamide",true],
+  ["3ce934e09340ac9a","Clenpiq (Sodium Picosulfate / Magnesium Oxide / Citric Acid) Oral Solution","not a powder for reconstitution",true],
+  ["65b8740769a16e55","Climara Pro (Estradiol / Levonorgestrel) Weekly Transdermal Patch","weekly system, not estradiol-only Climara or twice-weekly CombiPatch",false],
+  ["013b59b93699a5c4","Onexton (Clindamycin Phosphate / Benzoyl Peroxide) Topical Gel","not oral, ophthalmic or intravaginal",true],
+  ["add6e7e9261e4c8f","Clindesse (Clindamycin Phosphate) Vaginal Cream","single 5 g prefilled vaginal applicator",true],
+  ["8e1f189a8596a674","CombiPatch (Estradiol / Norethindrone Acetate) Twice-Weekly Transdermal Patch","twice-weekly system, not weekly Climara Pro",true],
+  ["b9ec5dd97103ff2a","Nascobal (Cyanocobalamin) Nasal Spray","not oral or injectable cyanocobalamin",true],
   ["48aa5c3126dac1f1","Besivance (Besifloxacin) Ophthalmic Suspension","not for injection into the eye",true],
   ["ccb3e29f79cd93b8","Bijuva (Estradiol / Progesterone) 1 mg / 100 mg Oral Capsule","do not transfer its benefits to the 0.5 mg / 100 mg presentation",true],
   ["c24ea1cc8b559162","Lumigan (Bimatoprost) Ophthalmic Solution","Distinct from 0.03% formulations",true],
