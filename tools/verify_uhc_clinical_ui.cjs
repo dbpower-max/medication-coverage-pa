@@ -104,6 +104,32 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  const avlayahCard=a.medicationGroupCard(avlayah);
  for(const phrase of ['Avlayah (Tividenofusp alfa-eknm) IV Infusion','150 mg lyophilized','Boxed warning: anaphylaxis','Exact UHC initial/renewal criteria are unverified']) assert(avlayahCard.includes(phrase),'Avlayah missing '+phrase);
  assert(avlayahCard.includes('href="'+avlayahRow.reviewedPresentation.labelUrl+'"'),'Avlayah label citation missing from prescribing card');
+ // Gammagard plain brand must not inherit route- or formulation-specific criteria.
+ const gammagardRows=[];
+ for(const [suffix,sd] of [['c5af301ff34ca5f3',false],['c3048c00894b30ac',true]]){
+  const id='uhc-oct-complete-'+suffix;
+  const g=groups.find(g=>g.records.some(r=>r.id===id));
+  assert(g,id+' listing missing');
+  gammagardRows.push(g);
+  const row=g.records.find(r=>r.id===id);
+  assert.equal(row.pa,'required');assert.equal(row.preferred,'preferred');assert(!row.qlAmount&&!row.qlDays);
+  const products=row.uhcClinicalBindings.filter(b=>b.role==='product');
+  const card=a.medicationGroupCard(g);
+  assert(card.includes('href="'+row.reviewedPresentation.labelUrl+'"'));
+  if(sd){
+   assert.equal(products.length,1);assert(products[0].policyId.endsWith('gl-552230'));
+   assert.equal(products[0].branchIndexes.length,2);
+   for(const phrase of ['Gammagard S/D Less IgA (Immune Globulin) Powder for IV Infusion','IV use only; not subcutaneous','does not eliminate anaphylaxis risk','Other indications and medical benefit applicability remain unverified'])assert(card.includes(phrase),phrase);
+   const detail=await open(g);
+   for(const phrase of ['Primary Immunodeficiency Syndromes','Initial Authorization','Reauthorization'])assert(detail.html.includes(phrase),phrase);
+   assert(!detail.html.includes('Rasmussen Syndrome'));
+   assert(detail.ref.includes('page=868')||detail.ref.includes('page=921')||detail.ref.includes('page=923'));
+  }else{
+   assert.equal(products.length,0);
+   for(const phrase of ['Gammagard (Immune Globulin) Infusion (Formulation Unspecified)','does not identify Liquid, Liquid ERC or S/D','not a payer product match'])assert(card.includes(phrase),phrase);
+  }
+ }
+ assert.notEqual(gammagardRows[0],gammagardRows[1],'ambiguous Gammagard merged with S/D');
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
   ["e9587576b936cf5e","Eysuvis (Loteprednol Etabonate) Ophthalmic Suspension","short-term dry eye treatment",true],

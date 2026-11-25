@@ -434,6 +434,55 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'Manufacturer specifies TRUE METRIX self-monitoring test strips only. UHC lists this meter as nonpreferred with PA and QL. GL-140734 requires NDC-level approval; exact applicability, package and numeric quantity limit remain unverified.',
                 'deviceSourceUrl': 'https://www.trividiahealth.com/wp-content/uploads/2024/01/REA4TVH03-TRUE-METRIX-AIR-Owners-Booklet_012224.pdf',
             }
+        # DEC-05/12/13/14/19/20: distinguish ambiguous Gammagard from named S/D.
+        # GL-552230 is AZ Medicaid pharmacy guidance, not a medical benefit determination.
+        if record['id'] in {'uhc-oct-complete-c5af301ff34ca5f3', 'uhc-oct-complete-c3048c00894b30ac'}:
+            sd = record['id'] == 'uhc-oct-complete-c3048c00894b30ac'
+            assert october_name == ('gammagard s/d less iga' if sd else 'gammagard')
+            assert record['pa'] == 'required' and record['preferred'] == 'preferred' and not ql
+            code = 'GL-552230'
+            assert policies[code]['policyEffective'] == '2026-04-12'
+            assert set(matched).issubset({code}), ('Review newly matched policy', matched)
+            matched.pop(code, None)
+            if sd:
+                stages = {}
+                for i, b in enumerate(structured[code]['branches']):
+                    fields = b['fields']
+                    def field(name):
+                        return ' '.join(fields.get(name, {}).get('text', '').split())
+                    if field('Diagnosis') != 'Primary Immunodeficiency Syndromes':
+                        continue
+                    assert 'Gammagard S-D' in field('Product Name').split(', ')
+                    assert field('Approval Length') == '12 month(s)'
+                    assert field('Guideline Type') == 'Prior Authorization'
+                    stage = field('Therapy Stage')
+                    assert stage not in stages
+                    stages[stage] = i
+                assert set(stages) == {'Initial Authorization', 'Reauthorization'}
+                add(code, [stages['Initial Authorization'], stages['Reauthorization']], 'product')
+                bindings[-1]['productLabel'] = 'Gammagard S-D (primary immunodeficiency; IV only)'
+                label = 'Gammagard S/D Less IgA (Immune Globulin) Powder for IV Infusion'
+                form = 'powder for intravenous infusion'
+                note = ('FDA label: 5 g or 10 g lyophilized powder for IV use only; not subcutaneous. '
+                        'IgA less than 1 mcg/mL in 5% solution does not eliminate anaphylaxis risk. '
+                        'Boxed warning: thrombosis, renal dysfunction and acute renal failure. '
+                        'UHC pharmacy criteria verified for primary immunodeficiency initial and renewal; '
+                        'the nonpreferred condition applies only to nonpreferred requests. '
+                        'Other indications and medical benefit applicability remain unverified.')
+                label_id = 'bf8df9fd-bfdd-47c2-84d2-d91e50947bf6'
+            else:
+                label = 'Gammagard (Immune Globulin) Infusion (Formulation Unspecified)'
+                form = 'infusion (formulation unspecified)'
+                note = ('The UHC listing does not identify Liquid, Liquid ERC or S/D formulation or route. '
+                        'Liquid 10% is labeled for IV or subcutaneous administration depending on indication; '
+                        'S/D is IV only. GL-552230 names the formulations separately; exact product criteria '
+                        'and medical benefit applicability remain unverified. The linked Liquid label is a reference, not a payer product match.')
+                label_id = '9d42adca-0dd7-4df7-864d-5a7feee52130'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': label, 'dosageForm': form, 'note': note,
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + label_id,
+            }
         # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
         # GL-231255 and GL-140667 are administrative, not named product criteria.
         label_holds = {
