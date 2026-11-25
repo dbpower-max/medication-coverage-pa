@@ -305,6 +305,33 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: 300 mg as three consecutive 100 mg subcutaneous injections for episodic cluster headache; distinct from 120 mg/mL migraine presentations. UHC cluster policy retains migraine-combination restrictions as printed. Exact payer package eligibility and numeric quantity limit remain unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=33a147be-233a-40e8-a55e-e40936e28db0',
             }
+        # DEC-05/12/13/14/19/20: Inbrija inhalation capsules are not oral capsules.
+        if record['id'] == 'uhc-oct-complete-9979c6aa29c27e3e':
+            code = 'GL-140661'
+            assert october_name == 'inbrija' and record['pa'] == 'required' and ql
+            assert record['preferred'] == 'non_preferred'
+            assert policies[code]['policyEffective'] == '2021-03-01'
+            branches = structured[code]['branches']
+            assert len(branches) == 2
+            for index, stage, duration in [(0, 'Initial Authorization', '6 month(s)'), (1, 'Reauthorization', '12 month(s)')]:
+                fields = branches[index]['fields']
+                def inbrija_field(name):
+                    field = fields[name]
+                    return ' '.join((field.get('displayText') or field['text']).split())
+                assert inbrija_field('Product Name') == 'Inbrija'
+                assert inbrija_field('Therapy Stage') == stage
+                assert inbrija_field('Approval Length').startswith(duration)
+                assert inbrija_field('Guideline Type') == 'Prior Authorization'
+            matched.pop(code, None)
+            add(code, [0, 1], 'product')
+            bindings[-1]['productLabel'] = 'Inbrija (levodopa inhalation powder)'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Inbrija (Levodopa) Inhalation Powder Capsules',
+                'dosageForm': 'inhalation powder capsule',
+                'note': 'FDA label: 42 mg levodopa per capsule for oral inhalation only with the Inbrija inhaler; do not swallow. Used for intermittent OFF episodes while continuing carbidopa/levodopa, not as a substitute. Nonselective MAO inhibitors within 2 weeks are contraindicated; not recommended in asthma, COPD or other chronic lung disease. UHC initial and renewal criteria are separately linked; exact payer package and numeric quantity limit remain unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=077c0f39-a3a2-4b2b-a184-09131889dcfb',
+            }
         # DEC-05/12/13/14/19/20: exact October SC listings only.
         # The named May 2026 guideline includes a conditional nonpreferred rule.
         # Retain the structured source verbatim; scope the clinician rendering.
