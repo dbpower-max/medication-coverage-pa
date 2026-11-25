@@ -621,6 +621,32 @@ for(const [id,form,warning] of [
  assert(!/Requests for Tracleer|Requests for Uptravi|request is for Brand Adcirca|request is for Opsynvi|non-preferred product|CTEPH|PH-ILD/i.test(html),id+' unrelated age or product criteria');
 }
 console.log('PASS: Orenitram tablets, titration pack and Yutrepia inhalation capsule separate; adult PAH stages and no-swallow warning preserved.');
+
+for(const [id,form] of [["banner-full-7c9407dc50aeffd6","Starjemza (Ustekinumab-hmny) Subcutaneous Prefilled Syringe"],["banner-full-9c89c762ecf4a4e7","Starjemza (Ustekinumab-hmny) Solution — Route Unverified"],["banner-full-d2638c75bf2c5094","Valganciclovir Powder for Oral Solution (Valcyte Reference)"],["banner-full-e859b1c3f1be58db","Valganciclovir Oral Tablets (Valcyte Reference)"],["banner-full-6d23af5aca74fca8","Vfend (Voriconazole) Powder for Oral Suspension"]]){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'not_specified');
+ const card=api.medicationGroupCard(g);assert(card.includes(form)&&!card.includes('data-card-clinical='),id+' unsafe automatic criteria or missing form');
+ assert(!g.records.some(r=>r.id!==id&&["banner-full-7c9407dc50aeffd6","banner-full-9c89c762ecf4a4e7","banner-full-d2638c75bf2c5094","banner-full-e859b1c3f1be58db","banner-full-6d23af5aca74fca8"].includes(r.id)),id+' unsafe form merge');
+}
+for(const [id,form] of [["banner-full-b6f0f769c82aaeea","Vandetanib Oral Tablets (Caprelsa Reference)"],["banner-full-4b852a28d521d828","Vemurafenib Oral Tablets (Zelboraf Reference)"],["banner-full-237950cc08ca1717","Vorinostat Oral Capsules (Zolinza Reference)"]]){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'not_specified');
+ const card=api.medicationGroupCard(g);assert(card.includes(form)&&card.includes('data-card-clinical='),id+' missing criteria or form');
+ const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
+ assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
+ assert.deepEqual([...html.matchAll(/Criteria source · PDF page (\d+)</g)].map(m=>Number(m[1])),[1322],id+' wrong oncology branch');
+ assert(/NCCN|National Comprehensive Cancer Network/i.test(html)&&!/imatinib/i.test(html),id+' wrong oncology scope');
+}
+for(const [id,form,q] of [["banner-full-1ff7d86a645bdc05","Zolpidem Extended-Release Oral Tablets (Ambien CR Reference)","30"],["banner-full-d93c4badc39b2d2f","Zolpidem Immediate-Release Oral Tablets 10 mg (Ambien Reference)","30"],["banner-full-b41b5e9a4587cefd","Zolpidem Immediate-Release Oral Tablets 5 mg (Ambien Reference)","60"]]){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'conditional');assert.equal(r.preferred,'preferred');assert.equal(String(r.qlAmount),q);assert.equal(String(r.qlDays),'30');
+ const card=api.medicationGroupCard(g);assert(card.includes(form)&&card.includes('data-card-clinical='),id+' missing criteria or form');
+ const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
+ assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
+ assert.deepEqual([...html.matchAll(/Criteria source · PDF page (\d+)</g)].map(m=>Number(m[1])),[1558,1559],id+' wrong conditional branch');
+ assert(/greater than one hypnotic/i.test(html)&&/age under 6/i.test(html)&&!/generic temazepam 7.5 mg/i.test(html),id+' unrelated nonpreferred branch');
+}
+console.log('PASS: five form/criteria holds, three oncology branches, three zolpidem conditional options; raw payer flags and QL retained.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
