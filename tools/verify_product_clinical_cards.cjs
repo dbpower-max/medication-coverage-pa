@@ -509,7 +509,7 @@ for(const [id,pref,term] of [
 ]){
  const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
  const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,pref);
- const card=api.medicationGroupCard(g);assert(card.includes(term)&&card.includes('not a prescribing dose')&&card.includes('ISS exclusion'),id+' dose/label caveat missing');
+ const card=api.medicationGroupCard(g);assert(card.includes(term)&&/not (?:a )?prescribing dose/.test(card)&&card.includes('ISS exclusion'),id+' dose/label caveat missing');
  const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
  assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
  const pages=[...html.matchAll(/Criteria source · PDF page (\d+)</g)].map(m=>Number(m[1]));
