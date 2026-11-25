@@ -437,6 +437,30 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
         # GL-231255 and GL-140667 are administrative, not named product criteria.
         label_holds = {
+            'uhc-oct-complete-44ba8a15828b42b8': (
+                "symfi (brand for efavirenz-lamivudine-tenofovir)", "Symfi (Efavirenz / Lamivudine / Tenofovir Disoproxil Fumarate) Oral Tablet", "oral tablet",
+                "FDA label: 600/300/300 mg; distinct from Symfi Lo 400/300/300 mg. Fixed-dose combination not recommended for CrCl below 50 mL/min. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "81a55dd9-78a8-49c3-88ab-8f5bffafa359", True),
+            'uhc-oct-complete-e48614a8896d1c42': (
+                "elyxyb", "Elyxyb (Celecoxib) Oral Solution", "oral solution",
+                "FDA label: 25 mg/mL (120 mg/4.8 mL) for acute migraine in adults, not prevention. Boxed cardiovascular and gastrointestinal warnings. UHC therapeutic duplication review is administrative. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "c8a5de07-9f27-4a54-a885-8089f0307bd7", True),
+            'uhc-oct-complete-3c48b4c2b5592695': (
+                "emend oral", "Emend (Aprepitant) Oral Capsule / Powder for Oral Suspension (Form Unspecified)", "oral capsule or powder for oral suspension",
+                "FDA label: Capsules (40/80/125 mg) and powder for oral suspension (125 mg) are distinct. CINV labeled ages differ: capsules 12 years and older, suspension 6 months and older. The UHC listing does not identify the oral formulation; do not transfer benefits to a specific child or to IV. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "696f9e80-9cae-403b-de9e-078343ce4713", True),
+            'uhc-oct-complete-42d6b65788f7e18f': (
+                "truvada (brand for emtricitabine-tenofovir df)", "Truvada (Emtricitabine / Tenofovir Disoproxil Fumarate) Oral Tablet", "oral tablet",
+                "FDA label: Four labeled strengths (100/150, 133/200, 167/250, 200/300 mg); distinct from tenofovir alafenamide combinations. PrEP requires confirmed HIV-negative status; boxed HBV discontinuation warning. PDL does not identify a strength-level benefit. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "46e06df0-654d-43cc-e054-00144ff8d46c", True),
+            'uhc-oct-complete-91cfa1e69148c0ca': (
+                "emverm", "Emverm (Mebendazole) Chewable Tablet", "chewable tablet",
+                "FDA label: 100 mg chewable tablet for indicated helminth infections in patients 2 years and older. Avoid concomitant metronidazole due to serious skin reaction risk (SJS/TEN). Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "a8c46363-f739-4f6e-bca8-1ce5e8d3f78d", True),
+            'uhc-oct-complete-93cb1d792516d6af': (
+                "enstilar", "Enstilar (Calcipotriene / Betamethasone Dipropionate) Topical Foam", "topical foam",
+                "FDA label: 0.005%/0.064% aerosol foam, distinct from ointment or suspension; flammable. Labeled maximum 60 g every 4 days is a clinical limit, not a payer quantity limit. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "d1193df2-d53f-4342-bd9d-d9cba7c89709", True),
             'uhc-oct-complete-8f02f89ad4d636c6': (
                 "beyaz (brand for drospiren-eth estrad-levomefol)", "Beyaz (Drospirenone / Ethinyl Estradiol / Levomefolate) Oral Tablet Pack", "oral tablet pack",
                 "FDA label: 24 hormone-containing tablets (3/0.02/0.451 mg) and 4 folate-only tablets (0.451 mg). Distinct from Safyral 21/7 pack. Contraindicated with renal impairment, adrenal insufficiency and specified thrombotic risks. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
@@ -590,7 +614,7 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             expected, label, form, note, label_id, has_ql = label_holds[record['id']]
             assert october_name == expected and record['pa'] == 'required'
             assert record['preferred'] == 'non_preferred' and bool(ql) == has_ql
-            allowed_administrative = {'GL-735259'} if record['id'] == 'uhc-oct-complete-4174a6295393bf8f' else set()
+            allowed_administrative = {'GL-735259'} if record['id'] in {'uhc-oct-complete-4174a6295393bf8f', 'uhc-oct-complete-e48614a8896d1c42'} else set()
             assert not (set(matched) - allowed_administrative), ('Review newly available named criteria before use', record['id'], matched)
             record['reviewedPresentation'] = {
                 **record.get('reviewedPresentation', {}), 'separate': True,
