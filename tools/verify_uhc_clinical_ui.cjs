@@ -118,11 +118,11 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   assert(card.includes('href="'+row.reviewedPresentation.labelUrl+'"'));
   if(sd){
    assert.equal(products.length,1);assert(products[0].policyId.endsWith('gl-552230'));
-   assert.equal(products[0].branchIndexes.length,6);
-   for(const phrase of ['Gammagard S/D Less IgA (Immune Globulin) Powder for IV Infusion','IV use only; not subcutaneous','does not eliminate anaphylaxis risk','payer acute ITP branch is not an FDA-labeled S/D indication','Kawasaki criteria held','Other indications and medical benefit applicability remain unverified'])assert(card.includes(phrase),phrase);
+   assert.equal(products[0].branchIndexes.length,12);
+   for(const phrase of ['Gammagard S/D Less IgA (Immune Globulin) Powder for IV Infusion','IV use only; not subcutaneous','does not eliminate anaphylaxis risk','payer acute ITP branch is not an FDA-labeled S/D indication','Asthma, BMT and CIDP are off-label for S/D','payer criteria are not FDA-approved indications or prescribing instructions','Autoimmune bullous disease criteria held','Kawasaki criteria held','Other indications and medical benefit applicability remain unverified'])assert(card.includes(phrase),phrase);
    const detail=await open(g);
-   for(const phrase of ['Primary Immunodeficiency Syndromes','Prevention of infection in B-cell Chronic Lymphocytic Leukemia (CLL)','Immune thrombocytopenia','Initial Authorization','Reauthorization'])assert(detail.html.includes(phrase),phrase);
-   assert(!detail.html.includes('Rasmussen Syndrome'));assert(!detail.html.includes('Kawasaki Disease'));
+   for(const phrase of ['Primary Immunodeficiency Syndromes','Prevention of infection in B-cell Chronic Lymphocytic Leukemia (CLL)','Immune thrombocytopenia','Asthma (severe, persistent, high-dose steroid-dependent)','Bone Marrow Transplant (BMT)','Chronic Inflammatory Demyelinating Polyneuropathy','Initial Authorization','Reauthorization'])assert(detail.html.includes(phrase),phrase);
+   assert(!detail.html.includes('Rasmussen Syndrome'));assert(!detail.html.includes('Kawasaki Disease'));assert(!detail.html.includes('Autoimmune Bullous Disease'));
    assert(detail.ref.includes('page=868')||detail.ref.includes('page=921')||detail.ref.includes('page=923'));
   }else{
    assert.equal(products.length,0);
