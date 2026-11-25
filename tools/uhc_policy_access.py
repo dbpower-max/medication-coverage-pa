@@ -421,7 +421,7 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 '51f208d0-7b3f-44cc-8bed-92fa3d2e7bbe', True),
             'uhc-oct-complete-2e1dfaa167d25964': (
                 'taclonex (brand for calcipotriene-betameth diprop)', 'Taclonex (Calcipotriene / Betamethasone Dipropionate) Topical Form Unspecified', 'topical form unspecified',
-                'UHC does not identify ointment versus topical suspension. These are distinct formulations; do not transfer formulation-specific treatment duration or payer benefits between them. FDA suspension label linked; exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                'UHC does not identify ointment versus topical suspension. These are distinct formulations; do not transfer formulation-specific treatment duration or payer benefits between them. FDA suspension label linked. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
                 '757c914f-dd8d-43cc-a973-212d591af4af', True),
             'uhc-oct-complete-604fed6ff3bba12e': (
                 'dhivy (brand for carbidopa-levodopa)', 'Dhivy (Carbidopa / Levodopa) Functionally Scored Oral Tablet', 'oral tablet',
