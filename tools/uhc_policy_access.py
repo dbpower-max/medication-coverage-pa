@@ -456,7 +456,12 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                                'Lennox Gastaut Syndrome',
                                'Multifocal Motor Neuropathy (MMN)',
                                'Prevention of infection in Multiple Myeloma',
-                               'Relapsing Multiple Sclerosis')
+                               'Relapsing Multiple Sclerosis',
+                               'Neuromyelitis Optica',
+                               'Post B-Cell Targeted Therapies',
+                               'Rasmussen Syndrome',
+                               'Stiff-Person Syndrome',
+                               'Thrombocytopenia, secondary to Hepatitis C Virus (HCV), Human Immunodeficiency Virus (HIV), or pregnancy')
                 stages = {dx: {} for dx in reviewed_dx}
                 for i, b in enumerate(structured[code]['branches']):
                     fields = b['fields']
@@ -486,10 +491,11 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                         'the nonpreferred condition applies only to nonpreferred requests. '
                         'S/D FDA indications: PI age 2 years or older, CLL infection prevention, adult chronic ITP, pediatric Kawasaki. '
                         'The payer acute ITP branch is not an FDA-labeled S/D indication. '
-                        'Asthma, BMT, CIDP, dermatomyositis/polymyositis, LEMS, Lennox-Gastaut syndrome, MMN, multiple myeloma infection prevention and relapsing MS are off-label for S/D; payer criteria are not FDA-approved indications or prescribing instructions. '
+                        'Asthma, BMT, CIDP, dermatomyositis/polymyositis, LEMS, Lennox-Gastaut syndrome, MMN, multiple myeloma infection prevention, relapsing MS, neuromyelitis optica, post B-cell targeted therapy, Rasmussen syndrome, stiff-person syndrome and specified secondary thrombocytopenia are off-label for S/D; payer criteria are not FDA-approved indications or prescribing instructions. '
                         'Kawasaki criteria held: printed payer dose wording differs from the product label; verify with payer before use. '
                         'Autoimmune bullous disease criteria held: unclear payer dose division; verify with payer. '
                         'Type 1 diabetes, neonatal thrombocytopenia, mixed Graves/GBS and pediatric HIV pathways held for safety or indication clarification. Immune globulin is not a replacement for insulin. '
+                        'Myasthenia gravis and posttransfusion purpura pathways held for dose or safety clarification; all-other indications held for explicit diagnosis scope. '
                         'Other indications and medical benefit applicability remain unverified.')
                 label_id = 'bf8df9fd-bfdd-47c2-84d2-d91e50947bf6'
             else:
