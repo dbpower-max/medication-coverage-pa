@@ -2441,7 +2441,7 @@
           if (b.omitGranisolStep) {
             if (b.policyId !== 'banner-policy-12-129' || b.product !== 'Anzemet' || stage || ![129,130,131].includes(page)) throw new Error('Unverified Anzemet scope');
             const cleaned = text.replace(/^(?:=== PDF PAGE \d+ ===|Page \d+)\s*$/gmi, '');
-            const only = /\n\s*AND\s*\n\s*2\s*-\s*For Granisol requests ONLY:/i.exec(cleaned);
+            const only = /\n\s*AND\s*\n\s*2\s*-\s*For Granisol requests ONLY, BOTH of the following:/i.exec(cleaned);
             if (!only) throw new Error('Granisol-only condition not verified');
             text = cleaned.slice(0, only.index);
           }
