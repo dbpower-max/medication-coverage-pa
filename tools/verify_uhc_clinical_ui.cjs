@@ -642,8 +642,12 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(infliximab);
  const infliximabRow=infliximab.records.find(r=>r.id==='banner-full-719caae0c9978dca');
  assert.equal(infliximabRow.pa,'required');assert.equal(infliximabRow.preferred,'preferred');
- assert(infliximabRow.reviewedPresentation.policyUnverified);
- assert(a.medicationGroupCard(infliximab).includes('not a separately licensed biosimilar'));
+ assert.equal(infliximabRow.reviewedPresentation.policyUnverified,false,'Reviewed Janssen branch must be available');
+ assert.equal(infliximabRow.reviewedBannerBranches.policyId,'banner-policy-12-945');
+ assert.equal(infliximabRow.reviewedBannerBranches.indicationPages.length,14);
+ assert(a.medicationGroupCard(infliximab).includes('data-card-clinical'));
+ assert(a.medicationGroupCard(infliximab).includes('57894016001'));
+ assert.match(a.medicationGroupCard(infliximab),/not (?:a )?separately licensed biosimilar/i);
  console.log('PASS: Eight exact Banner IG/infliximab options retain flags and route/product caveats.');
  const leqvio=bannerGroups.find(g=>g.records.some(r=>r.id==='banner-oct2026-j1306'));
  assert(leqvio,'Leqvio J1306 row missing');
