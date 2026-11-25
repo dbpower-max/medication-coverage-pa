@@ -106,6 +106,10 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(avlayahCard.includes('href="'+avlayahRow.reviewedPresentation.labelUrl+'"'),'Avlayah label citation missing from prescribing card');
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["8f02f89ad4d636c6","Beyaz (Drospirenone / Ethinyl Estradiol / Levomefolate) Oral Tablet Pack","Distinct from Safyral 21/7 pack",true],
+  ["f142ec3c46691c32","Safyral (Drospirenone / Ethinyl Estradiol / Levomefolate) Oral Tablet Pack","Distinct from Beyaz 24/4 pack",true],
+  ["4174a6295393bf8f","Duaklir Pressair (Aclidinium / Formoterol) Dry Powder Inhaler","COPD maintenance, not rescue or asthma",true],
+  ["36fd5377645d6fba","Edarbyclor (Azilsartan Medoxomil / Chlorthalidone) Oral Tablet","distinct from single-agent Edarbi",true],
   ["1d35bfcfe764c083","Cycloset (Bromocriptine) Oral Tablet","Distinct from other bromocriptine products",false],
   ["8eaaa9a428e51bfe","Diazepam 2.5 mg Rectal Gel","distinct from the 10 mg and 20 mg adjustable syringes",true],
   ["92cd6d282b2fdba2","Dipentum (Olsalazine Sodium) Oral Capsule","distinct from other aminosalicylates",true],
@@ -150,6 +154,11 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const card=a.medicationGroupCard(g);assert(card.includes(label),id+' form');assert(card.includes(phrase),id+' distinction');assert(card.includes('Exact UHC product-specific initial/renewal criteria'),id+' hold');assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'),id+' label link');
   const out=await open(g);assert(out.ref.includes('page=1202'),id+' administrative source');if(hasQL)assert(out.ref.includes('page=702'),id+' QL source');
  }
+ const beyazGroup=groups.find(g=>g.records.some(r=>r.id==='uhc-oct-complete-8f02f89ad4d636c6'));
+ const safyralGroup=groups.find(g=>g.records.some(r=>r.id==='uhc-oct-complete-f142ec3c46691c32'));
+ assert.notEqual(beyazGroup,safyralGroup,'Different estrogen strength and pack schedule must remain separate');
+ const duaklir=groups.flatMap(g=>g.records).find(r=>r.id==='uhc-oct-complete-4174a6295393bf8f');
+ assert(duaklir.uhcClinicalBindings.some(b=>b.role==='duplication'&&b.policyId.endsWith('gl-735259')),'Administrative duplication policy lost');
  const sprinkleId='uhc-oct-complete-f24f86de993ce49c';
  const sprinkleGroup=groups.find(x=>x.records.some(r=>r.id===sprinkleId));assert(sprinkleGroup,sprinkleId);
  const sprinkle=sprinkleGroup.records.find(r=>r.id===sprinkleId);
