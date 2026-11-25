@@ -283,6 +283,48 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                     indexes.add(i)
             assert indexes, (code, product)
             matched[code] = indexes
+        # DEC-05/12/13/14/19/20: exact October SC listings only.
+        # The named May 2026 guideline includes a conditional nonpreferred rule.
+        # Retain the structured source verbatim; scope the clinician rendering.
+        sc_reviews = {
+            'uhc-oct-complete-6e31fd16d0c3fee4': (
+                'actemra subcutaneous', 'Actemra SC', 'non_preferred',
+                'Actemra (Tocilizumab) Subcutaneous Injection',
+                'FDA label: 162 mg/0.9 mL prefilled syringe or ACTPen. Adult SSc-ILD is labeled for SC use; ACTPen use has not been studied for SSc-ILD. Do not transfer IV criteria. Exact payer device/package and numeric quantity limit are unverified.',
+                '2e5365ff-cb2a-4b16-b2c7-e35c6bf2de13'),
+            'uhc-oct-complete-2e1049037c5dbd67': (
+                'avtozma subcutaneous', 'Avtozma SC', 'preferred',
+                'Avtozma (Tocilizumab-anoh) Subcutaneous Injection',
+                'FDA label: 162 mg/0.9 mL prefilled syringe or autoinjector. SSc-ILD is a named payer pathway but is not an FDA-labeled Avtozma indication. CRS and COVID-19 are IV-only indications. Exact payer device/package and numeric quantity limit are unverified.',
+                '581c288f-8015-40ef-a4c3-683c96db193d'),
+        }
+        sc_review = sc_reviews.get(record['id'])
+        if sc_review:
+            source_name, product, preference, label, note, label_id = sc_review
+            code = 'GL-565279'
+            assert october_name == source_name and pa and record['pa'] == 'required'
+            assert record['preferred'] == preference
+            assert policies[code]['policyEffective'] == '2026-05-01'
+            branches = structured[code]['branches']
+            assert len(branches) == 7
+            assert [branch['sourcePage'] for branch in branches] == list(range(1728, 1735))
+            for branch in branches:
+                field = branch['fields']['Product Name']
+                assert product in ' '.join(field.get('displayText', field['text']).split()).split(', ')
+                assert branch['fields']['Guideline Type']['text'] == 'Prior Authorization'
+                assert branch['criteria'][-2]['kind'] == 'connector' and branch['criteria'][-2]['text'] == 'AND'
+                assert branch['criteria'][-1]['text'].startswith('3 - If the request is non-preferred')
+                assert 'tocilizumab biosimilars' in branch['criteria'][-1]['text']
+            matched.pop(code, None)
+            add(code, list(range(7)), 'product')
+            bindings[-1]['productLabel'] = product
+            if preference == 'preferred':
+                bindings[-1]['omitNonpreferredCondition'] = True
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': label, 'dosageForm': 'subcutaneous injection', 'note': note,
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + label_id,
+            }
         constipation_code = 'GL-720196'
         if october_name.startswith(('lubiprostone capsule ', 'prucalopride succinate (generic for ')):
             # The October 18 policy removed these generics from its PA targets.
