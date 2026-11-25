@@ -346,6 +346,14 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
         # GL-231255 and GL-140667 are administrative, not named product criteria.
         label_holds = {
+            'uhc-oct-complete-aa50f2e41f4faa14': (
+                'apidra solostar', 'Apidra SoloStar (Insulin Glulisine) Prefilled Pen', 'prefilled pen injection',
+                'FDA label: U-100 (100 units/mL), 3 mL single-patient-use prefilled pen for subcutaneous injection only. Not the vial; do not use the pen for IV or pump administration. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                'e7af6a7a-8046-4fb4-9979-4ec4230b23aa', True),
+            'uhc-oct-complete-ad3656a231a145e1': (
+                'apidra vial', 'Apidra (Insulin Glulisine) Vial for Injection', 'vial injection',
+                'FDA label: U-100 (100 units/mL), 10 mL multiple-dose vial; subcutaneous injection or pump, or diluted IV under medical supervision. Distinct from the SoloStar pen. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                'e7af6a7a-8046-4fb4-9979-4ec4230b23aa', True),
             'uhc-oct-complete-b194127f86ac4236': (
                 'accrufer', 'Accrufer (Ferric Maltol) Oral Capsule', 'oral capsule',
                 'FDA label: 30 mg iron as ferric maltol per capsule; swallow whole. Avoid use during active IBD flare and with IV iron. Not a ferrous salt or IV iron formulation. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
@@ -368,6 +376,35 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 **record.get('reviewedPresentation', {}), 'separate': True,
                 'label': label, 'dosageForm': form, 'note': note,
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + label_id,
+            }
+        # DEC-05/12/13/14/19/20: exact pharmacy SQ policy; never inherit IV medical-benefit criteria.
+        if record['id'] == 'uhc-oct-complete-36c4a27401324b71':
+            assert october_name == 'benlysta subcutaneous solution auto-injector'
+            assert record['pa'] == 'required' and record['preferred'] == 'non_preferred' and ql
+            code = 'GL-140941'
+            assert policies[code]['policyEffective'] == '2022-12-01'
+            branches = structured[code]['branches']
+            assert len(branches) == 3
+            assert [b['sourcePage'] for b in branches] == [226, 227, 228]
+            for index, (diagnosis, stage) in enumerate([
+                ('Systemic Lupus Erythematosus', 'Initial Authorization'),
+                ('Active Lupus Nephritis', 'Initial Authorization'),
+                ('Systemic Lupus Erythematosus, Active Lupus Nephritis', 'Reauthorization'),
+            ]):
+                fields = branches[index]['fields']
+                assert fields['Product Name']['text'] == 'Benlysta SQ'
+                assert fields['Diagnosis']['text'] == diagnosis
+                assert fields['Therapy Stage']['text'] == stage
+                assert fields['Guideline Type']['text'] == 'Prior Authorization'
+            matched.pop(code, None)
+            add(code, [0, 1, 2], 'product')
+            bindings[-1]['productLabel'] = 'Benlysta SQ (autoinjector)'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Benlysta (Belimumab) Subcutaneous Autoinjector',
+                'dosageForm': 'subcutaneous autoinjector',
+                'note': 'FDA label: 200 mg/mL single-dose autoinjector, not the prefilled syringe or IV powder vial. FDA-labeled pediatric SC use is autoinjector-only with weight-based dosing; the prefilled syringe has not been studied under age 18. Exact payer numeric quantity limit is unverified.',
+                'labelUrl': 'https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/125370s090lbl.pdf',
             }
         constipation_code = 'GL-720196'
         if october_name.startswith(('lubiprostone capsule ', 'prucalopride succinate (generic for ')):
