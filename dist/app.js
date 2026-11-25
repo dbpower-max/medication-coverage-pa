@@ -1504,6 +1504,7 @@
       if ((record.id === 'banner-oct2026-j1306' || presentation?.opioidScope) && presentation?.note) {
         details.push(`<p><strong>Prescribing presentation:</strong> ${escapeHtml(presentation.note)}${presentation.labelUrl ? ` <a class="source-link" href="${escapeHtml(presentation.labelUrl)}" target="_blank" rel="noopener">Drug label ↗</a>` : ''}</p>`);
       }
+      if (presentation?.deviceSourceUrl) details.push(`<p><strong>Device reference:</strong> <a class="source-link" href="${escapeHtml(presentation.deviceSourceUrl)}" target="_blank" rel="noopener">Manufacturer or FDA device reference ↗</a></p>`);
       if (record.policySource) {
         const policy = record.policySource;
         details.push(`<p><strong>Exact-plan PA policy source:</strong> <a class="source-link" href="${escapeHtml(policy.url)}#page=${policy.firstPage}" target="_blank" rel="noopener">${escapeHtml(policy.title)} · ${escapeHtml(policy.policyCode)} · PDF pages ${policy.firstPage}–${policy.lastPage} · effective ${escapeHtml(policy.effective)}</a><br>Detailed criteria are indexed for review, not yet structured or clinician-approved here.</p>`);
@@ -2729,6 +2730,7 @@
           ${gvoke ? `<p class="pa-condition"><strong>FDA-labeled presentation:</strong> ${escapeHtml(gvoke.dose)}. UHC does not specify eligible strengths. <a class="source-link" href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=92385737-dbad-98c5-e053-2995a90a2805" target="_blank" rel="noopener">Drug label ↗</a></p>` : ''}
           ${presentation?.note ? `<p class="pa-condition">${escapeHtml(presentation.note)}</p>` : ''}
 
+          ${presentation?.deviceSourceUrl ? `<p><a class="source-link" href="${escapeHtml(presentation.deviceSourceUrl)}" target="_blank" rel="noopener">Device reference ↗</a></p>` : ''}
           ${presentation?.billingUrl ? `<p><a class="source-link" href="${escapeHtml(presentation.billingUrl)}" target="_blank" rel="noopener">Plan billing notice ↗</a></p>` : ''}
           ${presentation?.labelUrl && !commonLabelUrl ? `<p><a class="source-link" href="${escapeHtml(presentation.labelUrl)}" target="_blank" rel="noopener">Drug label ↗</a></p>` : ''}
           ${constipationCoverageNote(record)}${exactAge}${continuedUse}${limit}${nebulizerNote ? `<p class="pa-condition">${escapeHtml(nebulizerNote)}</p>` : ''}

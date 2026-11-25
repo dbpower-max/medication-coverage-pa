@@ -109,6 +109,40 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const card=a.medicationGroupCard(g);assert(card.includes(label),id+' form');assert(card.includes(phrase),id+' distinction');assert(card.includes('Exact UHC product-specific initial/renewal criteria'),id+' hold');assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'),id+' label link');
   const out=await open(g);assert(out.ref.includes('page=1202'),id+' administrative source');if(hasQL)assert(out.ref.includes('page=702'),id+' QL source');
  }
+ // Exact nonpreferred UHC test strip class criteria; device references are not payer NDC evidence.
+ for(const [suffix,label,phrase] of [
+  ['0851f010ae01a71d','Blood Glucose Test Strips (Meter Model Unspecified by UHC)','do not assume interchangeability'],
+  ['b500755c2b65a98f','GLUCOCARD Expression Blood Glucose Test Strips','do not substitute Shine strips'],
+  ['58ab445334122bcf','GLUCOCARD Shine Blood Glucose Test Strips','distinct from Expression'],
+  ['9f988a2e077865db','Precision Xtra Blood Glucose Test Strips','not ketone strips'],
+  ['6176006028f31af2','ReliOn TRUE METRIX Blood Glucose Test Strips','Confirm the exact branded package']
+ ]){
+  const id='uhc-oct-complete-'+suffix;
+  const g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);
+  assert.equal(r.pa,'required');assert.equal(r.preferred,'non_preferred');
+  const pa=r.uhcClinicalBindings.filter(b=>b.role==='product');
+  assert.equal(pa.length,1);assert(pa[0].policyId.endsWith('gl-369221'));assert.deepEqual(pa[0].branchIndexes,[0]);
+  const ql=r.uhcClinicalBindings.find(b=>b.role==='quantity'&&b.policyId.endsWith('gl-369221'));assert(ql);assert.deepEqual(ql.branchIndexes,[1]);
+  assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+  assert(!r.policyQuantityLimit,id+' fabricated numeric QL');
+  const card=a.medicationGroupCard(g);
+  for(const t of [label,phrase,'authorization stage is not specified','numeric quantity limit remain unverified','Device reference'])assert(card.includes(t),id+' '+t);
+  assert(card.includes('href="'+r.reviewedPresentation.deviceSourceUrl.replaceAll('&','&amp;')+'"'),id+' HTML-escaped device source link');
+  const out=await open(g);
+  assert(out.html.includes('Criteria source · PDF page 1686<'),id+' PA source');
+  assert(out.html.includes('Criteria source · PDF page 1687<'),id+' QL source');
+  assert(out.ref.includes('page=1686'),id+' source link');
+ }
+ const meterId='uhc-oct-complete-1c1902ab9f482601';
+ const meter=groups.find(g=>g.records.some(r=>r.id===meterId));assert(meter);
+ const meterRow=meter.records.find(r=>r.id===meterId);
+ assert.equal(meterRow.pa,'required');assert.equal(meterRow.preferred,'non_preferred');
+ assert(!meterRow.uhcClinicalBindings.some(b=>b.role==='product'));
+ const meterCard=a.medicationGroupCard(meter);
+ for(const t of ['TRUE METRIX AIR Blood Glucose Meter Kit','TRUE METRIX self-monitoring test strips only','NDC-level approval','Device reference'])assert(meterCard.includes(t),t);
+ assert(meterCard.includes('href="'+meterRow.reviewedPresentation.deviceSourceUrl+'"'));
+ const meterOut=await open(meter);assert(meterOut.ref.includes('page=1202'));assert(!meterOut.ref.includes('page=245'));
  const basId='uhc-oct-complete-180f1c7535eea5b2';
  const bas=groups.find(g=>g.records.some(r=>r.id===basId));assert(bas);
  const basRow=bas.records.find(r=>r.id===basId);
