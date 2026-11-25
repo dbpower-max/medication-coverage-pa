@@ -366,6 +366,7 @@ console.log('PASS: Sandoz nintedanib exact manufacturer and indication-stage cri
 for(const id of ['banner-full-697faa8211f23f28','banner-full-4710a711a65069e2','banner-full-bcd63d76ee8d2c84']){
  const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');assert.equal(g.records.length,1);
  const r=g.records[0];assert.equal(r.pa,'conditional');assert.equal(r.preferred,'not_specified');
+ assert(api.medicationGroupCard(g).includes('data-card-clinical='),id+' clinical action absent');
  const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
  assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
  assert(html.includes('Criteria source · PDF page 1578<')&&html.includes('Authorization stage is not separately labeled'),html);
@@ -376,6 +377,7 @@ for(const id of ['banner-full-697faa8211f23f28','banner-full-4710a711a65069e2','
 for(const [id,pref] of [['banner-full-087c94375a6182f2','preferred'],['banner-full-ef27a4dfae81f655','not_specified']]){
  const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');assert.equal(g.records.length,1);
  const r=g.records[0];assert.equal(r.pa,'required');assert.equal(r.preferred,pref);
+ assert(api.medicationGroupCard(g).includes('data-card-clinical='),id+' clinical action absent');
  const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
  assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
  for(const p of [1100,1104,1110])assert(html.includes('Criteria source · PDF page '+p+'<'),id+' missing '+p);
