@@ -461,7 +461,8 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 for i, b in enumerate(structured[code]['branches']):
                     fields = b['fields']
                     def field(name):
-                        return ' '.join(fields.get(name, {}).get('text', '').split())
+                        f = fields.get(name, {})
+                        return ' '.join((f.get('displayText') or f.get('text', '')).split())
                     dx = field('Diagnosis')
                     if dx not in stages:
                         continue
@@ -472,7 +473,7 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                     stage = field('Therapy Stage')
                     assert stage not in stages[dx]
                     stages[dx][stage] = i
-                assert all(set(v) == {'Initial Authorization', 'Reauthorization'} for v in stages.values())
+                assert all(set(v) == {'Initial Authorization', 'Reauthorization'} for v in stages.values()), {dx: sorted(v) for dx, v in stages.items()}
                 add(code, [stages[dx][stage] for dx in reviewed_dx
                            for stage in ('Initial Authorization', 'Reauthorization')], 'product')
                 bindings[-1]['productLabel'] = 'Gammagard S-D (named UHC pharmacy criteria; IV only)'
