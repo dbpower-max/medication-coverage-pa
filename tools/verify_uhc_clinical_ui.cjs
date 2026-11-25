@@ -94,6 +94,9 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   ["ccb3e29f79cd93b8","Bijuva (Estradiol / Progesterone) 1 mg / 100 mg Oral Capsule","do not transfer its benefits to the 0.5 mg / 100 mg presentation",true],
   ["c24ea1cc8b559162","Lumigan (Bimatoprost) Ophthalmic Solution","Distinct from 0.03% formulations",true],
   ["a9f6c2797d55304f","Pylera (Bismuth Subcitrate Potassium / Metronidazole / Tetracycline HCl) Oral Capsule","omeprazole is administered separately and is not included",false],
+  ["ea99523e63092e14","Sorilux (Calcipotriene) Topical Foam","Contraindicated in known hypercalcemia",true],
+  ["2e1dfaa167d25964","Taclonex (Calcipotriene / Betamethasone Dipropionate) Topical Form Unspecified","ointment versus topical suspension",true],
+  ["604fed6ff3bba12e","Dhivy (Carbidopa / Levodopa) Functionally Scored Oral Tablet","each quarter contains 6.25 mg/25 mg",true],
   ["3030be16c6c4522a","Alphagan P (Brimonidine Tartrate) Ophthalmic Solution","not Mirvaso topical gel",true],
   ["84a578e96b55a0cf","Mirvaso (Brimonidine) 0.33% Topical Gel","Not for ophthalmic, oral or intravaginal use",true],
   ["c5aa345f96aaec5c","Combigan (Brimonidine Tartrate / Timolol) Ophthalmic Solution","not single-agent brimonidine",true],
@@ -117,6 +120,15 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const card=a.medicationGroupCard(g);assert(card.includes(label),id+' form');assert(card.includes(phrase),id+' distinction');assert(card.includes('Exact UHC product-specific initial/renewal criteria'),id+' hold');assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'),id+' label link');
   const out=await open(g);assert(out.ref.includes('page=1202'),id+' administrative source');if(hasQL)assert(out.ref.includes('page=702'),id+' QL source');
  }
+ const calcId='uhc-oct-complete-e29a433265e8ba09';
+ const calcGroup=groups.find(x=>x.records.some(r=>r.id===calcId));assert(calcGroup,calcId);
+ const calcRow=calcGroup.records.find(r=>r.id===calcId);
+ assert.equal(calcRow.pa,'conditional');assert.equal(calcRow.preferred,'preferred');
+ assert(calcRow.uhcClinicalBindings.some(b=>b.role==='nonsolid'&&b.policyId.endsWith('gl-545275')));
+ assert(!calcRow.uhcClinicalBindings.some(b=>b.role==='product'||b.role==='global_quantity'));
+ const calcCard=a.medicationGroupCard(calcGroup);
+ assert(calcCard.includes('Calcitriol Oral Solution')&&calcCard.includes('1 mcg/mL oral solution')&&calcCard.includes('aged 8 years or older'));
+ assert(calcCard.includes('href="'+calcRow.reviewedPresentation.labelUrl+'"'));
  // Exact nonpreferred UHC test strip class criteria; device references are not payer NDC evidence.
  for(const [suffix,label,phrase] of [
   ['0851f010ae01a71d','Blood Glucose Test Strips (Meter Model Unspecified by UHC)','do not assume interchangeability'],
