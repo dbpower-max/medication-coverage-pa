@@ -52,7 +52,8 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  // Reviewed UHC SC route and preference-specific seven-stage policy.
  for (const [suffix,pref,label] of [
    ['6e31fd16d0c3fee4','non_preferred','Actemra (Tocilizumab) Subcutaneous Injection'],
-   ['2e1049037c5dbd67','preferred','Avtozma (Tocilizumab-anoh) Subcutaneous Injection']
+   ['2e1049037c5dbd67','preferred','Avtozma (Tocilizumab-anoh) Subcutaneous Injection'],
+   ['4bfb77000b6496ad','preferred','Tyenne (Tocilizumab-aazg) Subcutaneous Injection']
  ]) {
    const id='uhc-oct-complete-'+suffix;
    const g=groups.find(group=>group.records.some(record=>record.id===id));
@@ -66,7 +67,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    const card=a.medicationGroupCard(g);
    assert(card.includes(label),id+' missing dosage form');
    assert(card.includes('Exact payer device/package and numeric quantity limit are unverified'),id+' missing package hold');
-   if(pref==='preferred')assert(card.includes('not an FDA-labeled Avtozma indication'),id+' missing label distinction');
+   if(pref==='preferred')assert(card.includes('not an FDA-labeled '+(suffix==='4bfb77000b6496ad'?'Tyenne':'Avtozma')+' indication'),id+' missing label distinction');
    else assert(card.includes('ACTPen use has not been studied for SSc-ILD'),id+' missing device distinction');
    const out=await open(g);
    const pa=out.html.split('<h4>Therapeutic duplication exceptions</h4>')[0].split('<h4>Quantity-limit exceptions</h4>')[0];
@@ -74,7 +75,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    assert.equal(/history of failure to ALL preferred\*? tocilizumab biosimilars/i.test(pa),pref==='non_preferred',id+' wrong preference scope');
    assert(out.ref.includes('page=1728'),id+' wrong named policy source');
  }
- const scIds=new Set(['uhc-oct-complete-6e31fd16d0c3fee4','uhc-oct-complete-2e1049037c5dbd67']);
+ const scIds=new Set(['uhc-oct-complete-6e31fd16d0c3fee4','uhc-oct-complete-2e1049037c5dbd67','uhc-oct-complete-4bfb77000b6496ad']);
  for(const record of data.medications.filter(r=>!scIds.has(r.id)))assert(!record.uhcClinicalBindings?.some(b=>b.omitNonpreferredCondition),record.id+' preference override leaked');
  const samsca=groups.find(g=>g.records.some(r=>r.name.startsWith('SAMSCA (brand')));
  const samscaContent=await open(samsca);
@@ -495,11 +496,11 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert.equal(subtypeB.length, 76);
  assert.equal(subtypeBRows.length, 76);
  assert(subtypeBRows.every(r => r.pa === 'required'));
- // Two newly verified SC records also carry GL-733328 duplication references.
+ // Three newly verified SC records also carry GL-733328 duplication references.
  const subtypeBNamed = subtypeBRows.filter(r => r.uhcClinicalBindings.some(b => b.role === 'product'));
- assert.equal(subtypeBNamed.length, 63);
+ assert.equal(subtypeBNamed.length, 64);
  assert.equal(subtypeBNamed.filter(r => !scIds.has(r.id)).length, 61);
- assert.equal(subtypeBNamed.filter(r => scIds.has(r.id)).length, 2);
+ assert.equal(subtypeBNamed.filter(r => scIds.has(r.id)).length, 3);
  const auditedSupplies = [
   ['3b25d168e772f4bb', /BD AutoShield Duo/, 'conflict'],
   ['c97b122f4df189e3', /Embecta AutoShield Duo/],
