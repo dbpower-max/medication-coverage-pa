@@ -90,6 +90,9 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(avlayahCard.includes('href="'+avlayahRow.reviewedPresentation.labelUrl+'"'),'Avlayah label citation missing from prescribing card');
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ['9248b8305ab77197','Reyataz (Atazanavir) Oral Capsule','do not open capsules',true],
+  ['101e5350ddd51acd','AzaSITE (Azithromycin) Ophthalmic Solution','for ocular use only',true],
+  ['826e676ded0d2967','Edarbi (Azilsartan Medoxomil) Oral Tablet','not the azilsartan/chlorthalidone combination',true],
   ['aa50f2e41f4faa14','Apidra SoloStar (Insulin Glulisine) Prefilled Pen','3 mL single-patient-use prefilled pen',true],
   ['ad3656a231a145e1','Apidra (Insulin Glulisine) Vial for Injection','10 mL multiple-dose vial',true],
   ['b194127f86ac4236','Accrufer (Ferric Maltol) Oral Capsule','30 mg iron as ferric maltol',true],
@@ -106,6 +109,17 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const card=a.medicationGroupCard(g);assert(card.includes(label),id+' form');assert(card.includes(phrase),id+' distinction');assert(card.includes('Exact UHC product-specific initial/renewal criteria'),id+' hold');assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'),id+' label link');
   const out=await open(g);assert(out.ref.includes('page=1202'),id+' administrative source');if(hasQL)assert(out.ref.includes('page=702'),id+' QL source');
  }
+ const barId='uhc-oct-complete-c80e5c34df4eadf5';
+ const bar=groups.find(g=>g.records.some(r=>r.id===barId));assert(bar);
+ const barRow=bar.records.find(r=>r.id===barId);
+ assert.equal(barRow.pa,'required');assert.equal(barRow.preferred,'preferred');
+ assert(!barRow.uhcClinicalBindings.some(b=>b.role==='product'||b.role==='nonpreferred'));
+ assert(barRow.uhcClinicalBindings.some(b=>b.role==='nonsolid'&&b.policyId.endsWith('gl-545275')));
+ assert(barRow.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+ const barCard=a.medicationGroupCard(bar);
+ for(const phrase of ['Baraclude (Entecavir) Oral Solution','0.05 mg/mL','Boxed warnings','Exact UHC product-specific initial/renewal criteria'])assert(barCard.includes(phrase),phrase);
+ assert(barCard.includes('href="'+barRow.reviewedPresentation.labelUrl+'"'));
+ const barOut=await open(bar);assert(barOut.ref.includes('page=1357'));assert(barOut.ref.includes('page=702'));
  const benlysta=groups.find(g=>g.records.some(r=>r.id==='uhc-oct-complete-36c4a27401324b71'));assert(benlysta);
  const benRow=benlysta.records.find(r=>r.id==='uhc-oct-complete-36c4a27401324b71');
  assert.equal(benRow.pa,'required');assert.equal(benRow.preferred,'non_preferred');
