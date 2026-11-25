@@ -415,6 +415,22 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
         # GL-231255 and GL-140667 are administrative, not named product criteria.
         label_holds = {
+            'uhc-oct-complete-3030be16c6c4522a': (
+                "alphagan p (brand for brimonidine tartrate)", "Alphagan P (Brimonidine Tartrate) Ophthalmic Solution", "ophthalmic solution",
+                "FDA label: 0.1% and 0.15% ophthalmic solutions; not Mirvaso topical gel. UHC does not specify concentration or package. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                '264c4494-c225-486f-888a-caaf36be46b3', True),
+            'uhc-oct-complete-84a578e96b55a0cf': (
+                "mirvaso external gel 0.33 % (brand for brimonidine tartrate)", "Mirvaso (Brimonidine) 0.33% Topical Gel", "topical gel",
+                "FDA label: 0.33% brimonidine free base (5 mg/g tartrate), for facial erythema of rosacea. Not for ophthalmic, oral or intravaginal use. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                'f6a4353f-ae69-4214-901f-e5d42a6fbde7', True),
+            'uhc-oct-complete-c5aa345f96aaec5c': (
+                "combigan (brand for brimonidine tartrate-timolol)", "Combigan (Brimonidine Tartrate / Timolol) Ophthalmic Solution", "ophthalmic solution",
+                "FDA label: 0.2% brimonidine tartrate / 0.5% timolol; combination, not single-agent brimonidine. Contraindicated in asthma or history of asthma and severe COPD. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                'feaf1480-a4b8-4486-992a-96be3a596243', True),
+            'uhc-oct-complete-bec7f75a1db17d2b': (
+                "prolensa (brand for bromfenac sodium)", "Prolensa (Bromfenac) Ophthalmic Solution", "ophthalmic solution",
+                "FDA label: 0.07% ophthalmic solution, once daily for postoperative cataract inflammation and pain; do not transfer dosing from other bromfenac concentrations. UHC does not specify concentration or package. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                '4e072537-f73c-4a96-a65f-e2805ce112d8', True),
             'uhc-oct-complete-48aa5c3126dac1f1': (
                 "besivance (brand for besifloxacin hcl)", "Besivance (Besifloxacin) Ophthalmic Suspension", "ophthalmic suspension",
                 "FDA label: 0.6% (6 mg/mL) topical ophthalmic suspension, not for injection into the eye. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
