@@ -2438,6 +2438,13 @@
             if (!age.test(cleaned) || !nonpreferred.test(cleaned)) throw new Error('PAH exact conditional steps not verified');
             text = cleaned.slice(0, nonpreferred.exec(cleaned).index).replace(age,'2 - Patient is 18 years of age or older');
           }
+          if (b.omitGranisolStep) {
+            if (b.policyId !== 'banner-policy-12-129' || b.product !== 'Anzemet' || stage || ![129,130,131].includes(page)) throw new Error('Unverified Anzemet scope');
+            const cleaned = text.replace(/^(?:=== PDF PAGE \d+ ===|Page \d+)\s*$/gmi, '');
+            const only = /\n\s*AND\s*\n\s*2\s*-\s*For Granisol requests ONLY, BOTH of the following:/i.exec(cleaned);
+            if (!only) throw new Error('Granisol-only condition not verified');
+            text = cleaned.slice(0, only.index);
+          }
           if (b.omitOtherProductStep) {
             const otherStep = /\n\s*AND\s*\n\s*3\s*-\s*For Norliqva and Sdamlo requests ONLY:/i.exec(text);
             if (!otherStep) throw new Error('Reviewed other-product step not verified');
