@@ -682,6 +682,26 @@ for(const [id,form,pages] of [["banner-full-7c9407dc50aeffd6","Starjemza (Usteki
  if(pages[0]===200)assert(/suspension/i.test(html)&&/hospital/i.test(html)&&/aspergillosis/i.test(html)&&/brand only/i.test(card),id+' wrong antifungal scope');
 }
 console.log('PASS: recovered four exact policy rows; Starjemza solution route held; original flags and separate forms preserved.');
+
+for(const [id,form,pages] of [["banner-full-c50d5a831e1c6a83","Aralast NP (Alpha1-Proteinase Inhibitor) IV Powder for Solution",[82,83]],["banner-full-b9c82fb411440f4c","Cidofovir IV Infusion Solution (Vistide Reference)",[352]],["banner-full-514f1b7852e793e4","Demeclocycline Hydrochloride Oral Tablets",[449]],["banner-full-655161387e7d56c9","Donepezil Hydrochloride Orally Disintegrating Tablets (Aricept Reference)",[87]],["banner-full-5871af4cc5e1eb9b","Premarin (Conjugated Estrogens) Vaginal Cream",[598]]]){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'not_specified');
+ const card=api.medicationGroupCard(g);assert(card.includes(form)&&card.includes('data-card-clinical='),id+' missing form or criteria: label='+g.label+' scoped='+JSON.stringify(r.reviewedBannerBranches)+' presentation='+JSON.stringify(r.reviewedPresentation)+' group ids='+g.records.map(x=>x.id).join(',')+' title present='+card.includes(form)+' clinical present='+card.includes('data-card-clinical='));
+ const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
+ assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
+ assert.deepEqual([...html.matchAll(/Criteria source · PDF page (\d+)</g)].map(m=>Number(m[1])),pages,id+' wrong branches');
+ if(pages[0]===82)assert(/emphysema/i.test(html)&&/positive clinical response/i.test(html)&&/require reconstitution/i.test(card),id+' form or stage scope lost');
+ if(pages[0]===352)assert(/retinitis/i.test(html)&&!/CMV disease prophylaxis/i.test(html)&&/NOT intraocular/i.test(card),id+' wrong cidofovir branch');
+ if(pages[0]===449)assert(/infectious disease/i.test(html)&&/6 months/i.test(html)&&/no labeled SIADH/i.test(card),id+' wrong demeclocycline scope');
+ if(pages[0]===87)assert(/Alzheimer/i.test(html)&&!/Parkinson|generic rivastigmine patch/i.test(html),id+' wrong dementia scope');
+ if(pages[0]===598)assert(/atrophic vaginitis/i.test(html)&&/kraurosis vulvae/i.test(html)&&!/Femring/i.test(html),id+' wrong vaginal indication');
+}
+{
+ const id="banner-full-150d0a331d6c46df";const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const card=api.medicationGroupCard(g);assert(card.includes('Exact covered brand, formulation and package are unverified')&&card.includes('GL-731221')&&!card.includes('data-card-clinical='),id+' unsafe auto criteria or missing hold');
+ assert.equal(g.records.length,1);
+}
+console.log('PASS: five Banner exact rows and one A1PI package/form hold, original flags preserved.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
