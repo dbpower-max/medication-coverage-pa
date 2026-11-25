@@ -106,6 +106,12 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(avlayahCard.includes('href="'+avlayahRow.reviewedPresentation.labelUrl+'"'),'Avlayah label citation missing from prescribing card');
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["1d35bfcfe764c083","Cycloset (Bromocriptine) Oral Tablet","Distinct from other bromocriptine products",false],
+  ["8eaaa9a428e51bfe","Diazepam 2.5 mg Rectal Gel","distinct from the 10 mg and 20 mg adjustable syringes",true],
+  ["92cd6d282b2fdba2","Dipentum (Olsalazine Sodium) Oral Capsule","distinct from other aminosalicylates",true],
+  ["d6a9c6a4da764191","Norpace (Disopyramide Phosphate) Immediate-Release Oral Capsule","distinct from 12-hour Norpace CR",true],
+  ["f99f6e23bf651e34","Cosopt (Dorzolamide / Timolol) Ophthalmic Solution","preserved multidose ophthalmic solution",true],
+  ["4ffe1eab1f90ef46","Cosopt PF (Dorzolamide / Timolol) Preservative-Free Ophthalmic Solution","preservative-free single-dose 0.2 mL",false],
   ["8b9ddaaef849c561","Crysvita (Burosumab-twza) 20 mg/mL Subcutaneous Solution","Medical-benefit policy applicability to this pharmacy listing is unverified",false],
   ["8ac95e39cc071af9","Cimduo (Lamivudine / Tenofovir Disoproxil Fumarate) Oral Tablet","not tenofovir alafenamide",true],
   ["3ce934e09340ac9a","Clenpiq (Sodium Picosulfate / Magnesium Oxide / Citric Acid) Oral Solution","not a powder for reconstitution",true],
@@ -144,6 +150,15 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const card=a.medicationGroupCard(g);assert(card.includes(label),id+' form');assert(card.includes(phrase),id+' distinction');assert(card.includes('Exact UHC product-specific initial/renewal criteria'),id+' hold');assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'),id+' label link');
   const out=await open(g);assert(out.ref.includes('page=1202'),id+' administrative source');if(hasQL)assert(out.ref.includes('page=702'),id+' QL source');
  }
+ const sprinkleId='uhc-oct-complete-f24f86de993ce49c';
+ const sprinkleGroup=groups.find(x=>x.records.some(r=>r.id===sprinkleId));assert(sprinkleGroup,sprinkleId);
+ const sprinkle=sprinkleGroup.records.find(r=>r.id===sprinkleId);
+ assert.equal(sprinkle.pa,'conditional');assert.equal(sprinkle.preferred,'preferred');
+ assert(sprinkle.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+ assert(!sprinkle.uhcClinicalBindings.some(b=>['product','nonsolid','nonpreferred'].includes(b.role)));
+ const sprinkleCard=a.medicationGroupCard(sprinkleGroup);
+ assert(sprinkleCard.includes('Divalproex Sodium Delayed-Release Sprinkle Oral Capsule')&&sprinkleCard.includes('aged 8 years or older')&&sprinkleCard.includes('without chewing'));
+ assert(sprinkleCard.includes('href="'+sprinkle.reviewedPresentation.labelUrl+'"'));
  const calcId='uhc-oct-complete-e29a433265e8ba09';
  const calcGroup=groups.find(x=>x.records.some(r=>r.id===calcId));assert(calcGroup,calcId);
  const calcRow=calcGroup.records.find(r=>r.id===calcId);
