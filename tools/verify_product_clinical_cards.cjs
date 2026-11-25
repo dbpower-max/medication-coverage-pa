@@ -350,6 +350,18 @@ for(const [id,route] of [['banner-full-89559c60a03b28df','NOT IV'],['banner-full
  for(const other of ['Norliqva','Sdamlo','Katerzia','Subvenite','Criteria source · PDF page 1248<'])assert(!html.includes(other),'unrelated step '+other);
 }
 console.log('PASS: two injectable route/criteria holds and conditional Lopressor product branch with age and label caveats.');
+{
+ const id='banner-full-c221a2227136f081',g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');assert.equal(g.records.length,1);
+ const r=g.records[0];assert.equal(r.pa,'required');assert.equal(r.preferred,'not_specified');
+ const card=api.medicationGroupCard(g);assert(card.includes('Sandoz')&&card.includes('100 mg')&&card.includes('150 mg')&&card.includes('>PA required<'));
+ const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
+ assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
+ for(const p of [589,591,592,593,594,595])assert(html.includes('Criteria source · PDF page '+p+'<'),id+' missing '+p);
+ for(const term of ['Idiopathic pulmonary fibrosis','Systemic sclerosis-associated','Progressive fibrosing ILD','Initial Authorization','Reauthorization','positive clinical response','pulmonologist','12 month(s)'])assert(html.includes(term),id+' missing '+term);
+ assert(!/For Non-Preferred requests|PA Team: Please approve/i.test(html),'Unrelated nonpreferred steps or administrative note leaked');
+ assert(api.recordDetails(r).includes('GL-620196'));
+}
+console.log('PASS: Sandoz nintedanib exact manufacturer and indication-stage criteria, raw flags unchanged.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
