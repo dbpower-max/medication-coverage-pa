@@ -437,6 +437,30 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
         # GL-231255 and GL-140667 are administrative, not named product criteria.
         label_holds = {
+            'uhc-oct-complete-e9587576b936cf5e': (
+                "eysuvis", "Eysuvis (Loteprednol Etabonate) Ophthalmic Suspension", "ophthalmic suspension",
+                "FDA label: 0.25% (2.5 mg/mL), short-term dry eye treatment for up to 2 weeks; distinct from other loteprednol forms and concentrations. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "a2169d82-4275-4ab6-a1c3-c274080b815c", True),
+            'uhc-oct-complete-1de36cc0a4b8fcd4': (
+                "fiasp", "Fiasp (Insulin Aspart) Injectable Solution (Device Unspecified)", "injectable solution",
+                "FDA label: 100 units/mL; vial, FlexTouch, PenFill and PumpCart are distinct presentations. The plain UHC listing does not establish a particular device; do not infer vial coverage. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "834e7efc-393f-4c55-9125-628562a8a5cf", True),
+            'uhc-oct-complete-100bab6065fcfca3': (
+                "fiasp flextouch", "Fiasp FlexTouch (Insulin Aspart) Prefilled Pen", "prefilled pen",
+                "FDA label: 100 units/mL, 3 mL single-patient-use prefilled pen for subcutaneous injection; distinct from vial or cartridge. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "834e7efc-393f-4c55-9125-628562a8a5cf", True),
+            'uhc-oct-complete-47e7ac4802b75ef8': (
+                "fiasp penfill", "Fiasp PenFill (Insulin Aspart) Cartridge", "cartridge",
+                "FDA label: 100 units/mL, 3 mL PenFill cartridge for compatible insulin delivery device, subcutaneous injection; distinct from 1.6 mL PumpCart and FlexTouch pen. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "834e7efc-393f-4c55-9125-628562a8a5cf", True),
+            'uhc-oct-complete-e6a8af6fb0e528d0': (
+                "finacea external foam", "Finacea (Azelaic Acid) Topical Foam", "topical foam",
+                "FDA label: 15% aerosol foam for inflammatory papules and pustules of rosacea; distinct from gel. Flammable; topical use only. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "9fabd24e-4c3b-49a0-aa5f-c8d75ae67572", True),
+            'uhc-oct-complete-04c2175bcaa7ee29': (
+                "flarex", "Flarex (Fluorometholone Acetate) Ophthalmic Suspension", "ophthalmic suspension",
+                "FDA label: 0.1% fluorometholone acetate; distinct from fluorometholone alcohol. Shake well; topical ophthalmic use only. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "f060dec4-09dc-4266-ab4c-a6ed49cd8126", True),
             'uhc-oct-complete-44ba8a15828b42b8': (
                 "symfi (brand for efavirenz-lamivudine-tenofovir)", "Symfi (Efavirenz / Lamivudine / Tenofovir Disoproxil Fumarate) Oral Tablet", "oral tablet",
                 "FDA label: 600/300/300 mg; distinct from Symfi Lo 400/300/300 mg. Fixed-dose combination not recommended for CrCl below 50 mL/min. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
@@ -652,6 +676,18 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'dosageForm': 'prefilled pen injection',
                 'note': 'FDA label: 100 units/mL (U-100), 3 mL single-patient-use pen for subcutaneous injection; do not mix or dilute. Distinct from Tempo Pen and U-300 glargine. Therapeutic duplication criteria apply to DUR review, not routine product-specific authorization. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0ad21db3-2b1c-4ed9-a687-bdd6a74d0aae',
+            }
+        # DEC-05/12/13/14/19/20: exact preferred oral suspension; preserve conditional PA and administrative references.
+        if record['id'] == 'uhc-oct-complete-25343462b850be92':
+            assert october_name == 'felbamate oral suspension'
+            assert record['pa'] == 'conditional' and record['preferred'] == 'preferred' and ql
+            assert not matched, ('Review new named policy', record['id'], matched)
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Felbamate Oral Suspension',
+                'dosageForm': 'oral suspension',
+                'note': 'FDA label: 600 mg/5 mL oral suspension; boxed warnings for aplastic anemia and hepatic failure. UHC PDL requires PA for members aged 8 years or older; general nonsolid criteria are not named product-specific criteria. Exact product-specific criteria and numeric quantity limit remain unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0afffb17-e6ac-4bea-a90e-7ef3c8150290',
             }
         # DEC-05/12/13/14/19/20: preserve age-conditioned PDL rule and general nonsolid criteria.
         if record['id'] == 'uhc-oct-complete-e29a433265e8ba09':
