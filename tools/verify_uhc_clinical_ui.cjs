@@ -106,6 +106,12 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(avlayahCard.includes('href="'+avlayahRow.reviewedPresentation.labelUrl+'"'),'Avlayah label citation missing from prescribing card');
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["44ba8a15828b42b8","Symfi (Efavirenz / Lamivudine / Tenofovir Disoproxil Fumarate) Oral Tablet","distinct from Symfi Lo 400/300/300 mg",true],
+  ["e48614a8896d1c42","Elyxyb (Celecoxib) Oral Solution","acute migraine in adults, not prevention",true],
+  ["3c48b4c2b5592695","Emend (Aprepitant) Oral Capsule / Powder for Oral Suspension (Form Unspecified)","The UHC listing does not identify the oral formulation",true],
+  ["42d6b65788f7e18f","Truvada (Emtricitabine / Tenofovir Disoproxil Fumarate) Oral Tablet","distinct from tenofovir alafenamide combinations",true],
+  ["91cfa1e69148c0ca","Emverm (Mebendazole) Chewable Tablet","Avoid concomitant metronidazole",true],
+  ["93cb1d792516d6af","Enstilar (Calcipotriene / Betamethasone Dipropionate) Topical Foam","distinct from ointment or suspension",true],
   ["8f02f89ad4d636c6","Beyaz (Drospirenone / Ethinyl Estradiol / Levomefolate) Oral Tablet Pack","Distinct from Safyral 21/7 pack",true],
   ["f142ec3c46691c32","Safyral (Drospirenone / Ethinyl Estradiol / Levomefolate) Oral Tablet Pack","Distinct from Beyaz 24/4 pack",true],
   ["4174a6295393bf8f","Duaklir Pressair (Aclidinium / Formoterol) Dry Powder Inhaler","COPD maintenance, not rescue or asthma",true],
