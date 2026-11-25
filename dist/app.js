@@ -2426,6 +2426,20 @@
             if (!nonpreferred) throw new Error('Reviewed nonpreferred-only step not verified');
             text = cleaned.slice(0, nonpreferred.index);
           }
+          if (b.omitEltrombopagNonpreferredStep) {
+            if (b.policyId !== 'banner-policy-12-1798' || b.product !== 'generic eltrombopag tablet' || !/^Preferred:\s*(?:Nplate,\s*)?generic eltrombopag tablet,/i.test(matches[0].product) || ![1798,1799,1800,1801,1802].includes(page) || !stage) throw new Error('Eltrombopag scope not verified');
+            const cleaned = text.replace(/^(?:=== PDF PAGE \d+ ===|Page \d+)\s*$/gmi, '');
+            const nonpreferred = /\n\s*AND\s*\n\s*\d+\s*-\s*For Non-Preferred Drug requests:/i.exec(cleaned);
+            if (!nonpreferred) throw new Error('Reviewed eltrombopag nonpreferred-only step not verified');
+            text = cleaned.slice(0, nonpreferred.index);
+          }
+          if (b.scopeAimovigAdult && stage === 'Initial Authorization') {
+            if (b.policyId !== 'banner-policy-12-305' || b.product !== 'Aimovig' || page !== 305 || !/^Aimovig, Ajovy, Emgality 120 mg\/ml Diagnosis Preventive Treatment of Migraine/i.test(matches[0].product)) throw new Error('Aimovig adult scope not verified');
+            const cleaned = text.replace(/^(?:=== PDF PAGE \d+ ===|Page \d+)\s*$/gmi, '');
+            const age = /2\s*-\s*One of the following:\s*2\.1 Patient is 18 years of age or older\s*OR\s*2\.2 Both of the following \(applies to Ajovy for episodic migraines ONLY\):\s*•\s*Patient is between 6-17 years of age\s*•\s*Patient weight at least 45 kg or greater(?=\s*AND\s*3\s*-)/i;
+            if (!age.test(cleaned)) throw new Error('Reviewed Ajovy-only pediatric alternative not verified');
+            text = cleaned.replace(age,'2 - Patient is 18 years of age or older');
+          }
           if (b.omitNplateNonpreferredStep && stage) {
             if (b.policyId !== 'banner-policy-12-1798' || !/^Preferred:\s*Nplate,/i.test(matches[0].product) || ![1798,1799].includes(page)) throw new Error('Nplate preferred product scope not verified');
             const cleaned = text.replace(/^(?:=== PDF PAGE \d+ ===|Page \d+)\s*$/gmi, '');
