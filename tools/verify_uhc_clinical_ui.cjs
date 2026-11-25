@@ -90,6 +90,10 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(avlayahCard.includes('href="'+avlayahRow.reviewedPresentation.labelUrl+'"'),'Avlayah label citation missing from prescribing card');
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["48aa5c3126dac1f1","Besivance (Besifloxacin) Ophthalmic Suspension","not for injection into the eye",true],
+  ["ccb3e29f79cd93b8","Bijuva (Estradiol / Progesterone) 1 mg / 100 mg Oral Capsule","do not transfer its benefits to the 0.5 mg / 100 mg presentation",true],
+  ["c24ea1cc8b559162","Lumigan (Bimatoprost) Ophthalmic Solution","Distinct from 0.03% formulations",true],
+  ["a9f6c2797d55304f","Pylera (Bismuth Subcitrate Potassium / Metronidazole / Tetracycline HCl) Oral Capsule","omeprazole is administered separately and is not included",false],
   ['9248b8305ab77197','Reyataz (Atazanavir) Oral Capsule','do not open capsules',true],
   ['101e5350ddd51acd','AzaSITE (Azithromycin) Ophthalmic Solution','for ocular use only',true],
   ['826e676ded0d2967','Edarbi (Azilsartan Medoxomil) Oral Tablet','not the azilsartan/chlorthalidone combination',true],
