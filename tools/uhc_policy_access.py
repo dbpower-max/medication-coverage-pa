@@ -343,6 +343,75 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: 150 mg lyophilized single-dose vial for IV infusion after preparation; pediatric initiation at 5 kg or more before advanced neurologic impairment. Not recommended with other enzyme replacement therapies for Hunter syndrome. Boxed warning: anaphylaxis. Exact UHC initial/renewal criteria are unverified; statewide criteria are reference only.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=014d92c1-b643-4680-8ca6-f0b3307da915',
             }
+        # DEC-05/12/13/14/19/20: exact UHC nonpreferred glucose strip rows.
+        # GL-369221 is a class PA/quantity exception; it does not identify a payer NDC or a numeric limit.
+        strip_reviews = {
+            'uhc-oct-complete-0851f010ae01a71d': (
+                'blood glucose test strips (brand for blood glucose test)',
+                'Blood Glucose Test Strips (Meter Model Unspecified by UHC)',
+                'The payer does not identify a compatible meter model. Use only strips recommended for the actual meter; do not assume interchangeability.',
+                'https://www.fda.gov/medical-devices/blood-glucose-monitoring-devices/users-blood-glucose-meters-must-use-only-test-strip-recommended-use-their-meter'),
+            'uhc-oct-complete-b500755c2b65a98f': (
+                'glucocard expression test (brand for blood glucose test)',
+                'GLUCOCARD Expression Blood Glucose Test Strips',
+                'Manufacturer specifies GLUCOCARD Expression meter; do not substitute Shine strips.',
+                'https://arkrayusa.com/diabetes-management/consumer-healthcare-products/glucocard/glucocard-expression/'),
+            'uhc-oct-complete-58ab445334122bcf': (
+                'glucocard shine test (brand for blood glucose test)',
+                'GLUCOCARD Shine Blood Glucose Test Strips',
+                'Manufacturer specifies Shine, Shine XL, Shine Connex and Shine Express meters; distinct from Expression.',
+                'https://arkrayusa.com/diabetes-management/consumer-healthcare-products/glucocard/glucocard-shine/'),
+            'uhc-oct-complete-9f988a2e077865db': (
+                'precision xtra blood glucose strips (brand for blood glucose test)',
+                'Precision Xtra Blood Glucose Test Strips',
+                'FDA device listing identifies glucose test strips, not ketone strips. Confirm the exact compatible meter and package.',
+                'https://www.accessdata.fda.gov/scrIpts/cdrh/cfdocs/cfRL/rl.cfm?lid=787017&lpcd=NBW'),
+            'uhc-oct-complete-6176006028f31af2': (
+                'relion true metrix test strips (brand for blood glucose test)',
+                'ReliOn TRUE METRIX Blood Glucose Test Strips',
+                'TRUE METRIX self-monitoring strip family is specified for the TRUE METRIX AIR meter. Confirm the exact branded package; do not infer compatibility with other meter families.',
+                'https://www.trividiahealth.com/wp-content/uploads/2024/09/TRUE_METRIX_InstructionsForUse_RF3TVH03r53.pdf'),
+        }
+        if record['id'] in strip_reviews:
+            expected, label, note, source = strip_reviews[record['id']]
+            assert october_name == expected and record['pa'] == 'required'
+            assert record['preferred'] == 'non_preferred' and ql
+            code = 'GL-369221'
+            assert policies[code]['policyEffective'] == '2025-09-01'
+            branches = structured[code]['branches']
+            assert len(branches) == 2
+            for i, (product, typ) in enumerate([
+                ('Non-preferred Test Strip Products', 'Prior Authorization'),
+                ('Preferred or Non-preferred Test Strip Products', 'Quantity Limit'),
+            ]):
+                fields = branches[i]['fields']
+                assert fields['Product Name']['text'] == product
+                assert fields['Guideline Type']['text'] == typ
+            assert set(matched).issubset({code}), ('Review new named policy', record['id'], matched)
+            matched.pop(code, None)
+            add(code, [0], 'product')
+            bindings[-1]['productLabel'] = label + ' (nonpreferred test strip class)'
+            add(code, [1], 'quantity')
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': label, 'dosageForm': 'blood glucose test strips',
+                'note': note + ' UHC GL-369221 class criteria apply; authorization stage is not specified. Exact payer package and numeric quantity limit remain unverified.',
+                'deviceSourceUrl': source,
+            }
+        if record['id'] == 'uhc-oct-complete-1c1902ab9f482601':
+            assert october_name == 'true metrix air glucose meter kit (brand for blood glucose monitor system)'
+            assert record['pa'] == 'required' and record['preferred'] == 'non_preferred' and ql
+            # GL-140734 background names the ReliOn-branded kit and requires NDC-level approval.
+            # Do not attach that policy to this exact payer row without the product linkage.
+            assert set(matched).issubset({'GL-140734'}), ('Review new named policy', matched)
+            matched.pop('GL-140734', None)
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'TRUE METRIX AIR Blood Glucose Meter Kit',
+                'dosageForm': 'blood glucose meter kit',
+                'note': 'Manufacturer specifies TRUE METRIX self-monitoring test strips only. UHC lists this meter as nonpreferred with PA and QL. GL-140734 requires NDC-level approval; exact applicability, package and numeric quantity limit remain unverified.',
+                'deviceSourceUrl': 'https://www.trividiahealth.com/wp-content/uploads/2024/01/REA4TVH03-TRUE-METRIX-AIR-Owners-Booklet_012224.pdf',
+            }
         # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
         # GL-231255 and GL-140667 are administrative, not named product criteria.
         label_holds = {
