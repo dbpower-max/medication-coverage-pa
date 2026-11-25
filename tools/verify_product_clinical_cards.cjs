@@ -686,7 +686,7 @@ console.log('PASS: recovered four exact policy rows; Starjemza solution route he
 for(const [id,form,pages] of [["banner-full-c50d5a831e1c6a83","Aralast NP (Alpha1-Proteinase Inhibitor) IV Powder for Solution",[82,83]],["banner-full-b9c82fb411440f4c","Cidofovir IV Infusion Solution (Vistide Reference)",[352]],["banner-full-514f1b7852e793e4","Demeclocycline Hydrochloride Oral Tablets",[449]],["banner-full-655161387e7d56c9","Donepezil Hydrochloride Orally Disintegrating Tablets (Aricept ODT Reference)",[87]],["banner-full-5871af4cc5e1eb9b","Premarin (Conjugated Estrogens) Vaginal Cream",[598]]]){
  const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
  const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'not_specified');
- const card=api.medicationGroupCard(g);assert(card.includes(form)&&card.includes('data-card-clinical='),id+' missing form or criteria');
+ const card=api.medicationGroupCard(g);assert(card.includes(form)&&card.includes('data-card-clinical='),id+' missing form or criteria: label='+g.label+' scoped='+JSON.stringify(r.reviewedBannerBranches)+' presentation='+JSON.stringify(r.reviewedPresentation)+' group ids='+g.records.map(x=>x.id).join(',')+' title present='+card.includes(form)+' clinical present='+card.includes('data-card-clinical='));
  const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
  assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
  assert.deepEqual([...html.matchAll(/Criteria source · PDF page (\d+)</g)].map(m=>Number(m[1])),pages,id+' wrong branches');
