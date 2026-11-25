@@ -676,7 +676,7 @@ for(const [id,form,pages] of [["banner-full-7c9407dc50aeffd6","Starjemza (Usteki
  assert(!g.records.some(r=>r.id!==id&&["banner-full-7c9407dc50aeffd6","banner-full-9c89c762ecf4a4e7","banner-full-d2638c75bf2c5094","banner-full-e859b1c3f1be58db","banner-full-6d23af5aca74fca8"].includes(r.id)),id+' unsafe form merge');
  const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
  assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
- assert.deepEqual([...html.matchAll(/Criteria source · PDF page (\\d+)</g)].map(m=>Number(m[1])),pages,id+' wrong branches');
+ assert.deepEqual([...html.matchAll(/Criteria source · PDF page (\d+)</g)].map(m=>Number(m[1])),pages,id+' wrong branches');
  if(pages[0]===1900)assert(/psoriasis/i.test(html)&&/arthritis/i.test(html)&&/Crohn/i.test(html)&&/colitis/i.test(html)&&/not IV induction/i.test(card)&&/adult IBD only/i.test(card),id+' SC or stage scope lost');
  if(pages[0]===351)assert(/retinitis/i.test(html)&&/prophylaxis/i.test(html)&&!/Herpes simplex/i.test(html),id+' incorrect antiviral branch');
  if(pages[0]===200)assert(/suspension/i.test(html)&&/hospital/i.test(html)&&/aspergillosis/i.test(html)&&/brand only/i.test(card),id+' wrong antifungal scope');
