@@ -128,7 +128,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   assert(!r.policyQuantityLimit,id+' fabricated numeric QL');
   const card=a.medicationGroupCard(g);
   for(const t of [label,phrase,'authorization stage is not specified','numeric quantity limit remain unverified','Device reference'])assert(card.includes(t),id+' '+t);
-  assert(card.includes('href="'+r.reviewedPresentation.deviceSourceUrl+'"'));
+  assert(card.includes('href="'+r.reviewedPresentation.deviceSourceUrl.replaceAll('&','&amp;')+'"'),id+' HTML-escaped device source link');
   const out=await open(g);
   assert(out.html.includes('Criteria source · PDF page 1686<'),id+' PA source');
   assert(out.html.includes('Criteria source · PDF page 1687<'),id+' QL source');
