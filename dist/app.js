@@ -2423,6 +2423,13 @@
             if (!nonpreferred) throw new Error('Reviewed Nplate nonpreferred-only step not verified');
             text = cleaned.slice(0, nonpreferred.index);
           }
+          if (b.omitElelysoVprivStep) {
+            if (b.policyId !== 'banner-policy-12-704' || page !== 706 || stage !== 'Initial Authorization' || b.product !== 'Elelyso' || !/^PREFERRED:\s*Elelyso;\s*NON-PREFERRED:\s*Vpriv/i.test(matches[0].product)) throw new Error('Unverified Elelyso branch');
+            const cleaned = text.replace(/^(?:=== PDF PAGE \d+ ===|Page \d+)\s*$/gmi, '');
+            const vpriv = /\n\s*AND\s*\n\s*2\s*-\s*For VPRIV requests ONLY:/i.exec(cleaned);
+            if (!vpriv) throw new Error('Unverified Vpriv-only prerequisite');
+            text = cleaned.slice(0, vpriv.index);
+          }
           if (b.scopePahGeneric && stage === 'Initial Authorization') {
             if (b.policyId !== 'banner-policy-12-1422' || page !== 1422 || !['generic sildenafil tablets','generic tadalafil'].includes(b.product)) throw new Error('Unverified PAH scope');
             const cleaned = text.replace(/^(?:=== PDF PAGE \d+ ===|Page \d+)\s*$/gmi, '');

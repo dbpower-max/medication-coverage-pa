@@ -520,6 +520,37 @@ for(const [id,pref,term] of [
  if(pref==='not_specified')assert(!/Prader-Willi syndrome/i.test(html)&&/2\.5\+/.test(html),id+' Sogroya pediatric or PWS scope');
 }
 console.log('PASS: four separate growth hormone devices and exact staged criteria, label caveats and ISS exclusion.');
+for(const [id,pa,pref,form,pages] of [
+ ['banner-full-cec1a88dc96d5532','required','preferred','Topical Ointment',[531,532]],
+ ['banner-full-fe8f9d5e4dfee7b6','required','not_specified','IV Powder',[706]],
+ ['banner-full-76e5b2efb93b4591','conditional','preferred','Oral Capsules',[1558,1559]],
+ ['banner-full-4d4c6a25d76989bf','required','preferred','SC Solution Autoinjector',[1808,1809,1810,1810,1811,1811,1813]],
+ ['banner-full-9c0e6d815920bc01','required','preferred','SC Solution Prefilled Syringe',[1808,1809,1810,1810,1811,1811,1813]],
+ ['banner-full-9464979a40566984','required','preferred','IV Infusion Concentrate Vial',[1808,1809,1810,1810,1811,1813]],
+ ['banner-full-ad25104047d308ec','required','preferred','SC Solution Autoinjector',[1808,1809,1810,1810,1811,1811,1813]],
+ ['banner-full-2f8cff650d027225','required','preferred','SC Solution Prefilled Syringe',[1808,1809,1810,1810,1811,1811,1813]],
+ ['banner-full-f4f2df53529dbd35','required','preferred','IV Infusion Concentrate Vial',[1808,1809,1810,1810,1811,1813]],
+ ['banner-full-31f510c5e7f38c18','required','preferred','IV Infusion Concentrate Vial',[1808,1809,1810,1810,1811,1813]]
+]){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,pa);assert.equal(r.preferred,pref);
+ const card=api.medicationGroupCard(g);assert(card.includes(form)&&card.includes('data-card-clinical='),id+' form or criteria missing');
+ const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
+ assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
+ assert.deepEqual([...html.matchAll(/Criteria source · PDF page (\d+)</g)].map(m=>Number(m[1])),pages,id+' incorrect branches');
+ if(pages[0]===531) assert(card.includes('0.03%')&&card.includes('0.1%')&&card.includes('16 years'),id+' strength-specific age scope missing');
+ if(pages[0]===706) assert(/renewal applicability/i.test(card)&&card.includes('Type 3')&&!/For VPRIV requests ONLY|generic miglustat/i.test(html),id+' Vpriv prerequisites or unresolved renewal');
+ if(pages[0]===1558) {
+  assert.equal(String(r.qlAmount),'30');assert.equal(String(r.qlDays),'30');
+  assert(/greater than one hypnotic/i.test(html)&&/age under 6/i.test(html)&&!/generic temazepam 7.5 mg/i.test(html),id+' wrong conditional branch');
+ }
+ if(pages[0]===1808){
+  assert(!/Requests for Non-Preferred biosimilars/i.test(html),id+' unrelated nonpreferred criteria');
+  if(form.startsWith('SC'))assert(/SC-only SSc-ILD/i.test(html)&&!/Coronavirus disease 2019/i.test(html),id+' IV-only criteria leaked');
+  else assert(/IV-only hospitalized COVID-19/i.test(html)&&!/SSc-ILD/i.test(html),id+' SC-only criteria leaked');
+ }
+}
+console.log('PASS: ten Banner option-specific records; conditional ages, exact stages and route branches; Elelyso renewal hold and no Vpriv-only prerequisite.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
