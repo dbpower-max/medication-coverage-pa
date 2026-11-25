@@ -442,6 +442,48 @@ for(const [id,name] of [['banner-full-0557b6b7d1ec805f','Ribavirin Oral Capsules
  assert(!/HCV RNA|MedWatch|decompensated liver disease/i.test(html),id+' unrelated DAA/Pegasys criteria');
 }
 console.log('PASS: distinct ribavirin capsule and tablet cards, exact HCV branch and retained PA/preference.');
+
+{
+ const id='banner-full-302dc8a037e00f33',g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.name,'RITUXIMAB-ABBS');assert.equal(r.pa,'required');assert.equal(r.preferred,'not_specified');
+ assert(r.reviewedPresentation.policyUnverified&&!r.reviewedBannerBranches,id+' identity hold missing');
+ assert(!(r.policySources||[]).some(p=>p.policyCode==='GL-540210'),id+' conflicting policy attached');
+ const card=api.medicationGroupCard(g);
+ assert(card.includes('Identity Conflict')&&card.includes('rituximab-arrx')&&card.includes('Truxima')&&!card.includes('data-card-clinical='),id+' issuer conflict not visible or unsafe criteria attached');
+}
+for(const [id,pa,pref,pages] of [
+ ['banner-full-a7f4dfa0b5da7c81','required','not_specified',[1530,1531,1531,1533,1534,1534,1535,1535,1535]],
+ ['banner-full-fb30ee751e608466','required','preferred',[1798,1799,1803]],
+ ['banner-full-f5992d3fa1f49565','required','not_specified',[1896,1899]],
+ ['banner-full-dbcd5faa36dfde5f','required','not_specified',[1896,1899]],
+ ['banner-full-fa4f8ddffa54cfb6','conditional','preferred',[798]]
+]){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,pa);assert.equal(r.preferred,pref);
+ assert(api.medicationGroupCard(g).includes('data-card-clinical='),id+' missing criteria action');
+ const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
+ assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
+ assert.deepEqual([...html.matchAll(/Criteria source · PDF page (\d+)</g)].map(m=>Number(m[1])),pages,id+' wrong or missing branch '+html);
+ if(pages[0]===1530){
+  assert(html.includes('pediatric branch is off-label for Ruxience')&&/Waldenstrom macroglobulinemia \(off-label\)/i.test(html)&&/Immune thrombocytopenia \(off-label\)/i.test(html),id+' unsafe label/stage scope');
+  assert(/16 weeks/i.test(html)&&/methotrexate/i.test(html)&&/fludarabine/i.test(html)&&/glucocorticoids/i.test(html),id+' missing indication-specific criteria');
+  assert(!/Requests for Non-Preferred biosimilars are not approved/i.test(html),id+' unrelated nonpreferred policy');
+ }
+ if(pages[0]===1798){
+  assert(/positive clinical response/i.test(html)&&/Corticosteroids/i.test(html)&&/myelosuppressive doses of radiation/i.test(html),id+' missing exact criteria');
+  assert(!/For Non-Preferred Drug requests|Aplastic Anemia|scheduled to undergo a procedure/i.test(html),id+' unrelated or self step');
+ }
+ if(pages[0]===1896){
+  assert(/Brand Buphenyl and Pheburane only/i.test(html)&&/CPS1/i.test(html)&&/positive clinical response/i.test(html),id+' missing conditional brand step or renewal');
+  assert(!/history of failure or intolerance to Brand Ravicti/i.test(html),id+' unrelated glycerol criteria');
+ }
+ if(pages[0]===798){
+  assert.equal(String(r.qlAmount),'168');assert.equal(String(r.qlDays),'Lifetime');
+  assert(/HCV\) RNA|HCV RNA/i.test(html)&&/past 90 days/i.test(html)&&/Authorization stage is not separately labeled/i.test(html),id+' retreatment criteria missing');
+  assert(!/MedWatch|therapeutic failure, contraindication, or intolerance to the generic/i.test(html),id+' brand-only criteria');
+ }
+}
+console.log('PASS: rituximab issuer conflict held; five exact Banner records scoped, stages and flags retained, no unrelated Nplate/DAA/glycerol step.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');

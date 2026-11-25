@@ -2405,8 +2405,8 @@
         if (!policy) throw new Error('Missing exact Banner policy');
         const source = await loadClinicalSource(policy);
         const stages = b.indicationPages || (b.painPages ? [['', 1100, 'Cancer-related pain / hospice / end-of-life (stage not separately labeled)'], ['Initial Authorization', 1104, 'Noncancer pain / non-hospice / non-end-of-life'], ['Reauthorization', 1110, 'Noncancer pain / non-hospice / non-end-of-life']] : b.unstagedPage ? [['', b.unstagedPage]] : [['Initial Authorization', b.initialPage], ['Reauthorization', b.renewalPage]]);
-        const selected = stages.map(([stage,page,heading]) => {
-          const matches = source.branches.filter(branch => branch.stage === stage && branch.sourcePage === page && new RegExp('(?:^|[^a-z])'+b.product+'(?:[^a-z]|$)', 'i').test(branch.product));
+        const selected = stages.map(([stage,page,heading,diagnosisHint]) => {
+          const matches = source.branches.filter(branch => branch.stage === stage && branch.sourcePage === page && new RegExp('(?:^|[^a-z])'+b.product+'(?:[^a-z]|$)', 'i').test(branch.product) && (!diagnosisHint || branch.product.toLowerCase().includes(diagnosisHint.toLowerCase())));
           if (matches.length !== 1) throw new Error('Exact Banner product/stage branch not verified');
           let text = matches[0].text.split(/\n\s*2\s*\.\s*Revision History/i)[0];
           if (b.omitNintedanibNonpreferredStep) {
@@ -2416,12 +2416,20 @@
             if (!nonpreferred) throw new Error('Reviewed nonpreferred-only step not verified');
             text = cleaned.slice(0, nonpreferred.index);
           }
+          if (b.omitNplateNonpreferredStep && stage) {
+            if (b.policyId !== 'banner-policy-12-1798' || !/^Preferred:\s*Nplate,/i.test(matches[0].product) || ![1798,1799].includes(page)) throw new Error('Nplate preferred product scope not verified');
+            const cleaned = text.replace(/^(?:=== PDF PAGE \d+ ===|Page \d+)\s*$/gmi, '');
+            const nonpreferred = /\n\s*AND\s*\n\s*\d+\s*-\s*For Non-Preferred Drug requests:/i.exec(cleaned);
+            if (!nonpreferred) throw new Error('Reviewed Nplate nonpreferred-only step not verified');
+            text = cleaned.slice(0, nonpreferred.index);
+          }
           if (b.omitOtherProductStep) {
             const otherStep = /\n\s*AND\s*\n\s*3\s*-\s*For Norliqva and Sdamlo requests ONLY:/i.exec(text);
             if (!otherStep) throw new Error('Reviewed other-product step not verified');
             text = text.slice(0, otherStep.index);
           }
-          return {...matches[0], heading, text};
+          const stageHeading = heading && !stage && !/stage not separately labeled/i.test(heading) && b.policyId === 'banner-policy-12-1530' ? heading + ' (stage not separately labeled)' : heading;
+          return {...matches[0], heading: stageHeading, text};
         });
         const exclusion = b.exclusionPage ? source.branches.filter(branch => branch.sourcePage === b.exclusionPage && /^All products\b/i.test(branch.product) && /Idiopathic Short Stature/i.test(branch.product)) : [];
         if (b.exclusionPage && exclusion.length !== 1) throw new Error('Missing reviewed exclusion');
