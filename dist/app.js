@@ -2298,7 +2298,17 @@
           const label = productLabel && selected !== packetReference ? `<p><strong>Product:</strong> ${escapeHtml(productLabel)}</p>`
             : scope ? `<p><strong>Formulation:</strong> ${escapeHtml(scope)}</p>` : '';
           // The final condition and preceding AND in this shared policy apply only to brand Nexium.
-          const applicable = selected === packetReference ? {...branch, criteria: branch.criteria.slice(0, -2)} : branch;
+          let applicable = selected === packetReference ? {...branch, criteria: branch.criteria.slice(0, -2)} : branch;
+          // DEC-12/13: the exact preferred SC listing omits the source's
+          // nonpreferred-only prerequisite, without editing the source.
+          if (policy.policyCode === 'GL-565279' && binding.omitNonpreferredCondition === true) {
+            const final = branch.criteria.at(-1);
+            const connector = branch.criteria.at(-2);
+            if (connector?.kind !== 'connector' || connector.text !== 'AND'
+                || !final?.text.startsWith('3 - If the request is non-preferred')
+                || !final.text.includes('tocilizumab biosimilars')) throw new Error('Tocilizumab preference scope changed');
+            applicable = {...branch, criteria: branch.criteria.slice(0, -2)};
+          }
           body.push(label + cardBranchMarkup(applicable, policy));
         }
         if (!references.some(p => p.id === policy.id)) references.push(policy);
