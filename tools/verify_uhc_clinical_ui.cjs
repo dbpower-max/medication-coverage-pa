@@ -77,6 +77,22 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  const scIds=new Set(['uhc-oct-complete-6e31fd16d0c3fee4','uhc-oct-complete-2e1049037c5dbd67','uhc-oct-complete-4bfb77000b6496ad']);
  for(const record of data.medications.filter(r=>!scIds.has(r.id)))assert(!record.uhcClinicalBindings?.some(b=>b.omitNonpreferredCondition),record.id+' preference override leaked');
+ // Exact UHC UnoReady 300 mg device: mixed SC policy branches retain source text and scope.
+ const unoId='uhc-oct-complete-9449c2ad49f55210';
+ const uno=groups.find(g=>g.records.some(r=>r.id===unoId));assert(uno,unoId);
+ const unoRow=uno.records.find(r=>r.id===unoId);
+ assert.equal(unoRow.pa,'required');assert.equal(unoRow.preferred,'non_preferred');
+ const unoPolicy=unoRow.uhcClinicalBindings.find(b=>b.role==='product'&&b.policyId.endsWith('gl-628292'));
+ assert.deepEqual(unoPolicy.branchIndexes,[0,1,2,5,6,7,8]);
+ assert(unoRow.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+ const unoCard=a.medicationGroupCard(uno);
+ for(const p of ['Cosentyx UnoReady (Secukinumab) 300 mg/2 mL Subcutaneous Pen','not for 75 mg or 150 mg doses or IV infusion','not pen-specific','numeric quantity limit are unverified'])assert(unoCard.includes(p),p);
+ assert(unoCard.includes('href="'+unoRow.reviewedPresentation.labelUrl+'"'));
+ const unoDetail=await open(uno);
+ assert(unoDetail.html.includes('adult AS escalation; NOT the nr-axSpA or pediatric AS regimen'));
+ assert(unoDetail.html.includes('pediatric HS weighing at least 90 kg'));
+ assert(!unoDetail.html.includes('Enthesitis-Related Arthritis (ERA)'));
+ assert(unoDetail.ref.includes('page=405'));
  // Avlayah: label-only identity, never promote statewide criteria to UHC.
  const avlayahId='uhc-oct-complete-a8d0977aeaff8cc1';
  const avlayah=groups.find(g=>g.records.some(r=>r.id===avlayahId));

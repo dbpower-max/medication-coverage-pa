@@ -546,6 +546,50 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: 0.05 mg/mL oral solution, distinct from tablets; use solution for pediatric patients weighing up to 30 kg. Boxed warnings: hepatitis B exacerbation after stopping therapy, HIV resistance without effective HIV treatment, lactic acidosis and hepatomegaly. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
                 'labelUrl': 'https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/021797s027lbl.pdf',
             }
+        # DEC-05/12/13/14/19/20: fixed 300 mg SC UnoReady, not every Cosentyx SC dose.
+        # Preserve original source branches and label mixed populations explicitly.
+        if record['id'] == 'uhc-oct-complete-9449c2ad49f55210':
+            assert october_name == 'cosentyx unoready'
+            assert record['pa'] == 'required' and record['preferred'] == 'non_preferred' and ql
+            code = 'GL-628292'
+            assert policies[code]['policyEffective'] == '2026-07-01'
+            branches = structured[code]['branches']
+            assert len(branches) == 9
+            for i, (dx, stage) in enumerate([
+                ('Plaque Psoriasis (PsO)', 'Initial Authorization'),
+                ('Hidradenitis Suppurativa (HS)', 'Initial Authorization'),
+                ('Plaque Psoriasis (PsO), Hidradenitis Suppurativa (HS)', 'Reauthorization'),
+                ('Enthesitis-Related Arthritis (ERA)', 'Initial Authorization'),
+                ('Enthesitis-Related Arthritis (ERA)', 'Reauthorization'),
+                ('Psoriatic Arthritis (PsA)', 'Initial Authorization'),
+                ('Psoriatic Arthritis (PsA)', 'Reauthorization'),
+                ('Ankylosing Spondylitis (AS), Non-Radiographic Axial Spondyloarthritis (nr-axSpA)', 'Initial Authorization'),
+                ('Ankylosing Spondylitis (AS), Non-Radiographic Axial Spondyloarthritis (nr-axSpA)', 'Reauthorization'),
+            ]):
+                fields = branches[i]['fields']
+                assert fields['Product Name']['text'] == 'Cosentyx SC'
+                assert ' '.join(fields['Diagnosis']['text'].split()) == dx
+                assert fields['Therapy Stage']['text'] == stage
+                assert fields['Guideline Type']['text'] == 'Prior Authorization'
+            assert set(matched).issubset({code}), ('Review other named policy', matched)
+            matched.pop(code, None)
+            add(code, [0, 1, 2, 5, 6, 7, 8], 'product')
+            bindings[-1]['branchLabels'] = {
+                '0': 'UnoReady 300 mg only: adult plaque psoriasis; pediatric doses are lower',
+                '1': 'UnoReady 300 mg only: adult HS or pediatric HS weighing at least 90 kg',
+                '2': 'UnoReady 300 mg only: adult plaque psoriasis or eligible 300 mg HS regimen',
+                '5': 'UnoReady 300 mg only: adult PsA with a labeled 300 mg regimen',
+                '6': 'UnoReady 300 mg only: adult PsA with a labeled 300 mg regimen',
+                '7': 'UnoReady 300 mg only: adult AS escalation; NOT the nr-axSpA or pediatric AS regimen',
+                '8': 'UnoReady 300 mg only: adult AS escalation; NOT the nr-axSpA or pediatric AS regimen',
+            }
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Cosentyx UnoReady (Secukinumab) 300 mg/2 mL Subcutaneous Pen',
+                'dosageForm': 'subcutaneous autoinjector',
+                'note': 'FDA label: fixed single-dose 300 mg pen; not for 75 mg or 150 mg doses or IV infusion. The UHC Cosentyx SC guideline is not pen-specific. Apply criteria only to a labeled 300 mg regimen: adult plaque psoriasis, qualifying adult PsA or AS, adult HS or pediatric HS weighing at least 90 kg. Do not apply the nr-axSpA, ERA or lower-dose pediatric branches to this pen. Exact payer device-specific approval criteria and numeric quantity limit are unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=77c4b13e-7df3-42d4-81db-3d0cddb7f67a',
+            }
         # DEC-05/12/13/14/19/20: exact pharmacy SQ policy; never inherit IV medical-benefit criteria.
         if record['id'] == 'uhc-oct-complete-36c4a27401324b71':
             assert october_name == 'benlysta subcutaneous solution auto-injector'
