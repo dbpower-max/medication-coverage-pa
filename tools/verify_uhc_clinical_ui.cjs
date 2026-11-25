@@ -88,6 +88,22 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  const avlayahCard=a.medicationGroupCard(avlayah);
  for(const phrase of ['Avlayah (Tividenofusp alfa-eknm) IV Infusion','150 mg lyophilized','Boxed warning: anaphylaxis','Exact UHC initial/renewal criteria are unverified']) assert(avlayahCard.includes(phrase),'Avlayah missing '+phrase);
  assert(avlayahCard.includes('href="'+avlayahRow.reviewedPresentation.labelUrl+'"'),'Avlayah label citation missing from prescribing card');
+ // These exact listings retain administrative review but no named product PA.
+ for(const [suffix,label,phrase,hasQL] of [
+  ['b194127f86ac4236','Accrufer (Ferric Maltol) Oral Capsule','30 mg iron as ferric maltol',true],
+  ['d9b404be1858112f','Angeliq (Drospirenone / Estradiol) Oral Tablet','menopausal hormone therapy, not contraception',false],
+  ['ae9928afe2cbe71e','Annovera (Segesterone Acetate / Ethinyl Estradiol) Vaginal System','21 days in, 7 days out, for 13 cycles',true]
+ ]){
+  const id='uhc-oct-complete-'+suffix;
+  const g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);
+  assert.equal(r.pa,'required');assert.equal(r.preferred,'non_preferred');
+  assert(!r.uhcClinicalBindings.some(b=>b.role==='product'),id+' fabricated product PA');
+  assert(r.uhcClinicalBindings.some(b=>b.role==='nonpreferred'&&b.policyId.endsWith('gl-231255')),id+' nonpreferred review lost');
+  assert.equal(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'),hasQL,id+' QL scope');
+  const card=a.medicationGroupCard(g);assert(card.includes(label),id+' form');assert(card.includes(phrase),id+' distinction');assert(card.includes('Exact UHC product-specific initial/renewal criteria'),id+' hold');assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'),id+' label link');
+  const out=await open(g);assert(out.ref.includes('page=1202'),id+' administrative source');if(hasQL)assert(out.ref.includes('page=702'),id+' QL source');
+ }
  const samsca=groups.find(g=>g.records.some(r=>r.name.startsWith('SAMSCA (brand')));
  const samscaContent=await open(samsca);
  assert(samscaContent.html.includes('Criteria source · PDF page 1488<'));

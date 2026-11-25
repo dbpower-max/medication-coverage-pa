@@ -343,6 +343,32 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: 150 mg lyophilized single-dose vial for IV infusion after preparation; pediatric initiation at 5 kg or more before advanced neurologic impairment. Not recommended with other enzyme replacement therapies for Hunter syndrome. Boxed warning: anaphylaxis. Exact UHC initial/renewal criteria are unverified; statewide criteria are reference only.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=014d92c1-b643-4680-8ca6-f0b3307da915',
             }
+        # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
+        # GL-231255 and GL-140667 are administrative, not named product criteria.
+        label_holds = {
+            'uhc-oct-complete-b194127f86ac4236': (
+                'accrufer', 'Accrufer (Ferric Maltol) Oral Capsule', 'oral capsule',
+                'FDA label: 30 mg iron as ferric maltol per capsule; swallow whole. Avoid use during active IBD flare and with IV iron. Not a ferrous salt or IV iron formulation. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                '367ac157-2d25-4f34-99ce-b126e0f03851', True),
+            'uhc-oct-complete-d9b404be1858112f': (
+                'angeliq', 'Angeliq (Drospirenone / Estradiol) Oral Tablet', 'oral tablet',
+                'FDA label: drospirenone/estradiol 0.25/0.5 mg or 0.5/1 mg tablets; menopausal hormone therapy, not contraception. Exact UHC product-specific initial/renewal criteria are unverified.',
+                '761834c2-6b61-4583-84c2-f1ca4a97c4f2', False),
+            'uhc-oct-complete-ae9928afe2cbe71e': (
+                'annovera', 'Annovera (Segesterone Acetate / Ethinyl Estradiol) Vaginal System', 'vaginal system',
+                'FDA label: reusable vaginal system releasing an average of 0.15/0.013 mg per day; 21 days in, 7 days out, for 13 cycles. Distinct from monthly replacement rings. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                'eb18194f-2021-41fa-8bdf-31e0c0eb646b', True),
+        }
+        if record['id'] in label_holds:
+            expected, label, form, note, label_id, has_ql = label_holds[record['id']]
+            assert october_name == expected and record['pa'] == 'required'
+            assert record['preferred'] == 'non_preferred' and bool(ql) == has_ql
+            assert not matched, ('Review newly available named criteria before use', record['id'], matched)
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': label, 'dosageForm': form, 'note': note,
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + label_id,
+            }
         constipation_code = 'GL-720196'
         if october_name.startswith(('lubiprostone capsule ', 'prucalopride succinate (generic for ')):
             # The October 18 policy removed these generics from its PA targets.
