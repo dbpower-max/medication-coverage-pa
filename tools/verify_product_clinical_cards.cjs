@@ -551,6 +551,21 @@ for(const [id,pa,pref,form,pages] of [
  }
 }
 console.log('PASS: ten Banner option-specific records; conditional ages, exact stages and route branches; Elelyso renewal hold and no Vpriv-only prerequisite.');
+
+for(const [id,form,pages] of [
+ ['banner-full-f92ada2e9cdc655f','Immediate-Release Oral Tablets',[2017,2018,2018,2019,2020,2021,2021,2022,2023,2023]],
+ ['banner-full-d4ea7eb7e9b33e7f','Extended-Release Oral Tablets',[1100,1104,1110]]
+]){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');
+ const card=api.medicationGroupCard(g);assert(card.includes(form)&&card.includes('data-card-clinical='),id+' missing form or action');
+ const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
+ assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
+ assert.deepEqual([...html.matchAll(/Criteria source · PDF page (\d+)</g)].map(m=>Number(m[1])),pages,id+' incorrect branches');
+ if(id==='banner-full-f92ada2e9cdc655f')assert(card.includes('TNF blocker')&&card.includes('not an additional inferred payer step')&&!/Requests for generic tofacitinib are not authorized/i.test(html),id+' label distinction or unrelated generic denial');
+ else assert(card.includes('exact brand eligibility')&&!/MME Exceeded|Quantity Limit Override|Conzip/i.test(html),id+' unrelated opioid policy branch');
+}
+console.log('PASS: Xeljanz IR five staged indications and generic tramadol ER three pain branches; product holds retained.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
