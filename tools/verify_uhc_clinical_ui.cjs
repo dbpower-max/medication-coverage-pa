@@ -116,7 +116,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(benCard.includes('href="'+benRow.reviewedPresentation.labelUrl+'"'));
  const benOut=await open(benlysta);
  for(const page of [226,227,228])assert(benOut.html.includes('Criteria source · PDF page '+page+'<'),'Benlysta page '+page);
- assert(benOut.ref.includes('page=226'));assert(benOut.ref.includes('page=1202'));assert(benOut.ref.includes('page=702'));
+ assert(benOut.ref.includes('page=226'));assert(benRow.uhcClinicalBindings.some(b=>b.role==='nonpreferred'&&b.policyId.endsWith('gl-231255')));assert(!benOut.ref.includes('page=1202'),'Named criteria should not stack administrative fallback');assert(benOut.ref.includes('page=702'));
  const samsca=groups.find(g=>g.records.some(r=>r.name.startsWith('SAMSCA (brand')));
  const samscaContent=await open(samsca);
  assert(samscaContent.html.includes('Criteria source · PDF page 1488<'));
