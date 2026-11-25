@@ -2075,7 +2075,9 @@
 
   function cardTextBranchMarkup(branch, policy) {
     const text = branch.text.replace(/^\s*(?:--- PDF page \d+ ---|=== PDF PAGE \d+ ===|Page \d+)\s*$/gmi, '');
-    const body = text.split(/Approval\s+Criteria\s*:?/i)[1];
+    // Split at the first actual heading, not at subsequent inline references to approval criteria.
+    const heading = /^[\t ]*Approval[\t ]+Criteria[\t ]*:?[ \t]*$/im.exec(text);
+    const body = heading ? text.slice(heading.index + heading[0].length) : '';
     if (!body) return '<p>Formatted criteria for this medication are not available. See the PA reference.</p>';
     // Original clinical text is retained verbatim, with only line-break/page
     // furniture cleanup. Administrative PA-team dispensing notes stay internal.
