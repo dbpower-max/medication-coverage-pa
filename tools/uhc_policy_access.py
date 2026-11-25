@@ -569,7 +569,10 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 fields = branches[i]['fields']
                 assert fields['Product Name']['text'] == 'Cosentyx SC'
                 assert ' '.join(fields['Diagnosis']['text'].split()) == dx
-                assert fields['Therapy Stage']['text'] == stage
+                # Page 412 running header interrupts the AS initial stage; use
+                # the already furniture-cleaned display span, not raw source text.
+                stage_field = fields['Therapy Stage']
+                assert stage_field.get('displayText', stage_field['text']) == stage
                 assert fields['Guideline Type']['text'] == 'Prior Authorization'
             assert set(matched).issubset({code}), ('Review other named policy', matched)
             matched.pop(code, None)
