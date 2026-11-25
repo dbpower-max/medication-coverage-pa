@@ -586,6 +586,24 @@ for(const [id,pa,form,pages] of [
  }
 }
 console.log('PASS: exact Fareston three cancer branches and tramadol 50 mg conditional PA; original flags and label cautions retained.');
+
+for(const [id,preferred] of [["banner-full-910fdc030a0e440e",false],["banner-full-8e3ddd09c2a6ceef",true],["banner-full-b83161f7a9a12ddf",false],["banner-full-afa717d825297dd3",false]]){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'not_specified');
+ const card=api.medicationGroupCard(g);assert(card.includes('IV Infusion Powder')&&card.includes('data-card-clinical=')&&card.includes('cardiomyopathy'),id+' form, warning or criteria missing');
+ const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
+ assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
+ assert.deepEqual([...html.matchAll(/Criteria source · PDF page (\d+)</g)].map(m=>Number(m[1])),[1822],id+' incorrect branch');
+ if(preferred)assert(/National Comprehensive Cancer Network/i.test(html)&&!/not approved at this time/i.test(html),id+' incorrect preferred branch');
+ else assert(/Ogivri/i.test(html)&&/not approved/i.test(html)&&!/National Comprehensive Cancer Network/i.test(html),id+' incorrect nonpreferred branch');
+}
+{
+ const id='banner-full-4ca60ba6b5918217';const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'not_specified');
+ const card=api.medicationGroupCard(g);assert(card.includes('Form Unverified')&&card.includes('ready-to-use solution')&&!card.includes('data-card-clinical='),id+' unsafe automatic criteria');
+ assert(!g.records.some(r=>r.id==='banner-full-910fdc030a0e440e'),id+' collapsed conflicting form');
+}
+console.log('PASS: trastuzumab product-specific restriction and Kanjinti solution hold; original flags retained.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
