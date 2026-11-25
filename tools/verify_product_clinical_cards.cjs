@@ -716,6 +716,25 @@ for(const [id,form,code,warning] of [
  assert.equal(g.records.length,1,id+' unsafe product merge');
 }
 console.log('PASS: four exact Banner identity/preference conflicts preserve source flags, forms, dated policy links and suppress unverified criteria.');
+for(const [id,form,pages] of [
+ ["banner-full-28415ec20645c82d","Hadlima Push (Adalimumab-bwwd) Subcutaneous Autoinjector",[33,34,35,35,36,37,37,39,39,40,41,42,42,43,44]],
+ ["banner-full-7112927146512ad5","Eltrombopag Olamine Oral Tablets (Generic)",[1798,1799,1800,1801,1801,1802]],
+ ["banner-full-a6e3c12492730c31","Aimovig (Erenumab-aooe) Subcutaneous Autoinjector",[305,308]],
+ ["banner-full-719caae0c9978dca","Infliximab (Janssen Unbranded Remicade Reference) IV Powder for Solution",[945,946,947,947,948,949,949,950,951,952,952,953,954,955]]
+]){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');
+ const card=api.medicationGroupCard(g);assert(card.includes(form)&&card.includes('data-card-clinical='),id+' missing form or criteria: '+g.label);
+ assert.equal(g.records.length,1,id+' unsafe product merge');
+ const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
+ assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
+ assert.deepEqual([...html.matchAll(/Criteria source · PDF page (\d+)</g)].map(m=>Number(m[1])),pages,id+' wrong stages');
+ if(pages[0]===33)assert(card.includes('78206018701')&&card.includes('78206018401')&&/institutional vial/i.test(card)&&/uveitis/i.test(html)&&!/non-preferred drug is not approved/i.test(html),id+' NDC or indication scope');
+ if(pages[0]===1798)assert(/aplastic anemia/i.test(html)&&/interferon/i.test(html)&&!/For Non-Preferred Drug requests/i.test(html),id+' preferred generic step scope');
+ if(pages[0]===305){assert.equal(String(r.qlAmount),'3');assert.equal(String(r.qlDays),'90');assert(/18 years of age or older/i.test(html)&&!/6-17 years of age|45 kg or greater|applies to Ajovy/i.test(html),id+' pediatric alternative transferred');}
+ if(pages[0]===945)assert(/sarcoidosis/i.test(html)&&/off-label/i.test(html)&&/57894016001/.test(card)&&!/non-preferred drug is not approved/i.test(html),id+' Janssen scope');
+}
+console.log('PASS: four exact Banner rows, 37 named stages, product-specific conditional criteria and NDC evidence; raw flags preserved.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
