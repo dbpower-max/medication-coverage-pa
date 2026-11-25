@@ -622,7 +622,7 @@ for(const [id,form,warning] of [
 }
 console.log('PASS: Orenitram tablets, titration pack and Yutrepia inhalation capsule separate; adult PAH stages and no-swallow warning preserved.');
 
-for(const [id,form] of [["banner-full-7c9407dc50aeffd6","Starjemza (Ustekinumab-hmny) Subcutaneous Prefilled Syringe"],["banner-full-9c89c762ecf4a4e7","Starjemza (Ustekinumab-hmny) Solution — Route Unverified"],["banner-full-d2638c75bf2c5094","Valganciclovir Powder for Oral Solution (Valcyte Reference)"],["banner-full-e859b1c3f1be58db","Valganciclovir Oral Tablets (Valcyte Reference)"],["banner-full-6d23af5aca74fca8","Vfend (Voriconazole) Powder for Oral Suspension"]]){
+for(const [id,form] of [["banner-full-9c89c762ecf4a4e7","Starjemza (Ustekinumab-hmny) Solution — Route Unverified"]]){
  const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
  const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'not_specified');
  const card=api.medicationGroupCard(g);assert(card.includes(form)&&!card.includes('data-card-clinical='),id+' unsafe automatic criteria or missing form');
@@ -668,6 +668,20 @@ for(const [id,form,pa,pref,pages] of [["banner-full-4ea1555b6e50ad9b","Dasatinib
  if(pages[0]===260)assert(/tamoxifen/i.test(html)&&/positive clinical response/i.test(html)&&!/tumors of unknown estrogen receptor status/i.test(html),id+' wrong breast cancer scope');
 }
 console.log('PASS: six reviewed exact Banner policy rows and one ESA payer conflict; product, stage, indication, QL and safety scope.');
+
+for(const [id,form,pages] of [["banner-full-7c9407dc50aeffd6","Starjemza (Ustekinumab-hmny) Subcutaneous Prefilled Syringe",[1900,1901,1902,1903,1903,1904,1905]],["banner-full-d2638c75bf2c5094","Valganciclovir Powder for Oral Solution (Valcyte Reference)",[351]],["banner-full-e859b1c3f1be58db","Valganciclovir Oral Tablets (Valcyte Reference)",[351]],["banner-full-6d23af5aca74fca8","Vfend (Voriconazole) Powder for Oral Suspension",[200,207]]]){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'not_specified');
+ const card=api.medicationGroupCard(g);assert(card.includes(form)&&card.includes('data-card-clinical='),id+' missing form or criteria');
+ assert(!g.records.some(r=>r.id!==id&&["banner-full-7c9407dc50aeffd6","banner-full-9c89c762ecf4a4e7","banner-full-d2638c75bf2c5094","banner-full-e859b1c3f1be58db","banner-full-6d23af5aca74fca8"].includes(r.id)),id+' unsafe form merge');
+ const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
+ assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
+ assert.deepEqual([...html.matchAll(/Criteria source · PDF page (\d+)</g)].map(m=>Number(m[1])),pages,id+' wrong branches');
+ if(pages[0]===1900)assert(/psoriasis/i.test(html)&&/arthritis/i.test(html)&&/Crohn/i.test(html)&&/colitis/i.test(html)&&/not IV induction/i.test(card)&&/adult IBD only/i.test(card),id+' SC or stage scope lost');
+ if(pages[0]===351)assert(/retinitis/i.test(html)&&/prophylaxis/i.test(html)&&!/Herpes simplex/i.test(html),id+' incorrect antiviral branch');
+ if(pages[0]===200)assert(/suspension/i.test(html)&&/hospital/i.test(html)&&/aspergillosis/i.test(html)&&/brand only/i.test(card),id+' wrong antifungal scope');
+}
+console.log('PASS: recovered four exact policy rows; Starjemza solution route held; original flags and separate forms preserved.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
