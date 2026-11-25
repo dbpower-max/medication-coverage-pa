@@ -647,6 +647,27 @@ for(const [id,form,q] of [["banner-full-1ff7d86a645bdc05","Zolpidem Extended-Rel
  assert(/greater than one hypnotic/i.test(html)&&/age under 6/i.test(html)&&!/generic temazepam 7.5 mg/i.test(html),id+' unrelated nonpreferred branch');
 }
 console.log('PASS: five form/criteria holds, three oncology branches, three zolpidem conditional options; raw payer flags and QL retained.');
+
+{
+ const id="banner-full-5fb011fb853c0158";const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');
+ const card=api.medicationGroupCard(g);assert(card.includes('Epogen (Epoetin Alfa) IV or Subcutaneous Injection')&&card.includes('Payer conflict')&&card.includes('Retacrit')&&!card.includes('data-card-clinical='),id+' lost conflict or unsafe automatic criteria');
+ assert(!g.records.some(r=>r.id==='banner-full-b744ae9803f287da'),id+' unsafe merge with Retacrit');
+}
+for(const [id,form,pa,pref,pages] of [["banner-full-4ea1555b6e50ad9b","Dasatinib Oral Tablets (Sprycel Reference)","required","not_specified",[1322]],["banner-full-744c182ca2569adb","Dolasetron Oral Tablets (Anzemet Reference)","required","not_specified",[129,130,131]],["banner-full-b744ae9803f287da","Retacrit (Epoetin Alfa-epbx) IV or Subcutaneous Injection","required","preferred",[581,582,584,584,585,585,586,586,587,587]],["banner-full-0865865cc9f5fed9","Eszopiclone Oral Tablets (Lunesta Reference)","conditional","preferred",[1558,1559]],["banner-full-0a392c206a4c7134","Etoposide Oral Capsules","required","not_specified",[1322]],["banner-full-7f9d539620cb5752","Exemestane Oral Tablets (Aromasin Reference)","required","not_specified",[260,261,261]]]){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,pa);assert.equal(r.preferred,pref);
+ const card=api.medicationGroupCard(g);assert(card.includes(form)&&card.includes('data-card-clinical='),id+' missing criteria or form');
+ const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
+ assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
+ assert.deepEqual([...html.matchAll(/Criteria source · PDF page (\d+)</g)].map(m=>Number(m[1])),pages,id+' wrong branches');
+ if(pages[0]===129)assert(/chemotherapy/i.test(html)&&/radiotherapy/i.test(html)&&/postoperative/i.test(html)&&!/Granisol requests ONLY|ondansetron ODT/i.test(html),id+' other product requirement');
+ if(pages[0]===581)assert(/dialysis/i.test(html)&&/Zidovudine/i.test(html)&&/MDS/i.test(html)&&/HCV/i.test(html)&&/case-by-case/i.test(html)&&!/non-preferred drug is not approved/i.test(html),id+' missing or unrelated ESA criteria');
+ if(pages[0]===1558){assert.equal(String(r.qlAmount),'30');assert.equal(String(r.qlDays),'30');assert(/greater than one hypnotic/i.test(html)&&/age under 6/i.test(html)&&!/generic temazepam 7.5 mg/i.test(html),id+' wrong conditional criteria');}
+ if(pages[0]===1322)assert(/NCCN|National Comprehensive Cancer Network/i.test(html)&&!/Brand Gleevec or Imkeldi/i.test(html),id+' wrong oncology scope');
+ if(pages[0]===260)assert(/tamoxifen/i.test(html)&&/positive clinical response/i.test(html)&&!/tumors of unknown estrogen receptor status/i.test(html),id+' wrong breast cancer scope');
+}
+console.log('PASS: six reviewed exact Banner policy rows and one ESA payer conflict; product, stage, indication, QL and safety scope.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
