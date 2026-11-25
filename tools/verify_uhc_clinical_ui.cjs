@@ -106,6 +106,12 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(avlayahCard.includes('href="'+avlayahRow.reviewedPresentation.labelUrl+'"'),'Avlayah label citation missing from prescribing card');
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["e9587576b936cf5e","Eysuvis (Loteprednol Etabonate) Ophthalmic Suspension","short-term dry eye treatment",true],
+  ["1de36cc0a4b8fcd4","Fiasp (Insulin Aspart) Injectable Solution (Device Unspecified)","does not establish a particular device",true],
+  ["100bab6065fcfca3","Fiasp FlexTouch (Insulin Aspart) Prefilled Pen","single-patient-use prefilled pen",true],
+  ["47e7ac4802b75ef8","Fiasp PenFill (Insulin Aspart) Cartridge","distinct from 1.6 mL PumpCart",true],
+  ["e6a8af6fb0e528d0","Finacea (Azelaic Acid) Topical Foam","distinct from gel",true],
+  ["04c2175bcaa7ee29","Flarex (Fluorometholone Acetate) Ophthalmic Suspension","distinct from fluorometholone alcohol",true],
   ["44ba8a15828b42b8","Symfi (Efavirenz / Lamivudine / Tenofovir Disoproxil Fumarate) Oral Tablet","distinct from Symfi Lo 400/300/300 mg",true],
   ["e48614a8896d1c42","Elyxyb (Celecoxib) Oral Solution","acute migraine in adults, not prevention",true],
   ["3c48b4c2b5592695","Emend (Aprepitant) Oral Capsule / Powder for Oral Suspension (Form Unspecified)","The UHC listing does not identify the oral formulation",true],
@@ -198,6 +204,16 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  const calcCard=a.medicationGroupCard(calcGroup);
  assert(calcCard.includes('Calcitriol Oral Solution')&&calcCard.includes('1 mcg/mL oral solution')&&calcCard.includes('aged 8 years or older'));
  assert(calcCard.includes('href="'+calcRow.reviewedPresentation.labelUrl+'"'));
+ const felId='uhc-oct-complete-25343462b850be92';
+ const felGroup=groups.find(x=>x.records.some(r=>r.id===felId));assert(felGroup,felId);
+ const felRow=felGroup.records.find(r=>r.id===felId);
+ assert.equal(felRow.pa,'conditional');assert.equal(felRow.preferred,'preferred');
+ assert(felRow.uhcClinicalBindings.some(b=>b.role==='nonsolid'&&b.policyId.endsWith('gl-545275')));
+ assert(felRow.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+ assert(!felRow.uhcClinicalBindings.some(b=>b.role==='product'||b.role==='nonpreferred'));
+ const felCard=a.medicationGroupCard(felGroup);
+ assert(felCard.includes('Felbamate Oral Suspension')&&felCard.includes('aplastic anemia and hepatic failure')&&felCard.includes('aged 8 years or older'));
+ assert(felCard.includes('href="'+felRow.reviewedPresentation.labelUrl+'"'));
  // Exact nonpreferred UHC test strip class criteria; device references are not payer NDC evidence.
  for(const [suffix,label,phrase] of [
   ['0851f010ae01a71d','Blood Glucose Test Strips (Meter Model Unspecified by UHC)','do not assume interchangeability'],
