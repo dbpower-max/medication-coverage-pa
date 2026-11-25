@@ -501,6 +501,25 @@ for(const id of ['banner-full-60198c9988b7fac5','banner-full-a16e47fcf26287e4'])
  assert(!/Requests for Tracleer|Requests for Uptravi|request is for Brand Adcirca|request is for Opsynvi|non-preferred product|CTEPH/i.test(html),id+' unrelated age or product criteria');
 }
 console.log('PASS: Banner sildenafil suspension age conflict held and two adult generic PAH tablet branches scoped.');
+for(const [id,pref,term] of [
+ ['banner-full-b5d2b1db3141799d','not_specified','Weekly SC Solution Pen'],
+ ['banner-full-7f3830370febcc33','preferred','SC Powder Cartridge'],
+ ['banner-full-9d1ec74eeb56ae29','preferred','Single-dose SC Powder Delivery Device'],
+ ['banner-full-1fada00875b7d8d2','preferred','Daily SC Solution Pen']
+]){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,pref);
+ const card=api.medicationGroupCard(g);assert(card.includes(term)&&card.includes('not a prescribing dose')&&card.includes('ISS exclusion'),id+' dose/label caveat missing');
+ const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
+ assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
+ const pages=[...html.matchAll(/Criteria source · PDF page (\d+)</g)].map(m=>Number(m[1]));
+ const base=[738,741,...(pref==='preferred'?[743,744]:[]),745,746,746,748,748,749,750,751,752,755,756,760,761,763,763,737];
+ assert.deepEqual(pages,base,id+' missing or wrong indication stage');
+ assert(/not FDA-labeled/i.test(html)&&/benefit exclusion|not authorized/i.test(html),id+' off-label/ISS separation missing');
+ assert(!/failure to ALL preferred products/i.test(html),id+' nonpreferred-only step leaked');
+ if(pref==='not_specified')assert(!/Prader-Willi syndrome/i.test(html)&&/2\.5\+/.test(html),id+' Sogroya pediatric or PWS scope');
+}
+console.log('PASS: four separate growth hormone devices and exact staged criteria, label caveats and ISS exclusion.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
