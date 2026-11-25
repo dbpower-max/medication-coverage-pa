@@ -389,6 +389,26 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'label': label, 'dosageForm': form, 'note': note,
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + label_id,
             }
+        # DEC-05/12/13/14/19/20: UHC Basaglar KwikPen, not a blanket glargine benefit.
+        # Preserve therapeutic duplication as an administrative DUR pathway, not a named PA.
+        if record['id'] == 'uhc-oct-complete-180f1c7535eea5b2':
+            assert october_name == 'basaglar kwikpen' and record['pa'] == 'required'
+            assert record['preferred'] == 'non_preferred' and ql
+            code = 'GL-735259'
+            assert policies[code]['policyEffective'] == '2026-11-01'
+            fields = structured[code]['branches'][0]['fields']
+            assert 'Basaglar Kwikpen' in ' '.join(fields['Product Name']['text'].split())
+            assert fields['Guideline Type']['text'] == 'Administrative'
+            assert set(matched).issubset({code}), ('Review new named criteria', matched)
+            matched.pop(code, None)
+            add(code, [0], 'duplication')
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Basaglar KwikPen (Insulin Glargine) Prefilled Pen',
+                'dosageForm': 'prefilled pen injection',
+                'note': 'FDA label: 100 units/mL (U-100), 3 mL single-patient-use pen for subcutaneous injection; do not mix or dilute. Distinct from Tempo Pen and U-300 glargine. Therapeutic duplication criteria apply to DUR review, not routine product-specific authorization. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0ad21db3-2b1c-4ed9-a687-bdd6a74d0aae',
+            }
         # DEC-05/12/13/14/19/20: preferred oral solution, not a named PA policy.
         if record['id'] == 'uhc-oct-complete-c80e5c34df4eadf5':
             assert october_name == 'baraclude oral solution' and record['pa'] == 'required'

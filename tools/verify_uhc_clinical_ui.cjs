@@ -109,6 +109,19 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const card=a.medicationGroupCard(g);assert(card.includes(label),id+' form');assert(card.includes(phrase),id+' distinction');assert(card.includes('Exact UHC product-specific initial/renewal criteria'),id+' hold');assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'),id+' label link');
   const out=await open(g);assert(out.ref.includes('page=1202'),id+' administrative source');if(hasQL)assert(out.ref.includes('page=702'),id+' QL source');
  }
+ const basId='uhc-oct-complete-180f1c7535eea5b2';
+ const bas=groups.find(g=>g.records.some(r=>r.id===basId));assert(bas);
+ const basRow=bas.records.find(r=>r.id===basId);
+ assert.equal(basRow.pa,'required');assert.equal(basRow.preferred,'non_preferred');
+ assert(!basRow.uhcClinicalBindings.some(b=>b.role==='product'));
+ const basDup=basRow.uhcClinicalBindings.find(b=>b.role==='duplication'&&b.policyId.endsWith('gl-735259'));
+ assert(basDup);assert.deepEqual(Array.from(basDup.branchIndexes),[0]);
+ assert(basRow.uhcClinicalBindings.some(b=>b.role==='nonpreferred'));
+ assert(basRow.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+ const basCard=a.medicationGroupCard(bas);
+ for(const phrase of ['Basaglar KwikPen (Insulin Glargine) Prefilled Pen','3 mL single-patient-use pen','Distinct from Tempo Pen and U-300 glargine','Exact UHC product-specific initial/renewal criteria'])assert(basCard.includes(phrase),phrase);
+ assert(basCard.includes('href="'+basRow.reviewedPresentation.labelUrl+'"'));
+ const basOut=await open(bas);assert(basOut.ref.includes('page=1712'));assert(basOut.ref.includes('page=1202'));assert(basOut.ref.includes('page=702'));
  const barId='uhc-oct-complete-c80e5c34df4eadf5';
  const bar=groups.find(g=>g.records.some(r=>r.id===barId));assert(bar);
  const barRow=bar.records.find(r=>r.id===barId);
