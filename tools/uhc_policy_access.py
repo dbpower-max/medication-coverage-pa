@@ -415,6 +415,30 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
         # GL-231255 and GL-140667 are administrative, not named product criteria.
         label_holds = {
+            'uhc-oct-complete-1d35bfcfe764c083': (
+                "cycloset", "Cycloset (Bromocriptine) Oral Tablet", "oral tablet",
+                "FDA label: 0.8 mg tablet for glycemic control in type 2 diabetes; taken within 2 hours of waking with food. Distinct from other bromocriptine products. Exact UHC product-specific initial/renewal criteria are unverified.",
+                "e42ba916-16b9-4d1c-8d09-9d2fbb1b6c20", False),
+            'uhc-oct-complete-8eaaa9a428e51bfe': (
+                "diazepam rectal gel 2.5 mg", "Diazepam 2.5 mg Rectal Gel", "rectal gel",
+                "FDA label: fixed 2.5 mg dose in 0.5 mL; distinct from the 10 mg and 20 mg adjustable syringes. Oral diazepam anxiolytic criteria are not verified for this rectal product. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "b5b17a28-2cab-4c0d-8f9d-7b224e4d0989", True),
+            'uhc-oct-complete-92cd6d282b2fdba2': (
+                "dipentum", "Dipentum (Olsalazine Sodium) Oral Capsule", "oral capsule",
+                "FDA label: 250 mg capsule, distinct from other aminosalicylates. Renal monitoring; contraindicated with salicylate or aminosalicylate hypersensitivity. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "8512d0c6-db4e-4673-b3b4-28975c18413f", True),
+            'uhc-oct-complete-d6a9c6a4da764191': (
+                "norpace (brand for disopyramide phosphate)", "Norpace (Disopyramide Phosphate) Immediate-Release Oral Capsule", "oral capsule",
+                "FDA label: 100 mg or 150 mg immediate-release capsule, distinct from 12-hour Norpace CR. Proarrhythmic risk; hospital initiation. Brand listing does not establish coverage of authorized generic or CR. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "e2aa1642-d262-4520-bc6a-9fd3ad795677", True),
+            'uhc-oct-complete-f99f6e23bf651e34': (
+                "cosopt (brand for dorzolamide hcl-timolol mal)", "Cosopt (Dorzolamide / Timolol) Ophthalmic Solution", "ophthalmic solution",
+                "FDA label: 2% / 0.5% preserved multidose ophthalmic solution, distinct from single-dose Cosopt PF. Contraindicated with asthma or severe COPD and specified cardiac conditions. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "23bdf1c1-3134-4ad1-8e7c-bc655156bdc6", True),
+            'uhc-oct-complete-4ffe1eab1f90ef46': (
+                "cosopt pf (brand for dorzolamide hcl-timolol mal pf)", "Cosopt PF (Dorzolamide / Timolol) Preservative-Free Ophthalmic Solution", "ophthalmic solution",
+                "FDA label: 2% / 0.5% preservative-free single-dose 0.2 mL container; discard after use. Distinct from preserved multidose Cosopt. Do not transfer the other listing's QL. Exact UHC product-specific initial/renewal criteria are unverified.",
+                "535fc801-8c3f-4974-a120-3eff1d5a5062", False),
             'uhc-oct-complete-013b59b93699a5c4': (
                 'onexton (brand for clindamycin phos-benzoyl perox)', 'Onexton (Clindamycin Phosphate / Benzoyl Peroxide) Topical Gel', 'topical gel',
                 'FDA label: 1.2% clindamycin phosphate / 3.75% benzoyl peroxide gel for topical use, not oral, ophthalmic or intravaginal. Contraindicated with history of regional enteritis, ulcerative colitis or antibiotic-associated colitis. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
@@ -533,6 +557,18 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 **record.get('reviewedPresentation', {}), 'separate': True,
                 'label': label, 'dosageForm': form, 'note': note,
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + label_id,
+            }
+        # DEC-05/12/13/14/19/20: exact preferred sprinkle capsule; retain conditional age rule.
+        if record['id'] == 'uhc-oct-complete-f24f86de993ce49c':
+            assert october_name == 'divalproex sodium oral capsule delayed release sprinkle (generic for depakote sprinkles)'
+            assert record['pa'] == 'conditional' and record['preferred'] == 'preferred' and ql
+            assert not matched, ('Review new named policy', record['id'], matched)
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Divalproex Sodium Delayed-Release Sprinkle Oral Capsule',
+                'dosageForm': 'delayed-release sprinkle capsule',
+                'note': 'FDA label: 125 mg delayed-release sprinkle capsule; swallow whole or sprinkle contents on soft food without chewing. Not delayed-release tablets or extended-release tablets. Boxed warnings include hepatotoxicity, fetal risk and pancreatitis. UHC PDL requires PA for members aged 8 years or older; exact product-specific criteria and numeric quantity limit are unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=699a9722-27bd-4e90-819b-d4ecb99466c8',
             }
         # DEC-05/12/13/14/19/20: UHC Basaglar KwikPen, not a blanket glargine benefit.
         # Preserve therapeutic duplication as an administrative DUR pathway, not a named PA.
