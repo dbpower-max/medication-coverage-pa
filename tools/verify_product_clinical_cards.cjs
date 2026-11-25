@@ -431,6 +431,17 @@ for(const [id,pa,pref,term] of [
  const card=api.medicationGroupCard(g);assert(card.includes(term)&&!card.includes('data-card-clinical='),id+' hold missing or unrelated criteria attached');
 }
 console.log('PASS: exact oncology and tobramycin criteria; distinct presentations and five unresolved-policy safety holds.');
+for(const [id,name] of [['banner-full-0557b6b7d1ec805f','Ribavirin Oral Capsules'],['banner-full-b77993fa62dc7389','Ribavirin Oral Tablets']]){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');
+ const card=api.medicationGroupCard(g);assert(card.includes(name)&&card.includes('data-card-clinical='),id+' form or criteria action missing');
+ const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
+ assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
+ assert(html.includes('Criteria source · PDF page 807<')&&/chronic hepatitis C infection/i.test(html)&&/direct-acting agent/i.test(html),id+' '+html);
+ assert(html.includes('Authorization stage is not separately labeled'),id+' incorrect stage');
+ assert(!/HCV RNA|MedWatch|decompensated liver disease/i.test(html),id+' unrelated DAA/Pegasys criteria');
+}
+console.log('PASS: distinct ribavirin capsule and tablet cards, exact HCV branch and retained PA/preference.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
