@@ -297,6 +297,11 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'Avtozma (Tocilizumab-anoh) Subcutaneous Injection',
                 'FDA label: 162 mg/0.9 mL prefilled syringe or autoinjector. SSc-ILD is a named payer pathway but is not an FDA-labeled Avtozma indication. CRS and COVID-19 are IV-only indications. Exact payer device/package and numeric quantity limit are unverified.',
                 '581c288f-8015-40ef-a4c3-683c96db193d'),
+            'uhc-oct-complete-4bfb77000b6496ad': (
+                'tyenne subcutaneous', 'Tyenne SC', 'preferred',
+                'Tyenne (Tocilizumab-aazg) Subcutaneous Injection',
+                'FDA label: 162 mg/0.9 mL prefilled syringe or autoinjector. SSc-ILD is a named payer pathway but is not an FDA-labeled Tyenne indication. CRS and COVID-19 are IV-only indications. Boxed warning: serious infections. Exact payer device/package and numeric quantity limit are unverified.',
+                '87ac5047-4f2b-4571-a8a8-32e08865f379'),
         }
         sc_review = sc_reviews.get(record['id'])
         if sc_review:
