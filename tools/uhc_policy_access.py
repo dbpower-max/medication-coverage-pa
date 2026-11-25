@@ -415,6 +415,18 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
         # GL-231255 and GL-140667 are administrative, not named product criteria.
         label_holds = {
+            'uhc-oct-complete-ea99523e63092e14': (
+                'sorilux (brand for calcipotriene)', 'Sorilux (Calcipotriene) Topical Foam', 'topical foam',
+                'FDA label: 0.005% foam for skin/scalp; avoid flame during and immediately after use. Contraindicated in known hypercalcemia. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                '51f208d0-7b3f-44cc-8bed-92fa3d2e7bbe', True),
+            'uhc-oct-complete-2e1dfaa167d25964': (
+                'taclonex (brand for calcipotriene-betameth diprop)', 'Taclonex (Calcipotriene / Betamethasone Dipropionate) Topical Form Unspecified', 'topical form unspecified',
+                'UHC does not identify ointment versus topical suspension. These are distinct formulations; do not transfer formulation-specific treatment duration or payer benefits between them. FDA suspension label linked; exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                '757c914f-dd8d-43cc-a973-212d591af4af', True),
+            'uhc-oct-complete-604fed6ff3bba12e': (
+                'dhivy (brand for carbidopa-levodopa)', 'Dhivy (Carbidopa / Levodopa) Functionally Scored Oral Tablet', 'oral tablet',
+                'FDA label: 25 mg/100 mg tablet with three functional scores; each quarter contains 6.25 mg/25 mg. Do not assume other tablets support equivalent quarter dosing. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                '39d79ade-8ee0-40ba-9fdd-13045b8ddbdf', True),
             'uhc-oct-complete-3030be16c6c4522a': (
                 "alphagan p (brand for brimonidine tartrate)", "Alphagan P (Brimonidine Tartrate) Ophthalmic Solution", "ophthalmic solution",
                 "FDA label: 0.1% and 0.15% ophthalmic solutions; not Mirvaso topical gel. UHC does not specify concentration or package. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
@@ -509,6 +521,18 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'dosageForm': 'prefilled pen injection',
                 'note': 'FDA label: 100 units/mL (U-100), 3 mL single-patient-use pen for subcutaneous injection; do not mix or dilute. Distinct from Tempo Pen and U-300 glargine. Therapeutic duplication criteria apply to DUR review, not routine product-specific authorization. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0ad21db3-2b1c-4ed9-a687-bdd6a74d0aae',
+            }
+        # DEC-05/12/13/14/19/20: preserve age-conditioned PDL rule and general nonsolid criteria.
+        if record['id'] == 'uhc-oct-complete-e29a433265e8ba09':
+            assert october_name == 'calcitriol oral solution'
+            assert record['pa'] == 'conditional' and record['preferred'] == 'preferred' and not ql
+            assert not matched, ('Review new named policy', record['id'], matched)
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Calcitriol Oral Solution',
+                'dosageForm': 'oral solution',
+                'note': 'FDA label: 1 mcg/mL oral solution, not injectable calcitriol or topical calcitriol. UHC PDL requires PA for members aged 8 years or older; general nonsolid criteria are not named product-specific initial/renewal criteria. Exact product-specific criteria remain unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=bdb9c0d4-bdb3-4174-a4d9-55c423f38476',
             }
         # DEC-05/12/13/14/19/20: preferred oral solution, not a named PA policy.
         if record['id'] == 'uhc-oct-complete-c80e5c34df4eadf5':
