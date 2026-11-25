@@ -398,6 +398,39 @@ for(const [id,name] of [['banner-full-3d7714307e911530','Fulphila'],['banner-ful
  const card=api.medicationGroupCard(g);assert(card.includes(name)&&card.includes('6 mg/0.6 mL')&&card.includes('stem-cell mobilization')&&!card.includes('data-card-clinical='),id+' unsafe general CSF criteria');
 }
 console.log('PASS: five exact opioid records, Pegasys HCV-only branch and two CSF indication holds.');
+
+for(const [id,page,pref,pattern] of [
+ ['banner-full-a385ef7908014d5f',963,'not_specified',/NCCN|National Comprehensive Cancer Network/i],
+ ['banner-full-e532fae3af52a7f5',1322,'not_specified',/NCCN|National Comprehensive Cancer Network/i],
+ ['banner-full-dbd10ab6ed6cbec3',1322,'not_specified',/NCCN|National Comprehensive Cancer Network/i],
+ ['banner-full-201c806b5669b4d1',1322,'not_specified',/NCCN|National Comprehensive Cancer Network/i],
+ ['banner-full-33b6c65c4a83387f',1322,'not_specified',/NCCN|National Comprehensive Cancer Network/i],
+ ['banner-full-127d40be02571b08',1805,'preferred',/cystic fibrosis/i],
+ ['banner-full-2d20172bd0ae6a5a',1805,'preferred',/cystic fibrosis/i],
+]){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,pref);
+ assert(api.medicationGroupCard(g).includes('data-card-clinical='),id+' missing criteria action');
+ const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
+ assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
+ assert(html.includes('Criteria source · PDF page '+page+'<')&&pattern.test(html),id+' '+html);
+ assert(html.includes('Authorization stage is not separately labeled'),id+' stage incorrectly assigned');
+ if(page===1322)assert(!/tried and failed the preferred generic counterpart/i.test(html),id+' unrelated imatinib step');
+ if(page===1805)assert(!/positive culture|history of failure|positive clinical response/i.test(html),id+' unrelated TOBI criteria');
+}
+for(const [id,pa,pref,term] of [
+ ['banner-full-d703bdd7986bae9f','required','not_specified','not interchangeable'],
+ ['banner-oct26-025','required','preferred','Model Unverified'],
+ ['banner-oct26-001','required','preferred','SymlinPen 60'],
+ ['banner-full-37f793a83cc9e549','conditional','not_specified','18 and older'],
+ ['banner-full-09077a336e9813e5','conditional','not_specified','18 and older'],
+]){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,pa);assert.equal(r.preferred,pref);
+ assert(r.reviewedPresentation.policyUnverified&&r.reviewedPresentation.labelUrl,id+' missing source hold');
+ const card=api.medicationGroupCard(g);assert(card.includes(term)&&!card.includes('data-card-clinical='),id+' hold missing or unrelated criteria attached');
+}
+console.log('PASS: exact oncology and tobramycin criteria; distinct presentations and five unresolved-policy safety holds.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
