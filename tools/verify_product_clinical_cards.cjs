@@ -484,6 +484,23 @@ for(const [id,pa,pref,pages] of [
  }
 }
 console.log('PASS: rituximab issuer conflict held; five exact Banner records scoped, stages and flags retained, no unrelated Nplate/DAA/glycerol step.');
+{
+ const id='banner-full-b6ed7f51c1eb7ebe',g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'conditional');assert.equal(r.preferred,'not_specified');
+ assert(r.reviewedPresentation.policyUnverified&&!r.reviewedBannerBranches,id+' pediatric hold missing');
+ const card=api.medicationGroupCard(g);assert(card.includes('Age/Policy Conflict')&&card.includes('age exactly 12')&&card.includes('13–17')&&!card.includes('data-card-clinical='),id+' unsafe pediatric inference');
+}
+for(const id of ['banner-full-60198c9988b7fac5','banner-full-a16e47fcf26287e4']){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'not_specified');
+ const card=api.medicationGroupCard(g);assert(card.includes('PAH Oral Tablets')&&card.includes('data-card-clinical='),id+' exact criteria missing');
+ const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
+ assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
+ assert.deepEqual([...html.matchAll(/Criteria source · PDF page (\d+)</g)].map(m=>Number(m[1])),[1422,1425],id+' wrong PAH branches '+html);
+ assert(/18 years of age or older/i.test(html)&&/right heart catheterization/i.test(html)&&/positive clinical response/i.test(html),id+' lost PAH clinical requirements');
+ assert(!/Requests for Tracleer|Requests for Uptravi|request is for Brand Adcirca|request is for Opsynvi|non-preferred product|CTEPH/i.test(html),id+' unrelated age or product criteria');
+}
+console.log('PASS: Banner sildenafil suspension age conflict held and two adult generic PAH tablet branches scoped.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
