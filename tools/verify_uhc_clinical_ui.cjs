@@ -90,6 +90,8 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(avlayahCard.includes('href="'+avlayahRow.reviewedPresentation.labelUrl+'"'),'Avlayah label citation missing from prescribing card');
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ['aa50f2e41f4faa14','Apidra SoloStar (Insulin Glulisine) Prefilled Pen','3 mL single-patient-use prefilled pen',true],
+  ['ad3656a231a145e1','Apidra (Insulin Glulisine) Vial for Injection','10 mL multiple-dose vial',true],
   ['b194127f86ac4236','Accrufer (Ferric Maltol) Oral Capsule','30 mg iron as ferric maltol',true],
   ['d9b404be1858112f','Angeliq (Drospirenone / Estradiol) Oral Tablet','menopausal hormone therapy, not contraception',false],
   ['ae9928afe2cbe71e','Annovera (Segesterone Acetate / Ethinyl Estradiol) Vaginal System','21 days in, 7 days out, for 13 cycles',true]
@@ -104,6 +106,17 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const card=a.medicationGroupCard(g);assert(card.includes(label),id+' form');assert(card.includes(phrase),id+' distinction');assert(card.includes('Exact UHC product-specific initial/renewal criteria'),id+' hold');assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'),id+' label link');
   const out=await open(g);assert(out.ref.includes('page=1202'),id+' administrative source');if(hasQL)assert(out.ref.includes('page=702'),id+' QL source');
  }
+ const benlysta=groups.find(g=>g.records.some(r=>r.id==='uhc-oct-complete-36c4a27401324b71'));assert(benlysta);
+ const benRow=benlysta.records.find(r=>r.id==='uhc-oct-complete-36c4a27401324b71');
+ assert.equal(benRow.pa,'required');assert.equal(benRow.preferred,'non_preferred');
+ const benBinding=benRow.uhcClinicalBindings.find(b=>b.role==='product'&&b.policyId.endsWith('gl-140941'));
+ assert(benBinding);assert.deepEqual(Array.from(benBinding.branchIndexes),[0,1,2]);assert(benRow.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+ const benCard=a.medicationGroupCard(benlysta);
+ for(const phrase of ['Benlysta (Belimumab) Subcutaneous Autoinjector','200 mg/mL single-dose autoinjector','pediatric SC use is autoinjector-only','Exact payer numeric quantity limit is unverified'])assert(benCard.includes(phrase),phrase);
+ assert(benCard.includes('href="'+benRow.reviewedPresentation.labelUrl+'"'));
+ const benOut=await open(benlysta);
+ for(const page of [226,227,228])assert(benOut.html.includes('Criteria source · PDF page '+page+'<'),'Benlysta page '+page);
+ assert(benOut.ref.includes('page=226'));assert(benRow.uhcClinicalBindings.some(b=>b.role==='nonpreferred'&&b.policyId.endsWith('gl-231255')));assert(!benOut.ref.includes('page=1202'),'Named criteria should not stack administrative fallback');assert(benOut.ref.includes('page=702'));
  const samsca=groups.find(g=>g.records.some(r=>r.name.startsWith('SAMSCA (brand')));
  const samscaContent=await open(samsca);
  assert(samscaContent.html.includes('Criteria source · PDF page 1488<'));
@@ -125,7 +138,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   }
   n++;
  }
- for(const term of ['Apidra SoloStar','Apidra Vial']){const g=groups.find(g=>g.label.toLowerCase()===term.toLowerCase());assert(g,term);assert(!a.medicationGroupCard(g).includes('PA is printed in at least one source row.'),'Internal PA-column notice leaked');const out=await open(g);assert(out.html.includes('THREE')&&out.html.includes('pharmacy claims'),'Nonpreferred criteria missing');assert(out.html.includes('requested dosage cannot be achieved'),'QL exception criteria missing');assert(out.ref.includes('page=1202')&&out.ref.includes('page=702'),'Wrong UHC source');}
+ for(const term of ['aa50f2e41f4faa14','ad3656a231a145e1']){const g=groups.find(g=>g.records.some(r=>r.id==='uhc-oct-complete-'+term));assert(g,term);assert(!a.medicationGroupCard(g).includes('PA is printed in at least one source row.'),'Internal PA-column notice leaked');const out=await open(g);assert(out.html.includes('THREE')&&out.html.includes('pharmacy claims'),'Nonpreferred criteria missing');assert(out.html.includes('requested dosage cannot be achieved'),'QL exception criteria missing');assert(out.ref.includes('page=1202')&&out.ref.includes('page=702'),'Wrong UHC source');}
  const qvar=groups.find(g=>/qvar/i.test(g.label)&&a.clinicalGuidanceFor(g));if(qvar){const out=await open(qvar);assert(out.html.includes('Diagnosis of asthma'),'Existing non-PA clinical guide erased by quantity-policy loading');}
  const supplies=groups.filter(g=>g.records.some(r=>r.policyQuantityLimit));assert(supplies.length>5);
  for(const g of supplies){const out=await open(g);assert(out.html.includes('more frequent delivery of insulin'));const card=a.medicationGroupCard(g);assert(card.includes('6 pen needles per day and 6 syringes per day.'));if(g.records.every(r=>r.preferred==='preferred'))assert(!out.html.includes('unable to use a preferred'),'Preferred product got nonpreferred PA');}
