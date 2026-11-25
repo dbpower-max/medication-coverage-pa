@@ -362,6 +362,42 @@ console.log('PASS: two injectable route/criteria holds and conditional Lopressor
  assert(api.recordDetails(r).includes('GL-620196'));
 }
 console.log('PASS: Sandoz nintedanib exact manufacturer and indication-stage criteria, raw flags unchanged.');
+
+for(const id of ['banner-full-697faa8211f23f28','banner-full-4710a711a65069e2','banner-full-bcd63d76ee8d2c84']){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');assert.equal(g.records.length,1);
+ const r=g.records[0];assert.equal(r.pa,'conditional');assert.equal(r.preferred,'not_specified');
+ assert(api.medicationGroupCard(g).includes('data-card-clinical='),id+' clinical action absent');
+ const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
+ assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
+ assert(html.includes('Criteria source · PDF page 1578<')&&html.includes('Authorization stage is not separately labeled'),html);
+ assert(/adjust the dose/i.test(html)&&/attests/i.test(html),html);
+ assert(!html.includes('Criteria source · PDF page 1577<')&&!html.includes('Criteria source · PDF page 1576<'),id+' unrelated conditional reviews rendered');
+ assert(api.recordDetails(r).includes('GL-709190'));
+}
+for(const [id,pref] of [['banner-full-087c94375a6182f2','preferred'],['banner-full-ef27a4dfae81f655','not_specified']]){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');assert.equal(g.records.length,1);
+ const r=g.records[0];assert.equal(r.pa,'required');assert.equal(r.preferred,pref);
+ assert(api.medicationGroupCard(g).includes('data-card-clinical='),id+' clinical action absent');
+ const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
+ assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
+ for(const p of [1100,1104,1110])assert(html.includes('Criteria source · PDF page '+p+'<'),id+' missing '+p);
+ for(const p of [1099,1101,1105,1111,1112])assert(!html.includes('Criteria source · PDF page '+p+'<'),id+' unrelated stage '+p);
+}
+{
+ const id='banner-full-e50339bf35f4c1a8',g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');
+ assert(api.medicationGroupCard(g).includes('HBV criteria unverified'));
+ const e=targetFor(g);await api.populateCardClinical(e.details);const html=e.target.innerHTML;
+ assert.equal(e.details.dataset.loaded,'true',id+' criteria failed '+html);
+ assert(html.includes('Criteria source · PDF page 806<')&&html.includes('48 Week(s)')&&/combination antiviral/i.test(html),html);
+ assert(!html.includes('Criteria source · PDF page 807<'),id+' separate ribavirin branch');
+}
+for(const [id,name] of [['banner-full-3d7714307e911530','Fulphila'],['banner-full-c9e709fdd45fb2d7','Fylnetra']]){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');const r=g.records.find(r=>r.id===id);
+ assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');assert(r.reviewedPresentation.policyUnverified&&r.reviewedPresentation.labelUrl);
+ const card=api.medicationGroupCard(g);assert(card.includes(name)&&card.includes('6 mg/0.6 mL')&&card.includes('stem-cell mobilization')&&!card.includes('data-card-clinical='),id+' unsafe general CSF criteria');
+}
+console.log('PASS: five exact opioid records, Pegasys HCV-only branch and two CSF indication holds.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
