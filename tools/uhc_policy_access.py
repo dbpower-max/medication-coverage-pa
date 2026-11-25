@@ -450,12 +450,19 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                                'Immune thrombocytopenia [Idiopathic thrombocytopenic purpura (ITP)]',
                                'Asthma (severe, persistent, high-dose steroid-dependent)',
                                'Bone Marrow Transplant (BMT)',
-                               'Chronic Inflammatory Demyelinating Polyneuropathy')
+                               'Chronic Inflammatory Demyelinating Polyneuropathy',
+                               'Dermatomyositis or polymyositis',
+                               'Lambert-Eaton Myasthenic Syndrome (LEMS)',
+                               'Lennox Gastaut Syndrome',
+                               'Multifocal Motor Neuropathy (MMN)',
+                               'Prevention of infection in Multiple Myeloma',
+                               'Relapsing Multiple Sclerosis')
                 stages = {dx: {} for dx in reviewed_dx}
                 for i, b in enumerate(structured[code]['branches']):
                     fields = b['fields']
                     def field(name):
-                        return ' '.join(fields.get(name, {}).get('text', '').split())
+                        f = fields.get(name, {})
+                        return ' '.join((f.get('displayText') or f.get('text', '')).split())
                     dx = field('Diagnosis')
                     if dx not in stages:
                         continue
@@ -466,7 +473,7 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                     stage = field('Therapy Stage')
                     assert stage not in stages[dx]
                     stages[dx][stage] = i
-                assert all(set(v) == {'Initial Authorization', 'Reauthorization'} for v in stages.values())
+                assert all(set(v) == {'Initial Authorization', 'Reauthorization'} for v in stages.values()), {dx: sorted(v) for dx, v in stages.items()}
                 add(code, [stages[dx][stage] for dx in reviewed_dx
                            for stage in ('Initial Authorization', 'Reauthorization')], 'product')
                 bindings[-1]['productLabel'] = 'Gammagard S-D (named UHC pharmacy criteria; IV only)'
@@ -475,13 +482,14 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 note = ('FDA label: 5 g or 10 g lyophilized powder for IV use only; not subcutaneous. '
                         'IgA less than 1 mcg/mL in 5% solution does not eliminate anaphylaxis risk. '
                         'Boxed warning: thrombosis, renal dysfunction and acute renal failure. '
-                        'UHC pharmacy initial/renewal criteria verified for PI, CLL infection prevention, ITP, asthma, BMT and CIDP; '
+                        'UHC pharmacy initial/renewal criteria verified for PI, CLL infection prevention, ITP and the named off-label indications below; '
                         'the nonpreferred condition applies only to nonpreferred requests. '
                         'S/D FDA indications: PI age 2 years or older, CLL infection prevention, adult chronic ITP, pediatric Kawasaki. '
                         'The payer acute ITP branch is not an FDA-labeled S/D indication. '
-                        'Asthma, BMT and CIDP are off-label for S/D; payer criteria are not FDA-approved indications or prescribing instructions. '
+                        'Asthma, BMT, CIDP, dermatomyositis/polymyositis, LEMS, Lennox-Gastaut syndrome, MMN, multiple myeloma infection prevention and relapsing MS are off-label for S/D; payer criteria are not FDA-approved indications or prescribing instructions. '
                         'Kawasaki criteria held: printed payer dose wording differs from the product label; verify with payer before use. '
                         'Autoimmune bullous disease criteria held: unclear payer dose division; verify with payer. '
+                        'Type 1 diabetes, neonatal thrombocytopenia, mixed Graves/GBS and pediatric HIV pathways held for safety or indication clarification. Immune globulin is not a replacement for insulin. '
                         'Other indications and medical benefit applicability remain unverified.')
                 label_id = 'bf8df9fd-bfdd-47c2-84d2-d91e50947bf6'
             else:
