@@ -77,6 +77,17 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  const scIds=new Set(['uhc-oct-complete-6e31fd16d0c3fee4','uhc-oct-complete-2e1049037c5dbd67','uhc-oct-complete-4bfb77000b6496ad']);
  for(const record of data.medications.filter(r=>!scIds.has(r.id)))assert(!record.uhcClinicalBindings?.some(b=>b.omitNonpreferredCondition),record.id+' preference override leaked');
+ // Avlayah: label-only identity, never promote statewide criteria to UHC.
+ const avlayahId='uhc-oct-complete-a8d0977aeaff8cc1';
+ const avlayah=groups.find(g=>g.records.some(r=>r.id===avlayahId));
+ assert(avlayah,'Avlayah exact listing missing');
+ const avlayahRow=avlayah.records.find(r=>r.id===avlayahId);
+ assert.equal(avlayahRow.pa,'required');
+ assert.equal(avlayahRow.preferred,'preferred');
+ assert(!avlayahRow.uhcClinicalBindings.some(b=>b.role==='product'));
+ const avlayahCard=a.medicationGroupCard(avlayah);
+ for(const phrase of ['Avlayah (Tividenofusp alfa-eknm) IV Infusion','150 mg lyophilized','Boxed warning: anaphylaxis','Exact UHC initial/renewal criteria are unverified']) assert(avlayahCard.includes(phrase),'Avlayah missing '+phrase);
+ assert(avlayahCard.includes('href="'+avlayahRow.reviewedPresentation.labelUrl+'"'),'Avlayah label citation missing from prescribing card');
  const samsca=groups.find(g=>g.records.some(r=>r.name.startsWith('SAMSCA (brand')));
  const samscaContent=await open(samsca);
  assert(samscaContent.html.includes('Criteria source · PDF page 1488<'));
