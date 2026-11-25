@@ -415,6 +415,22 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
         # GL-231255 and GL-140667 are administrative, not named product criteria.
         label_holds = {
+            'uhc-oct-complete-48aa5c3126dac1f1': (
+                "besivance (brand for besifloxacin hcl)", "Besivance (Besifloxacin) Ophthalmic Suspension", "ophthalmic suspension",
+                "FDA label: 0.6% (6 mg/mL) topical ophthalmic suspension, not for injection into the eye. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                'a3e6d688-7e5e-4ca3-b27e-79756c322a32', True),
+            'uhc-oct-complete-ccb3e29f79cd93b8': (
+                "bijuva oral capsule 1-100 mg", "Bijuva (Estradiol / Progesterone) 1 mg / 100 mg Oral Capsule", "oral capsule",
+                "FDA label: estradiol 1 mg plus progesterone 100 mg, for menopausal vasomotor symptoms in patients with a uterus. UHC row specifies 1 mg / 100 mg; do not transfer its benefits to the 0.5 mg / 100 mg presentation. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                '59eadb88-c9f3-4871-b176-7ddd98faf9bc', True),
+            'uhc-oct-complete-c24ea1cc8b559162': (
+                "lumigan (brand for bimatoprost)", "Lumigan (Bimatoprost) Ophthalmic Solution", "ophthalmic solution",
+                "FDA label: US 0.01% (0.1 mg/mL) ophthalmic solution. Distinct from 0.03% formulations and bimatoprost eyelash treatment. UHC does not specify concentration or package. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                'a5e67c75-db88-4372-bb07-c8dd15c97631', True),
+            'uhc-oct-complete-a9f6c2797d55304f': (
+                "pylera (brand for bis subcit-metronid-tetracyc)", "Pylera (Bismuth Subcitrate Potassium / Metronidazole / Tetracycline HCl) Oral Capsule", "oral capsule",
+                "FDA label: 140 mg / 125 mg / 125 mg per capsule; omeprazole is administered separately and is not included. Contraindicated in pregnancy and severe renal impairment. Exact UHC product-specific initial/renewal criteria are unverified.",
+                '5cdacbf5-67be-42eb-bd54-8acc32ea1abc', False),
             'uhc-oct-complete-9248b8305ab77197': (
                 'reyataz oral capsule (brand for atazanavir sulfate)', 'Reyataz (Atazanavir) Oral Capsule', 'oral capsule',
                 'FDA label: 200 mg or 300 mg capsules; take with food and do not open capsules. Distinct from 50 mg oral powder packets. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
