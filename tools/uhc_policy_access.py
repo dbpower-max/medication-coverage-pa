@@ -283,6 +283,28 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                     indexes.add(i)
             assert indexes, (code, product)
             matched[code] = indexes
+        # DEC-05/12/13/14/19/20: the 300 mg cluster pack is not the migraine presentation.
+        if record['id'] == 'uhc-oct-complete-50113fd01abf63b3':
+            code = 'GL-720193'
+            assert october_name == 'emgality (300 mg dose)' and record['pa'] == 'required'
+            assert record['preferred'] == 'non_preferred' and ql
+            assert policies[code]['policyEffective'] == '2026-10-18'
+            branches = structured[code]['branches']
+            for index, stage in [(2, 'Initial Authorization'), (3, 'Reauthorization')]:
+                branch = branches[index]
+                assert 'Emgality 100 mg/mL' in branch['fields']['Product Name']['text']
+                assert 'Episodic Cluster Headaches' in branch['fields']['Diagnosis']['text']
+                assert stage == branch['fields']['Therapy Stage']['text']
+            matched.pop(code, None)
+            add(code, [2, 3], 'product')
+            bindings[-1]['productLabel'] = 'Emgality 100 mg/mL (episodic cluster headache)'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Emgality (Galcanezumab-gnlm) 100 mg/mL Subcutaneous Prefilled Syringe (300 mg Dose)',
+                'dosageForm': 'subcutaneous prefilled syringe',
+                'note': 'FDA label: 300 mg as three consecutive 100 mg subcutaneous injections for episodic cluster headache; distinct from 120 mg/mL migraine presentations. UHC cluster policy retains migraine-combination restrictions as printed. Exact payer package eligibility and numeric quantity limit remain unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=33a147be-233a-40e8-a55e-e40936e28db0',
+            }
         # DEC-05/12/13/14/19/20: exact October SC listings only.
         # The named May 2026 guideline includes a conditional nonpreferred rule.
         # Retain the structured source verbatim; scope the clinician rendering.
