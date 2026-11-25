@@ -702,6 +702,20 @@ for(const [id,form,pages] of [["banner-full-c50d5a831e1c6a83","Aralast NP (Alpha
  assert.equal(g.records.length,1);
 }
 console.log('PASS: five Banner exact rows and one A1PI package/form hold, original flags preserved.');
+for(const [id,form,code,warning] of [
+ ['banner-full-3880bff4a3b70b55','Adalimumab-bwwd Subcutaneous Prefilled Syringe','GL-525274','Payer identity hold'],
+ ['banner-full-649d84d33fb33d42','Hulio (Adalimumab-fkjp) Subcutaneous Autoinjector Kit','GL-525274','Payer conflict'],
+ ['banner-full-7c98df91d2b8f9ad','Hulio (Adalimumab-fkjp) Subcutaneous Prefilled Syringe Kit','GL-525274','Payer conflict'],
+ ['banner-full-84b2d91ea0a7c4f1','Promacta (Eltrombopag Olamine) Oral Tablets','GL-525300','Payer conflict']
+]){
+ const g=auditedBannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id+' missing');
+ const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');
+ assert(r.reviewedPresentation.policyUnverified&&!r.reviewedBannerBranches,id+' missing hold');
+ assert(r.policySources.some(p=>p.policyCode===code),id+' missing exact policy source');
+ const card=api.medicationGroupCard(g);assert(card.includes(form)&&card.includes(code)&&card.includes(warning)&&!card.includes('data-card-clinical='),id+' lost warning or unsafe branch');
+ assert.equal(g.records.length,1,id+' unsafe product merge');
+}
+console.log('PASS: four exact Banner identity/preference conflicts preserve source flags, forms, dated policy links and suppress unverified criteria.');
 const policy=read('_site/clinical-criteria/gl-589207.json');
 assert.equal(api.matchingClinicalBranches(policy,{name:'Dapagliflozin',brands:['FARXIGA'],records:[{name:'Dapagliflozin'}]}).length,1,'Monotherapy selected combination products');
 assert.equal(api.matchingClinicalBranches(policy,{name:'dapagliflozin',brands:['UNRELATED BRAND'],records:[{name:'dapagliflozin'}]}).length,0,'Unrelated brand received generic policy');
