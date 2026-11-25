@@ -346,6 +346,18 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
         # GL-231255 and GL-140667 are administrative, not named product criteria.
         label_holds = {
+            'uhc-oct-complete-9248b8305ab77197': (
+                'reyataz oral capsule (brand for atazanavir sulfate)', 'Reyataz (Atazanavir) Oral Capsule', 'oral capsule',
+                'FDA label: 200 mg or 300 mg capsules; take with food and do not open capsules. Distinct from 50 mg oral powder packets. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                '165cff62-b284-4a27-a65d-9ec8a5bfcdd8', True),
+            'uhc-oct-complete-101e5350ddd51acd': (
+                'azasite', 'AzaSITE (Azithromycin) Ophthalmic Solution', 'ophthalmic solution',
+                'FDA label: 1% (10 mg/mL) ophthalmic solution; for ocular use only, not oral azithromycin. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                '0c5d6f5e-18ea-436f-8c62-bbaf66effe3d', True),
+            'uhc-oct-complete-826e676ded0d2967': (
+                'edarbi (brand for azilsartan medoxomil)', 'Edarbi (Azilsartan Medoxomil) Oral Tablet', 'oral tablet',
+                'FDA label: 40 mg or 80 mg tablets; not the azilsartan/chlorthalidone combination. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                '52b27c75-9f5a-4816-bafd-dace9d7d2063', True),
             'uhc-oct-complete-aa50f2e41f4faa14': (
                 'apidra solostar', 'Apidra SoloStar (Insulin Glulisine) Prefilled Pen', 'prefilled pen injection',
                 'FDA label: U-100 (100 units/mL), 3 mL single-patient-use prefilled pen for subcutaneous injection only. Not the vial; do not use the pen for IV or pump administration. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
@@ -376,6 +388,18 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 **record.get('reviewedPresentation', {}), 'separate': True,
                 'label': label, 'dosageForm': form, 'note': note,
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + label_id,
+            }
+        # DEC-05/12/13/14/19/20: preferred oral solution, not a named PA policy.
+        if record['id'] == 'uhc-oct-complete-c80e5c34df4eadf5':
+            assert october_name == 'baraclude oral solution' and record['pa'] == 'required'
+            assert record['preferred'] == 'preferred' and ql
+            assert not matched, ('Review newly available named criteria before use', record['id'], matched)
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Baraclude (Entecavir) Oral Solution',
+                'dosageForm': 'oral solution',
+                'note': 'FDA label: 0.05 mg/mL oral solution, distinct from tablets; use solution for pediatric patients weighing up to 30 kg. Boxed warnings: hepatitis B exacerbation after stopping therapy, HIV resistance without effective HIV treatment, lactic acidosis and hepatomegaly. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                'labelUrl': 'https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/021797s027lbl.pdf',
             }
         # DEC-05/12/13/14/19/20: exact pharmacy SQ policy; never inherit IV medical-benefit criteria.
         if record['id'] == 'uhc-oct-complete-36c4a27401324b71':
