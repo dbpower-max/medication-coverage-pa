@@ -330,6 +330,19 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'label': label, 'dosageForm': 'subcutaneous injection', 'note': note,
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + label_id,
             }
+        # DEC-05/12/13/14/19/20: label identity only; no exact UHC named pharmacy criteria.
+        if record['id'] == 'uhc-oct-complete-a8d0977aeaff8cc1':
+            assert october_name == 'avlayah' and record['pa'] == 'required'
+            assert record['preferred'] == 'preferred'
+            # The separate AHCCCS FFS/AIHP guideline is not a UHC product binding.
+            assert not matched, ('Avlayah: review newly available exact-plan policy before use', matched)
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Avlayah (Tividenofusp alfa-eknm) IV Infusion',
+                'dosageForm': 'powder for intravenous infusion',
+                'note': 'FDA label: 150 mg lyophilized single-dose vial for IV infusion after preparation; pediatric initiation at 5 kg or more before advanced neurologic impairment. Not recommended with other enzyme replacement therapies for Hunter syndrome. Boxed warning: anaphylaxis. Exact UHC initial/renewal criteria are unverified; statewide criteria are reference only.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=014d92c1-b643-4680-8ca6-f0b3307da915',
+            }
         constipation_code = 'GL-720196'
         if october_name.startswith(('lubiprostone capsule ', 'prucalopride succinate (generic for ')):
             # The October 18 policy removed these generics from its PA targets.
