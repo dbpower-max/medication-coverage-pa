@@ -415,6 +415,22 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
         # GL-231255 and GL-140667 are administrative, not named product criteria.
         label_holds = {
+            'uhc-oct-complete-8f02f89ad4d636c6': (
+                "beyaz (brand for drospiren-eth estrad-levomefol)", "Beyaz (Drospirenone / Ethinyl Estradiol / Levomefolate) Oral Tablet Pack", "oral tablet pack",
+                "FDA label: 24 hormone-containing tablets (3/0.02/0.451 mg) and 4 folate-only tablets (0.451 mg). Distinct from Safyral 21/7 pack. Contraindicated with renal impairment, adrenal insufficiency and specified thrombotic risks. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "8132454a-6135-4bac-b206-83a55eb8dbc6", True),
+            'uhc-oct-complete-f142ec3c46691c32': (
+                "safyral (brand for drospiren-eth estrad-levomefol)", "Safyral (Drospirenone / Ethinyl Estradiol / Levomefolate) Oral Tablet Pack", "oral tablet pack",
+                "FDA label: 21 hormone-containing tablets (3/0.03/0.451 mg) and 7 folate-only tablets (0.451 mg). Distinct from Beyaz 24/4 pack. Contraindicated with renal impairment, adrenal insufficiency and specified thrombotic risks. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "97563516-306a-4e17-9690-edbda49ecd83", True),
+            'uhc-oct-complete-4174a6295393bf8f': (
+                "duaklir pressair", "Duaklir Pressair (Aclidinium / Formoterol) Dry Powder Inhaler", "dry powder inhaler",
+                "FDA label: 400/12 mcg per metered actuation; COPD maintenance, not rescue or asthma. Do not combine with another LABA. UHC therapeutic duplication review is administrative; exact package eligibility is unverified. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "2eba3089-28b4-4190-9fba-2511246cfd16", True),
+            'uhc-oct-complete-36fd5377645d6fba': (
+                "edarbyclor", "Edarbyclor (Azilsartan Medoxomil / Chlorthalidone) Oral Tablet", "oral tablet",
+                "FDA label: 40/12.5 mg or 40/25 mg combination tablets, distinct from single-agent Edarbi. Boxed fetal toxicity warning; contraindicated in anuria. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "e60f795b-fce3-4361-aa03-f143451689d1", True),
             'uhc-oct-complete-1d35bfcfe764c083': (
                 "cycloset", "Cycloset (Bromocriptine) Oral Tablet", "oral tablet",
                 "FDA label: 0.8 mg tablet for glycemic control in type 2 diabetes; taken within 2 hours of waking with food. Distinct from other bromocriptine products. Exact UHC product-specific initial/renewal criteria are unverified.",
@@ -552,7 +568,8 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             expected, label, form, note, label_id, has_ql = label_holds[record['id']]
             assert october_name == expected and record['pa'] == 'required'
             assert record['preferred'] == 'non_preferred' and bool(ql) == has_ql
-            assert not matched, ('Review newly available named criteria before use', record['id'], matched)
+            allowed_administrative = {'GL-735259'} if record['id'] == 'uhc-oct-complete-4174a6295393bf8f' else set()
+            assert not (set(matched) - allowed_administrative), ('Review newly available named criteria before use', record['id'], matched)
             record['reviewedPresentation'] = {
                 **record.get('reviewedPresentation', {}), 'separate': True,
                 'label': label, 'dosageForm': form, 'note': note,
