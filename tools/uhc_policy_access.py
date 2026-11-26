@@ -601,7 +601,53 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             }
         # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
         # GL-231255 and GL-140667 are administrative, not named product criteria.
+        # DEC-05/06/12/13/14/19/20: the UHC SC listing is not the IV vial.
+        if record['id'] == 'uhc-oct-complete-cb36a822ee8dc7d4':
+            assert october_name == 'orencia subcutaneous'
+            assert record['pa'] == 'required' and record['preferred'] == 'preferred' and ql
+            code = 'GL-141021'
+            assert policies[code]['policyEffective'] == '2024-01-01'
+            branches = structured[code]['branches']
+            assert len(branches) == 6
+            for i, dx in enumerate(['Rheumatoid Arthritis (RA)', 'Polyarticular Juvenile Idiopathic Arthritis (PJIA)', 'Psoriatic Arthritis (PsA)']):
+                for k, stage in enumerate(['Initial Authorization', 'Reauthorization']):
+                    fields = branches[i * 2 + k]['fields']
+                    def orencia_field(name):
+                        f = fields[name]
+                        return ' '.join((f.get('displayText') or f['text']).split())
+                    assert orencia_field('Product Name') == 'Orencia Clickject, Orencia prefilled syringe'
+                    assert orencia_field('Diagnosis') == dx
+                    assert orencia_field('Therapy Stage') == stage
+                    assert orencia_field('Approval Length') == '12 month(s)'
+                    assert orencia_field('Guideline Type') == 'Prior Authorization'
+            assert set(matched).issubset({code, 'GL-733328'}), matched
+            matched.pop(code, None)
+            add(code, list(range(6)), 'product')
+            bindings[-1]['productLabel'] = 'Orencia ClickJect and prefilled syringe (subcutaneous)'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Orencia (Abatacept) Subcutaneous Injection (Device Unspecified)',
+                'dosageForm': 'subcutaneous injection',
+                'note': 'FDA label: 50 mg/0.4 mL, 87.5 mg/0.7 mL and 125 mg/mL prefilled syringes; 125 mg/mL ClickJect autoinjector. UHC lists SC without specifying device; the named policy applies to both SC devices, not the IV vial. Use labeled age, weight and device eligibility separately from payer criteria. Numeric quantity limit remains unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0836c6ac-ee37-5640-2fed-a3185a0b16eb',
+            }
         label_holds = {
+            'uhc-oct-complete-4763deab6556b498': (
+                "moviprep (brand for peg-3350/electrolytes/ascorbat)", "MoviPrep (PEG 3350 / Electrolytes / Ascorbate) Powder for Oral Solution", "powder for oral solution",
+                "FDA label: mix pouch A and pouch B together with water to make each liter; kit supplies two liters of bowel preparation, not ready-to-drink solution. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "8ff46193-2a3b-4de0-9572-775dda8cd8b2", True),
+            'uhc-oct-complete-0d5d9de3ba6af1f0': (
+                "perforomist (brand for formoterol fumarate)", "Perforomist (Formoterol Fumarate) Nebulizer Solution", "inhalation solution",
+                "FDA label: 20 mcg/2 mL unit-dose vial for jet nebulization, for COPD maintenance; not rescue treatment or an asthma indication. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "fb2fe258-fe2e-47f6-8adf-ca75bf6f90af", True),
+            'uhc-oct-complete-7f3a07339d47bc24': (
+                "pertzye oral capsule delayed release particles 16000- 57500 unit, 24000-86250 unit, 8000-28750 unit", "Pertzye (Pancrelipase) 8,000 / 16,000 / 24,000 Lipase Unit Delayed-Release Capsules", "delayed-release oral capsule",
+                "FDA label: respective lipase/protease/amylase USP units 8000/28750/30250, 16000/57500/60500, 24000/86250/90750. Not the 4,000-unit capsule specified for gastrostomy tube administration. Do not substitute other pancreatic enzyme products without clinical reassessment. Exact UHC product-specific initial/renewal criteria are unverified; no QL printed on this listing.",
+                "481eec00-9abf-11dd-b71c-0002a5d5c51b", False),
+            'uhc-oct-complete-7fbd2d78a81af2c4': (
+                "pertzye oral capsule delayed release particles 4000- 14375 unit", "Pertzye (Pancrelipase) 4,000 Lipase Unit Delayed-Release Capsule", "delayed-release oral capsule",
+                "FDA label: 4000 lipase / 14375 protease / 15125 amylase USP units. Only the 4,000-unit capsule contents are labeled for gastrostomy tube administration (14 French or larger). Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "481eec00-9abf-11dd-b71c-0002a5d5c51b", True),
             'uhc-oct-complete-34f80389bb5991b1': (
                 "omnaris", "Omnaris (Ciclesonide) Metered Nasal Spray", "nasal spray",
                 "FDA label: 50 mcg per actuation aqueous nasal spray, distinct from orally inhaled ciclesonide. Labeled seasonal allergic rhinitis age 6 years or older and perennial age 12 years or older; these are not payer PA age criteria. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
@@ -887,7 +933,7 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             expected, label, form, note, label_id, has_ql = label_holds[record['id']]
             assert october_name == expected and record['pa'] == 'required'
             assert record['preferred'] == 'non_preferred' and bool(ql) == has_ql
-            allowed_administrative = {'GL-735259'} if record['id'] in {'uhc-oct-complete-4174a6295393bf8f', 'uhc-oct-complete-e48614a8896d1c42'} else set()
+            allowed_administrative = {'GL-735259'} if record['id'] in {'uhc-oct-complete-4174a6295393bf8f', 'uhc-oct-complete-e48614a8896d1c42', 'uhc-oct-complete-0d5d9de3ba6af1f0'} else set()
             assert not (set(matched) - allowed_administrative), ('Review newly available named criteria before use', record['id'], matched)
             record['reviewedPresentation'] = {
                 **record.get('reviewedPresentation', {}), 'separate': True,
