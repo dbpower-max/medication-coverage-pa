@@ -1286,6 +1286,21 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: oral ER tablets 15, 30, 60, 100 and 200 mg; swallow whole, not for PRN use. Higher-strength 100/200 mg tablets require established opioid tolerance. Not ER capsules or beads. UHC GL-620192 generic tablet cancer/hospice, non-cancer initial and renewal criteria apply; brand/capsule-only initial prerequisites do not apply. Concurrent opioid DUR, cumulative MME and quantity exceptions are distinct. Exact payer strength eligibility and numeric dispensing QL unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=533034fd-c8e7-495b-8874-0db41bd1e65a',
             }
+        # DEC-05/06/12/13/14/16/19/20: RFA9380 manual prefilled syringe, not Onpro or pediatric vial.
+        if record['id'] == 'uhc-oct-complete-279b6a3662f2dc13':
+            assert october_name == 'neulasta subcutaneous solution prefilled syringe' and record['pa'] == 'required' and record['preferred'] == 'non_preferred' and not ql
+            code = 'GL-648215'
+            assert matched.get(code) == set(range(10)), (record['id'], matched)
+            matched.pop(code)
+            add(code, list(range(10)), 'product')
+            bindings[-1]['productLabel'] = 'Neulasta named CSF policy (device and indication eligibility unverified)'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Neulasta (Pegfilgrastim) 6 mg/0.6 mL Subcutaneous Prefilled Syringe',
+                'dosageForm': 'subcutaneous prefilled syringe',
+                'note': 'FDA label: manual single-dose syringe has no graduations and cannot deliver pediatric doses below 6 mg; the 4 mg/0.4 mL vial is separate. Onpro co-packaged syringe is ONLY for on-body injector; manual use overdoses, manual syringe in OBI underdoses. FDA label does not indicate use for stem cell mobilization. UHC GL-648215 names Neulasta across ten indication branches, not all FDA indications; stage unspecified, nonpreferred requests require failure, contraindication or intolerance to all preferred colony stimulating factors. Approval durations from policy notes range from 1 to 12 months by indication, not dispensing quantities. Exact package and indication eligibility unverified; no QL printed.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=fdfe5d72-6b80-435a-afa4-c5d74dd852ce',
+            }
         # DEC-05/06/12/13/14/19/20: exact stage-unspecified named policy; preserve brand-only prerequisites and raw flags.
         reviewed_stage_options = {
             'uhc-oct-complete-3db650dbb78aa872': ("icatibant acetate (generic for firazyr)", "preferred", "GL-546227", 1, "Generic icatibant acute HAE policy (stage unspecified)", "Icatibant (Generic Firazyr) Subcutaneous Prefilled Syringe", "subcutaneous prefilled syringe", "FDA label: single-dose 30 mg/3 mL (10 mg/mL) prefilled syringe. UHC GL-546227 acute HAE branch: age 18 or older for generic icatibant, confirmed HAE diagnosis, allergist/immunologist and no concurrent approved acute HAE treatment; 12 months, stage unspecified. Preferred-agent failure or current therapy prerequisite applies to named nonpreferred agents, not generic icatibant. Exact carton eligibility and numeric dispensing QL unverified.", "ccbb5e50-ce56-4898-aa1a-f1c1f3d312f6"),
