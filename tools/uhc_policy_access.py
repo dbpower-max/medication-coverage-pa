@@ -1287,6 +1287,26 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'label': label, 'dosageForm': form, 'note': note,
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + setid,
             }
+        # DEC-05/06/12/13/14/19/20: exact stage and non-solid scope; no QL extrapolation.
+        reviewed_stage_options_jivi_lacosamide = {
+            'uhc-oct-complete-69ac4f11b2cd9e7e': ("jivi intravenous solution reconstituted 1000 unit, 2000 unit, 3000 unit, 500 unit", "non_preferred", "GL-716187", 8, "Jivi named hemophilia A policy (stage unspecified)", "Jivi (Damoctocog Alfa Pegol) Powder for Intravenous Injection — 500, 1000, 2000, 3000 IU", "powder for intravenous injection", "FDA label: recombinant PEGylated factor VIII, IV only after reconstitution, for previously treated patients age 7 or older; not indicated for von Willebrand disease. FDA also labels a 4000 IU vial, not included in this PDL row. UHC GL-716187 requires physician attestation that shorter half-life factor VIII is unsuitable and routine infusion no more than twice weekly; 12 months, stage unspecified. Frequency is a policy criterion, not a numeric dispensing limit. No QL printed.", "f04e5bd5-d7e2-453b-a407-2616d81a695d", False),
+            'uhc-oct-complete-e73b15b47b711f87': ("vimpat oral (brand for lacosamide)", "non_preferred", "GL-572198", 0, "Brand Vimpat oral policy (payer form unspecified)", "Vimpat (Lacosamide) Oral Tablet or Solution (Payer Form Unverified)", "oral tablet or solution; payer form unverified", "FDA label: oral film-coated tablets and 10 mg/mL oral solution are distinct from IV injection. UHC GL-572198 covers a diagnosis pathway for partial-onset or primary generalized tonic-clonic seizures or continuation of prior seizure therapy. For the diagnosis pathway, nonpreferred requests require the specified two-agent trials and response or intolerance evidence; Brand Vimpat additionally requires generic lacosamide failure, contraindication or intolerance. No separate initial/renewal stage printed; 12 months. Exact oral form, age-limit flag details and numeric QL unverified.", "9e79b42c-38a3-4b2c-a196-a5a1948250e2", True),
+            'uhc-oct-complete-d8e1730a52588b48': ("lacosamide oral solution 10 mg/ml, 100 mg/10ml, 50 mg/5ml (generic for vimpat)", "preferred", "GL-572198", 0, "Generic lacosamide oral solution policy (stage unspecified)", "Lacosamide (Generic Vimpat) Oral Solution 10 mg/mL", "oral solution", "FDA label: 10 mg/mL oral solution; 100 mg/10 mL and 50 mg/5 mL are the same concentration, not distinct strengths. UHC GL-572198 diagnosis or continuation pathway, 12 months; brand-only and nonpreferred prerequisites do not apply to this preferred generic. Separate GL-545275 non-solid administrative review retains inability to swallow, feeding tube or applicable solid-alternative criteria. Do not transfer to oral tablets. Age-limit flag details and numeric QL unverified.", "024bca92-cac5-4832-a1ff-c1b3d5994ba0", True),
+            'uhc-oct-complete-699ad8210001a43d': ("lacosamide oral tablet (generic for vimpat)", "preferred", "GL-572198", 0, "Generic lacosamide oral tablet policy (stage unspecified)", "Lacosamide (Generic Vimpat) Oral Tablet", "oral tablet", "FDA label: 50, 100, 150 and 200 mg film-coated oral tablets, distinct from solution and IV injection. UHC GL-572198 diagnosis or continuation pathway, 12 months; brand-only and nonpreferred prerequisites do not apply to this preferred generic. Non-solid administrative review is not a tablet requirement. Exact strength eligibility, age-limit flag details and numeric QL unverified.", "df1d2e6a-6129-49c9-b2c1-0fdf73f38b9c", True),
+        }
+        if record['id'] in reviewed_stage_options_jivi_lacosamide:
+            name, pref, code, index, scope, label, form, note, setid, has_ql = reviewed_stage_options_jivi_lacosamide[record['id']]
+            assert october_name == name, (record['id'], october_name)
+            assert record['pa'] == 'required' and record['preferred'] == pref and bool(ql) == has_ql
+            assert matched.get(code) == {index}, (record['id'], matched)
+            matched.pop(code)
+            add(code, [index], 'product')
+            bindings[-1]['productLabel'] = scope
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': label, 'dosageForm': form, 'note': note,
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + setid,
+            }
         # DEC-05/06/12/13/14/19/20: device-specific labeling only; preserve existing general named criteria.
         device_label_holds = {
             'uhc-oct-complete-49d179ce14de8e08': (

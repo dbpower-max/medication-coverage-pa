@@ -407,6 +407,15 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const b=r.uhcClinicalBindings.filter(b=>b.role==='product'&&b.policyId.endsWith(code));assert.equal(b.length,1);assert.deepEqual(b[0].branchIndexes,[index]);assert.equal(b[0].productLabel,scope);
   const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('numeric dispensing QL unverified')||card.includes('Numeric dispensing QL unverified'));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
  }
+ // DEC-05/06/12/13/14/19/20: Jivi frequency and lacosamide formulation/prerequisites.
+ for(const [suffix,label,phrase,code,index,scope,preference,hasQL,nonsolid] of [["69ac4f11b2cd9e7e","Jivi (Damoctocog Alfa Pegol) Powder for Intravenous Injection — 500, 1000, 2000, 3000 IU","not included in this PDL row","gl-716187",8,"Jivi named hemophilia A policy (stage unspecified)","non_preferred",false,false],["e73b15b47b711f87","Vimpat (Lacosamide) Oral Tablet or Solution (Payer Form Unverified)","or continuation of prior seizure therapy","gl-572198",0,"Brand Vimpat oral policy (payer form unspecified)","non_preferred",true,false],["d8e1730a52588b48","Lacosamide (Generic Vimpat) Oral Solution 10 mg/mL","the same concentration","gl-572198",0,"Generic lacosamide oral solution policy (stage unspecified)","preferred",true,true],["699ad8210001a43d","Lacosamide (Generic Vimpat) Oral Tablet","not a tablet requirement","gl-572198",0,"Generic lacosamide oral tablet policy (stage unspecified)","preferred",true,false]]){
+  const id='uhc-oct-complete-'+suffix,g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,preference);
+  assert.equal(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'),hasQL);
+  assert.equal(r.uhcClinicalBindings.some(b=>b.role==='nonsolid'),nonsolid);
+  const b=r.uhcClinicalBindings.filter(b=>b.role==='product'&&b.policyId.endsWith(code));assert.equal(b.length,1);assert.deepEqual(b[0].branchIndexes,[index]);assert.equal(b[0].productLabel,scope);
+  const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+ }
  // DEC-05/06/12/13/14/19/20: labeled device distinctions without extending general policy scope.
  for(const [suffix,label,phrase,code,indexes,preference,hasQL] of [
   ["49d179ce14de8e08","Xolair (Omalizumab) Subcutaneous Autoinjector","device only for age 12 or older","gl-713364",[0,1,2,3,4,5,6,7],"preferred",true],
