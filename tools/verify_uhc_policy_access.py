@@ -40,8 +40,12 @@ for r in rows:
  if r['name'] in ['APIDRA SOLOSTAR','APIDRA VIAL']:
   assert any(policies[b['policyId']]['policyCode']=='GL-231255' for b in r['uhcClinicalBindings'])
  if r.get('policyQuantityLimit'):
-  assert r['policyQuantityLimit']['sourcePolicyId'].endswith('gl-512232')
-  assert any(b['role']=='quantity' and b['branchIndexes']==[1] for b in r['uhcClinicalBindings'])
+  if r['id']=='uhc-oct-complete-6a6a03b0a0dddc28':
+   assert r['policyQuantityLimit']['sourcePolicyId'].endswith('gl-722200')
+   assert any(b['role']=='quantity' and b['policyId'].endswith('gl-722200') and b['branchIndexes']==[10] for b in r['uhcClinicalBindings'])
+  else:
+   assert r['policyQuantityLimit']['sourcePolicyId'].endswith('gl-512232')
+   assert any(b['role']=='quantity' and b['branchIndexes']==[1] for b in r['uhcClinicalBindings'])
 assert product_matches({'name':'AIMOVIG'},'Aimovig, Ajovy, Emgality 120 mg/mL'),'Different product strength blocked Aimovig'
 assert not product_matches({'name':'metoprolol tartrate tablet'},'metoprolol succinate extended release tablet'),'Salt/form mismatch accepted'
 assert not product_matches({'name':'Humulin R U-100'},'Humulin R U-500 kwikpen and vial'),'U500 concentration guard lost'

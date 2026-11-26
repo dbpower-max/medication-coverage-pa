@@ -1330,6 +1330,23 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'label': label, 'dosageForm': 'intramuscular depot suspension kit', 'note': note,
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + setid,
             }
+        # DEC-05/06/12/13/14/19/20: Lybalvi product/stage and policy-supported limit, preserve raw PDL flags.
+        if record['id'] == 'uhc-oct-complete-6a6a03b0a0dddc28':
+            code = 'GL-722200'
+            assert october_name == 'lybalvi' and record['pa'] == 'required' and record['preferred'] == 'non_preferred' and ql
+            assert matched.get(code) == {1, 4, 10}, (record['id'], matched)
+            assert policies[code]['policyEffective'] == '2026-10-18'
+            matched.pop(code)
+            add(code, [1, 4], 'product')
+            bindings[-1]['productLabel'] = 'Lybalvi adult schizophrenia and bipolar I policy (stage unspecified)'
+            add(code, [10], 'quantity')
+            record['policyQuantityLimit'] = {'text': '1 tablet/day; see product-specific quantity exception criteria.', 'sourcePolicyId': policies[code]['id']}
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': "Lybalvi (Olanzapine/Samidorphan) Oral Tablet", 'dosageForm': 'oral tablet',
+                'note': "FDA label: adult schizophrenia and bipolar I disorder; olanzapine/samidorphan 5/10, 10/10, 15/10 and 20/10 mg tablets. Contraindicated in patients using opioids or in acute opioid withdrawal; not equivalent to olanzapine alone. UHC GL-722200 schizophrenia and bipolar I branches (12 months each; stage unspecified) require age 18 or older and different alternative-drug criteria, plus one Lybalvi-specific BMI, weight-gain or documented samidorphan rationale pathway. Separate quantity exception policy explicitly identifies 1 tablet/day; exact strength eligibility and PDL age-limit details unverified.",
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=32ffddd1-4e2b-45d9-9b36-bb730167ec80',
+            }
         # DEC-05/06/12/13/14/19/20: device-specific labeling only; preserve existing general named criteria.
         device_label_holds = {
             'uhc-oct-complete-49d179ce14de8e08': (
