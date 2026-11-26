@@ -259,6 +259,23 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const card=a.medicationGroupCard(g);assert(card.includes('Topamax Sprinkle (Topiramate) Oral Sprinkle Capsule'));assert(card.includes('age 8 or older'));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
   const out=await open(g);assert(out.ref.includes('page=702'));
  }
+ // DEC-05/06/12/13/14/19/20: Tyvaso kit safety and preserved payer scopes.
+ for(const [suffix,label,hasQL,product] of [["e6ced40cd1e57c05","Tyvaso DPI (Treprostinil) Inhalation Powder Maintenance Kit",true,false],["36bba0f4b45c9df3","Tyvaso DPI (Treprostinil) Inhalation Powder Titration Kit",true,true],["8dc08b2e585b8095","Tyvaso (Treprostinil) Inhalation Solution Refill Kit",false,false],["4df51b8e7e6b64bc","Tyvaso (Treprostinil) Inhalation Solution Starter Kit",false,false]]){
+  const id='uhc-oct-complete-'+suffix,g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'non_preferred');
+  assert.equal(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'),hasQL);
+  const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,product?1:0);
+  if(product){assert(b[0].policyId.endsWith('gl-715293'));assert.deepEqual(b[0].branchIndexes,[0,1]);}
+  const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes('PH-ILD'));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+ }
+ for(const [suffix,indexes,phrase] of [['001e5ba120fa0c78',[0,1,2,3,4,5,6],'CD/UC age 2 and older'],['4bef2dde256711a9',[0,1,2,3],'CD/UC adults only']]){
+  const id='uhc-oct-complete-'+suffix,g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'non_preferred');
+  const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith('gl-745190'));assert.deepEqual(b[0].branchIndexes,indexes);
+  for(const role of ['nonpreferred','global_quantity','duplication'])assert(r.uhcClinicalBindings.some(b=>b.role===role),role);
+  const card=a.medicationGroupCard(g);assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+  const out=await open(g);for(const x of ['Plaque Psoriasis','Psoriatic Arthritis','Initial Authorization','Reauthorization'])assert(out.html.includes(x),x);
+ }
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
   ["8e34212b5a29106f","Topamax (Topiramate) Oral Tablet","distinct from sprinkle capsules",true],
@@ -999,8 +1016,10 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-cb36a822ee8dc7d4'));
  assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-be7159d568ed9f80'));
  assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-8ae98137dd88048f'));
- assert.equal(subtypeBNamed.length, 71);
- assert.equal(subtypeBNamed.filter(r => !scIds.has(r.id)).length, 68);
+ assert.equal(subtypeBNamed.length, 73);
+ assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-001e5ba120fa0c78'));
+ assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-4bef2dde256711a9'));
+ assert.equal(subtypeBNamed.filter(r => !scIds.has(r.id)).length, 70);
  assert.equal(subtypeBNamed.filter(r => scIds.has(r.id)).length, 3);
  const auditedSupplies = [
   ['3b25d168e772f4bb', /BD AutoShield Duo/, 'conflict'],
