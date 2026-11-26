@@ -104,6 +104,22 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  const avlayahCard=a.medicationGroupCard(avlayah);
  for(const phrase of ['Avlayah (Tividenofusp alfa-eknm) IV Infusion','150 mg lyophilized','Boxed warning: anaphylaxis','Exact UHC initial/renewal criteria are unverified']) assert(avlayahCard.includes(phrase),'Avlayah missing '+phrase);
  assert(avlayahCard.includes('href="'+avlayahRow.reviewedPresentation.labelUrl+'"'),'Avlayah label citation missing from prescribing card');
+ // Inbrija: retain both named stages and nonpreferred/quantity scopes, never an oral capsule.
+ const inbrijaId='uhc-oct-complete-9979c6aa29c27e3e';
+ const inbrija=groups.find(g=>g.records.some(r=>r.id===inbrijaId));assert(inbrija,inbrijaId);
+ const inbrijaRow=inbrija.records.find(r=>r.id===inbrijaId);
+ assert.equal(inbrijaRow.pa,'required');assert.equal(inbrijaRow.preferred,'non_preferred');
+ const inbrijaBindings=inbrijaRow.uhcClinicalBindings.filter(b=>b.role==='product');
+ assert.equal(inbrijaBindings.length,1);assert(inbrijaBindings[0].policyId.endsWith('gl-140661'));assert.deepEqual(inbrijaBindings[0].branchIndexes,[0,1]);
+ assert(inbrijaRow.uhcClinicalBindings.some(b=>b.role==='nonpreferred'));
+ assert(inbrijaRow.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+ assert.equal(inbrijaRow.reviewedPresentation.dosageForm,'inhalation powder capsule');
+ const inbrijaCard=a.medicationGroupCard(inbrija);
+ for(const phrase of ['Inbrija (Levodopa) Inhalation Powder Capsules','42 mg levodopa','do not swallow','Inbrija inhaler','not as a substitute','numeric quantity limit remain unverified'])assert(inbrijaCard.includes(phrase),phrase);
+ assert(inbrijaCard.includes('href="'+inbrijaRow.reviewedPresentation.labelUrl+'"'));
+ const inbrijaDetail=await open(inbrija);
+ for(const phrase of ['Initial Authorization','Reauthorization','6 month(s)','12 month(s)','Criteria source · PDF page 934<','Criteria source · PDF page 935<'])assert(inbrijaDetail.html.includes(phrase),phrase);
+ assert(inbrijaDetail.ref.includes('page=934'));
  // Gammagard plain brand must not inherit route- or formulation-specific criteria.
  const gammagardRows=[];
  for(const [suffix,sd] of [['c5af301ff34ca5f3',false],['c3048c00894b30ac',true]]){
