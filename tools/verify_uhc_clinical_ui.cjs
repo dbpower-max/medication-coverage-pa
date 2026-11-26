@@ -242,8 +242,26 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   assert(out.ref.includes('page=1696')||out.ref.includes('page=1699'));
   const syringe=groups.flatMap(x=>x.records).find(r=>r.id==='uhc-oct-complete-26eaf8d3998418d6');assert(syringe);assert(!syringe.uhcClinicalBindings.some(b=>b.policyId.endsWith('gl-713343')),'autoinjector PA leaked into syringe');
  }
+ {const id='uhc-oct-complete-8ae98137dd88048f';
+  const g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'non_preferred');
+  const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith('gl-500226'));assert.deepEqual(b[0].branchIndexes,[0,1,2,3,4,5,6]);
+  for(const role of ['nonpreferred','global_quantity','duplication'])assert(r.uhcClinicalBindings.some(b=>b.role===role),role);
+  const card=a.medicationGroupCard(g);assert(card.includes('Tremfya (Guselkumab) Subcutaneous Injection (Device and Strength Unspecified)'));assert(card.includes('PsO/PsA payer branches apply to SC 100 mg only'));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+  const out=await open(g);for(const phrase of ['Plaque Psoriasis','Psoriatic Arthritis','Ulcerative Colitis','Initial Authorization','Reauthorization','12 month','induction dosing','maintenance dose following the intravenous induction doses'])assert(out.html.includes(phrase),phrase);
+  assert(out.ref.includes('page=1743')||out.ref.includes('page=1747'));
+ }
+ {const id='uhc-oct-complete-d37573826a734ebb';
+  const g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);const r=g.records.find(x=>x.id===id);
+  assert.equal(r.pa,'conditional');assert.equal(r.preferred,'non_preferred');
+  assert(!r.uhcClinicalBindings.some(b=>b.role==='product'),id+' wrong 50 mg or ER criteria');
+  assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+  const card=a.medicationGroupCard(g);assert(card.includes('Topamax Sprinkle (Topiramate) Oral Sprinkle Capsule'));assert(card.includes('age 8 or older'));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+  const out=await open(g);assert(out.ref.includes('page=702'));
+ }
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["8e34212b5a29106f","Topamax (Topiramate) Oral Tablet","distinct from sprinkle capsules",true],
   ["0b3a19b761869f8f","Tiglutik (Riluzole) Oral Suspension","PEG-tube administration",true],
   ["3be2fce160eb4e1a","Betimol (Timolol Hemihydrate) Ophthalmic Solution","distinct from timolol maleate",true],
   ["ce85f87b9d08019d","Thiola (Tiopronin) Oral Tablet","not delayed-release",false],
@@ -353,6 +371,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const out=await open(g);assert(out.ref.includes('page=1202'),id+' administrative source');if(hasQL)assert(out.ref.includes('page=702'),id+' QL source');
  }
  for(const [suffix,label,phrase,pa] of [
+  ["90702ce4eec9617a","Topiramate 15 or 25 mg Oral Sprinkle Capsule","age 8 or older","conditional"],
   ["0f013ce4207021c3","Reyataz (Atazanavir) Oral Powder Packet","age 8 or older","conditional"],
   ["c52599e942ff4716","Lamotrigine Chewable / Dispersible Tablet for Oral Suspension","age 8 or older","conditional"],
   ["2350c3053e5d6856","Lidocaine 5% Topical Ointment","not a patch or injection","required"],
@@ -979,8 +998,9 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  // Orencia SC is one additional exact named policy; its duplication binding remains.
  assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-cb36a822ee8dc7d4'));
  assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-be7159d568ed9f80'));
- assert.equal(subtypeBNamed.length, 70);
- assert.equal(subtypeBNamed.filter(r => !scIds.has(r.id)).length, 67);
+ assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-8ae98137dd88048f'));
+ assert.equal(subtypeBNamed.length, 71);
+ assert.equal(subtypeBNamed.filter(r => !scIds.has(r.id)).length, 68);
  assert.equal(subtypeBNamed.filter(r => scIds.has(r.id)).length, 3);
  const auditedSupplies = [
   ['3b25d168e772f4bb', /BD AutoShield Duo/, 'conflict'],
