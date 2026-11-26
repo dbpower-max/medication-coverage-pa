@@ -278,6 +278,10 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["00da649844317125","Zeposia (Ozanimod) 7-Day Oral Capsule Titration Pack","Distinct from 28- and 37-day starter kits",true],
+  ["d4c999ec3fe83160","Zioptan (Tafluprost) Preservative-Free Ophthalmic Solution","0.3 mL single-use containers",true],
+  ["dc190cbfa1a36c65","Zonegran (Zonisamide) Oral Capsule","distinct from zonisamide oral suspension",true],
+  ["4001483fb5296830","Zypitamag (Pitavastatin Magnesium) Oral Tablet","distinct from pitavastatin calcium",true],
   ["8e34212b5a29106f","Topamax (Topiramate) Oral Tablet","distinct from sprinkle capsules",true],
   ["0b3a19b761869f8f","Tiglutik (Riluzole) Oral Suspension","PEG-tube administration",true],
   ["3be2fce160eb4e1a","Betimol (Timolol Hemihydrate) Ophthalmic Solution","distinct from timolol maleate",true],
