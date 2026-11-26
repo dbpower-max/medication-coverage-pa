@@ -247,6 +247,12 @@ opioid_reviews = {
         'Methadose Sugar-Free oral concentrate (10 mg/mL per label)',
         'oral concentrate', '808a9d0b-720b-4034-a862-5122ff514608', 'oud_only',
         'FDA labeling is for opioid addiction detoxification and maintenance, not analgesia; opioid treatment program distribution conditions apply. UHC GL-620192 names Methadose in pain criteria, but this does not establish an appropriate pain indication or an OUD authorization pathway. Sugar-free, dye-free and unflavored; exact package and OUD benefit are unverified.'),
+    # DEC-05/06/12/13/14/19/20: exact soluble-tablet row; FDA label is OUD-only.
+    'c892c74d9f3426a2': (
+        'methadose oral tablet soluble (generic for METHADOSE)',
+        'Methadone HCl 40 mg Tablet for Oral Suspension (Methadose reference)',
+        'tablet for oral suspension', '544483e6-6f9d-4371-9e93-313e54e0ea05', 'oud_only',
+        'FDA labeling: 40 mg tablet for dispersion in liquid for opioid addiction detoxification and maintenance, not analgesia; opioid treatment program distribution conditions apply. UHC GL-620192 pain criteria do not establish OUD authorization. Label SCD 864978; reference brand SBD 864980. Exact payer package, OUD benefit and numeric quantity limit are unverified.'),
     'aa1a241874624dc7': (
         'methadone hcl intensol (generic for METHADONE HCL INTENSOL)',
         'Methadone HCl Intensol oral concentrate (generic listing)',

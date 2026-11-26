@@ -1309,6 +1309,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   ['1d645b57ce2be32c','pain','opioid-tolerant patients'],
   ['4949e672408e143c','oud_only','not analgesia'],
   ['554823c89afb7621','oud_only','not analgesia'],
+  ['c892c74d9f3426a2','oud_only','not analgesia'],
   ['aa1a241874624dc7','unmatched','product-specific criteria are unverified'],
   ['a0d71228114f9c0a','pain','does not identify an exact package']
  ];
@@ -1318,6 +1319,11 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    const r=g.records.find(r=>r.id===id);
    assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');
    assert.equal(r.reviewedPresentation.opioidScope,scope);
+   if(suffix==='c892c74d9f3426a2'){
+     assert.equal(r.reviewedPresentation.dosageForm,'tablet for oral suspension');
+     assert(a.medicationGroupCard(g).includes('40 mg Tablet for Oral Suspension'));
+     assert(a.recordDetails(r).includes('864978'));
+   }
    assert(a.medicationGroupCard(g).includes(caution),id+' visible caution');
    assert(a.recordDetails(r).includes(caution),id+' source caution');
    assert(a.recordDetails(r).includes(r.reviewedPresentation.labelUrl),id+' label citation');
@@ -1337,7 +1343,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
      if(scope==='oud_only')assert(out.ref.includes('Related UHC pain guideline'),id+' related source inaccessible');
    }
  }
- console.log('PASS: Five exact UHC opioid rows preserve benefits, label caveats, and scoped PA/DUR/MME/QL references.');
+ console.log('PASS: Six exact UHC opioid rows preserve benefits, label caveats, and scoped PA/DUR/MME/QL references.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  const bannerGroups=a.planMedicationGroups();
  const igRows=[
