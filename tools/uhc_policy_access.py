@@ -1268,6 +1268,25 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': "FDA label: 24-hour extended-release tablet, not an immediate-release or ER capsule; swallow whole to avoid fatal overdose. UHC GL-620192 includes distinct concurrent MAT/opioid, cancer/hospice, non-cancer initial/renewal and cumulative MME exceptions. The quantity exception addresses requests that cannot be met by a higher strength and are within applicable FDA maximums; numeric dispensing QL unverified. Do not interpret an MME threshold as a dispensing quantity.",
                 'labelUrl': "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b7d23ac2-e776-9f62-3290-c64c2d6eb353",
             }
+        # DEC-05/06/12/13/14/19/20: exact stage-unspecified named policy; preserve brand-only prerequisites and raw flags.
+        reviewed_stage_options = {
+            'uhc-oct-complete-3db650dbb78aa872': ("icatibant acetate (generic for firazyr)", "preferred", "GL-546227", 1, "Generic icatibant acute HAE policy (stage unspecified)", "Icatibant (Generic Firazyr) Subcutaneous Prefilled Syringe", "subcutaneous prefilled syringe", "FDA label: single-dose 30 mg/3 mL (10 mg/mL) prefilled syringe. UHC GL-546227 acute HAE branch: age 18 or older for generic icatibant, confirmed HAE diagnosis, allergist/immunologist and no concurrent approved acute HAE treatment; 12 months, stage unspecified. Preferred-agent failure or current therapy prerequisite applies to named nonpreferred agents, not generic icatibant. Exact carton eligibility and numeric dispensing QL unverified.", "ccbb5e50-ce56-4898-aa1a-f1c1f3d312f6"),
+            'uhc-oct-complete-62e4bb1c3d06bdc7': ("gleevec oral tablet 100 mg (brand for imatinib mesylate)", "non_preferred", "GL-741203", 0, "Brand Gleevec cancer policy (stage unspecified)", "Gleevec (Imatinib Mesylate) 100 mg Oral Tablet", "oral tablet", "FDA label: 100 mg oral tablet; the 400 mg tablet is separate. UHC GL-741203 cancer branch requires NCCN category 1, 2A or 2B use and trial/failure of preferred generic imatinib for nonpreferred Brand Gleevec or Imkeldi; 12 months, stage unspecified. Imkeldi is an oral solution, not this tablet. Numeric dispensing QL unverified.", "211ef2da-2868-4a77-8055-1cb2cd78e24b"),
+            'uhc-oct-complete-8f9b8e5073a65ff3': ("imatinib mesylate oral (generic for gleevec)", "preferred", "GL-741203", 0, "Generic imatinib cancer policy (stage unspecified)", "Imatinib Mesylate (Generic Gleevec) Oral Tablets", "oral tablet", "FDA label: 100 mg and 400 mg film-coated oral tablets; payer listing does not specify strengths. UHC GL-741203 cancer branch requires NCCN category 1, 2A or 2B use; 12 months, stage unspecified. Brand-only generic trial/failure requirement does not apply to generic imatinib. Imkeldi oral solution is separate. Exact strength eligibility and numeric dispensing QL unverified.", "07764bf9-21b4-4e32-9d7e-e348f8e4291f"),
+        }
+        if record['id'] in reviewed_stage_options:
+            name, pref, code, index, scope, label, form, note, setid = reviewed_stage_options[record['id']]
+            assert october_name == name, (record['id'], october_name)
+            assert record['pa'] == 'required' and record['preferred'] == pref and ql
+            assert matched.get(code) == {index}, (record['id'], matched)
+            matched.pop(code)
+            add(code, [index], 'product')
+            bindings[-1]['productLabel'] = scope
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': label, 'dosageForm': form, 'note': note,
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + setid,
+            }
         # DEC-05/06/12/13/14/19/20: device-specific labeling only; preserve existing general named criteria.
         device_label_holds = {
             'uhc-oct-complete-49d179ce14de8e08': (
