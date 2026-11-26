@@ -322,6 +322,20 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith(code));assert.deepEqual(b[0].branchIndexes,indexes);
   const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
  }
+ // DEC-05/06/12/13/14/19/20: preserve stage bindings and explicitly qualify option scope.
+ for(const [suffix,label,phrase,code,indexes,pref,scope] of [
+  ['50027926c12f2fc5','Isotretinoin Oral Capsule (payer reference Accutane)','not milligram-for-milligram substitutable with Absorica LD','gl-288262',[0,1,2,3],'preferred','verify formulation-specific applicability'],
+  ['ebfa91d6e2f468c4','Cresemba (Isavuconazonium Sulfate) 186 mg Oral Capsule','this is not FDA capsule eligibility','gl-751212',[12,14],'non_preferred','186 mg capsule applicability unverified'],
+  ['9cb53245e3257820','Droxidopa 100 mg Oral Capsule (payer reference Northera)','exact generic applicability','gl-140900',[0,1],'non_preferred','generic applicability unverified'],
+  ['598734c054ff21fe','Eltrombopag Olamine Oral Tablet (payer reference Promacta)','not milligram-for-milligram substitutable','gl-546252',[0,1,2,3,4,5],'preferred','Generic eltrombopag tablets']
+ ]){
+  const id='uhc-oct-complete-'+suffix,g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,pref);
+  assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+  if(pref==='non_preferred')assert(r.uhcClinicalBindings.some(b=>b.role==='nonpreferred'));
+  const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith(code));assert.deepEqual(b[0].branchIndexes,indexes);assert(b[0].productLabel.includes(scope));
+  const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+ }
  // DEC-05/06/12/13/14/19/20: labeled device distinctions without extending general policy scope.
  for(const [suffix,label,phrase,code,indexes,preference,hasQL] of [
   ["49d179ce14de8e08","Xolair (Omalizumab) Subcutaneous Autoinjector","device only for age 12 or older","gl-713364",[0,1,2,3,4,5,6,7],"preferred",true],
