@@ -275,7 +275,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   assert(!r.uhcClinicalBindings.some(b=>b.role==='product'),id+' fabricated product PA');
   assert(r.uhcClinicalBindings.some(b=>b.role==='nonpreferred'&&b.policyId.endsWith('gl-231255')),id+' nonpreferred review lost');
   assert.equal(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'),hasQL,id+' QL scope');
-  const card=a.medicationGroupCard(g);assert(card.includes(label),id+' form');assert(card.includes(phrase),id+' distinction');assert(card.includes('Exact UHC product-specific initial/renewal criteria'),id+' hold');assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'),id+' label link');
+  const card=a.medicationGroupCard(g);assert(card.includes(label.replace(/\x27/g,"&#39;")),id+' form');assert(card.includes(phrase),id+' distinction');assert(card.includes('Exact UHC product-specific initial/renewal criteria'),id+' hold');assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'),id+' label link');
   const out=await open(g);assert(out.ref.includes('page=1202'),id+' administrative source');if(hasQL)assert(out.ref.includes('page=702'),id+' QL source');
  }
  for(const [suffix,label,phrase,pa] of [
