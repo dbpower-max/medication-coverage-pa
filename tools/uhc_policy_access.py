@@ -362,6 +362,37 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: 10 mg/mL solution in a 4 mL multidose vial, for children age 2 years and older with severe primary IGF-1 deficiency or GH gene deletion with neutralizing antibodies. Not a substitute for growth hormone. Severe hypoglycemia, including seizures: administer within 20 minutes of a meal or snack; omit dose if food is omitted. Contraindicated with closed epiphyses, pediatric malignancy or history of malignancy, or hypersensitivity. UHC explicitly excludes idiopathic short stature (ISS); separate initial and renewal criteria apply to the named IGF-1/GH gene deletion indication. Exact payer package eligibility is unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d5b2b0e1-c523-468d-9a0b-4ae4e4a8dbce',
             }
+        # DEC-05/12/13/14/19/20: exact Ingrezza listing and four named stages.
+        if record['id'] == 'uhc-oct-complete-33105a41b749978a':
+            code = 'GL-157491'
+            assert october_name == 'ingrezza' and record['pa'] == 'required' and ql
+            assert record['preferred'] == 'preferred'
+            assert policies[code]['policyEffective'] == '2024-11-01'
+            branches = structured[code]['branches']
+            assert len(branches) == 4
+            def ingrezza_field(index, name):
+                field = branches[index]['fields'][name]
+                return ' '.join((field.get('displayText') or field['text']).split())
+            for index, diagnosis, stage, duration in [
+                (0, 'Tardive Dyskinesia', 'Initial Authorization', '6 month'),
+                (1, 'Tardive Dyskinesia', 'Reauthorization', '12 month'),
+                (2, 'Chorea Associated with Huntington', 'Initial Authorization', '6 month'),
+                (3, 'Chorea Associated with Huntington', 'Reauthorization', '12 month'),
+            ]:
+                assert 'Ingrezza' in ingrezza_field(index, 'Product Name')
+                assert diagnosis.lower() in ingrezza_field(index, 'Diagnosis').lower()
+                assert ingrezza_field(index, 'Therapy Stage') == stage
+                assert ingrezza_field(index, 'Approval Length').lower().startswith(duration)
+            matched.pop(code, None)
+            add(code, [0, 1, 2, 3], 'product')
+            bindings[-1]['productLabel'] = 'Ingrezza (valbenazine; exact formulation not specified)'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Ingrezza (Valbenazine) Oral Capsules',
+                'dosageForm': 'oral capsule',
+                'note': 'FDA label: conventional and separate Sprinkle capsules, 40, 60 and 80 mg; only Sprinkle may be opened onto soft food. Exact payer eligibility for Sprinkle or kit is unverified. Boxed warning: depression and suicidality in Huntington disease. UHC names separate initial and renewal stages for moderate-to-severe tardive dyskinesia and Huntington chorea; one active PA for one strength, with 80 mg/day policy ceiling. Exact numeric dispensing quantity limit remains unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4c970164-cafb-421f-9eb5-c226ef0a3417',
+            }
         # DEC-05/12/13/14/19/20: exact October SC listings only.
         # The named May 2026 guideline includes a conditional nonpreferred rule.
         # Retain the structured source verbatim; scope the clinician rendering.
