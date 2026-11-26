@@ -992,6 +992,24 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert.match(macrobid.label, /Monohydrate \/ Macrocrystals Capsules/);
  assert.equal(new Set([macro,macrobid,findExact('9e0eb4cf3a3dfd2b')]).size, 3);
  console.log('PASS: 115 UHC records retain exact product restrictions, policy scope and provider-facing labels.');
+ // RFA10092: exact October Roxybond; keep policy exception scopes separate.
+ const roxyId='uhc-oct-complete-ccae7c796c8a0833';
+ const roxy=groups.find(g=>g.records.some(r=>r.id===roxyId));assert(roxy,roxyId);
+ const roxyRow=roxy.records.find(r=>r.id===roxyId);
+ assert.equal(roxyRow.pa,'required');assert.equal(roxyRow.preferred,'non_preferred');
+ assert.equal(roxyRow.reviewedPresentation.dosageForm,'immediate-release oral tablet');
+ const roxyNamed=roxyRow.uhcClinicalBindings.filter(b=>b.policyId.endsWith('gl-711768'));
+ assert.deepEqual(roxyNamed.map(b=>[b.role,...b.branchIndexes]),[['product',1,2],['quantity',3,4,5],['concurrent_opioid_dur',0],['mme_exception',6,7,8]]);
+ assert(roxyRow.uhcClinicalBindings.some(b=>b.role==='nonpreferred'));
+ assert(roxyRow.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+ const roxyCard=a.medicationGroupCard(roxy);
+ for(const phrase of ['Immediate-Release Abuse-Deterrent Oral Tablet (5, 15, 30 mg)','abuse-deterrent does not mean abuse-proof','labeled 10 mg presentation is not listed','routine numeric tablet quantity limit remains unverified'])assert(roxyCard.includes(phrase),phrase);
+ assert(roxyCard.includes(roxyRow.reviewedPresentation.labelUrl));
+ const roxyOut=await open(roxy);
+ for(const phrase of ['Concurrent opioid therapy (DUR)','Cumulative MME exceptions','Quantity-limit exceptions','Initial Authorization','Reauthorization','18 years of age and older','under 18 years of age'])assert(roxyOut.html.includes(phrase),phrase);
+ for(const p of [1515,1516,1517,1518,1519,1520,1521,1523])assert(roxyOut.html.includes('Criteria source · PDF page '+p+'<'),roxyId+' source page '+p);
+ assert(roxyOut.ref.includes('page=1515'));
+ assert(!roxyOut.ref.includes('page=1202'),'Named criteria should not stack administrative fallback');
  const opioidCases = [
   ['1d645b57ce2be32c','pain','opioid-tolerant patients'],
   ['4949e672408e143c','oud_only','not analgesia'],
