@@ -1268,6 +1268,24 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': "FDA label: 24-hour extended-release tablet, not an immediate-release or ER capsule; swallow whole to avoid fatal overdose. UHC GL-620192 includes distinct concurrent MAT/opioid, cancer/hospice, non-cancer initial/renewal and cumulative MME exceptions. The quantity exception addresses requests that cannot be met by a higher strength and are within applicable FDA maximums; numeric dispensing QL unverified. Do not interpret an MME threshold as a dispensing quantity.",
                 'labelUrl': "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b7d23ac2-e776-9f62-3290-c64c2d6eb353",
             }
+        # DEC-05/06/12/13/14/19/20: RFA9222 generic MS Contin-reference ER tablet, not brand/capsule initial pathways.
+        if record['id'] == 'uhc-oct-complete-9db621ca8a237769':
+            assert october_name == 'morphine sulfate er (generic for ms contin)' and record['pa'] == 'required' and record['preferred'] == 'preferred' and ql
+            code = 'GL-620192'
+            assert matched.get(code) == {0,1,2,4,5,7,8,9,10,11}, (record['id'], matched)
+            matched.pop(code)
+            add(code, [1,4,7], 'product')
+            bindings[-1]['productLabel'] = 'Generic morphine sulfate ER tablets'
+            add(code, [8], 'quantity')
+            add(code, [0], 'concurrent_opioid_dur')
+            add(code, [9,10,11], 'mme_exception')
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Morphine Sulfate Extended-Release Oral Tablet (Generic MS Contin)',
+                'dosageForm': 'extended-release oral tablet',
+                'note': 'FDA label: oral ER tablets 15, 30, 60, 100 and 200 mg; swallow whole, not for PRN use. Higher-strength 100/200 mg tablets require established opioid tolerance. Not ER capsules or beads. UHC GL-620192 generic tablet cancer/hospice, non-cancer initial and renewal criteria apply; brand/capsule-only initial prerequisites do not apply. Concurrent opioid DUR, cumulative MME and quantity exceptions are distinct. Exact payer strength eligibility and numeric dispensing QL unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=533034fd-c8e7-495b-8874-0db41bd1e65a',
+            }
         # DEC-05/06/12/13/14/19/20: exact stage-unspecified named policy; preserve brand-only prerequisites and raw flags.
         reviewed_stage_options = {
             'uhc-oct-complete-3db650dbb78aa872': ("icatibant acetate (generic for firazyr)", "preferred", "GL-546227", 1, "Generic icatibant acute HAE policy (stage unspecified)", "Icatibant (Generic Firazyr) Subcutaneous Prefilled Syringe", "subcutaneous prefilled syringe", "FDA label: single-dose 30 mg/3 mL (10 mg/mL) prefilled syringe. UHC GL-546227 acute HAE branch: age 18 or older for generic icatibant, confirmed HAE diagnosis, allergist/immunologist and no concurrent approved acute HAE treatment; 12 months, stage unspecified. Preferred-agent failure or current therapy prerequisite applies to named nonpreferred agents, not generic icatibant. Exact carton eligibility and numeric dispensing QL unverified.", "ccbb5e50-ce56-4898-aa1a-f1c1f3d312f6"),
