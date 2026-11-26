@@ -974,8 +974,9 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  const subtypeBNamed = subtypeBRows.filter(r => r.uhcClinicalBindings.some(b => b.role === 'product'));
  // Orencia SC is one additional exact named policy; its duplication binding remains.
  assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-cb36a822ee8dc7d4'));
- assert.equal(subtypeBNamed.length, 69);
- assert.equal(subtypeBNamed.filter(r => !scIds.has(r.id)).length, 66);
+ assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-be7159d568ed9f80'));
+ assert.equal(subtypeBNamed.length, 70);
+ assert.equal(subtypeBNamed.filter(r => !scIds.has(r.id)).length, 67);
  assert.equal(subtypeBNamed.filter(r => scIds.has(r.id)).length, 3);
  const auditedSupplies = [
   ['3b25d168e772f4bb', /BD AutoShield Duo/, 'conflict'],
