@@ -602,6 +602,10 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
         # GL-231255 and GL-140667 are administrative, not named product criteria.
         label_holds = {
+            'uhc-oct-complete-76eeafb86c6f7dd9': (
+                "inveltys", "Inveltys (Loteprednol Etabonate) Ophthalmic Suspension", "ophthalmic suspension",
+                "FDA label: 1% (10 mg/mL), for inflammation and pain after ocular surgery; distinct from lower-strength suspensions and gels. Shake before use; monitor intraocular pressure if used for 10 days or longer. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "2ec16df8-2e5c-4e06-8d28-21df76f27d72", True),
             'uhc-oct-complete-e9587576b936cf5e': (
                 "eysuvis", "Eysuvis (Loteprednol Etabonate) Ophthalmic Suspension", "ophthalmic suspension",
                 "FDA label: 0.25% (2.5 mg/mL), short-term dry eye treatment for up to 2 weeks; distinct from other loteprednol forms and concentrations. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
@@ -809,6 +813,18 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 **record.get('reviewedPresentation', {}), 'separate': True,
                 'label': label, 'dosageForm': form, 'note': note,
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + label_id,
+            }
+        # DEC-05/12/13/14/19/20: distinguish the packet from other raltegravir forms.
+        if record['id'] == 'uhc-oct-complete-9fcb07846f5d9ec6':
+            assert october_name == 'isentress oral packet'
+            assert record['pa'] == 'conditional' and record['preferred'] == 'preferred' and ql
+            assert not matched, ('Review new named policy', record['id'], matched)
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Isentress (Raltegravir) Granules for Oral Suspension',
+                'dosageForm': 'granules for oral suspension',
+                'note': 'FDA label: 100 mg single-use packet for oral suspension. Do not substitute the packet for the film-coated tablet on a milligram-for-milligram basis; the formulations are not bioequivalent. UHC PDL requires PA for members aged 2 years or older for the oral packet; exact product-specific criteria and numeric quantity limit are unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=89a5ec53-d956-4329-8004-0f40f51c88a3',
             }
         # DEC-05/12/13/14/19/20: exact preferred sprinkle capsule; retain conditional age rule.
         if record['id'] == 'uhc-oct-complete-f24f86de993ce49c':
