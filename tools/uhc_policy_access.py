@@ -808,8 +808,64 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: 210 mg/1.91 mL single-dose pen; patient or caregiver administration is possible after appropriate training and clinician assessment. Distinct from the healthcare-provider-administered prefilled syringe and vial. October payer criteria name the autoinjector only; numeric quantity limit remains unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=60f0aa03-ad25-4d48-80ce-7fcfa76f325f',
             }
+        # DEC-05/06/12/13/14/19/20: GL-500226 exact SC product, strength-scoped branches.
+        if record['id'] == 'uhc-oct-complete-8ae98137dd88048f':
+            assert october_name == 'tremfya subcutaneous' and pa and ql and record['preferred'] == 'non_preferred'
+            code = 'GL-500226'
+            assert policies[code]['policyEffective'] == '2026-02-01'
+            branches = structured[code]['branches']
+            scopes = [('Plaque Psoriasis (PsO)', 'Initial Authorization'),
+                      ('Plaque Psoriasis (PsO)', 'Reauthorization'),
+                      ('Psoriatic Arthritis (PsA)', 'Initial Authorization'),
+                      ('Psoriatic Arthritis (PsA)', 'Reauthorization'),
+                      ("Crohn's Disease (CD)", 'Initial Authorization'),
+                      ('Ulcerative Colitis (UC)', 'Initial Authorization'),
+                      ("Crohn's Disease (CD), Ulcerative Colitis (UC)", 'Reauthorization')]
+            assert len(branches) == len(scopes)
+            for i, (dx, stage) in enumerate(scopes):
+                fields = branches[i]['fields']
+                def trem_field(name):
+                    f = fields[name]
+                    return ' '.join((f.get('displayText') or f['text']).split())
+                assert trem_field('Product Name') == ('Tremfya SC 100 mg*' if i < 4 else 'Tremfya SC')
+                assert trem_field('Diagnosis').replace('’', "'") == dx
+                assert trem_field('Therapy Stage') == stage
+                assert trem_field('Approval Length') == '12 month(s)'
+                assert trem_field('Guideline Type') == 'Prior Authorization'
+                if i in (4, 5):
+                    criteria = ' '.join(c.get('displayText') or c['text'] for c in branches[i]['criteria'])
+                    assert 'maintenance dose following the intravenous induction doses' in criteria
+                    assert 'induction dosing' in criteria
+            assert set(matched).issubset({code, 'GL-733328'}), matched
+            matched.pop(code, None)
+            add(code, list(range(7)), 'product')
+            bindings[-1]['productLabel'] = 'Tremfya SC (device and strength unspecified)'
+            bindings[-1]['branchLabels'] = {str(i): ('Tremfya SC 100 mg' if i < 4 else 'Tremfya SC (IBD)') for i in range(7)}
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Tremfya (Guselkumab) Subcutaneous Injection (Device and Strength Unspecified)',
+                'dosageForm': 'subcutaneous injection',
+                'note': 'FDA label: 100 mg/mL syringe, pen or One-Press injector; 200 mg/2 mL syringe or pen. Distinct from 200 mg/20 mL IV vial. PsO/PsA payer branches apply to SC 100 mg only; CD/UC branches name SC and distinguish induction from maintenance after IV induction. Labeled IBD SC induction is 400 mg as two 200 mg injections. UHC listing does not specify device or strength; exact device and strength benefit and numeric quantity limit remain unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1e6dc9ae-1c4c-42d9-87aa-c315ecc51b56',
+            }
+        # DEC-05/06/07/12/13/14/19/20: distinguish conditional brand sprinkle from IR tablet.
+        if record['id'] == 'uhc-oct-complete-d37573826a734ebb':
+            assert october_name == 'topamax sprinkle (brand for topiramate)'
+            assert record['pa'] == 'conditional' and record['preferred'] == 'non_preferred' and ql
+            assert not matched, ('Review newly available named criteria before use', record['id'], matched)
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Topamax Sprinkle (Topiramate) Oral Sprinkle Capsule',
+                'dosageForm': 'oral sprinkle capsule',
+                'note': 'FDA label: 15 and 25 mg immediate-release sprinkle capsules, distinct from 50 mg sprinkle, ER sprinkle and tablets. Capsules may be opened onto soft food and swallowed without chewing. UHC conditional PA applies at age 8 or older, not a labeled indication age. GL-572198 names ER products and 50 mg sprinkle, not this option. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=21628112-0c47-11df-95b3-498d55d89593',
+            }
         # DEC-05/06/12/13/14/19/20: label-backed identities, no extrapolated payer criteria.
         label_holds = {
+            'uhc-oct-complete-8e34212b5a29106f': (
+                'topamax (brand for topiramate)', 'Topamax (Topiramate) Oral Tablet', 'oral tablet',
+                'FDA label: 25, 50, 100 and 200 mg immediate-release tablets, distinct from sprinkle capsules and ER formulations. GL-572198 mentions generic IR tablets as trial alternatives, not as a named brand Topamax PA branch. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                '21628112-0c47-11df-95b3-498d55d89593', True),
             'uhc-oct-complete-0b3a19b761869f8f': (
                 "tiglutik", "Tiglutik (Riluzole) Oral Suspension", "oral suspension",
                 "FDA label: riluzole 5 mg/mL (50 mg/10 mL) oral suspension for oral or PEG-tube administration, distinct from riluzole tablets and oral film. Shake gently before administration; liver enzyme monitoring is required. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
@@ -1214,6 +1270,7 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             }
         # DEC-05/12/13/14/19/20: preferred listing identity only; preserve original PA trigger.
         preferred_label_holds = {
+            'uhc-oct-complete-90702ce4eec9617a': ('topiramate oral capsule sprinkle 15 mg, 25 mg (generic for topamax sprinkle)', 'Topiramate 15 or 25 mg Oral Sprinkle Capsule', 'oral sprinkle capsule', 'FDA label: 15 and 25 mg immediate-release sprinkle capsules, distinct from the 50 mg sprinkle and extended-release products. UHC conditional PA applies at age 8 or older, not a labeled indication age. GL-572198 names 50 mg sprinkle and ER products, not this option. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.', '872927eb-0b61-44bb-9892-3c700b6f2181', 'conditional'),
             'uhc-oct-complete-0f013ce4207021c3': ("reyataz oral packet", "Reyataz (Atazanavir) Oral Powder Packet", "oral powder packet", "FDA label: 50 mg oral powder packet, not a capsule; take with food and ritonavir. Switching formulations may require dose adjustment. UHC PDL conditional PA applies at age 8 or older; this is a payer trigger, not a labeled indication age. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.", "165cff62-b284-4a27-a65d-9ec8a5bfcdd8", "conditional"),
             'uhc-oct-complete-c52599e942ff4716': ("lamotrigine oral tablet chewable (generic for lamictal)", "Lamotrigine Chewable / Dispersible Tablet for Oral Suspension", "tablet for oral suspension", "FDA label: 5 and 25 mg chewable/dispersible tablets, distinct from ODT and ER. Boxed warning for serious rash. UHC PDL conditional PA applies at age 8 or older; this is a payer trigger, not a labeled indication age. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.", "ae6522d4-d824-44aa-afe0-70cdcbd845af", "conditional"),
             'uhc-oct-complete-2350c3053e5d6856': ("lidocaine external ointment 5 %", "Lidocaine 5% Topical Ointment", "topical ointment", "FDA label: 50 mg/g topical ointment, not a patch or injection. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.", "071b2cfd-07ad-46a3-8808-87080d545fd3", "required"),
