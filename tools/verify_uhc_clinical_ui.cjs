@@ -390,6 +390,15 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith(code));assert.deepEqual(b[0].branchIndexes,indexes);assert(b[0].productLabel.includes(scope));
   const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
  }
+ // DEC-05/06/12/13/14/19/20: exact Humira packages and Hysingla stage/quantity scopes.
+ for(const [suffix,label,phrase,code,indexes,scope,quantity] of [["44a3cc30cacb48e9","Humira (Adalimumab) Subcutaneous Autoinjector Kit — 2 Pens, 80 mg/0.8 mL","not a mixed-strength starter kit","gl-541212",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14],"Humira named policy (kit eligibility unverified)",[]],["6f4d72453c49480d","Humira (Adalimumab) Subcutaneous Prefilled Syringe Kit — 2 Syringes, 10 mg/0.1 mL, 20 mg/0.2 mL, 40 mg/0.4 mL","not a mixed-strength kit or autoinjector","gl-541212",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14],"Humira named policy (kit eligibility unverified)",[]],["50e68f49403e10e7","Hysingla ER (Hydrocodone Bitartrate) 24-Hour Extended-Release Oral Tablet","numeric dispensing QL unverified","gl-620192",[0,2,5,7,9,10,11],"Brand Hysingla ER named policy (conditional MME/DUR branches)",[8]]]){
+  const id='uhc-oct-complete-'+suffix,g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'non_preferred');
+  assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+  const b=r.uhcClinicalBindings.filter(b=>b.role==='product'&&b.policyId.endsWith(code));assert.equal(b.length,1);assert.deepEqual(b[0].branchIndexes,indexes);assert.equal(b[0].productLabel,scope);
+  const qb=r.uhcClinicalBindings.filter(b=>b.role==='quantity'&&b.policyId.endsWith(code));assert.deepEqual(qb.flatMap(b=>b.branchIndexes),quantity);
+  const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+ }
  // DEC-05/06/12/13/14/19/20: labeled device distinctions without extending general policy scope.
  for(const [suffix,label,phrase,code,indexes,preference,hasQL] of [
   ["49d179ce14de8e08","Xolair (Omalizumab) Subcutaneous Autoinjector","device only for age 12 or older","gl-713364",[0,1,2,3,4,5,6,7],"preferred",true],

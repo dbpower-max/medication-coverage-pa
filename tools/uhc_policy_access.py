@@ -1221,6 +1221,53 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': "FDA label: 60 mg/0.4 mL single-dose vial is 150 mg/mL, not 30 mg/mL; do not combine different concentrations in one injection. UHC GL-716187 branch 10 specifies routine hemophilia A prophylaxis and distinct severity/inhibitor criteria, 12 months, stage unspecified. Nonpreferred rule remains separate. This PDL row has an explicit QL flag; numeric dispensing QL unverified.",
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2483adba-fab6-4d1b-96c5-c195577ed071',
             }
+        # DEC-05/06/12/13/14/19/20: reviewed exact UHC named policy stages, without extending package or quantity eligibility.
+        if record['id'] == 'uhc-oct-complete-44a3cc30cacb48e9':
+            assert october_name == "humira (2 pen) subcutaneous auto-injector kit 80 mg/0.8ml", (record['id'], october_name)
+            assert record['pa'] == 'required' and record['preferred'] == 'non_preferred' and ql
+            code = 'GL-541212'
+            assert matched.get(code) == set([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]), (record['id'], matched)
+            matched.pop(code)
+            add(code, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14], 'product')
+            bindings[-1]['productLabel'] = "Humira named policy (kit eligibility unverified)"
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': "Humira (Adalimumab) Subcutaneous Autoinjector Kit — 2 Pens, 80 mg/0.8 mL",
+                'dosageForm': "subcutaneous autoinjector kit",
+                'note': "FDA label: two single-dose pens, each 80 mg/0.8 mL (100 mg/mL); not a mixed-strength starter kit. UHC GL-541212 names Humira in 15 indication/stage branches; nonpreferred requests require failure of all preferred adalimumab biosimilars in each branch. Brand-level policy does not establish indication-specific kit eligibility or numeric dispensing QL.",
+                'labelUrl': "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4977567e-3525-44ac-9ff5-f1e74b053950",
+            }
+        if record['id'] == 'uhc-oct-complete-6f4d72453c49480d':
+            assert october_name == "humira (2 syringe) subcutaneous prefilled syringe kit 10 mg/0.1ml, 20 mg/0.2ml, 40 mg/0.4ml", (record['id'], october_name)
+            assert record['pa'] == 'required' and record['preferred'] == 'non_preferred' and ql
+            code = 'GL-541212'
+            assert matched.get(code) == set([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]), (record['id'], matched)
+            matched.pop(code)
+            add(code, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14], 'product')
+            bindings[-1]['productLabel'] = "Humira named policy (kit eligibility unverified)"
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': "Humira (Adalimumab) Subcutaneous Prefilled Syringe Kit — 2 Syringes, 10 mg/0.1 mL, 20 mg/0.2 mL, 40 mg/0.4 mL",
+                'dosageForm': "subcutaneous prefilled syringe kit",
+                'note': "FDA label: two single-dose syringes of the same selected strength, all 100 mg/mL; not a mixed-strength kit or autoinjector. Select the appropriate dose and device for age, weight and indication. UHC GL-541212 names Humira in 15 indication/stage branches; nonpreferred requests require failure of all preferred adalimumab biosimilars in each branch. Brand-level policy does not establish indication-specific kit eligibility or numeric dispensing QL.",
+                'labelUrl': "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4977567e-3525-44ac-9ff5-f1e74b053950",
+            }
+        if record['id'] == 'uhc-oct-complete-50e68f49403e10e7':
+            assert october_name == "hysingla er (brand for hydrocodone bitartrate er)", (record['id'], october_name)
+            assert record['pa'] == 'required' and record['preferred'] == 'non_preferred' and ql
+            code = 'GL-620192'
+            assert matched.get(code) == set([0,2,5,7,9,10,11,8]), (record['id'], matched)
+            matched.pop(code)
+            add(code, [0,2,5,7,9,10,11], 'product')
+            bindings[-1]['productLabel'] = "Brand Hysingla ER named policy (conditional MME/DUR branches)"
+            add(code, [8], 'quantity')
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': "Hysingla ER (Hydrocodone Bitartrate) 24-Hour Extended-Release Oral Tablet",
+                'dosageForm': "24-hour extended-release oral tablet",
+                'note': "FDA label: 24-hour extended-release tablet, not an immediate-release or ER capsule; swallow whole to avoid fatal overdose. UHC GL-620192 includes distinct concurrent MAT/opioid, cancer/hospice, non-cancer initial/renewal and cumulative MME exceptions. The quantity exception addresses requests that cannot be met by a higher strength and are within applicable FDA maximums; numeric dispensing QL unverified. Do not interpret an MME threshold as a dispensing quantity.",
+                'labelUrl': "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b7d23ac2-e776-9f62-3290-c64c2d6eb353",
+            }
         # DEC-05/06/12/13/14/19/20: device-specific labeling only; preserve existing general named criteria.
         device_label_holds = {
             'uhc-oct-complete-49d179ce14de8e08': (
