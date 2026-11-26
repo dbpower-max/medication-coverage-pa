@@ -350,6 +350,17 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith(code));assert.deepEqual(b[0].branchIndexes,indexes);assert(b[0].productLabel.includes(scope));
   const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
  }
+ // DEC-05/06/12/13/14/19/20: generic everolimus formulations and conditional brand restriction.
+ for(const [suffix,label,phrase] of [
+  ['b16c95f918a6dc2d','Everolimus Oral Tablet (payer reference Torpenz)','not this tablet'],
+  ['c97bdc185635bff6','Everolimus Tablet for Oral Suspension (payer reference Afinitor Disperz)','not formulation-specific FDA indications']
+ ]){
+  const id='uhc-oct-complete-'+suffix,g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');
+  assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));assert(!r.uhcClinicalBindings.some(b=>b.role==='nonpreferred'));
+  const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith('gl-657254'));assert.deepEqual(b[0].branchIndexes,Array.from({length:15},(_,i)=>i));assert(b[0].productLabel.includes('indication-specific applicability unverified'));
+  const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('conditional on brand Afinitor/Disperz or Torpenz requests'));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+ }
  // DEC-05/06/12/13/14/19/20: labeled device distinctions without extending general policy scope.
  for(const [suffix,label,phrase,code,indexes,preference,hasQL] of [
   ["49d179ce14de8e08","Xolair (Omalizumab) Subcutaneous Autoinjector","device only for age 12 or older","gl-713364",[0,1,2,3,4,5,6,7],"preferred",true],

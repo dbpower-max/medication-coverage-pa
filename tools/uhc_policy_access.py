@@ -1063,6 +1063,33 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'label': label, 'dosageForm': form, 'note': note,
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + setid,
             }
+        # DEC-05/06/12/13/14/19/20: formulation-specific labels, broad payer branches.
+        everolimus_stage_scope = {
+            'uhc-oct-complete-b16c95f918a6dc2d': (
+                'everolimus oral tablet 10 mg, 2.5 mg, 5 mg, 7.5 mg (generic for torpenz)',
+                'Everolimus Oral Tablet (payer reference Torpenz)', 'oral tablet',
+                'FDA label: conventional 2.5, 5, 7.5 and 10 mg tablets, swallowed whole. Do not combine conventional and suspension tablets. TSC-associated partial-onset seizures are labeled for the suspension form, not this tablet.'),
+            'uhc-oct-complete-c97bdc185635bff6': (
+                'everolimus oral tablet soluble (generic for afinitor disperz)',
+                'Everolimus Tablet for Oral Suspension (payer reference Afinitor Disperz)', 'tablet for oral suspension',
+                'FDA label: 2, 3 and 5 mg tablets for preparation as a suspension, not swallowed whole. Do not combine conventional and suspension tablets. Labeled for TSC-associated SEGA and adjunctive partial-onset seizures; payer oncology criteria are not formulation-specific FDA indications.'),
+        }
+        if record['id'] in everolimus_stage_scope:
+            name, label, form, note = everolimus_stage_scope[record['id']]
+            assert october_name == name, (record['id'], october_name)
+            assert record['pa'] == 'required' and record['preferred'] == 'preferred' and ql
+            code = 'GL-657254'
+            indexes = set(range(15))
+            assert matched.get(code) == indexes, (record['id'], matched)
+            matched.pop(code)
+            add(code, sorted(indexes), 'product')
+            bindings[-1]['productLabel'] = 'Everolimus named generic formulation (indication-specific applicability unverified)'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': label, 'dosageForm': form,
+                'note': note + ' UHC GL-657254 lists both generic forms, with 14 initial branches and one renewal branch. Prior generic/Yulithira failure, intolerance or contraindication is conditional on brand Afinitor/Disperz or Torpenz requests. Preferred NDC, exact indication applicability and numeric quantity limit are unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=01f7b5fb-be0d-4adf-acd2-6899018de966',
+            }
         # DEC-05/06/12/13/14/19/20: device-specific labeling only; preserve existing general named criteria.
         device_label_holds = {
             'uhc-oct-complete-49d179ce14de8e08': (
