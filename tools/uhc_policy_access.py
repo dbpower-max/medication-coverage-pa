@@ -669,6 +669,18 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             }
         # DEC-05/06/12/13/14/19/20: label-backed identities, no extrapolated payer criteria.
         label_holds = {
+            'uhc-oct-complete-097bbd79f985a20c': (
+                "siklos", "Siklos (Hydroxyurea) Scored Oral Tablet", "scored oral tablet",
+                "FDA label: 100 mg tablets scored into halves and 1000 mg tablets scored into quarters; distinct from hydroxyurea capsules. Boxed warnings for myelosuppression and malignancies. Hydroxyurea can interfere with certain continuous glucose monitors. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "76957c0d-0f98-4376-bb06-eee651adc09d", True),
+            'uhc-oct-complete-ecf070f7d966f3c0': (
+                "simbrinza", "Simbrinza (Brinzolamide / Brimonidine Tartrate) Ophthalmic Suspension", "ophthalmic suspension",
+                "FDA label: brinzolamide 1% / brimonidine tartrate 0.2% ophthalmic suspension, distinct from either single ingredient. Shake well before use; contraindicated in children under 2 years. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "a49c157e-6310-0011-7b7f-e26fc1820d59", True),
+            'uhc-oct-complete-21d7009b80e338fa': (
+                "simponi", "Simponi (Golimumab) Subcutaneous Injection (Device Unspecified)", "subcutaneous injection",
+                "FDA label: subcutaneous prefilled syringe or autoinjector, distinct from intravenous Simponi Aria. The UHC listing does not identify a device or strength. Boxed warnings for serious infections and malignancy. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "f86cb4a7-c358-4136-ae57-b32bda9bba00", True),
             'uhc-oct-complete-45bccbf7d28f0d2d': (
                 "rasuvo", "Rasuvo (Methotrexate) Subcutaneous Autoinjector", "subcutaneous autoinjector",
                 "FDA label: single-use 50 mg/mL subcutaneous autoinjectors, 7.5–30 mg in 2.5 mg increments. Once weekly, never daily; not for other routes. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
@@ -1015,6 +1027,7 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             assert october_name == expected and record['pa'] == 'required'
             assert record['preferred'] == 'non_preferred' and bool(ql) == has_ql
             allowed_administrative = {'GL-735259'} if record['id'] in {'uhc-oct-complete-4174a6295393bf8f', 'uhc-oct-complete-e48614a8896d1c42', 'uhc-oct-complete-0d5d9de3ba6af1f0', 'uhc-oct-complete-0d8138a620761a85'} else set()
+            if record['id'] == 'uhc-oct-complete-21d7009b80e338fa': allowed_administrative = {'GL-733328'}
             assert not (set(matched) - allowed_administrative), ('Review newly available named criteria before use', record['id'], matched)
             record['reviewedPresentation'] = {
                 **record.get('reviewedPresentation', {}), 'separate': True,
