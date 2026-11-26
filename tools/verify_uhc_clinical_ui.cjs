@@ -174,6 +174,8 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert.notEqual(gammagardRows[0],gammagardRows[1],'ambiguous Gammagard merged with S/D');
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["5084711389d55a87","Mayzent Starter Pack (Siponimod) Oral Tablet Titration Pack","does not distinguish the two starter packs",true],
+  ["7ae59a9be90894fb","Lialda (Mesalamine) Delayed-Release Oral Tablet","not a mesalamine capsule, enema or suppository",true],
   ["3e5ea0bc90a6979f","Lyumjev (Insulin Lispro-aabc) Injectable Solution (Device Unspecified)","does not identify a device or concentration",true],
   ["686742f153d68e01","Lyumjev KwikPen (Insulin Lispro-aabc) Prefilled Pen (Concentration Unspecified)","does not establish which concentration is covered",true],
   ["6520d7a7c776b0eb","Livalo (Pitavastatin Calcium) Oral Tablet","distinct from pitavastatin magnesium",true],
