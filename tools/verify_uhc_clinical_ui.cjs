@@ -231,10 +231,20 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const out=await open(g);for(const phrase of ['Initial Authorization','Reauthorization','3 month','12 month','SMN2','intrathecally'])assert(out.html.includes(phrase),phrase);
   assert(out.ref.includes('page=1583')||out.ref.includes('page=1586'));
  }
+ {
+  const id='uhc-oct-complete-be7159d568ed9f80';
+  const g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'non_preferred');
+  const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith('gl-713343'));assert.deepEqual(b[0].branchIndexes,[0,1,2,3]);
+  for(const role of ['nonpreferred','global_quantity','duplication'])assert(r.uhcClinicalBindings.some(b=>b.role===role),role);
+  const card=a.medicationGroupCard(g);assert(card.includes('Tezspire (Tezepelumab-ekko) Subcutaneous Prefilled Pen'));assert(card.includes('patient or caregiver administration'));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+  const out=await open(g);for(const phrase of ['Asthma','CRSwNP','Initial Authorization','Reauthorization','6 month','12 month','Dupixent','Fasenra','Xolair'])assert(out.html.includes(phrase),phrase);
+  assert(out.ref.includes('page=1696')||out.ref.includes('page=1699'));
+  const syringe=groups.flatMap(x=>x.records).find(r=>r.id==='uhc-oct-complete-26eaf8d3998418d6');assert(syringe);assert(!syringe.uhcClinicalBindings.some(b=>b.policyId.endsWith('gl-713343')),'autoinjector PA leaked into syringe');
+ }
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
   ["9d8ad92e4e67aa1f","Tazorac (Tazarotene) Topical Cream or Gel (Payer Form Unspecified)","cream and gel are distinct topical formulations",true],
-  ["be7159d568ed9f80","Tezspire (Tezepelumab-ekko) Subcutaneous Prefilled Pen","patient or caregiver administration",true],
   ["26eaf8d3998418d6","Tezspire (Tezepelumab-ekko) Subcutaneous Prefilled Syringe","for healthcare provider administration",false],
   ["e9644f76806d0c78","Sutab (Sodium Sulfate / Magnesium Sulfate / Potassium Chloride) Oral Tablet Kit","Distinct from Suprep oral solution",false],
   ["b452a2e1e260634a","Synarel (Nafarelin) Metered Nasal Spray","distinct from injectable GnRH agonists",false],
