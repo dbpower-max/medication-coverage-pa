@@ -191,6 +191,8 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   ["45bccbf7d28f0d2d","Rasuvo (Methotrexate) Subcutaneous Autoinjector","Once weekly, never daily",true],
   ["787fc9bd1b5d7710","Rayaldee (Calcifediol) Extended-Release Oral Capsule","distinct from calcitriol and cholecalciferol",true],
   ["0d8138a620761a85","Rezvoglar KwikPen (Insulin Glargine-aglr) Subcutaneous Prefilled Pen","Do not withdraw insulin from the pen into a syringe",true],
+  ["92305bb0ac20fce9","Edurant (Rilpivirine) Oral Tablet","not substitutable mg-for-mg",true],
+  ["8bbcf6cc69fead95","Rocklatan (Netarsudil / Latanoprost) Ophthalmic Solution","distinct from either single ingredient",true],
   ["94c48abf89211479","Rhopressa (Netarsudil) Ophthalmic Solution","distinct from netarsudil/latanoprost combination",true],
   ["e09ab8c74dc567df","QNASL (Beclomethasone Dipropionate) Metered Nasal Aerosol (Strength Unspecified)","does not print a strength",true],
   ["34c3d53b54b42268","Children's QNASL (Beclomethasone Dipropionate) 40 mcg/Actuation Metered Nasal Aerosol","distinct from the 80 mcg/actuation presentation",true],
