@@ -174,6 +174,8 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert.notEqual(gammagardRows[0],gammagardRows[1],'ambiguous Gammagard merged with S/D');
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["ddac5d138221ee70","Istalol (Timolol Maleate) Once-Daily Ophthalmic Solution","once daily in the morning",true],
+  ["d63c3b1ab823b361","Lo Loestrin Fe (Norethindrone Acetate / Ethinyl Estradiol / Ferrous Fumarate) Oral Tablet Pack","not equivalent to Loestrin 24 Fe",true],
   ["76eeafb86c6f7dd9","Inveltys (Loteprednol Etabonate) Ophthalmic Suspension","inflammation and pain after ocular surgery",true],
   ["e9587576b936cf5e","Eysuvis (Loteprednol Etabonate) Ophthalmic Suspension","short-term dry eye treatment",true],
   ["1de36cc0a4b8fcd4","Fiasp (Insulin Aspart) Injectable Solution (Device Unspecified)","does not establish a particular device",true],
