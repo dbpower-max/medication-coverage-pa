@@ -188,6 +188,9 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(pertzyeGroups.every(Boolean));assert.notEqual(pertzyeGroups[0],pertzyeGroups[1],'Pertzye strength-specific QL must not merge');
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["e09ab8c74dc567df","QNASL (Beclomethasone Dipropionate) Metered Nasal Aerosol (Strength Unspecified)","does not print a strength",true],
+  ["34c3d53b54b42268","Children's QNASL (Beclomethasone Dipropionate) 40 mcg/Actuation Metered Nasal Aerosol","distinct from the 80 mcg/actuation presentation",true],
+  ["9e19c60da2981b4c","Radicava ORS Starter Kit (Edaravone) Oral Suspension","distinct from the 10-day continuation kit",true],
   ["4763deab6556b498","MoviPrep (PEG 3350 / Electrolytes / Ascorbate) Powder for Oral Solution","not ready-to-drink solution",true],
   ["0d5d9de3ba6af1f0","Perforomist (Formoterol Fumarate) Nebulizer Solution","not rescue treatment or an asthma indication",true],
   ["7f3a07339d47bc24","Pertzye (Pancrelipase) 8,000 / 16,000 / 24,000 Lipase Unit Delayed-Release Capsules","Not the 4,000-unit capsule",false],
@@ -272,7 +275,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   assert(!r.uhcClinicalBindings.some(b=>b.role==='product'),id+' fabricated product PA');
   assert(r.uhcClinicalBindings.some(b=>b.role==='nonpreferred'&&b.policyId.endsWith('gl-231255')),id+' nonpreferred review lost');
   assert.equal(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'),hasQL,id+' QL scope');
-  const card=a.medicationGroupCard(g);assert(card.includes(label),id+' form');assert(card.includes(phrase),id+' distinction');assert(card.includes('Exact UHC product-specific initial/renewal criteria'),id+' hold');assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'),id+' label link');
+  const card=a.medicationGroupCard(g);assert(card.includes(label.replace(/\x27/g,"&#39;")),id+' form');assert(card.includes(phrase),id+' distinction');assert(card.includes('Exact UHC product-specific initial/renewal criteria'),id+' hold');assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'),id+' label link');
   const out=await open(g);assert(out.ref.includes('page=1202'),id+' administrative source');if(hasQL)assert(out.ref.includes('page=702'),id+' QL source');
  }
  for(const [suffix,label,phrase,pa] of [
@@ -326,6 +329,20 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   assert(card.includes('Current claim requirements are unverified'),id+' hold');
   const out=await open(g);assert(out.ref.includes('page=385'),id+' dated policy reference');
  }
+ {
+  const id='uhc-oct-complete-a75bf7c192276842';
+  const g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);
+  assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');
+  assert(!r.uhcClinicalBindings.some(b=>b.role==='product'&&b.policyId.endsWith('gl-720196')),id+' generic must not inherit brand criteria');
+  assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'),id+' quantity flag retained');
+  const card=a.medicationGroupCard(g);
+  assert(card.includes('PA sources conflict'));assert(card.includes('October 18, 2026 policy says generic is preferred without PA'));assert(card.includes('Current claim requirements are unverified'));
+  assert(!card.includes('duplicate rows disagree on step therapy'),id+' no duplicate step conflict');
+  const out=await open(g);assert(out.ref.includes('page=385'),id+' dated policy reference');
+ }
+ const qnaslGroups=['e09ab8c74dc567df','34c3d53b54b42268'].map(s=>groups.find(g=>g.records.some(r=>r.id==='uhc-oct-complete-'+s)));
+ assert(qnaslGroups.every(Boolean));assert.notEqual(qnaslGroups[0],qnaslGroups[1],'QNASL and pediatric presentation must remain distinct');
  const eyeGroups=['b72a09032c056ced','5f08db26327b4d8e','8b9d3977c36fecd2'].map(s=>groups.find(g=>g.records.some(r=>r.id==='uhc-oct-complete-'+s)));
  assert(eyeGroups.every(Boolean));assert.equal(new Set(eyeGroups).size,3,'Distinct ophthalmic products must not merge');
  {
