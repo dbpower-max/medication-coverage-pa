@@ -632,6 +632,14 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0836c6ac-ee37-5640-2fed-a3185a0b16eb',
             }
         label_holds = {
+            'uhc-oct-complete-20d43250059212cb': (
+                "plegridy starter pack subcutaneous solution prefilled syringe", "Plegridy Starter Pack (Peginterferon Beta-1a) Subcutaneous Prefilled Syringe Pack", "subcutaneous injection prefilled syringe pack",
+                "FDA label: two SC prefilled syringes, 63 and 94 mcg per 0.5 mL, for titration; distinct from the SC pen starter pack, SC maintenance syringe and IM syringe with separate titration clips. UHC MS Agents guideline GL-722207 (effective 10/18/2026, pp. 1152–1154) names Plegridy, not the exact starter pack. Exact UHC product-specific initial/renewal criteria for the pack and numeric quantity limit are unverified.",
+                "08f0ea03-4e6d-195d-aef4-886e32befa95", True),
+            'uhc-oct-complete-73bdfcbd8ed83459': (
+                "pred forte (brand for prednisolone acetate)", "Pred Forte (Prednisolone Acetate) Ophthalmic Suspension", "ophthalmic suspension",
+                "FDA label: prednisolone acetate 1% suspension, not a phosphate solution or systemic preparation; shake before use. Monitor intraocular pressure with use for 10 days or longer; this is a label safety precaution, not a payer duration limit. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "00a5aa88-e361-4ea7-8922-530c738b726e", True),
             'uhc-oct-complete-4763deab6556b498': (
                 "moviprep (brand for peg-3350/electrolytes/ascorbat)", "MoviPrep (PEG 3350 / Electrolytes / Ascorbate) Powder for Oral Solution", "powder for oral solution",
                 "FDA label: mix pouch A and pouch B together with water to make each liter; kit supplies two liters of bowel preparation, not ready-to-drink solution. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
