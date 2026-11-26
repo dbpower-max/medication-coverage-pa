@@ -1,9 +1,0 @@
-Arizona Complete Health-Complete Care information request
-
-Please provide the complete current integrated Preferred Drug List, including the additional plan products beyond the AHCCCS statewide drug list, with its effective/revision date and PA, age-limit, step-therapy and quantity-limit information. Please also provide the current drug-specific prior-authorization criteria that are not publicly posted.
-
-The official currently linked JSON declares plan year2022 and omits current named products; the October2026 update notice is only a partial list. We need the current full PDL or a current machine-readable export/PDF rather than the older JSON.
-
-Current hard-copy PDL request:1-888-788-4408 (provider manual§4.13.4).
-Current criteria request:1-866-796-0542 (provider manual§4.13.8).
-No patient information is needed for this public plan-document request.
