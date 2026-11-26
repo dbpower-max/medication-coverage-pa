@@ -633,6 +633,22 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             }
         # DEC-05/06/12/13/14/19/20: label-backed identities, no extrapolated payer criteria.
         label_holds = {
+            'uhc-oct-complete-45bccbf7d28f0d2d': (
+                "rasuvo", "Rasuvo (Methotrexate) Subcutaneous Autoinjector", "subcutaneous autoinjector",
+                "FDA label: single-use 50 mg/mL subcutaneous autoinjectors, 7.5–30 mg in 2.5 mg increments. Once weekly, never daily; not for other routes. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "d0075461-0e7e-4967-9c9b-d6440e912c0e", True),
+            'uhc-oct-complete-787fc9bd1b5d7710': (
+                "rayaldee", "Rayaldee (Calcifediol) Extended-Release Oral Capsule", "extended-release oral capsule",
+                "FDA label: 30 mcg extended-release capsule, distinct from calcitriol and cholecalciferol. Labeled for secondary hyperparathyroidism in adults with stage 3 or 4 CKD and serum 25-hydroxyvitamin D below 30 ng/mL; not indicated for stage 5 CKD or dialysis. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "6a95effd-32a5-46b6-a30e-7f4f9bf8cc77", True),
+            'uhc-oct-complete-0d8138a620761a85': (
+                "rezvoglar kwikpen", "Rezvoglar KwikPen (Insulin Glargine-aglr) Subcutaneous Prefilled Pen", "subcutaneous prefilled pen",
+                "FDA label: 100 units/mL, 3 mL prefilled pen. Do not withdraw insulin from the pen into a syringe or use intravenously or in an insulin pump. Separate product identity; no payer substitution inference. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "f6af8706-2058-4fe1-99c8-43684c20bfa2", True),
+            'uhc-oct-complete-94c48abf89211479': (
+                "rhopressa", "Rhopressa (Netarsudil) Ophthalmic Solution", "ophthalmic solution",
+                "FDA label: netarsudil 0.02% ophthalmic solution, distinct from netarsudil/latanoprost combination. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "7d4f0e3a-5b86-4c43-982a-813b22ae7e22", True),
             'uhc-oct-complete-e09ab8c74dc567df': (
                 "qnasl", "QNASL (Beclomethasone Dipropionate) Metered Nasal Aerosol (Strength Unspecified)", "metered nasal aerosol",
                 "FDA label: intranasal use only; 80 mcg/actuation for age 12 years and older, 40 mcg/actuation for age 4–11 years. The unqualified UHC listing does not print a strength; the separate Children's QNASL listing corresponds to the pediatric presentation. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
@@ -954,7 +970,7 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             expected, label, form, note, label_id, has_ql = label_holds[record['id']]
             assert october_name == expected and record['pa'] == 'required'
             assert record['preferred'] == 'non_preferred' and bool(ql) == has_ql
-            allowed_administrative = {'GL-735259'} if record['id'] in {'uhc-oct-complete-4174a6295393bf8f', 'uhc-oct-complete-e48614a8896d1c42', 'uhc-oct-complete-0d5d9de3ba6af1f0'} else set()
+            allowed_administrative = {'GL-735259'} if record['id'] in {'uhc-oct-complete-4174a6295393bf8f', 'uhc-oct-complete-e48614a8896d1c42', 'uhc-oct-complete-0d5d9de3ba6af1f0', 'uhc-oct-complete-0d8138a620761a85'} else set()
             assert not (set(matched) - allowed_administrative), ('Review newly available named criteria before use', record['id'], matched)
             record['reviewedPresentation'] = {
                 **record.get('reviewedPresentation', {}), 'separate': True,
@@ -963,6 +979,7 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             }
         # DEC-05/12/13/14/19/20: preferred listing identity only; preserve original PA trigger.
         preferred_label_holds = {
+            'uhc-oct-complete-0f013ce4207021c3': ("reyataz oral packet", "Reyataz (Atazanavir) Oral Powder Packet", "oral powder packet", "FDA label: 50 mg oral powder packet, not a capsule; take with food and ritonavir. Switching formulations may require dose adjustment. UHC PDL conditional PA applies at age 8 or older; this is a payer trigger, not a labeled indication age. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.", "165cff62-b284-4a27-a65d-9ec8a5bfcdd8", "conditional"),
             'uhc-oct-complete-c52599e942ff4716': ("lamotrigine oral tablet chewable (generic for lamictal)", "Lamotrigine Chewable / Dispersible Tablet for Oral Suspension", "tablet for oral suspension", "FDA label: 5 and 25 mg chewable/dispersible tablets, distinct from ODT and ER. Boxed warning for serious rash. UHC PDL conditional PA applies at age 8 or older; this is a payer trigger, not a labeled indication age. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.", "ae6522d4-d824-44aa-afe0-70cdcbd845af", "conditional"),
             'uhc-oct-complete-2350c3053e5d6856': ("lidocaine external ointment 5 %", "Lidocaine 5% Topical Ointment", "topical ointment", "FDA label: 50 mg/g topical ointment, not a patch or injection. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.", "071b2cfd-07ad-46a3-8808-87080d545fd3", "required"),
             'uhc-oct-complete-877751e558a7560e': ("lokelma", "Lokelma (Sodium Zirconium Cyclosilicate) Powder for Oral Suspension", "powder for oral suspension", "FDA label: 5 and 10 g packets; generally separate other oral medications by 2 hours. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.", "90bf8e28-748d-4e4b-a19f-9cf483370eff", "required"),

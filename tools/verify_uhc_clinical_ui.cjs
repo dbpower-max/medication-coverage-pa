@@ -188,6 +188,10 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(pertzyeGroups.every(Boolean));assert.notEqual(pertzyeGroups[0],pertzyeGroups[1],'Pertzye strength-specific QL must not merge');
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["45bccbf7d28f0d2d","Rasuvo (Methotrexate) Subcutaneous Autoinjector","Once weekly, never daily",true],
+  ["787fc9bd1b5d7710","Rayaldee (Calcifediol) Extended-Release Oral Capsule","distinct from calcitriol and cholecalciferol",true],
+  ["0d8138a620761a85","Rezvoglar KwikPen (Insulin Glargine-aglr) Subcutaneous Prefilled Pen","Do not withdraw insulin from the pen into a syringe",true],
+  ["94c48abf89211479","Rhopressa (Netarsudil) Ophthalmic Solution","distinct from netarsudil/latanoprost combination",true],
   ["e09ab8c74dc567df","QNASL (Beclomethasone Dipropionate) Metered Nasal Aerosol (Strength Unspecified)","does not print a strength",true],
   ["34c3d53b54b42268","Children's QNASL (Beclomethasone Dipropionate) 40 mcg/Actuation Metered Nasal Aerosol","distinct from the 80 mcg/actuation presentation",true],
   ["9e19c60da2981b4c","Radicava ORS Starter Kit (Edaravone) Oral Suspension","distinct from the 10-day continuation kit",true],
@@ -279,6 +283,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const out=await open(g);assert(out.ref.includes('page=1202'),id+' administrative source');if(hasQL)assert(out.ref.includes('page=702'),id+' QL source');
  }
  for(const [suffix,label,phrase,pa] of [
+  ["0f013ce4207021c3","Reyataz (Atazanavir) Oral Powder Packet","age 8 or older","conditional"],
   ["c52599e942ff4716","Lamotrigine Chewable / Dispersible Tablet for Oral Suspension","age 8 or older","conditional"],
   ["2350c3053e5d6856","Lidocaine 5% Topical Ointment","not a patch or injection","required"],
   ["877751e558a7560e","Lokelma (Sodium Zirconium Cyclosilicate) Powder for Oral Suspension","separate other oral medications by 2 hours","required"]
@@ -293,6 +298,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'),id+' label link');
   const out=await open(g);assert(out.ref.includes('page=702'),id+' quantity source');
  }
+ {const id='uhc-oct-complete-0d8138a620761a85';const g=groups.find(x=>x.records.some(r=>r.id===id));const r=g.records.find(x=>x.id===id);assert(r.uhcClinicalBindings.some(b=>b.role==='duplication'&&b.policyId.endsWith('gl-735259')),id+' duplication reference retained');}
  const octreotideGroups=[];
  for(const [suffix,label,phrase,hasQL,hasProduct] of [
   ['f02ebb3ed15163c2','Octreotide Acetate 1000 mcg/mL Non-Depot Injection Solution','1000 mcg/mL in a 5 mL multidose vial',true,false],
