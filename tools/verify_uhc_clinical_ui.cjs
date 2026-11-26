@@ -880,8 +880,10 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(subtypeBRows.every(r => r.pa === 'required'));
  // Three newly verified SC records also carry GL-733328 duplication references.
  const subtypeBNamed = subtypeBRows.filter(r => r.uhcClinicalBindings.some(b => b.role === 'product'));
- assert.equal(subtypeBNamed.length, 64);
- assert.equal(subtypeBNamed.filter(r => !scIds.has(r.id)).length, 61);
+ // Orencia SC is one additional exact named policy; its duplication binding remains.
+ assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-cb36a822ee8dc7d4'));
+ assert.equal(subtypeBNamed.length, 65);
+ assert.equal(subtypeBNamed.filter(r => !scIds.has(r.id)).length, 62);
  assert.equal(subtypeBNamed.filter(r => scIds.has(r.id)).length, 3);
  const auditedSupplies = [
   ['3b25d168e772f4bb', /BD AutoShield Duo/, 'conflict'],
