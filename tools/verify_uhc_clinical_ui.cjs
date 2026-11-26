@@ -233,6 +233,8 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["e9644f76806d0c78","Sutab (Sodium Sulfate / Magnesium Sulfate / Potassium Chloride) Oral Tablet Kit","Distinct from Suprep oral solution",false],
+  ["b452a2e1e260634a","Synarel (Nafarelin) Metered Nasal Spray","distinct from injectable GnRH agonists",false],
   ["ebc77e55ddd6f0c7","Striverdi Respimat (Olodaterol) Metered Inhalation Spray","not rescue treatment",true],
   ["22171578e784f52d","Solosec (Secnidazole) Oral Granules Packet","do not dissolve in liquid",true],
   ["097bbd79f985a20c","Siklos (Hydroxyurea) Scored Oral Tablet","distinct from hydroxyurea capsules",true],
