@@ -602,9 +602,21 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
         # GL-231255 and GL-140667 are administrative, not named product criteria.
         label_holds = {
+            'uhc-oct-complete-e8f1bcbf0e4fa7a5': (
+                "vigamox (brand for moxifloxacin hcl)", "Vigamox (Moxifloxacin) Ophthalmic Solution", "ophthalmic solution",
+                "FDA label: 0.5% (5 mg/mL) topical ophthalmic solution; not for systemic use or intraocular injection. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "12053b08-7e66-c6f3-e063-6394a90a9cd9", True),
+            'uhc-oct-complete-9d0f4cda9a3a81e0': (
+                "suprep bowel prep kit (brand for na sulfate-k sulfate-mg sulf)", "Suprep Bowel Prep Kit (Sodium / Potassium / Magnesium Sulfates) Oral Solution Concentrate", "oral solution concentrate",
+                "FDA label: requires dilution; adult kit has two 6 oz bottles (17.5 g / 3.13 g / 1.6 g per bottle), and pediatric kit for age 12 years or older has two 4.5 oz bottles (13.13 g / 2.35 g / 1.2 g per bottle). UHC listing does not distinguish the kits. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "50f23abd-6a66-44cb-960e-d43c16a5ae5f", True),
+            'uhc-oct-complete-140a0740fb8177a5': (
+                "natazia", "Natazia (Estradiol Valerate / Dienogest) Multiphasic Oral Tablet Pack", "multiphasic oral tablet pack",
+                "FDA label: 28-tablet sequence of differing active ingredients and strengths, followed by two inert tablets; not a single fixed-dose combination tablet. Boxed warning for smoking-related serious cardiovascular events in women over 35. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "02c91fba-9c47-43ef-ac78-e82369798834", True),
             'uhc-oct-complete-5084711389d55a87': (
                 "mayzent starter pack", "Mayzent Starter Pack (Siponimod) Oral Tablet Titration Pack", "oral tablet titration pack",
-                "FDA label: 0.25 mg tablets in separate 7-tablet (1 mg maintenance) and 12-tablet (2 mg maintenance) starter packs. CYP2C9 genotype determines the titration and maintenance regimen; CYP2C9*3/*3 is contraindicated. UHC listing does not distinguish the two starter packs. Exact UHC product-specific initial/renewal criteria for the starter pack and numeric quantity limit are unverified.",
+                "FDA label: 0.25 mg tablets in separate 7-tablet (1 mg maintenance) and 12-tablet (2 mg maintenance) starter packs. CYP2C9 genotype determines the titration and maintenance regimen; CYP2C9*3/*3 is contraindicated. UHC listing does not distinguish the two starter packs. The UHC MS Agents guideline GL-722207 (effective 10/18/2026, pp. 1152–1154) names Mayzent, but does not explicitly identify either starter pack. Exact UHC product-specific initial/renewal criteria for the starter pack and numeric quantity limit are unverified.",
                 "44492772-5aed-4627-bd85-e8e89f308bb3", True),
             'uhc-oct-complete-7ae59a9be90894fb': (
                 "lialda (brand for mesalamine)", "Lialda (Mesalamine) Delayed-Release Oral Tablet", "delayed-release oral tablet",
