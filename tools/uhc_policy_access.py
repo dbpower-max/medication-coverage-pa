@@ -602,6 +602,14 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
         # GL-231255 and GL-140667 are administrative, not named product criteria.
         label_holds = {
+            'uhc-oct-complete-5084711389d55a87': (
+                "mayzent starter pack", "Mayzent Starter Pack (Siponimod) Oral Tablet Titration Pack", "oral tablet titration pack",
+                "FDA label: 0.25 mg tablets in separate 7-tablet (1 mg maintenance) and 12-tablet (2 mg maintenance) starter packs. CYP2C9 genotype determines the titration and maintenance regimen; CYP2C9*3/*3 is contraindicated. UHC listing does not distinguish the two starter packs. Exact UHC product-specific initial/renewal criteria for the starter pack and numeric quantity limit are unverified.",
+                "44492772-5aed-4627-bd85-e8e89f308bb3", True),
+            'uhc-oct-complete-7ae59a9be90894fb': (
+                "lialda (brand for mesalamine)", "Lialda (Mesalamine) Delayed-Release Oral Tablet", "delayed-release oral tablet",
+                "FDA label: 1.2 g delayed-release oral tablet, not a mesalamine capsule, enema or suppository. Swallow whole; assess renal function before and during treatment. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "3098a080-be86-4265-9818-7fc4beab77b7", True),
             'uhc-oct-complete-3e5ea0bc90a6979f': (
                 "lyumjev", "Lyumjev (Insulin Lispro-aabc) Injectable Solution (Device Unspecified)", "injectable solution",
                 "FDA label: U-100 vial, KwikPen, Junior KwikPen, Tempo Pen and cartridge; U-200 KwikPen. This UHC listing does not identify a device or concentration. U-200 is subcutaneous only; never administer U-200 by pump or IV, or withdraw it from a pen into a syringe. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
