@@ -667,8 +667,55 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: 50 mg/0.4 mL, 87.5 mg/0.7 mL and 125 mg/mL prefilled syringes; 125 mg/mL ClickJect autoinjector. UHC lists SC without specifying device; the named policy applies to both SC devices, not the IV vial. Use labeled age, weight and device eligibility separately from payer criteria. Numeric quantity limit remains unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0836c6ac-ee37-5640-2fed-a3185a0b16eb',
             }
+        # DEC-05/06/12/13/14/19/20: November issuer GL-684216, effective 2026-09-01.
+        # Label October 23 adds SC induction for CD; payer initial IBD branches still require IV induction.
+        skyrizi_rows = {
+            'uhc-oct-complete-51060c1e6747eba6': ('skyrizi pen', 'Skyrizi (Risankizumab-rzaa) Subcutaneous Prefilled Pen', 'subcutaneous prefilled pen', [0, 1, 2, 3],
+                '150 mg/1 mL pen. The policy PsO/PsA branches apply to the 150 mg dose; the separately named 55 mg pediatric dose is not this pen. Follow FDA weight-based eligibility. IBD maintenance and induction are not this presentation.'),
+            'uhc-oct-complete-9fdaab30a29cac66': ('skyrizi subcutaneous solution cartridge', 'Skyrizi (Risankizumab-rzaa) Subcutaneous Cartridge for On-Body Injector', 'subcutaneous cartridge for on-body injector', [4, 5, 6],
+                '180 mg/1.2 mL or 360 mg/2.4 mL cartridge; same concentration, different total dose. Named IBD initial branches require prior IV induction. October 2026 FDA label permits 720 mg SC Crohn induction using two 360 mg cartridges; this is not addressed by the September payer policy. Exact SC induction and kit eligibility remain unverified.'),
+            'uhc-oct-complete-f6100e969a589a1d': ('skyrizi subcutaneous solution prefilled syringe 150 mg/ml', 'Skyrizi (Risankizumab-rzaa) 150 mg/mL Subcutaneous Prefilled Syringe', 'subcutaneous prefilled syringe', list(range(7)),
+                'The printed concentration matches 150 mg/1 mL or 180 mg/1.2 mL syringes, not the same total dose. PsO/PsA criteria below apply to 150 mg; IBD maintenance criteria to 180 mg only, after IV induction for initial approval. Do not extend to the 55 mg syringe, 360 mg cartridge, pen or IV vial. SC induction eligibility remains unverified.'),
+        }
+        if record['id'] in skyrizi_rows:
+            expected, label, form, indexes, note = skyrizi_rows[record['id']]
+            code = 'GL-684216'
+            assert october_name == expected and pa and ql and record['preferred'] == 'non_preferred'
+            assert policies[code]['policyEffective'] == '2026-09-01'
+            branches = structured[code]['branches']
+            assert len(branches) == 7
+            scopes = [('Plaque Psoriasis (PsO)', 'Initial Authorization'), ('Plaque Psoriasis (PsO)', 'Reauthorization'),
+                      ('Psoriatic Arthritis (PsA)', 'Initial Authorization'), ('Psoriatic Arthritis (PsA)', 'Reauthorization'),
+                      ("Crohn's Disease (CD)", 'Initial Authorization'), ('Ulcerative Colitis (UC)', 'Initial Authorization'),
+                      ("Crohn's Disease (CD), Ulcerative Colitis (UC)", 'Reauthorization')]
+            for i, (dx, stage) in enumerate(scopes):
+                fields = branches[i]['fields']
+                def sky_field(name):
+                    f = fields[name]
+                    return ' '.join((f.get('displayText') or f['text']).split())
+                assert sky_field('Product Name') == ('Skyrizi SC 55 mg*, Skyrizi SC 150 mg*' if i < 4 else 'Skyrizi SC 180 mg*, Skyrizi SC 360 mg*')
+                assert sky_field('Diagnosis').replace('’', "'") == dx
+                assert sky_field('Therapy Stage') == stage
+                assert sky_field('Approval Length') == '12 month(s)'
+                assert sky_field('Guideline Type') == 'Prior Authorization'
+            assert set(matched).issubset({code, 'GL-733328'}), matched
+            matched.pop(code, None)
+            add(code, indexes, 'product')
+            bindings[-1]['productLabel'] = label
+            bindings[-1]['branchLabels'] = {str(i): ('Skyrizi SC 150 mg' if i < 4 else
+                ('Skyrizi SC 180 mg (prefilled syringe)' if len(indexes) == 7 else 'Skyrizi SC 180 or 360 mg (on-body injector)')) for i in indexes}
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': label, 'dosageForm': form,
+                'note': 'FDA label: ' + note + ' Routine numeric quantity limit remains unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7148c8eb-b39e-e20a-6494-a6df82392858',
+            }
         # DEC-05/06/12/13/14/19/20: label-backed identities, no extrapolated payer criteria.
         label_holds = {
+            'uhc-oct-complete-22171578e784f52d': (
+                'solosec', 'Solosec (Secnidazole) Oral Granules Packet', 'oral granules packet',
+                'FDA label: 2 g secnidazole in one unit-dose packet for oral use only; do not dissolve in liquid. Contraindicated in Cockayne syndrome. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                '056485b6-8bba-4a21-ae00-cdb4e7ae4bfa', True),
             'uhc-oct-complete-097bbd79f985a20c': (
                 "siklos", "Siklos (Hydroxyurea) Scored Oral Tablet", "scored oral tablet",
                 "FDA label: 100 mg tablets scored into halves and 1000 mg tablets scored into quarters; distinct from hydroxyurea capsules. Boxed warnings for myelosuppression and malignancies. Hydroxyurea can interfere with certain continuous glucose monitors. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",

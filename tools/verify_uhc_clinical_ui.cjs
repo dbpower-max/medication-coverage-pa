@@ -186,8 +186,33 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  const pertzyeGroups=['7f3a07339d47bc24','7fbd2d78a81af2c4'].map(s=>groups.find(x=>x.records.some(r=>r.id==='uhc-oct-complete-'+s)));
  assert(pertzyeGroups.every(Boolean));assert.notEqual(pertzyeGroups[0],pertzyeGroups[1],'Pertzye strength-specific QL must not merge');
+ {
+  const skyGroups=[];
+  for(const [suffix,label,phrase,indexes] of [
+   ['51060c1e6747eba6','Skyrizi (Risankizumab-rzaa) Subcutaneous Prefilled Pen','not this pen',[0,1,2,3]],
+   ['9fdaab30a29cac66','Skyrizi (Risankizumab-rzaa) Subcutaneous Cartridge for On-Body Injector','prior IV induction',[4,5,6]],
+   ['f6100e969a589a1d','Skyrizi (Risankizumab-rzaa) 150 mg/mL Subcutaneous Prefilled Syringe','not the same total dose',[0,1,2,3,4,5,6]]
+  ]){
+   const id='uhc-oct-complete-'+suffix;
+   const g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);skyGroups.push(g);
+   const r=g.records.find(x=>x.id===id);
+   assert.equal(r.pa,'required');assert.equal(r.preferred,'non_preferred');
+   const products=r.uhcClinicalBindings.filter(b=>b.role==='product');
+   assert.equal(products.length,1);assert(products[0].policyId.endsWith('gl-684216'));assert.deepEqual(products[0].branchIndexes,indexes);
+   for(const role of ['duplication','nonpreferred','global_quantity'])assert(r.uhcClinicalBindings.some(b=>b.role===role),id+' '+role);
+   const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+   const out=await open(g);assert(out.html.includes('Initial Authorization'));assert(out.html.includes('Reauthorization'));
+   if(indexes.includes(0)){assert(out.html.includes('Plaque Psoriasis'));assert(out.html.includes('Psoriatic Arthritis'));}
+   else{assert(!out.html.includes('Plaque Psoriasis'));assert(!out.html.includes('Psoriatic Arthritis'));}
+   if(indexes.includes(4)){assert(out.html.includes('Ulcerative Colitis'));assert(out.html.includes('intravenous induction'));}
+   else{assert(!out.html.includes('Ulcerative Colitis'));}
+   assert(out.ref.includes('page=1544')||out.ref.includes('page=1548'));
+  }
+  assert.equal(new Set(skyGroups).size,3);
+ }
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["22171578e784f52d","Solosec (Secnidazole) Oral Granules Packet","do not dissolve in liquid",true],
   ["097bbd79f985a20c","Siklos (Hydroxyurea) Scored Oral Tablet","distinct from hydroxyurea capsules",true],
   ["ecf070f7d966f3c0","Simbrinza (Brinzolamide / Brimonidine Tartrate) Ophthalmic Suspension","distinct from either single ingredient",true],
   ["21d7009b80e338fa","Simponi (Golimumab) Subcutaneous Injection (Device Unspecified)","distinct from intravenous Simponi Aria",true],
@@ -913,8 +938,8 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  const subtypeBNamed = subtypeBRows.filter(r => r.uhcClinicalBindings.some(b => b.role === 'product'));
  // Orencia SC is one additional exact named policy; its duplication binding remains.
  assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-cb36a822ee8dc7d4'));
- assert.equal(subtypeBNamed.length, 65);
- assert.equal(subtypeBNamed.filter(r => !scIds.has(r.id)).length, 62);
+ assert.equal(subtypeBNamed.length, 68);
+ assert.equal(subtypeBNamed.filter(r => !scIds.has(r.id)).length, 65);
  assert.equal(subtypeBNamed.filter(r => scIds.has(r.id)).length, 3);
  const auditedSupplies = [
   ['3b25d168e772f4bb', /BD AutoShield Duo/, 'conflict'],
