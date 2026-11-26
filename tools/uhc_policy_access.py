@@ -1090,6 +1090,23 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': note + ' UHC GL-657254 lists both generic forms, with 14 initial branches and one renewal branch. Prior generic/Yulithira failure, intolerance or contraindication is conditional on brand Afinitor/Disperz or Torpenz requests. Preferred NDC, exact indication applicability and numeric quantity limit are unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=01f7b5fb-be0d-4adf-acd2-6899018de966',
             }
+        # DEC-05/06/12/13/14/19/20: Fasenra PEN device and six named authorization stages.
+        if record['id'] == 'uhc-oct-complete-991b6422f8bc9a8f':
+            assert october_name == 'fasenra pen', (record['id'], october_name)
+            assert record['pa'] == 'required' and record['preferred'] == 'preferred' and ql
+            code = 'GL-646191'
+            indexes = set(range(6))
+            assert matched.get(code) == indexes, (record['id'], matched)
+            matched.pop(code)
+            add(code, sorted(indexes), 'product')
+            bindings[-1]['productLabel'] = 'Fasenra named policy (pen-specific eligibility unverified)'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Fasenra Pen (Benralizumab) Subcutaneous Autoinjector',
+                'dosageForm': 'subcutaneous autoinjector',
+                'note': 'FDA label (May 2026): 30 mg/1 mL pen; distinct from the healthcare-provider-administered prefilled syringes. For asthma ages 6–11 and weight below 35 kg, the labeled 10 mg dose requires the syringe; at 35 kg or more, the pen is administered only by a caregiver or healthcare provider. HES is labeled from age 12; EGPA in adults. UHC GL-646191 lists asthma, EGPA and HES initial and renewal criteria for Fasenra generally, not pen-specific eligibility. Numeric dispensing QL and exact device eligibility are unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=da6aca1a-19ed-44a4-abb7-696c7d58b784',
+            }
         # DEC-05/06/12/13/14/19/20: device-specific labeling only; preserve existing general named criteria.
         device_label_holds = {
             'uhc-oct-complete-49d179ce14de8e08': (
