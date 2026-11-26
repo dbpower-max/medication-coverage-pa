@@ -272,7 +272,9 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   ['f02ebb3ed15163c2','Octreotide Acetate 1000 mcg/mL Non-Depot Injection Solution','1000 mcg/mL in a 5 mL multidose vial',true,false],
   ['2365e48035c832b5','Octreotide Acetate 200 mcg/mL Non-Depot Injection Solution','200 mcg/mL in a 5 mL multidose vial',false,false],
   ['f655e03418b3c0dd','Octreotide Acetate 500 mcg/mL Non-Depot Injection Solution','single-dose 1 mL vial',true,true],
-  ['8b2ff71efd223fc7','Octreotide Acetate Depot Intramuscular Injectable Suspension','gluteal intramuscular administration',false,false]
+  ['8b2ff71efd223fc7','Octreotide Acetate Depot Intramuscular Injectable Suspension','gluteal intramuscular administration',false,false],
+  ['cd9f5afab9cb36c4','Octreotide Acetate 50 or 100 mcg/mL Subcutaneous Prefilled Syringe','separate 1 mL single-dose prefilled syringes',false,false],
+  ['1e81e13b95303948','Octreotide Acetate 500 mcg/mL Subcutaneous Prefilled Syringe','500 mcg/mL in a 1 mL single-dose prefilled syringe',true,false]
  ]) {
   const id='uhc-oct-complete-'+suffix;
   const g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);octreotideGroups.push(g);
@@ -285,7 +287,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   assert(card.includes('Exact prescribing-option criteria remain unverified'),id+' scope hold');
   assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'),id+' label link');
  }
- assert.equal(new Set(octreotideGroups).size,4,'Octreotide concentrations and depot must not merge');
+ assert.equal(new Set(octreotideGroups).size,6,'Octreotide concentrations, syringes and depot must not merge');
  const lyumjevGroups=['3e5ea0bc90a6979f','686742f153d68e01'].map(s=>groups.find(g=>g.records.some(r=>r.id==='uhc-oct-complete-'+s)));
  assert(lyumjevGroups.every(Boolean));assert.notEqual(lyumjevGroups[0],lyumjevGroups[1],'Device-specific and device-unspecified insulin must remain distinct');
  assert(a.medicationGroupCard(lyumjevGroups[1]).includes('Never withdraw U-200 from the pen into a syringe'),'U-200 safety warning');
