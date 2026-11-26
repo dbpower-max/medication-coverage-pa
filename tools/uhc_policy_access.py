@@ -602,6 +602,14 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
         # GL-231255 and GL-140667 are administrative, not named product criteria.
         label_holds = {
+            'uhc-oct-complete-ddac5d138221ee70': (
+                "istalol ophthalmic solution 0.5 % (brand for timolol maleate (once-daily))", "Istalol (Timolol Maleate) Once-Daily Ophthalmic Solution", "ophthalmic solution",
+                "FDA label: 0.5%, once daily in the morning; distinguish other timolol presentations. Contraindicated in asthma, severe COPD, sinus bradycardia, second- or third-degree AV block, overt cardiac failure and cardiogenic shock. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "258bbc8d-00ee-45b0-ac35-6f16c4e8d45f", True),
+            'uhc-oct-complete-d63c3b1ab823b361': (
+                "lo loestrin fe", "Lo Loestrin Fe (Norethindrone Acetate / Ethinyl Estradiol / Ferrous Fumarate) Oral Tablet Pack", "oral tablet pack",
+                "FDA label: 28-day pack with 24 combined tablets (1 mg norethindrone acetate / 10 mcg ethinyl estradiol), 2 ethinyl estradiol 10 mcg tablets and 2 nonhormonal ferrous fumarate tablets; not equivalent to Loestrin 24 Fe. Boxed warning: contraindicated in women over 35 who smoke. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "c33072cf-625d-4b4a-981e-ec049c5d78aa", True),
             'uhc-oct-complete-76eeafb86c6f7dd9': (
                 "inveltys", "Inveltys (Loteprednol Etabonate) Ophthalmic Suspension", "ophthalmic suspension",
                 "FDA label: 1% (10 mg/mL), for inflammation and pain after ocular surgery; distinct from lower-strength suspensions and gels. Shake before use; monitor intraocular pressure if used for 10 days or longer. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
