@@ -925,6 +925,36 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: 15 and 25 mg immediate-release sprinkle capsules, distinct from 50 mg sprinkle, ER sprinkle and tablets. Capsules may be opened onto soft food and swallowed without chewing. UHC conditional PA applies at age 8 or older, not a labeled indication age. GL-572198 names ER products and 50 mg sprinkle, not this option. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=21628112-0c47-11df-95b3-498d55d89593',
             }
+        # DEC-05/06/12/13/14/19/20: device-specific labeling only; preserve existing general named criteria.
+        device_label_holds = {
+            'uhc-oct-complete-49d179ce14de8e08': (
+                'xolair subcutaneous solution auto-injector', 'Xolair (Omalizumab) Subcutaneous Autoinjector', 'subcutaneous autoinjector',
+                'FDA label: 75 mg/0.5 mL, 150 mg/mL, or 300 mg/2 mL single-dose autoinjector; device only for age 12 or older, even when the indication permits younger children. Anaphylaxis boxed warning; initiate in a healthcare setting and assess suitability before self-administration.',
+                '7f6a2191-adfb-48b9-9bfa-0d9920479f0d', 'GL-713364', set(range(8)), 'preferred', True),
+            'uhc-oct-complete-2ba862a9dacbc59b': (
+                'xolair subcutaneous solution prefilled syringe', 'Xolair (Omalizumab) Subcutaneous Prefilled Syringe', 'subcutaneous prefilled syringe',
+                'FDA label: 75 mg/0.5 mL, 150 mg/mL, or 300 mg/2 mL single-dose prefilled syringe; distinct from autoinjector. For eligible pediatric patients age 1 to 11, administration is by caregiver after appropriate selection; indication-specific ages still apply. Anaphylaxis boxed warning; initiate in a healthcare setting.',
+                '7f6a2191-adfb-48b9-9bfa-0d9920479f0d', 'GL-713364', set(range(8)), 'preferred', True),
+            'uhc-oct-complete-396902bfb6ebf8b7': (
+                'xolair subcutaneous solution reconstituted', 'Xolair (Omalizumab) Powder for Subcutaneous Injection', 'powder for subcutaneous injection',
+                'FDA label: 150 mg single-dose lyophilized vial yields 150 mg/1.2 mL after reconstitution; preparation and administration by a healthcare provider only. Distinct from ready-to-use syringe and autoinjector. Anaphylaxis boxed warning.',
+                '7f6a2191-adfb-48b9-9bfa-0d9920479f0d', 'GL-713364', set(range(8)), 'preferred', True),
+            'uhc-oct-complete-caf5904f63f299c4': (
+                'yorvipath subcutaneous solution pen-injector 294 mcg/0.98ml', 'Yorvipath (Palopegteriparatide) 294 mcg/0.98 mL Subcutaneous Pen', 'subcutaneous pen injector',
+                'FDA label: this single-patient-use pen delivers only 15, 18 or 21 mcg doses; 294 mcg is total pen content, not a daily dose. Distinct from 168 mcg/0.56 mL and 420 mcg/1.4 mL pens and from teriparatide osteoporosis products.',
+                'a1fa23fd-c434-443e-9a17-5750578c8602', 'GL-163670', {0, 1}, 'non_preferred', False),
+        }
+        if record['id'] in device_label_holds:
+            name, label, form, note, setid, code, indexes, preference, has_ql = device_label_holds[record['id']]
+            assert october_name == name, (record['id'], october_name)
+            assert record['pa'] == 'required' and record['preferred'] == preference and bool(ql) == has_ql
+            assert matched.get(code) == indexes, (record['id'], matched)
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': label, 'dosageForm': form,
+                'note': note + ' UHC general product criteria remain linked; exact device/package applicability is unverified.' + (' Numeric quantity limit unverified.' if has_ql else ' No quantity limit printed for this listing.'),
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + setid,
+            }
         # DEC-05/06/12/13/14/19/20: label-backed identities, no extrapolated payer criteria.
         label_holds = {
             'uhc-oct-complete-d6b49b27961f969c': (

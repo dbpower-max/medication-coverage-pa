@@ -276,6 +276,20 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const card=a.medicationGroupCard(g);assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
   const out=await open(g);for(const x of ['Plaque Psoriasis','Psoriatic Arthritis','Initial Authorization','Reauthorization'])assert(out.html.includes(x),x);
  }
+ // DEC-05/06/12/13/14/19/20: labeled device distinctions without extending general policy scope.
+ for(const [suffix,label,phrase,code,indexes,preference,hasQL] of [
+  ["49d179ce14de8e08","Xolair (Omalizumab) Subcutaneous Autoinjector","device only for age 12 or older","gl-713364",[0,1,2,3,4,5,6,7],"preferred",true],
+  ["2ba862a9dacbc59b","Xolair (Omalizumab) Subcutaneous Prefilled Syringe","administration is by caregiver","gl-713364",[0,1,2,3,4,5,6,7],"preferred",true],
+  ["396902bfb6ebf8b7","Xolair (Omalizumab) Powder for Subcutaneous Injection","150 mg/1.2 mL after reconstitution","gl-713364",[0,1,2,3,4,5,6,7],"preferred",true],
+  ["caf5904f63f299c4","Yorvipath (Palopegteriparatide) 294 mcg/0.98 mL Subcutaneous Pen","only 15, 18 or 21 mcg doses","gl-163670",[0,1],"non_preferred",false]
+ ]){
+  const id='uhc-oct-complete-'+suffix,g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,preference);
+  assert.equal(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'),hasQL);
+  const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith(code));assert.deepEqual(b[0].branchIndexes,indexes);
+  assert(r.uhcClinicalBindings.some(b=>b.role===(preference==='preferred'?'duplication':'nonpreferred')));
+  const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('exact device/package applicability is unverified'));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+ }
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
   ["d6b49b27961f969c","Vascepa (Icosapent Ethyl) Oral Capsule","distinct from mixed EPA/DHA",true],
