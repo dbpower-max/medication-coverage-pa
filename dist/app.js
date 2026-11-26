@@ -337,6 +337,10 @@
       label: 'Related UHC pain guideline',
       scope: 'The guideline names Methadose for pain. The FDA label is for opioid addiction treatment, not analgesia; OUD authorization criteria are unverified.'
     }],
+    ['korlym_reference', {
+      label: 'Korlym brand policy reference',
+      scope: 'The guideline names Korlym. Applicability to generic mifepristone 300 mg is unverified.'
+    }],
     ['epaned_reference', {
       label: 'Epaned policy reference',
       scope: 'This guideline names Epaned. Applicability to generic enalapril oral solution is unverified.'
@@ -2366,7 +2370,7 @@
       const [record] = paRows;
       const relatedIds = new Set((group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference).flatMap(r => r.policySources || []).map(p => p.policyId));
       const related = policies.find(p => !uhcDuplicationPolicies.has(p.policyCode) && relatedIds.has(p.id));
-      if (related && !bindings.some(b => b.policyId === related.id && b.role === 'methadose_pain_reference')) { references.unshift(related); referenceLabels.unshift('PA source'); }
+      if (related && !bindings.some(b => b.role === 'korlym_reference' || (b.policyId === related.id && b.role === 'methadose_pain_reference'))) { references.unshift(related); referenceLabels.unshift('PA source'); }
       else if (record?.sourceUrl) { references.unshift(record); referenceLabels.unshift('PA formulary'); }
     }
     for (const binding of bindings) {
