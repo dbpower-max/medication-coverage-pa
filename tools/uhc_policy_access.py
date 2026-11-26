@@ -927,6 +927,22 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             }
         # DEC-05/06/12/13/14/19/20: label-backed identities, no extrapolated payer criteria.
         label_holds = {
+            'uhc-oct-complete-00da649844317125': (
+                "zeposia 7-day starter pack", "Zeposia (Ozanimod) 7-Day Oral Capsule Titration Pack", "oral capsule titration pack",
+                "FDA label: four 0.23 mg and three 0.46 mg capsules; no 0.92 mg maintenance capsules in this seven-day pack. Distinct from 28- and 37-day starter kits. UHC GL-720197 effective October 18, 2026 describes Zeposia for MS and UC generally, not this exact pack. Exact UHC product-specific initial/renewal criteria for the pack and numeric quantity limit are unverified.",
+                "93ce2fab-edfb-4804-8074-963071de51e4", True),
+            'uhc-oct-complete-d4c999ec3fe83160': (
+                "zioptan (brand for tafluprost (pf))", "Zioptan (Tafluprost) Preservative-Free Ophthalmic Solution", "ophthalmic solution",
+                "FDA label: 0.0015% (15 mcg/mL), 0.3 mL single-use containers; discard after opening and use. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "db529b54-2ac7-4020-9791-7333bbe6c90f", True),
+            'uhc-oct-complete-dc190cbfa1a36c65': (
+                "zonegran (brand for zonisamide)", "Zonegran (Zonisamide) Oral Capsule", "oral capsule",
+                "FDA label: 25 and 100 mg capsules, distinct from zonisamide oral suspension. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "d12de43e-3ac3-4335-bc85-70d7366a91eb", True),
+            'uhc-oct-complete-4001483fb5296830': (
+                "zypitamag", "Zypitamag (Pitavastatin Magnesium) Oral Tablet", "oral tablet",
+                "FDA label: 2 and 4 mg pitavastatin equivalents as the magnesium salt, distinct from pitavastatin calcium. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "e9f0fe3a-0462-4c24-8f22-3c89afe8fcea", True),
             'uhc-oct-complete-8e34212b5a29106f': (
                 'topamax (brand for topiramate)', 'Topamax (Topiramate) Oral Tablet', 'oral tablet',
                 'FDA label: 25, 50, 100 and 200 mg immediate-release tablets, distinct from sprinkle capsules and ER formulations. GL-572198 mentions generic IR tablets as trial alternatives, not as a named brand Topamax PA branch. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
