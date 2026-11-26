@@ -174,6 +174,9 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert.notEqual(gammagardRows[0],gammagardRows[1],'ambiguous Gammagard merged with S/D');
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["f40ecc70e4799494","Neupro (Rotigotine) Extended-Release Transdermal Patch","Remove patch before MRI or cardioversion",true],
+  ["8ea52132ca0e6e33","Nevanac (Nepafenac) Ophthalmic Suspension","Distinct from Ilevro 0.3% suspension",true],
+  ["b3fc8d5441814c1f","Nextstellis (Drospirenone / Estetrol) Oral Tablet Pack","not drospirenone/ethinyl estradiol",true],
   ["e8f1bcbf0e4fa7a5","Vigamox (Moxifloxacin) Ophthalmic Solution","not for systemic use or intraocular injection",true],
   ["9d0f4cda9a3a81e0","Suprep Bowel Prep Kit (Sodium / Potassium / Magnesium Sulfates) Oral Solution Concentrate","does not distinguish the kits",true],
   ["140a0740fb8177a5","Natazia (Estradiol Valerate / Dienogest) Multiphasic Oral Tablet Pack","not a single fixed-dose combination tablet",true],

@@ -602,6 +602,18 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
         # GL-231255 and GL-140667 are administrative, not named product criteria.
         label_holds = {
+            'uhc-oct-complete-f40ecc70e4799494': (
+                "neupro", "Neupro (Rotigotine) Extended-Release Transdermal Patch", "extended-release transdermal patch",
+                "FDA label: 1, 2, 3, 4, 6 and 8 mg/24 hours delivery strengths. Remove patch before MRI or cardioversion because of burn risk. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "939e28c5-f3a9-42c0-9a2d-8d471d82a6e0", True),
+            'uhc-oct-complete-8ea52132ca0e6e33': (
+                "nevanac", "Nevanac (Nepafenac) Ophthalmic Suspension", "ophthalmic suspension",
+                "FDA label: 0.1% (1 mg/mL) ophthalmic suspension; shake well. Distinct from Ilevro 0.3% suspension. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "11b9a0cf-2a70-17ef-e063-6394a90a5d9e", True),
+            'uhc-oct-complete-b3fc8d5441814c1f': (
+                "nextstellis", "Nextstellis (Drospirenone / Estetrol) Oral Tablet Pack", "oral tablet pack",
+                "FDA label: 24 active tablets containing 3 mg drospirenone and 14.2 mg estetrol (anhydrous basis), followed by 4 inert tablets; not drospirenone/ethinyl estradiol. Boxed warning for cigarette smoking and serious cardiovascular events. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "c5270073-d083-4109-ae4b-156986175e0a", True),
             'uhc-oct-complete-e8f1bcbf0e4fa7a5': (
                 "vigamox (brand for moxifloxacin hcl)", "Vigamox (Moxifloxacin) Ophthalmic Solution", "ophthalmic solution",
                 "FDA label: 0.5% (5 mg/mL) topical ophthalmic solution; not for systemic use or intraocular injection. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
