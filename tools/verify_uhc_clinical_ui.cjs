@@ -424,6 +424,17 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const b=r.uhcClinicalBindings.filter(b=>b.role==='product'&&b.policyId.endsWith('gl-752232'));assert.equal(b.length,1);assert.deepEqual(b[0].branchIndexes,indexes);
   const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('not a blanket exclusion'));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
  }
+ // DEC-05/06/12/13/14/19/20: Lybalvi-specific safety and separate quantity branch.
+ {
+  const id='uhc-oct-complete-6a6a03b0a0dddc28',g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'non_preferred');
+  const b=r.uhcClinicalBindings.filter(b=>b.policyId.endsWith('gl-722200'));
+  assert.deepEqual(b.filter(x=>x.role==='product')[0].branchIndexes,[1,4]);
+  assert.deepEqual(b.filter(x=>x.role==='quantity')[0].branchIndexes,[10]);
+  assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));assert(r.uhcClinicalBindings.some(b=>b.role==='nonpreferred'));
+  assert(r.policyQuantityLimit.text.includes('1 tablet/day'));
+  const card=a.medicationGroupCard(g);assert(card.includes("Lybalvi (Olanzapine/Samidorphan) Oral Tablet"));assert(card.includes('acute opioid withdrawal'));assert(card.includes('1 tablet/day'));assert(card.includes('stage unspecified'));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+ }
  // DEC-05/06/12/13/14/19/20: labeled device distinctions without extending general policy scope.
  for(const [suffix,label,phrase,code,indexes,preference,hasQL] of [
   ["49d179ce14de8e08","Xolair (Omalizumab) Subcutaneous Autoinjector","device only for age 12 or older","gl-713364",[0,1,2,3,4,5,6,7],"preferred",true],
