@@ -278,6 +278,12 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["d6b49b27961f969c","Vascepa (Icosapent Ethyl) Oral Capsule","distinct from mixed EPA/DHA",true],
+  ["9e388ff3dae2c7a5","Viokace (Pancrelipase) Oral Tablet","Do not substitute other pancreatic enzyme products",false],
+  ["0c501f7a157fe744","Vyzulta (Latanoprostene Bunod) Ophthalmic Solution","distinct from latanoprost",true],
+  ["7654658c09b78f85","Winlevi (Clascoterone) Topical Cream","not for oral, ophthalmic or vaginal use",true],
+  ["275ef9d310381264","Winrevair (Sotatercept-csrk) 2 x 45 mg Subcutaneous Injection Kit","two 45 mg single-dose vials",true],
+  ["e3adddae581cbcfd","Xaciato (Clindamycin) Vaginal Gel","Avoid polyurethane condoms",true],
   ["00da649844317125","Zeposia (Ozanimod) 7-Day Oral Capsule Titration Pack","Distinct from 28- and 37-day starter kits",true],
   ["d4c999ec3fe83160","Zioptan (Tafluprost) Preservative-Free Ophthalmic Solution","0.3 mL single-use containers",true],
   ["dc190cbfa1a36c65","Zonegran (Zonisamide) Oral Capsule","distinct from zonisamide oral suspension",true],
@@ -392,6 +398,8 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const out=await open(g);assert(out.ref.includes('page=1202'),id+' administrative source');if(hasQL)assert(out.ref.includes('page=702'),id+' QL source');
  }
  for(const [suffix,label,phrase,pa] of [
+  ["8ea2e18a291f48b7","Vancomycin Hydrochloride 25 mg/mL Powder for Oral Solution (Generic for Firvanq)","distinct from IV vancomycin","required"],
+  ["45d4feeaedf3552e","Voriconazole Oral Tablet","distinct from IV and oral suspension","required"],
   ["90702ce4eec9617a","Topiramate 15 or 25 mg Oral Sprinkle Capsule","age 8 or older","conditional"],
   ["0f013ce4207021c3","Reyataz (Atazanavir) Oral Powder Packet","age 8 or older","conditional"],
   ["c52599e942ff4716","Lamotrigine Chewable / Dispersible Tablet for Oral Suspension","age 8 or older","conditional"],
@@ -403,6 +411,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const r=g.records.find(x=>x.id===id);
   assert.equal(r.pa,pa);assert.equal(r.preferred,'preferred');
   assert(!r.uhcClinicalBindings.some(b=>b.role==='product'||b.role==='nonpreferred'),id+' fabricated product or nonpreferred PA');
+  if(suffix==='8ea2e18a291f48b7')assert(r.uhcClinicalBindings.some(b=>b.role==='nonsolid'&&b.policyId.endsWith('gl-545275')),id+' nonsolid policy lost');
   assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'&&b.policyId.endsWith('gl-140667')));
   const card=a.medicationGroupCard(g);assert(card.includes(label),id+' form');assert(card.includes(phrase),id+' distinction');assert(card.includes('Exact UHC product-specific initial/renewal criteria'),id+' hold');
   assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'),id+' label link');

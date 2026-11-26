@@ -927,6 +927,30 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             }
         # DEC-05/06/12/13/14/19/20: label-backed identities, no extrapolated payer criteria.
         label_holds = {
+            'uhc-oct-complete-d6b49b27961f969c': (
+                "vascepa (brand for icosapent ethyl)", "Vascepa (Icosapent Ethyl) Oral Capsule", "oral capsule",
+                "FDA label: 0.5 and 1 g capsules, distinct from mixed EPA/DHA omega-3 products. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "9c1a2828-1583-4414-ab22-a60480e8e508", True),
+            'uhc-oct-complete-9e388ff3dae2c7a5': (
+                "viokace", "Viokace (Pancrelipase) Oral Tablet", "oral tablet",
+                "FDA label: 10,440 and 20,880 lipase-unit tablets; indicated with a proton pump inhibitor in adults with exocrine pancreatic insufficiency due to chronic pancreatitis or pancreatectomy. Do not substitute other pancreatic enzyme products. Exact UHC product-specific initial/renewal criteria are unverified. No quantity limit printed for this listing.",
+                "58bdb8de-582d-44e6-9b72-8d5a42fdf501", False),
+            'uhc-oct-complete-0c501f7a157fe744': (
+                "vyzulta", "Vyzulta (Latanoprostene Bunod) Ophthalmic Solution", "ophthalmic solution",
+                "FDA label: 0.024% (0.24 mg/mL), distinct from latanoprost. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "60ce7900-a677-4fc2-88d0-1603baa9dbd4", True),
+            'uhc-oct-complete-7654658c09b78f85': (
+                "winlevi", "Winlevi (Clascoterone) Topical Cream", "topical cream",
+                "FDA label: 1% cream for acne in patients aged 12 years and older; not for oral, ophthalmic or vaginal use. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "1673a84b-7f5c-47ab-a99c-1e3db21a6a09", True),
+            'uhc-oct-complete-275ef9d310381264': (
+                "winrevair subcutaneous kit 2 x 45 mg", "Winrevair (Sotatercept-csrk) 2 x 45 mg Subcutaneous Injection Kit", "subcutaneous injection kit",
+                "FDA label: two 45 mg single-dose vials with diluent for reconstitution, distinct from 1-vial and 60 mg kits. GL-715293 describes Winrevair for PAH generally, not this exact kit. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "21693ee2-cd23-4137-ac67-066bb3a4a9b7", True),
+            'uhc-oct-complete-e3adddae581cbcfd': (
+                "xaciato", "Xaciato (Clindamycin) Vaginal Gel", "vaginal gel",
+                "FDA label: 2% single-dose vaginal gel (100 mg/5 g), distinct from multidose cream. Avoid polyurethane condoms during treatment and for 7 days afterward; use latex or polyisoprene instead. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "0423007f-28fa-4159-bf58-9174626d2347", True),
             'uhc-oct-complete-00da649844317125': (
                 "zeposia 7-day starter pack", "Zeposia (Ozanimod) 7-Day Oral Capsule Titration Pack", "oral capsule titration pack",
                 "FDA label: four 0.23 mg and three 0.46 mg capsules; no 0.92 mg maintenance capsules in this seven-day pack. Distinct from 28- and 37-day starter kits. UHC GL-720197 effective October 18, 2026 describes Zeposia for MS and UC generally, not this exact pack. Exact UHC product-specific initial/renewal criteria for the pack and numeric quantity limit are unverified.",
@@ -1351,6 +1375,8 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             }
         # DEC-05/12/13/14/19/20: preferred listing identity only; preserve original PA trigger.
         preferred_label_holds = {
+            'uhc-oct-complete-8ea2e18a291f48b7': ("vancomycin hcl oral solution reconstituted 25 mg/ml (generic for firvanq)", "Vancomycin Hydrochloride 25 mg/mL Powder for Oral Solution (Generic for Firvanq)", "powder for oral solution", "FDA label: 25 mg/mL after reconstitution, for oral use only, distinct from IV vancomycin. GL-545275 is general nonsolid review, not named product criteria. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.", "4c3d2e99-5351-4442-916a-d2001b0a5f5a", "required"),
+            'uhc-oct-complete-45d4feeaedf3552e': ("voriconazole oral tablet", "Voriconazole Oral Tablet", "oral tablet", "FDA label: 50 and 200 mg tablets, distinct from IV and oral suspension; review drug interactions. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.", "796cad15-2aef-4823-917d-17b822a6916e", "required"),
             'uhc-oct-complete-90702ce4eec9617a': ('topiramate oral capsule sprinkle 15 mg, 25 mg (generic for topamax sprinkle)', 'Topiramate 15 or 25 mg Oral Sprinkle Capsule', 'oral sprinkle capsule', 'FDA label: 15 and 25 mg immediate-release sprinkle capsules, distinct from the 50 mg sprinkle and extended-release products. UHC conditional PA applies at age 8 or older, not a labeled indication age. GL-572198 names 50 mg sprinkle and ER products, not this option. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.', '872927eb-0b61-44bb-9892-3c700b6f2181', 'conditional'),
             'uhc-oct-complete-0f013ce4207021c3': ("reyataz oral packet", "Reyataz (Atazanavir) Oral Powder Packet", "oral powder packet", "FDA label: 50 mg oral powder packet, not a capsule; take with food and ritonavir. Switching formulations may require dose adjustment. UHC PDL conditional PA applies at age 8 or older; this is a payer trigger, not a labeled indication age. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.", "165cff62-b284-4a27-a65d-9ec8a5bfcdd8", "conditional"),
             'uhc-oct-complete-c52599e942ff4716': ("lamotrigine oral tablet chewable (generic for lamictal)", "Lamotrigine Chewable / Dispersible Tablet for Oral Suspension", "tablet for oral suspension", "FDA label: 5 and 25 mg chewable/dispersible tablets, distinct from ODT and ER. Boxed warning for serious rash. UHC PDL conditional PA applies at age 8 or older; this is a payer trigger, not a labeled indication age. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.", "ae6522d4-d824-44aa-afe0-70cdcbd845af", "conditional"),
