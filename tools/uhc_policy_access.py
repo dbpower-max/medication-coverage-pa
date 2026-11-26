@@ -1107,6 +1107,55 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label (May 2026): 30 mg/1 mL pen; distinct from the healthcare-provider-administered prefilled syringes. For asthma ages 6–11 and weight below 35 kg, the labeled 10 mg dose requires the syringe; at 35 kg or more, the pen is administered only by a caregiver or healthcare provider. HES is labeled from age 12; EGPA in adults. UHC GL-646191 lists asthma, EGPA and HES initial and renewal criteria for Fasenra generally, not pen-specific eligibility. Numeric dispensing QL and exact device eligibility are unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=da6aca1a-19ed-44a4-abb7-696c7d58b784',
             }
+        # DEC-05/06/12/13/14/19/20: exact named scope and presentation review; preserve source flags.
+        if record['id'] == 'uhc-oct-complete-ed2c1f1831632e6b':
+            assert october_name == "fensolvi (6 month)", (record['id'], october_name)
+            assert record['pa'] == 'required' and record['preferred'] == 'preferred' and ql
+            code = 'GL-752232'
+            indexes = set([0,1,5,6,7,8,9])
+            assert matched.get(code) == indexes, (record['id'], matched)
+            matched.pop(code)
+            add(code, sorted(indexes), 'product')
+            bindings[-1]['productLabel'] = "Fensolvi named policy (includes under-19 gender dysphoria exclusion; indication-specific)"
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': "Fensolvi (Leuprolide Acetate) Six-Month Subcutaneous Extended-Release Suspension",
+                'dosageForm': "subcutaneous extended-release suspension",
+                'note': "FDA label: 45 mg six-month subcutaneous extended-release suspension for central precocious puberty in children age 2 years or older; healthcare professional mixes and administers. Not interchangeable with other leuprolide depots. UHC GL-752232 also names adult gender-affirming adjunct and fertility preservation criteria; these are not Fensolvi FDA-labeled indications. Under age 19 gender dysphoria is excluded under the policy, with six-month grandfathering for treatment started on or before October 13, 2026; this is not an approval stage. Nonpreferred-only prerequisites do not automatically apply to this preferred listing. Numeric dispensing QL unverified.",
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2c311700-edf4-4f2a-a468-9875489a6cc7',
+            }
+        if record['id'] == 'uhc-oct-complete-90f3ce4ee5762d4c':
+            assert october_name == "fibryga intravenous solution reconstituted", (record['id'], october_name)
+            assert record['pa'] == 'required' and record['preferred'] == 'preferred' and not ql
+            code = 'GL-716187'
+            indexes = set([22])
+            assert matched.get(code) == indexes, (record['id'], matched)
+            matched.pop(code)
+            add(code, sorted(indexes), 'product')
+            bindings[-1]['productLabel'] = "Fibryga named congenital deficiency policy (acquired indication unverified)"
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': "Fibryga (Fibrinogen Human) Intravenous Solution After Reconstitution",
+                'dosageForm': "intravenous solution after reconstitution",
+                'note': "FDA label: intravenous fibrinogen concentrate 1 g/50 mL or 2 g/100 mL after reconstitution (20 mg/mL). FDA labeling includes acquired fibrinogen deficiency bleeding; UHC GL-716187 branch 22 specifies congenital fibrinogen deficiency and treatment of bleeding episodes, 12 months, stage unspecified. Acquired indication eligibility is not established by this branch. RxNorm strength discrepancy remains unresolved; no strength-specific payer inference.",
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e3422d2a-2cb6-6f49-0be7-cb960b3d5bd5',
+            }
+        if record['id'] == 'uhc-oct-complete-16f1d6bb95149d00':
+            assert october_name == "dificid (brand for fidaxomicin)", (record['id'], october_name)
+            assert record['pa'] == 'required' and record['preferred'] == 'preferred' and ql
+            code = 'GL-390203'
+            indexes = set([0])
+            assert matched.get(code) == indexes, (record['id'], matched)
+            matched.pop(code)
+            add(code, sorted(indexes), 'product')
+            bindings[-1]['productLabel'] = "Dificid named policy (payer form unverified)"
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': "Dificid (Fidaxomicin) Oral Tablet or Suspension (Payer Form Unverified)",
+                'dosageForm': "oral tablet or oral suspension (payer form unverified)",
+                'note': "FDA label: 200 mg tablet and 40 mg/mL oral suspension; pediatric patients age 6 months or older require formulation-specific weight and swallowing eligibility. Payer listing does not specify form. UHC GL-390203 requires generic oral vancomycin failure, contraindication or intolerance, or continuation of prior therapy; additional brand tablet failure or intolerance is conditional on generic tablets or brand suspension, not brand tablets. Ten-day authorization is not a numeric dispensing QL. Exact form eligibility unverified.",
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=dd966338-c820-4270-b704-09ef75fa3ceb',
+            }
         # DEC-05/06/12/13/14/19/20: device-specific labeling only; preserve existing general named criteria.
         device_label_holds = {
             'uhc-oct-complete-49d179ce14de8e08': (
