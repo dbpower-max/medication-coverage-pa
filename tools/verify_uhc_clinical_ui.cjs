@@ -310,6 +310,18 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const card=a.medicationGroupCard(g);assert(card.includes('IV Infusion Kit '+band+' kg'));assert(card.includes(v55+' x 5.5 mL and '+v83+' x 8.3 mL'));assert(card.includes('not intrathecal Itvisma'));assert(card.includes('exact kit applicability and numeric QL remain unverified'));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
  }
  assert.equal(zolgensmaGroupIds.size,22);
+ // DEC-05/06/12/13/14/19/20: oncology identities retain the exact existing class/stage bindings.
+ for(const [suffix,label,phrase,code,indexes] of [
+  ['6fdc3ea2abaea52b','Zejula (Niraparib) Film-Coated Oral Tablet','100, 200 and 300 mg tablets','gl-741203',[1]],
+  ['47dbf4be655ad1a4','Zykadia (Ceritinib) Oral Tablet or Capsule (Payer Form Unspecified)','current SPL product data lists tablets only','gl-741203',[1]],
+  ['aa3337eda974b8e5','Yulithira (Everolimus; payer reference Torpenz) Oral Tablet','separate ANDAs','gl-657254',Array.from({length:15},(_,i)=>i)]
+ ]){
+  const id='uhc-oct-complete-'+suffix,g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');
+  assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+  const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith(code));assert.deepEqual(b[0].branchIndexes,indexes);
+  const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+ }
  // DEC-05/06/12/13/14/19/20: labeled device distinctions without extending general policy scope.
  for(const [suffix,label,phrase,code,indexes,preference,hasQL] of [
   ["49d179ce14de8e08","Xolair (Omalizumab) Subcutaneous Autoinjector","device only for age 12 or older","gl-713364",[0,1,2,3,4,5,6,7],"preferred",true],
