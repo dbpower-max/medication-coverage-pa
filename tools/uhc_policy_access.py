@@ -602,6 +602,18 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
         # GL-231255 and GL-140667 are administrative, not named product criteria.
         label_holds = {
+            'uhc-oct-complete-34f80389bb5991b1': (
+                "omnaris", "Omnaris (Ciclesonide) Metered Nasal Spray", "nasal spray",
+                "FDA label: 50 mcg per actuation aqueous nasal spray, distinct from orally inhaled ciclesonide. Labeled seasonal allergic rhinitis age 6 years or older and perennial age 12 years or older; these are not payer PA age criteria. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "15fefd46-ac7e-40d0-b635-e6c3d653c666", True),
+            'uhc-oct-complete-414fa24b98ae95bf': (
+                "ongentys", "Ongentys (Opicapone) Oral Capsule", "oral capsule",
+                "FDA label: 25 and 50 mg capsules, adjunct to carbidopa/levodopa for OFF episodes. Use 25 mg in moderate hepatic impairment; avoid severe hepatic impairment. Nonselective MAO inhibitors are contraindicated. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "a511a531-112e-43f8-a43f-5334b0efe979", True),
+            'uhc-oct-complete-27dba7fd41442c41': (
+                "onpattro", "Onpattro (Patisiran) Lipid Complex Intravenous Infusion", "lipid complex injection",
+                "FDA label: 10 mg/5 mL single-dose vial for IV infusion only after dilution; premedicate for infusion reactions. Labeled for adult hereditary transthyretin amyloidosis with polyneuropathy. Confirm pharmacy versus medical benefit routing; exact payer package is unverified. Exact UHC product-specific initial/renewal criteria are unverified.",
+                "e87ec36f-b4b4-49d4-aea4-d4ffb09b0970", False),
             'uhc-oct-complete-91e168afff6eb5db': (
                 "nuvessa", "Nuvessa (Metronidazole) 1.3% Vaginal Gel", "vaginal gel",
                 "FDA label: single 5 g prefilled applicator containing 65 mg metronidazole; for intravaginal use only, distinct from 0.75% multidose vaginal gel and topical skin gel. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",

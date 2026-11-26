@@ -174,6 +174,9 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert.notEqual(gammagardRows[0],gammagardRows[1],'ambiguous Gammagard merged with S/D');
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["34f80389bb5991b1","Omnaris (Ciclesonide) Metered Nasal Spray","distinct from orally inhaled ciclesonide",true],
+  ["414fa24b98ae95bf","Ongentys (Opicapone) Oral Capsule","25 and 50 mg capsules",true],
+  ["27dba7fd41442c41","Onpattro (Patisiran) Lipid Complex Intravenous Infusion","IV infusion only after dilution",false],
   ["91e168afff6eb5db","Nuvessa (Metronidazole) 1.3% Vaginal Gel","distinct from 0.75% multidose vaginal gel",true],
   ["f40ecc70e4799494","Neupro (Rotigotine) Extended-Release Transdermal Patch","Remove patch before MRI or cardioversion",true],
   ["8ea52132ca0e6e33","Nevanac (Nepafenac) Ophthalmic Suspension","Distinct from Ilevro 0.3% suspension",true],
