@@ -631,7 +631,20 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: 50 mg/0.4 mL, 87.5 mg/0.7 mL and 125 mg/mL prefilled syringes; 125 mg/mL ClickJect autoinjector. UHC lists SC without specifying device; the named policy applies to both SC devices, not the IV vial. Use labeled age, weight and device eligibility separately from payer criteria. Numeric quantity limit remains unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0836c6ac-ee37-5640-2fed-a3185a0b16eb',
             }
+        # DEC-05/06/12/13/14/19/20: label-backed identities, no extrapolated payer criteria.
         label_holds = {
+            'uhc-oct-complete-e09ab8c74dc567df': (
+                "qnasl", "QNASL (Beclomethasone Dipropionate) Metered Nasal Aerosol (Strength Unspecified)", "metered nasal aerosol",
+                "FDA label: intranasal use only; 80 mcg/actuation for age 12 years and older, 40 mcg/actuation for age 4–11 years. The unqualified UHC listing does not print a strength; the separate Children's QNASL listing corresponds to the pediatric presentation. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "4b8d8e84-b5d2-4e56-97ec-4f72971465c5", True),
+            'uhc-oct-complete-34c3d53b54b42268': (
+                "qnasl childrens", "Children's QNASL (Beclomethasone Dipropionate) 40 mcg/Actuation Metered Nasal Aerosol", "metered nasal aerosol",
+                "FDA label: pediatric 40 mcg/actuation nasal aerosol for ages 4–11 years; 60-actuation retail canister, distinct from the 80 mcg/actuation presentation. Intranasal use only; labeled age and package are not payer criteria. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "4b8d8e84-b5d2-4e56-97ec-4f72971465c5", True),
+            'uhc-oct-complete-9e19c60da2981b4c': (
+                "radicava ors starter kit", "Radicava ORS Starter Kit (Edaravone) Oral Suspension", "oral suspension starter kit",
+                "FDA label: 105 mg/5 mL oral suspension, initial 14-day treatment kit with two 35 mL bottles (70 mL total), distinct from the 10-day continuation kit and IV infusion. The UHC Radicava ORS guideline GL-140940 (effective 12/01/2022, pp. 1402–1404) names Radicava ORS but does not specifically name the starter kit. Exact UHC product-specific initial/renewal criteria for the kit and numeric quantity limit are unverified.",
+                "0ce2c1c4-2a40-485c-b7cb-96a9b85d9d11", True),
             'uhc-oct-complete-20d43250059212cb': (
                 "plegridy starter pack subcutaneous solution prefilled syringe", "Plegridy Starter Pack (Peginterferon Beta-1a) Subcutaneous Prefilled Syringe Pack", "subcutaneous injection prefilled syringe pack",
                 "FDA label: two SC prefilled syringes, 63 and 94 mcg per 0.5 mL, for titration; distinct from the SC pen starter pack, SC maintenance syringe and IM syringe with separate titration clips. UHC MS Agents guideline GL-722207 (effective 10/18/2026, pp. 1152–1154) names Plegridy, not the exact starter pack. Exact UHC product-specific initial/renewal criteria for the pack and numeric quantity limit are unverified.",
