@@ -1031,6 +1031,38 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'label': label, 'dosageForm': form, 'note': note,
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + setid,
             }
+        # DEC-05/06/12/13/14/19/20: distinguish route/form and preserve stage ambiguity.
+        stage_scope_review_2 = {
+            'uhc-oct-complete-a27cea08627d0ce7': (
+                'epclusa oral packet', 'Epclusa (Sofosbuvir / Velpatasvir) Oral Pellets Packet', 'oral pellets',
+                'FDA label: 150/37.5 mg and 200/50 mg oral pellet packets; distinct from tablets. Pediatric dosing is weight-based; for age under 6 years administer pellets with food. UHC GL-392223 brand-level criteria are retreatment-oriented and include a generic failure, contraindication or intolerance and MedWatch requirement. Exact packet-strength coverage, generic comparator availability, initial-treatment criteria and numeric quantity limit are unverified.',
+                '7f30631a-ee3b-4cfe-866b-964df3f0a44f', 'GL-392223', {1}, True, 'Epclusa brand reference (packet applicability and initial stage unverified)'),
+            'uhc-oct-complete-da63c83c6a7d29e4': (
+                'epclusa oral tablet 200-50 mg', 'Epclusa (Sofosbuvir / Velpatasvir) 200/50 mg Oral Tablet', 'oral tablet',
+                'FDA label: 200/50 mg tablet is distinct from oral pellets and 400/100 mg tablets. Pediatric dosing is weight-based. UHC GL-392223 brand-level criteria are retreatment-oriented; generic failure, contraindication or intolerance and MedWatch are required for brand requests. Exact tablet-strength applicability, generic comparator availability, initial-treatment criteria and numeric quantity limit remain unverified.',
+                '7f30631a-ee3b-4cfe-866b-964df3f0a44f', 'GL-392223', {1}, True, 'Epclusa brand reference (200/50 mg applicability and initial stage unverified)'),
+            'uhc-oct-complete-f7b511540f1cf564': (
+                'esperoct intravenous solution reconstituted 1000 unit, 1500 unit, 2000 unit, 3000 unit, 500 unit', 'Esperoct (Turoctocog Alfa Pegol) Powder for Intravenous Injection', 'powder for intravenous injection',
+                'FDA label: glycopegylated recombinant factor VIII, supplied as single-dose vial powder for reconstitution. This payer listing specifies 500, 1000, 1500, 2000 and 3000 IU; other labeled vial strengths are not established by this listing. UHC GL-716187 provides a 12-month hemophilia A PA with routine infusion frequency criteria, including a pharmacokinetic exception for patients under age 12. Authorization stage is unspecified; frequency criteria are not a dispensing quantity limit.',
+                '562f94e8-825f-4d7f-b93c-b783ac3a43bc', 'GL-716187', {14}, False, 'Esperoct named product (authorization stage unspecified)'),
+            'uhc-oct-complete-32c32ab5f5ac35e6': (
+                'premarin oral (brand for estrogens conjugated)', 'Premarin (Conjugated Estrogens) Oral Tablet', 'oral tablet',
+                'FDA label: oral conjugated estrogen tablets are distinct from vaginal cream. UHC GL-140685 names Premarin without route and lists atrophic vaginitis and kraurosis vulvae, wording corresponding to the vaginal cream indication. Exact oral route applicability is unverified; do not treat this reference as confirmed oral criteria. The explicit oral PA and quantity-limit flags remain; numeric quantity limit and stage-specific oral criteria are unknown.',
+                '258e1602-a3cf-4ccc-ca80-73dbbfb812ff', 'GL-140685', {1}, True, 'Premarin brand reference only (oral route applicability unverified)'),
+        }
+        if record['id'] in stage_scope_review_2:
+            name, label, form, note, setid, code, indexes, has_ql, product_label = stage_scope_review_2[record['id']]
+            assert october_name == name, (record['id'], october_name)
+            assert record['pa'] == 'required' and record['preferred'] == 'non_preferred' and ql == has_ql
+            assert matched.get(code) == indexes, (record['id'], matched)
+            matched.pop(code)
+            add(code, sorted(indexes), 'product')
+            bindings[-1]['productLabel'] = product_label
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': label, 'dosageForm': form, 'note': note,
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + setid,
+            }
         # DEC-05/06/12/13/14/19/20: device-specific labeling only; preserve existing general named criteria.
         device_label_holds = {
             'uhc-oct-complete-49d179ce14de8e08': (
