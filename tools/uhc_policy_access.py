@@ -774,6 +774,14 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             }
         # DEC-05/06/12/13/14/19/20: label-backed identities, no extrapolated payer criteria.
         label_holds = {
+            'uhc-oct-complete-e9644f76806d0c78': (
+                'sutab', 'Sutab (Sodium Sulfate / Magnesium Sulfate / Potassium Chloride) Oral Tablet Kit', 'oral tablet',
+                'FDA label: 1.479 g sodium sulfate / 0.225 g magnesium sulfate / 0.188 g potassium chloride per tablet; 24 tablets per bowel preparation kit. Distinct from Suprep oral solution. Follow label hydration instructions. Exact UHC product-specific initial/renewal criteria are unverified; no quantity limit printed for this listing.',
+                'dddd2701-4d46-44de-a9f8-303d4dcceef7', False),
+            'uhc-oct-complete-b452a2e1e260634a': (
+                'synarel', 'Synarel (Nafarelin) Metered Nasal Spray', 'metered nasal spray',
+                'FDA label: 200 mcg per actuation intranasal spray for central precocious puberty or endometriosis; distinct from injectable GnRH agonists. Exact UHC product-specific initial/renewal criteria are unverified; no quantity limit printed for this listing.',
+                'd0aa57cb-d2f4-46d7-af43-7c8b06aa81a6', False),
             'uhc-oct-complete-ebc77e55ddd6f0c7': (
                 'striverdi respimat', 'Striverdi Respimat (Olodaterol) Metered Inhalation Spray', 'metered inhalation spray',
                 'FDA label: 2.5 mcg per actuation, 60-actuation cartridge for Respimat oral inhalation; COPD maintenance, not rescue treatment or asthma treatment. Not the olodaterol/tiotropium combination. GL-735259 is therapeutic duplication review, not named product initial/renewal criteria. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
