@@ -172,8 +172,26 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   }
  }
  assert.notEqual(gammagardRows[0],gammagardRows[1],'ambiguous Gammagard merged with S/D');
+ {
+  const id='uhc-oct-complete-cb36a822ee8dc7d4';
+  const g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);
+  assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');
+  const b=r.uhcClinicalBindings.find(b=>b.role==='product'&&b.policyId.endsWith('gl-141021'));assert(b);assert.deepEqual(b.branchIndexes,[0,1,2,3,4,5]);
+  assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+  assert(!r.uhcClinicalBindings.some(b=>b.role==='nonpreferred'));
+  const card=a.medicationGroupCard(g);assert(card.includes('Orencia (Abatacept) Subcutaneous Injection'));assert(card.includes('not the IV vial'));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+  const out=await open(g);for(const phrase of ['Rheumatoid Arthritis','Polyarticular Juvenile Idiopathic Arthritis','Psoriatic Arthritis','Initial Authorization','Reauthorization'])assert(out.html.includes(phrase),phrase);
+  assert(out.ref.includes('page=1289')||out.ref.includes('page=1290'));
+ }
+ const pertzyeGroups=['7f3a07339d47bc24','7fbd2d78a81af2c4'].map(s=>groups.find(x=>x.records.some(r=>r.id==='uhc-oct-complete-'+s)));
+ assert(pertzyeGroups.every(Boolean));assert.notEqual(pertzyeGroups[0],pertzyeGroups[1],'Pertzye strength-specific QL must not merge');
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["4763deab6556b498","MoviPrep (PEG 3350 / Electrolytes / Ascorbate) Powder for Oral Solution","not ready-to-drink solution",true],
+  ["0d5d9de3ba6af1f0","Perforomist (Formoterol Fumarate) Nebulizer Solution","not rescue treatment or an asthma indication",true],
+  ["7f3a07339d47bc24","Pertzye (Pancrelipase) 8,000 / 16,000 / 24,000 Lipase Unit Delayed-Release Capsules","Not the 4,000-unit capsule",false],
+  ["7fbd2d78a81af2c4","Pertzye (Pancrelipase) 4,000 Lipase Unit Delayed-Release Capsule","Only the 4,000-unit capsule",true],
   ["34f80389bb5991b1","Omnaris (Ciclesonide) Metered Nasal Spray","distinct from orally inhaled ciclesonide",true],
   ["414fa24b98ae95bf","Ongentys (Opicapone) Oral Capsule","25 and 50 mg capsules",true],
   ["27dba7fd41442c41","Onpattro (Patisiran) Lipid Complex Intravenous Infusion","IV infusion only after dilution",false],
@@ -862,8 +880,10 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(subtypeBRows.every(r => r.pa === 'required'));
  // Three newly verified SC records also carry GL-733328 duplication references.
  const subtypeBNamed = subtypeBRows.filter(r => r.uhcClinicalBindings.some(b => b.role === 'product'));
- assert.equal(subtypeBNamed.length, 64);
- assert.equal(subtypeBNamed.filter(r => !scIds.has(r.id)).length, 61);
+ // Orencia SC is one additional exact named policy; its duplication binding remains.
+ assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-cb36a822ee8dc7d4'));
+ assert.equal(subtypeBNamed.length, 65);
+ assert.equal(subtypeBNamed.filter(r => !scIds.has(r.id)).length, 62);
  assert.equal(subtypeBNamed.filter(r => scIds.has(r.id)).length, 3);
  const auditedSupplies = [
   ['3b25d168e772f4bb', /BD AutoShield Duo/, 'conflict'],
