@@ -235,6 +235,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const card=a.medicationGroupCard(g);assert(card.includes(label),id+' form');assert(card.includes(phrase),id+' distinction');assert(card.includes('Exact UHC product-specific initial/renewal criteria'),id+' hold');assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'),id+' label link');
   const out=await open(g);assert(out.ref.includes('page=1202'),id+' administrative source');if(hasQL)assert(out.ref.includes('page=702'),id+' QL source');
  }
+ {
  const packetId='uhc-oct-complete-9fcb07846f5d9ec6';
  const packetGroup=groups.find(g=>g.records.some(r=>r.id===packetId));assert(packetGroup,packetId);
  const packet=packetGroup.records.find(r=>r.id===packetId);
@@ -249,6 +250,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   assert.equal(other.records.find(r=>r.id==='uhc-oct-complete-'+suffix).pa,'not_specified');
  }
  const packetDetail=await open(packetGroup);assert(packetDetail.ref.includes('page=702'));
+ }
  const beyazGroup=groups.find(g=>g.records.some(r=>r.id==='uhc-oct-complete-8f02f89ad4d636c6'));
  const safyralGroup=groups.find(g=>g.records.some(r=>r.id==='uhc-oct-complete-f142ec3c46691c32'));
  assert.notEqual(beyazGroup,safyralGroup,'Different estrogen strength and pack schedule must remain separate');
