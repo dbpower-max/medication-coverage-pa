@@ -898,6 +898,41 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'label': label, 'dosageForm': form, 'note': note,
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + label_id,
             }
+        # DEC-05/06/12/13/14/19/20: preserve distinct octreotide concentrations and depot route.
+        # GL-140960 names generic octreotide, but not individual concentration or depot packages.
+        # Preserve existing policy bindings; do not extend them or medical-benefit eligibility.
+        octreotide_presentations = {
+            'uhc-oct-complete-f02ebb3ed15163c2': (
+                'octreotide acetate injection solution 1000 mcg/ml',
+                'Octreotide Acetate 1000 mcg/mL Non-Depot Injection Solution',
+                'injection solution', 'FDA label example: 1000 mcg/mL in a 5 mL multidose vial for subcutaneous or intravenous use; distinct from depot IM suspension. Exact payer package and numeric quantity limit are unverified.',
+                'ffaf9462-cdd8-433b-8b03-464a35577fe9', True),
+            'uhc-oct-complete-2365e48035c832b5': (
+                'octreotide acetate injection solution 200 mcg/ml',
+                'Octreotide Acetate 200 mcg/mL Non-Depot Injection Solution',
+                'injection solution', 'FDA label example: 200 mcg/mL in a 5 mL multidose vial for subcutaneous or intravenous use; distinct from 1000 mcg/mL and depot IM suspension. Exact payer package is unverified; QL not specified.',
+                'ffaf9462-cdd8-433b-8b03-464a35577fe9', False),
+            'uhc-oct-complete-f655e03418b3c0dd': (
+                'octreotide acetate injection solution 500 mcg/ml (generic for sandostatin)',
+                'Octreotide Acetate 500 mcg/mL Non-Depot Injection Solution',
+                'injection solution', 'FDA label example: 500 mcg/mL single-dose 1 mL vial; distinct from the 200/1000 mcg/mL multidose presentations and depot IM suspension. Exact payer package and numeric quantity limit are unverified.',
+                'f278f0d8-4062-420a-97c3-3a8b88253a08', True),
+            'uhc-oct-complete-8b2ff71efd223fc7': (
+                'octreotide acetate intramuscular (generic for sandostatin lar depot)',
+                'Octreotide Acetate Depot Intramuscular Injectable Suspension',
+                'powder for injectable suspension', 'FDA label example: 10, 20 and 30 mg kits for gluteal intramuscular administration, not non-depot subcutaneous or intravenous solution. Exact payer kit and medical benefit applicability are unverified; QL not specified.',
+                'd9739ea6-74de-4a41-a806-6e827a23cedb', False),
+        }
+        if record['id'] in octreotide_presentations:
+            expected, label, form, note, label_id, has_ql = octreotide_presentations[record['id']]
+            assert october_name == expected and record['pa'] == 'required'
+            assert record['preferred'] == 'preferred' and ql == has_ql
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': label, 'dosageForm': form,
+                'note': note + ' UHC GL-140960 names generic octreotide but does not specify this concentration or depot package. Exact prescribing-option criteria remain unverified. Mycapssa-specific initiation criteria are separate.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + label_id,
+            }
         # DEC-05/12/13/14/19/20: distinguish the packet from other raltegravir forms.
         if record['id'] == 'uhc-oct-complete-9fcb07846f5d9ec6':
             assert october_name == 'isentress oral packet'
