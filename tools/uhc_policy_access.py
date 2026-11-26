@@ -645,6 +645,14 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 "rezvoglar kwikpen", "Rezvoglar KwikPen (Insulin Glargine-aglr) Subcutaneous Prefilled Pen", "subcutaneous prefilled pen",
                 "FDA label: 100 units/mL, 3 mL prefilled pen. Do not withdraw insulin from the pen into a syringe or use intravenously or in an insulin pump. Separate product identity; no payer substitution inference. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
                 "f6af8706-2058-4fe1-99c8-43684c20bfa2", True),
+            'uhc-oct-complete-92305bb0ac20fce9': (
+                "edurant (brand for rilpivirine hcl)", "Edurant (Rilpivirine) Oral Tablet", "oral tablet",
+                "FDA label: 25 mg film-coated tablet, taken with a meal; distinct from Edurant PED 2.5 mg tablets for oral suspension. These presentations are not substitutable mg-for-mg. No payer benefit extension to Edurant PED. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "03880372-2c68-45c6-a53a-f420c49541d6", True),
+            'uhc-oct-complete-8bbcf6cc69fead95': (
+                "rocklatan", "Rocklatan (Netarsudil / Latanoprost) Ophthalmic Solution", "ophthalmic solution",
+                "FDA label: netarsudil 0.02% and latanoprost 0.005% ophthalmic solution, distinct from either single ingredient. Epithelial corneal edema has been reported. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "b1d71f41-be06-4a08-94d4-e352198f09c2", True),
             'uhc-oct-complete-94c48abf89211479': (
                 "rhopressa", "Rhopressa (Netarsudil) Ophthalmic Solution", "ophthalmic solution",
                 "FDA label: netarsudil 0.02% ophthalmic solution, distinct from netarsudil/latanoprost combination. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
