@@ -998,6 +998,39 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'label': label, 'dosageForm': form, 'note': note,
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + setid,
             }
+        # DEC-05/06/12/13/14/19/20: exact options and source-stage caveats;
+        # original flags and product branches remain, with scope explicitly qualified.
+        stage_scope_review = {
+            'uhc-oct-complete-50027926c12f2fc5': (
+                'accutane (generic for accutane)', 'Isotretinoin Oral Capsule (payer reference Accutane)', 'oral capsule',
+                'FDA label: conventional isotretinoin capsules; not milligram-for-milligram substitutable with Absorica LD. Pregnancy contraindication and iPLEDGE REMS apply. UHC GL-288262 includes separate acne initial, post-treatment recurrence and dose-titration stages, plus an off-label oncology branch without a specified stage. Numeric quantity limit remains unverified.',
+                '4e8516dc-a3c6-4d8f-aa14-2c37c6c8f6e6', 'GL-288262', {0,1,2,3}, 'preferred', 'Conventional isotretinoin capsule; verify formulation-specific applicability'),
+            'uhc-oct-complete-ebfa91d6e2f468c4': (
+                'cresemba oral capsule 186 mg', 'Cresemba (Isavuconazonium Sulfate) 186 mg Oral Capsule', 'oral capsule',
+                'FDA label: 186 mg isavuconazonium sulfate equals 100 mg isavuconazole. Distinct from 74.5 mg capsules and IV formulation. Labeled oral pediatric use starts at age 6 years and 16 kg; pediatric capsule dosing is weight-specific. UHC GL-751212 gives a broader brand-level minimum age of 6 months; this is not FDA capsule eligibility. Exact 186 mg capsule applicability and numeric quantity limit remain unverified; stages not separately specified.',
+                '8f7f73b8-586a-4df0-935f-fecd4696c16c', 'GL-751212', {12,14}, 'non_preferred', 'Cresemba general product criteria (186 mg capsule applicability unverified)'),
+            'uhc-oct-complete-9cb53245e3257820': (
+                'droxidopa oral capsule 100 mg (generic for northera)', 'Droxidopa 100 mg Oral Capsule (payer reference Northera)', 'oral capsule',
+                'FDA label: 100 mg oral capsule; boxed warning for supine hypertension. UHC GL-140900 explicitly names Northera only; the generic listing is PA flagged, but exact generic applicability of the named initial and renewal criteria is unverified. Numeric quantity limit remains unverified.',
+                '81b798dc-b8dc-48a5-af46-82bb55f789a8', 'GL-140900', {0,1}, 'non_preferred', 'Northera brand reference only (generic applicability unverified)'),
+            'uhc-oct-complete-598734c054ff21fe': (
+                'eltrombopag olamine oral tablet (generic for promacta)', 'Eltrombopag Olamine Oral Tablet (payer reference Promacta)', 'oral tablet',
+                'FDA label: 12.5, 25, 50 and 75 mg tablets, distinct from powder for oral suspension. Alvaiz (eltrombopag choline) is not milligram-for-milligram substitutable. UHC GL-546252 expressly includes generic eltrombopag tablets in six ITP, severe aplastic anemia and HCV-associated thrombocytopenia initial/renewal branches; nonpreferred-only prerequisite does not apply universally. Numeric quantity limit remains unverified.',
+                '5a9ec8c8-3c0b-4f11-848c-c04ccee0d44f', 'GL-546252', {0,1,2,3,4,5}, 'preferred', 'Generic eltrombopag tablets'),
+        }
+        if record['id'] in stage_scope_review:
+            name, label, form, note, setid, code, indexes, pref, product_label = stage_scope_review[record['id']]
+            assert october_name == name, (record['id'], october_name)
+            assert record['pa'] == 'required' and record['preferred'] == pref and ql
+            assert matched.get(code) == indexes, (record['id'], matched)
+            matched.pop(code)
+            add(code, sorted(indexes), 'product')
+            bindings[-1]['productLabel'] = product_label
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': label, 'dosageForm': form, 'note': note,
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + setid,
+            }
         # DEC-05/06/12/13/14/19/20: device-specific labeling only; preserve existing general named criteria.
         device_label_holds = {
             'uhc-oct-complete-49d179ce14de8e08': (
