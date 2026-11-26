@@ -416,6 +416,14 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const b=r.uhcClinicalBindings.filter(b=>b.role==='product'&&b.policyId.endsWith(code));assert.equal(b.length,1);assert.deepEqual(b[0].branchIndexes,[index]);assert.equal(b[0].productLabel,scope);
   const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
  }
+ // DEC-05/06/12/13/14/19/20: Lupron scope, depot form, use-specific exclusion and flags.
+ for(const [suffix,label,phrase,indexes,preference,hasQL] of [["9e43afbe428c7e21","Lupron Depot (Leuprolide) 1-Month IM Depot Suspension Kit","exact payer strength unverified",[2,3,4,5,6,7,8,9,10],"preferred",true],["574bd69073276e99","Lupron Depot (Leuprolide) 22.5 mg 3-Month IM Depot Suspension Kit","distinct from gynecologic 11.25 mg",[5,6,7,8,9,10],"non_preferred",true],["603070689561b9d7","Lupron Depot (Leuprolide) 30 mg 4-Month IM Depot Suspension Kit","not pediatric 30 mg 3-month kit",[5,6,7,8,9,10],"non_preferred",true],["f1461e4b8f46fcb2","Lupron Depot (Leuprolide) 45 mg 6-Month IM Depot Suspension Kit","not initial",[5,6,7,8,9,10],"non_preferred",true],["7d034ab551399d27","Lupron Depot-Ped (Leuprolide) 1-Month IM Depot Suspension Kit","CPP initial",[0,1,5,6,7,8,9],"preferred",true],["df7e2017cb699106","Lupron Depot-Ped (Leuprolide) 3-Month IM Depot Suspension Kit","not initial",[0,1,5,6,7,8,9],"non_preferred",false]]){
+  const id='uhc-oct-complete-'+suffix,g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,preference);
+  assert.equal(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'),hasQL);
+  const b=r.uhcClinicalBindings.filter(b=>b.role==='product'&&b.policyId.endsWith('gl-752232'));assert.equal(b.length,1);assert.deepEqual(b[0].branchIndexes,indexes);
+  const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('not a blanket exclusion'));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+ }
  // DEC-05/06/12/13/14/19/20: labeled device distinctions without extending general policy scope.
  for(const [suffix,label,phrase,code,indexes,preference,hasQL] of [
   ["49d179ce14de8e08","Xolair (Omalizumab) Subcutaneous Autoinjector","device only for age 12 or older","gl-713364",[0,1,2,3,4,5,6,7],"preferred",true],
