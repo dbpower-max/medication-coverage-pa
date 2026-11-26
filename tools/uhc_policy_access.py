@@ -808,6 +808,61 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: 210 mg/1.91 mL single-dose pen; patient or caregiver administration is possible after appropriate training and clinician assessment. Distinct from the healthcare-provider-administered prefilled syringe and vial. October payer criteria name the autoinjector only; numeric quantity limit remains unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=60f0aa03-ad25-4d48-80ce-7fcfa76f325f',
             }
+        # DEC-05/06/12/13/14/19/20: Tyvaso kit identity; no extension of general product criteria.
+        tyvaso_kits = {
+            'uhc-oct-complete-e6ced40cd1e57c05': ("tyvaso dpi maintenance kit inhalation powder 16 mcg, 32 mcg, 48 mcg, 64 mcg", "Tyvaso DPI (Treprostinil) Inhalation Powder Maintenance Kit", "inhalation powder kit", "FDA label: maintenance kits use single-use cartridges with the dedicated DPI inhaler, distinct from titration kits and nebulized solution. UHC lists 16, 32, 48 and 64 mcg; the labeled 80 mcg cartridge is not established by this listing. GL-715293 names the product for PAH, not the exact kit or PH-ILD. Exact kit criteria and numeric quantity limit remain unverified.", "ddc3d400-bcb3-4b09-aae2-0768b10a5b0f", True),
+            'uhc-oct-complete-36bba0f4b45c9df3': ("tyvaso dpi titration kit", "Tyvaso DPI (Treprostinil) Inhalation Powder Titration Kit", "inhalation powder kit", "FDA label: distinct 16/32 mcg and 16/32/48 mcg titration packs with dedicated DPI inhalers. The linked GL-715293 PAH stages name Tyvaso DPI generally, not a specific titration kit or PH-ILD. Exact kit criteria and numeric quantity limit remain unverified.", "ddc3d400-bcb3-4b09-aae2-0768b10a5b0f", True),
+            'uhc-oct-complete-8dc08b2e585b8095': ("tyvaso refill kit", "Tyvaso (Treprostinil) Inhalation Solution Refill Kit", "inhalation solution kit", "FDA label: 28 ampules of 1.74 mg/2.9 mL (0.6 mg/mL) with accessories, distinct from the starter kit containing the inhalation system and from DPI cartridges. UHC prints Coverable through Medical Benefit; exact kit authorization and benefit routing remain unverified. GL-715293 names Tyvaso for PAH, not this kit or PH-ILD; QL not specified.", "cbc31ab1-a80f-4b50-a3b1-39910b0fb609", False),
+            'uhc-oct-complete-4df51b8e7e6b64bc': ("tyvaso starter kit", "Tyvaso (Treprostinil) Inhalation Solution Starter Kit", "inhalation solution kit", "FDA label: patient starter kit includes 28 ampules of 1.74 mg/2.9 mL (0.6 mg/mL) and inhalation system; separate institutional kit contains four ampules. UHC does not establish which exact package. Distinct from refill kit and DPI. UHC prints Coverable through Medical Benefit; exact kit authorization and benefit routing remain unverified. GL-715293 names Tyvaso for PAH, not this kit or PH-ILD; QL not specified.", "cbc31ab1-a80f-4b50-a3b1-39910b0fb609", False),
+        }
+        if record['id'] in tyvaso_kits:
+            expected, label, form, note, label_id, has_ql = tyvaso_kits[record['id']]
+            assert october_name == expected and record['pa'] == 'required'
+            assert record['preferred'] == 'non_preferred' and bool(ql) == has_ql
+            assert set(matched).issubset({'GL-715293'}), ('Review new Tyvaso policy', matched)
+            if record['id'] != 'uhc-oct-complete-36bba0f4b45c9df3':
+                assert not matched, ('Review newly matched kit policy', record['id'], matched)
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': label, 'dosageForm': form, 'note': note,
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + label_id,
+            }
+        # DEC-05/06/12/13/14/19/20: exact Stelara SC; Yesintek strength-specific scope.
+        if record['id'] in {'uhc-oct-complete-001e5ba120fa0c78', 'uhc-oct-complete-4bef2dde256711a9'}:
+            stelara = record['id'] == 'uhc-oct-complete-001e5ba120fa0c78'
+            assert october_name == ('stelara subcutaneous (brand for ustekinumab)' if stelara else 'yesintek subcutaneous solution prefilled syringe 45 mg/0.5ml')
+            assert record['pa'] == 'required' and record['preferred'] == 'non_preferred' and ql
+            code = 'GL-745190'
+            assert policies[code]['policyEffective'] == '2026-11-01'
+            branches = structured[code]['branches']
+            scopes = [('Plaque Psoriasis (PsO)', 'Initial Authorization'),
+                      ('Plaque Psoriasis (PsO)', 'Reauthorization'),
+                      ('Psoriatic Arthritis (PsA)', 'Initial Authorization'),
+                      ('Psoriatic Arthritis (PsA)', 'Reauthorization'),
+                      ("Crohn's Disease (CD)", 'Initial Authorization'),
+                      ('Ulcerative Colitis (UC)', 'Initial Authorization'),
+                      ("Crohn's Disease (CD), Ulcerative Colitis (UC)", 'Reauthorization')]
+            assert len(branches) == len(scopes)
+            for i, (dx, stage) in enumerate(scopes):
+                fields = branches[i]['fields']
+                def ust_field(name):
+                    f = fields[name]
+                    return ' '.join((f.get('displayText') or f['text']).split())
+                assert ('Stelara SC' if stelara else 'Yesintek SC') in ust_field('Product Name').split(', ')
+                assert ust_field('Diagnosis').replace('’', "'") == dx
+                assert ust_field('Therapy Stage') == stage
+                assert ust_field('Guideline Type') == 'Prior Authorization'
+            assert set(matched).issubset({code, 'GL-733328'}), matched
+            matched.pop(code, None)
+            add(code, list(range(7 if stelara else 4)), 'product')
+            bindings[-1]['productLabel'] = 'Stelara SC (device and strength unspecified)' if stelara else 'Yesintek SC 45 mg/0.5 mL syringe (PsO/PsA only)'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Stelara (Ustekinumab) Subcutaneous Injection (Device and Strength Unspecified)' if stelara else 'Yesintek (Ustekinumab-kfce) 45 mg/0.5 mL Subcutaneous Prefilled Syringe',
+                'dosageForm': 'subcutaneous injection' if stelara else 'subcutaneous prefilled syringe',
+                'note': ('FDA label updated September 8, 2026: PsO/PsA age 6 and older; CD/UC age 2 and older. SC syringe 45 mg/0.5 mL or 90 mg/mL and 45 mg/0.5 mL vial are distinct from IV induction. UHC November SC policy names Stelara; exact device, strength, age-limit flag details and numeric quantity limit remain unverified.' if stelara else 'FDA label updated March 17, 2026: PsO/PsA age 6 and older, CD/UC adults only. The UHC product-level policy includes CD/UC from age 2 but the labeled adult IBD SC maintenance dose is 90 mg; this 45 mg syringe is not the 90 mg presentation. Only PsO/PsA stages are linked here, for a labeled 45 mg regimen; pediatric weight-based doses below 45 mg require the vial. IBD applicability, age-limit flag details and numeric quantity limit remain unverified.'),
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + ('c77a9664-e3bb-4023-b400-127aa53bca2b' if stelara else '12a75613-ee33-d30a-215b-2a51cfa19b00'),
+            }
         # DEC-05/06/12/13/14/19/20: GL-500226 exact SC product, strength-scoped branches.
         if record['id'] == 'uhc-oct-complete-8ae98137dd88048f':
             assert october_name == 'tremfya subcutaneous' and pa and ql and record['preferred'] == 'non_preferred'
