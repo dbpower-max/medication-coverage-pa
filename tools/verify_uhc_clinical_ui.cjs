@@ -267,6 +267,25 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'),id+' label link');
   const out=await open(g);assert(out.ref.includes('page=702'),id+' quantity source');
  }
+ const octreotideGroups=[];
+ for(const [suffix,label,phrase,hasQL,hasProduct] of [
+  ['f02ebb3ed15163c2','Octreotide Acetate 1000 mcg/mL Non-Depot Injection Solution','1000 mcg/mL in a 5 mL multidose vial',true,false],
+  ['2365e48035c832b5','Octreotide Acetate 200 mcg/mL Non-Depot Injection Solution','200 mcg/mL in a 5 mL multidose vial',false,false],
+  ['f655e03418b3c0dd','Octreotide Acetate 500 mcg/mL Non-Depot Injection Solution','single-dose 1 mL vial',true,true],
+  ['8b2ff71efd223fc7','Octreotide Acetate Depot Intramuscular Injectable Suspension','gluteal intramuscular administration',false,false]
+ ]) {
+  const id='uhc-oct-complete-'+suffix;
+  const g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);octreotideGroups.push(g);
+  const r=g.records.find(x=>x.id===id);
+  assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');
+  assert.equal(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'),hasQL,id+' QL scope');
+  assert.equal(r.uhcClinicalBindings.some(b=>b.role==='product'&&b.policyId.endsWith('gl-140960')),hasProduct,id+' existing class binding scope');
+  assert(!r.uhcClinicalBindings.some(b=>b.role==='nonpreferred'),id+' nonpreferred review inappropriate');
+  const card=a.medicationGroupCard(g);assert(card.includes(label),id+' form');assert(card.includes(phrase),id+' route or package distinction');
+  assert(card.includes('Exact prescribing-option criteria remain unverified'),id+' scope hold');
+  assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'),id+' label link');
+ }
+ assert.equal(new Set(octreotideGroups).size,4,'Octreotide concentrations and depot must not merge');
  const lyumjevGroups=['3e5ea0bc90a6979f','686742f153d68e01'].map(s=>groups.find(g=>g.records.some(r=>r.id==='uhc-oct-complete-'+s)));
  assert(lyumjevGroups.every(Boolean));assert.notEqual(lyumjevGroups[0],lyumjevGroups[1],'Device-specific and device-unspecified insulin must remain distinct');
  assert(a.medicationGroupCard(lyumjevGroups[1]).includes('Never withdraw U-200 from the pen into a syringe'),'U-200 safety warning');
