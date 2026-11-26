@@ -276,6 +276,40 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const card=a.medicationGroupCard(g);assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
   const out=await open(g);for(const x of ['Plaque Psoriasis','Psoriatic Arthritis','Initial Authorization','Reauthorization'])assert(out.html.includes(x),x);
  }
+ // Exact Zolgensma weight-band kits; product-level policy, not Itvisma or numerical QL.
+ const zolgensmaGroupIds=new Set();
+ for(const [id,band,v55,v83] of [
+  ['uhc-oct-complete-122631375b25a969','10.1-10.5',0,7],
+  ['uhc-oct-complete-0213c9a06e7ceeeb','10.6-11.0',2,6],
+  ['uhc-oct-complete-ff19f0cc1479f5d4','11.1-11.5',1,7],
+  ['uhc-oct-complete-23163e3715d68ae7','11.6-12.0',0,8],
+  ['uhc-oct-complete-6e07ada48071efc9','12.1-12.5',2,7],
+  ['uhc-oct-complete-156d9eb0e3a4501e','12.6-13.0',1,8],
+  ['uhc-oct-complete-bec695bbe3fb9d86','13.1-13.5',0,9],
+  ['uhc-oct-complete-4042ef9a85590d2d','2.6-3.0',0,2],
+  ['uhc-oct-complete-54785c1031f7131a','3.1-3.5',2,1],
+  ['uhc-oct-complete-52292de6d5e4f7be','3.6-4.0',1,2],
+  ['uhc-oct-complete-cf41b06d6fd22ae5','4.1-4.5',0,3],
+  ['uhc-oct-complete-fd57381446d25d5c','4.6-5.0',2,2],
+  ['uhc-oct-complete-195c447d02e43c25','5.1-5.5',1,3],
+  ['uhc-oct-complete-295e76d74fbeb575','5.6-6.0',0,4],
+  ['uhc-oct-complete-9a60913597362b45','6.1-6.5',2,3],
+  ['uhc-oct-complete-4a226682a344144b','6.6-7.0',1,4],
+  ['uhc-oct-complete-c94a751831dd15a2','7.1-7.5',0,5],
+  ['uhc-oct-complete-5954d294b103e821','7.6-8.0',2,4],
+  ['uhc-oct-complete-4396fa24871642c0','8.1-8.5',1,5],
+  ['uhc-oct-complete-6fe8632c59acf63d','8.6-9.0',0,6],
+  ['uhc-oct-complete-0b4dfcf8c2bf84a2','9.1-9.5',2,5],
+  ['uhc-oct-complete-18cd666810c8003b','9.6-10.0',1,6],
+ ]){
+  const g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  assert(!zolgensmaGroupIds.has(g),id+' weight-band kit collapsed');zolgensmaGroupIds.add(g);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'non_preferred');
+  assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));assert(r.uhcClinicalBindings.some(b=>b.role==='nonpreferred'));
+  const b=r.uhcClinicalBindings.filter(b=>b.role==='product'&&b.policyId.endsWith('gl-523191'));assert.equal(b.length,1);assert.deepEqual(b[0].branchIndexes,[0]);
+  const card=a.medicationGroupCard(g);assert(card.includes('IV Infusion Kit '+band+' kg'));assert(card.includes(v55+' x 5.5 mL and '+v83+' x 8.3 mL'));assert(card.includes('not intrathecal Itvisma'));assert(card.includes('exact kit applicability and numeric QL remain unverified'));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+ }
+ assert.equal(zolgensmaGroupIds.size,22);
  // DEC-05/06/12/13/14/19/20: labeled device distinctions without extending general policy scope.
  for(const [suffix,label,phrase,code,indexes,preference,hasQL] of [
   ["49d179ce14de8e08","Xolair (Omalizumab) Subcutaneous Autoinjector","device only for age 12 or older","gl-713364",[0,1,2,3,4,5,6,7],"preferred",true],
