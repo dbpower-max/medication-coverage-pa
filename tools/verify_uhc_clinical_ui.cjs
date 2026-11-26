@@ -174,6 +174,10 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert.notEqual(gammagardRows[0],gammagardRows[1],'ambiguous Gammagard merged with S/D');
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["6520d7a7c776b0eb","Livalo (Pitavastatin Calcium) Oral Tablet","distinct from pitavastatin magnesium",true],
+  ["b72a09032c056ced","Lotemax SM (Loteprednol Etabonate) Ophthalmic Gel","distinct from Lotemax 0.5% formulations",true],
+  ["5f08db26327b4d8e","Lotemax (Loteprednol Etabonate) Ophthalmic Form Unspecified","does not specify the form",true],
+  ["8b9d3977c36fecd2","Zylet (Loteprednol Etabonate / Tobramycin) Ophthalmic Suspension","not single-agent loteprednol",true],
   ["ddac5d138221ee70","Istalol (Timolol Maleate) Once-Daily Ophthalmic Solution","once daily in the morning",true],
   ["d63c3b1ab823b361","Lo Loestrin Fe (Norethindrone Acetate / Ethinyl Estradiol / Ferrous Fumarate) Oral Tablet Pack","not equivalent to Loestrin 24 Fe",true],
   ["76eeafb86c6f7dd9","Inveltys (Loteprednol Etabonate) Ophthalmic Suspension","inflammation and pain after ocular surgery",true],
@@ -237,6 +241,23 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const card=a.medicationGroupCard(g);assert(card.includes(label),id+' form');assert(card.includes(phrase),id+' distinction');assert(card.includes('Exact UHC product-specific initial/renewal criteria'),id+' hold');assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'),id+' label link');
   const out=await open(g);assert(out.ref.includes('page=1202'),id+' administrative source');if(hasQL)assert(out.ref.includes('page=702'),id+' QL source');
  }
+ for(const [suffix,label,phrase,pa] of [
+  ["c52599e942ff4716","Lamotrigine Chewable / Dispersible Tablet for Oral Suspension","age 8 or older","conditional"],
+  ["2350c3053e5d6856","Lidocaine 5% Topical Ointment","not a patch or injection","required"],
+  ["877751e558a7560e","Lokelma (Sodium Zirconium Cyclosilicate) Powder for Oral Suspension","separate other oral medications by 2 hours","required"]
+ ]) {
+  const id='uhc-oct-complete-'+suffix;
+  const g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);
+  assert.equal(r.pa,pa);assert.equal(r.preferred,'preferred');
+  assert(!r.uhcClinicalBindings.some(b=>b.role==='product'||b.role==='nonpreferred'),id+' fabricated product or nonpreferred PA');
+  assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'&&b.policyId.endsWith('gl-140667')));
+  const card=a.medicationGroupCard(g);assert(card.includes(label),id+' form');assert(card.includes(phrase),id+' distinction');assert(card.includes('Exact UHC product-specific initial/renewal criteria'),id+' hold');
+  assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'),id+' label link');
+  const out=await open(g);assert(out.ref.includes('page=702'),id+' quantity source');
+ }
+ const eyeGroups=['b72a09032c056ced','5f08db26327b4d8e','8b9d3977c36fecd2'].map(s=>groups.find(g=>g.records.some(r=>r.id==='uhc-oct-complete-'+s)));
+ assert(eyeGroups.every(Boolean));assert.equal(new Set(eyeGroups).size,3,'Distinct ophthalmic products must not merge');
  {
  const packetId='uhc-oct-complete-9fcb07846f5d9ec6';
  const packetGroup=groups.find(g=>g.records.some(r=>r.id===packetId));assert(packetGroup,packetId);
