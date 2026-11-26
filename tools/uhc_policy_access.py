@@ -848,6 +848,16 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: 100 mg/mL syringe, pen or One-Press injector; 200 mg/2 mL syringe or pen. Distinct from 200 mg/20 mL IV vial. PsO/PsA payer branches apply to SC 100 mg only; CD/UC branches name SC and distinguish induction from maintenance after IV induction. Labeled IBD SC induction is 400 mg as two 200 mg injections. UHC listing does not specify device or strength; exact device and strength benefit and numeric quantity limit remain unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1e6dc9ae-1c4c-42d9-87aa-c315ecc51b56',
             }
+        # GL-572198 branch 13 names ONLY topiramate 50 mg sprinkle.
+        # Ingredient-only matching can leak this branch to IR tablets or other sprinkle strengths.
+        if record['id'] in {'uhc-oct-complete-8e34212b5a29106f', 'uhc-oct-complete-d37573826a734ebb', 'uhc-oct-complete-90702ce4eec9617a'}:
+            code = 'GL-572198'
+            if code in matched:
+                assert policies[code]['policyEffective'] == '2026-05-01'
+                assert matched[code] == {13}, (record['id'], matched)
+                product = structured[code]['branches'][13]['fields']['Product Name']
+                assert ' '.join((product.get('displayText') or product['text']).split()) == 'topiramate 50 mg sprinkle'
+                matched.pop(code)
         # DEC-05/06/07/12/13/14/19/20: distinguish conditional brand sprinkle from IR tablet.
         if record['id'] == 'uhc-oct-complete-d37573826a734ebb':
             assert october_name == 'topamax sprinkle (brand for topiramate)'
