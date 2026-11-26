@@ -305,6 +305,42 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: 300 mg as three consecutive 100 mg subcutaneous injections for episodic cluster headache; distinct from 120 mg/mL migraine presentations. UHC cluster policy retains migraine-combination restrictions as printed. Exact payer package eligibility and numeric quantity limit remain unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=33a147be-233a-40e8-a55e-e40936e28db0',
             }
+        # DEC-05/06/12/13/14/19/20: exact Roxybond short-acting opioid policy.
+        # Keep concurrent therapy, MME and quantity exceptions distinct from routine PA.
+        if record['id'] == 'uhc-oct-complete-ccae7c796c8a0833':
+            code = 'GL-711768'
+            assert october_name == 'roxybond oral tablet abuse-deterrent 15 mg, 30 mg, 5 mg'
+            assert record['pa'] == 'required' and record['preferred'] == 'non_preferred' and ql
+            assert policies[code]['policyEffective'] == '2026-10-01'
+            branches = structured[code]['branches']
+            assert len(branches) == 9
+            def roxy_field(i, name):
+                f = branches[i]['fields'].get(name, {})
+                return ' '.join((f.get('displayText') or f.get('text', '')).split())
+            assert all(re.search(r'\bRoxybond\b', roxy_field(i, 'Product Name')) for i in range(9))
+            assert roxy_field(0, 'Guideline Type') == 'DUR'
+            assert 'MAT and other Opioids' in roxy_field(0, 'Diagnosis')
+            assert roxy_field(1, 'Diagnosis') == 'Non-Preferred'
+            assert roxy_field(1, 'Approval Length') == '12 month(s)'
+            assert '> 2 Short Acting Opioids' in roxy_field(2, 'Diagnosis')
+            assert all(roxy_field(i, 'Guideline Type') == 'Quantity Limit' for i in (3, 4, 5))
+            assert '18 years of age and older' in roxy_field(4, 'Diagnosis')
+            assert 'under 18 years of age' in roxy_field(5, 'Diagnosis')
+            assert all('90 MME Cumulative Threshold' in roxy_field(i, 'Diagnosis') for i in (6, 7, 8))
+            assert roxy_field(7, 'Therapy Stage') == 'Initial Authorization'
+            assert roxy_field(8, 'Therapy Stage') == 'Reauthorization'
+            matched.pop(code, None)
+            add(code, [1, 2], 'product')
+            add(code, [3, 4, 5], 'quantity')
+            add(code, [0], 'concurrent_opioid_dur')
+            add(code, [6, 7, 8], 'mme_exception')
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Roxybond (Oxycodone HCl) Immediate-Release Abuse-Deterrent Oral Tablet (5, 15, 30 mg)',
+                'dosageForm': 'immediate-release oral tablet',
+                'note': 'FDA label: immediate-release, not extended-release; abuse-deterrent does not mean abuse-proof. Boxed opioid safety warnings apply. The October UHC listing names 5, 15 and 30 mg; the labeled 10 mg presentation is not listed in this row. The policy has separate conditional days-supply and MME exceptions; routine numeric tablet quantity limit remains unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=72398542-8e0a-47b2-afeb-9ca5a1f15083',
+            }
         # DEC-05/12/13/14/19/20: Inbrija inhalation capsules are not oral capsules.
         if record['id'] == 'uhc-oct-complete-9979c6aa29c27e3e':
             code = 'GL-140661'
