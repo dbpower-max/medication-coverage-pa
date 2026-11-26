@@ -667,6 +667,41 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: 50 mg/0.4 mL, 87.5 mg/0.7 mL and 125 mg/mL prefilled syringes; 125 mg/mL ClickJect autoinjector. UHC lists SC without specifying device; the named policy applies to both SC devices, not the IV vial. Use labeled age, weight and device eligibility separately from payer criteria. Numeric quantity limit remains unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0836c6ac-ee37-5640-2fed-a3185a0b16eb',
             }
+        # DEC-05/06/12/13/14/19/20: issuer GL-452192 names Simponi SC, not IV Aria.
+        if record['id'] == 'uhc-oct-complete-21d7009b80e338fa':
+            assert october_name == 'simponi' and pa and ql and record['preferred'] == 'non_preferred'
+            code = 'GL-452192'
+            assert policies[code]['policyEffective'] == '2025-12-01'
+            branches = structured[code]['branches']
+            scopes = [('Rheumatoid Arthritis (RA)', 'Initial Authorization'),
+                      ('Ankylosing Spondylitis (AS)', 'Initial Authorization'),
+                      ('Rheumatoid Arthritis (RA), Ankylosing Spondylitis (AS)', 'Reauthorization'),
+                      ('Psoriatic Arthritis (PsA)', 'Initial Authorization'),
+                      ('Psoriatic Arthritis (PsA)', 'Reauthorization'),
+                      ('Ulcerative Colitis (UC)', 'Initial Authorization'),
+                      ('Ulcerative Colitis (UC)', 'Reauthorization')]
+            assert len(branches) == len(scopes)
+            for i, (dx, stage) in enumerate(scopes):
+                fields = branches[i]['fields']
+                def sim_field(name):
+                    f = fields[name]
+                    return ' '.join((f.get('displayText') or f['text']).split())
+                assert sim_field('Product Name') == 'Simponi SC'
+                assert sim_field('Diagnosis') == dx
+                assert sim_field('Therapy Stage') == stage
+                assert sim_field('Approval Length') == '12 month(s)'
+                assert sim_field('Guideline Type') == 'Prior Authorization'
+            assert set(matched).issubset({code, 'GL-733328'}), matched
+            matched.pop(code, None)
+            add(code, list(range(7)), 'product')
+            bindings[-1]['productLabel'] = 'Simponi SC (device unspecified)'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Simponi (Golimumab) Subcutaneous Injection (Device Unspecified)',
+                'dosageForm': 'subcutaneous injection',
+                'note': 'FDA label: subcutaneous prefilled syringe or autoinjector, distinct from intravenous Simponi Aria. UHC lists SC without identifying device or strength. Boxed warnings for serious infections and malignancy. Named UC initial criteria require weight at least 15 kg. Device-specific eligibility and numeric quantity limit remain unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f86cb4a7-c358-4136-ae57-b32bda9bba00',
+            }
         # DEC-05/06/12/13/14/19/20: November issuer GL-684216, effective 2026-09-01.
         # Label October 23 adds SC induction for CD; payer initial IBD branches still require IV induction.
         skyrizi_rows = {
@@ -724,10 +759,6 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 "simbrinza", "Simbrinza (Brinzolamide / Brimonidine Tartrate) Ophthalmic Suspension", "ophthalmic suspension",
                 "FDA label: brinzolamide 1% / brimonidine tartrate 0.2% ophthalmic suspension, distinct from either single ingredient. Shake well before use; contraindicated in children under 2 years. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
                 "a49c157e-6310-0011-7b7f-e26fc1820d59", True),
-            'uhc-oct-complete-21d7009b80e338fa': (
-                "simponi", "Simponi (Golimumab) Subcutaneous Injection (Device Unspecified)", "subcutaneous injection",
-                "FDA label: subcutaneous prefilled syringe or autoinjector, distinct from intravenous Simponi Aria. The UHC listing does not identify a device or strength. Boxed warnings for serious infections and malignancy. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
-                "f86cb4a7-c358-4136-ae57-b32bda9bba00", True),
             'uhc-oct-complete-45bccbf7d28f0d2d': (
                 "rasuvo", "Rasuvo (Methotrexate) Subcutaneous Autoinjector", "subcutaneous autoinjector",
                 "FDA label: single-use 50 mg/mL subcutaneous autoinjectors, 7.5–30 mg in 2.5 mg increments. Once weekly, never daily; not for other routes. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
@@ -1074,7 +1105,6 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             assert october_name == expected and record['pa'] == 'required'
             assert record['preferred'] == 'non_preferred' and bool(ql) == has_ql
             allowed_administrative = {'GL-735259'} if record['id'] in {'uhc-oct-complete-4174a6295393bf8f', 'uhc-oct-complete-e48614a8896d1c42', 'uhc-oct-complete-0d5d9de3ba6af1f0', 'uhc-oct-complete-0d8138a620761a85'} else set()
-            if record['id'] == 'uhc-oct-complete-21d7009b80e338fa': allowed_administrative = {'GL-733328'}
             assert not (set(matched) - allowed_administrative), ('Review newly available named criteria before use', record['id'], matched)
             record['reviewedPresentation'] = {
                 **record.get('reviewedPresentation', {}), 'separate': True,

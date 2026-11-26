@@ -210,12 +210,22 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   }
   assert.equal(new Set(skyGroups).size,3);
  }
+ {
+  const id='uhc-oct-complete-21d7009b80e338fa';
+  const g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'non_preferred');
+  const b=r.uhcClinicalBindings.filter(b=>b.role==='product');
+  assert.equal(b.length,1);assert(b[0].policyId.endsWith('gl-452192'));assert.deepEqual(b[0].branchIndexes,[0,1,2,3,4,5,6]);
+  for(const role of ['duplication','nonpreferred','global_quantity'])assert(r.uhcClinicalBindings.some(b=>b.role===role),role);
+  const card=a.medicationGroupCard(g);assert(card.includes('Simponi (Golimumab) Subcutaneous Injection'));assert(card.includes('distinct from intravenous Simponi Aria'));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+  const out=await open(g);for(const phrase of ['Rheumatoid Arthritis','Ankylosing Spondylitis','Psoriatic Arthritis','Ulcerative Colitis','Initial Authorization','Reauthorization','15 kg'])assert(out.html.includes(phrase),phrase);
+  assert(out.ref.includes('page=1529')||out.ref.includes('page=1530'));
+ }
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
   ["22171578e784f52d","Solosec (Secnidazole) Oral Granules Packet","do not dissolve in liquid",true],
   ["097bbd79f985a20c","Siklos (Hydroxyurea) Scored Oral Tablet","distinct from hydroxyurea capsules",true],
   ["ecf070f7d966f3c0","Simbrinza (Brinzolamide / Brimonidine Tartrate) Ophthalmic Suspension","distinct from either single ingredient",true],
-  ["21d7009b80e338fa","Simponi (Golimumab) Subcutaneous Injection (Device Unspecified)","distinct from intravenous Simponi Aria",true],
   ["45bccbf7d28f0d2d","Rasuvo (Methotrexate) Subcutaneous Autoinjector","Once weekly, never daily",true],
   ["787fc9bd1b5d7710","Rayaldee (Calcifediol) Extended-Release Oral Capsule","distinct from calcitriol and cholecalciferol",true],
   ["0d8138a620761a85","Rezvoglar KwikPen (Insulin Glargine-aglr) Subcutaneous Prefilled Pen","Do not withdraw insulin from the pen into a syringe",true],
@@ -938,8 +948,8 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  const subtypeBNamed = subtypeBRows.filter(r => r.uhcClinicalBindings.some(b => b.role === 'product'));
  // Orencia SC is one additional exact named policy; its duplication binding remains.
  assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-cb36a822ee8dc7d4'));
- assert.equal(subtypeBNamed.length, 68);
- assert.equal(subtypeBNamed.filter(r => !scIds.has(r.id)).length, 65);
+ assert.equal(subtypeBNamed.length, 69);
+ assert.equal(subtypeBNamed.filter(r => !scIds.has(r.id)).length, 66);
  assert.equal(subtypeBNamed.filter(r => scIds.has(r.id)).length, 3);
  const auditedSupplies = [
   ['3b25d168e772f4bb', /BD AutoShield Duo/, 'conflict'],
