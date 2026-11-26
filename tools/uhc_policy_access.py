@@ -602,6 +602,22 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
         # GL-231255 and GL-140667 are administrative, not named product criteria.
         label_holds = {
+            'uhc-oct-complete-6520d7a7c776b0eb': (
+                "livalo (brand for pitavastatin calcium)", "Livalo (Pitavastatin Calcium) Oral Tablet", "oral tablet",
+                "FDA label: 1, 2 and 4 mg pitavastatin equivalents; calcium salt, distinct from pitavastatin magnesium. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "44dcbf97-99ec-427c-ba50-207e0069d6d2", True),
+            'uhc-oct-complete-b72a09032c056ced': (
+                "lotemax sm", "Lotemax SM (Loteprednol Etabonate) Ophthalmic Gel", "ophthalmic gel",
+                "FDA label: 0.38% (3.8 mg/g), distinct from Lotemax 0.5% formulations. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "6f9477b5-699f-4d3b-b9a6-0cc238266237", True),
+            'uhc-oct-complete-5f08db26327b4d8e': (
+                "lotemax (brand for loteprednol etabonate)", "Lotemax (Loteprednol Etabonate) Ophthalmic Form Unspecified", "ophthalmic form unspecified",
+                "FDA labels identify 0.5% gel, suspension and ointment as separate presentations. The UHC listing does not specify the form; do not infer coverage for each presentation or for Lotemax SM. Linked label is the gel example. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "9a666065-d467-42b8-8ecd-0ec1de9986d5", True),
+            'uhc-oct-complete-8b9d3977c36fecd2': (
+                "zylet (brand for loteprednol-tobramycin)", "Zylet (Loteprednol Etabonate / Tobramycin) Ophthalmic Suspension", "ophthalmic suspension",
+                "FDA label: loteprednol 0.5% / tobramycin 0.3%, combined steroid and antibacterial, not single-agent loteprednol. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "3dd9b060-5355-404d-bdf1-09ee8b52a9f5", True),
             'uhc-oct-complete-ddac5d138221ee70': (
                 "istalol ophthalmic solution 0.5 % (brand for timolol maleate (once-daily))", "Istalol (Timolol Maleate) Once-Daily Ophthalmic Solution", "ophthalmic solution",
                 "FDA label: 0.5%, once daily in the morning; distinguish other timolol presentations. Contraindicated in asthma, severe COPD, sinus bradycardia, second- or third-degree AV block, overt cardiac failure and cardiogenic shock. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
@@ -817,6 +833,22 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             assert record['preferred'] == 'non_preferred' and bool(ql) == has_ql
             allowed_administrative = {'GL-735259'} if record['id'] in {'uhc-oct-complete-4174a6295393bf8f', 'uhc-oct-complete-e48614a8896d1c42'} else set()
             assert not (set(matched) - allowed_administrative), ('Review newly available named criteria before use', record['id'], matched)
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': label, 'dosageForm': form, 'note': note,
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + label_id,
+            }
+        # DEC-05/12/13/14/19/20: preferred listing identity only; preserve original PA trigger.
+        preferred_label_holds = {
+            'uhc-oct-complete-c52599e942ff4716': ("lamotrigine oral tablet chewable (generic for lamictal)", "Lamotrigine Chewable / Dispersible Tablet for Oral Suspension", "tablet for oral suspension", "FDA label: 5 and 25 mg chewable/dispersible tablets, distinct from ODT and ER. Boxed warning for serious rash. UHC PDL conditional PA applies at age 8 or older; this is a payer trigger, not a labeled indication age. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.", "ae6522d4-d824-44aa-afe0-70cdcbd845af", "conditional"),
+            'uhc-oct-complete-2350c3053e5d6856': ("lidocaine external ointment 5 %", "Lidocaine 5% Topical Ointment", "topical ointment", "FDA label: 50 mg/g topical ointment, not a patch or injection. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.", "071b2cfd-07ad-46a3-8808-87080d545fd3", "required"),
+            'uhc-oct-complete-877751e558a7560e': ("lokelma", "Lokelma (Sodium Zirconium Cyclosilicate) Powder for Oral Suspension", "powder for oral suspension", "FDA label: 5 and 10 g packets; generally separate other oral medications by 2 hours. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.", "90bf8e28-748d-4e4b-a19f-9cf483370eff", "required"),
+        }
+        if record['id'] in preferred_label_holds:
+            expected, label, form, note, label_id, pa = preferred_label_holds[record['id']]
+            assert october_name == expected and record['pa'] == pa
+            assert record['preferred'] == 'preferred' and ql
+            assert not matched, ('Review newly available named criteria before use', record['id'], matched)
             record['reviewedPresentation'] = {
                 **record.get('reviewedPresentation', {}), 'separate': True,
                 'label': label, 'dosageForm': form, 'note': note,
