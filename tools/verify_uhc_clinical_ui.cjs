@@ -244,6 +244,10 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["0b3a19b761869f8f","Tiglutik (Riluzole) Oral Suspension","PEG-tube administration",true],
+  ["3be2fce160eb4e1a","Betimol (Timolol Hemihydrate) Ophthalmic Solution","distinct from timolol maleate",true],
+  ["ce85f87b9d08019d","Thiola (Tiopronin) Oral Tablet","not delayed-release",false],
+  ["fe1aa6c1fd02f3ed","Thiola EC (Tiopronin) Delayed-Release Oral Tablet","Avoid alcohol two hours before",true],
   ["9d8ad92e4e67aa1f","Tazorac (Tazarotene) Topical Cream or Gel (Payer Form Unspecified)","cream and gel are distinct topical formulations",true],
   ["26eaf8d3998418d6","Tezspire (Tezepelumab-ekko) Subcutaneous Prefilled Syringe","for healthcare provider administration",false],
   ["e9644f76806d0c78","Sutab (Sodium Sulfate / Magnesium Sulfate / Potassium Chloride) Oral Tablet Kit","Distinct from Suprep oral solution",false],

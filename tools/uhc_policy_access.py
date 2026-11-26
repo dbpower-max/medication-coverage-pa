@@ -810,6 +810,22 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             }
         # DEC-05/06/12/13/14/19/20: label-backed identities, no extrapolated payer criteria.
         label_holds = {
+            'uhc-oct-complete-0b3a19b761869f8f': (
+                "tiglutik", "Tiglutik (Riluzole) Oral Suspension", "oral suspension",
+                "FDA label: riluzole 5 mg/mL (50 mg/10 mL) oral suspension for oral or PEG-tube administration, distinct from riluzole tablets and oral film. Shake gently before administration; liver enzyme monitoring is required. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "75d68f19-4208-109e-e053-2991aa0ac857", True),
+            'uhc-oct-complete-3be2fce160eb4e1a': (
+                "betimol (brand for timolol hemihydrate)", "Betimol (Timolol Hemihydrate) Ophthalmic Solution", "ophthalmic solution",
+                "FDA label: 0.25% and 0.5% timolol ophthalmic solution as hemihydrate, distinct from timolol maleate and gel-forming products. Systemic beta-blocker effects may occur, including bronchospasm and bradycardia. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "3ae775f4-340c-4bf4-aa49-8a31daba0f8b", True),
+            'uhc-oct-complete-ce85f87b9d08019d': (
+                "thiola (brand for tiopronin)", "Thiola (Tiopronin) Oral Tablet", "oral tablet",
+                "FDA label: 100 mg sugar-coated oral tablet, not delayed-release; take on an empty stomach at least one hour before or two hours after meals. Distinct from Thiola EC. Monitor for proteinuria. Exact UHC product-specific initial/renewal criteria are unverified; no quantity limit printed for this listing.",
+                "494a714e-923c-cd57-df6c-12886afb265a", False),
+            'uhc-oct-complete-fe1aa6c1fd02f3ed': (
+                "thiola ec (brand for tiopronin)", "Thiola EC (Tiopronin) Delayed-Release Oral Tablet", "delayed-release oral tablet",
+                "FDA label: 100 and 300 mg delayed-release tablets, with or without food on a consistent meal schedule. Avoid alcohol two hours before and three hours after administration. Distinct from conventional Thiola; monitor for proteinuria. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "20298a52-a194-a161-8632-d84b6f26e23c", True),
             'uhc-oct-complete-9d8ad92e4e67aa1f': (
                 'tazorac (brand for tazarotene)', 'Tazorac (Tazarotene) Topical Cream or Gel (Payer Form Unspecified)', 'topical form unspecified',
                 'FDA labels: cream and gel are distinct topical formulations; the UHC listing does not specify which form is covered. Do not assume both are covered. Contraindicated during pregnancy. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
