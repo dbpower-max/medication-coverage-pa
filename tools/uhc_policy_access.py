@@ -602,6 +602,14 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
         # GL-231255 and GL-140667 are administrative, not named product criteria.
         label_holds = {
+            'uhc-oct-complete-3e5ea0bc90a6979f': (
+                "lyumjev", "Lyumjev (Insulin Lispro-aabc) Injectable Solution (Device Unspecified)", "injectable solution",
+                "FDA label: U-100 vial, KwikPen, Junior KwikPen, Tempo Pen and cartridge; U-200 KwikPen. This UHC listing does not identify a device or concentration. U-200 is subcutaneous only; never administer U-200 by pump or IV, or withdraw it from a pen into a syringe. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "c5a056e2-b568-4ca6-9ed8-79c010942d00", True),
+            'uhc-oct-complete-686742f153d68e01': (
+                "lyumjev kwikpen", "Lyumjev KwikPen (Insulin Lispro-aabc) Prefilled Pen (Concentration Unspecified)", "prefilled pen",
+                "FDA label: separate U-100 and U-200 3 mL single-patient-use pens for subcutaneous injection. The UHC listing does not establish which concentration is covered. Never withdraw U-200 from the pen into a syringe; no U-200 pump or IV use. Junior KwikPen is a distinct U-100 half-unit device. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "c5a056e2-b568-4ca6-9ed8-79c010942d00", True),
             'uhc-oct-complete-6520d7a7c776b0eb': (
                 "livalo (brand for pitavastatin calcium)", "Livalo (Pitavastatin Calcium) Oral Tablet", "oral tablet",
                 "FDA label: 1, 2 and 4 mg pitavastatin equivalents; calcium salt, distinct from pitavastatin magnesium. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
