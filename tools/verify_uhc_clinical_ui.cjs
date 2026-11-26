@@ -382,6 +382,14 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith(code));assert.deepEqual(b[0].branchIndexes,indexes);assert(b[0].productLabel.includes(scope));
   const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
  }
+ // DEC-05/06/12/13/14/19/20: retain distinct exact stage and formulation/quantity scopes.
+ for(const [suffix,label,phrase,code,indexes,scope,preference,hasQL] of [["f00d8199bade0f54","Genotropin (Somatropin) Powder for Subcutaneous Injection","this is not an approval stage","gl-723191",[0,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"includes ISS exclusion; device eligibility unverified","preferred",false],["e48ac36405f1549a","Granisetron HCl Oral Tablet or Solution (Payer Form Unverified)","apply to Granisol only, not tablets","gl-632222",[0,1,2],"payer form unverified","preferred",true],["f23ca72ff27b5a94","Hemlibra (Emicizumab-kxwh) Subcutaneous Solution 105 mg/0.7 mL, 150 mg/mL, 30 mg/mL","do not combine different concentrations","gl-716187",[10],"routine prophylaxis; stage unspecified","non_preferred",false],["16792cef09a93d60","Hemlibra (Emicizumab-kxwh) Subcutaneous Solution 60 mg/0.4 mL","60 mg/0.4 mL single-dose vial is 150 mg/mL","gl-716187",[10],"routine prophylaxis; stage unspecified","non_preferred",true]]){
+  const id='uhc-oct-complete-'+suffix,g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,preference);
+  assert.equal(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'),hasQL);
+  const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith(code));assert.deepEqual(b[0].branchIndexes,indexes);assert(b[0].productLabel.includes(scope));
+  const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+ }
  // DEC-05/06/12/13/14/19/20: labeled device distinctions without extending general policy scope.
  for(const [suffix,label,phrase,code,indexes,preference,hasQL] of [
   ["49d179ce14de8e08","Xolair (Omalizumab) Subcutaneous Autoinjector","device only for age 12 or older","gl-713364",[0,1,2,3,4,5,6,7],"preferred",true],
