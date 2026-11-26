@@ -370,6 +370,18 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const card=a.medicationGroupCard(g);assert(card.includes('Fasenra Pen (Benralizumab) Subcutaneous Autoinjector'));assert(card.includes('10 mg dose requires the syringe'));assert(card.includes('caregiver or healthcare provider'));assert(card.includes('not pen-specific eligibility'));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
   const other=groups.flatMap(x=>x.records).find(x=>x.id==='uhc-oct-complete-42072ccb0efa2505');assert(other);assert(!other.reviewedPresentation?.label?.includes('Autoinjector'));assert(!other.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
  }
+ // DEC-05/06/12/13/14/19/20: named branches; do not infer label indication or payer form.
+ for(const [suffix,label,phrase,code,indexes,scope,hasQL] of [
+ ["ed2c1f1831632e6b","Fensolvi (Leuprolide Acetate) Six-Month Subcutaneous Extended-Release Suspension","this is not an approval stage","gl-752232",[0,1,5,6,7,8,9],"includes under-19 gender dysphoria exclusion",true],
+ ["90f3ce4ee5762d4c","Fibryga (Fibrinogen Human) Intravenous Solution After Reconstitution","Acquired indication eligibility is not established","gl-716187",[22],"acquired indication unverified",false],
+ ["16f1d6bb95149d00","Dificid (Fidaxomicin) Oral Tablet or Suspension (Payer Form Unverified)","conditional on generic tablets or brand suspension, not brand tablets","gl-390203",[0],"payer form unverified",true]
+ ]){
+  const id='uhc-oct-complete-'+suffix,g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');
+  assert.equal(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'),hasQL);
+  const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith(code));assert.deepEqual(b[0].branchIndexes,indexes);assert(b[0].productLabel.includes(scope));
+  const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+ }
  // DEC-05/06/12/13/14/19/20: labeled device distinctions without extending general policy scope.
  for(const [suffix,label,phrase,code,indexes,preference,hasQL] of [
   ["49d179ce14de8e08","Xolair (Omalizumab) Subcutaneous Autoinjector","device only for age 12 or older","gl-713364",[0,1,2,3,4,5,6,7],"preferred",true],
