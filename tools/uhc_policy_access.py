@@ -925,6 +925,54 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: 15 and 25 mg immediate-release sprinkle capsules, distinct from 50 mg sprinkle, ER sprinkle and tablets. Capsules may be opened onto soft food and swallowed without chewing. UHC conditional PA applies at age 8 or older, not a labeled indication age. GL-572198 names ER products and 50 mg sprinkle, not this option. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=21628112-0c47-11df-95b3-498d55d89593',
             }
+        # DEC-05/06/12/13/14/19/20: exact printed weight-band kit IDs only.
+        # FDA label June 16 2026 Table 3 and linked BPCK concepts; no kit-specific claim eligibility or numeric QL inferred.
+        zolgensma_kits = {
+            'uhc-oct-complete-122631375b25a969': ('10.1-10.5', 0, 7, 2170261),
+            'uhc-oct-complete-0213c9a06e7ceeeb': ('10.6-11.0', 2, 6, 2170263),
+            'uhc-oct-complete-ff19f0cc1479f5d4': ('11.1-11.5', 1, 7, 2170265),
+            'uhc-oct-complete-23163e3715d68ae7': ('11.6-12.0', 0, 8, 2170267),
+            'uhc-oct-complete-6e07ada48071efc9': ('12.1-12.5', 2, 7, 2170274),
+            'uhc-oct-complete-156d9eb0e3a4501e': ('12.6-13.0', 1, 8, 2170297),
+            'uhc-oct-complete-bec695bbe3fb9d86': ('13.1-13.5', 0, 9, 2170257),
+            'uhc-oct-complete-4042ef9a85590d2d': ('2.6-3.0', 0, 2, 2170255),
+            'uhc-oct-complete-54785c1031f7131a': ('3.1-3.5', 2, 1, 2170247),
+            'uhc-oct-complete-52292de6d5e4f7be': ('3.6-4.0', 1, 2, 2170249),
+            'uhc-oct-complete-cf41b06d6fd22ae5': ('4.1-4.5', 0, 3, 2170251),
+            'uhc-oct-complete-fd57381446d25d5c': ('4.6-5.0', 2, 2, 2170253),
+            'uhc-oct-complete-195c447d02e43c25': ('5.1-5.5', 1, 3, 2170289),
+            'uhc-oct-complete-295e76d74fbeb575': ('5.6-6.0', 0, 4, 2170291),
+            'uhc-oct-complete-9a60913597362b45': ('6.1-6.5', 2, 3, 2170293),
+            'uhc-oct-complete-4a226682a344144b': ('6.6-7.0', 1, 4, 2170295),
+            'uhc-oct-complete-c94a751831dd15a2': ('7.1-7.5', 0, 5, 2170272),
+            'uhc-oct-complete-5954d294b103e821': ('7.6-8.0', 2, 4, 2170276),
+            'uhc-oct-complete-4396fa24871642c0': ('8.1-8.5', 1, 5, 2170279),
+            'uhc-oct-complete-6fe8632c59acf63d': ('8.6-9.0', 0, 6, 2170282),
+            'uhc-oct-complete-0b4dfcf8c2bf84a2': ('9.1-9.5', 2, 5, 2170284),
+            'uhc-oct-complete-18cd666810c8003b': ('9.6-10.0', 1, 6, 2170259),
+        }
+        if record['id'] in zolgensma_kits:
+            band, v55, v83, bpck = zolgensma_kits[record['id']]
+            assert october_name == 'zolgensma ' + band + ' kg', (record['id'], october_name)
+            assert record['pa'] == 'required' and record['preferred'] == 'non_preferred' and ql
+            code = 'GL-523191'
+            assert policies[code]['policyEffective'] == '2026-03-01'
+            branches = structured[code]['branches']
+            assert len(branches) == 2
+            assert branches[0]['fields']['Product Name']['text'] == 'Zolgensma'
+            assert branches[1]['fields']['Product Name']['text'] == 'Itvisma'
+            assert branches[0]['fields']['Approval Length']['text'] == '1 Time Authorization in Lifetime'
+            assert not matched.get(code, set()) - {0}, (record['id'], matched)
+            matched.pop(code, None)
+            add(code, [0], 'product')
+            bindings[-1]['productLabel'] = 'Zolgensma IV (general product criteria; kit applicability unverified)'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Zolgensma (Onasemnogene Abeparvovec-xioi) IV Infusion Kit ' + band + ' kg',
+                'dosageForm': 'suspension for intravenous infusion',
+                'note': f'FDA label: {band} kg patient-weight kit; {v55} x 5.5 mL and {v83} x 8.3 mL vials, each nominally 2.0 x 10^13 vg/mL. Single IV infusion only; not intrathecal Itvisma. Boxed liver injury/failure warning. Kit contents are not dose volume or payer quantity limit. UHC GL-523191 names Zolgensma once per lifetime; exact kit applicability and numeric QL remain unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=68cd4f06-70e1-40d8-bedb-609ec0afa471',
+            }
         # DEC-05/06/12/13/14/19/20: device-specific labeling only; preserve existing general named criteria.
         device_label_holds = {
             'uhc-oct-complete-49d179ce14de8e08': (
