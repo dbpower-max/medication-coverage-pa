@@ -332,6 +332,36 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: 42 mg levodopa per capsule for oral inhalation only with the Inbrija inhaler; do not swallow. Used for intermittent OFF episodes while continuing carbidopa/levodopa, not as a substitute. Nonselective MAO inhibitors within 2 weeks are contraindicated; not recommended in asthma, COPD or other chronic lung disease. UHC initial and renewal criteria are separately linked; exact payer package and numeric quantity limit remain unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=077c0f39-a3a2-4b2b-a184-09131889dcfb',
             }
+        # DEC-05/12/13/14/19/20: Increlex is mecasermin, not growth hormone.
+        # Retain the ISS exclusion distinctly from the two positive stages.
+        if record['id'] == 'uhc-oct-complete-beefc17346ab027f':
+            code = 'GL-723191'
+            assert october_name == 'increlex' and record['pa'] == 'required'
+            assert record['preferred'] == 'preferred'
+            assert policies[code]['policyEffective'] == '2026-10-18'
+            branches = structured[code]['branches']
+            def increlex_field(index, name):
+                field = branches[index]['fields'][name]
+                return ' '.join((field.get('displayText') or field['text']).split())
+            assert 'Increlex' in increlex_field(0, 'Product Name')
+            assert increlex_field(0, 'Diagnosis') == 'Idiopathic Short Stature (ISS)'
+            assert increlex_field(0, 'Approval Length').startswith('N/A')
+            for index, stage in [(21, 'Initial Authorization'), (22, 'Reauthorization')]:
+                assert increlex_field(index, 'Product Name') == 'Increlex'
+                assert increlex_field(index, 'Diagnosis') == 'Severe Primary IGF-1 Deficiency/Growth Hormone Gene Deletion'
+                assert increlex_field(index, 'Therapy Stage') == stage
+                assert increlex_field(index, 'Approval Length').startswith('12 month(s)')
+            matched.pop(code, None)
+            add(code, [0, 21, 22], 'product')
+            bindings[-1]['productLabel'] = 'Increlex (mecasermin)'
+            bindings[-1]['branchLabels'] = {'0': 'ISS — explicitly excluded, not an approval pathway', '21': 'Increlex initial', '22': 'Increlex renewal'}
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Increlex (Mecasermin) Subcutaneous Injection',
+                'dosageForm': 'subcutaneous injection',
+                'note': 'FDA label: 10 mg/mL solution in a 4 mL multidose vial, for children age 2 years and older with severe primary IGF-1 deficiency or GH gene deletion with neutralizing antibodies. Not a substitute for growth hormone. Severe hypoglycemia, including seizures: administer within 20 minutes of a meal or snack; omit dose if food is omitted. Contraindicated with closed epiphyses, pediatric malignancy or history of malignancy, or hypersensitivity. UHC explicitly excludes idiopathic short stature (ISS); separate initial and renewal criteria apply to the named IGF-1/GH gene deletion indication. Exact payer package eligibility is unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d5b2b0e1-c523-468d-9a0b-4ae4e4a8dbce',
+            }
         # DEC-05/12/13/14/19/20: exact October SC listings only.
         # The named May 2026 guideline includes a conditional nonpreferred rule.
         # Retain the structured source verbatim; scope the clinician rendering.
