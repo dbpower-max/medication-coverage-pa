@@ -602,6 +602,10 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         # DEC-05/12/13/14/19/20: exact October listing, FDA identity only.
         # GL-231255 and GL-140667 are administrative, not named product criteria.
         label_holds = {
+            'uhc-oct-complete-91e168afff6eb5db': (
+                "nuvessa", "Nuvessa (Metronidazole) 1.3% Vaginal Gel", "vaginal gel",
+                "FDA label: single 5 g prefilled applicator containing 65 mg metronidazole; for intravaginal use only, distinct from 0.75% multidose vaginal gel and topical skin gel. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",
+                "3b6ff39d-f84b-43b3-9b07-c0521c6d7968", True),
             'uhc-oct-complete-f40ecc70e4799494': (
                 "neupro", "Neupro (Rotigotine) Extended-Release Transdermal Patch", "extended-release transdermal patch",
                 "FDA label: 1, 2, 3, 4, 6 and 8 mg/24 hours delivery strengths. Remove patch before MRI or cardioversion because of burn risk. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.",

@@ -174,6 +174,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert.notEqual(gammagardRows[0],gammagardRows[1],'ambiguous Gammagard merged with S/D');
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["91e168afff6eb5db","Nuvessa (Metronidazole) 1.3% Vaginal Gel","distinct from 0.75% multidose vaginal gel",true],
   ["f40ecc70e4799494","Neupro (Rotigotine) Extended-Release Transdermal Patch","Remove patch before MRI or cardioversion",true],
   ["8ea52132ca0e6e33","Nevanac (Nepafenac) Ophthalmic Suspension","Distinct from Ilevro 0.3% suspension",true],
   ["b3fc8d5441814c1f","Nextstellis (Drospirenone / Estetrol) Oral Tablet Pack","not drospirenone/ethinyl estradiol",true],
