@@ -120,6 +120,19 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  const inbrijaDetail=await open(inbrija);
  for(const phrase of ['Initial Authorization','Reauthorization','6 month(s)','12 month(s)','Criteria source · PDF page 934<','Criteria source · PDF page 935<'])assert(inbrijaDetail.html.includes(phrase),phrase);
  assert(inbrijaDetail.ref.includes('page=934'));
+ // Increlex is not GH. ISS is an explicit denial, not a positive approval stage.
+ const increlexId='uhc-oct-complete-beefc17346ab027f';
+ const increlex=groups.find(g=>g.records.some(r=>r.id===increlexId));assert(increlex,increlexId);
+ const increlexRow=increlex.records.find(r=>r.id===increlexId);
+ assert.equal(increlexRow.pa,'required');assert.equal(increlexRow.preferred,'preferred');
+ const increlexBindings=increlexRow.uhcClinicalBindings.filter(b=>b.role==='product');
+ assert.equal(increlexBindings.length,1);assert(increlexBindings[0].policyId.endsWith('gl-723191'));assert.deepEqual(increlexBindings[0].branchIndexes,[0,21,22]);
+ assert.equal(increlexRow.reviewedPresentation.dosageForm,'subcutaneous injection');
+ const increlexCard=a.medicationGroupCard(increlex);
+ for(const phrase of ['Increlex (Mecasermin) Subcutaneous Injection','10 mg/mL','Not a substitute for growth hormone','Severe hypoglycemia','omit dose if food is omitted','explicitly excludes idiopathic short stature'])assert(increlexCard.includes(phrase),phrase);
+ assert(increlexCard.includes('href="'+increlexRow.reviewedPresentation.labelUrl+'"'));
+ const increlexDetail=await open(increlex);
+ for(const phrase of ['Idiopathic Short Stature','Initial Authorization','Reauthorization','12 month(s)','Criteria source · PDF page 732<','Criteria source · PDF page 759<','Criteria source · PDF page 761<'])assert(increlexDetail.html.includes(phrase),phrase);
  // Gammagard plain brand must not inherit route- or formulation-specific criteria.
  const gammagardRows=[];
  for(const [suffix,sd] of [['c5af301ff34ca5f3',false],['c3048c00894b30ac',true]]){
