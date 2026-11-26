@@ -336,6 +336,20 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith(code));assert.deepEqual(b[0].branchIndexes,indexes);assert(b[0].productLabel.includes(scope));
   const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
  }
+ // DEC-05/06/12/13/14/19/20: exact stage/route/form and unchanged raw benefit scope.
+ for(const [suffix,label,phrase,code,indexes,hasQL,scope] of [
+  ['a27cea08627d0ce7','Epclusa (Sofosbuvir / Velpatasvir) Oral Pellets Packet','retreatment-oriented','gl-392223',[1],true,'packet applicability and initial stage unverified'],
+  ['da63c83c6a7d29e4','Epclusa (Sofosbuvir / Velpatasvir) 200/50 mg Oral Tablet','distinct from oral pellets','gl-392223',[1],true,'200/50 mg applicability and initial stage unverified'],
+  ['f7b511540f1cf564','Esperoct (Turoctocog Alfa Pegol) Powder for Intravenous Injection','frequency criteria are not a dispensing quantity limit','gl-716187',[14],false,'authorization stage unspecified'],
+  ['32c32ab5f5ac35e6','Premarin (Conjugated Estrogens) Oral Tablet','do not treat this reference as confirmed oral criteria','gl-140685',[1],true,'oral route applicability unverified']
+ ]){
+  const id='uhc-oct-complete-'+suffix,g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'non_preferred');
+  assert.equal(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'),hasQL);
+  assert(r.uhcClinicalBindings.some(b=>b.role==='nonpreferred'));
+  const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith(code));assert.deepEqual(b[0].branchIndexes,indexes);assert(b[0].productLabel.includes(scope));
+  const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+ }
  // DEC-05/06/12/13/14/19/20: labeled device distinctions without extending general policy scope.
  for(const [suffix,label,phrase,code,indexes,preference,hasQL] of [
   ["49d179ce14de8e08","Xolair (Omalizumab) Subcutaneous Autoinjector","device only for age 12 or older","gl-713364",[0,1,2,3,4,5,6,7],"preferred",true],
