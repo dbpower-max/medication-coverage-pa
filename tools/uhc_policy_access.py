@@ -973,6 +973,31 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': f'FDA label: {band} kg patient-weight kit; {v55} x 5.5 mL and {v83} x 8.3 mL vials, each nominally 2.0 x 10^13 vg/mL. Single IV infusion only; not intrathecal Itvisma. Boxed liver injury/failure warning. Kit contents are not dose volume or payer quantity limit. UHC GL-523191 names Zolgensma once per lifetime; exact kit applicability and numeric QL remain unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=68cd4f06-70e1-40d8-bedb-609ec0afa471',
             }
+        # DEC-05/06/12/13/14/19/20: exact oncology listing identities; preserve existing payer bindings.
+        oncology_label_holds = {
+            'uhc-oct-complete-6fdc3ea2abaea52b': (
+                'zejula', 'Zejula (Niraparib) Film-Coated Oral Tablet', 'oral tablet',
+                'FDA label: 100, 200 and 300 mg tablets. UHC GL-741203 is a named oncology class policy with no separate initial/renewal stages printed for this branch; exact strength/package applicability and numeric quantity limit remain unverified.',
+                'b7f675e2-159c-490c-b6f4-3f16d9492b7d', 'GL-741203', {1}),
+            'uhc-oct-complete-47dbf4be655ad1a4': (
+                'zykadia', 'Zykadia (Ceritinib) Oral Tablet or Capsule (Payer Form Unspecified)', 'oral tablet or capsule',
+                'FDA label lists 150 mg tablets and capsules; current SPL product data lists tablets only. The UHC name does not distinguish the forms. Capsule availability and exact payer form applicability are unverified. GL-741203 does not separately identify initial/renewal stages for this branch; numeric quantity limit unverified.',
+                'fff5d805-4ffd-4e8e-8e63-6f129697563e', 'GL-741203', {1}),
+            'uhc-oct-complete-aa3337eda974b8e5': (
+                'yulithira (generic for torpenz)', 'Yulithira (Everolimus; payer reference Torpenz) Oral Tablet', 'oral tablet',
+                'FDA label: 2.5, 5, 7.5 and 10 mg conventional tablets, not tablets for oral suspension or transplant-dose everolimus. Do not combine conventional and suspension tablets. Yulithira and Torpenz have separate ANDAs. The payer reference does not establish interchangeability. GL-657254 includes seizure and other broader indications; these are not all labeled for this tablet. Exact product/indication applicability and numeric quantity limit remain unverified.',
+                '5e325efa-8ae6-4dac-b59b-d7c74c73186c', 'GL-657254', set(range(15))),
+        }
+        if record['id'] in oncology_label_holds:
+            name, label, form, note, setid, code, indexes = oncology_label_holds[record['id']]
+            assert october_name == name, (record['id'], october_name)
+            assert record['pa'] == 'required' and record['preferred'] == 'preferred' and ql
+            assert matched.get(code) == indexes, (record['id'], matched)
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': label, 'dosageForm': form, 'note': note,
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + setid,
+            }
         # DEC-05/06/12/13/14/19/20: device-specific labeling only; preserve existing general named criteria.
         device_label_holds = {
             'uhc-oct-complete-49d179ce14de8e08': (
