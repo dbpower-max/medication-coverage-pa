@@ -133,6 +133,19 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(increlexCard.includes('href="'+increlexRow.reviewedPresentation.labelUrl+'"'));
  const increlexDetail=await open(increlex);
  for(const phrase of ['Idiopathic Short Stature','Initial Authorization','Reauthorization','12 month(s)','Criteria source · PDF page 732<','Criteria source · PDF page 759<','Criteria source · PDF page 761<'])assert(increlexDetail.html.includes(phrase),phrase);
+ // Ingrezza: all four exact stages, not a blanket Sprinkle coverage assertion.
+ const ingrezzaId='uhc-oct-complete-33105a41b749978a';
+ const ingrezza=groups.find(g=>g.records.some(r=>r.id===ingrezzaId));assert(ingrezza,ingrezzaId);
+ const ingrezzaRow=ingrezza.records.find(r=>r.id===ingrezzaId);
+ assert.equal(ingrezzaRow.pa,'required');assert.equal(ingrezzaRow.preferred,'preferred');
+ const ingrezzaBindings=ingrezzaRow.uhcClinicalBindings.filter(b=>b.role==='product');
+ assert.equal(ingrezzaBindings.length,1);assert(ingrezzaBindings[0].policyId.endsWith('gl-157491'));assert.deepEqual(ingrezzaBindings[0].branchIndexes,[0,1,2,3]);
+ assert(ingrezzaRow.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+ const ingrezzaCard=a.medicationGroupCard(ingrezza);
+ for(const phrase of ['Ingrezza (Valbenazine) Oral Capsules','only Sprinkle may be opened','Exact payer eligibility for Sprinkle or kit is unverified','depression and suicidality','one active PA for one strength','numeric dispensing quantity limit remains unverified'])assert(ingrezzaCard.includes(phrase),phrase);
+ assert(ingrezzaCard.includes('href="'+ingrezzaRow.reviewedPresentation.labelUrl+'"'));
+ const ingrezzaDetail=await open(ingrezza);
+ for(const phrase of ['Initial Authorization','Reauthorization','6 month(s)','12 month(s)','Criteria source · PDF page 941<','Criteria source · PDF page 942<','Criteria source · PDF page 943<','Criteria source · PDF page 944<'])assert(ingrezzaDetail.html.includes(phrase),phrase);
  // Gammagard plain brand must not inherit route- or formulation-specific criteria.
  const gammagardRows=[];
  for(const [suffix,sd] of [['c5af301ff34ca5f3',false],['c3048c00894b30ac',true]]){
