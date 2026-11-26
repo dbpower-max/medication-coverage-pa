@@ -361,6 +361,15 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith('gl-657254'));assert.deepEqual(b[0].branchIndexes,Array.from({length:15},(_,i)=>i));assert(b[0].productLabel.includes('indication-specific applicability unverified'));
   const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('conditional on brand Afinitor/Disperz or Torpenz requests'));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
  }
+ // DEC-05/06/12/13/14/19/20: Fasenra Pen vs syringe and named (not device-specific) policy.
+ {
+  const id='uhc-oct-complete-991b6422f8bc9a8f',g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');
+  assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));assert(r.uhcClinicalBindings.some(b=>b.role==='duplication'));
+  const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith('gl-646191'));assert.deepEqual(b[0].branchIndexes,[0,1,2,3,4,5]);assert(b[0].productLabel.includes('pen-specific eligibility unverified'));
+  const card=a.medicationGroupCard(g);assert(card.includes('Fasenra Pen (Benralizumab) Subcutaneous Autoinjector'));assert(card.includes('10 mg dose requires the syringe'));assert(card.includes('caregiver or healthcare provider'));assert(card.includes('not pen-specific eligibility'));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+  const other=groups.flatMap(x=>x.records).find(x=>x.id==='uhc-oct-complete-42072ccb0efa2505');assert(other);assert(!other.reviewedPresentation?.label?.includes('Autoinjector'));assert(!other.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+ }
  // DEC-05/06/12/13/14/19/20: labeled device distinctions without extending general policy scope.
  for(const [suffix,label,phrase,code,indexes,preference,hasQL] of [
   ["49d179ce14de8e08","Xolair (Omalizumab) Subcutaneous Autoinjector","device only for age 12 or older","gl-713364",[0,1,2,3,4,5,6,7],"preferred",true],
