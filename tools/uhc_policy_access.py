@@ -745,8 +745,39 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: ' + note + ' Routine numeric quantity limit remains unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7148c8eb-b39e-e20a-6494-a6df82392858',
             }
+        # DEC-05/06/12/13/14/19/20: exact 12 mg/5 mL listing; June policy names Spinraza.
+        if record['id'] == 'uhc-oct-complete-31f36e8df6c98ba4':
+            assert october_name == 'spinraza intrathecal solution 12 mg/5ml' and pa and ql and record['preferred'] == 'non_preferred'
+            code = 'GL-618190'
+            assert policies[code]['policyEffective'] == '2026-06-01'
+            branches = structured[code]['branches']
+            assert len(branches) == 2
+            for i, (stage, length) in enumerate([('Initial Authorization', '3 month(s)'), ('Reauthorization', '12 month(s)')]):
+                fields = branches[i]['fields']
+                def spin_field(name):
+                    f = fields[name]
+                    return ' '.join((f.get('displayText') or f['text']).split())
+                assert spin_field('Product Name') == 'Spinraza'
+                assert spin_field('Therapy Stage') == stage
+                assert spin_field('Approval Length') == length
+                assert spin_field('Guideline Type') == 'Prior Authorization'
+            assert set(matched).issubset({code}), matched
+            matched.pop(code, None)
+            add(code, [0, 1], 'product')
+            bindings[-1]['productLabel'] = 'Spinraza 12 mg/5 mL intrathecal solution'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Spinraza (Nusinersen) 12 mg/5 mL Intrathecal Solution',
+                'dosageForm': 'intrathecal solution',
+                'note': 'FDA label: 12 mg/5 mL single-dose intrathecal vial for the low-dose regimen. Distinct from the 28 mg/5 mL and 50 mg/5 mL high-dose presentations. The June payer guideline updated dosing to FDA labeling but the October listing prints only 12 mg/5 mL; high-dose presentation benefit and numeric quantity limit remain unverified. Monitor platelets, coagulation and urine protein as labeled.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=dd70cd5f-b0fc-4ba4-a5ea-89a34778bd94',
+            }
         # DEC-05/06/12/13/14/19/20: label-backed identities, no extrapolated payer criteria.
         label_holds = {
+            'uhc-oct-complete-ebc77e55ddd6f0c7': (
+                'striverdi respimat', 'Striverdi Respimat (Olodaterol) Metered Inhalation Spray', 'metered inhalation spray',
+                'FDA label: 2.5 mcg per actuation, 60-actuation cartridge for Respimat oral inhalation; COPD maintenance, not rescue treatment or asthma treatment. Not the olodaterol/tiotropium combination. GL-735259 is therapeutic duplication review, not named product initial/renewal criteria. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                '5d9a5433-857e-44ea-b3d6-2a400ca0cef5', True),
             'uhc-oct-complete-22171578e784f52d': (
                 'solosec', 'Solosec (Secnidazole) Oral Granules Packet', 'oral granules packet',
                 'FDA label: 2 g secnidazole in one unit-dose packet for oral use only; do not dissolve in liquid. Contraindicated in Cockayne syndrome. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
@@ -1104,7 +1135,7 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             expected, label, form, note, label_id, has_ql = label_holds[record['id']]
             assert october_name == expected and record['pa'] == 'required'
             assert record['preferred'] == 'non_preferred' and bool(ql) == has_ql
-            allowed_administrative = {'GL-735259'} if record['id'] in {'uhc-oct-complete-4174a6295393bf8f', 'uhc-oct-complete-e48614a8896d1c42', 'uhc-oct-complete-0d5d9de3ba6af1f0', 'uhc-oct-complete-0d8138a620761a85'} else set()
+            allowed_administrative = {'GL-735259'} if record['id'] in {'uhc-oct-complete-4174a6295393bf8f', 'uhc-oct-complete-e48614a8896d1c42', 'uhc-oct-complete-0d5d9de3ba6af1f0', 'uhc-oct-complete-0d8138a620761a85', 'uhc-oct-complete-ebc77e55ddd6f0c7'} else set()
             assert not (set(matched) - allowed_administrative), ('Review newly available named criteria before use', record['id'], matched)
             record['reviewedPresentation'] = {
                 **record.get('reviewedPresentation', {}), 'separate': True,

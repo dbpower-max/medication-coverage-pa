@@ -221,8 +221,19 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const out=await open(g);for(const phrase of ['Rheumatoid Arthritis','Ankylosing Spondylitis','Psoriatic Arthritis','Ulcerative Colitis','Initial Authorization','Reauthorization','15 kg'])assert(out.html.includes(phrase),phrase);
   assert(out.ref.includes('page=1529')||out.ref.includes('page=1530'));
  }
+ {
+  const id='uhc-oct-complete-31f36e8df6c98ba4';
+  const g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'non_preferred');
+  const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith('gl-618190'));assert.deepEqual(b[0].branchIndexes,[0,1]);
+  for(const role of ['nonpreferred','global_quantity'])assert(r.uhcClinicalBindings.some(b=>b.role===role),role);
+  const card=a.medicationGroupCard(g);assert(card.includes('Spinraza (Nusinersen) 12 mg/5 mL Intrathecal Solution'));assert(card.includes('high-dose presentation benefit'));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+  const out=await open(g);for(const phrase of ['Initial Authorization','Reauthorization','3 month','12 month','SMN2','intrathecally'])assert(out.html.includes(phrase),phrase);
+  assert(out.ref.includes('page=1583')||out.ref.includes('page=1586'));
+ }
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["ebc77e55ddd6f0c7","Striverdi Respimat (Olodaterol) Metered Inhalation Spray","not rescue treatment",true],
   ["22171578e784f52d","Solosec (Secnidazole) Oral Granules Packet","do not dissolve in liquid",true],
   ["097bbd79f985a20c","Siklos (Hydroxyurea) Scored Oral Tablet","distinct from hydroxyurea capsules",true],
   ["ecf070f7d966f3c0","Simbrinza (Brinzolamide / Brimonidine Tartrate) Ophthalmic Suspension","distinct from either single ingredient",true],
