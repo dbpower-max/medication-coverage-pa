@@ -1017,7 +1017,9 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-be7159d568ed9f80'));
  assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-8ae98137dd88048f'));
  assert.equal(subtypeBNamed.length, 73);
- assert.equal(subtypeBNamed.filter(r => !scIds.has(r.id)).length, 68);
+ assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-001e5ba120fa0c78'));
+ assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-4bef2dde256711a9'));
+ assert.equal(subtypeBNamed.filter(r => !scIds.has(r.id)).length, 70);
  assert.equal(subtypeBNamed.filter(r => scIds.has(r.id)).length, 3);
  const auditedSupplies = [
   ['3b25d168e772f4bb', /BD AutoShield Duo/, 'conflict'],
