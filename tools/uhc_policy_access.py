@@ -774,6 +774,18 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             }
         # DEC-05/06/12/13/14/19/20: label-backed identities, no extrapolated payer criteria.
         label_holds = {
+            'uhc-oct-complete-9d8ad92e4e67aa1f': (
+                'tazorac (brand for tazarotene)', 'Tazorac (Tazarotene) Topical Cream or Gel (Payer Form Unspecified)', 'topical form unspecified',
+                'FDA labels: cream and gel are distinct topical formulations; the UHC listing does not specify which form is covered. Do not assume both are covered. Contraindicated during pregnancy. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                '4e4e4b81-420e-4492-8a74-80b692a80057', True),
+            'uhc-oct-complete-be7159d568ed9f80': (
+                'tezspire subcutaneous solution auto-injector', 'Tezspire (Tezepelumab-ekko) Subcutaneous Prefilled Pen', 'subcutaneous prefilled pen',
+                'FDA label: 210 mg/1.91 mL single-dose pen; patient or caregiver administration is possible after appropriate training and clinician assessment. Distinct from the healthcare-provider-administered prefilled syringe and vial. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified.',
+                '60f0aa03-ad25-4d48-80ce-7fcfa76f325f', True),
+            'uhc-oct-complete-26eaf8d3998418d6': (
+                'tezspire subcutaneous solution prefilled syringe', 'Tezspire (Tezepelumab-ekko) Subcutaneous Prefilled Syringe', 'subcutaneous prefilled syringe',
+                'FDA label: 210 mg/1.91 mL single-dose prefilled syringe for healthcare provider administration; distinct from the prefilled pen. Exact UHC product-specific initial/renewal criteria are unverified; no quantity limit printed for this listing.',
+                '60f0aa03-ad25-4d48-80ce-7fcfa76f325f', False),
             'uhc-oct-complete-e9644f76806d0c78': (
                 'sutab', 'Sutab (Sodium Sulfate / Magnesium Sulfate / Potassium Chloride) Oral Tablet Kit', 'oral tablet',
                 'FDA label: 1.479 g sodium sulfate / 0.225 g magnesium sulfate / 0.188 g potassium chloride per tablet; 24 tablets per bowel preparation kit. Distinct from Suprep oral solution. Follow label hydration instructions. Exact UHC product-specific initial/renewal criteria are unverified; no quantity limit printed for this listing.',
@@ -1144,6 +1156,8 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             assert october_name == expected and record['pa'] == 'required'
             assert record['preferred'] == 'non_preferred' and bool(ql) == has_ql
             allowed_administrative = {'GL-735259'} if record['id'] in {'uhc-oct-complete-4174a6295393bf8f', 'uhc-oct-complete-e48614a8896d1c42', 'uhc-oct-complete-0d5d9de3ba6af1f0', 'uhc-oct-complete-0d8138a620761a85', 'uhc-oct-complete-ebc77e55ddd6f0c7'} else set()
+            if record['id'] in {'uhc-oct-complete-be7159d568ed9f80', 'uhc-oct-complete-26eaf8d3998418d6'}:
+                allowed_administrative.add('GL-733328')
             assert not (set(matched) - allowed_administrative), ('Review newly available named criteria before use', record['id'], matched)
             record['reviewedPresentation'] = {
                 **record.get('reviewedPresentation', {}), 'separate': True,
