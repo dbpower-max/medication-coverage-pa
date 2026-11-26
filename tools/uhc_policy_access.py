@@ -1330,6 +1330,26 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'label': label, 'dosageForm': 'intramuscular depot suspension kit', 'note': note,
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + setid,
             }
+        # DEC-05/06/12/13/14/19/20: 300 mg hyperglycemia presentation is not the reproductive-health product.
+        if record['id'] == 'uhc-oct-complete-bfb63d261b16bc39':
+            assert october_name == 'mifepristone oral tablet 300 mg (generic for korlym)' and record['pa'] == 'required' and record['preferred'] == 'preferred' and ql
+            assert matched.get('GL-140849') == {0, 1} and matched.get('GL-434343') == {0}, (record['id'], matched)
+            matched.pop('GL-140849')
+            matched.pop('GL-434343')
+            record['excludedPolicyCode'] = 'GL-434343'
+            record['unverifiedPolicyCode'] = 'GL-140849'
+            add('GL-140849', [0, 1], 'korlym_reference')
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Mifepristone 300 mg Oral Tablet (Korlym reference)', 'dosageForm': 'oral tablet',
+                'note': 'FDA label: adult hyperglycemia secondary to endogenous Cushing syndrome in patients with type 2 diabetes or glucose intolerance who have failed surgery or are not candidates for surgery. Pregnancy contraindicated. Not equivalent to Mifeprex 200 mg. Korlym brand initial/renewal policy is a reference; generic applicability and numeric quantity limit are unverified.',
+                'labelUrl': 'https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=542f3fae-8bc8-4f00-9228-e4b66c9ad6a9',
+            }
+            sources = record.get('policySources', [])
+            excluded = [p for p in sources if p.get('policyCode') == 'GL-434343' or p.get('policyId', '').endswith('gl-434343')]
+            if excluded:
+                record['excludedPolicySources'] = excluded
+                record['policySources'] = [p for p in sources if p not in excluded]
         # DEC-05/06/12/13/14/19/20: Lybalvi product/stage and policy-supported limit, preserve raw PDL flags.
         if record['id'] == 'uhc-oct-complete-6a6a03b0a0dddc28':
             code = 'GL-722200'

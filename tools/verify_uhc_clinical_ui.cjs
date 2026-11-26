@@ -1344,6 +1344,23 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    }
  }
  console.log('PASS: Six exact UHC opioid rows preserve benefits, label caveats, and scoped PA/DUR/MME/QL references.');
+ {
+   const id='uhc-oct-complete-bfb63d261b16bc39';
+   const g=groups.find(g=>g.records.some(r=>r.id===id));
+   assert(g,id);
+   const r=g.records.find(r=>r.id===id);
+   assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');
+   const card=a.medicationGroupCard(g),bindings=a.uhcGroupBindings(g),out=await open(g);
+   assert(card.includes('Mifepristone 300 mg Oral Tablet'));
+   assert(card.includes('Pregnancy contraindicated'));
+   assert(bindings.some(b=>b.policyId.endsWith('gl-140849')&&b.role==='korlym_reference'));
+   assert(!bindings.some(b=>b.policyId.endsWith('gl-434343')||(b.policyId.endsWith('gl-140849')&&b.role==='product')));
+   assert(!out.html.includes('Criteria source · PDF page 224<'));
+   assert(!out.html.includes('Criteria source · PDF page 1015<'));
+   assert(out.html.includes('Approval criteria have not yet been verified'));
+   assert(out.ref.includes('Korlym brand policy reference'));
+   assert(data.policies.some(p=>p.policyCode==='GL-434343'),'Mifeprex source retained');
+ }
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  const bannerGroups=a.planMedicationGroups();
  const igRows=[
