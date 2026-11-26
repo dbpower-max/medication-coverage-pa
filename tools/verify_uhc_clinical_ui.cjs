@@ -800,7 +800,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  for(const term of ['aa50f2e41f4faa14','ad3656a231a145e1']){const g=groups.find(g=>g.records.some(r=>r.id==='uhc-oct-complete-'+term));assert(g,term);assert(!a.medicationGroupCard(g).includes('PA is printed in at least one source row.'),'Internal PA-column notice leaked');const out=await open(g);assert(out.html.includes('THREE')&&out.html.includes('pharmacy claims'),'Nonpreferred criteria missing');assert(out.html.includes('requested dosage cannot be achieved'),'QL exception criteria missing');assert(out.ref.includes('page=1202')&&out.ref.includes('page=702'),'Wrong UHC source');}
  const qvar=groups.find(g=>/qvar/i.test(g.label)&&a.clinicalGuidanceFor(g));if(qvar){const out=await open(qvar);assert(out.html.includes('Diagnosis of asthma'),'Existing non-PA clinical guide erased by quantity-policy loading');}
- const supplies=groups.filter(g=>g.records.some(r=>r.policyQuantityLimit));assert(supplies.length>5);
+ const supplies=groups.filter(g=>g.records.some(r=>r.policyQuantityLimit?.sourcePolicyId?.endsWith('gl-512232')));assert(supplies.length>5);
  for(const g of supplies){const out=await open(g);assert(out.html.includes('more frequent delivery of insulin'));const card=a.medicationGroupCard(g);assert(card.includes('6 pen needles per day and 6 syringes per day.'));if(g.records.every(r=>r.preferred==='preferred'))assert(!out.html.includes('unable to use a preferred'),'Preferred product got nonpreferred PA');}
  const dpp4Cases = [
   ['9f51490fe737364d', [['Alogliptin', 0]]],
