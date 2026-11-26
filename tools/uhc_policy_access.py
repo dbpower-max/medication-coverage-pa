@@ -1156,6 +1156,71 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': "FDA label: 200 mg tablet and 40 mg/mL oral suspension; pediatric patients age 6 months or older require formulation-specific weight and swallowing eligibility. Payer listing does not specify form. UHC GL-390203 requires generic oral vancomycin failure, contraindication or intolerance, or continuation of prior therapy; additional brand tablet failure or intolerance is conditional on generic tablets or brand suspension, not brand tablets. Ten-day authorization is not a numeric dispensing QL. Exact form eligibility unverified.",
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=dd966338-c820-4270-b704-09ef75fa3ceb',
             }
+        # DEC-05/06/12/13/14/19/20: exact stage review; retain original payer flags and presentation holds.
+        if record['id'] == 'uhc-oct-complete-f00d8199bade0f54':
+            assert october_name == "genotropin", (record['id'], october_name)
+            assert record['pa'] == 'required' and record['preferred'] == 'preferred' and not ql
+            code = 'GL-723191'
+            indexes = set([0,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20])
+            assert matched.get(code) == indexes, (record['id'], matched)
+            matched.pop(code)
+            add(code, sorted(indexes), 'product')
+            bindings[-1]['productLabel'] = "Genotropin named policy (includes ISS exclusion; device eligibility unverified)"
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': "Genotropin (Somatropin) Powder for Subcutaneous Injection",
+                'dosageForm': "powder for subcutaneous injection",
+                'note': "FDA label: distinct preserved 5 mg and 12 mg dual-chamber cartridges require matching PEN5/PEN12; MiniQuick is a preservative-free single-dose device. UHC GL-723191 expressly excludes idiopathic short stature despite FDA labeling; this is not an approval stage. Other policy indications are not necessarily FDA-labeled for Genotropin. Nonpreferred-only prerequisite does not apply to this preferred listing. Exact device eligibility unverified; policy supply restrictions are not a numeric dispensing QL.",
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ffebf88b-d257-4542-9808-74d9b7167765',
+            }
+        if record['id'] == 'uhc-oct-complete-e48ac36405f1549a':
+            assert october_name == "granisetron hcl oral", (record['id'], october_name)
+            assert record['pa'] == 'required' and record['preferred'] == 'preferred' and ql
+            code = 'GL-632222'
+            indexes = set([0,1,2])
+            assert matched.get(code) == indexes, (record['id'], matched)
+            matched.pop(code)
+            add(code, sorted(indexes), 'product')
+            bindings[-1]['productLabel'] = "Granisetron HCl Oral Tablet or Solution named policy (payer form unverified)"
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': "Granisetron HCl Oral Tablet or Solution (Payer Form Unverified)",
+                'dosageForm': "oral tablet or oral solution (payer form unverified)",
+                'note': "FDA labels: 1 mg tablet and Granisol 0.2 mg/mL oral solution are distinct. Payer listing does not specify form. GL-632222 has chemotherapy, radiotherapy and postoperative criteria; postoperative use is not an indication in the reviewed oral tablet label. Inability to swallow solid dosage forms and ondansetron ODT failure, contraindication or intolerance apply to Granisol only, not tablets. Numeric dispensing QL unverified.",
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=df4b6775-4337-41e0-815a-b064d98c3fe1',
+            }
+        if record['id'] == 'uhc-oct-complete-f23ca72ff27b5a94':
+            assert october_name == "hemlibra subcutaneous solution 105 mg/0.7ml, 150 mg/ml, 30 mg/ml", (record['id'], october_name)
+            assert record['pa'] == 'required' and record['preferred'] == 'non_preferred' and not ql
+            code = 'GL-716187'
+            indexes = set([10])
+            assert matched.get(code) == indexes, (record['id'], matched)
+            matched.pop(code)
+            add(code, sorted(indexes), 'product')
+            bindings[-1]['productLabel'] = "Hemlibra named policy (routine prophylaxis; stage unspecified)"
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': "Hemlibra (Emicizumab-kxwh) Subcutaneous Solution 105 mg/0.7 mL, 150 mg/mL, 30 mg/mL",
+                'dosageForm': "subcutaneous injection solution",
+                'note': "FDA label: single-dose vials at 30 mg/mL or 150 mg/mL; do not combine different concentrations in one injection. UHC GL-716187 branch 10 specifies routine hemophilia A prophylaxis and distinct severity/inhibitor criteria, 12 months, stage unspecified. Do not infer coverage for unlisted vial sizes. Nonpreferred rule remains separate; this PDL row has no numeric QL verified.",
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2483adba-fab6-4d1b-96c5-c195577ed071',
+            }
+        if record['id'] == 'uhc-oct-complete-16792cef09a93d60':
+            assert october_name == "hemlibra subcutaneous solution 60 mg/0.4ml", (record['id'], october_name)
+            assert record['pa'] == 'required' and record['preferred'] == 'non_preferred' and ql
+            code = 'GL-716187'
+            indexes = set([10])
+            assert matched.get(code) == indexes, (record['id'], matched)
+            matched.pop(code)
+            add(code, sorted(indexes), 'product')
+            bindings[-1]['productLabel'] = "Hemlibra named policy (routine prophylaxis; stage unspecified)"
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': "Hemlibra (Emicizumab-kxwh) Subcutaneous Solution 60 mg/0.4 mL",
+                'dosageForm': "subcutaneous injection solution",
+                'note': "FDA label: 60 mg/0.4 mL single-dose vial is 150 mg/mL, not 30 mg/mL; do not combine different concentrations in one injection. UHC GL-716187 branch 10 specifies routine hemophilia A prophylaxis and distinct severity/inhibitor criteria, 12 months, stage unspecified. Nonpreferred rule remains separate. This PDL row has an explicit QL flag; numeric dispensing QL unverified.",
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2483adba-fab6-4d1b-96c5-c195577ed071',
+            }
         # DEC-05/06/12/13/14/19/20: device-specific labeling only; preserve existing general named criteria.
         device_label_holds = {
             'uhc-oct-complete-49d179ce14de8e08': (
