@@ -188,6 +188,9 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(pertzyeGroups.every(Boolean));assert.notEqual(pertzyeGroups[0],pertzyeGroups[1],'Pertzye strength-specific QL must not merge');
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
+  ["097bbd79f985a20c","Siklos (Hydroxyurea) Scored Oral Tablet","distinct from hydroxyurea capsules",true],
+  ["ecf070f7d966f3c0","Simbrinza (Brinzolamide / Brimonidine Tartrate) Ophthalmic Suspension","distinct from either single ingredient",true],
+  ["21d7009b80e338fa","Simponi (Golimumab) Subcutaneous Injection (Device Unspecified)","distinct from intravenous Simponi Aria",true],
   ["45bccbf7d28f0d2d","Rasuvo (Methotrexate) Subcutaneous Autoinjector","Once weekly, never daily",true],
   ["787fc9bd1b5d7710","Rayaldee (Calcifediol) Extended-Release Oral Capsule","distinct from calcitriol and cholecalciferol",true],
   ["0d8138a620761a85","Rezvoglar KwikPen (Insulin Glargine-aglr) Subcutaneous Prefilled Pen","Do not withdraw insulin from the pen into a syringe",true],
@@ -301,6 +304,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const out=await open(g);assert(out.ref.includes('page=702'),id+' quantity source');
  }
  {const id='uhc-oct-complete-0d8138a620761a85';const g=groups.find(x=>x.records.some(r=>r.id===id));const r=g.records.find(x=>x.id===id);assert(r.uhcClinicalBindings.some(b=>b.role==='duplication'&&b.policyId.endsWith('gl-735259')),id+' duplication reference retained');}
+ {const id='uhc-oct-complete-21d7009b80e338fa';const g=groups.find(x=>x.records.some(r=>r.id===id));const r=g.records.find(x=>x.id===id);assert(r.uhcClinicalBindings.some(b=>b.role==='duplication'&&b.policyId.endsWith('gl-733328')),id+' duplication reference retained');}
  const octreotideGroups=[];
  for(const [suffix,label,phrase,hasQL,hasProduct] of [
   ['f02ebb3ed15163c2','Octreotide Acetate 1000 mcg/mL Non-Depot Injection Solution','1000 mcg/mL in a 5 mL multidose vial',true,false],
