@@ -202,6 +202,8 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   ["e8f1bcbf0e4fa7a5","Vigamox (Moxifloxacin) Ophthalmic Solution","not for systemic use or intraocular injection",true],
   ["9d0f4cda9a3a81e0","Suprep Bowel Prep Kit (Sodium / Potassium / Magnesium Sulfates) Oral Solution Concentrate","does not distinguish the kits",true],
   ["140a0740fb8177a5","Natazia (Estradiol Valerate / Dienogest) Multiphasic Oral Tablet Pack","not a single fixed-dose combination tablet",true],
+  ["20d43250059212cb","Plegridy Starter Pack (Peginterferon Beta-1a) Subcutaneous Prefilled Syringe Pack","distinct from the SC pen starter pack",true],
+  ["73bdfcbd8ed83459","Pred Forte (Prednisolone Acetate) Ophthalmic Suspension","not a payer duration limit",true],
   ["5084711389d55a87","Mayzent Starter Pack (Siponimod) Oral Tablet Titration Pack","does not distinguish the two starter packs",true],
   ["7ae59a9be90894fb","Lialda (Mesalamine) Delayed-Release Oral Tablet","not a mesalamine capsule, enema or suppository",true],
   ["3e5ea0bc90a6979f","Lyumjev (Insulin Lispro-aabc) Injectable Solution (Device Unspecified)","does not identify a device or concentration",true],
