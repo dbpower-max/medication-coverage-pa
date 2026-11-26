@@ -922,6 +922,16 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'Octreotide Acetate Depot Intramuscular Injectable Suspension',
                 'powder for injectable suspension', 'FDA label example: 10, 20 and 30 mg kits for gluteal intramuscular administration, not non-depot subcutaneous or intravenous solution. Exact payer kit and medical benefit applicability are unverified; QL not specified.',
                 'd9739ea6-74de-4a41-a806-6e827a23cedb', False),
+            'uhc-oct-complete-cd9f5afab9cb36c4': (
+                'octreotide acetate subcutaneous solution prefilled syringe 100 mcg/ml, 50 mcg/ml',
+                'Octreotide Acetate 50 or 100 mcg/mL Subcutaneous Prefilled Syringe',
+                'subcutaneous solution prefilled syringe', 'FDA label example: 50 or 100 mcg/mL in separate 1 mL single-dose prefilled syringes; not a vial, pen or depot suspension. Exact payer package is unverified; QL not specified.',
+                '2d78d5d1-77b2-4da1-98d4-d9c36e743ce2', False),
+            'uhc-oct-complete-1e81e13b95303948': (
+                'octreotide acetate subcutaneous solution prefilled syringe 500 mcg/ml',
+                'Octreotide Acetate 500 mcg/mL Subcutaneous Prefilled Syringe',
+                'subcutaneous solution prefilled syringe', 'FDA label example: 500 mcg/mL in a 1 mL single-dose prefilled syringe; not a vial, pen or depot suspension. Exact payer package and numeric quantity limit are unverified.',
+                '2d78d5d1-77b2-4da1-98d4-d9c36e743ce2', True),
         }
         if record['id'] in octreotide_presentations:
             expected, label, form, note, label_id, has_ql = octreotide_presentations[record['id']]
@@ -930,7 +940,7 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             record['reviewedPresentation'] = {
                 **record.get('reviewedPresentation', {}), 'separate': True,
                 'label': label, 'dosageForm': form,
-                'note': note + ' UHC GL-140960 names generic octreotide but does not specify this concentration or depot package. Exact prescribing-option criteria remain unverified. Mycapssa-specific initiation criteria are separate.',
+                'note': note + ' UHC GL-140960 names generic octreotide but does not specify this concentration, device or depot package. Exact prescribing-option criteria remain unverified. Mycapssa-specific initiation criteria are separate.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + label_id,
             }
         # DEC-05/12/13/14/19/20: distinguish the packet from other raltegravir forms.
