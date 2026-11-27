@@ -324,6 +324,8 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  // DEC-05/06/12/13/14/19/20: preserve stage bindings and explicitly qualify option scope.
  for(const [suffix,label,phrase,code,indexes,pref,scope] of [
+  ["58a2f3badd7c3382","Taltz (Ixekizumab) 80 mg/1 mL Subcutaneous Autoinjector","no 20 or 40 mg autoinjector presentation","gl-329199",[0,1,2,3,4,5],"non_preferred","Taltz named indication-specific initial and renewal branches; exact total-dose eligibility unverified"],
+  ["485dde62468c1d08","Taltz (Ixekizumab) 80 mg/mL Subcutaneous Prefilled Syringe","does not establish eligibility for all three total doses","gl-329199",[0,1,2,3,4,5],"non_preferred","Taltz named indication-specific initial and renewal branches; exact total-dose eligibility unverified"],
   ["0880d90b2d07a0d1","Takhzyro (Lanadelumab-flyo) 150 mg/1 mL Subcutaneous Prefilled Syringe","150 mg/1 mL pediatric syringe (ages 2 to under 12","gl-546227",[0],"non_preferred","Takhzyro named HAE prophylaxis; authorization stage unspecified"],
   ["9ae34e546b3d65a3","Takhzyro (Lanadelumab-flyo) 300 mg/2 mL Subcutaneous Prefilled Syringe","300 mg/2 mL syringe for labeled dosing in adults and children 12 years or older","gl-546227",[0],"non_preferred","Takhzyro named HAE prophylaxis; authorization stage unspecified"],
   ["4441369e2fb0eda6","Tafinlar (Dabrafenib) Oral Capsule or Tablet for Oral Suspension (payer form unverified)","suspension tablets must be dispersed","gl-741203",[1],"preferred","Tafinlar named oral oncology branch; exact payer formulation unverified"],
@@ -349,6 +351,16 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   if(pref==='non_preferred')assert(r.uhcClinicalBindings.some(b=>b.role==='nonpreferred'));
   const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith(code));assert.deepEqual(b[0].branchIndexes,indexes);assert(b[0].productLabel.includes(scope));
   const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+ }
+ // DEC-05/06/12/13/14/19/20: Taltz device-specific groups and duplication reference retained.
+ {
+  const ids=['uhc-oct-complete-58a2f3badd7c3382','uhc-oct-complete-485dde62468c1d08'];
+  const gs=ids.map(id=>groups.find(g=>g.records.some(r=>r.id===id)));
+  assert(gs[0]&&gs[1]&&gs[0]!==gs[1]);
+  for(let i=0;i<ids.length;i++){
+   const r=gs[i].records.find(r=>r.id===ids[i]);
+   assert(r.uhcClinicalBindings.some(b=>b.role==='duplication'&&b.policyId.endsWith('gl-733328')));
+  }
  }
  // DEC-05/06/19: distinct syringe groups; retain printed AL only on the 150 mg/mL payer row.
  {
