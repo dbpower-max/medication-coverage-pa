@@ -569,6 +569,18 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   assert(r.uhcClinicalBindings.some(b=>b.role===(preference==='preferred'?'duplication':'nonpreferred')));
   const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('exact device/package applicability is unverified'));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
  }
+ // Uceris must not inherit the Entocort EC Crohn disease policy.
+ {
+  const id='uhc-oct-complete-07fe2aebae5a0ba6',g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'non_preferred');
+  assert(!r.uhcClinicalBindings.some(b=>b.role==='product'||b.policyId.endsWith('gl-140639')));
+  for(const [role,code] of [['duplication','gl-735259'],['nonpreferred','gl-231255'],['global_quantity','gl-140667']])assert(r.uhcClinicalBindings.some(b=>b.role===role&&b.policyId.endsWith(code)),role);
+  const card=a.medicationGroupCard(g);
+  for(const phrase of ['Uceris (Budesonide) Extended-Release Oral Tablet or Rectal Foam (Payer Form Unspecified)','2 mg/actuation rectal foam','Exact UHC product-specific initial/renewal criteria'])assert(card.includes(phrase),phrase);
+  assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+  const out=await open(g);assert(!out.ref.includes('page=550'));assert(out.ref.includes('page=1202'));assert(out.ref.includes('page=702'));
+  assert(groups.some(x=>x.records.some(r=>r.id!==id&&r.uhcClinicalBindings?.some(b=>b.role==='product'&&b.policyId.endsWith('gl-140639')))));
+ }
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [
   ["d6b49b27961f969c","Vascepa (Icosapent Ethyl) Oral Capsule","distinct from mixed EPA/DHA",true],
