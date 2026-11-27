@@ -1459,6 +1459,7 @@
     }
     if (record.sourceUpdates?.length) details.push('<p><strong>Later applicable sources:</strong></p>' + record.sourceUpdates.map(item =>
       `<p>${item.scope === 'statewide_reference' ? 'AHCCCS Statewide' : 'Plan notice'} · <a href="${escapeHtml(sourceHref(item))}" target="_blank" rel="noopener">${escapeHtml(item.name)} · ${escapeHtml(item.sourceEffective)}</a>${item.paText ? ' · ' + escapeHtml(item.paText) : ''}</p>`).join(''));
+    if (record.achProviderRule) details.push(`<p><strong>Plan PA rule:</strong> ${escapeHtml(record.achProviderRule.text)} <a href="${escapeHtml(record.achProviderRule.sourceUrl)}" target="_blank" rel="noopener">Provider pharmacy page ↗</a> · accessed ${escapeHtml(record.achProviderRule.observedDate)}.</p>`);
     if (record.quantityLimited && !record.qlAmount && !record.qlDays) details.push('<p><strong>Quantity limit:</strong> The source lists a limit without specifying an amount or interval.</p>');
     if (hasVerifiedMandatedCoverage(record)) details.push('<p><strong>Coverage source:</strong> AHCCCS-mandated minimum</p>');
     if (record.policyEffective) details.push(`<p><strong>Policy effective:</strong> ${escapeHtml(record.policyEffective)} · source document snapshot ${escapeHtml(record.sourceEffective)}</p>`);
@@ -2745,6 +2746,7 @@
           ${avivaConflict ? '<p class="pa-condition"><strong>UHC source conflict:</strong> The formulary names the Aviva device and aliases it to a control solution. Exact meter package eligibility is unverified.</p>' : ''}
           ${gvoke ? `<p class="pa-condition"><strong>FDA-labeled presentation:</strong> ${escapeHtml(gvoke.dose)}. UHC does not specify eligible strengths. <a class="source-link" href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=92385737-dbad-98c5-e053-2995a90a2805" target="_blank" rel="noopener">Drug label ↗</a></p>` : ''}
           ${presentation?.note ? `<p class="pa-condition">${escapeHtml(presentation.note)}</p>` : ''}
+          ${record.achProviderRule ? `<p class="pa-condition">${escapeHtml(record.achProviderRule.text)} <a class="source-link" href="${escapeHtml(record.achProviderRule.sourceUrl)}" target="_blank" rel="noopener">Plan PA rule ↗</a></p>` : ''}
 
           ${presentation?.deviceSourceUrl ? `<p><a class="source-link" href="${escapeHtml(presentation.deviceSourceUrl)}" target="_blank" rel="noopener">Device reference ↗</a></p>` : ''}
           ${presentation?.billingUrl ? `<p><a class="source-link" href="${escapeHtml(presentation.billingUrl)}" target="_blank" rel="noopener">Plan billing notice ↗</a></p>` : ''}
