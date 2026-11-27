@@ -1696,6 +1696,25 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    assert(out.ref.includes('Korlym brand policy reference'));
    assert(data.policies.some(p=>p.policyCode==='GL-434343'),'Mifeprex source retained');
  }
+ // DEC-07/12/13: non-codeine butalbital combinations must not inherit opioid criteria.
+ for(const suffix of ['b9f5b988aebc0354','ce66a913c6ccea34']){
+   const id='uhc-oct-complete-'+suffix;
+   const g=a.planMedicationGroups().find(group=>group.records.some(r=>r.id===id));assert(g,id);
+   const r=g.records.find(r=>r.id===id);
+   assert.equal(r.pa,'not_specified',id);assert.equal(r.preferred,'preferred',id);
+   assert(r.qlAmount||r.qlDays,id+' printed QL lost');
+   assert(!r.policyQuantityLimit,id+' unsupported numeric limit');
+   const exact={...g,key:(g.key||g.label)+'-butalbital-'+suffix,records:[r],isStatewide:false,statewideRecord:null};
+   const bindings=a.uhcGroupBindings(exact);
+   assert(bindings.some(b=>b.role==='global_quantity'&&b.policyId.endsWith('gl-140667')&&b.branchIndexes.join(',')==='0'),id+' general exception missing');
+   assert(!bindings.some(b=>b.policyId.endsWith('gl-711768')||['product','nonpreferred','concurrent_opioid_dur','mme_exception','duplication'].includes(b.role)),id+' unrelated opioid or PA policy');
+   const out=await open(exact);
+   assert(out.html.includes('Quantity-limit exceptions'),id);
+   assert(out.html.includes('Criteria source · PDF page 702<'),id);
+   for(const phrase of ['Concurrent opioid therapy (DUR)','Cumulative MME exceptions','Therapeutic duplication exceptions','Criteria source · PDF page 1515<'])assert(!out.html.includes(phrase),id+' '+phrase);
+   assert(!out.ref.includes('gl-711768'),id+' wrong source');
+ }
+ console.log('PASS: Two non-codeine butalbital rows retain general QL exception without unrelated opioid criteria.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  const bannerGroups=a.planMedicationGroups();
  const igRows=[
