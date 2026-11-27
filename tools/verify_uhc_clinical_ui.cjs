@@ -324,6 +324,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  // DEC-05/06/12/13/14/19/20: preserve stage bindings and explicitly qualify option scope.
  for(const [suffix,label,phrase,code,indexes,pref,scope] of [
+  ["8257acba5d319b90","Tadliq (Tadalafil) 4 mg/mL Oral Suspension","BOTH a preferred ERA and a preferred PDE5 inhibitor","gl-715293",[0,1],"non_preferred","Tadliq named PAH initial and renewal; brand-specific prerequisites not applicable"],
   ["328b543e61dac94c","Soliris (Eculizumab) Intravenous Infusion","not approved at this time","gl-665191",[8],"non_preferred","Soliris named nonpreferred denial branch; preferred-product stages not applicable"],
   ["9cee96f8a5ed61f0","Spinosad 0.9% Topical Suspension (payer reference Natroba)","head lice only","gl-140732",[0],"preferred","Generic spinosad head lice only; brand-only prerequisite not applicable"],
   ["7d1104aafbbc73e5","Sunitinib Malate Oral Capsule (payer reference Sutent)","Exact generic applicability","gl-140925",[0,1,2,3,4,5,6,7,8,9,10],"preferred","Sutent brand reference only (generic applicability unverified)"],
