@@ -1032,7 +1032,35 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'PDL lists 1 mg and 5 mg; 2 mg exists in FDA labeling but coverage is not established here. Reconstituted concentration 1 mg/mL. Distinct from NovoSeven RT (eptacog alfa). Named payer policy: hemophilia A or B with documented inhibitors and surgical bleeding management or treatment of bleeding episodes; 12 months, stage unspecified. FDA indication: bleeding episodes in patients aged 12 years or older with hemophilia A/B and inhibitors; payer surgical wording is not an additional FDA indication. Rabbit allergy contraindication and thrombotic warning. No numeric payer quantity limit verified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b23ad666-8ce0-4e0b-9eff-c6983ac5f7e6',
             }
+        # DEC-05/06/12/13/14/19/20: RFA10471/10472 brand inhalation products have a separate CF policy branch.
+        tobramycin_brand_review = {
+            'uhc-oct-complete-841be494148100e0': ('bethkis (brand for tobramycin)', {0,1,2},
+                'Bethkis (Tobramycin) 300 mg/4 mL Inhalation Solution',
+                'inhalation solution', 'FDA label: 300 mg/4 mL (75 mg/mL) inhalation solution, not the 300 mg/5 mL solution or dry powder. CF with Pseudomonas aeruginosa; safety and efficacy have not been demonstrated below age 6. Use the labeled compatible nebulizer. UHC GL-140865 branch 0: brand Bethkis or Kitabis, CF diagnosis, 12 months, authorization stage unspecified. The separate TOBI or generic solution/Podhaler initial and renewal branches do not apply. Numeric dispensing QL and exact package eligibility are unverified.',
+                '1cd3d47b-025f-4705-9daf-cf07725ec223'),
+            'uhc-oct-complete-f442cc5561ca580f': ('kitabis pak (w/ nebulizer) (brand for tobramycin)', {1,2},
+                'Kitabis Pak (Tobramycin) 300 mg/5 mL Inhalation Solution with Nebulizer',
+                'inhalation solution with nebulizer', 'FDA label: 300 mg/5 mL (60 mg/mL) inhalation solution supplied with nebulizer; not the 300 mg/4 mL solution or dry powder. UHC GL-140865 branch 0: Kitabis or brand Bethkis, CF diagnosis, 12 months, authorization stage unspecified. TOBI and generic solution/Podhaler initial and renewal branches do not apply; do not require failure of Kitabis itself. Numeric dispensing QL and exact package eligibility are unverified.',
+                'da1e5afd-d707-4af1-8935-8195ba6d769f'),
+        }
+        if record['id'] in tobramycin_brand_review:
+            name, old_indexes, label, form, note, setid = tobramycin_brand_review[record['id']]
+            assert october_name == name and record['pa'] == 'required' and record['preferred'] == 'preferred' and ql
+            code = 'GL-140865'
+            assert matched.get(code) == old_indexes, (record['id'], matched)
+            matched.pop(code)
+            add(code, [0], 'product')
+            bindings[-1]['productLabel'] = 'Brand Bethkis or Kitabis CF criteria (authorization stage unspecified)'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': label, 'dosageForm': form, 'note': note,
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + setid,
+            }
         stage_scope_review = {
+            'uhc-oct-complete-9d7cd2da3755e879': (
+                'tetrabenazine (generic for xenazine)', 'Tetrabenazine Oral Tablet (Generic Xenazine)', 'oral tablet',
+                'FDA label: 12.5 and 25 mg oral tablets for chorea associated with Huntington disease. Boxed warning: depression and suicidality; contraindicated in active suicidality, untreated or inadequately treated depression, and hepatic impairment. CYP2D6 genotyping is required before doses above 50 mg/day. UHC GL-720194: Huntington chorea 12 months (stage unspecified); tardive dyskinesia and Tourette syndrome off-label initial and renewal branches, 12 months each. The step through generic tetrabenazine is for brand Xenazine only, not this generic product. Exact payer strength eligibility and numeric dispensing QL unverified.',
+                '5042f30c-c922-4835-bf6d-40905f2dc76c', 'GL-720194', {0,1,2,3,4}, 'preferred', 'Generic tetrabenazine; brand-only step does not apply'),
             'uhc-oct-complete-58a2f3badd7c3382': (
                 "taltz subcutaneous solution auto-injector", "Taltz (Ixekizumab) 80 mg/1 mL Subcutaneous Autoinjector", "subcutaneous autoinjector",
                 "FDA label: 80 mg/1 mL single-dose autoinjector (SBD 1745108, SCD 1745103); no 20 or 40 mg autoinjector presentation. Pediatric administration by healthcare provider or trained caregiver; do not infer lower-dose syringe coverage from this autoinjector listing. UHC GL-329199 has six named branches, all 12 months. Plaque psoriasis initial: 3% or more BSA or special-site/severe scalp disease; conventional topical trial, maximally indicated methotrexate for 3 months within the last 6 months unless exceptions, Vtama or Zoryve 0.3%, and all listed systemic-agent groups. Psoriatic arthritis initial: active disease, methotrexate criterion and all listed systemic-agent groups. Axial disease initial: active AS or nr-axSpA, two NSAID trials and all listed systemic-agent groups. Renewal: documented positive response and same specialist requirements (dermatology for psoriasis, dermatology or rheumatology for PsA, rheumatology for axial disease). See full linked criteria for exact alternatives and exceptions. FDA label: psoriasis from age 6; PsA, AS and nr-axSpA adult indications; nr-axSpA requires objective inflammation. Exact payer total-dose and package eligibility and numeric dispensing QL remain unverified.",
