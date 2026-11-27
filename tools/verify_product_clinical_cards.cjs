@@ -61,6 +61,8 @@ for(const [id,dose] of [['ach-json-1996189','100 mg/0.5 mL'],['ach-json-1996193'
  const reference=expanded.target.innerHTML.match(/<details class="result-disclosure statewide-criteria-reference"><summary>AHCCCS Statewide · Fee-for-service criteria<\/summary>[\s\S]*?<\/details>/);
  assert(reference,id+' missing separately labeled statewide criteria');
  assert(reference[0].includes('Initial Authorization') && reference[0].includes('Reauthorization'),id+' missing statewide stages');
+ const statewidePages=Array.from(reference[0].matchAll(/ahcccs-ffs-pa-criteria[^"#]*#page=(\d+)/g),match=>Number(match[1]));
+ assert.deepEqual(statewidePages,[1696,1698],id+' statewide links must land on the printed stage and its criteria');
  assert(!expanded.target.innerHTML.replace(reference[0],'').includes('Treatment stage:'),id+' statewide stages displayed as plan criteria');
  assert(!r.achProviderRule,id+' mono rule must not transfer');
 }
