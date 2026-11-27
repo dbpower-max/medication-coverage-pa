@@ -46,6 +46,43 @@ for brand, ingredient, preference, payer_name, label_id in (
         },
     })
 data = with_ach_baseline(data)
+# DEC-06/07/08/19/20, RFA3857-3859, 498/500: distinguish label
+# presentation from the dated payer preference and raw source benefit fields.
+# The current provider special note has no printed effective date; retain
+# it as separately attributed exact-plan rule evidence, not a dated override.
+ach_oud_rows = {
+    'ach-json-1996189': ('Sublocade 100 mg/0.5 mL Extended-Release Subcutaneous Injection', '100 mg/0.5 mL'),
+    'ach-json-1996193': ('Sublocade 300 mg/1.5 mL Extended-Release Subcutaneous Injection', '300 mg/1.5 mL'),
+    'ach-notice-13951': ('Sublocade Extended-Release Subcutaneous Injection (Plan Notice; Strength Unspecified)', None),
+}
+ach_oud_seen = set()
+for record in data['medications']:
+    rid = record['id']
+    if rid in ach_oud_rows:
+        assert record['planId'] == 'az-complete-health'
+        label, dose = ach_oud_rows[rid]
+        if dose:
+            assert record['baselineSource']['values']['prior_authorization'] is True
+            note = f'FDA label: {dose} prefilled single-dose syringe (200 mg/mL), extended-release subcutaneous injection only; never administer intravenously. REMS distribution. The October preference notice does not specify a strength. Exact plan initial/renewal criteria are unverified.'
+        else:
+            assert record['sourceEffective'] == '2026-10-01'
+            note = 'The October plan notice names the subcutaneous product without specifying a strength or PA field. Refer to the separate 100 mg/0.5 mL and 300 mg/1.5 mL presentations for product-level benefit evidence. FDA label: extended-release SC injection only; never administer intravenously. REMS distribution.'
+        record['reviewedPresentation'] = {
+            'separate': True, 'label': label, 'dosageForm': 'extended-release subcutaneous injection',
+            'note': note, 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6189fb21-9432-45f8-8481-0bfaf3ccde95',
+        }
+        ach_oud_seen.add(rid)
+    elif rid in ('ach-json-351264', 'ach-json-351265'):
+        assert record['planId'] == 'az-complete-health' and 'naloxone' not in record['name'].lower()
+        record['achProviderRule'] = {
+            'sourceUrl': 'https://www.azcompletehealth.com/providers/pharmacy.html',
+            'sourceTitle': 'Integrated Preferred Drug List: Special Note on Buprenorphine tablets',
+            'effectiveDate': None, 'observedDate': '2026-11-27',
+            'rawText': 'PA REQUIRED unless the member is pregnant or nursing.',
+            'text': 'Arizona Complete Health provider pharmacy page: PA is required except for pregnancy or nursing, with specified diagnosis codes on the prescription to enable the pharmacy override. The rule has no printed effective date.',
+        }
+        ach_oud_seen.add(rid)
+assert ach_oud_seen == set(ach_oud_rows) | {'ach-json-351264', 'ach-json-351265'}
 correct_source_restrictions(data['medications'])
 correct_source_conflicts(data['medications'])
 attach_provider_policies(data)
