@@ -1419,6 +1419,29 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert.match(macrobid.label, /Monohydrate \/ Macrocrystals Capsules/);
  assert.equal(new Set([macro,macrobid,findExact('9e0eb4cf3a3dfd2b')]).size, 3);
  console.log('PASS: 115 UHC records retain exact product restrictions, policy scope and provider-facing labels.');
+ // RFA7214/7217/7891/9578/9582/10518: preserve raw PA blanks;
+ // show the named conditional criteria, not routine PA or nonpreferred criteria.
+ for(const [suffix,code,expected,phrases] of [
+   ['a841792cf30bee6f','505191',[['quantity',2,3]],['Initial Authorization','Reauthorization']],
+   ['a5088ca393297b4a','505191',[['quantity',2,3]],['Initial Authorization','Reauthorization']],
+   ['6e7e06e8657df79b','689195',[['age_scoped',0]],['Age-specific PA criteria','nonpreferred-only requirements do not apply']],
+   ...['f5ebe102d96cbef6','32decb2050f7e3d9','6371103ae0c5c972'].map(s=>[s,'711768',[['duplication',2],['concurrent_opioid_dur',0],['mme_exception',6,7,8],['quantity',3,4,5]],['Therapeutic duplication exceptions','Concurrent opioid therapy (DUR)','Cumulative MME exceptions','Quantity-limit exceptions']])
+ ]){
+   const id='uhc-oct-complete-'+suffix;
+   const g=groups.find(g=>g.records.some(r=>r.id===id));assert(g,id);
+   const r=g.records.find(r=>r.id===id);
+   assert.equal(r.pa,'not_specified',id);assert.equal(r.preferred,'preferred',id);
+   assert(r.qlAmount||r.qlDays,id);
+   assert.deepEqual(r.uhcClinicalBindings.filter(b=>b.policyId.endsWith('gl-'+code)).map(b=>[b.role,...b.branchIndexes]),expected,id);
+   assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'),id);
+   const exact={...g,key:(g.key||g.label)+'-blank-'+suffix,records:[r],isStatewide:false,statewideRecord:null};
+   const detail=await open(exact);
+   for(const phrase of phrases)assert(detail.html.includes(phrase),id+' '+phrase);
+   assert(!detail.html.includes('PA is required. Approval criteria'),id);
+   if(code==='711768')assert(detail.html.includes('Criteria source · PDF page 1515<'),id);
+   if(code==='505191')assert(detail.html.includes('Criteria source · PDF page 1616<'),id);
+ }
+ console.log('PASS: six exact preferred UHC raw-blank rows preserve flags and correctly scoped conditional policies.');
  // RFA10092: exact October Roxybond; keep policy exception scopes separate.
  const roxyId='uhc-oct-complete-ccae7c796c8a0833';
  const roxy=groups.find(g=>g.records.some(r=>r.id===roxyId));assert(roxy,roxyId);

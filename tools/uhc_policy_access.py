@@ -283,6 +283,61 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                     indexes.add(i)
             assert indexes, (code, product)
             matched[code] = indexes
+        # DEC-07/12/13/14/20 POL-01: exact named conditional rules on preferred
+        # October rows with blank printed PA. Preserve original flags and scopes.
+        blank_short_acting = {
+            'uhc-oct-complete-f5ebe102d96cbef6': ('oxycodone hcl oral solution', 'oxycodone caps/conc/soln/tabs'),
+            'uhc-oct-complete-32decb2050f7e3d9': ('oxycodone hcl oral tablet (generic for roxicodone)', 'oxycodone caps/conc/soln/tabs'),
+            'uhc-oct-complete-6371103ae0c5c972': ('tramadol hcl oral tablet 50 mg', 'tramadol tabs'),
+        }.get(record['id'])
+        if blank_short_acting:
+            name, product = blank_short_acting
+            assert october_name == name and record['pa'] == 'not_specified' and record['preferred'] == 'preferred' and ql
+            code = 'GL-711768'
+            assert policies[code]['policyEffective'] == '2026-10-01'
+            branches = structured[code]['branches']
+            def scoped_field(i, name):
+                f = branches[i]['fields'].get(name, {})
+                return ' '.join((f.get('displayText') or f.get('text', '')).split())
+            assert len(branches) == 9
+            assert all(product in scoped_field(i, 'Product Name') for i in (0, 2, 3, 4, 5, 6, 7, 8))
+            assert scoped_field(0, 'Guideline Type') == 'DUR'
+            assert 'MAT and other Opioids' in scoped_field(0, 'Diagnosis')
+            assert scoped_field(1, 'Diagnosis') == 'Non-Preferred'
+            assert '> 2 Short Acting Opioids' in scoped_field(2, 'Diagnosis')
+            assert all(scoped_field(i, 'Guideline Type') == 'Quantity Limit' for i in (3, 4, 5))
+            assert all('90 MME Cumulative Threshold' in scoped_field(i, 'Diagnosis') for i in (6, 7, 8))
+            assert scoped_field(7, 'Therapy Stage') == 'Initial Authorization'
+            assert scoped_field(8, 'Therapy Stage') == 'Reauthorization'
+            matched.pop(code, None)
+            add(code, [2], 'duplication')
+            add(code, [0], 'concurrent_opioid_dur')
+            add(code, [6, 7, 8], 'mme_exception')
+            add(code, [3, 4, 5], 'quantity')
+        if record['id'] == 'uhc-oct-complete-a5088ca393297b4a':
+            assert october_name == 'buprenorphine hcl-naloxone hcl sublingual tablet sublingual'
+            assert record['pa'] == 'not_specified' and record['preferred'] == 'preferred' and ql
+            code = 'GL-505191'
+            assert policies[code]['policyEffective'] == '2026-02-01'
+            branches = structured[code]['branches']
+            for i, stage in [(2, 'Initial Authorization'), (3, 'Reauthorization')]:
+                fields = branches[i]['fields']
+                assert 'buprenorphine/naloxone sublingual tablet' in fields['Product Name']['text'].lower()
+                assert fields['Therapy Stage']['text'] == stage
+                typ = fields['Guideline Type']['text'].split('UnitedHealthcare Community Plan of Arizona')[0].strip()
+                assert typ == 'Quantity Limit', fields['Guideline Type']['text']
+            matched.pop(code, None)
+            add(code, [2, 3], 'quantity')
+        if record['id'] == 'uhc-oct-complete-6e7e06e8657df79b':
+            assert october_name == 'dextroamphetamine sulfate oral tablet (generic for zenzedi)'
+            assert record['pa'] == 'not_specified' and record['preferred'] == 'preferred' and ql
+            code = 'GL-689195'
+            assert policies[code]['policyEffective'] == '2026-08-13'
+            branch = structured[code]['branches'][0]
+            assert 'generic dextroamphetamine tabs' in branch['fields']['Product Name']['text'].lower()
+            matched.pop(code, None)
+            add(code, [0], 'age_scoped')
+            bindings[-1]['productLabel'] = 'Generic dextroamphetamine oral tablets (PA criteria for age under 6; nonpreferred-only requirements do not apply)'
         # DEC-05/12/13/14/19/20: the 300 mg cluster pack is not the migraine presentation.
         if record['id'] == 'uhc-oct-complete-50113fd01abf63b3':
             code = 'GL-720193'
