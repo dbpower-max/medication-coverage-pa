@@ -324,6 +324,9 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  // DEC-05/06/12/13/14/19/20: preserve stage bindings and explicitly qualify option scope.
  for(const [suffix,label,phrase,code,indexes,pref,scope] of [
+  ["328b543e61dac94c","Soliris (Eculizumab) Intravenous Infusion","not approved at this time","gl-665191",[8],"non_preferred","Soliris named nonpreferred denial branch; preferred-product stages not applicable"],
+  ["9cee96f8a5ed61f0","Spinosad 0.9% Topical Suspension (payer reference Natroba)","head lice only","gl-140732",[0],"preferred","Generic spinosad head lice only; brand-only prerequisite not applicable"],
+  ["7d1104aafbbc73e5","Sunitinib Malate Oral Capsule (payer reference Sutent)","Exact generic applicability","gl-140925",[0,1,2,3,4,5,6,7,8,9,10],"preferred","Sutent brand reference only (generic applicability unverified)"],
   ['ea3dbb64aeb94ba5','Skytrofa (Lonapegsomatropin-tcgd) Subcutaneous Powder Cartridge','additional FDA-labeled 0.7, 1.4, 1.8, 2.1 and 2.5 mg are not listed here','gl-723191',[0,1],'non_preferred','preferred-product stages not applicable'],
   ['dbcb937fe5e4b0c6','Sodium Oxybate 500 mg/mL Oral Solution (payer reference Xyrem)','exact generic applicability unverified','gl-164853',[0,1,2,3],'non_preferred','generic applicability unverified'],
   ['3819c4b013640e1d','Sodium Phenylbutyrate 500 mg Oral Tablet (payer reference Buphenyl)','not this generic tablet','gl-502217',[0,2],'preferred','brand-only prerequisite not applicable'],
