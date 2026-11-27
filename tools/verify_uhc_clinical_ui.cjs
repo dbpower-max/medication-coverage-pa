@@ -338,6 +338,17 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith(code));assert.deepEqual(b[0].branchIndexes,indexes);assert(b[0].productLabel.includes(scope));
   const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
  }
+ // DEC-05/06/12/13/14/19/20: Profilnine potency-specific source rows, same exact named policy.
+ for(const [suffix,strength,concentration] of [
+  ['cd6eda95e2025320','1000 or 1500 IU','1000 IU/10 mL or 1500 IU/10 mL'],
+  ['11a2edc770cc3549','500 IU','500 IU/5 mL']
+ ]){
+  const id='uhc-oct-complete-'+suffix,g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');
+  assert(!r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+  const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith('gl-716187'));assert.deepEqual(b[0].branchIndexes,[18]);assert(b[0].productLabel.includes('authorization stage unspecified'));
+  const card=a.medicationGroupCard(g);assert(card.includes('Profilnine (Factor IX Complex) '+strength+' Powder for Intravenous Injection'));assert(card.includes(concentration));assert(card.includes('distinct from single-factor IX products'));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+ }
  // DEC-05/06/12/13/14/19/20: exact stage/route/form and unchanged raw benefit scope.
  for(const [suffix,label,phrase,code,indexes,hasQL,scope] of [
   ['a27cea08627d0ce7','Epclusa (Sofosbuvir / Velpatasvir) Oral Pellets Packet','retreatment-oriented','gl-392223',[1],true,'packet applicability and initial stage unverified'],
