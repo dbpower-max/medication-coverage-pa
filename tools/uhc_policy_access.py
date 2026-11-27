@@ -1385,6 +1385,45 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': "FDA label: 24-hour extended-release tablet, not an immediate-release or ER capsule; swallow whole to avoid fatal overdose. UHC GL-620192 includes distinct concurrent MAT/opioid, cancer/hospice, non-cancer initial/renewal and cumulative MME exceptions. The quantity exception addresses requests that cannot be met by a higher strength and are within applicable FDA maximums; numeric dispensing QL unverified. Do not interpret an MME threshold as a dispensing quantity.",
                 'labelUrl': "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b7d23ac2-e776-9f62-3290-c64c2d6eb353",
             }
+
+        # DEC-05/06/12/13/14/19/20: RFA10396/10397 brand Nucynta IR/ER; do not transfer generic IR criteria or short-acting policy to ER.
+        if record['id'] == 'uhc-oct-complete-33234a54f2a88a10':
+            assert october_name == 'nucynta (brand for tapentadol hcl)' and record['pa'] == 'required' and record['preferred'] == 'non_preferred' and ql
+            assert matched.get('GL-711768') == set(range(9)), (record['id'], matched)
+            matched.pop('GL-711768')
+            record['unverifiedPolicyCode'] = 'GL-711768'
+            add('GL-711768', list(range(9)), 'nucynta_ir_reference')
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Nucynta (Tapentadol Hydrochloride) Immediate-Release Oral Tablet',
+                'dosageForm': 'immediate-release oral tablet',
+                'note': 'FDA label: 50, 75 and 100 mg IR tablets for acute pain requiring an opioid when alternatives are inadequate; pediatric labeling is for patients aged 6 years and older weighing at least 40 kg who can swallow tablets. Not ER tablets or oral solution. UHC GL-711768 names generic tapentadol tablets and tapentadol solution; brand Nucynta applicability is unverified. Numeric dispensing QL and exact payer strength eligibility are unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=80938c30-9fe3-4c7d-9d9c-5476638cfb2d',
+            }
+        if record['id'] == 'uhc-oct-complete-8f1ed3d8dc74e5ab':
+            assert october_name == 'nucynta er (brand for tapentadol hcl er)' and record['pa'] == 'required' and record['preferred'] == 'non_preferred' and ql
+            assert matched.get('GL-620192') == {0,2,5,7,8,9,10,11} and matched.get('GL-711768') == set(range(9)), (record['id'], matched)
+            matched.pop('GL-620192')
+            matched.pop('GL-711768')
+            record['excludedPolicyCode'] = 'GL-711768'
+            add('GL-620192', [2,5,7], 'product')
+            bindings[-1]['productLabel'] = 'Tapentadol ER long-acting policy (brand-specific strength eligibility unverified)'
+            add('GL-620192', [8], 'quantity')
+            add('GL-620192', [0], 'concurrent_opioid_dur')
+            add('GL-620192', [9,10,11], 'mme_exception')
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Nucynta ER (Tapentadol Hydrochloride) 12-Hour Extended-Release Oral Tablet',
+                'dosageForm': '12-hour extended-release oral tablet',
+                'note': 'FDA label: 50, 100, 150, 200 and 250 mg 12-hour ER tablets for severe persistent pain or diabetic peripheral neuropathic pain in adults when alternatives are inadequate; swallow whole, not PRN. UHC GL-620192 names tapentadol ER and separates cancer/hospice/end-of-life, non-cancer initial and renewal, conditional concurrent opioid DUR, cumulative MME and quantity exceptions. Short-acting opioid criteria are not applicable to this ER presentation. Exact payer strength eligibility and numeric dispensing QL unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c3d04d70-0155-4147-9ce4-a3b1fad4b373',
+            }
+            sources = record.get('policySources', [])
+            excluded = [p for p in sources if p.get('policyCode') == 'GL-711768' or p.get('policyId', '').endswith('gl-711768')]
+            if excluded:
+                record['excludedPolicySources'] = excluded
+                record['policySources'] = [p for p in sources if p not in excluded]
+
         # DEC-05/06/12/13/14/19/20: RFA9583 brand OxyContin ER tablet, not generic oxycodone ER.
         if record['id'] == 'uhc-oct-complete-8cd51f6265cf511b':
             assert october_name == 'oxycontin' and record['pa'] == 'required' and record['preferred'] == 'preferred' and ql

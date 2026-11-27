@@ -337,6 +337,10 @@
       label: 'Related UHC pain guideline',
       scope: 'The guideline names Methadose for pain. The FDA label is for opioid addiction treatment, not analgesia; OUD authorization criteria are unverified.'
     }],
+    ['nucynta_ir_reference', {
+      label: 'Related UHC short-acting opioid guideline',
+      scope: 'The guideline names generic tapentadol tablets and tapentadol solution; applicability to brand Nucynta tablets is unverified.'
+    }],
     ['korlym_reference', {
       label: 'Korlym brand policy reference',
       scope: 'The guideline names Korlym. Applicability to generic mifepristone 300 mg is unverified.'
