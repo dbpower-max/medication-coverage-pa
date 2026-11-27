@@ -1459,7 +1459,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    const exact={...g,key:(g.key||g.label)+'-request-'+suffix,records:[r],isStatewide:false,statewideRecord:null};
    const card=a.medicationGroupCard(exact);
    assert(card.includes(heading),id+' label');
-   assert(card.includes(r.reviewedPresentation.labelUrl),id+' FDA label');
+   assert(card.includes(r.reviewedPresentation.labelUrl.replace(/&/g,'&amp;')),id+' FDA label');
    const detail=await open(exact);
    assert(detail.html.includes(phrase),id+' scope');
    assert(!detail.html.includes('PA is required. Approval criteria'),id);
