@@ -1316,6 +1316,21 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: four distinct presentations: 100 mg delayed-release oral tablet, 40 mg/mL oral suspension, PowderMix 300 mg packet for delayed-release oral suspension, and 300 mg/16.7 mL IV injection. Ordinary oral suspension is not substitutable for tablets or PowderMix. PowderMix is contraindicated in hereditary fructose intolerance. FDA tablet invasive aspergillosis and prophylaxis labeling requires age 2 or older and weight greater than 40 kg; UHC GL-751212 tablet prophylaxis allows weight at least 40 kg, a discrepancy at exactly 40 kg. PowderMix pediatric use is age 2 or older and 10–40 kg; ordinary suspension is age 13 or older for prophylaxis or oropharyngeal candidiasis (OPC). Named UHC branches 8–11 and 14 apply to specified oral presentations, not injection; OPC requires two listed antifungal failures, contraindications, intolerances or resistance, or inpatient continuation. The bare brand PDL listing does not identify which formulation is covered. Exact formulation eligibility, age-limit flag details and numeric dispensing QL unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b073b082-7b57-4423-8c06-4fd4263d6f84',
             }
+        # DEC-05/06/12/13/14/19/20: RFA9473 oral Nuzyra, not IV; continuation alternatives retained.
+        if record['id'] == 'uhc-oct-complete-a8a214653d1ccd59':
+            assert october_name == 'nuzyra oral' and record['pa'] == 'required' and record['preferred'] == 'preferred' and ql
+            code = 'GL-140701'
+            assert matched.get(code) == {0,1,2}, (record['id'], matched)
+            matched.pop(code)
+            add(code, [0,1,2], 'product')
+            bindings[-1]['productLabel'] = 'Nuzyra named policy (oral listing; stage unspecified)'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Nuzyra (Omadacycline) 150 mg Oral Tablet',
+                'dosageForm': 'oral tablet',
+                'note': 'FDA label: 150 mg oral tablet is distinct from the 100 mg IV formulation; adult CABP and ABSSSI, labeled 7–14 days. Oral administration has food and polyvalent cation timing requirements. UHC GL-140701: CABP and ABSSSI 14-day authorizations, off-label duration based on provider recommendation up to 6 months; stage unspecified. Hospital discharge or transition from susceptible IV antibiotics are independent continuation alternatives. Otherwise CABP requires susceptible infection and three named prior regimens; ABSSSI has a MRSA pathway requiring linezolid plus one named alternative or a susceptible-organism pathway requiring three named agents; off-label ID specialist consultation is a separate alternative. See policy for full criteria and exact alternative logic. Authorization duration is not a numeric dispensing QL. Exact payer package and numeric QL unverified; no IV benefit inference.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=51591524-4703-44c6-8bde-dce3e6a463d1',
+            }
         # DEC-05/06/12/13/14/19/20: exact stage-unspecified named policy; preserve brand-only prerequisites and raw flags.
         reviewed_stage_options = {
             'uhc-oct-complete-3db650dbb78aa872': ("icatibant acetate (generic for firazyr)", "preferred", "GL-546227", 1, "Generic icatibant acute HAE policy (stage unspecified)", "Icatibant (Generic Firazyr) Subcutaneous Prefilled Syringe", "subcutaneous prefilled syringe", "FDA label: single-dose 30 mg/3 mL (10 mg/mL) prefilled syringe. UHC GL-546227 acute HAE branch: age 18 or older for generic icatibant, confirmed HAE diagnosis, allergist/immunologist and no concurrent approved acute HAE treatment; 12 months, stage unspecified. Preferred-agent failure or current therapy prerequisite applies to named nonpreferred agents, not generic icatibant. Exact carton eligibility and numeric dispensing QL unverified.", "ccbb5e50-ce56-4898-aa1a-f1c1f3d312f6"),
