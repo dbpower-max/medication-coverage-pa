@@ -1017,6 +1017,10 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'eltrombopag olamine oral tablet (generic for promacta)', 'Eltrombopag Olamine Oral Tablet (payer reference Promacta)', 'oral tablet',
                 'FDA label: 12.5, 25, 50 and 75 mg tablets, distinct from powder for oral suspension. Alvaiz (eltrombopag choline) is not milligram-for-milligram substitutable. UHC GL-546252 expressly includes generic eltrombopag tablets in six ITP, severe aplastic anemia and HCV-associated thrombocytopenia initial/renewal branches; nonpreferred-only prerequisite does not apply universally. Numeric quantity limit remains unverified.',
                 '5a9ec8c8-3c0b-4f11-848c-c04ccee0d44f', 'GL-546252', {0,1,2,3,4,5}, 'preferred', 'Generic eltrombopag tablets'),
+            'uhc-oct-complete-4bab14d7a32ab94a': (
+                'plerixafor (generic for mozobil)', 'Plerixafor (Generic Mozobil) Subcutaneous Injection', 'subcutaneous injection',
+                'FDA label: 24 mg/1.2 mL (20 mg/mL) single-dose vial for stem-cell mobilization with filgrastim in NHL or multiple myeloma before autologous transplantation. Renal dose reduction is required for creatinine clearance 50 mL/min or less; avoid use in leukemia. UHC GL-140850 explicitly names Mozobil only and requires NHL/MM autologous transplantation, G-CSF and hematology/oncology prescriber or consultation; one course up to four days, stage unspecified. Generic applicability unverified; four-day authorization is not a numeric dispensing QL. Exact payer package eligibility and numeric dispensing QL unverified.',
+                '5d670cb4-163e-498c-b5fa-c193ea9d55c0', 'GL-140850', {0}, 'preferred', 'Mozobil brand reference only (generic applicability unverified)'),
         }
         if record['id'] in stage_scope_review:
             name, label, form, note, setid, code, indexes, pref, product_label = stage_scope_review[record['id']]
