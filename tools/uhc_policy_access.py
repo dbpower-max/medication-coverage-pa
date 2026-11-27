@@ -1039,6 +1039,27 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'label': label, 'dosageForm': form, 'note': note,
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + setid,
             }
+        # DEC-05/06/12/13/14/19/20: retain both payer potency rows; factor IX complex is not single-factor IX.
+        profilnine_presentations = {
+            'uhc-oct-complete-cd6eda95e2025320': ('profilnine intravenous solution reconstituted 1000 unit, 1500 unit', '1000 or 1500 IU', '1000 IU/10 mL or 1500 IU/10 mL'),
+            'uhc-oct-complete-11a2edc770cc3549': ('profilnine intravenous solution reconstituted 500 unit', '500 IU', '500 IU/5 mL'),
+        }
+        if record['id'] in profilnine_presentations:
+            name, strength, concentration = profilnine_presentations[record['id']]
+            assert october_name == name, (record['id'], october_name)
+            assert record['pa'] == 'required' and record['preferred'] == 'preferred' and not ql
+            code = 'GL-716187'
+            assert matched.get(code) == {18}, (record['id'], matched)
+            matched.pop(code)
+            add(code, [18], 'product')
+            bindings[-1]['productLabel'] = 'Profilnine named policy (authorization stage unspecified)'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Profilnine (Factor IX Complex) ' + strength + ' Powder for Intravenous Injection',
+                'dosageForm': 'powder for intravenous injection',
+                'note': 'FDA label (April 2026): nominal ' + concentration + ' after reconstitution; actual factor IX potency is labeled per vial. Plasma-derived complex containing factors II, IX, X and low VII; distinct from single-factor IX products and not indicated for factor VII deficiency. UHC GL-716187 branch 18 specifies hemophilia B with routine prophylaxis or treatment of bleeding episodes, 12 months; authorization stage unspecified. Exact package eligibility unverified; no numeric dispensing limit established by this branch.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=79821042-86a5-4a64-b621-76de0a0bbab2',
+            }
         # DEC-05/06/12/13/14/19/20: distinguish route/form and preserve stage ambiguity.
         stage_scope_review_2 = {
             'uhc-oct-complete-a27cea08627d0ce7': (
