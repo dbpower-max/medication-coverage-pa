@@ -436,6 +436,15 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const card=a.medicationGroupCard(g);for(const s of ['Olumiant (Baricitinib) '+strengths+' Oral Tablet',phrase,'use-specific benefit exclusion','not a blanket exclusion','age 12 since September 2026','14-day authorization'])assert(card.includes(s),s);
   assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
  }
+ // DEC-05/06/12/13/14/19/20: Orilissa duration by strength; Orladeyo capsule-only age scope.
+ for(const [suffix,label,code,indexes,pref,phrases] of [["e4cc9976aa1b8bb4","Orilissa (Elagolix) Oral Tablet","gl-140726",[0,1,2],"preferred",["200 mg twice daily not recommended","do not assign to 200 mg","numeric dispensing QL unverified"]],["d5f0d9099efaea18","Orladeyo (Berotralstat) Oral Capsule","gl-546227",[0],"non_preferred",["age at least 12 for capsules","not acute attacks","Do not infer pellet benefit","numeric dispensing QL unverified"]]]){
+  const id='uhc-oct-complete-'+suffix,g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,pref);
+  assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));assert(!r.policyQuantityLimit);
+  const b=r.uhcClinicalBindings.filter(b=>b.role==='product'&&b.policyId.endsWith(code));assert.equal(b.length,1);assert.deepEqual(b[0].branchIndexes,indexes);
+  const card=a.medicationGroupCard(g);for(const s of [label,...phrases])assert(card.includes(s),s);
+  assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+ }
  // DEC-05/06/12/13/14/19/20: exact generic versus brand prerequisites and form.
  for(const [suffix,label,phrase,code,index,scope,preference] of [["3db650dbb78aa872","Icatibant (Generic Firazyr) Subcutaneous Prefilled Syringe","not generic icatibant","gl-546227",1,"Generic icatibant acute HAE policy (stage unspecified)","preferred"],["62e4bb1c3d06bdc7","Gleevec (Imatinib Mesylate) 100 mg Oral Tablet","trial/failure of preferred generic imatinib","gl-741203",0,"Brand Gleevec cancer policy (stage unspecified)","non_preferred"],["8f9b8e5073a65ff3","Imatinib Mesylate (Generic Gleevec) Oral Tablets","does not apply to generic imatinib","gl-741203",0,"Generic imatinib cancer policy (stage unspecified)","preferred"]]){
   const id='uhc-oct-complete-'+suffix,g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
