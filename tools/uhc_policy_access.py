@@ -1001,6 +1001,10 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         # DEC-05/06/12/13/14/19/20: exact options and source-stage caveats;
         # original flags and product branches remain, with scope explicitly qualified.
         stage_scope_review = {
+            'uhc-oct-complete-4bbadb8d1f122e2f': (
+                'posaconazole oral tablet delayed release', 'Posaconazole 100 mg Delayed-Release Oral Tablet', 'delayed-release oral tablet',
+                'FDA labels identify 100 mg delayed-release tablets, not interchangeable with ordinary oral suspension or PowderMix. Generic FDA labels vary by manufacturer in age and indication; verify the dispensed product label. UHC GL-751212 names generic tablets for prophylaxis (age 2 or older, weight at least 40 kg), invasive aspergillosis treatment (age 2 or older, greater than 40 kg), and other diagnoses. Tablet labeling uses greater than 40 kg for pediatric use, a discrepancy at exactly 40 kg for payer prophylaxis. Other diagnoses require literature support and infectious disease specialist involvement, or inpatient continuation at discharge; provider duration up to 12 months. No initial or renewal stage is specified. Exact manufacturer eligibility and numeric dispensing QL unverified.',
+                'd8d8dd03-46b5-bd26-bb27-7ca31d8c3326', 'GL-751212', {8,10,14}, 'preferred', 'Generic delayed-release tablets; verify product-specific FDA labeling'),
             'uhc-oct-complete-50027926c12f2fc5': (
                 'accutane (generic for accutane)', 'Isotretinoin Oral Capsule (payer reference Accutane)', 'oral capsule',
                 'FDA label: conventional isotretinoin capsules; not milligram-for-milligram substitutable with Absorica LD. Pregnancy contraindication and iPLEDGE REMS apply. UHC GL-288262 includes separate acne initial, post-treatment recurrence and dose-titration stages, plus an off-label oncology branch without a specified stage. Numeric quantity limit remains unverified.',
