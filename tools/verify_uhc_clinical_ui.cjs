@@ -1451,6 +1451,33 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  console.log('PASS: Six exact UHC opioid rows preserve benefits, label caveats, and scoped PA/DUR/MME/QL references.');
  
+
+ // DEC-05/06/12/13/14/19/20: Nucynta IR brand reference only; ER long-acting branches only.
+ {
+   const cases=[['33234a54f2a88a10','Nucynta (Tapentadol Hydrochloride) Immediate-Release Oral Tablet'],['8f1ed3d8dc74e5ab','Nucynta ER (Tapentadol Hydrochloride) 12-Hour Extended-Release Oral Tablet']];
+   const gs=cases.map(([suffix,label])=>{
+     const id='uhc-oct-complete-'+suffix,g=groups.find(g=>g.records.some(r=>r.id===id));assert(g,id);
+     const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'non_preferred');
+     assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));assert(r.uhcClinicalBindings.some(b=>b.role==='nonpreferred'));
+     assert(a.medicationGroupCard(g).includes(label),label);
+     assert(a.medicationGroupCard(g).includes(r.reviewedPresentation.labelUrl));
+     return [g,r];
+   });
+   assert.notEqual(gs[0][0],gs[1][0]);
+   const [ir,irRow]=gs[0], [er,erRow]=gs[1];
+   assert(irRow.uhcClinicalBindings.some(b=>b.policyId.endsWith('gl-711768')&&b.role==='nucynta_ir_reference'));
+   assert(!irRow.uhcClinicalBindings.some(b=>b.policyId.endsWith('gl-711768')&&b.role!=='nucynta_ir_reference'));
+   const irOut=await open(ir);
+   assert(irOut.ref.includes('Related UHC short-acting opioid guideline'));
+   assert(irOut.html.includes('applicability to brand Nucynta tablets is unverified'));
+   assert(!irOut.html.includes('Criteria source · PDF page 1515<'));
+   assert(!erRow.uhcClinicalBindings.some(b=>b.policyId.endsWith('gl-711768')));
+   const eb=erRow.uhcClinicalBindings.filter(b=>b.policyId.endsWith('gl-620192'));
+   assert.deepEqual(eb.map(b=>[b.role,...b.branchIndexes]),[['product',2,5,7],['quantity',8],['concurrent_opioid_dur',0],['mme_exception',9,10,11]]);
+   const erOut=await open(er);
+   for(const phrase of ['Concurrent opioid therapy (DUR)','Cumulative MME exceptions','Quantity-limit exceptions','Initial Authorization','Reauthorization'])assert(erOut.html.includes(phrase),phrase);
+   assert(!erOut.html.includes('Criteria source · PDF page 1515<'));
+ }
  // DEC-05/06/12/13/14/19/20: RFA9583 OxyContin brand-only cancer/initial/renewal.
  {
    const id='uhc-oct-complete-8cd51f6265cf511b';
