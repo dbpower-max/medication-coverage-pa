@@ -1718,7 +1718,7 @@
       const originalRows = entry.group.records.map(record => `<section><h3>${escapeHtml(readableMedicationName(record.name))}</h3>${recordDetails(record)}</section>`).join('');
       dialog.querySelector('#sourceDialogContent').innerHTML = (preferredNdcs.length ? bannerAlbuterolSources(entry.group, originalRows) : originalRows)
         + (clinical?.guidance ? `<section><p>Source-reviewed summary; clinician approval pending.</p><p>${escapeHtml(clinical.guidance.guidelineCaution)}</p></section>` : '')
-        + (clinical?.policies || []).map(policy => `<section><a href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">${escapeHtml(policy.name || policy.policyCode)} · ${escapeHtml(policy.sourceEffective)}</a>${policy.scope ? `<p>${escapeHtml(policy.scope)}</p>` : ''}${policy.sourceTextUrl ? `<p><a href="${escapeHtml(policy.sourceTextUrl)}" target="_blank" rel="noopener">Original policy text</a></p>` : ''}<p>Source-transcribed criteria; clinician approval pending. Policy references do not independently establish selected-plan coverage or PA status.</p></section>`).join('');
+        + (clinical?.policies || []).map(policy => `<section>${policy.planId === 'ahcccs-ffs-aihp' ? `<p><strong>${statewideFfsLabel}</strong></p>` : ''}<a href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">${escapeHtml(policy.name || policy.policyCode)} · ${escapeHtml(policy.sourceEffective)}</a>${policy.scope ? `<p>${escapeHtml(policy.scope)}</p>` : ''}${policy.sourceTextUrl ? `<p><a href="${escapeHtml(policy.sourceTextUrl)}" target="_blank" rel="noopener">Original policy text</a></p>` : ''}<p>Source-transcribed criteria; clinician approval pending. Policy references do not independently establish selected-plan coverage or PA status.</p></section>`).join('');
       dialog.showModal();
     });
     document.addEventListener('click', async event => {
@@ -2118,6 +2118,7 @@
   }
 
   const cardClinicalGroups = new Map();
+  const statewideFfsLabel = 'AHCCCS Statewide · Fee-for-service';
   const bannerRespiratoryGuides = new Map([
     ['banner-pcp-nov10-041', {
       name: 'Stiolto Respimat', policyCode: 'GL-269199', sourcePage: 1049, sourceLastPage: 1050,
@@ -2152,10 +2153,13 @@
     };
   }
 
-  const uhcRespiratorySteps = new Map([
+  const calcipotrieneStep = 'For 0.005% cream or ointment, trial of two medium- to high-potency topical corticosteroids.';
+  const uhcFormularySteps = new Map([
     ['uhc-oct-complete-aadf073c434c4009', '30-day trial of one inhaled corticosteroid, a long-acting beta agonist, or an orally inhaled anticholinergic.'],
     ['uhc-oct-complete-e27f2cb8dcfa082e', '30-day trial of one inhaled corticosteroid.'],
-    ['uhc-oct-complete-836fcbdd50338512', '30-day trial of one inhaled corticosteroid, a long-acting beta agonist, or an inhaled anticholinergic.']
+    ['uhc-oct-complete-836fcbdd50338512', '30-day trial of one inhaled corticosteroid, a long-acting beta agonist, or an inhaled anticholinergic.'],
+    ['uhc-oct-complete-f341f42e74fd7bbd', calcipotrieneStep],
+    ['uhc-oct-complete-d3c2686424414dde', calcipotrieneStep]
   ]);
 
   function uhcRecordBindings(record) {
@@ -2505,7 +2509,9 @@
             text = text.slice(0, otherStep.index);
           }
           const stageHeading = heading && !stage && !/stage not separately labeled/i.test(heading) && b.policyId === 'banner-policy-12-1530' ? heading + ' (stage not separately labeled)' : heading;
-          return {...matches[0], heading: stageHeading, text};
+          // A product heading can start on the page before its renewal criteria.
+          const sourcePage = stage === 'Reauthorization' ? (b.renewalCriteriaPage ?? page) : page;
+          return {...matches[0], sourcePage, heading: stageHeading, text};
         });
         const exclusion = b.exclusionPage ? source.branches.filter(branch => branch.sourcePage === b.exclusionPage && /^All products\b/i.test(branch.product) && /Idiopathic Short Stature/i.test(branch.product)) : [];
         if (b.exclusionPage && exclusion.length !== 1) throw new Error('Missing reviewed exclusion');
@@ -2538,6 +2544,9 @@
         if (sections.length) break;
       }
       if (!target.isConnected && typeof target.isConnected === 'boolean') return;
+      if (sections.length && activeSource?.planId === 'ahcccs-ffs-aihp') {
+        sections = [`<details class="result-disclosure statewide-criteria-reference"><summary>${statewideFfsLabel} criteria</summary><div class="result-disclosure-body">${sections.join('')}</div></details>`];
+      }
       target.innerHTML = sections.length ? sections.join('') : (guidance ? clinicalGuidanceContent(guidance, true) : '<p>Formatted criteria for this medication are not available. See the PA reference.</p>');
       const reference = details.querySelector('.card-pa-references');
       if (reference && activeSource) reference.innerHTML = cardPaReference(activeSource);
@@ -2548,6 +2557,7 @@
   }
 
   function cardPaReference(source, label = 'PA reference') {
+    if (source.planId === 'ahcccs-ffs-aihp') label = statewideFfsLabel + ' reference';
     const chapter = source.recordType === 'policy_index' && source.sourcePage ? ' · chapter p. ' + source.sourcePage : '';
     return `<a class="source-link card-pa-reference" href="${escapeHtml(sourceHref(source))}" target="_blank" rel="noopener" title="PDF source · ${escapeHtml(source.policyCode || source.name || 'PA source')} · ${escapeHtml(source.sourceEffective || '')}">${escapeHtml(label)} ↗${escapeHtml(chapter)}</a>`;
   }
@@ -2666,7 +2676,7 @@
       'banner-pcp-nov10-038', 'banner-pcp-nov10-039', 'banner-full-a2a4d1dc0085c78f'
     ].includes(record.id) && !record.isStatewideReference) : [];
     const uhcStepRows = isUhc ? group.records.filter(record => record.planId === state.planId && !record.isStatewideReference
-      && record.sourceEffective === '2026-10-01' && uhcRespiratorySteps.has(record.id)) : [];
+      && record.sourceEffective === '2026-10-01' && uhcFormularySteps.has(record.id)) : [];
     const constipationRows = group.records.filter(record => constipationGenericRows.has(record.id) ||
       [uhcMotegrityId, uhcLinzessId, bannerLubiprostoneId, achNotice?.id].includes(record.id));
     const reviewedExactRows = group.records.filter(record => !record.isStatewideReference
@@ -2741,7 +2751,7 @@
         const gvoke = isUhc && isUhcOctoberRow(record) && uhcGvokePresentations.get(record.id);
         const productLabelLink = reviewed?.labelId
           ? ` · <a class="source-link" href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=${escapeHtml(reviewed.labelId)}" target="_blank" rel="noopener">Drug Facts ↗</a>` : '';
-        const step = uhcStepRows.includes(record) ? uhcRespiratorySteps.get(record.id) : '';
+        const step = uhcStepRows.includes(record) ? uhcFormularySteps.get(record.id) : '';
         const continuedUse = isUhc && record.id === 'uhc-oct-complete-de1ca42f17826905' && uhcAgeEightPa(record)
           && record.rawRestrictions?.includes('Continued use of two or more drugs in this class may require prior authorization')
           ? '<p class="pa-condition">Continued use of two or more drugs in this class may require PA.</p>' : '';

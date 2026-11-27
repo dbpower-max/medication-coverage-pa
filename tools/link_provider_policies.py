@@ -542,6 +542,9 @@ def attach_provider_policies(data):
  flat=' '.join(raw.lower().split())
  assert 'gl-479198' in flat and '1/1/2026' in flat and 'requests exceeding 24 mg' in flat and 'requests exceeding 16 mg' in flat
  assert 'product name:brand suboxone' in flat and 'guideline type quantity limit' in flat
+ renewal_criteria_page = 1693
+ renewal_text = raw.split(f'=== PDF PAGE {renewal_criteria_page} ===', 1)[1]
+ assert re.search(r'Therapy Stage\s+Reauthorization\s+Guideline Type\s+Quantity Limit.*?requests exceeding 16 mg', renewal_text, re.I | re.S)
  seen_suboxone=set()
  for r in data['medications']:
   if r['id'] not in suboxone_review:continue
@@ -555,7 +558,7 @@ def attach_provider_policies(data):
   if r.get('policySource',{}).get('textUrl')==link['textUrl']:r.pop('policySource',None)
   r['policySources'].insert(0,link)
   if hold:r.pop('reviewedBannerBranches',None)
-  else:r['reviewedBannerBranches']={'policyId':p['id'],'product':'Brand suboxone','initialPage':1692,'renewalPage':1692,'quantityExceptionOnly':True}
+  else:r['reviewedBannerBranches']={'policyId':p['id'],'product':'Brand suboxone','initialPage':1692,'renewalPage':1692,'renewalCriteriaPage':renewal_criteria_page,'quantityExceptionOnly':True}
   seen_suboxone.add(r['id'])
  assert seen_suboxone==set(suboxone_review)
  print(f'Added {count} same-plan policy links across {len(records)} medication records')
