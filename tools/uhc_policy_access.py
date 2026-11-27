@@ -1714,6 +1714,19 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + setid,
             }
         # DEC-05/06/12/13/14/19/20: label-backed identities, no extrapolated payer criteria.
+        # DEC-05/06/12/13/14/19/20: Uceris is not Entocort EC (Crohn disease).
+        if record['id'] == 'uhc-oct-complete-07fe2aebae5a0ba6':
+            assert october_name == 'uceris (brand for budesonide)'
+            assert record['pa'] == 'required' and record['preferred'] == 'non_preferred' and ql
+            assert matched.pop('GL-140639') == {0}
+            assert set(matched).issubset({'GL-735259'}), ('Review new named Uceris policy', matched)
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Uceris (Budesonide) Extended-Release Oral Tablet or Rectal Foam (Payer Form Unspecified)',
+                'dosageForm': 'extended-release oral tablet or rectal foam (payer form unspecified)',
+                'note': 'FDA labels: 9 mg extended-release oral tablet for induction of remission in active mild to moderate ulcerative colitis; 2 mg/actuation rectal foam for active mild to moderate distal ulcerative colitis. Distinct from Entocort EC delayed-release capsules for Crohn disease. The UHC PDL does not identify the form. Exact UHC product-specific initial/renewal criteria and numeric quantity limit are unverified; nonpreferred and duplication rules remain applicable.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=92cbb190-8851-46ed-bfe0-166ca62ef2e9',
+            }
         label_holds = {
             'uhc-oct-complete-d6b49b27961f969c': (
                 "vascepa (brand for icosapent ethyl)", "Vascepa (Icosapent Ethyl) Oral Capsule", "oral capsule",
