@@ -100,7 +100,7 @@ if (fs.existsSync('_site/data.json.gz')) {
   const uhcGroups = vm.runInContext('planMedicationGroups()', context);
   const expectedPresentations = [
     [/^PULMICORT SUSPENSION \(/, 'required', /Pulmicort Suspension/i],
-    [/^UCERIS \(/, 'required', /^Uceris$/i],
+    [/^UCERIS \(/, 'required', /^Uceris \(Budesonide\) Extended-Release Oral Tablet or Rectal Foam \(Payer Form Unspecified\)$/i],
     [/^XARELTO ORAL SUSPENSION RECONSTITUTED \(/, 'required', /Xarelto Oral Suspension/i],
     [/^XARELTO ORAL TABLET \(/, 'not_specified', /Xarelto Oral Tablet/i],
     [/^XARELTO STARTER PACK$/, 'not_specified', /Xarelto Starter Pack/i],
