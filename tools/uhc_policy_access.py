@@ -338,6 +338,50 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             matched.pop(code, None)
             add(code, [0], 'age_scoped')
             bindings[-1]['productLabel'] = 'Generic dextroamphetamine oral tablets (PA criteria for age under 6; nonpreferred-only requirements do not apply)'
+        # DEC-05/07/12/13/14/19/20 POL-01: exact named OUD request criteria,
+        # and related cough policy with unresolved product/form applicability.
+        if record['id'] == 'uhc-oct-complete-edf5b37b189977ee':
+            assert october_name == 'buprenorphine hcl sublingual'
+            assert record['pa'] == 'not_specified' and record['preferred'] == 'preferred' and ql
+            code = 'GL-502188'
+            assert policies[code]['policyEffective'] == '2026-02-01'
+            branch, = structured[code]['branches']
+            fields = branch['fields']
+            assert fields['Product Name']['text'].lower() == 'buprenorphine sl tablets'
+            assert fields['Guideline Type']['text'] == 'Prior Authorization'
+            assert '6 Months' in fields['Approval Length']['text']
+            assert not fields.get('Therapy Stage')
+            matched.pop(code, None)
+            add(code, [0], 'diagnosis_request')
+            bindings[-1]['productLabel'] = 'Buprenorphine sublingual tablets (monoproduct)'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Buprenorphine Sublingual Tablet',
+                'dosageForm': 'sublingual tablet',
+                'note': 'FDA label: 2 mg and 8 mg sublingual tablets for opioid dependence, not analgesia or the naloxone combination. UHC lists a diagnosis requirement and quantity limit; the exact PA trigger or diagnosis-code override and numeric quantity limit are unverified. The named guideline provides request criteria, not a blanket PA requirement.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1bf8b35a-b769-465c-a2f8-099868dfcd2f',
+            }
+        if record['id'] == 'uhc-oct-complete-d581f21169f49b45':
+            assert october_name == 'hydrocodone bit-homatrop mbr'
+            assert record['pa'] == 'not_specified' and record['preferred'] == 'preferred' and ql
+            assert record['ageLimited']
+            code = 'GL-140671'
+            assert policies[code]['policyEffective'] == '2022-10-01'
+            first, second = structured[code]['branches']
+            assert 'Hydromet' in first['fields']['Product Name']['text']
+            assert 'generic Tussigon' in first['fields']['Product Name']['text']
+            assert 'Under the Age of 18 Years' in first['fields']['Diagnosis']['text']
+            assert second['fields']['Diagnosis']['text'] == 'Quantity Limit'
+            matched.pop(code, None)
+            matched.pop('GL-711768', None)
+            add(code, [0, 1], 'cough_reference')
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Hydrocodone/Homatropine (Oral Tablet or Solution; Payer Form Unspecified)',
+                'dosageForm': 'oral tablet or oral solution (payer form unspecified)',
+                'note': 'FDA label: separate oral tablets (5 mg/1.5 mg per tablet) and oral solution (5 mg/1.5 mg per 5 mL); cough indication is adults 18 years and older, not pediatric use. UHC prints an age limit and QL without the form, numeric age threshold or numeric QL. Related cough policy names Hydromet and generic Tussigon; exact applicability to this payer listing is unverified. Do not apply analgesic opioid criteria.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=320ff639-9854-407b-9bbd-a035c4f173e1&version=2',
+            }
         # DEC-05/12/13/14/19/20: the 300 mg cluster pack is not the migraine presentation.
         if record['id'] == 'uhc-oct-complete-50113fd01abf63b3':
             code = 'GL-720193'
