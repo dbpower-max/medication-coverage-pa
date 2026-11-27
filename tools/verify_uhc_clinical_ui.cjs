@@ -1732,6 +1732,31 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(a.medicationGroupCard(infliximab).includes('57894016001'));
  assert.match(a.medicationGroupCard(infliximab),/not (?:a )?separately licensed biosimilar/i);
  console.log('PASS: Eight exact Banner IG/infliximab options retain flags and route/product caveats.');
+ // DEC-07/12/13: preferred brand film quantity exceptions, not routine PA.
+ for(const [suffix,hold] of [['a3a4d5ac3d267b68',false],['f46de12431d1d312',true]]){
+   const id='banner-full-'+suffix;
+   const g=bannerGroups.find(g=>g.records.some(r=>r.id===id));assert(g,id);
+   const r=g.records.find(r=>r.id===id);
+   assert.equal(r.pa,'not_specified',id);assert.equal(r.preferred,'preferred',id);
+   assert(!r.qlAmount&&!r.qlDays,id);assert.equal(r.reviewedPresentation.policyUnverified,hold,id);
+   assert(r.policySources.some(p=>p.policyCode==='GL-479198'),id);
+   const exact={...g,key:(g.key||g.label)+'-suboxone-'+suffix,records:[r],isStatewide:false,statewideRecord:null};
+   const card=a.medicationGroupCard(exact);
+   if(hold){
+     assert(!r.reviewedBannerBranches,id);assert(!card.includes('data-card-clinical'),id);
+     assert(card.includes('Do not transfer brand Zubsolv PA criteria'),id);
+   }else{
+     assert(r.reviewedBannerBranches.quantityExceptionOnly,id);
+     assert(card.includes('Quantity-limit exception guideline'),id);
+     const detail=await open(exact);
+     assert(detail.html.includes('Quantity-limit exceptions'),id);
+     assert(/requests exceeding 24 mg/i.test(detail.html),id);
+     assert(/requests exceeding 16 mg/i.test(detail.html),id);
+     assert(!/DSM-V|will not be approved|patient must have tried/i.test(detail.html),id);
+     assert(detail.ref.includes('Quantity-limit exception guideline'),id);
+   }
+ }
+ console.log('PASS: Banner brand film dose exception stages and generic ODT scope guard.');
  const leqvio=bannerGroups.find(g=>g.records.some(r=>r.id==='banner-oct2026-j1306'));
  assert(leqvio,'Leqvio J1306 row missing');
  const leqvioRow=leqvio.records.find(r=>r.id==='banner-oct2026-j1306');
