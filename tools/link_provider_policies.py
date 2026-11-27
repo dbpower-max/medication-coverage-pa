@@ -531,5 +531,32 @@ def attach_provider_policies(data):
                                     if link.get('textUrl') != f'./banner-policy-text/12-{chapter}.txt']
          seen_holds.add(record['id'])
  assert seen_holds == set(held_presentations)
+ # DEC-05/07/09/12/13/14/19/20: exact Banner October preferred opioid-use-disorder options.
+ # GL-479198 has separate generic-film denial, Zubsolv PA, and shared dose-exception branches.
+ suboxone_review = {
+  'banner-full-a3a4d5ac3d267b68': ('BUPRENORPHINE HCL-NALOXONE HCL DIHYDRATE FILM', 'Suboxone (Buprenorphine-Naloxone) Sublingual / Buccal Film — Brand Only', 'Banner lists brand Suboxone film only, preferred. Quantity-limit exception requests above 24 mg/day buprenorphine equivalent initially or above 16 mg/day at renewal require prescriber rationale and inability to achieve the dose within the accepted quantity of another dose/formulation. These are exception thresholds, not absolute dosing ceilings.', 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8a5edcf9-828c-4f97-b671-268ab13a8ecd', False),
+  'banner-full-f46de12431d1d312': ('BUPRENORPHINE HCL-NALOXONE HCL DIHYDRATE ORALLY DISINTEGRATING TABLETS', 'Buprenorphine-Naloxone Orally Disintegrating Tablets — Generic Only', 'Banner lists generic formulations only, preferred. Exact covered ODT identity, dose equivalence and applicability of the shared quantity-exception criteria are unverified. Do not transfer brand Zubsolv PA criteria or assume mg-for-mg equivalence.', '', True),
+ }
+ p=policies['banner-policy-12-1690']
+ raw=(ROOT/'dist'/p['sourceTextUrl'].lstrip('./')).read_text()
+ flat=' '.join(raw.lower().split())
+ assert 'gl-479198' in flat and '1/1/2026' in flat and 'requests exceeding 24 mg' in flat and 'requests exceeding 16 mg' in flat
+ assert 'product name:brand suboxone' in flat and 'guideline type quantity limit' in flat
+ seen_suboxone=set()
+ for r in data['medications']:
+  if r['id'] not in suboxone_review:continue
+  original,label,note,url,hold=suboxone_review[r['id']]
+  assert r['planId']=='banner-ufc' and r['name']==original and r['pa']=='not_specified' and r['preferred']=='preferred'
+  assert not r.get('qlAmount') and not r.get('qlDays')
+  r['reviewedPresentation']={**r.get('reviewedPresentation',{}),'separate':True,'label':label,'note':note,'policyUnverified':hold}
+  if url:r['reviewedPresentation']['labelUrl']=url
+  link=dict(policyId=p['id'],title=p['name'],policyCode='GL-479198',firstPage=1690,lastPage=1693,url=p['sourceUrl'],textUrl=p['sourceTextUrl'],effective='2026-01-01',matchedProduct='Generic ODT (related reference only)' if hold else 'Brand Suboxone film',scope='Exact generic ODT quantity-exception scope unverified; Zubsolv PA is not applicable.' if hold else 'Brand Suboxone film: quantity-limit exception criteria only, pages 1692–1693. Generic film denial and Zubsolv PA are separate.')
+  r['policySources']=[x for x in r.get('policySources',[]) if x.get('policyId')!=p['id'] and x.get('textUrl')!=link['textUrl']]
+  if r.get('policySource',{}).get('textUrl')==link['textUrl']:r.pop('policySource',None)
+  r['policySources'].insert(0,link)
+  if hold:r.pop('reviewedBannerBranches',None)
+  else:r['reviewedBannerBranches']={'policyId':p['id'],'product':'Brand suboxone','initialPage':1692,'renewalPage':1692,'quantityExceptionOnly':True}
+  seen_suboxone.add(r['id'])
+ assert seen_suboxone==set(suboxone_review)
  print(f'Added {count} same-plan policy links across {len(records)} medication records')
  return count

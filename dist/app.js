@@ -2447,6 +2447,7 @@
         const selected = stages.map(([stage,page,heading,diagnosisHint]) => {
           const matches = source.branches.filter(branch => branch.stage === stage && branch.sourcePage === page && new RegExp('(?:^|[^a-z])'+b.product+'(?:[^a-z]|$)', 'i').test(branch.product) && (!diagnosisHint || branch.product.toLowerCase().includes(diagnosisHint.toLowerCase())));
           if (matches.length !== 1) throw new Error('Exact Banner product/stage branch not verified');
+          if (b.quantityExceptionOnly && (b.policyId !== 'banner-policy-12-1690' || !/^Brand suboxone,/i.test(matches[0].product) || !/Guideline Type\s+Quantity Limit/i.test(matches[0].text) || !/requests exceeding\s+24 mg/i.test(matches[0].text) && stage === 'Initial Authorization' || !/requests exceeding\s+16 mg/i.test(matches[0].text) && stage === 'Reauthorization')) throw new Error('Unverified Banner quantity-exception branch');
           let text = matches[0].text.split(/\n\s*2\s*\.\s*Revision History/i)[0];
           if (b.omitNintedanibNonpreferredStep) {
             if (b.policyId !== 'banner-policy-12-589' || !/generic nintedanib 100mg and 150mg capsules \(Sandoz mfg\)/i.test(matches[0].product)) throw new Error('Sandoz product scope not verified');
@@ -2510,9 +2511,9 @@
         if (b.exclusionPage && exclusion.length !== 1) throw new Error('Missing reviewed exclusion');
         const painScope = b.painPages ? '<p>These criteria apply to pain only. Opioid use disorder authorization is unverified.</p>' : '';
         const conditional = b.painPages ? '<h4>Separate conditional review references</h4><p>Not routine pain PA criteria or OUD approval:</p>' + [[1099,'Concurrent MAT / opioid DUR'],[1111,'Quantity limit review'],[1112,'MME review']].map(([page,label]) => '<p>'+escapeHtml(label)+'</p>'+branchPageLink({sourcePage:page},policy)).join('') : '';
-        target.innerHTML = painScope + (b.unstagedPage ? '<p>Authorization stage is not separately labeled in the source.</p>' : '') + selected.map(branch => (branch.heading ? '<h4>'+escapeHtml(branch.heading)+'</h4>' : '') + cardTextBranchMarkup(branch, policy)).join('') + conditional + (exclusion.length ? '<h4>Separate indication exclusion</h4>'+cardTextBranchMarkup(exclusion[0], policy) : '');
+        target.innerHTML = (b.quantityExceptionOnly ? '<h4>Quantity-limit exceptions</h4><p>Applies only to requests exceeding the plan dose threshold, not a routine PA requirement or absolute prescribing limit.</p>' : '') + painScope + (b.unstagedPage ? '<p>Authorization stage is not separately labeled in the source.</p>' : '') + selected.map(branch => (branch.heading ? '<h4>'+escapeHtml(branch.heading)+'</h4>' : '') + cardTextBranchMarkup(branch, policy)).join('') + conditional + (exclusion.length ? '<h4>Separate indication exclusion</h4>'+cardTextBranchMarkup(exclusion[0], policy) : '');
         const references = details.querySelector('.card-pa-references');
-        if (references) references.innerHTML = cardPaReference(policy);
+        if (references) references.innerHTML = cardPaReference(policy, b.quantityExceptionOnly ? 'Quantity-limit exception guideline' : undefined);
         details.dataset.loaded = 'true';
         return;
       }
@@ -2644,7 +2645,8 @@
     const brandCapsuleReference = isUhc && reference?.policyCode === 'GL-231255'
       && group.records.some(record => record.id === 'uhc-oct-complete-009ca23afd12966f');
     const constipationPolicy = (constipationGeneric || linzess) && state.data.policies.find(policy => policy.id === constipationPolicyId);
-    const refs = bannerIcs ? cardPaReference(bannerIcs, 'Related inhaled corticosteroid guidance') : constipationPolicy ? cardPaReference(constipationPolicy,
+    const bannerQuantityException = isBanner && group.records.some(r => r.reviewedBannerBranches?.quantityExceptionOnly);
+    const refs = bannerQuantityException && reference ? cardPaReference(reference, 'Quantity-limit exception guideline') : bannerIcs ? cardPaReference(bannerIcs, 'Related inhaled corticosteroid guidance') : constipationPolicy ? cardPaReference(constipationPolicy,
       linzess ? 'Linzess PA guideline' : 'UHC October 18 policy')
       : glucosePolicy ? cardPaReference(glucosePolicy, glucoseDisplay.strip ? 'Test strip PA and QL guideline' : 'Nonpreferred meter PA guideline')
       : stripQuantity ? cardPaReference(stripQuantity, 'Test strip QL reference')
