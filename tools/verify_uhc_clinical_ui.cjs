@@ -324,6 +324,8 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  // DEC-05/06/12/13/14/19/20: preserve stage bindings and explicitly qualify option scope.
  for(const [suffix,label,phrase,code,indexes,pref,scope] of [
+  ["0880d90b2d07a0d1","Takhzyro (Lanadelumab-flyo) 150 mg/1 mL Subcutaneous Prefilled Syringe","150 mg/1 mL pediatric syringe (ages 2 to under 12","gl-546227",[0],"non_preferred","Takhzyro named HAE prophylaxis; authorization stage unspecified"],
+  ["9ae34e546b3d65a3","Takhzyro (Lanadelumab-flyo) 300 mg/2 mL Subcutaneous Prefilled Syringe","300 mg/2 mL syringe for labeled dosing in adults and children 12 years or older","gl-546227",[0],"non_preferred","Takhzyro named HAE prophylaxis; authorization stage unspecified"],
   ["4441369e2fb0eda6","Tafinlar (Dabrafenib) Oral Capsule or Tablet for Oral Suspension (payer form unverified)","suspension tablets must be dispersed","gl-741203",[1],"preferred","Tafinlar named oral oncology branch; exact payer formulation unverified"],
   ["8257acba5d319b90","Tadliq (Tadalafil) 4 mg/mL Oral Suspension","BOTH a preferred ERA and a preferred PDE5 inhibitor","gl-715293",[0,1],"non_preferred","Tadliq named PAH initial and renewal; brand-specific prerequisites not applicable"],
   ["328b543e61dac94c","Soliris (Eculizumab) Intravenous Infusion","not approved at this time","gl-665191",[8],"non_preferred","Soliris named nonpreferred denial branch; preferred-product stages not applicable"],
@@ -347,6 +349,14 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   if(pref==='non_preferred')assert(r.uhcClinicalBindings.some(b=>b.role==='nonpreferred'));
   const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith(code));assert.deepEqual(b[0].branchIndexes,indexes);assert(b[0].productLabel.includes(scope));
   const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+ }
+ // DEC-05/06/19: distinct syringe groups; retain printed AL only on the 150 mg/mL payer row.
+ {
+  const g1=groups.find(g=>g.records.some(r=>r.id==='uhc-oct-complete-0880d90b2d07a0d1'));
+  const g2=groups.find(g=>g.records.some(r=>r.id==='uhc-oct-complete-9ae34e546b3d65a3'));
+  assert(g1&&g2&&g1!==g2);
+  assert(a.medicationGroupCard(g1).includes('>Age limit<'));
+  assert(!a.medicationGroupCard(g2).includes('>Age limit<'));
  }
  // Generic powder retains its separately printed non-PA listing.
  {
