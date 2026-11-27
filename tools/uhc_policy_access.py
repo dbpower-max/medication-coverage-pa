@@ -324,7 +324,7 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 fields = branches[i]['fields']
                 assert 'buprenorphine/naloxone sublingual tablet' in fields['Product Name']['text'].lower()
                 assert fields['Therapy Stage']['text'] == stage
-                assert fields['Guideline Type']['text'] == 'Quantity Limit'
+                assert fields['Guideline Type']['text'].splitlines()[0].strip() == 'Quantity Limit', fields['Guideline Type']['text']
             matched.pop(code, None)
             add(code, [2, 3], 'quantity')
         if record['id'] == 'uhc-oct-complete-6e7e06e8657df79b':
