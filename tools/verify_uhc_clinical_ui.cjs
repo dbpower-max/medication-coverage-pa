@@ -324,6 +324,8 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  // DEC-05/06/12/13/14/19/20: preserve stage bindings and explicitly qualify option scope.
  for(const [suffix,label,phrase,code,indexes,pref,scope] of [
+  ["2d58cb773b4fc47d","Torpenz (Everolimus) Oral Tablet","or Yulithira for Torpenz requests","gl-657254",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14],"preferred","Torpenz named policy; Torpenz-specific step applies"],
+  ["aa3337eda974b8e5","Yulithira (Everolimus) Oral Tablet","requests, not Yulithira","gl-657254",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14],"preferred","Yulithira named policy; Torpenz-specific step does not apply"],
   ["83b88d1cc06caef0","Xeljanz (Tofacitinib) Oral Tablet / Oral Solution (Exact Form Unverified)","Prior brand failure/intolerance is for generic requests only, not this brand","gl-657310",[0,1,2,4,5,6,7,8,9,10],"preferred","Brand Xeljanz; tablet versus oral solution applicability must be verified"],
   ["9d7cd2da3755e879","Tetrabenazine Oral Tablet (Generic Xenazine)","for brand Xenazine only, not this generic product","gl-720194",[0,1,2,3,4],"preferred","Generic tetrabenazine; brand-only step does not apply"],
   ["841be494148100e0","Bethkis (Tobramycin) 300 mg/4 mL Inhalation Solution","separate TOBI or generic solution/Podhaler initial and renewal branches do not apply","gl-140865",[0],"preferred","Brand Bethkis or Kitabis CF criteria"],
