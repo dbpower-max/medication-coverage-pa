@@ -324,6 +324,9 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  // DEC-05/06/12/13/14/19/20: preserve stage bindings and explicitly qualify option scope.
  for(const [suffix,label,phrase,code,indexes,pref,scope] of [
+  ['ea3dbb64aeb94ba5','Skytrofa (Lonapegsomatropin-tcgd) Subcutaneous Powder Cartridge','additional FDA-labeled 0.7, 1.4, 1.8, 2.1 and 2.5 mg are not listed here','gl-723191',[0,1],'non_preferred','preferred-product stages not applicable'],
+  ['dbcb937fe5e4b0c6','Sodium Oxybate 500 mg/mL Oral Solution (payer reference Xyrem)','exact generic applicability unverified','gl-164853',[0,1,2,3],'non_preferred','generic applicability unverified'],
+  ['3819c4b013640e1d','Sodium Phenylbutyrate 500 mg Oral Tablet (payer reference Buphenyl)','not this generic tablet','gl-502217',[0,2],'preferred','brand-only prerequisite not applicable'],
   ['4f1dd2afc03f668f','Ribavirin Oral Tablet or Capsule (payer form unverified)','capsule label contraindicates use below 50 mL/min','gl-392223',[6],'preferred','exact payer formulation unverified'],
   ['66aa6db51c8641f9','Promacta (Eltrombopag Olamine) Oral Tablet','both generic eltrombopag tablet and Nplate','gl-546252',[0,1,2,3,4,5],'non_preferred','indication-specific nonpreferred prerequisites'],
   ['50027926c12f2fc5','Isotretinoin Oral Capsule (payer reference Accutane)','not milligram-for-milligram substitutable with Absorica LD','gl-288262',[0,1,2,3],'preferred','verify formulation-specific applicability'],
@@ -339,6 +342,10 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   if(pref==='non_preferred')assert(r.uhcClinicalBindings.some(b=>b.role==='nonpreferred'));
   const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith(code));assert.deepEqual(b[0].branchIndexes,indexes);assert(b[0].productLabel.includes(scope));
   const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+ }
+ // Generic powder retains its separately printed non-PA listing.
+ {
+  const r=groups.flatMap(g=>g.records).find(r=>r.id==='uhc-oct-complete-add3a1f5176903ed');assert(r);assert.equal(r.pa,'not_specified');assert.equal(r.preferred,'preferred');assert(!r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));assert(!r.reviewedPresentation?.label?.includes('500 mg Oral Tablet'));
  }
  // DEC-05/06/12/13/14/19/20: conditional PA and exact named policy stages.
  for(const [suffix,label,phrase,code,indexes,pa,hasQL] of [
