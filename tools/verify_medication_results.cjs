@@ -158,7 +158,8 @@ for (const [plan, term, heading] of [
 }
 Object.assign(api.state, {planId:'uhc-community-az', term:'Uceris'});
 api.render();
-assert.match(api.el.resultGrid.innerHTML, /<h3>Uceris — dosage form unverified<\/h3>/i);
+assert.match(api.el.resultGrid.innerHTML, /<h3>Uceris \(Budesonide\) Extended-Release Oral Tablet or Rectal Foam \(Payer Form Unspecified\)<\/h3>/i);
+assert.match(api.el.resultGrid.innerHTML, /Exact UHC product-specific initial\/renewal criteria/);
 
 api.state.term = 'Freestyle Libre 3 Reader';
 api.render();
