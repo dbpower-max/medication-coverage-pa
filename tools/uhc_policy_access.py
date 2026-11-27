@@ -1268,6 +1268,24 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': "FDA label: 24-hour extended-release tablet, not an immediate-release or ER capsule; swallow whole to avoid fatal overdose. UHC GL-620192 includes distinct concurrent MAT/opioid, cancer/hospice, non-cancer initial/renewal and cumulative MME exceptions. The quantity exception addresses requests that cannot be met by a higher strength and are within applicable FDA maximums; numeric dispensing QL unverified. Do not interpret an MME threshold as a dispensing quantity.",
                 'labelUrl': "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b7d23ac2-e776-9f62-3290-c64c2d6eb353",
             }
+        # DEC-05/06/12/13/14/19/20: RFA9583 brand OxyContin ER tablet, not generic oxycodone ER.
+        if record['id'] == 'uhc-oct-complete-8cd51f6265cf511b':
+            assert october_name == 'oxycontin' and record['pa'] == 'required' and record['preferred'] == 'preferred' and ql
+            code = 'GL-620192'
+            assert matched.get(code) == {0,1,4,7,8,9,10,11}, (record['id'], matched)
+            matched.pop(code)
+            add(code, [1,4,7], 'product')
+            bindings[-1]['productLabel'] = 'Brand OxyContin extended-release tablets'
+            add(code, [8], 'quantity')
+            add(code, [0], 'concurrent_opioid_dur')
+            add(code, [9,10,11], 'mme_exception')
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'OxyContin (Oxycodone Hydrochloride) Extended-Release Oral Tablet',
+                'dosageForm': 'extended-release oral tablet',
+                'note': 'FDA label: 12-hour ER tablets 10, 15, 20, 30, 40, 60 and 80 mg; swallow intact, not for PRN use. The 60/80 mg tablets and high doses require established opioid tolerance. Pediatric use restricted to opioid-tolerant patients aged 11 or older. UHC GL-620192: brand OxyContin cancer/hospice, non-cancer initial and renewal criteria apply; generic oxycodone ER nonpreferred prerequisites do not apply. Concurrent opioid DUR, cumulative MME and quantity exceptions are distinct. Exact payer strength eligibility and numeric dispensing QL unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=bfdfe235-d717-4855-a3c8-a13d26dadede',
+            }
         # DEC-05/06/12/13/14/19/20: RFA9222 generic MS Contin-reference ER tablet, not brand/capsule initial pathways.
         if record['id'] == 'uhc-oct-complete-9db621ca8a237769':
             assert october_name == 'morphine sulfate er (generic for ms contin)' and record['pa'] == 'required' and record['preferred'] == 'preferred' and ql
