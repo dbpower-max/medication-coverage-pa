@@ -324,6 +324,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  // DEC-05/06/12/13/14/19/20: preserve stage bindings and explicitly qualify option scope.
  for(const [suffix,label,phrase,code,indexes,pref,scope] of [
+  ['66aa6db51c8641f9','Promacta (Eltrombopag Olamine) Oral Tablet','both generic eltrombopag tablet and Nplate','gl-546252',[0,1,2,3,4,5],'non_preferred','indication-specific nonpreferred prerequisites'],
   ['50027926c12f2fc5','Isotretinoin Oral Capsule (payer reference Accutane)','not milligram-for-milligram substitutable with Absorica LD','gl-288262',[0,1,2,3],'preferred','verify formulation-specific applicability'],
   ['ebfa91d6e2f468c4','Cresemba (Isavuconazonium Sulfate) 186 mg Oral Capsule','this is not FDA capsule eligibility','gl-751212',[12,14],'non_preferred','186 mg capsule applicability unverified'],
   ['9cb53245e3257820','Droxidopa 100 mg Oral Capsule (payer reference Northera)','exact generic applicability','gl-140900',[0,1],'non_preferred','generic applicability unverified'],
