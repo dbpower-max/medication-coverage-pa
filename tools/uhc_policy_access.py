@@ -1469,7 +1469,7 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             assert october_name == 'tramadol hcl er' and record['pa'] == 'required' and record['preferred'] == 'preferred' and ql
             code = 'GL-620192'
             assert matched.get(code) == {0,1,4,7,8,9,10,11}, (record['id'], matched)
-            assert matched.get('GL-711768') == {0,2,3,4,5,6,7,8}, (record['id'], matched)
+            assert matched.get('GL-711768') == set(range(9)), (record['id'], matched)
             matched.pop(code)
             matched.pop('GL-711768')
             record['excludedPolicyCode'] = 'GL-711768'
