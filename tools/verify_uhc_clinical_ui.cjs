@@ -1486,6 +1486,9 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    assert.equal(r.uhcClinicalBindings.some(b=>b.role==='topical_quantity'&&b.policyId.endsWith('gl-140667')),topical,id);
    assert(!r.uhcClinicalBindings.some(b=>b.role==='product'||b.role==='nonpreferred'),id);
    const exact={...g,key:(g.key||g.label)+'-topical-'+suffix,records:[r],isStatewide:false,statewideRecord:null};
+   const groupedCard=a.medicationGroupCard(g);
+   assert.equal(groupedCard.includes('For 0.005% cream or ointment, trial of two medium- to high-potency topical corticosteroids.'),role==='psoriasis_request',id+' strength-specific PDL step');
+   assert.equal(groupedCard.includes('uhc-az-medicaid-pdl-2026-10-01.pdf#page=36'),role==='psoriasis_request',id+' step-table source');
    const card=a.medicationGroupCard(exact);const detail=await open(exact);
    assert(!detail.html.includes('PA is required. Approval criteria'),id);
    assert.equal(detail.html.includes('Psoriasis request criteria'),role==='psoriasis_request',id);
@@ -1704,11 +1707,13 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    assert.equal(r.pa,'not_specified',id);assert.equal(r.preferred,'preferred',id);
    assert(r.qlAmount||r.qlDays,id+' printed QL lost');
    assert(!r.policyQuantityLimit,id+' unsupported numeric limit');
-   const exact={...g,key:(g.key||g.label)+'-butalbital-'+suffix,records:[r],isStatewide:false,statewideRecord:null};
-   const bindings=a.uhcGroupBindings(exact);
+   const card=a.medicationGroupCard(g);
+   assert(card.includes('>Preferred<') && card.includes('>Quantity limit<'),id+' displayed flags');
+   assert(!card.includes('>PA required<'),id+' unsupported routine PA badge');
+   const bindings=a.uhcGroupBindings(g);
    assert(bindings.some(b=>b.role==='global_quantity'&&b.policyId.endsWith('gl-140667')&&b.branchIndexes.join(',')==='0'),id+' general exception missing');
    assert(!bindings.some(b=>b.policyId.endsWith('gl-711768')||['product','nonpreferred','concurrent_opioid_dur','mme_exception','duplication'].includes(b.role)),id+' unrelated opioid or PA policy');
-   const out=await open(exact);
+   const out=await open(g);
    assert(out.html.includes('Quantity-limit exceptions'),id);
    assert(out.html.includes('Criteria source · PDF page 702<'),id);
    for(const phrase of ['Concurrent opioid therapy (DUR)','Cumulative MME exceptions','Therapeutic duplication exceptions','Criteria source · PDF page 1515<'])assert(!out.html.includes(phrase),id+' '+phrase);
@@ -1769,6 +1774,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
      assert(card.includes('Quantity-limit exception guideline'),id);
      const detail=await open(exact);
      assert(detail.html.includes('Quantity-limit exceptions'),id);
+     assert.deepEqual([...detail.html.matchAll(/Criteria source · PDF page (\d+)</g)].map(m=>Number(m[1])),[1692,1693],id+' stage-specific source pages');
      assert(/requests exceeding 24 mg/i.test(detail.html),id);
      assert(/requests exceeding 16 mg/i.test(detail.html),id);
      assert(!/DSM-V|will not be approved|patient must have tried/i.test(detail.html),id);

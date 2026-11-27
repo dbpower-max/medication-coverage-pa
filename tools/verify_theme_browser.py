@@ -11,6 +11,18 @@ from playwright.sync_api import sync_playwright
 
 def verify_coverage_labels(page, width):
     query = page.get_by_role("combobox", name="Medication name")
+    query.fill("Sublocade")
+    query.press("Escape")
+    syringe = page.get_by_role("article").filter(has=page.get_by_role(
+        "heading", name="Sublocade 100 mg/0.5 mL Extended-Release Subcutaneous Injection", exact=True
+    ))
+    syringe.get_by_text("Clinical details & PA criteria", exact=True).click()
+    reference = syringe.locator("details.statewide-criteria-reference")
+    reference.wait_for()
+    assert reference.get_attribute("open") is None
+    reference.get_by_text("AHCCCS Statewide · Fee-for-service criteria", exact=True).click()
+    assert "Reauthorization" in reference.inner_text()
+
     query.fill("lispro")
     query.press("Escape")
     vials = page.get_by_role("article").filter(

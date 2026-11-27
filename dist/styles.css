@@ -452,6 +452,9 @@ main { padding-top: .65rem; }
 .clinical-details > summary > span:first-child { flex: 1; }
 .card-pa-references { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .25rem .7rem; max-width: 45%; text-align: right; }
 .card-pa-reference { font-weight: 500; white-space: nowrap; padding: .2rem 0; }
+@media (max-width: 580px) {
+  .card-pa-reference { white-space: normal; overflow-wrap: anywhere; }
+}
 .card-clinical-rule { margin-block: .45rem; white-space: pre-line; }
 .card-clinical-branch + .card-clinical-branch { border-top: 1px solid var(--gray-200); margin-top: 1rem; padding-top: .65rem; }
 .clinical-source-paragraph { white-space: pre-line; }
