@@ -345,6 +345,10 @@
       label: 'Korlym brand policy reference',
       scope: 'The guideline names Korlym. Applicability to generic mifepristone 300 mg is unverified.'
     }],
+    ['psoriasis_ointment_reference', {
+      label: 'UHC psoriasis guideline (ointment only)',
+      scope: 'The guideline names calcitriol ointment for psoriasis. The payer listing omits dosage form; applicability to the exact listing is unverified. This reference does not establish routine PA.'
+    }],
     ['cough_reference', {
       label: 'Related UHC cough and cold guideline',
       scope: 'UHC lists age and quantity limits but does not specify the form or threshold. This related guideline names Hydromet and generic Tussigon. Its age-specific PA and quantity-exception criteria are not verified for this exact listing.'
@@ -2269,6 +2273,8 @@
     const duplication = byRole(['duplication']);
     const ageScoped = byRole(['age_scoped']);
     const diagnosisRequest = byRole(['diagnosis_request']);
+    const psoriasisRequest = byRole(['psoriasis_request']);
+    const topicalQuantity = byRole(['topical_quantity']);
     const packetReference = byRole(['packet_reference']);
     const reviewedInsulin = group.records?.some(record => uhcInsulinAndSupplyLabels.has(record.id) || reviewedCardPresentation(record)?.uhcFormRx);
     const genericDabigatran = group.records.find(record => record.id === genericDabigatranId);
@@ -2287,11 +2293,13 @@
       [glucoseSupply?.strip || glucoseSupply?.meterPolicy ? glucosePolicyLabel : asmanexHfa ? 'Asthma PA guideline' : administrativeFallback ? 'General nonpreferred PA criteria' : 'Prior authorization', primary],
       ['Age-specific PA criteria', ageScoped],
       ['Diagnosis-linked PA request criteria', diagnosisRequest],
+      ['Psoriasis request criteria', psoriasisRequest],
       ['Packet PA guideline', packetReference],
       ['Therapeutic duplication exceptions', duplication],
       ['Concurrent opioid therapy (DUR)', byRole(['concurrent_opioid_dur'])],
       ['Cumulative MME exceptions', byRole(['mme_exception'])],
-      ['Quantity-limit exceptions', quantity]
+      ['Quantity-limit exceptions', quantity],
+      ['Topical quantity-limit exceptions', topicalQuantity]
     ];
     for (const [kind, selected] of criteriaSections) {
       const body = [];
@@ -2331,6 +2339,8 @@
       }
       const context = selected === duplication ? '<p>Applies when a therapeutic duplication edit is triggered.</p>'
         : selected === ageScoped ? '<p>The October 2026 formulary lists an age limit and leaves the PA field blank for the generic product below. The November 2026 guideline specifies these age-based criteria.</p>'
+        : selected === psoriasisRequest ? '<p>The October 2026 formulary prints step therapy and a quantity limit. These are the named psoriasis request criteria, not a verified routine PA trigger or a numeric quantity limit.</p>'
+        : selected === topicalQuantity ? '<p>Applies to requests exceeding the allowed topical package size or monthly quantity. The numeric limit is unverified.</p>'
         : selected === diagnosisRequest ? '<p>The October 2026 formulary requires a diagnosis and lists a quantity limit. This named UHC guideline supplies request criteria; the exact PA trigger or diagnosis-code override is unverified.</p>'
         : selected === packetReference ? '<p>The October 2026 formulary lists age and quantity limits for both packets and leaves their PA fields blank. The UHC guideline names both packets and gives criteria by age and ability to swallow solid forms.</p>'
         : selected === primary && glucoseSupply?.strip
@@ -2363,6 +2373,7 @@
         : asmanexHfa && p.policyCode === 'GL-605215' ? 'Asthma PA guideline'
         : (reviewedGvoke || generalPaPresentation) && p.policyCode === 'GL-231255' ? 'General nonpreferred PA reference'
         : genericDabigatran && p.policyCode === 'GL-231255' ? 'Brand nonpreferred reference' : 'PA reference')
+      : psoriasisRequest.some(b => b.policyId === p.id) ? 'Psoriasis request guideline'
       : diagnosisRequest.some(b => b.policyId === p.id) ? 'Diagnosis-linked request guideline'
       : packetReference.some(b => b.policyId === p.id) ? 'Packet PA guideline'
       : duplication.some(b => b.policyId === p.id) ? 'Duplication reference'
@@ -2610,6 +2621,8 @@
     const agePaFormulary = isUhc && restriction &&
       (restriction.id === uhcLowStrengthAlbuterolId || uhcAgePaCardLabels.has(restriction.id)) && uhcAgeEightPa(restriction);
     const reference = (isUhc ? (agePaFormulary ? restriction : policies.find(p => p.planId === state.planId) || restriction) : guidance) || guidance || policies.find(p => p.planId === state.planId) || policies[0];
+    const psoriasisGuideline = reference?.policyCode === 'GL-140713' && group.records?.some(record => record.uhcClinicalBindings?.some(binding => binding.role === 'psoriasis_request'));
+    const psoriasisOintmentReference = reference?.policyCode === 'GL-140713' && group.records?.some(record => record.uhcClinicalBindings?.some(binding => binding.role === 'psoriasis_ointment_reference'));
     const packetGuideline = reference?.policyCode === 'GL-255208' && group.records?.some(record =>
       record.uhcClinicalBindings?.some(binding => binding.role === 'packet_reference'));
     const glucoseSupply = isUhc && group.records.find(record => uhcReviewedGlucoseSupplies.has(record.id));
@@ -2635,7 +2648,9 @@
       linzess ? 'Linzess PA guideline' : 'UHC October 18 policy')
       : glucosePolicy ? cardPaReference(glucosePolicy, glucoseDisplay.strip ? 'Test strip PA and QL guideline' : 'Nonpreferred meter PA guideline')
       : stripQuantity ? cardPaReference(stripQuantity, 'Test strip QL reference')
-      : reference ? cardPaReference(reference, packetGuideline ? 'Packet PA guideline'
+      : reference ? cardPaReference(reference, psoriasisGuideline ? 'Psoriasis request guideline'
+      : psoriasisOintmentReference ? 'UHC psoriasis guideline (ointment only)'
+      : packetGuideline ? 'Packet PA guideline'
       : agePaFormulary ? 'PA formulary'
       : scopedQuantity || insulinQuantity || reviewedQuantity ? 'QL reference'
       : brandCapsuleReference ? 'Brand nonpreferred reference'

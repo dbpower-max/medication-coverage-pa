@@ -338,6 +338,51 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             matched.pop(code, None)
             add(code, [0], 'age_scoped')
             bindings[-1]['productLabel'] = 'Generic dextroamphetamine oral tablets (PA criteria for age under 6; nonpreferred-only requirements do not apply)'
+        # DEC-05/07/12/13/14/19/20: exact October antipsoriatic listings.
+        # A named request pathway does not establish a routine PA trigger.
+        topical_review = {
+            'uhc-oct-complete-f341f42e74fd7bbd': ('calcipotriene external cream', 'generic calcipotriene cream', 'Calcipotriene topical cream'),
+            'uhc-oct-complete-d3c2686424414dde': ('calcipotriene external ointment (generic for calcitrene)', 'generic calcipotriene ointment', 'Calcipotriene topical ointment'),
+            'uhc-oct-complete-c28a6b72395f62f7': ('calcipotriene external solution (generic for pellix)', None, 'Calcipotriene topical solution'),
+            'uhc-oct-complete-1fa0fb824565d7e7': ('calcitriol external', 'generic calcitriol ointment', 'Calcitriol topical (payer form unspecified)'),
+            'uhc-oct-complete-fe51c0b93a202b92': ('calcitriol oral capsule', None, 'Calcitriol oral capsule'),
+        }.get(record['id'])
+        if topical_review:
+            expected_name, named_product, label = topical_review
+            assert october_name == expected_name and record['pa'] == 'not_specified' and record['preferred'] == 'preferred' and ql
+            code = 'GL-140713'
+            assert policies[code]['policyEffective'] == '2022-10-01'
+            antipsoriatic, = structured[code]['branches']
+            fields = antipsoriatic['fields']
+            products = ' '.join(fields['Product Name']['text'].split())
+            assert fields['Diagnosis']['text'] == 'Psoriasis'
+            assert fields['Guideline Type']['text'] == 'Prior Authorization'
+            assert '12 month' in fields['Approval Length']['text']
+            assert not fields.get('Therapy Stage')
+            matched.pop(code, None)
+            if named_product:
+                assert named_product in products
+                role = 'psoriasis_ointment_reference' if expected_name == 'calcitriol external' else 'psoriasis_request'
+                add(code, [0], role)
+                bindings[-1]['productLabel'] = label
+            else:
+                record['excludedPolicyCode'] = code
+            if expected_name != 'calcitriol oral capsule':
+                code = 'GL-140667'
+                assert policies[code]['policyEffective'] == '2020-12-15'
+                branches = structured[code]['branches']
+                indexes = [i for i,b in enumerate(branches) if 'Topical products exceeding' in b['fields'].get('Diagnosis', {}).get('text', '')]
+                assert len(indexes) == 1
+                assert '12 month' in branches[indexes[0]]['fields']['Approval Length']['text']
+                add(code, indexes, 'topical_quantity')
+            if expected_name == 'calcitriol external':
+                record['reviewedPresentation'] = {
+                    **record.get('reviewedPresentation', {}), 'separate': True,
+                    'label': 'Calcitriol Topical (Payer Dosage Form Unspecified)',
+                    'dosageForm': 'topical (payer dosage form unspecified)',
+                    'note': 'FDA label: calcitriol 3 mcg/g topical ointment. The UHC listing omits dosage form; the named psoriasis guideline applies to ointment only. Exact payer formulation and numeric quantity limit are unverified.',
+                    'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a1567da9-af74-4afd-9ac5-8b53ec5d7cbf',
+                }
         # DEC-05/07/12/13/14/19/20 POL-01: exact named OUD request criteria,
         # and related cough policy with unresolved product/form applicability.
         if record['id'] == 'uhc-oct-complete-edf5b37b189977ee':
