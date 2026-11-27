@@ -340,6 +340,17 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith(code));assert.deepEqual(b[0].branchIndexes,indexes);assert(b[0].productLabel.includes(scope));
   const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
  }
+ // DEC-05/06/12/13/14/19/20: conditional PA and exact named policy stages.
+ for(const [suffix,label,phrase,code,indexes,pa,hasQL] of [
+  ['5c98628e66bc65e2','Rivastigmine Oral or Transdermal (payer dosage form unverified)','members under 18 require PA','gl-140666',[1],'conditional',true],
+  ['3eba9a486aa7d670','SevenFACT (eptacog beta) IV powder for solution 1 mg, 5 mg','2 mg exists in FDA labeling but coverage is not established','gl-716187',[16,21],'required',false]
+ ]){
+  const id='uhc-oct-complete-'+suffix,g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,pa);assert.equal(r.preferred,'preferred');
+  assert.equal(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'),hasQL);
+  const b=r.uhcClinicalBindings.filter(b=>b.role==='product');assert.equal(b.length,1);assert(b[0].policyId.endsWith(code));assert.deepEqual(b[0].branchIndexes,indexes);
+  const card=a.medicationGroupCard(g);assert(card.includes(label));assert(card.includes(phrase));assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+ }
  // DEC-05/06/12/13/14/19/20: Profilnine potency-specific source rows, same exact named policy.
  for(const [suffix,strength,concentration] of [
   ['cd6eda95e2025320','1000 or 1500 IU','1000 IU/10 mL or 1500 IU/10 mL'],
