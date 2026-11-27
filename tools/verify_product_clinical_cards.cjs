@@ -43,6 +43,28 @@ for(const plan of data.plans){
  assert(!more.target.innerHTML.includes('More clinical criteria'),'Redundant second lookup remains');
  assert(!more.target.innerHTML.includes('View clinical criteria'),'Whole-policy reader remains');
 }
+// DEC-06/07/19/20: ACH exact baseline flags and label presentation.
+api.state.planId='az-complete-health';
+const achOudGroups=api.planMedicationGroups();
+for(const [id,dose] of [['ach-json-1996189','100 mg/0.5 mL'],['ach-json-1996193','300 mg/1.5 mL']]){
+ const g=achOudGroups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+ const r=g.records.find(r=>r.id===id);
+ assert.equal(r.pa,'required',id+' preserved explicit baseline PA');
+ assert.equal(r.preferred,'preferred',id);assert(!r.quantityLimited,id);
+ const card=api.medicationGroupCard(g);
+ assert(card.includes(dose)&&card.includes('Extended-Release Subcutaneous Injection'),id+' presentation');
+ assert(card.includes('Exact plan initial/renewal criteria are unverified'),id+' criteria scope');
+ assert(card.includes('PA required'),id+' displayed PA');
+ assert(!r.achProviderRule,id+' mono rule must not transfer');
+}
+for(const id of ['ach-json-351266','ach-json-351267','ach-json-351264','ach-json-351265']){
+ const g=achOudGroups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+ const r=g.records.find(r=>r.id===id);assert(r.quantityLimited,id+' preserved QL');
+ const mono=['ach-json-351264','ach-json-351265'].includes(id);
+ assert.equal(Boolean(r.achProviderRule),mono,id+' rule scope');
+ if(mono){assert(api.medicationGroupCard(g).includes('except for pregnancy or nursing'),id);assert.equal(r.achProviderRule.effectiveDate,null);}
+ else assert(!['required','conditional'].includes(r.pa),id+' no mono PA transfer');
+}
 api.state.planId='uhc-community-az';
 const patchGroup=api.planMedicationGroups().find(g=>g.records.some(r=>r.id==='uhc-oct-complete-907ff55568d6ecfb'));
 assert.deepEqual(Array.from(patchGroup.records, r=>r.id).sort(), ['uhc-oct-complete-1f6816a7379d66cd','uhc-oct-complete-907ff55568d6ecfb']);
