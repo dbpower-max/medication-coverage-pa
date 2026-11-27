@@ -345,7 +345,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  // Generic powder retains its separately printed non-PA listing.
  {
-  const r=groups.flatMap(g=>g.records).find(r=>r.id==='uhc-oct-complete-add3a1f5176903ed');assert(r);assert.equal(r.pa,'not_specified');assert.equal(r.preferred,'preferred');assert(!r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));assert(!r.reviewedPresentation?.label?.includes('500 mg Oral Tablet'));
+  const r=data.medications.find(r=>r.id==='uhc-oct-complete-add3a1f5176903ed'&&r.planId===a.state.planId);assert(r);assert.equal(r.pa,'not_specified');assert.equal(r.preferred,'preferred');assert(!r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));assert(!r.reviewedPresentation?.label?.includes('500 mg Oral Tablet'));
  }
  // DEC-05/06/12/13/14/19/20: conditional PA and exact named policy stages.
  for(const [suffix,label,phrase,code,indexes,pa,hasQL] of [
