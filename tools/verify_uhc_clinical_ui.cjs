@@ -1699,6 +1699,43 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    assert(out.ref.includes('Korlym brand policy reference'));
    assert(data.policies.some(p=>p.policyCode==='GL-434343'),'Mifeprex source retained');
  }
+ // DEC-07/12/13: named conditional hypnotic policy and independent class edit.
+ for(const [suffix,hypnotic,step,ql,cls] of [
+   ['ee91f45e62d87482',true,false,true,true],
+   ['d9d744a480f31c8a',true,true,true,false],
+   ['cc0214a5924ebd77',true,false,false,true],
+   ['4f1a6bcd488425ec',true,false,true,true],
+   ['d63fde77a711b8ce',false,false,true,true],
+   ['e3438ba8499baf2f',false,false,true,true]
+ ]){
+   const id='uhc-oct-complete-'+suffix;
+   const g=a.planMedicationGroups().find(g=>g.records.some(r=>r.id===id));assert(g,id);
+   const r=g.records.find(r=>r.id===id);
+   assert.equal(r.pa,'not_specified',id);assert.equal(r.preferred,'preferred',id);
+   assert.equal(Boolean(r.qlAmount||r.qlDays),ql,id);
+   const b=r.uhcClinicalBindings||[];
+   assert.equal(b.some(x=>x.role==='hypnotic_request'&&x.policyId.endsWith('gl-637194')&&x.branchIndexes.join(',')==='2,3'),hypnotic,id);
+   assert.equal(b.some(x=>x.role==='hypnotic_step'&&x.branchIndexes.join(',')==='0'),step,id);
+   assert(!b.some(x=>x.policyId.endsWith('gl-637194')&&x.branchIndexes.includes(1)),id+' nonpreferred branch leaked');
+   const exact={...g,key:(g.key||g.label)+'-hypnotic-'+suffix,records:[r],isStatewide:false,statewideRecord:null};
+   const card=a.medicationGroupCard(exact);
+   assert(card.includes('data-card-clinical'),id);
+   const out=await open(exact);
+   assert.equal(out.html.includes('Conditional hypnotic PA criteria'),hypnotic,id);
+   assert.equal(out.html.includes('Ramelteon step therapy'),step,id);
+   assert.equal(out.html.includes('Class-wide prescription limit'),cls,id);
+   assert.equal(out.html.includes('PDF page 35</a>'),cls,id);
+   assert(!out.html.includes('Brand Rozerem, patient must have tried'),id);
+   if(hypnotic) {
+     assert(out.html.includes('Criteria source · PDF page 1495<'),id);
+     assert(out.html.includes('Criteria source · PDF page 1496<'),id);
+   }
+   assert.equal(out.html.includes('Criteria source · PDF page 1494<'),step,id);
+   assert.equal(out.html.includes('Quantity-limit exceptions'),ql,id);
+   const grouped=await open(g);
+   if(cls) assert(grouped.html.includes('Class-wide prescription limit'),id+' grouped class rule');
+ }
+ console.log('PASS: Six exact hypnotic/barbiturate rows retain raw flags and scoped conditional PA, ST and class limit.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  const bannerGroups=a.planMedicationGroups();
  const igRows=[
