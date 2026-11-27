@@ -345,6 +345,10 @@
       label: 'Korlym brand policy reference',
       scope: 'The guideline names Korlym. Applicability to generic mifepristone 300 mg is unverified.'
     }],
+    ['cough_reference', {
+      label: 'Related UHC cough and cold guideline',
+      scope: 'UHC lists age and quantity limits but does not specify the form or threshold. This related guideline names Hydromet and generic Tussigon. Its age-specific PA and quantity-exception criteria are not verified for this exact listing.'
+    }],
     ['epaned_reference', {
       label: 'Epaned policy reference',
       scope: 'This guideline names Epaned. Applicability to generic enalapril oral solution is unverified.'
@@ -2263,6 +2267,7 @@
     const sections = [], references = [], seen = new Set();
     const duplication = byRole(['duplication']);
     const ageScoped = byRole(['age_scoped']);
+    const diagnosisRequest = byRole(['diagnosis_request']);
     const packetReference = byRole(['packet_reference']);
     const reviewedInsulin = group.records?.some(record => uhcInsulinAndSupplyLabels.has(record.id) || reviewedCardPresentation(record)?.uhcFormRx);
     const genericDabigatran = group.records.find(record => record.id === genericDabigatranId);
@@ -2280,6 +2285,7 @@
     const criteriaSections = [
       [glucoseSupply?.strip || glucoseSupply?.meterPolicy ? glucosePolicyLabel : asmanexHfa ? 'Asthma PA guideline' : administrativeFallback ? 'General nonpreferred PA criteria' : 'Prior authorization', primary],
       ['Age-specific PA criteria', ageScoped],
+      ['Diagnosis-linked PA request criteria', diagnosisRequest],
       ['Packet PA guideline', packetReference],
       ['Therapeutic duplication exceptions', duplication],
       ['Concurrent opioid therapy (DUR)', byRole(['concurrent_opioid_dur'])],
@@ -2324,6 +2330,7 @@
       }
       const context = selected === duplication ? '<p>Applies when a therapeutic duplication edit is triggered.</p>'
         : selected === ageScoped ? '<p>The October 2026 formulary lists an age limit and leaves the PA field blank for the generic product below. The November 2026 guideline specifies these age-based criteria.</p>'
+        : selected === diagnosisRequest ? '<p>The October 2026 formulary requires a diagnosis and lists a quantity limit. This named UHC guideline supplies request criteria; the exact PA trigger or diagnosis-code override is unverified.</p>'
         : selected === packetReference ? '<p>The October 2026 formulary lists age and quantity limits for both packets and leaves their PA fields blank. The UHC guideline names both packets and gives criteria by age and ability to swallow solid forms.</p>'
         : selected === primary && glucoseSupply?.strip
         ? '<p>PA criteria apply to nonpreferred strip products. The quantity-limit exception below also covers preferred strips.</p>'
@@ -2355,6 +2362,7 @@
         : asmanexHfa && p.policyCode === 'GL-605215' ? 'Asthma PA guideline'
         : (reviewedGvoke || generalPaPresentation) && p.policyCode === 'GL-231255' ? 'General nonpreferred PA reference'
         : genericDabigatran && p.policyCode === 'GL-231255' ? 'Brand nonpreferred reference' : 'PA reference')
+      : diagnosisRequest.some(b => b.policyId === p.id) ? 'Diagnosis-linked request guideline'
       : packetReference.some(b => b.policyId === p.id) ? 'Packet PA guideline'
       : duplication.some(b => b.policyId === p.id) ? 'Duplication reference'
       : p.id === uhcTestStripPolicyId ? 'Test strip QL reference' : 'QL reference');

@@ -1442,6 +1442,32 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    if(code==='505191')assert(detail.html.includes('Criteria source · PDF page 1616<'),id);
  }
  console.log('PASS: six exact preferred UHC raw-blank rows preserve flags and correctly scoped conditional policies.');
+ // RFA7213/8603: link exact request criteria and related form-ambiguous
+ // policy without turning a diagnosis or age flag into blanket PA.
+ for(const [suffix,code,role,indexes,heading,phrase,page] of [
+   ['edf5b37b189977ee','502188','diagnosis_request',[0],'Buprenorphine Sublingual Tablet','the exact PA trigger or diagnosis-code override is unverified',269],
+   ['d581f21169f49b45','140671','cough_reference',[0,1],'Hydrocodone/Homatropine','criteria are not verified for this exact listing',414]
+ ]){
+   const id='uhc-oct-complete-'+suffix;
+   const g=groups.find(g=>g.records.some(r=>r.id===id));assert(g,id);
+   const r=g.records.find(r=>r.id===id);
+   assert.equal(r.pa,'not_specified',id);assert.equal(r.preferred,'preferred',id);
+   assert(r.qlAmount||r.qlDays,id);
+   assert.deepEqual(r.uhcClinicalBindings.filter(b=>b.policyId.endsWith('gl-'+code)).map(b=>[b.role,...b.branchIndexes]),[[role,...indexes]],id);
+   assert(!r.uhcClinicalBindings.some(b=>b.role==='product'||b.role==='nonpreferred'||b.policyId.endsWith('gl-711768')),id);
+   assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'),id);
+   const exact={...g,key:(g.key||g.label)+'-request-'+suffix,records:[r],isStatewide:false,statewideRecord:null};
+   const card=a.medicationGroupCard(exact);
+   assert(card.includes(heading),id+' label');
+   assert(card.includes(r.reviewedPresentation.labelUrl.replace(/&/g,'&amp;')),id+' FDA label');
+   const detail=await open(exact);
+   assert(detail.html.includes(phrase),id+' scope');
+   assert(!detail.html.includes('PA is required. Approval criteria'),id);
+   assert(detail.ref.includes('page='+page),id+' policy ref');
+   if(role==='diagnosis_request')assert(detail.html.includes('Diagnosis-linked PA request criteria'),id);
+   else assert(!detail.html.includes('Age-specific PA criteria'),id);
+ }
+ console.log('PASS: two UHC diagnosis/age flag listings retain exact request and related-policy scopes.');
  // RFA10092: exact October Roxybond; keep policy exception scopes separate.
  const roxyId='uhc-oct-complete-ccae7c796c8a0833';
  const roxy=groups.find(g=>g.records.some(r=>r.id===roxyId));assert(roxy,roxyId);
