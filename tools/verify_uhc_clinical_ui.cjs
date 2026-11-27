@@ -1527,6 +1527,43 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    for(const p of ['Udenyca (Pegfilgrastim-cbqv) 6 mg/0.6 mL Subcutaneous Prefilled Syringe','not peripheral blood progenitor cell mobilization','distinct from the autoinjector'])assert(card.includes(p),p);
    assert(card.includes(r.reviewedPresentation.labelUrl));
  }
+ // RFA10800/10801/10832/10888: exact maintenance pack and stage scope.
+ {
+   const ids=['uhc-oct-complete-ebf2afc909a7c4db','uhc-oct-complete-9286fa98c8a80731'];
+   const gs=ids.map(id=>groups.find(g=>g.records.some(r=>r.id===id)));
+   assert(gs.every(Boolean));assert.notStrictEqual(gs[0],gs[1]);
+   for(const [i,total,components] of [[0,250,'100 mg and 150 mg'],[1,350,'150 mg and 200 mg']]){
+     const g=gs[i],r=g.records.find(r=>r.id===ids[i]);
+     assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');
+     const b=r.uhcClinicalBindings.filter(b=>b.policyId.endsWith('gl-572198'));
+     assert.deepEqual(b.map(b=>[b.role,...b.branchIndexes]),[['product',0]]);
+     assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+     const card=a.medicationGroupCard(g),out=await open(g);
+     for(const phrase of [total+' mg Daily Dose Oral Tablet Maintenance Pack',components,'nonpreferred-only trials','numeric dispensing QL unverified'])assert(card.includes(phrase),phrase);
+     assert(out.html.includes('Criteria source · PDF page 98<'));
+   }
+ }
+ {
+   const id='uhc-oct-complete-ed3b579dc5e983fd',g=groups.find(g=>g.records.some(r=>r.id===id));assert(g,id);
+   const r=g.records.find(r=>r.id===id);
+   assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');
+   assert.deepEqual(r.uhcClinicalBindings.filter(b=>b.policyId.endsWith('gl-288262')).map(b=>[b.role,...b.branchIndexes]),[['product',0,1,2,3]]);
+   assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+   const card=a.medicationGroupCard(g),out=await open(g);
+   for(const phrase of ['Zenatane (Isotretinoin) Oral Capsule','Contraindicated in pregnancy','iPLEDGE REMS','clinical pharmacist review'])assert(card.includes(phrase),phrase);
+   for(const page of [965,966,967])assert(out.html.includes('Criteria source · PDF page '+page+'<'),page);
+ }
+ {
+   const id='uhc-oct-complete-d01011b0d96f9738',g=groups.find(g=>g.records.some(r=>r.id===id));assert(g,id);
+   const r=g.records.find(r=>r.id===id);
+   assert.equal(r.pa,'required');assert.equal(r.preferred,'non_preferred');
+   assert.deepEqual(r.uhcClinicalBindings.filter(b=>b.policyId.endsWith('gl-505191')).map(b=>[b.role,...b.branchIndexes]),[['product',0,1],['quantity',2,3]]);
+   assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+   assert(r.uhcClinicalBindings.some(b=>b.role==='nonpreferred'));
+   const card=a.medicationGroupCard(g),out=await open(g);
+   for(const phrase of ['Zubsolv (Buprenorphine/Naloxone) Sublingual Tablet','not interchangeable mg-for-mg','24 mg/day Suboxone-equivalent','16 mg/day Suboxone-equivalent'])assert(card.includes(phrase),phrase);
+   for(const phrase of ['Initial Authorization','Reauthorization','Quantity-limit exceptions'])assert(out.html.includes(phrase),phrase);
+ }
  // DEC-05/06/12/13/14/19/20: RFA9583 OxyContin brand-only cancer/initial/renewal.
  {
    const id='uhc-oct-complete-8cd51f6265cf511b';
