@@ -56,9 +56,13 @@ def assign_branch_pages(policy, source):
     markers = list(re.finditer(r'^--- PDF page (\d+) ---$', source, re.M))
     marker_index = 0
     for branch in policy['branches']:
-        while marker_index + 1 < len(markers) and markers[marker_index + 1].start() <= branch['start']:
+        anchor = branch['start']
+        if policy['policyCode'] == 'GL-157633':
+            # The renewal product heading ends one page before the printed stage and criteria.
+            anchor = branch['fields']['Therapy Stage']['start']
+        while marker_index + 1 < len(markers) and markers[marker_index + 1].start() <= anchor:
             marker_index += 1
-        assert markers and markers[marker_index].start() <= branch['start'], policy['policyCode']
+        assert markers and markers[marker_index].start() <= anchor, policy['policyCode']
         page = int(markers[marker_index][1])
         assert policy['sourcePage'] <= page <= policy['sourceLastPage'], policy['policyCode']
         branch['sourcePage'] = page
