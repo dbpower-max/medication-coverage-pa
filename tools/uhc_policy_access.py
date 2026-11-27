@@ -1000,6 +1000,38 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             }
         # DEC-05/06/12/13/14/19/20: exact options and source-stage caveats;
         # original flags and product branches remain, with scope explicitly qualified.
+        if record['id'] == 'uhc-oct-complete-5c98628e66bc65e2':
+            assert october_name == 'rivastigmine (generic for exelon)'
+            assert record['pa'] == 'conditional' and record['preferred'] == 'preferred' and ql
+            code = 'GL-140666'
+            assert matched.get(code) == {1}, (record['id'], matched)
+            matched.pop(code)
+            add(code, [1], 'product')
+            bindings[-1]['productLabel'] = 'Rivastigmine named policy (conditional PDL PA; exact form unverified)'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}),
+                'separate': True,
+                'label': 'Rivastigmine Oral or Transdermal (payer dosage form unverified)',
+                'dosageForm': 'oral capsule, oral solution reference or transdermal patch; payer form unverified',
+                'note': 'PDL: members under 18 require PA; no routine adult PA is established by this row. Named policy: Alzheimer dementia or Parkinson dementia, 12 months, authorization stage unspecified. Pediatric FDA indication is not established. Oral capsules and patches have different dosing; oral solution is referenced in labeling, current marketing unverified. Patch overdose can occur with multiple patches. Exact payer formulation and numeric quantity limit remain unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b201fe68-b5e5-4a6f-8cf1-069543f03e76',
+            }
+        if record['id'] == 'uhc-oct-complete-3eba9a486aa7d670':
+            assert october_name == 'sevenfact intravenous solution reconstituted 1 mg, 5 mg'
+            assert record['pa'] == 'required' and record['preferred'] == 'preferred' and not ql
+            code = 'GL-716187'
+            assert matched.get(code) == {16, 21}, (record['id'], matched)
+            matched.pop(code)
+            add(code, [16, 21], 'product')
+            bindings[-1]['productLabel'] = 'SevenFACT named policy (hemophilia A/B with inhibitors)'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}),
+                'separate': True,
+                'label': 'SevenFACT (eptacog beta) IV powder for solution 1 mg, 5 mg',
+                'dosageForm': 'intravenous powder for solution',
+                'note': 'PDL lists 1 mg and 5 mg; 2 mg exists in FDA labeling but coverage is not established here. Reconstituted concentration 1 mg/mL. Distinct from NovoSeven RT (eptacog alfa). Named payer policy: hemophilia A or B with documented inhibitors and surgical bleeding management or treatment of bleeding episodes; 12 months, stage unspecified. FDA indication: bleeding episodes in patients aged 12 years or older with hemophilia A/B and inhibitors; payer surgical wording is not an additional FDA indication. Rabbit allergy contraindication and thrombotic warning. No numeric payer quantity limit verified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b23ad666-8ce0-4e0b-9eff-c6983ac5f7e6',
+            }
         stage_scope_review = {
             'uhc-oct-complete-4f1dd2afc03f668f': (
                 'ribavirin oral', 'Ribavirin Oral Tablet or Capsule (payer form unverified)', 'oral tablet or capsule (payer form unverified)',
