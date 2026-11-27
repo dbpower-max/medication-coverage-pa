@@ -240,7 +240,13 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         if october_name in TRIAMCINOLONE_LISTINGS:
             record['coverageProductLabel'] = TRIAMCINOLONE_LISTINGS[october_name]
         pa = record['pa'] in {'required','conditional'}; ql = bool(record.get('qlAmount') or record.get('qlDays'))
-        if not (pa or ql):continue
+        hypnotic = {
+            'uhc-oct-complete-ee91f45e62d87482': ('eszopiclone (generic for lunesta)', 'generic eszopiclone', True),
+            'uhc-oct-complete-d9d744a480f31c8a': ('ramelteon (generic for rozerem)', 'generic ramelteon', True),
+            'uhc-oct-complete-cc0214a5924ebd77': ('zolpidem tartrate er (generic for ambien cr)', 'generic zolpidem ER', False),
+            'uhc-oct-complete-4f1a6bcd488425ec': ('zolpidem tartrate oral tablet (generic for ambien)', 'generic zolpidem', True),
+        }.get(record['id'])
+        if not (pa or ql or hypnotic):continue
         bindings = []
         def add(code, indexes, role):
             if not indexes:return
@@ -285,6 +291,26 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             matched[code] = indexes
         # DEC-07/12/13/14/20 POL-01: exact named conditional rules on preferred
         # October rows with blank printed PA. Preserve original flags and scopes.
+        if hypnotic:
+            name, product, printed_ql = hypnotic
+            assert october_name == name and record['pa'] == 'not_specified' and record['preferred'] == 'preferred' and ql == printed_ql
+            code = 'GL-637194'
+            assert policies[code]['policyEffective'] == '2026-07-01'
+            branches = structured[code]['branches']
+            def hypnotic_field(i, field):
+                f = branches[i]['fields'].get(field, {})
+                return ' '.join((f.get('displayText') or f.get('text', '')).split())
+            assert len(branches) == 4
+            assert hypnotic_field(0, 'Product Name') == 'generic ramelteon'
+            assert hypnotic_field(0, 'Guideline Type') == 'Step Therapy'
+            assert hypnotic_field(1, 'Diagnosis') == 'Non-Preferred'
+            assert 'Greater than 1 hypnotic in 30 days' in hypnotic_field(2, 'Diagnosis')
+            assert 'less than 6 years of age' in hypnotic_field(3, 'Diagnosis')
+            assert all(product in hypnotic_field(i, 'Product Name').split(', ') for i in (2, 3))
+            matched.pop(code, None)
+            add(code, [2, 3], 'hypnotic_request')
+            if product == 'generic ramelteon':
+                add(code, [0], 'hypnotic_step')
         blank_short_acting = {
             'uhc-oct-complete-f5ebe102d96cbef6': ('oxycodone hcl oral solution', 'oxycodone caps/conc/soln/tabs'),
             'uhc-oct-complete-32decb2050f7e3d9': ('oxycodone hcl oral tablet (generic for roxicodone)', 'oxycodone caps/conc/soln/tabs'),

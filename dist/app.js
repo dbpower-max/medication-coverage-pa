@@ -2275,6 +2275,8 @@
     if (!quantity.length) quantity = byRole(['global_quantity']);
     const sections = [], references = [], seen = new Set();
     const duplication = byRole(['duplication']);
+    const hypnoticRequest = byRole(['hypnotic_request']);
+    const hypnoticStep = byRole(['hypnotic_step']);
     const ageScoped = byRole(['age_scoped']);
     const diagnosisRequest = byRole(['diagnosis_request']);
     const psoriasisRequest = byRole(['psoriasis_request']);
@@ -2296,6 +2298,8 @@
     const criteriaSections = [
       [glucoseSupply?.strip || glucoseSupply?.meterPolicy ? glucosePolicyLabel : asmanexHfa ? 'Asthma PA guideline' : administrativeFallback ? 'General nonpreferred PA criteria' : 'Prior authorization', primary],
       ['Age-specific PA criteria', ageScoped],
+      ['Conditional hypnotic PA criteria', hypnoticRequest],
+      ['Ramelteon step therapy', hypnoticStep],
       ['Diagnosis-linked PA request criteria', diagnosisRequest],
       ['Psoriasis request criteria', psoriasisRequest],
       ['Packet PA guideline', packetReference],
@@ -2342,6 +2346,8 @@
         if (!references.some(p => p.id === policy.id)) references.push(policy);
       }
       const context = selected === duplication ? '<p>Applies when a therapeutic duplication edit is triggered.</p>'
+        : selected === hypnoticRequest ? '<p>For the named generic hypnotics: PA criteria for more than one hypnotic in 30 days or a patient younger than six years. This is not a routine PA requirement.</p>'
+        : selected === hypnoticStep ? '<p>Applies to generic ramelteon only; this is step therapy, not routine PA.</p>'
         : selected === ageScoped ? '<p>The October 2026 formulary lists an age limit and leaves the PA field blank for the generic product below. The November 2026 guideline specifies these age-based criteria.</p>'
         : selected === psoriasisRequest ? '<p>The October 2026 formulary prints step therapy and a quantity limit. These are the named psoriasis request criteria, not a verified routine PA trigger or a numeric quantity limit.</p>'
         : selected === topicalQuantity ? '<p>Applies to requests exceeding the allowed topical package size or monthly quantity. The numeric limit is unverified.</p>'
@@ -2360,6 +2366,11 @@
         ) : '';
       if (body.length) sections.push(`<section class="uhc-restriction-criteria"><h4>${kind}</h4>${context}${body.join('')}</section>`);
     }
+    // Dated UHC PDL class edit; keep distinct from the named hypnotic request
+    // policy and from the individual product's printed QL/PA fields.
+    const classRuleIds = new Set(['uhc-oct-complete-ee91f45e62d87482','uhc-oct-complete-cc0214a5924ebd77','uhc-oct-complete-4f1a6bcd488425ec','uhc-oct-complete-d63fde77a711b8ce','uhc-oct-complete-e3438ba8499baf2f']);
+    const classRows = (group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference && r.sourceEffective === '2026-10-01' && classRuleIds.has(r.id));
+    if (classRows.length) sections.push('<section class="uhc-restriction-criteria"><h4>Class-wide prescription limit</h4><p>Applies to the listed options: ' + escapeHtml(classRows.map(r => r.name).join('; ')) + '. The October 2026 PDL limits sedative hypnotics, barbiturates and select muscle relaxants to four medications per 30 days; PA is required for additional fills. This is not an individual product quantity limit. <a class="source-link" href="' + escapeHtml(sourceHref({...classRows[0], sourcePage: 35})) + '" target="_blank" rel="noopener">UHC formulary · PDF page 35</a></p></section>');
     const conditionalOnly = duplication.length && paRows.length && paRows.every(r => r.pa === 'conditional');
     if (conditionalOnly) sections.unshift('<p>The formulary lists conditional PA. See the formulation-specific restrictions and the duplication exception below.</p>');
     else if (paRows.length && !primary.length) sections.unshift(paRows.every(r => r.pa === 'conditional')
@@ -2377,6 +2388,7 @@
         : asmanexHfa && p.policyCode === 'GL-605215' ? 'Asthma PA guideline'
         : (reviewedGvoke || generalPaPresentation) && p.policyCode === 'GL-231255' ? 'General nonpreferred PA reference'
         : genericDabigatran && p.policyCode === 'GL-231255' ? 'Brand nonpreferred reference' : 'PA reference')
+      : [...hypnoticRequest, ...hypnoticStep].some(b => b.policyId === p.id) ? 'Hypnotic conditional PA / step guideline'
       : psoriasisRequest.some(b => b.policyId === p.id) ? 'Psoriasis request guideline'
       : diagnosisRequest.some(b => b.policyId === p.id) ? 'Diagnosis-linked request guideline'
       : packetReference.some(b => b.policyId === p.id) ? 'Packet PA guideline'
@@ -2420,12 +2432,12 @@
     if (entry.bannerGuide || entry.bannerIcs) return;
     const {group, policies, guidance} = entry;
     const target = details.querySelector('.card-clinical-content');
-    if (!policies.length && !(state.planId === 'uhc-community-az' && (group.records || []).some(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays)))) return;
+    if (!policies.length && !(state.planId === 'uhc-community-az' && (group.records || []).some(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays || r.uhcClinicalBindings?.some(b => b.role === 'hypnotic_request'))))) return;
     details.dataset.loading = 'true';
     target.innerHTML = '<p role="status">Loading clinical criteria…</p>';
     try {
       const bindings = uhcGroupBindings(group);
-      if (state.planId === 'uhc-community-az' && (group.records || []).some(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays))) {
+      if (state.planId === 'uhc-community-az' && (group.records || []).some(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays || r.uhcClinicalBindings?.some(b => b.role === 'hypnotic_request')))) {
         const content = await uhcClinicalContent(group, bindings, guidance);
         if (target.isConnected === false) return;
         target.innerHTML = content.html;
@@ -2628,7 +2640,7 @@
     const policies = group.policyOnly || insulinConflict || bannerIcs || noticeOnly ? [] : bannerGuide ? [bannerGuide] : linkedPolicyPanels(group, true);
     const key = group.key || group.label;
     cardClinicalGroups.set(key, {group, policies, guidance, bannerGuide, bannerIcs, planId: state.planId});
-    const restriction = state.planId === 'uhc-community-az' && (group.records || []).find(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays));
+    const restriction = state.planId === 'uhc-community-az' && (group.records || []).find(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays || r.uhcClinicalBindings?.some(b => b.role === 'hypnotic_request')));
     const agePaFormulary = isUhc && restriction &&
       (restriction.id === uhcLowStrengthAlbuterolId || uhcAgePaCardLabels.has(restriction.id)) && uhcAgeEightPa(restriction);
     const reference = (isUhc ? (agePaFormulary ? restriction : policies.find(p => p.planId === state.planId) || restriction) : guidance) || guidance || policies.find(p => p.planId === state.planId) || policies[0];
@@ -2642,6 +2654,7 @@
       glucoseDisplay.strip ? policy.id === uhcTestStripPolicyId : glucoseDisplay.meterPolicy && policy.id === uhcMeterPolicyId);
     const stripQuantity = isUhc && group.records.some(record => isUhcOctoberRow(record) && uhcReviewedTestStrips.has(record.id))
       && policies.find(policy => policy.id === uhcTestStripPolicyId);
+    const hypnoticGuideline = reference?.policyCode === 'GL-637194' && group.records.some(r => r.uhcClinicalBindings?.some(b => b.role === 'hypnotic_request'));
     const scopedQuantity = isUhc && reference?.policyCode === 'GL-140667';
     const insulinQuantity = state.planId === 'uhc-community-az' && reference
       && !group.records?.some(record => ['required', 'conditional'].includes(record.pa))
@@ -2662,6 +2675,7 @@
       : stripQuantity ? cardPaReference(stripQuantity, 'Test strip QL reference')
       : reference ? cardPaReference(reference, psoriasisGuideline ? 'Psoriasis request guideline'
       : psoriasisOintmentReference ? 'UHC psoriasis guideline (ointment only)'
+      : hypnoticGuideline ? 'Hypnotic conditional PA / step guideline'
       : packetGuideline ? 'Packet PA guideline'
       : agePaFormulary ? 'PA formulary'
       : scopedQuantity || insulinQuantity || reviewedQuantity ? 'QL reference'
