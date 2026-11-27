@@ -417,6 +417,15 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const card=a.medicationGroupCard(g);for(const phrase of ['Noxafil (Posaconazole) — Dosage Form Unverified','40 mg/mL oral suspension','PowderMix 300 mg packet','300 mg/16.7 mL IV injection','greater than 40 kg','at least 40 kg','exactly 40 kg','hereditary fructose intolerance','does not identify which formulation is covered'])assert(card.includes(phrase),phrase);
   assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
  }
+ // DEC-05/06/12/13/14/19/20: oral Nuzyra, independent continuation paths and duration distinct from QL.
+ {
+  const id='uhc-oct-complete-a8a214653d1ccd59',g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
+  const r=g.records.find(x=>x.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');
+  const b=r.uhcClinicalBindings.filter(b=>b.role==='product'&&b.policyId.endsWith('gl-140701'));assert.equal(b.length,1);assert.deepEqual(b[0].branchIndexes,[0,1,2]);assert(b[0].productLabel.includes('oral listing; stage unspecified'));
+  assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));assert(!r.policyQuantityLimit);
+  const card=a.medicationGroupCard(g);for(const phrase of ['Nuzyra (Omadacycline) 150 mg Oral Tablet','distinct from the 100 mg IV formulation','independent continuation alternatives','Authorization duration is not a numeric dispensing QL','no IV benefit inference'])assert(card.includes(phrase),phrase);
+  assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
+ }
  // DEC-05/06/12/13/14/19/20: exact generic versus brand prerequisites and form.
  for(const [suffix,label,phrase,code,index,scope,preference] of [["3db650dbb78aa872","Icatibant (Generic Firazyr) Subcutaneous Prefilled Syringe","not generic icatibant","gl-546227",1,"Generic icatibant acute HAE policy (stage unspecified)","preferred"],["62e4bb1c3d06bdc7","Gleevec (Imatinib Mesylate) 100 mg Oral Tablet","trial/failure of preferred generic imatinib","gl-741203",0,"Brand Gleevec cancer policy (stage unspecified)","non_preferred"],["8f9b8e5073a65ff3","Imatinib Mesylate (Generic Gleevec) Oral Tablets","does not apply to generic imatinib","gl-741203",0,"Generic imatinib cancer policy (stage unspecified)","preferred"]]){
   const id='uhc-oct-complete-'+suffix,g=groups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
