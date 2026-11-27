@@ -1464,6 +1464,51 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 record['excludedPolicySources'] = excluded
                 record['policySources'] = [p for p in sources if p not in excluded]
 
+        # DEC-05/06/12/13/14/16/19/20: RFA10517/10628. Preserve exact payer flags and distinguish product/form scope.
+        if record['id'] == 'uhc-oct-complete-b03a4c5c9cb79955':
+            assert october_name == 'tramadol hcl er' and record['pa'] == 'required' and record['preferred'] == 'preferred' and ql
+            code = 'GL-620192'
+            assert matched.get(code) == {0,1,4,7,8,9,10,11}, (record['id'], matched)
+            assert matched.get('GL-711768') == {0,2,3,4,5,6,7,8}, (record['id'], matched)
+            matched.pop(code)
+            matched.pop('GL-711768')
+            record['excludedPolicyCode'] = 'GL-711768'
+            add(code, [1,4], 'product')
+            bindings[-1]['productLabel'] = 'Non-biphasic tramadol ER tablets only (payer formulation unspecified)'
+            add(code, [3,6], 'product')
+            bindings[-1]['productLabel'] = 'Biphasic tramadol ER tablets/capsules or Conzip only (payer formulation unspecified)'
+            add(code, [7], 'product')
+            bindings[-1]['productLabel'] = 'Shared long-acting opioid renewal criteria'
+            add(code, [8], 'quantity')
+            add(code, [0], 'concurrent_opioid_dur')
+            add(code, [9,10,11], 'mme_exception')
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Tramadol Hydrochloride Extended-Release Oral Tablet or Capsule (Payer Form Unspecified)',
+                'dosageForm': 'extended-release oral tablet or capsule (payer form unspecified)',
+                'note': 'FDA labels: ER tablets and ER capsules are distinct formulations; 100, 200 and 300 mg presentations exist. Not immediate-release tramadol; ER products are not PRN and must not be crushed or chewed. UHC GL-620192 separates non-biphasic tablet cancer/hospice and initial criteria from biphasic tablet/capsule and Conzip criteria; use only the matching formulation pathway. Renewal, concurrent opioid DUR, cumulative MME and quantity exceptions are distinct. The policy quantity exception has a six-month approval period for tramadol ER requests, not a dispensing quantity. Exact payer formulation, strength and numeric dispensing QL are unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a07ed444-54e4-4d45-b6a1-6ea2f6dedc61',
+            }
+            sources = record.get('policySources', [])
+            excluded = [p for p in sources if p.get('policyCode') == 'GL-711768' or p.get('policyId', '').endswith('gl-711768')]
+            if excluded:
+                record['excludedPolicySources'] = excluded
+                record['policySources'] = [p for p in sources if p not in excluded]
+        if record['id'] == 'uhc-oct-complete-533b6a45ecd8d292':
+            assert october_name == 'udenyca subcutaneous solution prefilled syringe' and record['pa'] == 'required' and record['preferred'] == 'non_preferred' and not ql
+            code = 'GL-648215'
+            assert matched.get(code) == set(range(10)), (record['id'], matched)
+            matched.pop(code)
+            add(code, list(range(10)), 'product')
+            bindings[-1]['productLabel'] = 'Udenyca named CSF policy (device and indication eligibility unverified)'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Udenyca (Pegfilgrastim-cbqv) 6 mg/0.6 mL Subcutaneous Prefilled Syringe',
+                'dosageForm': 'subcutaneous prefilled syringe',
+                'note': 'FDA label: manual prefilled syringe, distinct from the autoinjector and Onbody delivery system. The syringe lacks graduations for direct doses below 6 mg. Labeled indications are prevention of febrile neutropenia with non-myeloid malignancy and myelosuppressive chemotherapy, and hematopoietic subsyndrome of acute radiation syndrome; not peripheral blood progenitor cell mobilization. UHC GL-648215 names Udenyca across ten class branches; not all are FDA-labeled indications. Nonpreferred prerequisites apply where printed. Policy approval periods are 3 months for branches 0–4 and 9, 1 month for branch 5, 12 months for branches 6 and 8, and 6 months for branch 7; these are not dispensing quantities. No QL printed; exact payer device/package eligibility remains unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=77a8576f-b91e-42ce-b613-2fa3c3d4a571',
+            }
+
         # DEC-05/06/12/13/14/19/20: RFA9583 brand OxyContin ER tablet, not generic oxycodone ER.
         if record['id'] == 'uhc-oct-complete-8cd51f6265cf511b':
             assert october_name == 'oxycontin' and record['pa'] == 'required' and record['preferred'] == 'preferred' and ql
