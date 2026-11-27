@@ -1331,6 +1331,27 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: 150 mg oral tablet is distinct from the 100 mg IV formulation; adult CABP and ABSSSI, labeled 7–14 days. Oral administration has food and polyvalent cation timing requirements. UHC GL-140701: CABP and ABSSSI 14-day authorizations, off-label duration based on provider recommendation up to 6 months; stage unspecified. Hospital discharge or transition from susceptible IV antibiotics are independent continuation alternatives. Otherwise CABP requires susceptible infection and three named prior regimens; ABSSSI has a MRSA pathway requiring linezolid plus one named alternative or a susceptible-organism pathway requiring three named agents; off-label ID specialist consultation is a separate alternative. See policy for full criteria and exact alternative logic. Authorization duration is not a numeric dispensing QL. Exact payer package and numeric QL unverified; no IV benefit inference.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=51591524-4703-44c6-8bde-dce3e6a463d1',
             }
+        # DEC-05/06/12/13/14/19/20: RFA9515/9516 distinct strength-specific RA scope and diagnosis exclusion.
+        reviewed_olumiant = {
+            'uhc-oct-complete-593298d1e2b0b802': ('olumiant oral tablet 1 mg, 2 mg', [0,1,2,3], True, '1 mg, 2 mg', 'RA initial and renewal apply only to 1 mg and 2 mg: initial requires chart notes or claims, the specified nonbiologic DMARD trial and all five listed biologic/JAK prerequisites (preferred adalimumab biosimilar OR Enbrel is one of the five), plus rheumatologist; renewal requires positive response and rheumatologist. Each authorizes 12 months. Numeric dispensing QL unverified.'),
+            'uhc-oct-complete-deb365a5276facd9': ('olumiant oral tablet 4 mg', [2,3], False, '4 mg', 'RA initial and renewal name 1 mg and 2 mg only; do not assign those criteria to this 4 mg listing. No QL printed.'),
+        }
+        if record['id'] in reviewed_olumiant:
+            name, indexes, has_ql, strengths, note = reviewed_olumiant[record['id']]
+            assert october_name == name, (record['id'], october_name)
+            assert record['pa'] == 'required' and record['preferred'] == 'non_preferred' and bool(ql) == has_ql
+            code = 'GL-324206'
+            assert matched.get(code) == set(indexes), (record['id'], matched)
+            matched.pop(code)
+            add(code, indexes, 'product')
+            bindings[-1]['productLabel'] = 'Olumiant ' + strengths + ' named indication policy'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Olumiant (Baricitinib) ' + strengths + ' Oral Tablet',
+                'dosageForm': 'oral tablet',
+                'note': note + ' UHC GL-324206: COVID-19 requires hospitalization and oxygen, ventilation or ECMO, with 14-day authorization; FDA indication is adults. Alopecia areata is a use-specific benefit exclusion, despite FDA labeling for severe alopecia areata from age 12 since September 2026; not a blanket exclusion. COVID-19 and alopecia stages unspecified. GL-733328 therapeutic duplication is a separate administrative review, not routine RA criteria or dispensing quantity.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=866e9f35-9035-4581-a4b1-75a621ab55cf',
+            }
         # DEC-05/06/12/13/14/19/20: exact stage-unspecified named policy; preserve brand-only prerequisites and raw flags.
         reviewed_stage_options = {
             'uhc-oct-complete-3db650dbb78aa872': ("icatibant acetate (generic for firazyr)", "preferred", "GL-546227", 1, "Generic icatibant acute HAE policy (stage unspecified)", "Icatibant (Generic Firazyr) Subcutaneous Prefilled Syringe", "subcutaneous prefilled syringe", "FDA label: single-dose 30 mg/3 mL (10 mg/mL) prefilled syringe. UHC GL-546227 acute HAE branch: age 18 or older for generic icatibant, confirmed HAE diagnosis, allergist/immunologist and no concurrent approved acute HAE treatment; 12 months, stage unspecified. Preferred-agent failure or current therapy prerequisite applies to named nonpreferred agents, not generic icatibant. Exact carton eligibility and numeric dispensing QL unverified.", "ccbb5e50-ce56-4898-aa1a-f1c1f3d312f6"),
