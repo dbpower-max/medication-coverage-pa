@@ -1509,6 +1509,61 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=77a8576f-b91e-42ce-b613-2fa3c3d4a571',
             }
 
+        # DEC-05/06/12/13/14/16/19/20: RFA10800/10801/10832/10888 — exact pack and authorization scope.
+        if record['id'] == 'uhc-oct-complete-ebf2afc909a7c4db':
+            assert october_name == "xcopri (250 mg daily dose)" and record['pa'] == 'required' and record['preferred'] == 'preferred' and ql
+            code = 'GL-572198'
+            assert matched.get(code) == set([0]), (record['id'], matched)
+            matched.pop(code)
+            add(code, [0], 'product')
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': "Xcopri (Cenobamate) 250 mg Daily Dose Oral Tablet Maintenance Pack",
+                'dosageForm': "oral tablet maintenance pack",
+                'note': "FDA label: 28 each of 100 mg and 150 mg tablets; total daily dose 250 mg, not a single 250 mg tablet or a titration pack. Label BPCK 2540432. UHC GL-572198 covers the named Xcopri pathway (12 months; stage unspecified): partial-onset seizures or continuation of seizure therapy. Primary generalized tonic-clonic seizure diagnosis applies only to Vimpat/lacosamide; nonpreferred-only trials and failure requirements do not apply to this preferred listing. Exact payer package and numeric dispensing QL unverified.",
+                'labelUrl': "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=565c2126-57ae-4e29-b443-723bbe7e2072",
+            }
+        if record['id'] == 'uhc-oct-complete-9286fa98c8a80731':
+            assert october_name == "xcopri (350 mg daily dose)" and record['pa'] == 'required' and record['preferred'] == 'preferred' and ql
+            code = 'GL-572198'
+            assert matched.get(code) == set([0]), (record['id'], matched)
+            matched.pop(code)
+            add(code, [0], 'product')
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': "Xcopri (Cenobamate) 350 mg Daily Dose Oral Tablet Maintenance Pack",
+                'dosageForm': "oral tablet maintenance pack",
+                'note': "FDA label: 28 each of 150 mg and 200 mg tablets; total daily dose 350 mg, not a single 350 mg tablet or a titration pack. Label BPCK 2283518. UHC GL-572198 covers the named Xcopri pathway (12 months; stage unspecified): partial-onset seizures or continuation of seizure therapy. Primary generalized tonic-clonic seizure diagnosis applies only to Vimpat/lacosamide; nonpreferred-only trials and failure requirements do not apply to this preferred listing. Exact payer package and numeric dispensing QL unverified.",
+                'labelUrl': "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=565c2126-57ae-4e29-b443-723bbe7e2072",
+            }
+        if record['id'] == 'uhc-oct-complete-ed3b579dc5e983fd':
+            assert october_name == "zenatane (generic for accutane)" and record['pa'] == 'required' and record['preferred'] == 'preferred' and ql
+            code = 'GL-288262'
+            assert matched.get(code) == set([0,1,2,3]), (record['id'], matched)
+            matched.pop(code)
+            add(code, [0,1,2,3], 'product')
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': "Zenatane (Isotretinoin) Oral Capsule",
+                'dosageForm': "oral capsule",
+                'note': "FDA label: 10, 20, 30 and 40 mg oral capsules. Contraindicated in pregnancy; iPLEDGE REMS requirements are separate from payer PA. UHC GL-288262 names Zenatane in four branches: off-label oncology (12 months), initial acne (5 months; two conventional regimens), persistent or recurring severe nodular acne after at least 2 months off treatment (5 months), and titration (1 month; cumulative dose below 150 mg/kg). Last two require clinical pharmacist review. Nonpreferred-only rationale does not apply to this preferred listing. Exact payer strength and numeric dispensing QL unverified.",
+                'labelUrl': "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=486d4a4b-0de5-431a-bef7-dae6b0e4fa20&version=4",
+            }
+        if record['id'] == 'uhc-oct-complete-d01011b0d96f9738':
+            assert october_name == "zubsolv" and record['pa'] == 'required' and record['preferred'] == 'non_preferred' and ql
+            code = 'GL-505191'
+            assert matched.get(code) == set([0,1,2,3]), (record['id'], matched)
+            matched.pop(code)
+            add(code, [0,1], 'product')
+            add(code, [2,3], 'quantity')
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': "Zubsolv (Buprenorphine/Naloxone) Sublingual Tablet",
+                'dosageForm': "sublingual tablet",
+                'note': "FDA label: distinct bioavailability; not interchangeable mg-for-mg with Suboxone sublingual tablets. Label example: 5.7 mg/1.4 mg Zubsolv corresponds to 8 mg/2 mg Suboxone tablet for buprenorphine exposure. UHC GL-505191: initial 3 months, up to 24 mg/day Suboxone-equivalent; renewal 12 months, up to 16 mg/day Suboxone-equivalent and prior trial of Suboxone film or buprenorphine-naloxone ODT. Both require reason preferred products cannot be used. Separate quantity exception branches apply above these equivalent thresholds. These are not raw Zubsolv doses or tablet-count limits; exact dispensing QL unverified.",
+                'labelUrl': "https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=57583c1d-9c44-4503-917d-68dba7377bd1",
+            }
+
         # DEC-05/06/12/13/14/19/20: RFA9583 brand OxyContin ER tablet, not generic oxycodone ER.
         if record['id'] == 'uhc-oct-complete-8cd51f6265cf511b':
             assert october_name == 'oxycontin' and record['pa'] == 'required' and record['preferred'] == 'preferred' and ql
