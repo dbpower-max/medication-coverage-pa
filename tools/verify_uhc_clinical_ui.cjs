@@ -1504,6 +1504,29 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    for(const phrase of ['Concurrent opioid therapy (DUR)','Cumulative MME exceptions','Quantity-limit exceptions','Initial Authorization','Reauthorization'])assert(erOut.html.includes(phrase),phrase);
    assert(!erOut.html.includes('Criteria source · PDF page 1515<'));
  }
+ // RFA10517/10628: exact ER versus IR policy and manual PFS identity.
+ {
+   const id='uhc-oct-complete-b03a4c5c9cb79955',g=groups.find(g=>g.records.some(r=>r.id===id));assert(g,id);
+   const r=g.records.find(r=>r.id===id);
+   assert.equal(r.pa,'required');assert.equal(r.preferred,'preferred');
+   assert(!r.uhcClinicalBindings.some(b=>b.policyId.endsWith('gl-711768')));
+   assert.deepEqual(r.uhcClinicalBindings.filter(b=>b.policyId.endsWith('gl-620192')).map(b=>[b.role,...b.branchIndexes]),[['product',1,4],['product',3,6],['product',7],['quantity',8],['concurrent_opioid_dur',0],['mme_exception',9,10,11]]);
+   assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+   const card=a.medicationGroupCard(g),out=await open(g);
+   for(const p of ['Tramadol Hydrochloride Extended-Release Oral Tablet or Capsule (Payer Form Unspecified)','matching formulation pathway','numeric dispensing QL'])assert(card.includes(p),p);
+   assert(!out.ref.includes('page=1515'));
+   assert(groups.some(g=>g.records.some(r=>r.id!==id&&r.uhcClinicalBindings?.some(b=>b.policyId.endsWith('gl-711768')&&b.role==='product'))));
+ }
+ {
+   const id='uhc-oct-complete-533b6a45ecd8d292',g=groups.find(g=>g.records.some(r=>r.id===id));assert(g,id);
+   const r=g.records.find(r=>r.id===id);assert.equal(r.pa,'required');assert.equal(r.preferred,'non_preferred');
+   const b=r.uhcClinicalBindings.filter(b=>b.role==='product'&&b.policyId.endsWith('gl-648215'));assert.equal(b.length,1);assert.deepEqual(b[0].branchIndexes,[0,1,2,3,4,5,6,7,8,9]);
+   assert(r.uhcClinicalBindings.some(b=>b.role==='nonpreferred'));
+   assert(!r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+   const card=a.medicationGroupCard(g);
+   for(const p of ['Udenyca (Pegfilgrastim-cbqv) 6 mg/0.6 mL Subcutaneous Prefilled Syringe','not peripheral blood progenitor cell mobilization','distinct from the autoinjector'])assert(card.includes(p),p);
+   assert(card.includes(r.reviewedPresentation.labelUrl));
+ }
  // DEC-05/06/12/13/14/19/20: RFA9583 OxyContin brand-only cancer/initial/renewal.
  {
    const id='uhc-oct-complete-8cd51f6265cf511b';
