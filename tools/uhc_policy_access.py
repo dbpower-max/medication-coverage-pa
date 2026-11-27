@@ -1352,6 +1352,24 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': note + ' UHC GL-324206: COVID-19 requires hospitalization and oxygen, ventilation or ECMO, with 14-day authorization; FDA indication is adults. Alopecia areata is a use-specific benefit exclusion, despite FDA labeling for severe alopecia areata from age 12 since September 2026; not a blanket exclusion. COVID-19 and alopecia stages unspecified. GL-733328 therapeutic duplication is a separate administrative review, not routine RA criteria or dispensing quantity.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=866e9f35-9035-4581-a4b1-75a621ab55cf',
             }
+        # DEC-05/06/12/13/14/19/20: RFA9559/9560 strength-specific treatment durations and capsule-only policy.
+        reviewed_orilissa_orladeyo = {
+            'uhc-oct-complete-e4cc9976aa1b8bb4': ('orilissa', 'preferred', 'GL-140726', [0,1,2], 'Orilissa named 150 mg initial/renewal and 200 mg stage-unspecified policy', 'Orilissa (Elagolix) Oral Tablet', 'oral tablet', 'FDA label: 150 mg once daily for up to 24 months in normal or mild hepatic impairment; 200 mg twice daily for up to 6 months. Moderate hepatic impairment: 150 mg once daily, maximum 6 months; 200 mg twice daily not recommended. Contraindicated in pregnancy, known osteoporosis and severe hepatic impairment; dose- and duration-dependent bone loss. UHC GL-140726: 150 mg initial and renewal each authorize 6 months up to a total of 24 months; 200 mg branch has a 6-month maximum with stage unspecified. Initial 150 mg and 200 mg criteria require premenopausal endometriosis pain, specified three-month trials of two analgesics and one hormonal contraceptive or progestin (or contraindication/intolerance), and OB/GYN or reproductive endocrinologist. The 150 mg renewal requires response, BMD impact considered and total duration within 24 months; do not assign to 200 mg. Exact payer strength eligibility and numeric dispensing QL unverified.', 'a86757b3-09c5-fd3b-1223-244e94f50a66'),
+            'uhc-oct-complete-d5f0d9099efaea18': ('orladeyo oral capsule', 'non_preferred', 'GL-546227', [0], 'Orladeyo capsule HAE prophylaxis policy (stage unspecified; not pellets)', 'Orladeyo (Berotralstat) Oral Capsule', 'oral capsule', 'FDA label: 110 mg and 150 mg capsules for age 12 or older, distinct from oral pellet packets for pediatric weight-based dosing and labeled pellet use. Prophylaxis only, not acute attacks; higher than recommended doses increase QTc risk. UHC GL-546227 HAE prophylaxis requires documented diagnostic pathway, age at least 12 for capsules (at least 2 for pellets), allergist/immunologist, and documented failure, contraindication or intolerance to Cinryze or Haegarda OR current therapy with a named agent. Authorizes 12 months, stage unspecified. Do not infer pellet benefit from this capsule row. Exact strength/package and numeric dispensing QL unverified.', '3527ece1-e7e0-40b1-b0c5-6baeb0deabeb'),
+        }
+        if record['id'] in reviewed_orilissa_orladeyo:
+            name, pref, code, indexes, scope, label, form, note, setid = reviewed_orilissa_orladeyo[record['id']]
+            assert october_name == name, (record['id'], october_name)
+            assert record['pa'] == 'required' and record['preferred'] == pref and ql
+            assert matched.get(code) == set(indexes), (record['id'], matched)
+            matched.pop(code)
+            add(code, indexes, 'product')
+            bindings[-1]['productLabel'] = scope
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': label, 'dosageForm': form, 'note': note,
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + setid,
+            }
         # DEC-05/06/12/13/14/19/20: exact stage-unspecified named policy; preserve brand-only prerequisites and raw flags.
         reviewed_stage_options = {
             'uhc-oct-complete-3db650dbb78aa872': ("icatibant acetate (generic for firazyr)", "preferred", "GL-546227", 1, "Generic icatibant acute HAE policy (stage unspecified)", "Icatibant (Generic Firazyr) Subcutaneous Prefilled Syringe", "subcutaneous prefilled syringe", "FDA label: single-dose 30 mg/3 mL (10 mg/mL) prefilled syringe. UHC GL-546227 acute HAE branch: age 18 or older for generic icatibant, confirmed HAE diagnosis, allergist/immunologist and no concurrent approved acute HAE treatment; 12 months, stage unspecified. Preferred-agent failure or current therapy prerequisite applies to named nonpreferred agents, not generic icatibant. Exact carton eligibility and numeric dispensing QL unverified.", "ccbb5e50-ce56-4898-aa1a-f1c1f3d312f6"),
