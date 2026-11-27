@@ -1468,6 +1468,39 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    else assert(!detail.html.includes('Age-specific PA criteria'),id);
  }
  console.log('PASS: two UHC diagnosis/age flag listings retain exact request and related-policy scopes.');
+ // RFA7240-7242/7248-7249: psoriasis request and topical QL scope.
+ for(const [suffix,role,topical] of [
+   ['f341f42e74fd7bbd','psoriasis_request',true],
+   ['d3c2686424414dde','psoriasis_request',true],
+   ['c28a6b72395f62f7',null,true],
+   ['1fa0fb824565d7e7','psoriasis_ointment_reference',true],
+   ['fe51c0b93a202b92',null,false]
+ ]){
+   const id='uhc-oct-complete-'+suffix;
+   const g=groups.find(g=>g.records.some(r=>r.id===id));assert(g,id);
+   const r=g.records.find(r=>r.id===id);
+   assert.equal(r.pa,'not_specified',id);assert.equal(r.preferred,'preferred',id);
+   assert(r.qlAmount||r.qlDays,id);assert(!r.policyQuantityLimit,id);
+   assert.deepEqual(r.uhcClinicalBindings.filter(b=>b.policyId.endsWith('gl-140713')).map(b=>[b.role,...b.branchIndexes]),role?[[role,0]]:[],id);
+   assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'),id);
+   assert.equal(r.uhcClinicalBindings.some(b=>b.role==='topical_quantity'&&b.policyId.endsWith('gl-140667')),topical,id);
+   assert(!r.uhcClinicalBindings.some(b=>b.role==='product'||b.role==='nonpreferred'),id);
+   const exact={...g,key:(g.key||g.label)+'-topical-'+suffix,records:[r],isStatewide:false,statewideRecord:null};
+   const card=a.medicationGroupCard(exact);const detail=await open(exact);
+   assert(!detail.html.includes('PA is required. Approval criteria'),id);
+   assert.equal(detail.html.includes('Psoriasis request criteria'),role==='psoriasis_request',id);
+   assert.equal(detail.html.includes('Topical quantity-limit exceptions'),topical,id);
+   if(topical)assert(detail.html.includes('larger surface'),id);
+   if(role==='psoriasis_request'){
+     assert(detail.html.includes('not a verified routine PA trigger'),id);
+     assert(/corticosteroid topical treatments/i.test(detail.html),id);
+     assert(detail.ref.includes('page=129'),id);
+   }else if(role==='psoriasis_ointment_reference'){
+     assert(card.includes('Payer Dosage Form Unspecified'),id);
+     assert(detail.html.includes('applicability to the exact listing is unverified'),id);
+   }else assert(!detail.ref.includes('page=129'),id);
+ }
+ console.log('PASS: UHC topical request and quantity exception scopes; oral and solution negative controls.');
  // RFA10092: exact October Roxybond; keep policy exception scopes separate.
  const roxyId='uhc-oct-complete-ccae7c796c8a0833';
  const roxy=groups.find(g=>g.records.some(r=>r.id===roxyId));assert(roxy,roxyId);
