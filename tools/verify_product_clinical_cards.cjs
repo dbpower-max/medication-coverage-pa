@@ -55,6 +55,13 @@ for(const [id,dose] of [['ach-json-1996189','100 mg/0.5 mL'],['ach-json-1996193'
  assert(card.includes(dose)&&card.includes('Extended-Release Subcutaneous Injection'),id+' presentation');
  assert(card.includes('Exact plan initial/renewal criteria are unverified'),id+' criteria scope');
  assert(card.includes('PA required'),id+' displayed PA');
+ assert(card.includes('AHCCCS Statewide · Fee-for-service reference'),id+' unlabeled fee-for-service link');
+ const expanded=targetFor(g);
+ await api.populateCardClinical(expanded.details);
+ const reference=expanded.target.innerHTML.match(/<details class="result-disclosure statewide-criteria-reference"><summary>AHCCCS Statewide · Fee-for-service criteria<\/summary>[\s\S]*?<\/details>/);
+ assert(reference,id+' missing separately labeled statewide criteria');
+ assert(reference[0].includes('Initial Authorization') && reference[0].includes('Reauthorization'),id+' missing statewide stages');
+ assert(!expanded.target.innerHTML.replace(reference[0],'').includes('Treatment stage:'),id+' statewide stages displayed as plan criteria');
  assert(!r.achProviderRule,id+' mono rule must not transfer');
 }
 for(const id of ['ach-json-351266','ach-json-351267','ach-json-351264','ach-json-351265']){

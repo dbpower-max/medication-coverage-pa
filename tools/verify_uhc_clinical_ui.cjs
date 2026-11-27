@@ -1486,6 +1486,9 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    assert.equal(r.uhcClinicalBindings.some(b=>b.role==='topical_quantity'&&b.policyId.endsWith('gl-140667')),topical,id);
    assert(!r.uhcClinicalBindings.some(b=>b.role==='product'||b.role==='nonpreferred'),id);
    const exact={...g,key:(g.key||g.label)+'-topical-'+suffix,records:[r],isStatewide:false,statewideRecord:null};
+   const groupedCard=a.medicationGroupCard(g);
+   assert.equal(groupedCard.includes('For 0.005% cream or ointment, trial of two medium- to high-potency topical corticosteroids.'),role==='psoriasis_request',id+' strength-specific PDL step');
+   assert.equal(groupedCard.includes('uhc-az-medicaid-pdl-2026-10-01.pdf#page=36'),role==='psoriasis_request',id+' step-table source');
    const card=a.medicationGroupCard(exact);const detail=await open(exact);
    assert(!detail.html.includes('PA is required. Approval criteria'),id);
    assert.equal(detail.html.includes('Psoriasis request criteria'),role==='psoriasis_request',id);
@@ -1750,6 +1753,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
      assert(card.includes('Quantity-limit exception guideline'),id);
      const detail=await open(exact);
      assert(detail.html.includes('Quantity-limit exceptions'),id);
+     assert.deepEqual([...detail.html.matchAll(/Criteria source · PDF page (\d+)</g)].map(m=>Number(m[1])),[1692,1693],id+' stage-specific source pages');
      assert(/requests exceeding 24 mg/i.test(detail.html),id);
      assert(/requests exceeding 16 mg/i.test(detail.html),id);
      assert(!/DSM-V|will not be approved|patient must have tried/i.test(detail.html),id);
