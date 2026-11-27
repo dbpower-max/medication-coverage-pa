@@ -324,6 +324,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  // DEC-05/06/12/13/14/19/20: preserve stage bindings and explicitly qualify option scope.
  for(const [suffix,label,phrase,code,indexes,pref,scope] of [
+  ["4441369e2fb0eda6","Tafinlar (Dabrafenib) Oral Capsule or Tablet for Oral Suspension (payer form unverified)","suspension tablets must be dispersed","gl-741203",[1],"preferred","Tafinlar named oral oncology branch; exact payer formulation unverified"],
   ["8257acba5d319b90","Tadliq (Tadalafil) 4 mg/mL Oral Suspension","BOTH a preferred ERA and a preferred PDE5 inhibitor","gl-715293",[0,1],"non_preferred","Tadliq named PAH initial and renewal; brand-specific prerequisites not applicable"],
   ["328b543e61dac94c","Soliris (Eculizumab) Intravenous Infusion","not approved at this time","gl-665191",[8],"non_preferred","Soliris named nonpreferred denial branch; preferred-product stages not applicable"],
   ["9cee96f8a5ed61f0","Spinosad 0.9% Topical Suspension (payer reference Natroba)","head lice only","gl-140732",[0],"preferred","Generic spinosad head lice only; brand-only prerequisite not applicable"],
