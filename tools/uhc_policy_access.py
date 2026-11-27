@@ -1301,6 +1301,21 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: manual single-dose syringe has no graduations and cannot deliver pediatric doses below 6 mg; the 4 mg/0.4 mL vial is separate. Onpro co-packaged syringe is ONLY for on-body injector; manual use overdoses, manual syringe in OBI underdoses. FDA label does not indicate use for stem cell mobilization. UHC GL-648215 names Neulasta across ten indication branches, not all FDA indications; stage unspecified, nonpreferred requests require failure, contraindication or intolerance to all preferred colony stimulating factors. Approval durations from policy notes range from 1 to 12 months by indication, not dispensing quantities. Exact package and indication eligibility unverified; no QL printed.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=fdfe5d72-6b80-435a-afa4-c5d74dd852ce',
             }
+        # DEC-05/06/12/13/14/16/19/20: RFA9455 bare brand listing; do not assign benefits to each formulation.
+        if record['id'] == 'uhc-oct-complete-db87969babd96230':
+            assert october_name == 'noxafil' and record['pa'] == 'required' and record['preferred'] == 'non_preferred' and ql
+            code = 'GL-751212'
+            assert matched.get(code) == {8,9,10,11,14}, (record['id'], matched)
+            matched.pop(code)
+            add(code, [8,9,10,11,14], 'product')
+            bindings[-1]['productLabel'] = 'Noxafil named oral policies (exact payer formulation unverified; not IV criteria)'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Noxafil (Posaconazole) — Dosage Form Unverified',
+                'dosageForm': 'dosage form unverified',
+                'note': 'FDA label: four distinct presentations: 100 mg delayed-release oral tablet, 40 mg/mL oral suspension, PowderMix 300 mg packet for delayed-release oral suspension, and 300 mg/16.7 mL IV injection. Ordinary oral suspension is not substitutable for tablets or PowderMix. PowderMix is contraindicated in hereditary fructose intolerance. FDA tablet invasive aspergillosis and prophylaxis labeling requires age 2 or older and weight greater than 40 kg; UHC GL-751212 tablet prophylaxis allows weight at least 40 kg, a discrepancy at exactly 40 kg. PowderMix pediatric use is age 2 or older and 10–40 kg; ordinary suspension is age 13 or older for prophylaxis or oropharyngeal candidiasis (OPC). Named UHC branches 8–11 and 14 apply to specified oral presentations, not injection; OPC requires two listed antifungal failures, contraindications, intolerances or resistance, or inpatient continuation. The bare brand PDL listing does not identify which formulation is covered. Exact formulation eligibility, age-limit flag details and numeric dispensing QL unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b073b082-7b57-4423-8c06-4fd4263d6f84',
+            }
         # DEC-05/06/12/13/14/19/20: exact stage-unspecified named policy; preserve brand-only prerequisites and raw flags.
         reviewed_stage_options = {
             'uhc-oct-complete-3db650dbb78aa872': ("icatibant acetate (generic for firazyr)", "preferred", "GL-546227", 1, "Generic icatibant acute HAE policy (stage unspecified)", "Icatibant (Generic Firazyr) Subcutaneous Prefilled Syringe", "subcutaneous prefilled syringe", "FDA label: single-dose 30 mg/3 mL (10 mg/mL) prefilled syringe. UHC GL-546227 acute HAE branch: age 18 or older for generic icatibant, confirmed HAE diagnosis, allergist/immunologist and no concurrent approved acute HAE treatment; 12 months, stage unspecified. Preferred-agent failure or current therapy prerequisite applies to named nonpreferred agents, not generic icatibant. Exact carton eligibility and numeric dispensing QL unverified.", "ccbb5e50-ce56-4898-aa1a-f1c1f3d312f6"),
