@@ -1033,6 +1033,10 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b23ad666-8ce0-4e0b-9eff-c6983ac5f7e6',
             }
         stage_scope_review = {
+            'uhc-oct-complete-8257acba5d319b90': (
+                "tadliq", "Tadliq (Tadalafil) 4 mg/mL Oral Suspension", "oral suspension",
+                "FDA label: tadalafil 20 mg/5 mL (4 mg/mL) oral suspension, 150 mL bottle; pediatric safety and efficacy not established. Nitrates and guanylate cyclase stimulators contraindicated; avoid severe renal or hepatic impairment. UHC GL-715293 initial PAH authorization is 6 months: age 18 or older, symptomatic PAH, right heart catheterization confirmation or current PAH therapy, and pulmonology or cardiology prescriber or consultation. Nonpreferred requests require failure, contraindication or intolerance to BOTH a preferred ERA and a preferred PDE5 inhibitor. Reauthorization is 12 months with documented positive clinical response. Adcirca/Opsynvi-specific prerequisites and CTEPH/Winrevair branches do not apply. Exact package eligibility and numeric dispensing QL remain unverified.",
+                "7a909b25-3772-403e-a5fe-e4a040293fb7", "GL-715293", {0,1}, "non_preferred", "Tadliq named PAH initial and renewal; brand-specific prerequisites not applicable"),
             'uhc-oct-complete-328b543e61dac94c': (
                 "soliris", "Soliris (Eculizumab) Intravenous Infusion", "intravenous infusion concentrate",
                 "FDA label: 300 mg/30 mL (10 mg/mL) single-dose vial for IV infusion; serious meningococcal infection warning and REMS. UHC GL-665191 branch 8 expressly names nonpreferred Soliris, Bkemv and newly launched eculizumab products as requests not approved at this time; preferred biosimilar Epysqli. The preferred-product indication and renewal branches are not applicable to this listing. This is payer policy, not a clinical contraindication. Exact exceptions and numeric dispensing QL remain unverified.",
