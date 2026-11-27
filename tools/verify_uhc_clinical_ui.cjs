@@ -1727,7 +1727,8 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    ['cc0214a5924ebd77',true,false,false,true],
    ['4f1a6bcd488425ec',true,false,true,true],
    ['d63fde77a711b8ce',false,false,true,true],
-   ['e3438ba8499baf2f',false,false,true,true]
+   ['e3438ba8499baf2f',false,false,true,true],
+   ['64b218c84fdb66aa',true,false,true,true]
  ]){
    const id='uhc-oct-complete-'+suffix;
    const g=a.planMedicationGroups().find(g=>g.records.some(r=>r.id===id));assert(g,id);
@@ -1756,7 +1757,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    const grouped=await open(g);
    if(cls) assert(grouped.html.includes('Class-wide prescription limit'),id+' grouped class rule');
  }
- console.log('PASS: Six exact hypnotic/barbiturate rows retain raw flags and scoped conditional PA, ST and class limit.');
+ console.log('PASS: Seven exact hypnotic/barbiturate rows retain raw flags and scoped conditional PA, ST and class limit.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  const bannerGroups=a.planMedicationGroups();
  const igRows=[

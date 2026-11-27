@@ -2368,7 +2368,7 @@
     }
     // Dated UHC PDL class edit; keep distinct from the named hypnotic request
     // policy and from the individual product's printed QL/PA fields.
-    const classRuleIds = new Set(['uhc-oct-complete-ee91f45e62d87482','uhc-oct-complete-cc0214a5924ebd77','uhc-oct-complete-4f1a6bcd488425ec','uhc-oct-complete-d63fde77a711b8ce','uhc-oct-complete-e3438ba8499baf2f']);
+    const classRuleIds = new Set(['uhc-oct-complete-ee91f45e62d87482','uhc-oct-complete-cc0214a5924ebd77','uhc-oct-complete-4f1a6bcd488425ec','uhc-oct-complete-d63fde77a711b8ce','uhc-oct-complete-e3438ba8499baf2f','uhc-oct-complete-64b218c84fdb66aa']);
     const classRows = (group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference && r.sourceEffective === '2026-10-01' && classRuleIds.has(r.id));
     if (classRows.length) sections.push('<section class="uhc-restriction-criteria"><h4>Class-wide prescription limit</h4><p>Applies to the listed options: ' + escapeHtml(classRows.map(r => r.name).join('; ')) + '. The October 2026 PDL limits sedative hypnotics, barbiturates and select muscle relaxants to four medications per 30 days; PA is required for additional fills. This is not an individual product quantity limit. <a class="source-link" href="' + escapeHtml(sourceHref({...classRows[0], sourcePage: 35})) + '" target="_blank" rel="noopener">UHC formulary · PDF page 35</a></p></section>');
     const conditionalOnly = duplication.length && paRows.length && paRows.every(r => r.pa === 'conditional');

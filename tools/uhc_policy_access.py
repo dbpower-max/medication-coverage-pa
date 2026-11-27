@@ -245,6 +245,7 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             'uhc-oct-complete-d9d744a480f31c8a': ('ramelteon (generic for rozerem)', 'generic ramelteon', True),
             'uhc-oct-complete-cc0214a5924ebd77': ('zolpidem tartrate er (generic for ambien cr)', 'generic zolpidem ER', False),
             'uhc-oct-complete-4f1a6bcd488425ec': ('zolpidem tartrate oral tablet (generic for ambien)', 'generic zolpidem', True),
+            'uhc-oct-complete-64b218c84fdb66aa': ('temazepam oral capsule 15 mg, 30 mg (generic for restoril)', 'generic temazepam', True),
         }.get(record['id'])
         if not (pa or ql or hypnotic):continue
         bindings = []
