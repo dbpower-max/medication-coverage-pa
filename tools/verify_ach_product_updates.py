@@ -37,6 +37,9 @@ for row in data['medications']:
   if update['name'] in nasal_aliases.get(row['id'],set()):
    assert 'Nasal Spray' in row['name'] and (update.get('id')=='ach-mandated-formulary-10015' or update['sourcePage']==19 and update['sourceEffective']=='2023-04-01')
    continue
+  if update['name'].startswith('lamotrigine tb24 '):
+   assert row['rxnormId'] in {'850087','900164','850091','900156','1146690','1098608'} and 'Extended Release' in row['name'] and update['sourcePage']==15
+   continue
   assert compatible(row['name'],update['name']), 'Incompatible source applied: '+row['id']+' / '+update['name']
  if '[Triesence]' in row['name']:
   assert not any('KENALOG' in str(u).upper() for u in row['sourceUpdates'])
@@ -115,3 +118,16 @@ for r in reviewed:
  assert r['qlDays']=='1' and r['qlAmount']==plan['qlAmount'] and r['benefitSources']['quantityLimited']=='selected_plan'
  assert state['qlDays']=='30' and state['qlAmount']==d['statewideMonthlyLimit']
  assert r['pa']=='conditional' and r['benefitSources']['pa']=='statewide_reference' and r['step']=='not_specified'
+
+from import_ach_baseline import ACH_ISENTRESS, LAMOTRIGINE_OPTIONS
+for rx in set(ACH_ISENTRESS)|set(LAMOTRIGINE_OPTIONS):
+ row=next(r for r in baseline if r['rxnormId']==rx)
+ state=ACH_ISENTRESS[rx][1] if rx in ACH_ISENTRESS else LAMOTRIGINE_OPTIONS[rx][1]
+ assert [u['id'] for u in row['sourceUpdates'] if u['scope']=='statewide_reference']==(['ach-mandated-formulary-'+str(state)] if state else [])
+ assert row['reviewedPresentation']['identityRxcui']==int(rx)
+ if rx in LAMOTRIGINE_OPTIONS:
+  limit=LAMOTRIGINE_OPTIONS[rx][3]
+  assert row['qlAmount']==(f'{limit} tablets' if limit else '') and row['qlDays']==('1' if limit else '')
+  assert row['pa']!='conditional'
+ else:
+  assert 'Do not substitute' in row['reviewedPresentation']['note']
