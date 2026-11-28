@@ -450,6 +450,12 @@
         return {key: record.planId + ':' + record.id, generic: label, brands: sourceBrand ? [sourceBrand] : []};
       }
     }
+    // This October PDL cross-reference spans incompatible control families and a meter.
+    // The source name remains available in search and Sources.
+    if (isUhcOctoberRow(record)) {
+      const control = record.name.match(/^(.+?) \(brand for element compact control 2\)$/i);
+      if (control) return {key: record.planId + ':' + record.id, generic: control[1], brands: []};
+    }
     const genericFor = name.match(/^(.*?)\s*\(generic for ([^)]+)\)\s*$/i);
     const brandFor = name.match(/^(.*?)\s*\(brand for ([^)]+)\)\s*$/i);
     if (record.planId === 'banner-ufc' || record.planId === 'uhc-community-az') {
@@ -901,7 +907,29 @@
     return null;
   }
 
+  const humulin7030Label = 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e245e0c5-b2d6-418b-baa4-1c3324292885';
+  const premixDeviceUnknown = 'The formulary lists the brand without a device or package.';
+  const bannerHumanPremix = new Map([
+    ['HUMULIN 70/30', {
+      label: 'Humulin 70/30 (human NPH/regular insulin) 100 units/mL injectable suspension',
+      note: premixDeviceUnknown, labelUrl: humulin7030Label
+    }],
+    ['HUMULIN 70/30 KWIKPEN', {
+      label: 'Humulin 70/30 KwikPen (human NPH/regular insulin) 100 units/mL prefilled pen',
+      note: '3 mL single-patient-use pen with 1-unit dose increments.', labelUrl: humulin7030Label,
+      identityRxcui: 847189
+    }],
+    ['NOVOLIN 70/30', {
+      label: 'Novolin 70/30 (human NPH/regular insulin) 100 units/mL injectable suspension',
+      note: premixDeviceUnknown, labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=508a2763-3cb7-4be5-9e53-544e84cd9b1f'
+    }]
+  ]);
+
   function reviewedCardPresentation(record) {
+    // Pair each Banner October brand row only with its matching statewide November row.
+    if (record.planId === 'banner-ufc' && record.name === 'INSULIN NPH ISOPHANE & REG (HUMAN) SUSPENSION'
+        && record.sourceEffective === (record.isStatewideReference ? '2026-11-01' : '2026-10-01')
+        && bannerHumanPremix.has(record.brand)) return bannerHumanPremix.get(record.brand);
     const id = record.isStatewideReference ? record.id.split(':').at(-1) : record.id;
     const reviewed = record.reviewedPresentation || reviewedCardPresentations.get(id);
     if (reviewed) return reviewed;
@@ -2672,8 +2700,10 @@
       : linzess ? 'Linzess (linaclotide) oral capsules'
       : constipationBrand ? 'Prucalopride oral tablets (Motegrity)'
       : constipationGeneric ? 'Lubiprostone oral capsules (Amitiza reference)' : group.label;
+    const achFemring = state.planId === 'az-complete-health' && group.records.some(record =>
+      record.id === 'ach-json-848333' || record.id === 'ach-json-848343');
     const noticeOnly = group.records.some(record => record.reviewedPresentation?.policyUnverified);
-    const guide = group.policyOnly ? group.guide : (insulinConflict || bannerIcs || noticeOnly) ? null : bannerGuide || clinicalGuidanceFor(group);
+    const guide = group.policyOnly ? group.guide : (insulinConflict || bannerIcs || noticeOnly || achFemring) ? null : bannerGuide || clinicalGuidanceFor(group);
     const statewideGlp1 = isUhc && guide?.policyCode === 'GL-749236' && group.isStatewide
       && group.records.every(record => record.isStatewideReference);
     const guidance = statewideGlp1 ? {...guide, planId: 'ahcccs-ffs-aihp'} : guide;
@@ -2839,6 +2869,7 @@
           ${step ? `<p class="pa-condition"><strong>Step therapy:</strong> ${escapeHtml(step)} <a class="source-link" href="${escapeHtml(sourceHref({...record, sourcePage: 36}))}" target="_blank" rel="noopener">UHC formulary · step table ↗</a></p>` : ''}`;
       }).join('')}
       </div>
+      ${achFemring ? '<p class="pa-condition">Arizona Complete Health’s product-specific approval criteria are unverified.</p>' : ''}
       ${achSmart ? `<p class="pa-condition">Arizona Complete Health’s SMART asthma notice covers the authorized generic and Teva generic effective October 1, 2026. The notice does not specify strengths, NDCs, preference, PA, step therapy or quantity limits. <a class="source-link" href="${achSmartNoticeUrl}" target="_blank" rel="noopener">Plan notice ↗</a></p>` : ''}
       ${linzess || achNotice?.id === 'ach-notice-13846' ? '<p class="pa-condition">AHCCCS statewide reference lists PA.</p>' : ''}
       <div class="card-source-access">${sourcesLink(group)}</div>

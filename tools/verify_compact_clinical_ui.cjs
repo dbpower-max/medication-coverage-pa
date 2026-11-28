@@ -57,6 +57,18 @@ for(const [term,id] of [['Trulicity','9972'],['Victoza','9974'],['Mounjaro','997
  for(const fn of handlers)fn({target:{closest:s=>s==='[data-close-sources]'?{}:null}});
  assert(!dialog.open,term+' Sources close');
 }
+api.state.planId='az-complete-health';api.state.term='Femring';
+const femringResults=api.render();
+for(const [id,row] of [['ach-json-848333',3851],['ach-json-848343',3852]]){
+ const group=femringResults.find(g=>g.records.some(r=>r.id===id));
+ const button={dataset:{cardSources:group.key||group.label}};
+ for(const fn of handlers)fn({target:{closest:s=>s==='[data-card-sources]'?button:null}});
+ const sources=dialog.body.innerHTML;
+ assert(dialog.open&&sources.includes('2022 plan source')&&sources.includes('row '+row),id+' plan source');
+ assert(sources.includes('AHCCCS Statewide · Fee-for-service')&&sources.includes('ahcccs-ffs-pa-criteria-2026-11-01.pdf#page=602'),id+' state source');
+ for(const fn of handlers)fn({target:{closest:s=>s==='[data-close-sources]'?{}:null}});
+ assert(!dialog.open);
+}
 api.state.planId='az-complete-health';api.state.term='Mounjaro';api.render();
 const content={hidden:true,dataset:{},innerHTML:''};
 const shortcut={dataset:{criteriaQuery:'FLEXERIL',criteriaFallback:'cyclobenzaprine'},closest:()=>({querySelector:()=>content}),setAttribute:()=>{}};

@@ -9,6 +9,33 @@ vm.createContext(ctx);vm.runInContext(source.replace("document.addEventListener(
 const api=ctx.api;api.state.data=data;
 function targetFor(group){const target={innerHTML:'',isConnected:true};return {target,details:{open:true,dataset:{cardClinical:group.key||group.label},querySelector:selector=>selector==='.card-pa-references'?{innerHTML:''}:target}};}
 (async()=>{
+api.state.planId='banner-ufc';
+const bannerPremixGroups=api.planMedicationGroups();
+for (const [id,stateId,brand,pen] of [
+  ['banner-oct26-029','formulary-9983','Humulin 70/30',false],
+  ['banner-pcp-nov10-006','formulary-9984','Humulin 70/30 KwikPen',true],
+  ['banner-pcp-nov10-008','formulary-9990','Novolin 70/30',false]
+]) {
+  const group=bannerPremixGroups.find(g=>g.records.some(r=>r.id===id));
+  assert.deepEqual(Array.from(group.records,r=>r.id).sort(),[id,'banner-ufc:statewide:'+stateId].sort(),id);
+  const row=group.records.find(r=>r.id===id);
+  const markup=api.medicationGroupCard(group);
+  assert(group.label.startsWith(brand+' (human NPH/regular insulin) 100 units/mL'),id);
+  assert.equal(group.label.includes('prefilled pen'),pen,id);
+  assert.equal(markup.includes('1-unit dose increments'),pen,id);
+  assert.equal(markup.includes('without a device or package'),!pen,id);
+  assert(!group.label.includes('vial')&&!markup.includes('>PA required<'),id);
+  assert.equal(row.pa,'not_specified',id);
+  assert.equal(row.step,'not_specified',id);
+  assert(!row.qlDays&&!row.qlAmount,id);
+  assert(markup.includes('>Preferred<')&&markup.includes('>Brand only<'),id);
+  assert.equal(api.recordDetails(row).includes('searchTerm=847189'),pen,id);
+}
+for (const id of ['banner-pcp-nov10-012','banner-pcp-nov10-013']) {
+  const group=bannerPremixGroups.find(g=>g.records.some(r=>r.id===id));
+  assert(group.label.includes('Aspart')&&!group.label.includes('human NPH/regular insulin'),id);
+  assert.equal(group.label.includes('FlexPen'),id==='banner-pcp-nov10-013',id);
+}
 for(const plan of data.plans){
  api.state.planId=plan.id;
  const groups=api.planMedicationGroups();
@@ -46,6 +73,24 @@ for(const plan of data.plans){
 // DEC-06/07/19/20: ACH exact baseline flags and label presentation.
 api.state.planId='az-complete-health';
 const achOudGroups=api.planMedicationGroups();
+for(const [id,sourceRow] of [['ach-json-848333',3851],['ach-json-848343',3852]]){
+ const group=achOudGroups.find(g=>g.records.some(r=>r.id===id));
+ const record=group.records.find(r=>r.id===id);
+ assert.equal(record.baselineSource.row,sourceRow);
+ assert.equal(record.baselineSource.values.prior_authorization,true);
+ assert.equal(record.baselineSource.values.drug_tier,'PREFERRED');
+ const card=api.medicationGroupCard(group);
+ assert(card.includes('>Covered<')&&card.includes('>Preferred<')&&card.includes('>PA required<'),id+' plan benefits');
+ assert(card.includes('Arizona Complete Health’s product-specific approval criteria are unverified.'),id);
+ assert(card.includes('AHCCCS Statewide · Fee-for-service reference')&&card.includes('ahcccs-ffs-pa-criteria-2026-11-01.pdf#page=602'),id+' scope and page');
+ assert(!card.includes('Either menopausal indication'),id+' statewide summary on plan listing');
+ const expanded=targetFor(group);await api.populateCardClinical(expanded.details);
+ assert(expanded.target.innerHTML.includes('AHCCCS Statewide · Fee-for-service criteria'),id+' labeled statewide disclosure');
+ assert(expanded.target.innerHTML.includes('vasomotor symptoms')&&expanded.target.innerHTML.includes('vulvar and vaginal atrophy'),id+' exact Femring criteria');
+ assert(!expanded.target.innerHTML.includes('kraurosis vulvae'),id+' Premarin branch');
+ assert(api.recordDetails(record).includes('row '+sourceRow),id+' 2022 source row');
+}
+
 for(const [id,dose] of [['ach-json-1996189','100 mg/0.5 mL'],['ach-json-1996193','300 mg/1.5 mL']]){
  const g=achOudGroups.find(x=>x.records.some(r=>r.id===id));assert(g,id);
  const r=g.records.find(r=>r.id===id);
