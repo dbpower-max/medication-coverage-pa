@@ -176,6 +176,17 @@ def with_ach_baseline(d):
    candidates.append((branded,r))
   if any(b for b,r in candidates):candidates=[(b,r) for b,r in candidates if b]
   candidates=[r for b,r in candidates]
+  if row['rxnorm_id'] in {'2535249', '2535243'}:
+   # Both named devices are preferred, but each has its own statewide quantity.
+   is_pen = row['rxnorm_id'] == '2535249'
+   notice_id = 'ach-notice-13882' if is_pen else 'ach-notice-13883'
+   state_id = 'ach-mandated-formulary-9963' if is_pen else 'ach-mandated-formulary-9964'
+   notice = next(r for r in current if r['id'] == notice_id)
+   reference = next(r for r in current if r['id'] == state_id)
+   assert ('AUTOINJECTOR' if is_pen else 'SYRINGE') in notice['name'] and brand == 'Zegalogue'
+   assert reference['brand'] == 'ZEGALOGUE' and notice['preferred'] == 'preferred'
+   candidates = [notice, {**reference, **reference['statewideReference'],
+                           'rawBenefit': 'Brand only; preferred; PA and ST blank; dispensing unit unspecified.'}]
   if row['rxnorm_id'] in {'349094', '351109', '252559'}:
    # The baseline expresses concentration; the state prints total dose in each 2 mL ampule.
    assert 'Inhalation Suspension' in name
