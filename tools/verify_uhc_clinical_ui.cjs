@@ -7,6 +7,27 @@ const a=ctx.api;a.state.data=data;a.state.planId='uhc-community-az';
 async function open(g){const content={innerHTML:'',isConnected:true},ref={innerHTML:''};a.medicationGroupCard(g);const d={open:true,dataset:{cardClinical:g.key||g.label},querySelector:s=>s==='.card-pa-references'?ref:content};await a.populateCardClinical(d);assert.equal(d.dataset.loaded,'true',g.label+' did not load');return {html:content.innerHTML,ref:ref.innerHTML};}
 (async()=>{
  const groups=a.planMedicationGroups().filter(g=>g.records.some(r=>r.planId==='uhc-community-az'&&!r.isStatewideReference&&(['required','conditional'].includes(r.pa)||r.qlAmount||r.qlDays)));
+ const arnuity = groups.find(g => g.records.some(r => r.id.endsWith('10553d2806adfcf9')));
+ const arnuityRow = arnuity.records.find(r => r.id.endsWith('10553d2806adfcf9'));
+ assert.equal(arnuityRow.rawRestrictions,'Tier 2; QL');
+ assert.equal(arnuityRow.preferred,'preferred');
+ assert.equal(arnuityRow.pa,'not_specified');
+ assert.equal(arnuityRow.step,'not_specified');
+ assert.equal(arnuityRow.qlDays,'');
+ const arnuityCard = a.medicationGroupCard(arnuity);
+ const arnuityDetail = await open(arnuity);
+ assert(arnuityCard.includes('<h3>Arnuity Ellipta (fluticasone furoate) dry powder inhaler</h3>'));
+ assert(arnuityCard.includes('50, 100 and 200 mcg per actuation'));
+ assert(!arnuityCard.includes('PA required') && !arnuityCard.includes('Step therapy'));
+ assert(arnuityDetail.html.includes('UHC requires a diagnosis of asthma') && arnuityDetail.html.includes('12-month'));
+ assert(!arnuityDetail.html.includes('majority (not more than 3)') && !arnuityDetail.html.includes('trial and failure'));
+ assert(arnuityDetail.ref.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page=945"'));
+ assert(arnuityDetail.ref.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page=702"'));
+ assert(!arnuityDetail.ref.includes('ahcccs-ffs-pa-criteria'));
+ assert(a.recordDetails(arnuityRow).includes('uhc-az-medicaid-pdl-2026-10-01.pdf#page=94'));
+ assert(a.recordDetails(arnuityRow).includes(arnuityRow.reviewedPresentation.labelUrl));
+ for (const id of [2045382,1547664,1547660,1547668,1547672]) assert(a.recordDetails(arnuityRow).includes('searchTerm='+id));
+ assert.equal(a.clinicalGuidanceFor({name:'Arnuity Ellipta',brands:['ARNUITY ELLIPTA'],records:[]})?.policyCode,'GL-589212');
  for (const [suffix,printedPA] of [
    ['1fd2b0bc4536d405',false],['6039af312e593b2e',false],['be716be68d4865ce',false],
    ['24439ea20bf1ab84',true],['3068d3e50cfa3085',true],['37e912a5126d83fa',true],

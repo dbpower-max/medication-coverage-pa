@@ -3027,6 +3027,34 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=227734c1-bf01-9607-73ea-5a1f38a89bd9',
             }
         if ql:add('GL-140667',[0],'global_quantity')
+        if record['id'] == 'uhc-oct-complete-10553d2806adfcf9':
+            assert october_name == 'arnuity ellipta (brand for fluticasone furoate ellipta)'
+            assert record['sourcePage'] == 94 and record['rawRestrictions'] == 'Tier 2; QL'
+            assert record['preferred'] == 'preferred' and record['pa'] == 'not_specified'
+            code = 'GL-605215'
+            assert policies[code]['policyEffective'] == '2026-06-01'
+            branch, = structured[code]['branches']
+            assert 'Brand Arnuity Ellipta' in branch['fields']['Product Name']['text'].split(', ')
+            assert branch['fields']['Approval Length']['text'] == '12 month(s)' and branch['sourcePage'] == 945
+            requirements = [item['text'] for item in branch['criteria'] if re.match(r'^[1-9] - ', item['text'])]
+            assert len(requirements) == 4 and requirements[0] == '1 - Diagnosis of asthma'
+            assert requirements[1].startswith('2 - If the request is non-preferred')
+            assert requirements[2].startswith('3 - If the request is for generic fluticasone furoate ellipta')
+            assert requirements[3].startswith('4 - If the request is for Beclomethasone Dipropionate HFA')
+            add(code, [0], 'arnuity_request_reference')
+            record['excludedStatewidePolicyCode'] = 'GL-589212'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Arnuity Ellipta (fluticasone furoate) dry powder inhaler',
+                'labelProductExamples': [
+                    ('50 mcg, 30 blisters', 2045382),
+                    ('100 mcg, 14 blisters', 1547664), ('100 mcg, 30 blisters', 1547660),
+                    ('200 mcg, 14 blisters', 1547668), ('200 mcg, 30 blisters', 1547672),
+                ],
+                'dosageForm': 'dry powder inhaler',
+                'note': 'Labeled strengths: 50, 100 and 200 mcg per actuation. The UHC listing does not specify strength.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=50f193ee-1691-486d-9370-a664df63695c',
+            }
         record['uhcClinicalBindings']=bindings
         if pa and not any(b['role'] in {'product','nonpreferred','nonsolid'} for b in bindings):missing.append(record['id'])
         for role in sorted({b['role'] for b in bindings}):totals[role]+=1
