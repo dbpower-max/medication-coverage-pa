@@ -160,3 +160,9 @@ for rx in set(ACH_TRULICITY_PENS)|set(ACH_XOLAIR_DEVICES):
  else:
   assert state['id'].endswith({'single-dose vial':'9792','auto-injector':'9793','prefilled syringe':'9794'}[ACH_XOLAIR_DEVICES[rx][0]])
   assert row['qlAmount']=='' and row['qlDays']==''
+
+for rx,limit in [('351264','16 tablets'),('351265','4 tablets')]:
+ r=next(r for r in baseline if r['rxnormId']==rx)
+ assert r['qlAmount']==limit and r['qlDays']=='1' and r['pa']=='conditional'
+ assert r['benefitSources']['preferred']==r['benefitSources']['pa']==r['benefitSources']['quantityLimited']=='selected_plan'
+ assert len(r['sourceUpdates'])==3 and r['achProviderRule']['effectiveDate'] is None

@@ -447,6 +447,23 @@ def with_ach_baseline(d):
    candidates,oral_display=verified_oral_form(row["rxnorm_id"],name,indexed_sources)
   if row['rxnorm_id'] in ACH_ANTIPSYCHOTIC_OPTIONS:
    candidates,oral_display=antipsychotic_option(row['rxnorm_id'],name,indexed_sources)
+  if row['rxnorm_id'] in {'351264','351265'}:
+   dose,limit=('2',16) if row['rxnorm_id']=='351264' else ('8',4)
+   assert name==f'buprenorphine {dose} MG Sublingual Tablet'
+   ref=indexed_sources['ach-mandated-formulary-9698']
+   assert ref['pa']=='conditional' and 'pregnant or nursing' in ref['paText']
+   candidates=[ref,{'name':f'buprenorphine hcl subl {dose} mg','sourceTitle':'Arizona Complete Health April 2023 Complete Care PDL',
+                    'sourceUrl':ACH_APR_2023_PDL,'sourceEffective':'2023-04-01','sourcePage':10,'sourceKind':'plan_formulary',
+                    'coverage':'listed','quantityLimited':True,'qlAmount':f'{limit} tablets','qlDays':'1','pa':'conditional',
+                    'paText':'PA required unless pregnant or nursing. The plan requires the specified diagnosis code on the prescription.',
+                    'rawBenefit':f"F; PA Req’d unless member is pregnant or nursing; Prescriber must note ICD-10 diagnosis code on prescription.; O09.91; O09.92; O09.93; QL({limit} ea daily)."},
+                   {'name':'BUPRENORPHINE HCL (SUBLINGUAL)*','sourceTitle':'Arizona Complete Health October 2026 Medicaid formulary update PU26135',
+                    'sourceUrl':ACH_OCT_NOTICE_URL,'sourceEffective':'2026-10-01','coverage':'listed','preferred':'preferred',
+                    'rawBenefit':'Table 1 data row 17, preferred column. The asterisk identifies statewide listing.'}]
+   oral_display={'prescribingHeading':f'Buprenorphine {dose} mg sublingual tablet','identityRxcui':int(row['rxnorm_id']),
+                 'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1408cd8f-a0b5-6be7-e063-6394a90a0b41',
+                 'planConditionalLabel':'PA unless pregnant or nursing',
+                 'sourceReferences':[['AHCCCS Statewide · June 8 contractor memo · p. 9',AHCCCS_MAY_MEMO+'#page=9']]}
   if row['rxnorm_id'] in ACH_TRULICITY_PENS or row['rxnorm_id'] in ACH_XOLAIR_DEVICES:
    candidates,oral_display=injectable_notice_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_CLONAZEPAM:

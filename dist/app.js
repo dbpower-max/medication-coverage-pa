@@ -1895,8 +1895,10 @@
       const retail = planFormulary && belongs('quantityLimited') && display?.planRetailLimit;
       const retailLabel = retail && retail.amount === record.qlAmount && retail.days === record.qlDays && `QL: ${retail.amount} per ${retail.days} days at retail`;
       const ageTrigger = scope === 'statewide_reference' && belongs('pa') && record.pa === 'conditional' && display?.statewideAge;
+      const scopedPa = scope === 'selected_plan' ? display?.planConditionalLabel : scope === 'statewide_reference' && display?.scopedStatePa;
+      const paBadge = belongs('pa') && record.pa === 'conditional' && (scopedPa || (ageTrigger && `PA if age <${ageTrigger} · prescriber rules at ≥${ageTrigger}`));
       const badges = statusChips({
-        reviewedPresentation: scope === 'statewide_reference' && belongs('pa') && record.pa === 'conditional' && display?.scopedStatePa ? {paBadge: display.scopedStatePa} : ageTrigger ? {paBadge: `PA if age <${ageTrigger} · prescriber rules at ≥${ageTrigger}`} : undefined,
+        reviewedPresentation: paBadge ? {paBadge} : undefined,
         recordType: 'formulary', coverage: record.coverage,
         preferred: belongs('preferred') && record.preferred,
         pa: belongs('pa') && record.pa, step: belongs('step') && record.step,
