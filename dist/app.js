@@ -2441,8 +2441,10 @@
       && record.uhcClinicalBindings?.some(binding => binding.policyId === 'uhc-nov2026-policy-gl-720195'));
     const brands = new Set(group.brands.map(normalize));
     // ACH uses the abbreviated brand Anoro on these two verified branded inhalers.
-    if (group.records?.length && group.records.every(r => ['ach-json-1487524', 'ach-json-1487528'].includes(r.id))) {
-      return (state.data.statewideClinicalGuidance || []).find(g => g.id === 'gl-269199-lama-laba-regular') || null;
+    if (brands.size === 1 && brands.has('anoro') && group.records?.length
+        && group.records.every(r => ['ach-json-1487524', 'ach-json-1487528'].includes(r.id))) {
+      const guide = (state.data.statewideClinicalGuidance || []).find(g => g.id === 'gl-269199-lama-laba-regular');
+      return guide ? {...guide, matchBrands: [...guide.matchBrands, 'Anoro']} : null;
     }
     const generic = normalize(group.name);
     return (state.data.statewideClinicalGuidance || []).find(guide => {
