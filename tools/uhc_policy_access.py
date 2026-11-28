@@ -54,6 +54,22 @@ DPP4_BRANCHES = {
 # The October PDL flags and the November policy answer different questions.
 # Keep broad formulary flags intact and attach only the named, scoped branches.
 ANTIDEPRESSANT_BRANCHES = {
+    'trazodone hcl oral tablet 100 mg, 150 mg, 300 mg, 50 mg': (
+        'Generic trazodone 50, 100, 150 and 300 mg tablets',
+        [(1, 'trazodone 50 mg and 100 mg and 150 mg and 300 mg tabs')],
+    ),
+    'mirtazapine oral tablet 45 mg, 7.5 mg': (
+        'Generic mirtazapine tablets', [(1, 'generic mirtazapine tabs')],
+    ),
+    'mirtazapine oral tablet dispersible (generic for remeron soltab)': (
+        'Generic mirtazapine orally disintegrating tablets', [(1, 'generic mirtazapine ODT')],
+    ),
+    'mirtazapine tablet 15 mg oral (generic for remeron)': (
+        'Generic mirtazapine 15 mg tablets', [(1, 'generic mirtazapine tabs')],
+    ),
+    'mirtazapine tablet 30 mg oral (generic for remeron)': (
+        'Generic mirtazapine 30 mg tablets', [(1, 'generic mirtazapine tabs')],
+    ),
     'sertraline hcl oral concentrate (generic for zoloft)': (
         'Generic sertraline oral solution',
         [(0, 'generic sertraline oral soln'), (1, 'generic sertraline tabs/oral soln')],

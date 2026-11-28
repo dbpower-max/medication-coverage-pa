@@ -1021,6 +1021,19 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   assert.equal(html.includes('unable to swallow the oral tablet/capsule'), group === solution);
   assert(ref.includes('page=116'));
  }
+ for (const suffix of ['4246642f69cb6e33', '6379fae422d23f63', '9da9ddf0a410ce97', '142ebea775e43d1c', '5e9993db04a01e23']) {
+  const group = byId(suffix);
+  const record = group.records.find(row => row.id === 'uhc-oct-complete-' + suffix);
+  const agePolicy = record.uhcClinicalBindings.find(binding => binding.policyId.endsWith('gl-743248'));
+  assert.equal(agePolicy.role, 'age_scoped');
+  assert.deepEqual(Array.from(agePolicy.branchIndexes), [1]);
+  assert.equal(record.pa, 'not_specified');
+  assert.equal(record.preferred, 'preferred');
+  assert(record.ageLimited && !record.policyQuantityLimit);
+  const {html} = await open(group);
+  assert(html.includes('6 years of age or younger') && html.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page=117'));
+  assert(html.includes('Quantity-limit exceptions'));
+ }
  const pristiq = byId('e40b2afd31f1fb40');
  assert(pristiq && pristiq === byId('094b55526d4ad05f'));
  const card = a.medicationGroupCard(pristiq);
