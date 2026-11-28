@@ -92,11 +92,45 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    assert.equal(html.includes('pdf#page=1202"'),brand,id);
    assert(!/pdf#page=56[01]"|Mylan|Neffy/.test(html),id);
    assert.equal(card.includes('Criteria for this exact presentation are unverified.'),brand,id);
+   const sources=a.recordDetails(row);
+   assert.equal(card.includes('>PA listings conflict<'),brand,id);
+   assert(!card.includes('>PA required<'),id);
    if (brand) {
      assert(card.includes('single-dose prefilled autoinjector') && !card.includes('dosage form unverified'),id);
-     assert(card.includes('0.15 mg/0.15 mL') && card.includes('UHC does not specify eligible strengths or packages'),id);
-     assert(a.recordDetails(row).includes('setid=6180fb40-7fca-4602-b3da-ce62b8cd2470'),id);
+     assert(card.includes('0.15 mg/0.15 mL') && card.includes('eligible package are unverified'),id);
+     for (const rx of [1991329,1305268,1305269]) assert(sources.includes('searchTerm='+rx),id);
+     assert(sources.includes('4054, 3254 and 60') && sources.includes('2659, 2048 and 1421'),id);
+   } else if (suffix==='feedc25102cbbdb1') {
+     assert(card.includes('>Preferred in printed PDL<') && !card.includes('>Preferred<'),id);
+     assert(card.includes('Only the nonpreferred entry lists step therapy'),id);
+     assert(sources.includes('searchTerm=727316') && sources.includes('Row 8953'),id);
+   } else {
+     assert(card.includes('>Preferred<') && !card.includes('>Step therapy<'),id);
+     assert(sources.includes('searchTerm=1870205') && !sources.includes('searchTerm=1305269'),id);
    }
+ }
+ for (const [suffix,ids,oct,nov] of [
+   ['836fcbdd50338512',[1246290,1246306],'4218 and 4220','2026 and 2028'],
+   ['d286297ad03ac6d9',[1246288],'2599','2346'],
+   ['be916cf5ebe9501f',[1246304],'4219','2027']
+ ]) {
+   const g=groups.find(group=>group.records.some(r=>r.id.endsWith(suffix)));
+   const row=g.records.find(r=>r.id.endsWith(suffix));
+   const brand=ids.length===2, highGeneric=ids[0]===1246304;
+   const card=a.medicationGroupCard(g), sources=a.recordDetails(row);
+   assert.equal(row.pa,brand?'required':'not_specified',suffix);
+   assert.equal(card.includes('>PA listings conflict<'),!highGeneric,suffix);
+   assert.equal(card.includes('>PA listed for 120 actuations<'),highGeneric,suffix);
+   assert.equal(card.includes('>Step therapy varies by listing<'),!brand,suffix);
+   assert.equal(card.includes('30-day trial of one inhaled corticosteroid'),brand,suffix);
+   assert(!card.includes('>PA required<') && !card.includes('SMART asthma notice'),suffix);
+   for (const id of ids) assert(sources.includes('searchTerm='+id),suffix);
+   assert(sources.includes(oct) && sources.includes(nov),suffix);
+   const detail=await open(g);
+   assert(detail.html.includes('#page=1713"') && detail.html.includes('#page=1714"'),suffix);
+   assert(detail.html.includes('when a therapeutic duplication edit is triggered'),suffix);
+   assert.equal(detail.html.includes('#page=1202"'),brand,suffix);
+   assert(detail.html.includes('#page=702"'),suffix);
  }
  const marinolState=a.clinicalGuidanceFor({name:'Marinol',brands:['MARINOL'],records:[]});
  assert.equal(marinolState?.id,'gl-398214-marinol');

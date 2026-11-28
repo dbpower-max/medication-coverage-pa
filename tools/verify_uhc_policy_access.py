@@ -21,7 +21,7 @@ rows=[r for r in p['medications'] if r['planId']=='uhc-community-az']
 flagged=[r for r in rows if r['pa'] in ['required','conditional'] or r.get('qlAmount') or r.get('qlDays')]
 assert len(flagged)==3146
 duplication = [b for r in rows for b in r.get('uhcClinicalBindings', []) if b['policyId'].endswith('gl-735259')]
-assert len(duplication) == 64
+assert len(duplication) == 66
 assert all(b['role'] == 'duplication' and b['branchIndexes'] == [0] for b in duplication)
 for r in flagged:
  for b in r.get('uhcClinicalBindings',[]):
