@@ -1149,6 +1149,27 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    assert(detail.html.includes('under 6 years old')&&!/FOUR preferred|MedWatch|insomnia|melatonin/.test(detail.html),id);
    for(const page of [51,702])assert(detail.html.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page='+page+'"'),id);
  }
+ for(const [suffix,heading,device,pa] of [
+   ['86d347968a4e113f','500 units/mL prefilled pen','5-unit increments','required'],
+   ['2c1a20b7db0eeaaa','100 units/mL prefilled pen','3 mL single-patient-use pen','not_specified'],
+   ['02f43d7633c6ae85','100 units/mL multidose vial','10 mL multidose vial','not_specified']
+ ]) {
+   const id='uhc-oct-complete-'+suffix, group=groups.find(g=>g.records.some(r=>r.id===id));
+   const row=group.records.find(r=>r.id===id), card=a.medicationGroupCard(group), detail=await open(group);
+   assert.equal(group.records.length,1); assert.equal(row.pa,pa); assert.equal(row.preferred,'preferred');
+   assert(card.includes(heading)&&card.includes(device)&&!card.includes('dosage form unverified'),id);
+   assert.equal(card.includes('Never withdraw insulin'),pa==='required');
+   assert.equal(detail.html.includes('pdf#page=953'),pa==='required');
+   assert(detail.html.includes('pdf#page=702'));
+ }
+ for(const suffix of ['46893ffdc5e59e64','8e024e8124a5df6a','0a0a7a86b6fe2cd4']){
+   const group=groups.find(g=>g.records.some(r=>r.id.endsWith(suffix)));
+   const detail=await open(group);
+   for(const view of [a.medicationGroupCard(group),detail.ref]){
+     assert(view.includes('pdf#page=1687"')&&view.includes('Test strip QL reference ↗ · p. 1687'),suffix);
+   }
+   assert(!detail.html.includes('Criteria source · PDF page 1686<'),suffix);
+ }
  const restrictedTablet=groups.flatMap(g=>g.records).find(r=>r.id==='uhc-oct-complete-e0991a351bcb909e');
  assert(restrictedTablet.rawRestrictions.includes('Mallinckrodt and Kremers Urban labelers'));
  const adjacentOsm=groups.flatMap(g=>g.records).find(r=>r.id==='uhc-oct-complete-5a48097e2182f426');

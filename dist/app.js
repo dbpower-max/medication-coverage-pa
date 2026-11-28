@@ -730,6 +730,21 @@
 
   const gvokeLabelUrl = 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=92385737-dbad-98c5-e053-2995a90a2805';
   const reviewedCardPresentations = new Map([
+    ['uhc-oct-complete-86d347968a4e113f', {
+      label: 'Humulin R U-500 KwikPen (regular insulin) 500 units/mL prefilled pen', dosageForm: 'solution for injection', separate: true,
+      identityRxcui: 1731317, labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b60e8dd0-1d48-4dc9-87fd-e14675255e8c',
+      note: '3 mL single-patient-use pen. Dial the prescribed units in 5-unit increments. Never withdraw insulin from the pen into a syringe.'
+    }],
+    ['uhc-oct-complete-2c1a20b7db0eeaaa', {
+      label: 'Humulin 70/30 KwikPen (human NPH/regular insulin) 100 units/mL prefilled pen', dosageForm: 'injectable suspension', separate: true,
+      identityRxcui: 847189, labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e245e0c5-b2d6-418b-baa4-1c3324292885',
+      note: '3 mL single-patient-use pen. Each mL contains 70 units of NPH insulin and 30 units of regular insulin.'
+    }],
+    ['uhc-oct-complete-02f43d7633c6ae85', {
+      label: 'Humulin 70/30 (human NPH/regular insulin) 100 units/mL multidose vial', dosageForm: 'injectable suspension', separate: true,
+      identityRxcui: 106892, labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e245e0c5-b2d6-418b-baa4-1c3324292885',
+      note: 'Labeled presentation: 10 mL multidose vial. Each mL contains 70 units of NPH insulin and 30 units of regular insulin.'
+    }],
     ['uhc-oct-complete-b075e8c634ca1a47', {
       label: 'Dexmethylphenidate HCl oral tablet (generic for Focalin)', dosageForm: 'oral tablet', separate: true,
       labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=987b4983-1edc-40f1-adc9-724747080969',
@@ -2314,7 +2329,7 @@
     if (isUhcOctoberRow(record) && uhcReviewedTestStrips.has(record.id)
         && (record.qlAmount || record.qlDays) && !bindings.some(binding => binding.policyId === uhcTestStripPolicyId)) {
       // GL-369221 branch 1 applies to QL exceptions for preferred and nonpreferred strips.
-      return [...bindings, {policyId: uhcTestStripPolicyId, role: 'quantity', branchIndexes: [1]}];
+      return [...bindings, {policyId: uhcTestStripPolicyId, role: 'quantity', branchIndexes: [1], exactQuantityPage: 1687}];
     }
     if (uhcAgePaCardLabels.has(record.id) && uhcAgeEightPa(record)) {
       return bindings.map(binding => {
@@ -2800,7 +2815,7 @@
     const glucoseDisplay = glucoseSupply && uhcReviewedGlucoseSupplies.get(glucoseSupply.id);
     const glucosePolicy = glucoseDisplay && policies.find(policy =>
       glucoseDisplay.strip ? policy.id === uhcTestStripPolicyId : glucoseDisplay.meterPolicy && policy.id === uhcMeterPolicyId);
-    const exactStripQuantity = isUhc && group.records.flatMap(record => record.uhcClinicalBindings || [])
+    const exactStripQuantity = isUhc && uhcGroupBindings(group)
       .find(binding => binding.policyId === uhcTestStripPolicyId && binding.exactQuantityPage);
     const stripQuantity = isUhc && (exactStripQuantity || group.records.some(record => isUhcOctoberRow(record) && uhcReviewedTestStrips.has(record.id)))
       && policies.find(policy => policy.id === uhcTestStripPolicyId);
