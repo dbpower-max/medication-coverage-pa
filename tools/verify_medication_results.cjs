@@ -195,7 +195,7 @@ api.state.coverage = '';
 assert(api.render().some(group => group.label === 'doxepin HCl 10 MG Oral Capsule'));
 // The cards and search tool must agree on the source of each displayed benefit.
 for (const [term, id, expected] of [
-  ['lispro', 'ach-json-242120', [['Covered', 'Preferred', 'Quantity limit']]],
+  ['lispro', 'ach-json-242120', [['Covered', 'Preferred'], ['Plan formulary', 'QL: 1 mL per day']]],
   ['Tudorza', 'ach-json-1303107', [['Plan notice', 'Covered', 'Nonpreferred', 'PA required']]],
   ['clozapine', 'ach-json-1006801', [['Quantity limit'], ['Plan notice', 'Covered', 'Preferred'],
     ['AHCCCS Statewide', 'Conditional PA']]]
