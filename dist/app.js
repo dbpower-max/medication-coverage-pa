@@ -1445,6 +1445,10 @@
     const presentation = reviewedCardPresentation(record);
     const scope = coverageSource(record);
     if (scope) details.push(`<p>${escapeHtml(scope.description)}</p>`);
+    if (presentation?.identityRxcui) {
+      const id = Number(presentation.identityRxcui);
+      details.push(`<p><strong>Prescribing presentation:</strong> <a href="https://mor.nlm.nih.gov/RxNav/search?searchBy=RXCUI&amp;searchTerm=${id}" target="_blank" rel="noopener">RxCUI ${id}</a> · <a href="${escapeHtml(presentation.labelUrl)}" target="_blank" rel="noopener">DailyMed drug label ↗</a></p>`);
+    }
     const formRx = presentation?.uhcFormRx;
     if (formRx) details.push(`<p><a href="https://legacy.providerlookuponline.com/mrf/optumrx/drugs/2877216/JSON_Drugs_UHCCPAZ.json" target="_blank" rel="noopener">UHC electronic formulary</a> · UCSAZQ3, 2026 · RxCUI ${escapeHtml(formRx)} · file dated October 20, 2026.</p>`);
     for (const position of bannerRepeatPositions.get(record.id) || []) {
