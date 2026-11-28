@@ -439,6 +439,12 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             'adderall (brand for amphetamine-dextroamphetamine)': (100, 0, 'brand adderall'),
             'amphetamine-dextroamphetamine (generic for adderall)': (100, 0, 'generic amphetamine/dextroamphetamine'),
             'amphetamine-dextroamphetamine er (generic for adderall xr)': (100, 0, 'generic amphetamine/dextroamphetamine er'),
+            'methylphenidate hcl er oral tablet extended release 24 hour': (101, 0, 'methylphenidate er tabs'),
+            'methylphenidate hcl oral solution (generic for methylin)': (101, 0, 'generic methylphenidate patches/soln'),
+            'methylphenidate hcl oral tablet (generic for ritalin)': (101, 0, 'generic methylphenidate tabs'),
+            'dexmethylphenidate hcl (generic for focalin)': (101, 0, 'generic dexmethylphenidate tabs'),
+            'methylphenidate (generic for daytrana)': (101, 0, 'generic methylphenidate patches/soln'),
+            'methylphenidate hcl er (cd) (generic for metadate cd)': (101, 0, 'generic methylphenidate er (cd) caps'),
             'atomoxetine hcl oral capsule': (101, 0, 'generic atomoxetine caps'),
             'guanfacine hcl er (generic for intuniv)': (101, 1, 'generic guanfacine er'),
         }.get(october_name)

@@ -1151,12 +1151,13 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  const restrictedTablet=groups.flatMap(g=>g.records).find(r=>r.id==='uhc-oct-complete-e0991a351bcb909e');
  assert(restrictedTablet.rawRestrictions.includes('Mallinckrodt and Kremers Urban labelers'));
- assert(!restrictedTablet.uhcClinicalBindings.some(b=>b.role==='preferred_adhd_request'));
- for(const [suffix,page] of [['1e14d23b75695797',51],['df6f8cc226a7adf5',53],['b03b1e57bae5ea76',null],['077d46e205062d39',null]]) {
+ const adjacentOsm=groups.flatMap(g=>g.records).find(r=>r.id==='uhc-oct-complete-5a48097e2182f426');
+ assert(!adjacentOsm.uhcClinicalBindings.some(b=>b.role==='preferred_adhd_request'));
+ for(const [suffix,page] of [['e0991a351bcb909e',51],['4dfeadf8741b6d28',51],['78f58b3335b00ec4',51],['b075e8c634ca1a47',51],['e381880966e4d494',51],['f5b56fa0299bad0c',51],['1e14d23b75695797',51],['df6f8cc226a7adf5',53],['b03b1e57bae5ea76',null],['077d46e205062d39',null]]) {
    const id='uhc-oct-complete-'+suffix;
    const group=groups.find(g=>g.records.some(r=>r.id===id)), row=group.records.find(r=>r.id===id);
    const card=a.medicationGroupCard(group), detail=await open(group);
-   assert.equal(row.rawRestrictions,'Tier 1; QL; AL'); assert.equal(row.pa,'not_specified'); assert.equal(row.step,'not_specified');
+   assert.equal(row.rawRestrictions,row.id===restrictedTablet.id?'Tier 1; Mallinckrodt and Kremers Urban labelers; QL; AL':'Tier 1; QL; AL'); assert.equal(row.pa,'not_specified'); assert.equal(row.step,'not_specified');
    assert.equal(row.preferred,'preferred'); assert(!card.includes('>PA required<')&&!card.includes('>Conditional PA<'),id+' raw PA');
    for(const branchPage of [51,53,56,57])assert.equal(detail.html.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page='+branchPage+'"'),branchPage===page,id+' branch '+branchPage);
    assert(detail.html.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page=702"'),id+' QL');
