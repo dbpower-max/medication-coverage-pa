@@ -581,14 +581,34 @@ specialty_disagreements = {
                           (1090559,2264,4922,'50 mcg/mL prefilled syringe')],
     '1e81e13b95303948': [(1090560,2583,1661,'500 mcg/mL prefilled syringe')],
 }
+seizure_disagreements = {
+ 'ae382689b0fdd19c': ('Epidiolex 100 mg/mL oral solution','8bf27097-4870-43fb-94f0-f3d0871d1eec',[(2058906,2458,7608,'100 mg/mL')],[(102,'Dravet syndrome, LGS, TSC or continuation')]),
+ 'aab1e2f7ca6c4a63': ('Fintepla 2.2 mg/mL oral solution','e88f360e-33ad-4cd6-b2de-5ef885857c5d',[(2381144,7839,1252,'2.2 mg/mL')],[(103,'Dravet syndrome'),(104,'Lennox-Gastaut syndrome'),(105,'Continuation')]),
+ 'c3080908b0a0a7ee': ('Sympazan clobazam oral film','5e3d8fcb-aa7d-4822-88fc-4f06264c3242',[(2102717,4780,1179,'5 mg film'),(2102713,4779,1178,'10 mg film'),(2102715,5700,7648,'20 mg film')],[(106,'Lennox-Gastaut syndrome'),(107,'Refractory partial-onset seizures'),(108,'Dravet syndrome'),(109,'Continuation')]),
+ 'ebf2afc909a7c4db': ('','565c2126-57ae-4e29-b443-723bbe7e2072',[(2540432,4480,4504,'250 mg daily maintenance pack')],[(99,'Partial-onset seizures'),(100,'Continuation')]),
+ '9286fa98c8a80731': ('','565c2126-57ae-4e29-b443-723bbe7e2072',[(2283518,5401,4092,'350 mg daily maintenance pack')],[(99,'Partial-onset seizures'),(100,'Continuation')]),
+}
 for record in data['medications']:
     key = record['id'].removeprefix('uhc-oct-complete-')
-    if key not in electronic_pa_disagreements and key not in specialty_disagreements:
+    if key not in seizure_disagreements and key not in electronic_pa_disagreements and key not in specialty_disagreements:
         continue
     assert record['planId'] == 'uhc-community-az' and record['sourceEffective'] == '2026-10-01'
     assert record['pa'] == 'required' and record['step'] == 'not_specified'
-    display = record['reviewedPresentation']
-    if key in electronic_pa_disagreements:
+    display = record.setdefault('reviewedPresentation',{})
+    if key in seizure_disagreements:
+        heading,label,products,pages=seizure_disagreements[key]
+        assert record['rawRestrictions']==('Tier 2; PA; SP; QL' if key=='ae382689b0fdd19c' else 'Tier 2; PA; QL')
+        expected_pref='non_preferred' if key in ('c3080908b0a0a7ee','aab1e2f7ca6c4a63') else 'preferred'
+        assert record['preferred']==expected_pref
+        tier='PREFERRED(29)' if expected_pref=='preferred' else 'NON-PREFERRED(90)'
+        if heading:display.update(scopedPlanHeading=heading,prescribingHeading=heading)
+        display.setdefault('note','The printed and electronic sources list a quantity limit. The exact numeric limit is unverified.')
+        display.update(labelUrl='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label, seizureRequestPage=pages[0][0],
+            sourceReferences=[['UHC GL-572198 · '+indication,'./sources/uhc-az-clinical-pharmacy-2026-11-01.pdf#page='+str(page)] for page,indication in pages])
+        if key=='c3080908b0a0a7ee':
+            display['note']+=' FDA-labeled for adjunctive treatment of Lennox-Gastaut syndrome in patients age 2 years and older. Additional pathways in the UHC guideline describe payer review.'
+        if not heading:display['prescribingHeading']=display['label']
+    elif key in electronic_pa_disagreements:
         rx, october, november, package = electronic_pa_disagreements[key]
         assert record['rawRestrictions'] == f"Tier {record['tier']}; PA; QL"
         products = [(rx, october, november, package)]
