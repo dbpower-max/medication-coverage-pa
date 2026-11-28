@@ -7,6 +7,29 @@ const a=ctx.api;a.state.data=data;a.state.planId='uhc-community-az';
 async function open(g){const content={innerHTML:'',isConnected:true},ref={innerHTML:''};a.medicationGroupCard(g);const d={open:true,dataset:{cardClinical:g.key||g.label},querySelector:s=>s==='.card-pa-references'?ref:content};await a.populateCardClinical(d);assert.equal(d.dataset.loaded,'true',g.label+' did not load');return {html:content.innerHTML,ref:ref.innerHTML};}
 (async()=>{
  const groups=a.planMedicationGroups().filter(g=>g.records.some(r=>r.planId==='uhc-community-az'&&!r.isStatewideReference&&(['required','conditional'].includes(r.pa)||r.qlAmount||r.qlDays)));
+ for (const [suffix,page] of [['1e189c171447f639',null],['f2372b8f6bf3951f',707],['b83d7c3fc6213943',709]]) {
+   const id='uhc-oct-complete-'+suffix;
+   const group=groups.find(g=>g.records.some(r=>r.id===id));
+   const row=group.records.find(r=>r.id===id);
+   assert.equal(row.rawRestrictions,'Tier 2; PA; QL',id);
+   assert.equal(row.preferred,'non_preferred',id);
+   assert.equal(row.step,'not_specified',id);
+   assert.equal(row.qlDays,'',id);
+   const binding=row.uhcClinicalBindings.find(b=>b.policyId.endsWith('gl-720195'));
+   assert.deepEqual(binding?.branchIndexes || [],page===707?[1]:page===709?[2]:[],id);
+   const card=a.medicationGroupCard(group);
+   const detail=await open(group);
+   for (const branchPage of [707,709]) {
+     assert.equal(detail.html.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page='+branchPage+'"'),branchPage===page,id+' rendered policy destination');
+   }
+   if (page===707) {
+     assert(card.includes('2 mg/dose — 8 mg/3 mL subcutaneous prefilled pen'),id);
+     assert(a.recordDetails(row).includes(row.reviewedPresentation.labelUrl),id);
+     assert(a.recordDetails(row).includes('searchTerm=2599365'),id);
+   }
+   if (!page) assert(card.includes('Criteria for this exact presentation are unverified.'),id);
+   assert.equal(detail.html.includes('unable to self-inject'),page===709,id);
+ }
  for (const suffix of ['9cd407726d2e7fc5','6fc882e449630255']) {
    const id='uhc-oct-complete-'+suffix;
    const g=groups.find(group=>group.records.some(r=>r.id===id));

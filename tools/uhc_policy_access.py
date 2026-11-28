@@ -34,6 +34,7 @@ EXCLUDED_OCTOBER_POLICIES = {
 }
 
 OCTOBER_POLICY_PRODUCTS = {
+    'ozempic (2 mg/dose)': ('GL-720195', 'Ozempic injection'),
     'invega (brand for paliperidone er)': ('GL-722213', 'Brand Invega'),
     'clozapine oral tablet (generic for clozaril)': ('GL-722213', 'generic clozapine'),
     'dronabinol oral capsule (generic for marinol)': ('GL-397200', 'generic dronabinol'),
@@ -301,6 +302,21 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             # GL-565277 names tablets, nasal spray and Desmoda oral solution.
             matched.pop('GL-565277', None)
             record['unverifiedPolicyCode'] = 'GL-565277'
+        # October p78 lists two distinct rows. Only the 2 mg/dose entry resolves
+        # to a specific labeled presentation in the formulation-specific guideline.
+        if october_name == 'ozempic':
+            matched.pop('GL-720195', None)
+            record['unverifiedPolicyCode'] = 'GL-720195'
+        if october_name == 'ozempic (2 mg/dose)':
+            assert policies['GL-720195']['policyEffective'] == '2026-10-18'
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Ozempic (semaglutide) 2 mg/dose — 8 mg/3 mL subcutaneous prefilled pen',
+                'dosageForm': 'subcutaneous solution in a multidose prefilled pen',
+                'identityRxcui': 2599365,
+                'note': 'The pen delivers four 2 mg doses. UHC lists a quantity limit without an amount or interval.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=adec4fd2-6858-4c99-91d4-531f5f2a2d79',
+            }
         excluded_code = EXCLUDED_OCTOBER_POLICIES.get(october_name)
         if excluded_code:
             matched.pop(excluded_code, None)
