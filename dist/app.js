@@ -1428,13 +1428,6 @@
       && record.validation === 'mandated_statewide_minimum_with_plan_adoption_evidence';
   }
 
-  function bannerAdhdLimit(record) {
-    if (record.planId !== 'banner-ufc' || record.qlDays !== '30') return '';
-    if (['banner-full-e7a4e750d4c75cc1','banner-ufc:statewide:formulary-9597'].includes(record.id) && record.qlAmount === '30') return 'QL: 30 capsules per 30 days';
-    if (['banner-full-a457525bbf1d1d54','banner-ufc:statewide:formulary-9600'].includes(record.id) && record.qlAmount === '120') return 'QL: 120 tablets per 30 days';
-    return '';
-  }
-
   function statusChips(record, showCoverage = true) {
     const chips = [];
     // Description-correction provenance remains in the source records.
@@ -2754,6 +2747,13 @@
     if (achConstipationLabels.has(record.id)) {
       return '<p class="pa-condition">Arizona Complete Health October 1, 2026 notice lists this option as preferred. Product-specific restrictions are unspecified in the notice.</p>';
     }
+    return '';
+  }
+
+  function bannerAdhdLimit(record) {
+    if (record.planId !== 'banner-ufc' || record.qlDays !== '30') return '';
+    if (['banner-full-e7a4e750d4c75cc1','banner-ufc:statewide:formulary-9597'].includes(record.id) && record.qlAmount === '30') return 'QL: 30 capsules per 30 days';
+    if (['banner-full-a457525bbf1d1d54','banner-ufc:statewide:formulary-9600'].includes(record.id) && record.qlAmount === '120') return 'QL: 120 tablets per 30 days';
     return '';
   }
 
