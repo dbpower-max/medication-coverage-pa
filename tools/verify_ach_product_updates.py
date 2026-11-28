@@ -51,6 +51,16 @@ for row in data['medications']:
    else:
     assert form=='Delayed Release Oral Tablet' and update['name']=='DIVALPROEX SODIUM TABLET ENTERIC COATED'
    continue
+  if row['rxnormId']=='1801289':
+   assert row['name']=='Smoking Cessation 12 HR bupropion hydrochloride 150 MG Extended Release Oral Tablet'
+   assert ((update['name']=='bupropion hcl (smoking deterrent)' and update['sourcePage']==72 and update['sourceEffective']=='2023-04-01')
+           or (update.get('id')=='ach-mandated-formulary-10962' and update['sourcePage']==33 and update['sourceEffective']=='2026-11-01'))
+   continue
+  if update['name'] in ('bupropion hcl tb12','bupropion hcl tb24 150 mg, 300 mg'):
+   sr=update['name']=='bupropion hcl tb12'
+   assert row['rxnormId'] in ({'993503','993518','993536'} if sr else {'993541','993557'})
+   assert row['name'].startswith('12 HR' if sr else '24 HR') and update['sourcePage']==15 and update['sourceEffective']=='2023-04-01'
+   continue
   if update['name'].startswith('lamotrigine tb24 '):
    assert row['rxnormId'] in {'850087','900164','850091','900156','1146690','1098608'} and 'Extended Release' in row['name'] and update['sourcePage']==15
    continue
