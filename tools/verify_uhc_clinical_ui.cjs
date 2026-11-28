@@ -1819,7 +1819,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    const out=await open(exact);
    assert(out.html.includes('Requests for Patients 6 years of age and older')&&out.html.includes('Greater than 1 Anxiolytic in 30 days'),id);
    assert(out.html.includes('Monthly prescription-limit exception')&&out.html.includes('Criteria source · PDF page 704<'),id);
-   assert(out.ref.includes('page=154')&&out.ref.includes('page=155'),id);
+   assert(out.html.includes('Criteria source · PDF page 154<')&&out.html.includes('Criteria source · PDF page 155<')&&out.html.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page=154')&&out.html.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page=155'),id+' exact branch PDF links');
    const grouped=await open(g);assert(grouped.html.includes('Requests for Patients 6 years of age and older'),id);
  }
  console.log('PASS: Loreev XR exact form, three named PA pathways, separate monthly exception, no inferred numeric QL.');
