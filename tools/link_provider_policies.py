@@ -545,6 +545,10 @@ def attach_provider_policies(data):
              note = 'Banner lists PA below age 6. Its November guideline includes age 6 for the listed preferred presentations. The PA requirement at exactly age 6 is unresolved.'
          record['agePolicyConflict'] = {'note': note, 'page': page,
                                         'url': policy['sourceUrl'].split('#')[0] + f'#page={page}'}
+     elif record['id'] == 'banner-pcp-nov10-071':
+         # GL-700343 names pellet packs; capsules occur only as a prior trial.
+         record['policySources'] = [link for link in record.get('policySources', [])
+                                    if not (link.get('title') == 'Pradaxa Pellet Packs' and link.get('firstPage') == 1377)]
      elif record['id'] in held_presentations:
          name, label, chapter, note = held_presentations[record['id']]
          assert record['name'] == name and record['pa'] == 'required' and record['planId'] == 'banner-ufc'

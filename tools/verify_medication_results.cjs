@@ -63,10 +63,82 @@ for (const plan of data.plans) {
   }
  }
 }
+api.state.planId='banner-ufc';
+const pradaxaCapsules=api.planMedicationGroups().find(g=>g.records.some(r=>r.id==='banner-pcp-nov10-071'));
+const capsuleListing=pradaxaCapsules.records.find(r=>r.id==='banner-pcp-nov10-071');
+assert.equal(capsuleListing.pa,'not_specified');
+assert.equal(capsuleListing.preferred,'preferred');
+assert.equal(capsuleListing.qlAmount,'60');
+assert.equal(capsuleListing.qlDays,'30');
+const capsuleCard=api.medicationGroupCard(pradaxaCapsules);
+assert(capsuleCard.includes('>Brand only<') && !capsuleCard.includes('>PA required<'));
+for (const html of [capsuleCard,api.recordDetails(capsuleListing)]) {
+ assert(!/12-1377|page=1377|Pradaxa Pellet Packs/.test(html));
+}
+assert(data.policies.some(p=>p.id==='banner-policy-12-1377' && p.name==='Pradaxa Pellet Packs'));
+api.state.planId='uhc-community-az';
+const anticoagGroups=api.planMedicationGroups();
+for (const [suffix,dose,tablets,rxcui] of [
+ ['ebc651f39c6b05eb','1.5',3,2749695],['8148b6eef83b111c','2',4,2749698],
+]) {
+ const group=anticoagGroups.find(g=>g.records.some(r=>r.id.endsWith(suffix)));
+ const row=group.records.find(r=>r.id.endsWith(suffix));
+ const card=api.medicationGroupCard(group);
+ assert.equal(row.rawRestrictions,'Tier 2; QL');
+ assert.equal(row.pa,'not_specified');
+ assert.equal(row.preferred,'preferred');
+ assert(card.includes(dose+' mg packet') && card.includes('0.5 mg tablets for oral suspension'));
+ assert(card.includes('Each packet contains '+tablets+' tablets') && !card.includes('dosage form unverified'));
+ const sources=api.recordDetails(row);
+ assert(sources.includes('searchTerm='+rxcui) && sources.includes('e9481622-7cc6-418a-acb6-c5450daae9b0'));
+ assert(sources.includes('UHC electronic formulary') && sources.includes('pdf#page=75'));
+}
+const plainEliquis=anticoagGroups.find(g=>g.records.some(r=>r.id.endsWith('7be205a1df723a04')));
+assert(!api.medicationGroupCard(plainEliquis).includes('0.5 mg tablets for oral suspension'));
 api.state.planId='banner-ufc';api.state.term='Inhaled Corticosteroids';
 assert.equal(api.render().length,0,'Policy still appears as a medication');
 assert(api.el.criteriaResults.innerHTML.includes('Inhaled Corticosteroids'),'Plan policy lost from criteria library');
 assert.equal(api.el.criteriaLibrary.open,true,'Policy-only match is hidden in collapsed library');
+api.state.planId='az-complete-health';
+for (const [rxcui,packId,ordinaryId,sourceRow] of [
+ ['1992428','formulary-9832','formulary-9831',1641],
+ ['1549683','formulary-9835','formulary-9834',694],
+]) {
+ const achGroups=api.planMedicationGroups();
+ const group=achGroups.find(g=>g.records.some(r=>r.id==='ach-json-'+rxcui));
+ const row=group.records.find(r=>r.id==='ach-json-'+rxcui);
+ assert.equal(group.statewideRecord.id,'az-complete-health:statewide:'+packId);
+ assert.equal(row.sourceRow,sourceRow);
+ assert.equal(row.baselineSource.values.drug_tier,'PREFERRED');
+ assert.equal(row.baselineSource.values.quantity_limit,true);
+ assert.equal(row.benefitSources.quantityLimited,'presumed_2022');
+ assert.equal(row.qlAmount,'');
+ assert.equal(row.qlDays,'');
+ assert(row.sourceUpdates.some(u=>u.id==='ach-mandated-'+packId));
+ assert(!row.sourceUpdates.some(u=>u.id==='ach-mandated-'+ordinaryId));
+ const regular=achGroups.find(g=>g.statewideRecord?.id==='az-complete-health:statewide:'+ordinaryId);
+ assert(!regular.records.some(r=>r.id===row.id));
+ const sources=api.recordDetails(row);
+ assert(sources.includes('row '+sourceRow) && sources.includes('TAB THER PACK') && sources.includes('pdf#page=7'));
+}
+api.state.planId='uhc-community-az';
+const starterGroups=api.planMedicationGroups();
+for (const [id,rxcui,contents] of [
+ ['uhc-oct-complete-8b74d0de978fabcb',1992428,'74 tablets'],
+ ['uhc-oct-complete-14a0d201b338bbcc',1549683,'42 tablets of 15 mg and 9 tablets of 20 mg'],
+]) {
+ const group=starterGroups.find(g=>g.records.some(row=>row.id===id));
+ const row=group.records.find(r=>r.id===id);
+ assert.equal(group.records.length,1,id);
+ assert.equal(row.rawRestrictions,'Tier 2; QL',id);
+ assert.equal(row.qlDays,'',id);
+ const card=api.medicationGroupCard(group);
+ assert(card.includes('oral tablets') && card.includes(contents),id);
+ assert(!card.includes('dosage form unverified') && !card.includes('>PA required<'),id);
+ const sources=api.recordDetails(row);
+ assert(sources.includes('searchTerm='+rxcui) && sources.includes('UHC electronic formulary') && sources.includes('pdf#page=75'),id);
+}
+api.state.planId='banner-ufc';
 api.state.term='GL-749236';api.render();
 assert(api.el.criteriaResults.innerHTML.includes('Mounjaro'),'Policy code search cannot reach structured guide');
 api.state.term='Qvar';const qvarGroups=api.render();

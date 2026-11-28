@@ -715,6 +715,16 @@ for (const candidate of unsafeBph) {
 const bphHtml=vm.runInContext('clinicalGuidanceContent(clinicalGuidanceFor(bph5))',ui);
 assert(bphHtml.includes('5 mg')&&bphHtml.includes('Adempas')
   &&bphHtml.includes('alpha'), 'BPH clinical card omitted key eligibility conditions');
+const bphPolicy=data.statewidePaCriteria.find(p=>p.policyCode==='GL-105174');
+const bphStructured=JSON.parse(fs.readFileSync('_site/'+bphPolicy.structuredCriteriaUrl.split('?')[0],'utf8'));
+assert(bphPolicy.planId==='ahcccs-ffs-aihp' && bphPolicy.sourcePage===337
+  && bphPolicy.sourceLastPage===338 && bphStructured.branches.length===1,
+  'Statewide BPH policy search must keep its own exact PDF pages and single branch');
+const bphFields=bphStructured.branches[0].fields;
+assert(!bphFields['Therapy Stage'] && bphFields['Approval Length'].text==='12 month(s)'
+  && !/initial authorization|reauthorization|renewal/i.test(bphHtml)
+  && bphHtml.includes('12 months') && bphHtml.includes('#page=337'),
+  'Statewide BPH product summary must preserve the approval length without assigning a treatment stage');
 console.log('PASS: GL-105174 BPH 5 mg, source, branch and 7 negative strength/matcher regressions');
 
 

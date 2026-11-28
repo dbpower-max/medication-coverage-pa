@@ -158,6 +158,7 @@ PCP_POLICY_ROWS = {
     'a7836b3702968dcc': ('GL-714282', [0], [], 'Pradaxa Pellet Packs'),
     '466ed897a555d892': ('GL-689195', [0], [], 'Brand Vyvanse caps/chew tabs'),
     '67b306246b077d76': ('GL-689195', [0], [], 'Brand Vyvanse caps/chew tabs'),
+    '77c5b244d4cb7020': ('GL-689195', [0], [], 'Brand Vyvanse caps/chew tabs'),
     '4d48c8bd9a3822ca': ('GL-720193', [6, 7, 8, 9], [], 'Nurtec ODT'),
 }
 
@@ -434,6 +435,29 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 assert typ == 'Quantity Limit', fields['Guideline Type']['text']
             matched.pop(code, None)
             add(code, [2, 3], 'quantity')
+        adderall_product = {
+            'adderall (brand for amphetamine-dextroamphetamine)': 'brand adderall',
+            'amphetamine-dextroamphetamine (generic for adderall)': 'generic amphetamine/dextroamphetamine',
+            'amphetamine-dextroamphetamine er (generic for adderall xr)': 'generic amphetamine/dextroamphetamine er',
+        }.get(october_name)
+        if adderall_product or record['id'].removeprefix('uhc-oct-complete-') in {
+            '2f5098c47132fc2d', 'daa7640034071c95', 'ad9f23250285e687', '38275709261b0c79',
+            'ce7df82b5c0d5f48', '5a377b2c040e33fc', '9dbf1c1936706eb9',
+        }:
+            if not adderall_product:
+                assert october_name.startswith('lisdexamfetamine dimesylate ') and october_name.endswith('(generic for vyvanse)')
+            assert record['sourcePage'] == 100 and record['preferred'] == 'preferred' and record['pa'] == 'not_specified'
+            assert record['ageLimited'] and ql
+            code = 'GL-689195'
+            assert policies[code]['policyEffective'] == '2026-08-13'
+            branch = structured[code]['branches'][0]
+            named = [name.strip() for name in ' '.join(branch['fields']['Product Name']['text'].lower().split()).split(',')]
+            assert (adderall_product or 'generic lisdexamfetamine caps/chew tabs') in named
+            matched.pop(code, None)
+            add(code, [0], 'preferred_adhd_request')
+            if record['id'].endswith('9dbf1c1936706eb9'):
+                assert record['rawRestrictions'] == 'Tier 1; *; QL; AL'
+                record['paExceptionText'] = '60 mg generic chewable tablet: available without PA for participating Behavioral Health Prescribers.'
         if record['id'] == 'uhc-oct-complete-6e7e06e8657df79b':
             assert october_name == 'dextroamphetamine sulfate oral tablet (generic for zenzedi)'
             assert record['pa'] == 'not_specified' and record['preferred'] == 'preferred' and ql
@@ -763,6 +787,7 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 assert record['rawRestrictions'] == 'Tier 2; ST; QL'
                 matched.pop(code, None)
                 add(code, [1], 'quantity')
+                bindings[-1]['exactQuantityPage'] = structured[code]['branches'][1]['sourcePage']
                 record['stepText'] = 'Step therapy is listed. The exact step requirements are unverified.'
         # DEC-05/12/13/14/19/20: exact UHC nonpreferred glucose strip rows.
         # GL-369221 is a class PA/quantity exception; it does not identify a payer NDC or a numeric limit.
@@ -2924,6 +2949,18 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 (ql_indexes if 'quantity' in typ else pa_indexes).append(i)
             if pa:add(code,pa_indexes,'product')
             if ql:add(code,ql_indexes,'quantity')
+        if october_name == 'dronabinol oral capsule (generic for marinol)':
+            assert matched['GL-397200'] == {1, 3}
+            record['excludedStatewidePolicyCode'] = 'GL-398214'
+        if october_name == 'tadalafil oral tablet 5 mg (generic for cialis)':
+            code = 'GL-140729'
+            branch, = structured[code]['branches']
+            assert 'generic tadalafil 5mg' in branch['fields']['Product Name']['text']
+            assert branch['sourcePage'] == 335 and 'Therapy Stage' not in branch['fields']
+            binding, = [b for b in bindings if b['policyId'] == policies[code]['id'] and b['role'] == 'product']
+            assert binding['branchIndexes'] == [0]
+            binding['branchLabels'] = {'0': 'Generic tadalafil 5 mg for BPH'}
+            record['excludedStatewidePolicyCode'] = 'GL-105174'
         text = ' '.join([record['name'],record.get('brand','')]).lower()
         insulin_supply = bool(re.search(r'insulin\s+(?:pen\s+needles?|syr(?:inge)?s?\b)|\bpen\s+needles?\b|\bins\s+syr\b', text))
         if pa and re.search(r'^(?:dexcom g[67]|freestyle libre [23])\b',text):

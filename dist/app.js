@@ -854,10 +854,32 @@
       label: 'Nurtec ODT (rimegepant) orally disintegrating tablet', note: 'Labeled strength: 75 mg.',
       labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9ef08e09-1098-35cc-e053-2a95a90a3e1d'
     }],
+    ...[
+      ['uhc-oct-complete-ebc651f39c6b05eb', '1.5', 3, 2749695],
+      ['uhc-oct-complete-8148b6eef83b111c', '2', 4, 2749698],
+    ].map(([id, dose, tablets, rxcui]) => [id, {
+      label: `Eliquis (apixaban) ${dose} mg packet — 0.5 mg tablets for oral suspension`,
+      dosageForm: 'tablets for oral suspension', separate: true,
+      note: `Each packet contains ${tablets} tablets of 0.5 mg each. UHC lists a quantity limit without an amount or interval.`,
+      identityRxcui: rxcui, uhcFormRx: String(rxcui),
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e9481622-7cc6-418a-acb6-c5450daae9b0'
+    }]),
     ['uhc-oct-complete-a7836b3702968dcc', {
       label: 'Pradaxa (dabigatran etexilate) oral pellet packets',
       note: 'Labeled packet strengths: 20, 30, 40, 50, 110 and 150 mg. UHC lists the packet without specifying eligible strengths.',
       labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9ac0a64a-8666-45f7-9d4f-40fd894f7e6d'
+    }],
+    ['uhc-oct-complete-8b74d0de978fabcb', {
+      label: 'Eliquis DVT/PE 30-day starter pack — 5 mg oral tablets', dosageForm: 'oral tablets', separate: true,
+      note: 'The labeled starter pack contains 74 tablets. UHC lists a quantity limit without an amount or interval.',
+      identityRxcui: 1992428, uhcFormRx: '1992428',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e9481622-7cc6-418a-acb6-c5450daae9b0'
+    }],
+    ['uhc-oct-complete-14a0d201b338bbcc', {
+      label: 'Xarelto Starter Pack (30-day) — 15 mg and 20 mg oral tablets', dosageForm: 'oral tablets', separate: true,
+      note: 'The labeled starter pack contains 42 tablets of 15 mg and 9 tablets of 20 mg. UHC lists a quantity limit without an amount or interval.',
+      identityRxcui: 1549683, uhcFormRx: '1549683',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=10db92f9-2300-4a80-836b-673e1ae91610'
     }],
     ['uhc-oct-complete-d6b49b27961f969c', {label: 'Vascepa (Icosapent Ethyl) Oral Capsules', generalPa: true}],
     ['uhc-oct-complete-552f551a574d06dd', {label: 'Crestor (Rosuvastatin) Oral Tablets', generalPa: true}],
@@ -975,6 +997,15 @@
     }
     const supplements = [];
     for (const group of planGroups) {
+      const packId = group.records.length === 1 && group.records[0].verifiedStatewidePackId;
+      if (packId) {
+        const pack = sharedGroups.find(g => g.statewideRecord.id === state.planId + ':statewide:' + packId);
+        if (pack) {
+          pack.records.push(...group.records);
+          pack.search += ' ' + group.search;
+        } else supplements.push(group);
+        continue;
+      }
       if (group.records.some(record => uhcReviewedProductGroups.has(record.id) || reviewedCardPresentation(record)?.separate)) {
         supplements.push(group);
         continue;
@@ -2356,7 +2387,7 @@
     const duplication = byRole(['duplication']);
     const hypnoticRequest = byRole(['hypnotic_request']);
     const hypnoticStep = byRole(['hypnotic_step']);
-    const ageScoped = byRole(['age_scoped']);
+    const ageScoped = byRole(['age_scoped', 'preferred_adhd_request']);
     const diagnosisRequest = byRole(['diagnosis_request']);
     const psoriasisRequest = byRole(['psoriasis_request']);
     const topicalQuantity = byRole(['topical_quantity']);
@@ -2425,14 +2456,22 @@
                 || !final.text.includes('tocilizumab biosimilars')) throw new Error('Tocilizumab preference scope changed');
             applicable = {...branch, criteria: branch.criteria.slice(0, -2)};
           }
+          if (binding.role === 'preferred_adhd_request') {
+            const cutoff = branch.criteria.findIndex(item => item.text.startsWith('2 - If the request is non-preferred'));
+            if (policy.policyCode !== 'GL-689195' || branch.criteria[cutoff - 1]?.text !== 'AND'
+                || !branch.criteria[0].text.includes('under 6 years old')) throw new Error('Preferred ADHD request scope changed');
+            applicable = {...branch, criteria: branch.criteria.slice(0, cutoff - 1), notes: []};
+          }
           body.push(label + cardBranchMarkup(applicable, policy));
         }
-        if (!references.some(p => p.id === policy.id)) references.push(policy);
+        if (!references.some(p => p.id === policy.id)) {
+          references.push(binding.exactQuantityPage ? {...policy, exactQuantityPage: binding.exactQuantityPage} : policy);
+        }
       }
       const context = selected === duplication ? '<p>Applies when a therapeutic duplication edit is triggered.</p>'
         : selected === hypnoticRequest ? '<p>For the named generic hypnotics: PA criteria for more than one hypnotic in 30 days or a patient younger than six years. This is not a routine PA requirement.</p>'
         : selected === hypnoticStep ? '<p>Applies to generic ramelteon only; this is step therapy, not routine PA.</p>'
-        : selected === ageScoped ? '<p>The October 2026 formulary lists an age limit and leaves the PA field blank for the generic product below. The November 2026 guideline specifies these age-based criteria.</p>'
+        : selected === ageScoped ? '<p>The October 2026 formulary lists an age limit and leaves the PA field blank for the listed product. The November 2026 guideline specifies these age-based criteria.</p>'
         : selected === psoriasisRequest ? '<p>The October 2026 formulary prints step therapy and a quantity limit. These are the named psoriasis request criteria, not a verified routine PA trigger or a numeric quantity limit.</p>'
         : selected === monthlyPrescriptionException ? `<p>Applies to monthly prescription-limit exception requests for: ${scopedOptionNames('monthly_prescription_exception')}. This is separate from the individual product quantity limit and other conditional request criteria.</p>`
         : selected === anxiolyticRequest ? `<p>Named options: ${scopedOptionNames('anxiolytic_request')}. Criteria for requests in patients under age 6 or for more than one anxiolytic in 30 days. This is not a routine PA requirement or a numeric product quantity limit.</p>`
@@ -2657,8 +2696,10 @@
 
   function cardPaReference(source, label = 'PA reference') {
     if (source.planId === 'ahcccs-ffs-aihp') label = statewideFfsLabel + ' reference';
-    const chapter = source.recordType === 'policy_index' && source.sourcePage ? ' · chapter p. ' + source.sourcePage : '';
-    return `<a class="source-link card-pa-reference" href="${escapeHtml(sourceHref(source))}" target="_blank" rel="noopener" title="PDF source · ${escapeHtml(source.policyCode || source.name || 'PA source')} · ${escapeHtml(source.sourceEffective || '')}">${escapeHtml(label)} ↗${escapeHtml(chapter)}</a>`;
+    const chapter = source.exactQuantityPage ? ' · p. ' + source.exactQuantityPage
+      : source.recordType === 'policy_index' && source.sourcePage ? ' · chapter p. ' + source.sourcePage : '';
+    const destination = source.exactQuantityPage ? {...source, sourcePage: source.exactQuantityPage} : source;
+    return `<a class="source-link card-pa-reference" href="${escapeHtml(sourceHref(destination))}" target="_blank" rel="noopener" title="PDF source · ${escapeHtml(source.policyCode || source.name || 'PA source')} · ${escapeHtml(source.sourceEffective || '')}">${escapeHtml(label)} ↗${escapeHtml(chapter)}</a>`;
   }
 
   function constipationCoverageNote(record) {
@@ -2744,7 +2785,9 @@
     const glucoseDisplay = glucoseSupply && uhcReviewedGlucoseSupplies.get(glucoseSupply.id);
     const glucosePolicy = glucoseDisplay && policies.find(policy =>
       glucoseDisplay.strip ? policy.id === uhcTestStripPolicyId : glucoseDisplay.meterPolicy && policy.id === uhcMeterPolicyId);
-    const stripQuantity = isUhc && group.records.some(record => isUhcOctoberRow(record) && uhcReviewedTestStrips.has(record.id))
+    const exactStripQuantity = isUhc && group.records.flatMap(record => record.uhcClinicalBindings || [])
+      .find(binding => binding.policyId === uhcTestStripPolicyId && binding.exactQuantityPage);
+    const stripQuantity = isUhc && (exactStripQuantity || group.records.some(record => isUhcOctoberRow(record) && uhcReviewedTestStrips.has(record.id)))
       && policies.find(policy => policy.id === uhcTestStripPolicyId);
     const hypnoticGuideline = reference?.policyCode === 'GL-637194' && group.records.some(r => r.uhcClinicalBindings?.some(b => b.role === 'hypnotic_request'));
     const anxiolyticGuideline = reference?.policyCode === 'GL-140805' && group.records.some(r => r.uhcClinicalBindings?.some(b => b.role === 'anxiolytic_request'));
@@ -2765,7 +2808,7 @@
     const refs = bannerQuantityException && reference ? cardPaReference(reference, 'Quantity-limit exception guideline') : bannerIcs ? cardPaReference(bannerIcs, 'Related inhaled corticosteroid guidance') : constipationPolicy ? cardPaReference(constipationPolicy,
       linzess ? 'Linzess PA guideline' : 'UHC October 18 policy')
       : glucosePolicy ? cardPaReference(glucosePolicy, glucoseDisplay.strip ? 'Test strip PA and QL guideline' : 'Nonpreferred meter PA guideline')
-      : stripQuantity ? cardPaReference(stripQuantity, 'Test strip QL reference')
+      : stripQuantity ? cardPaReference({...stripQuantity, exactQuantityPage: exactStripQuantity?.exactQuantityPage}, 'Test strip QL reference')
       : reference ? cardPaReference(reference, psoriasisGuideline ? 'Psoriasis request guideline'
       : psoriasisOintmentReference ? 'UHC psoriasis guideline (ointment only)'
       : hypnoticGuideline ? 'Hypnotic conditional PA / step guideline'
