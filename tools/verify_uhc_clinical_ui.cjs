@@ -1687,7 +1687,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   assert.equal(group.records.length, 1, group.label);
   const card = a.medicationGroupCard(group);
   assert(card.includes('>Tier 2<') && card.includes('>Quantity limit<'));
-  const conflict=group.records[0].reviewedPresentation?.paSourceConflict || id==='4b27f95aecd5c517';
+  const conflict=group.records[0].reviewedPresentation?.paSourceConflict || ['4b27f95aecd5c517','7fb64d26f93768e3','a864ab78ab9356d7'].includes(id);
   assert.equal(card.includes(conflict?'>PA listings conflict<':'>PA required<'),pa,group.label);
   const {html,ref} = await open(group);
   assert(ref.includes('QL reference'));
@@ -1700,6 +1700,17 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    assert(card.includes('PA listings conflict') && !card.includes('>PA required<'));
    assert(sources.includes('searchTerm='+rx) && sources.includes('row '+row));
    assert(sources.includes('0691def8-4a7b-4de3-866f-a280989f47f1'));
+ }
+ for (const [id, links, conflict] of [
+   ['7fb64d26f93768e3', [[865098,6331],[1652646,2662]], true],
+   ['ae4326cd39db152e', [[847213,9066]], false],
+   ['bdd6e173aa27ca29', [[752388,8365]], true],
+   ['a864ab78ab9356d7', [[847254,8093]], true]
+ ]) {
+   const group=byId(id), card=a.medicationGroupCard(group), sources=a.recordDetails(group.records[0]);
+   assert.equal(card.includes('PA listings conflict'),conflict);
+   assert(!card.includes('>PA required<') && card.includes('>Quantity limit<'));
+   for(const [rx,row] of links) assert(sources.includes('searchTerm='+rx) && sources.toLowerCase().includes('row '+row));
  }
  const standardLispro = byId('2dbe0497f9246f1b');
  assert.equal(standardLispro.label, 'Insulin Lispro U-100 Prefilled Pen (1-Unit Increments)');
