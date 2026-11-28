@@ -1891,18 +1891,19 @@
         && record.qlAmount && record.sourceUpdates.some(update => update.scope === scope && update.qlAmount === record.qlAmount && update.qlDays === record.qlDays);
       const display = reviewedCardPresentation(record);
       const stateTabletLimit = scope === 'statewide_reference' && display?.statewideMonthlyLimit;
+      const stateLimitLabel = scope === 'statewide_reference' && (display?.scopedMonthlyLabel || (stateTabletLimit && `QL: ${stateTabletLimit} tablets per 30 days`));
       const ageTrigger = scope === 'statewide_reference' && belongs('pa') && record.pa === 'conditional' && display?.statewideAge;
       const badges = statusChips({
-        reviewedPresentation: ageTrigger ? {paBadge: `PA if age <${ageTrigger} · prescriber rules at ≥${ageTrigger}`} : undefined,
+        reviewedPresentation: scope === 'statewide_reference' && belongs('pa') && record.pa === 'conditional' && display?.scopedStatePa ? {paBadge: display.scopedStatePa} : ageTrigger ? {paBadge: `PA if age <${ageTrigger} · prescriber rules at ≥${ageTrigger}`} : undefined,
         recordType: 'formulary', coverage: record.coverage,
         preferred: belongs('preferred') && record.preferred,
         pa: belongs('pa') && record.pa, step: belongs('step') && record.step,
-        quantityLimited: stateTabletLimit || (belongs('quantityLimited') && record.quantityLimited),
-        verifiedQuantityLabel: stateTabletLimit ? `QL: ${stateTabletLimit} tablets per 30 days` : scope === 'statewide_reference' && belongs('quantityLimited')
+        quantityLimited: stateLimitLabel || (belongs('quantityLimited') && record.quantityLimited),
+        verifiedQuantityLabel: stateLimitLabel || (planFormularyLimit && display?.planDailyAndRetailLabel) || (scope === 'statewide_reference' && belongs('quantityLimited')
           && reviewedCardPresentation(record)?.statewideDailyLimit === record.qlAmount && record.qlDays === '1'
           ? `QL: ${record.qlAmount} per day (unit unspecified)` : scope === 'statewide_reference' && belongs('quantityLimited')
           && reviewedCardPresentation(record)?.quantityAmount === record.qlAmount && record.qlDays === '30'
-          ? `QL: ${record.qlAmount} per 30 days (unit unspecified)` : planFormularyLimit ? `QL: ${record.qlAmount} per day` : '',
+          ? `QL: ${record.qlAmount} per 30 days (unit unspecified)` : planFormularyLimit ? `QL: ${record.qlAmount} per day` : ''),
         ageLimited: belongs('ageLimited') && record.ageLimited
       }, belongs('coverage'));
       const preference = belongs('coverage') && record.coverage === 'listed' && record.preferred === 'not_specified'

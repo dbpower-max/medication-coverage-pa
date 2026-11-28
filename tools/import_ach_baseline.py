@@ -269,6 +269,40 @@ def verified_oral_form(rx,name,sources):
                   'rawBenefit':' | '.join((ref['name'],ref['brand'],'PREFERRED DRUG' if ref['preferred']=='preferred' else 'Preference blank'))})
  return updates,{'prescribingHeading':heading,'identityRxcui':int(rx),'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label,'note':note}
 
+ACH_CLONAZEPAM = {
+ '349194':(9758,9856), '349195':(9759,9857), '349198':(9760,9858),
+ '349196':(9761,9859), '349197':(9762,9860), '197527':(9755,9853),
+ '197528':(9756,9854), '197529':(9757,9855),
+}
+
+def clonazepam_option(rx,name,sources):
+ assert name.startswith('clonazepam ') and name.endswith('Oral Tablet')
+ odt='Disintegrating' in name
+ strength=re.search(r'([\d.]+) MG',name)[1]
+ daily=2 if strength=='2' else 4
+ printed='clonazepam '+('tbdp ' if odt else 'tabs ')+('2 mg' if daily==2 else '.125 mg, .25 mg, .5 mg, 1 mg' if odt else '.5 mg, 1 mg')
+ dated={'name':printed,'sourceTitle':'Arizona Complete Health April 2023 Complete Care PDL','sourceUrl':ACH_APR_2023_PDL,
+        'sourcePage':14,'sourceEffective':'2023-04-01','sourceKind':'plan_formulary','coverage':'listed','quantityLimited':True,
+        'qlAmount':f'{daily} tablets','qlDays':'1','rawBenefit':f'F; QL({daily} ea daily)'+('' if odt else '; AL(At least 6 yrs old)')}
+ if not odt:
+  dated.update(ageLimited=True,ageRestrictionText='At least 6 yrs old')
+ updates=[dated]
+ for n,category in zip(ACH_CLONAZEPAM[rx],('Antianxiety agents','Anticonvulsants')):
+  ref=sources['ach-mandated-formulary-'+str(n)]
+  state={**ref,**ref['statewideReference']}
+  assert state['sourcePage'] in (5,7,8) and state['qlDays']=='30'
+  assert state['qlAmount']==('60' if strength=='2' else '120')
+  state['rawBenefit']=f"{category}: {state['name']} | {state['brand']} | preference blank | QL {state['qlAmount']} per 30 days, unit blank."
+  updates.append(state)
+ anxiety='Antianxiety listing: PA for more than one anxiolytic in 30 days.' if odt else 'Antianxiety listing: PA for age under 6 or more than one anxiolytic in 30 days.'
+ qualifier=anxiety+' Anticonvulsant listing: PA for age under 6 or more than one anxiolytic in 30 days.'
+ display={'prescribingHeading':f'Clonazepam {strength} mg '+('orally disintegrating tablet' if odt else 'oral tablet'),
+          'identityRxcui':int(rx),'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+('1aef0069-80ea-483d-ac70-c8d485462c5b' if odt else '34366dd2-432c-4fa9-8fab-832cca781b84'),
+          'scopedMonthlyLabel':f"QL: {state['qlAmount']} tablets per 30 days",
+          'scopedStatePa':'PA by indication, age or anxiolytic count' if odt else 'PA if age <6 or >1 anxiolytic in 30 days',
+          'note':'AHCCCS Statewide. '+qualifier}
+ return updates,display
+
 def with_ach_baseline(d):
  src=ROOT/'dist/sources/ach/integrated-formulary-baseline.json.gz'
  raw=json.loads(gzip.decompress(src.read_bytes())); assert len(raw)==4454
@@ -358,6 +392,23 @@ def with_ach_baseline(d):
    candidates,oral_display=verified_oral_form(row["rxnorm_id"],name,indexed_sources)
   if row['rxnorm_id'] in ACH_ANTIPSYCHOTIC_OPTIONS:
    candidates,oral_display=antipsychotic_option(row['rxnorm_id'],name,indexed_sources)
+  if row['rxnorm_id'] in ACH_CLONAZEPAM:
+   candidates,oral_display=clonazepam_option(row['rxnorm_id'],name,indexed_sources)
+  if row['rxnorm_id']=='199387':
+   assert name=='risperidone 1 MG/ML Oral Solution'
+   state=indexed_sources['ach-mandated-formulary-10219']
+   ref={**state,**state['statewideReference']}
+   assert ref['qlAmount']=='240' and ref['qlDays']=='30' and ref['sourcePage']==16
+   ref['rawBenefit']='RISPERIDONE ORAL SOLUTION | RISPERDAL | PREFERRED DRUG | 240 per 30 days, unit blank.'
+   dated={'name':'risperidone soln','sourceTitle':'Arizona Complete Health April 2023 Complete Care PDL',
+          'sourceUrl':ACH_APR_2023_PDL,'sourceEffective':'2023-04-01','sourcePage':25,'sourceKind':'plan_formulary',
+          'coverage':'listed','quantityLimited':True,'qlAmount':'8 mL','qlDays':'1','ageLimited':True,
+          'ageRestrictionText':'At least 6 yrs old','rawBenefit':'F; QL(8 ml daily; 240 ml per 30 days retail); AL(At least 6 yrs old).'}
+   candidates=[dated,indexed_sources['ach-notice-13827'],ref]
+   oral_display={'prescribingHeading':'Risperidone 1 mg/mL oral solution','identityRxcui':199387,'statewideAge':6,
+                 'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3cc027f0-3462-4a2f-925b-d8a529bcb3c3',
+                 'scopedMonthlyLabel':'QL: 240 mL per 30 days','planDailyAndRetailLabel':'QL: 8 mL per day and 240 mL per 30 days at retail',
+                 'note':'AHCCCS Statewide requires PA below age 6. At age 6 and older, PA is waived for a psychiatric clinician, developmental pediatrician or other MCO-approved prescriber.'}
   if pack_update:
    candidates.append(pack_update)
   if row['rxnorm_id'] in ACH_DAILY_INSULIN_LIMITS:
@@ -409,6 +460,10 @@ def with_ach_baseline(d):
    if r.get('rawBenefit'):
     update['rawBenefit']=r['rawBenefit']
    rec['sourceUpdates'].append(update)
+  # Different indication headings specify different conditions. Retain both raw rows
+  # in Sources and use an indication-qualified value for the single display field.
+  if row['rxnorm_id'] in ACH_CLONAZEPAM:
+   candidates=[{**r,'paText':oral_display['note']} if r.get('pa')=='conditional' else r for r in candidates]
   apply_benefit_updates(rec, candidates)
   if rec['coverage']=='non_formulary' and rec['benefitSources']['preferred']=='presumed_2022':
    rec['preferred']='not_specified'
