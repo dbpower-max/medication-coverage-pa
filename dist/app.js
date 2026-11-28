@@ -2281,6 +2281,7 @@
     const diagnosisRequest = byRole(['diagnosis_request']);
     const psoriasisRequest = byRole(['psoriasis_request']);
     const topicalQuantity = byRole(['topical_quantity']);
+    const monthlyPrescriptionException = byRole(['monthly_prescription_exception']);
     const packetReference = byRole(['packet_reference']);
     const reviewedInsulin = group.records?.some(record => uhcInsulinAndSupplyLabels.has(record.id) || reviewedCardPresentation(record)?.uhcFormRx);
     const genericDabigatran = group.records.find(record => record.id === genericDabigatranId);
@@ -2307,7 +2308,8 @@
       ['Concurrent opioid therapy (DUR)', byRole(['concurrent_opioid_dur'])],
       ['Cumulative MME exceptions', byRole(['mme_exception'])],
       ['Quantity-limit exceptions', quantity],
-      ['Topical quantity-limit exceptions', topicalQuantity]
+      ['Topical quantity-limit exceptions', topicalQuantity],
+      ['Monthly prescription-limit exception', monthlyPrescriptionException]
     ];
     for (const [kind, selected] of criteriaSections) {
       const body = [];
@@ -2350,6 +2352,7 @@
         : selected === hypnoticStep ? '<p>Applies to generic ramelteon only; this is step therapy, not routine PA.</p>'
         : selected === ageScoped ? '<p>The October 2026 formulary lists an age limit and leaves the PA field blank for the generic product below. The November 2026 guideline specifies these age-based criteria.</p>'
         : selected === psoriasisRequest ? '<p>The October 2026 formulary prints step therapy and a quantity limit. These are the named psoriasis request criteria, not a verified routine PA trigger or a numeric quantity limit.</p>'
+        : selected === monthlyPrescriptionException ? '<p>Applies to monthly prescription-limit exception requests for the reviewed benzodiazepine option. This is separate from the individual product quantity limit and conditional hypnotic PA.</p>'
         : selected === topicalQuantity ? '<p>Applies to requests exceeding the allowed topical package size or monthly quantity. The numeric limit is unverified.</p>'
         : selected === diagnosisRequest ? '<p>The October 2026 formulary requires a diagnosis and lists a quantity limit. This named UHC guideline supplies request criteria; the exact PA trigger or diagnosis-code override is unverified.</p>'
         : selected === packetReference ? '<p>The October 2026 formulary lists age and quantity limits for both packets and leaves their PA fields blank. The UHC guideline names both packets and gives criteria by age and ability to swallow solid forms.</p>'
