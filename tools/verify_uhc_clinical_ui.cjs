@@ -1170,7 +1170,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    }
    assert(!detail.html.includes('Criteria source · PDF page 1686<'),suffix);
  }
- const insulinDevices=groups.filter(g=>g.records.some(r=>r.reviewedPresentation?.electronicRow));
+ const insulinDevices=groups.filter(g=>g.records.some(r=>r.subcategory.startsWith('Insulins -') && r.reviewedPresentation?.electronicRow));
  assert.equal(insulinDevices.length,12);
  for(const g of insulinDevices){
    const r=g.records[0], p=r.reviewedPresentation, card=a.medicationGroupCard(g), sources=a.recordDetails(r);
@@ -1325,6 +1325,18 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  console.log('PASS: Four DPP-4 cards show exact product PA branches and a separately labeled duplication exception.');
  const byId = id => groups.find(group => group.records.some(record => record.id === 'uhc-oct-complete-' + id));
+ const xopenexHfa = byId('225e66afc561cc32');
+ assert.equal(xopenexHfa.records.length, 1);
+ const hfaCard = a.medicationGroupCard(xopenexHfa);
+ assert(hfaCard.includes('45 mcg/actuation metered-dose inhaler') && hfaCard.includes('PA listings conflict'));
+ assert(hfaCard.includes('>Nonpreferred<') && hfaCard.includes('>Tier 2<') && hfaCard.includes('>Quantity limit<'));
+ assert(!hfaCard.includes('>PA required<'));
+ const hfaSources = a.recordDetails(xopenexHfa.records[0]);
+ assert(hfaSources.includes('searchTerm=746466') && hfaSources.includes('row 7824'));
+ const hfaPolicy = await open(xopenexHfa);
+ assert(!a.uhcGroupBindings(xopenexHfa).some(b => b.policyId.endsWith('gl-140660')));
+ assert(!/albuterol inhalation solution|pdf#page=1958/i.test(hfaPolicy.html + hfaPolicy.ref));
+ assert(hfaPolicy.ref.includes('QL reference'));
  const acthar = byId('14411026d49668ea'), cortrophin = byId('9b40fc8558feebd0');
  assert(acthar && cortrophin && acthar !== cortrophin);
  for (const [group, indexes, scope] of [[acthar, [0,1], 'Acthar Gel vial only (PDL device unspecified)'], [cortrophin, [1], 'Cortrophin Gel - OMS (confirm covered vial or syringe)']]) {
