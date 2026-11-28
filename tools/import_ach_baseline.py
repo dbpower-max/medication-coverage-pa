@@ -590,6 +590,56 @@ def anticonvulsant_option(rx,name,sources):
  return [dated,ref],{'prescribingHeading':heading,'label':heading,'separate':True,'identityRxcui':int(rx),
                      'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label,'note':note}
 
+ACH_ANXIOLYTIC_OPTIONS = {
+ '197464':('Clorazepate dipotassium','15',9763,2), '197465':('Clorazepate dipotassium','3.75',9764,4),
+ '197466':('Clorazepate dipotassium','7.5',9765,4), '197900':('Lorazepam','0.5',9772,4),
+ '197901':('Lorazepam','1',9773,4), '197902':('Lorazepam','2',9774,2), '311376':('Lorazepam','2 mg/mL',9771,2),
+ '198057':('Oxazepam','10',9775,2), '312134':('Oxazepam','15',9776,2), '198059':('Oxazepam','30',9777,2),
+}
+
+def anxiolytic_option(rx,name,sources):
+ family,strength,number,daily=ACH_ANXIOLYTIC_OPTIONS[rx]
+ liquid=rx=='311376'
+ capsule=family=='Oxazepam'
+ unit='mL' if liquid else 'capsules' if capsule else 'tablets'
+ if liquid:
+  printed='lorazepam conc'
+  heading='Lorazepam 2 mg/mL concentrate for oral solution'
+  label='73bfaeab-94db-48c2-a194-8b173025de78'
+ elif capsule:
+  printed='oxazepam caps'
+  heading=f'Oxazepam {strength} mg oral capsule'
+  label='bb6d9142-3647-4591-8f84-31b61b755634'
+ else:
+  if family=='Lorazepam':
+   printed='lorazepam tabs '+('2 mg' if rx=='197902' else '.5 mg, 1 mg')
+   label='6b0619c5-b9e9-47e7-97b5-7e581e67cf5f'
+  else:
+   printed='clorazepate dipotassium tabs '+('15 mg' if strength=='15' else '3.75 mg, 7.5 mg')
+   label='11b72861-64c9-4cdc-9289-c7fa9ea23bf6'
+  heading=f'{family} {strength} mg oral tablet'
+ assert family.lower() in name
+ raw='F; '+('Limit 1 anxiolytic per 30 days; ' if rx=='197902' else '')
+ raw+=f"QL({daily} {'ml' if liquid else 'ea'} daily"+('; 60 ea per 30 days retail' if capsule else '')+'); AL(At least 6 yrs old)'
+ dated=april_formulary(printed,12,raw,quantityLimited=True,qlAmount=f'{daily} {unit}',qlDays='1',
+                       ageLimited=True,ageRestrictionText='At least 6 yrs old')
+ ref=statewide_option(sources,number,'Preference and ST blank.')
+ assert ref['sourcePage']==(6 if number==9777 else 5) and ref['pa']=='conditional'
+ assert 'Ages < 6 years' in ref['paText'] and '> 1 Anxiolytic' in ref['paText']
+ assert ref['qlAmount']==str(daily*30) and ref['qlDays']=='30'
+ ref['rawBenefit']+=f" | {ref['paText']} | QL {ref['qlAmount']}, days 30, unit blank."
+ note='Boxed warnings for concomitant opioid use, abuse, misuse, addiction, dependence and withdrawal.'
+ if rx=='197902':
+  note+=' The Arizona Complete Health formulary also lists a limit of one anxiolytic per 30 days.'
+ display={'prescribingHeading':heading,'label':heading,'separate':True,'identityRxcui':int(rx),
+          'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label,
+          'scopedStatePa':'PA if age <6 or >1 anxiolytic in 30 days','planAgeBadge':'Age ≥6 years',
+          'scopedMonthlyLabel':f"QL: {ref['qlAmount']} {unit} per 30 days",'note':note,
+          'anxiolyticPolicyProduct':'lorazepam conc' if liquid else 'generic '+family.lower()}
+ if capsule:
+  display['planDailyAndRetailLabel']='QL: 2 capsules per day and 60 capsules per 30 days at retail'
+ return [dated,ref],display
+
 def with_ach_baseline(d):
  src=ROOT/'dist/sources/ach/integrated-formulary-baseline.json.gz'
  raw=json.loads(gzip.decompress(src.read_bytes())); assert len(raw)==4454
@@ -681,6 +731,8 @@ def with_ach_baseline(d):
    candidates,oral_display=antipsychotic_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in {'1797113','310169','884707','1597076'}:
    candidates,oral_display=hormone_identity(row['rxnorm_id'],indexed_sources)
+  if row['rxnorm_id'] in ACH_ANXIOLYTIC_OPTIONS:
+   candidates,oral_display=anxiolytic_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_ANTICONVULSANT_FORMS:
    candidates,oral_display=anticonvulsant_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_BRAND_ANTICOAGULANTS:
