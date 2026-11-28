@@ -640,6 +640,57 @@ def anxiolytic_option(rx,name,sources):
   display['planDailyAndRetailLabel']='QL: 2 capsules per day and 60 capsules per 30 days at retail'
  return [dated,ref],display
 
+ACH_DULERA = {'1246310':(100,120),'1660934':(100,60),'1246313':(200,120),'1660938':(200,60),'2196592':(50,120)}
+ACH_MIRTAZAPINE = {'283406','311725','283407','314111','283485','311726','476809'}
+
+ACH_SPIRIVA_SPRAYS={'1667882':('1.25',60),'2166204':('2.5',10),'1552004':('2.5',60)}
+
+def spiriva_spray(rx,name,sources):
+ strength,count=ACH_SPIRIVA_SPRAYS[rx]
+ assert name.startswith(f'{count} ACTUAT ') and name.endswith('Inhalation Spray [Spiriva]')
+ ref=statewide_option(sources,9798,'SPIRIVA RESPIMAT | PREFERRED DRUG | PA, ST and QL blank.')
+ assert ref['sourcePage']==6 and ref['preferred']=='preferred' and not ref['qlAmount']
+ notice=sources['ach-notice-13840']
+ assert notice['name']=='SPIRIVA RESPIMAT (INHALATION)' and notice['preferred']=='preferred'
+ heading=f'Spiriva Respimat {strength} mcg per actuation metered inhalation spray, {count} actuations'
+ display={'prescribingHeading':heading,'label':heading,'separate':True,'identityRxcui':int(rx),
+          'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b656b14-fcaa-2741-f6f0-e0be48971c02'}
+ if count==10:
+  display['note']='The 10-actuation presentation is labeled for institutional use.'
+ return [{**notice,'rawBenefit':'Preferred column: SPIRIVA RESPIMAT (INHALATION), COPD Agents, Antimuscarinics – Long-Acting.'},ref],display
+
+def dulera_option(rx,name,sources):
+ strength,count=ACH_DULERA[rx]
+ assert name.startswith(f'{count} ACTUAT ') and name.endswith('Metered Dose Inhaler [Dulera]')
+ ref=statewide_option(sources,9823,'BRAND ONLY | PREFERRED DRUG | PA and ST blank | QL 6 per 90 days, unit blank.')
+ assert ref['sourcePage']==7 and ref['qlAmount']=='6' and ref['qlDays']=='90' and ref['preferred']=='preferred'
+ heading=f'Dulera {strength}/5 mcg per actuation metered-dose inhaler, {count} actuations'
+ display={'prescribingHeading':heading,'label':heading,'separate':True,'identityRxcui':int(rx),
+          'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8f399784-f257-4f31-b3dc-368bf2a1864d',
+          'scopedMonthlyLabel':'QL: 6 per 90 days (unit unspecified)',
+          'note':'The 60-actuation canister is labeled for institutional use.' if count==60 else 'Labeled 120-actuation canister.'}
+ return [april_formulary('DULERA',13,'F'),ref],display
+
+def mirtazapine_option(rx,name,sources):
+ odt='Disintegrating' in name
+ strength=re.fullmatch(r'mirtazapine ([\d.]+) MG (?:Disintegrating )?Oral Tablet',name)[1]
+ ref=statewide_option(sources,9916 if odt else 9915,'PA REQUIRED for Ages < 6 years of age | QL 30, days 30, unit blank | preference and ST blank.')
+ assert ref['qlAmount']=='30' and ref['qlDays']=='30' and ref['pa']=='conditional' and ref['sourcePage']==8
+ printed='mirtazapine tbdp' if odt else 'mirtazapine tabs '+('7.5 mg' if strength=='7.5' else '15 mg, 30 mg, 45 mg')
+ age=strength!='7.5'
+ dated=april_formulary(printed,15,'F; QL(1 ea daily); '+('AL(At least 6 yrs old); ' if age else '')+'MP',
+                       quantityLimited=True,qlAmount='1 tablet',qlDays='1')
+ if age:
+  dated.update(ageLimited=True,ageRestrictionText='At least 6 yrs old')
+ heading=f'Mirtazapine {strength} mg '+('orally disintegrating tablet' if odt else 'oral tablet')
+ display={'prescribingHeading':heading,'label':heading,'separate':True,'identityRxcui':int(rx),
+          'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+('5127517f-b8d0-4af1-8a2f-5225719600bc' if odt else 'b4b9b66e-87a1-4dbb-9eaf-71221bcb2265'),
+          'scopedMonthlyLabel':'QL: 30 tablets per 30 days','scopedStatePa':'PA if age <6',
+          'statewideMirtazapineReview':True,'note':'Boxed warning for suicidal thoughts and behaviors in pediatric and young adult patients.'}
+ if age:
+  display['planAgeBadge']='Age ≥6 years'
+ return [dated,ref],display
+
 def with_ach_baseline(d):
  src=ROOT/'dist/sources/ach/integrated-formulary-baseline.json.gz'
  raw=json.loads(gzip.decompress(src.read_bytes())); assert len(raw)==4454
@@ -731,6 +782,12 @@ def with_ach_baseline(d):
    candidates,oral_display=antipsychotic_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in {'1797113','310169','884707','1597076'}:
    candidates,oral_display=hormone_identity(row['rxnorm_id'],indexed_sources)
+  if row['rxnorm_id'] in ACH_SPIRIVA_SPRAYS:
+   candidates,oral_display=spiriva_spray(row['rxnorm_id'],name,indexed_sources)
+  if row['rxnorm_id'] in ACH_DULERA:
+   candidates,oral_display=dulera_option(row['rxnorm_id'],name,indexed_sources)
+  if row['rxnorm_id'] in ACH_MIRTAZAPINE:
+   candidates,oral_display=mirtazapine_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_ANXIOLYTIC_OPTIONS:
    candidates,oral_display=anxiolytic_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_ANTICONVULSANT_FORMS:
