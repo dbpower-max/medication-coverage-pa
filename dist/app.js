@@ -731,7 +731,7 @@
   const gvokeLabelUrl = 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=92385737-dbad-98c5-e053-2995a90a2805';
   const reviewedCardPresentations = new Map([
     ['uhc-oct-complete-f2ad2a3574ca8919', {
-      label: 'Humulin R (regular insulin) injection solution in a vial — concentration unspecified', dosageForm: 'injection solution', separate: true,
+      label: 'Humulin R (regular insulin) injection solution in a vial — concentration unspecified', dosageForm: 'injection solution', separate: true, paSourceConflict: true,
       note: 'The printed listing does not identify the concentration. UHC lists PA and a quantity limit here. Its electronic formulary lists different preferences for 100 units/mL and 500 units/mL products, both with step therapy and no PA. Exact concentration, package and requirements are unverified.',
       electronicComparisons: [
         ['100 units/mL · nonpreferred', 311036, 8951, 'b519bd83-038c-4ec5-a231-a51ec5cc291f'],
