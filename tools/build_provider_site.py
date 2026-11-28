@@ -360,7 +360,7 @@ basal_labels = {
 }
 basal_presentations = {
     '4270f8a1ce19e554': ('glargine-yfgn','Insulin glargine-yfgn 100 units/mL subcutaneous prefilled pen','3 mL single-patient-use pen. The electronic file contains preferred and nonpreferred variants with different step requirements. The printed pen listing is preferred; eligible packages are unverified.',[(5117,2563971,'3 mL pen')]),
-    '96922f638bb987d2': ('glargine-yfgn','Insulin glargine-yfgn 100 units/mL subcutaneous solution (device unspecified)','The printed solution listing does not name the device. The 10 mL vial is a labeled presentation.',[(4483,2563976,'Solution formulation')]),
+    '96922f638bb987d2': ('glargine-yfgn','Insulin glargine-yfgn 100 units/mL subcutaneous solution (device unspecified)','The printed solution listing does not name the device. The 10 mL vial is a labeled presentation. The November 16 electronic file has no matching entry for RxCUI 2563976.',[(4483,2563976,'Solution formulation')]),
     '8adc25a96356b867': ('Lantus','Lantus SoloStar (insulin glargine) 100 units/mL prefilled pen','3 mL single-patient-use pen.',[(8397,847232,'3 mL pen')]),
     '749c738dcab2dcdd': ('Lantus','Lantus (insulin glargine) 100 units/mL multidose vial','Labeled 10 mL multidose vial.',[(1393,285018,'Vial formulation')]),
     '31c74f821a4c856f': ('Semglee','Semglee (insulin glargine-yfgn) 100 units/mL solution for injection (device unspecified)','The label identifies a 10 mL multidose vial and a 3 mL prefilled pen. The printed listing does not identify the covered device.',[(2838,2563977,'Vial formulation'),(7855,2563973,'3 mL pen')]),
@@ -386,7 +386,7 @@ for record in data['medications']:
         flags=', '.join(v['drug_tier']+' (PA: no, ST: '+('yes' if v['step_therapy'] else 'no')+', QL: yes)' for v in entries)
         evidence.append(f'Row {position}, RxCUI {rx}: {flags}.')
     if conflict:
-        note+=' UHC’s printed list specifies PA. Its electronic file reports no PA and lists step therapy. Current requirements are unverified.'
+        note+=' UHC’s printed list specifies PA. Its October electronic file reports no PA and lists step therapy. Current requirements are unverified.'
     record['reviewedPresentation']={
         'label':heading,'dosageForm':'solution for injection','separate':True,'note':note,'paSourceConflict':conflict,
         'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+basal_labels[family],

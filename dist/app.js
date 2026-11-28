@@ -1007,12 +1007,42 @@
     }]
   ]);
 
+  const tresibaLabelUrl = 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=456c5e87-3dfd-46fa-8ac0-c6128d4c97c6';
+  const bannerBasalInsulins = new Map([
+    ['INSULIN DEGLUDEC SOLN PEN-INJ', {
+      brand: 'TRESIBA', label: 'Tresiba FlexTouch (insulin degludec) 100 units/mL or 200 units/mL prefilled pen',
+      note: 'Both pens contain 3 mL. The 100 units/mL pen dials in 1-unit increments up to 80 units. The 200 units/mL pen dials in 2-unit increments up to 160 units. The listing does not specify which strength or package is covered.',
+      labelUrl: tresibaLabelUrl, labelProductExamples: [['100 units/mL pen', 1670016], ['200 units/mL pen', 1670023]]
+    }],
+    ['INSULIN DEGLUDEC SOLUTION', {
+      brand: 'TRESIBA', label: 'Tresiba (insulin degludec) solution for injection (device unspecified)',
+      note: 'Labeled presentations include a 100 units/mL, 10 mL multidose vial and 3 mL FlexTouch pens in 100 units/mL and 200 units/mL. The listing does not specify a concentration, device or package.',
+      labelUrl: tresibaLabelUrl, labelProductExamples: [['100 units/mL vial', 2107522], ['100 units/mL pen', 1670016], ['200 units/mL pen', 1670023]]
+    }],
+    ['INSULIN GLARGINE SOLUTION', {
+      brand: 'LANTUS', label: 'Lantus (insulin glargine) 100 units/mL solution for injection (device unspecified)',
+      note: 'Labeled presentations include a 10 mL multidose vial and a 3 mL SoloStar pen. The listing does not specify a device or package.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d5e07a0c-7e14-4756-9152-9fea485d654a',
+      labelProductExamples: [['Vial formulation', 285018], ['3 mL SoloStar pen', 847232]]
+    }],
+    ['INSULIN GLARGINE-YFGN SOLN PEN-INJ', {
+      brand: 'SEMGLEE', label: 'Insulin glargine-yfgn 100 units/mL prefilled pen (Semglee reference)',
+      note: 'The labeled pen contains 3 mL and dials in 1-unit increments. The listing does not specify a manufacturer or carton size.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8cf5544f-87d6-468b-f6ae-898b1fdb5d80',
+      labelProductExamples: [['Generic 3 mL pen', 2563971], ['Semglee 3 mL pen', 2563973]]
+    }]
+  ]);
+
   function reviewedCardPresentation(record) {
     if (record.id === 'banner-ufc:statewide:formulary-9598' && record.brand === 'CATAPRES') return {dosageForm: 'oral tablet'};
     // Pair each Banner October brand row only with its matching statewide November row.
     if (record.planId === 'banner-ufc' && record.name === 'INSULIN NPH ISOPHANE & REG (HUMAN) SUSPENSION'
         && record.sourceEffective === (record.isStatewideReference ? '2026-11-01' : '2026-10-01')
         && bannerHumanPremix.has(record.brand)) return bannerHumanPremix.get(record.brand);
+    if (record.planId === 'banner-ufc' && record.sourceEffective === (record.isStatewideReference ? '2026-11-01' : '2026-10-01')) {
+      const basal = bannerBasalInsulins.get(record.name);
+      if (basal && basal.brand === record.brand) return basal;
+    }
     if (uhcGvokePresentations.has(record.id)) return {dosageForm: 'solution', deviceSourceUrl: gvokeLabelUrl};
     const id = record.isStatewideReference ? record.id.split(':').at(-1) : record.id;
     const reviewed = record.reviewedPresentation || reviewedCardPresentations.get(id);
@@ -1462,6 +1492,10 @@
     if (record.guide?.ambiguity) chips.push(['Source clarification needed', 'negative']);
     if (showCoverage && record.coverage === 'explicit_not_covered') chips.push(['Explicitly not covered', 'negative']);
     if (record.coverageCaveat) chips.push([record.coverageCaveat, 'warning']);
+    if (record.planId === 'banner-ufc' && record.coverage === 'listed' && record.preferred === 'not_specified'
+        && reviewedCardPresentation(record) === bannerBasalInsulins.get(record.name) && bannerBasalInsulins.has(record.name)) {
+      chips.push(['Preference not specified', 'neutral']);
+    }
     if (record.preferred === 'preferred') chips.push(['Preferred', 'positive']);
     if (record.preferred === 'non_preferred') chips.push(['Nonpreferred', 'warning']);
     if (/\bbrand\s*only\b/i.test(record.brandGenericNotes || record.notes || '')) chips.push(['Brand only', 'warning']);
@@ -1581,6 +1615,11 @@
     ["banner-full-5871af4cc5e1eb9b", ["BAN-P33-T1-R45", "BAN-P34-T1-R19"]]
   ]);
 
+  const uhcElectronicUrl = 'https://legacy.providerlookuponline.com/mrf/optumrx/drugs/2877216/JSON_Drugs_UHCCPAZ.json';
+  const uhcOctoberArchiveUrl = 'https://raw.githubusercontent.com/dbpower-max/medication-coverage-pa/82cf647905eec04d55891f0e57c3c6e56dce23af/audits/uhc_complete_2026_11_12/official_machine_readable.json';
+  const uhcOctoberCitation = `<a href="${uhcOctoberArchiveUrl}" target="_blank" rel="noopener">UHC electronic formulary · October 20, 2026 copy</a> · UCSAZQ3`;
+  const uhcLiveCitation = `<a href="${uhcElectronicUrl}" target="_blank" rel="noopener">Current UHC electronic formulary</a>`;
+
   function recordDetails(record) {
     const details = [];
     const presentation = reviewedCardPresentation(record);
@@ -1599,16 +1638,23 @@
       details.push(`<p><strong>Labeled presentations:</strong> ${links.join(' · ')}. The formulary does not identify the covered package. <a href="${escapeHtml(presentation.labelUrl)}" target="_blank" rel="noopener">DailyMed drug label ↗</a></p>`);
     }
     if (presentation?.electronicEvidence) {
-      details.push(`<p><a href="https://legacy.providerlookuponline.com/mrf/optumrx/drugs/2877216/JSON_Drugs_UHCCPAZ.json" target="_blank" rel="noopener">UHC electronic formulary ↗</a> · UCSAZQ3, October 20, 2026 file. ${escapeHtml(presentation.electronicEvidence.join(' '))}</p>`);
+      details.push(`<p>${uhcOctoberCitation}. ${escapeHtml(presentation.electronicEvidence.join(' '))}</p>`);
     }
     if (presentation?.electronicComparisons) {
       const comparisons = presentation.electronicComparisons.map(([label,rx,position,spl]) =>
         `<li>${escapeHtml(label)} · row ${position} · <a href="https://mor.nlm.nih.gov/RxNav/search?searchBy=RXCUI&amp;searchTerm=${rx}" target="_blank" rel="noopener">RxCUI ${rx}</a> · <a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=${spl}" target="_blank" rel="noopener">DailyMed label</a></li>`);
-      details.push(`<p><a href="https://legacy.providerlookuponline.com/mrf/optumrx/drugs/2877216/JSON_Drugs_UHCCPAZ.json" target="_blank" rel="noopener">UHC electronic formulary</a> · UCSAZQ3, October 20, 2026 file. The printed listing does not distinguish these entries. Both electronic entries list step therapy and quantity limits and report no PA.</p><ul>${comparisons.join('')}</ul>`);
+      details.push(`<p>${uhcOctoberCitation}. The printed listing does not distinguish these entries. Both electronic entries list step therapy and quantity limits and report no PA.</p><ul>${comparisons.join('')}</ul>`);
     }
-    if (presentation?.electronicRow) details.push(`<p><a href="https://legacy.providerlookuponline.com/mrf/optumrx/drugs/2877216/JSON_Drugs_UHCCPAZ.json" target="_blank" rel="noopener">UHC electronic formulary ↗</a> · UCSAZQ3, ${escapeHtml(presentation.electronicVersion || 'October 20, 2026 file')} · row ${Number(presentation.electronicRow)} · RxCUI ${Number(presentation.identityRxcui)}</p>`);
+    if (presentation?.electronicRow) {
+      const citation = presentation.electronicVersion
+        ? `${uhcLiveCitation} · UCSAZQ3, ${escapeHtml(presentation.electronicVersion)}` : uhcOctoberCitation;
+      details.push(`<p>${citation} · row ${Number(presentation.electronicRow)} · RxCUI ${Number(presentation.identityRxcui)}</p>`);
+    }
     const formRx = presentation?.uhcFormRx;
-    if (formRx) details.push(`<p><a href="https://legacy.providerlookuponline.com/mrf/optumrx/drugs/2877216/JSON_Drugs_UHCCPAZ.json" target="_blank" rel="noopener">UHC electronic formulary</a> · UCSAZQ3, 2026 · RxCUI ${escapeHtml(formRx)} · file dated October 20, 2026.</p>`);
+    if (formRx) details.push(`<p>${uhcOctoberCitation} · RxCUI ${escapeHtml(formRx)}.</p>`);
+    if (!presentation?.electronicVersion && (formRx || presentation?.electronicRow || presentation?.electronicEvidence || presentation?.electronicComparisons)) {
+      details.push(`<p>${uhcLiveCitation}</p>`);
+    }
     for (const position of bannerRepeatPositions.get(record.id) || []) {
       const [, page, table, row] = position.match(/BAN-P(\d+)-T(\d+)-R(\d+)/);
       details.push(`<a href="${escapeHtml(record.sourceUrl)}#page=${page}" target="_blank" rel="noopener">Banner page ${page}, table ${table}, row ${row}</a>`);
