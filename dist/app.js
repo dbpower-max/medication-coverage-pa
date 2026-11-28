@@ -738,7 +738,7 @@
     }],
     ['uhc-oct-complete-c46564b2cf6fafaa', {
       label: 'Albuterol HFA 90 mcg/actuation metered-dose inhaler (Ventolin HFA reference)', separate: true,
-      dosageForm: 'inhalation aerosol', option: 'Brand Ventolin HFA', paSourceConflict: true,
+      dosageForm: 'inhalation aerosol', option: 'Brand Ventolin HFA', scopeFallbackToOption: true, paSourceConflict: true,
       labelProductExamples: [['60 actuations', 801095], ['200 actuations', 859088]],
       labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d92c5d6b-ff10-4087-36a2-1cfc464cb967',
       electronicEvidence: ['Row 893, RxCUI 859088 (200 actuations): NON-PREFERRED(90), PA: no, ST: yes, QL: yes.'],
@@ -2648,8 +2648,8 @@
         : selected === primary && asmanexHfa
         ? '<p>The guideline covers asthma. How it applies to the age and continued-use conditions in the formulary is unverified.</p>'
         : selected === primary && administrativeFallback ? (
-          (fallbackRows.length < paRows.length || (fallbackRows.length < group.records.length && (reviewedInsulin || fallbackRows.some(r => reviewedCardPresentation(r)?.option)))
-            ? `<p><strong>Applies to:</strong> ${escapeHtml(fallbackRows.map(r => uhcReviewedProductGroups.get(r.id)?.label || reviewedCardPresentation(r)?.option || uhcInsulinAndSupplyLabels.get(r.id) || readableMedicationName(r.name)).join('; '))}</p>` : '')
+          (fallbackRows.length < paRows.length || (fallbackRows.length < group.records.length && (reviewedInsulin || fallbackRows.some(r => reviewedCardPresentation(r)?.scopeFallbackToOption)))
+            ? `<p><strong>Applies to:</strong> ${escapeHtml(fallbackRows.map(r => uhcReviewedProductGroups.get(r.id)?.label || ((reviewedCardPresentation(r)?.uhcFormRx || reviewedCardPresentation(r)?.scopeFallbackToOption) && reviewedCardPresentation(r).option) || uhcInsulinAndSupplyLabels.get(r.id) || readableMedicationName(r.name)).join('; '))}</p>` : '')
           + '<p>Product-specific approval criteria are unverified.</p>'
         ) : '';
       if (body.length) sections.push(`<section class="uhc-restriction-criteria"><h4>${kind}</h4>${context}${body.join('')}</section>`);
