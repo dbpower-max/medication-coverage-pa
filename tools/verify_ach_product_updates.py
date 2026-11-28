@@ -62,6 +62,15 @@ for row in data['medications']:
    continue
   devices={'1190225':('COMBIVENT RESPIMAT','9824'),'1487524':('ANORO ELLIPTA','9828'),'1487528':('ANORO ELLIPTA','9828'),
            '1651275':('STIOLTO RESPIMAT','9827'),'2166928':('STIOLTO RESPIMAT','9827')}
+  if row['rxnormId'] in {'1246310','1660934','1246313','1660938','2196592'}:
+   assert row['name'].endswith('Metered Dose Inhaler [Dulera]')
+   assert (update['name']=='DULERA' and update['sourceEffective']=='2023-04-01' and update['sourcePage']==13
+    or update.get('id')=='ach-mandated-formulary-9823' and update['sourceEffective']=='2026-11-01' and update['sourcePage']==7)
+   continue
+  if row['rxnormId'] in {'1667882','2166204','1552004'} and update.get('id')=='ach-mandated-formulary-9798':
+   assert row['name'].endswith('Inhalation Spray [Spiriva]') and update['name']=='TIOTROPIUM BROMIDE MONOHYDRATE AEROSOL SOLUTION'
+   assert update['sourceEffective']=='2026-11-01' and update['sourcePage']==6
+   continue
   if row['rxnormId'] in devices and update['sourcePage'] in (13,7):
    product,number=devices[row['rxnormId']]
    assert 'Inhal' in row['name'] and product.split()[0].lower() in row['name'].lower()

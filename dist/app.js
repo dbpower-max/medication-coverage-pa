@@ -2605,6 +2605,10 @@
         };
         add(state.data.policies.find(p => p.id === link.policyId && p.planId === state.planId) || policy);
       }
+      if (record.reviewedPresentation?.statewideMirtazapineReview) {
+        const policy = (state.data.statewidePaCriteria || []).find(p => p.id === 'ahcccs-ffs-nov2026-policy-gl-731218');
+        if (policy) add(policy);
+      }
       if (record.reviewedPresentation?.anxiolyticPolicyProduct) {
         const policy = (state.data.statewidePaCriteria || []).find(p => p.id === 'ahcccs-ffs-nov2026-policy-gl-126970');
         if (policy) add(policy);
@@ -3100,6 +3104,22 @@
     details.dataset.loading = 'true';
     target.innerHTML = '<p role="status">Loading clinical criteria…</p>';
     try {
+      const mirtazapine = group.records.some(r => r.reviewedPresentation?.statewideMirtazapineReview)
+        && policies.find(p => p.id === 'ahcccs-ffs-nov2026-policy-gl-731218');
+      if (mirtazapine) {
+        const source = await loadClinicalSource(mirtazapine);
+        const branch = source.branches.find(b => b.sourcePage === 125
+          && b.fields.Diagnosis?.text === 'PREFERRED DRUG Requests for patient 6 years of age or younger'
+          && b.fields['Product Name']?.text.includes('generic mirtazapine tabs/ODT'));
+        if (!branch) throw new Error('Mirtazapine age-specific reference unavailable');
+        if (target.isConnected === false) return;
+        target.innerHTML = '<p><strong>AHCCCS Statewide · Fee-for-service</strong> · GL-731218. The drug list specifies PA below age 6. For a request under review, this guideline names patients age 6 or younger. Source-transcribed criteria, clinician approval pending.</p>'
+          + cardBranchMarkup(branch, mirtazapine);
+        const refs = details.querySelector('.card-pa-references');
+        if (refs) refs.innerHTML = cardPaReference(mirtazapine, 'AHCCCS Statewide · age-specific review', 125);
+        details.dataset.loaded = 'true';
+        return;
+      }
       const anxiolytic = group.records.find(r => r.reviewedPresentation?.anxiolyticPolicyProduct);
       const anxiolyticPolicy = anxiolytic && policies.find(p => p.id === 'ahcccs-ffs-nov2026-policy-gl-126970');
       if (anxiolyticPolicy) {
