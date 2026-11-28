@@ -131,3 +131,14 @@ for rx in set(ACH_ISENTRESS)|set(LAMOTRIGINE_OPTIONS):
   assert row['pa']!='conditional'
  else:
   assert 'Do not substitute' in row['reviewedPresentation']['note']
+
+from import_ach_baseline import ACH_CLONAZEPAM
+for rx,ids in ACH_CLONAZEPAM.items():
+ row=next(r for r in baseline if r['rxnormId']==rx)
+ state=[u for u in row['sourceUpdates'] if u['scope']=='statewide_reference']
+ assert [u['id'] for u in state]==['ach-mandated-formulary-'+str(n) for n in ids]
+ assert row['pa']=='conditional' and not row.get('sourceConflict')
+ assert ('< 6 years' in state[0]['paText'])==('Disintegrating' not in row['name'])
+ assert '< 6 years' in state[1]['paText'] and 'Anticonvulsant' in row['paText']
+solution=next(r for r in baseline if r['rxnormId']=='199387')
+assert solution['qlAmount']=='8 mL' and 'retail' in solution['reviewedPresentation']['planDailyAndRetailLabel']
