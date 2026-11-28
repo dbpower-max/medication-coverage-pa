@@ -1734,17 +1734,6 @@
       && record.validation === 'mandated_statewide_minimum_with_plan_adoption_evidence';
   }
 
-  function supplyAuthorizationDetails(record) {
-    const rule = record.supplyAuthorization;
-    if (!rule) return '';
-    const stage = (label, text, url) => `<p><strong>${label} · 1 year.</strong> ${escapeHtml(text)} <a href="${escapeHtml(url)}" class="source-link" target="_blank" rel="noopener">Policy criteria ↗</a></p>`;
-    return `<details class="result-disclosure"><summary>Quantity exception criteria</summary><div class="result-disclosure-body">
-      ${stage('Initial approval', rule.initial, rule.initialUrl)}
-      ${stage('Renewal', rule.renewal, rule.renewalUrl)}
-      <p>The plan allows no override of the $${Number(rule.cap)} high-dollar limit.</p>
-    </div></details>`;
-  }
-
   function statusChips(record, showCoverage = true) {
     const chips = [];
     // Description-correction provenance remains in the source records.
@@ -3167,6 +3156,17 @@
       rows.set(product + '|' + url, `<li>${escapeHtml(product)} · <a href="${escapeHtml(url)}" target="_blank" rel="noopener">p. ${Number(record.sourcePage)}</a></li>`);
     }
     return rows.size ? `<details class="result-disclosure"><summary>Strengths listed in the plan formulary</summary><ul>${[...rows.values()].join('')}</ul></details>` : '';
+  }
+
+  function supplyAuthorizationDetails(record) {
+    const rule = record.supplyAuthorization;
+    if (!rule) return '';
+    const stage = (label, text, url) => `<p><strong>${label} · 1 year.</strong> ${escapeHtml(text)} <a href="${escapeHtml(url)}" class="source-link" target="_blank" rel="noopener">Policy criteria ↗</a></p>`;
+    return `<details class="result-disclosure"><summary>Quantity exception criteria</summary><div class="result-disclosure-body">
+      ${stage('Initial approval', rule.initial, rule.initialUrl)}
+      ${stage('Renewal', rule.renewal, rule.renewalUrl)}
+      <p>The plan allows no override of the $${Number(rule.cap)} high-dollar limit.</p>
+    </div></details>`;
   }
 
   function medicationGroupCard(group) {
