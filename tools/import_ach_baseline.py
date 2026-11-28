@@ -730,6 +730,24 @@ def diazepam_oral(rx,name,sources):
  if rx=='309844':display['planDailyAndRetailLabel']='QL: 2 mL per day and 60 mL per 30 days at retail'
  return [dated,ref],display
 
+ACH_RUFINAMIDE={'824295':'200 mg oral tablet','824301':'400 mg oral tablet','1092357':'40 mg/mL oral suspension'}
+
+def rufinamide_option(rx,name,sources):
+ liquid=rx=='1092357'
+ assert name=='rufinamide '+('40 MG/ML Oral Suspension' if liquid else ACH_RUFINAMIDE[rx].upper().replace('ORAL TABLET','Oral Tablet'))
+ heading='Rufinamide '+ACH_RUFINAMIDE[rx]
+ dated=april_formulary('rufinamide '+('susp' if liquid else 'tabs'),15,'F; SP; PA',pa='required',paText='The Arizona Complete Health formulary lists PA.')
+ ref=statewide_option(sources,9891 if liquid else 9892,'PA REQUIRED | Preference, ST and QL blank.')
+ assert ref['sourcePage']==8 and ref['pa']=='required' and not ref['qlAmount'] and not ref['qlDays']
+ policy='https://www.azcompletehealth.com/content/dam/centene/policies/pharmacy-policies/pmn/CP.PMN.157.pdf'
+ refs=[['Centene Medicaid · CP.PMN.157 · reviewed August 2026 · initial request',policy+'#page=1'],
+       ['Centene Medicaid · CP.PMN.157 · continued therapy',policy+'#page=2']]
+ if not liquid:refs.append(['AHCCCS Statewide · Fee-for-service · generic tablet request','./sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf#page=114'])
+ spl='e2ba061a-49f0-4330-b0f0-00f2c3725625' if liquid else 'afe24968-e078-46d6-a776-b2608734e03e'
+ return [dated,ref],{'label':heading,'separate':True,'prescribingHeading':heading,'identityRxcui':int(rx),
+    'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+spl,'sourceReferences':refs,
+    'rufinamideRequest':'suspension' if liquid else 'tablet','note':'Arizona Complete Health lists PA. The controlling ACC approval and renewal criteria are unverified.'}
+
 def lacosamide_option(rx,name,sources):
  liquid=rx=='993856'
  strength=ACH_LACOSAMIDE[rx]
@@ -1067,6 +1085,8 @@ def with_ach_baseline(d):
    candidates,oral_display=seizure_form_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_DIAZEPAM_ORAL:
    candidates,oral_display=diazepam_oral(row['rxnorm_id'],name,indexed_sources)
+  if row['rxnorm_id'] in ACH_RUFINAMIDE:
+   candidates,oral_display=rufinamide_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_LACOSAMIDE:
    candidates,oral_display=lacosamide_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_ANXIOLYTIC_OPTIONS:
