@@ -64,6 +64,24 @@ for row in data['medications']:
    assert (update['name']==('diazepam (anticonvulsant) gel' if ten else 'diazepam (anticonvulsant) gel 2.5 mg, 20 mg') and update['sourcePage']==14 and update['sourceEffective']=='2023-04-01'
            or update['name']=='DIAZEPAM (ANTICONVULSANT) GEL (10MG, 20MG)' and update['sourcePage']==8 and update['sourceEffective']=='2026-11-01')
    continue
+  seizure_forms={
+   'cp12':({'388311','200133','200131'},'12 HR carbamazepine','Extended Release Oral Capsule'),
+   'tb12':({'199378','402505','402506'},'12 HR carbamazepine','Extended Release Oral Tablet'),
+   'chew':({'308973'},'carbamazepine','Chewable Tablet'),
+   'tabs':({'308979'},'carbamazepine','Oral Tablet'),
+   'susp':({'308976'},'carbamazepine','Oral Suspension')}
+  if update['name'].startswith('carbamazepine ') and update['sourcePage']==14 and update['sourceEffective']=='2023-04-01':
+   ids,ingredient,form=seizure_forms[update['name'].split()[-1]]
+   assert row['rxnormId'] in ids and row['name'].startswith(ingredient) and row['name'].endswith(form)
+   continue
+  if row['rxnormId'] in {'855671','855861','855873','855871'}:
+   assert 'phenytoin sodium' in row['name'] and 'Extended Release Oral Capsule' in row['name']
+   if update.get('id')=='ach-mandated-formulary-9905':
+    assert update['sourceEffective']=='2026-11-01' and update['sourcePage']==8
+   else:
+    assert update['sourceEffective']=='2023-04-01' and update['sourcePage']==15
+    assert update['name']==('DILANTIN' if row['rxnormId']=='855871' else 'phenytoin sodium extended')
+   continue
   if row['rxnormId']=='1801289':
    assert row['name']=='Smoking Cessation 12 HR bupropion hydrochloride 150 MG Extended Release Oral Tablet'
    assert ((update['name']=='bupropion hcl (smoking deterrent)' and update['sourcePage']==72 and update['sourceEffective']=='2023-04-01')
