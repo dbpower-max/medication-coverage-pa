@@ -730,6 +730,21 @@
 
   const gvokeLabelUrl = 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=92385737-dbad-98c5-e053-2995a90a2805';
   const reviewedCardPresentations = new Map([
+    ['uhc-oct-complete-b075e8c634ca1a47', {
+      label: 'Dexmethylphenidate HCl oral tablet (generic for Focalin)', dosageForm: 'oral tablet', separate: true,
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=987b4983-1edc-40f1-adc9-724747080969',
+      labelProductExamples: [['2.5 mg', 899557], ['5 mg', 899518], ['10 mg', 899548]]
+    }],
+    ['uhc-oct-complete-e381880966e4d494', {
+      label: 'Methylphenidate transdermal patch (generic for Daytrana)', dosageForm: 'transdermal patch', separate: true,
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1643b6a5-80da-4d4f-8c5f-feb907875702',
+      labelProductExamples: [['10 mg/9 hours', 753436], ['15 mg/9 hours', 753438], ['20 mg/9 hours', 753440], ['30 mg/9 hours', 753441]]
+    }],
+    ['uhc-oct-complete-f5b56fa0299bad0c', {
+      label: 'Methylphenidate HCl CD extended-release oral capsule (generic for Metadate CD)', dosageForm: 'extended-release oral capsule', separate: true,
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e45c75dc-d381-475b-b649-a871c8a36e60',
+      labelProductExamples: [['10 mg', 1806181], ['20 mg', 1806187], ['30 mg', 1806189], ['40 mg', 1806191], ['50 mg', 1806193], ['60 mg', 1806197]]
+    }],
     ['uhc-oct-complete-229568f7f286fb5b', baqsimiPresentation],
     ['uhc-oct-complete-1c725dc535b842a6', baqsimiPresentation],
     ['ach-json-2535243', {dosageForm: 'subcutaneous solution', identityRxcui: 2535243, labelUrl: zegalogueLabelUrl}],
