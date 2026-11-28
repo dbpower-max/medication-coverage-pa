@@ -82,6 +82,9 @@ for row in data['medications']:
     assert update['sourceEffective']=='2023-04-01' and update['sourcePage']==15
     assert update['name']==('DILANTIN' if row['rxnormId']=='855871' else 'phenytoin sodium extended')
    continue
+  if update['name']=='levetiracetam tb24':
+   assert row['rxnormId'] in {'807832','846378'} and row['name'].startswith('24 HR levetiracetam') and update['sourcePage']==15 and update['sourceEffective']=='2023-04-01'
+   continue
   if row['rxnormId']=='1801289':
    assert row['name']=='Smoking Cessation 12 HR bupropion hydrochloride 150 MG Extended Release Oral Tablet'
    assert ((update['name']=='bupropion hcl (smoking deterrent)' and update['sourcePage']==72 and update['sourceEffective']=='2023-04-01')
