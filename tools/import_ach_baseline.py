@@ -523,6 +523,38 @@ def respiratory_device(rx,name,sources):
  dated=april_formulary(title,13,'F; '+raw,quantityLimited=True,qlAmount=amount,qlDays=days,**fields)
  return [dated,notice,ref],display
 
+def hormone_identity(rx,sources):
+ label='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='
+ april=ACH_APR_2023_PDL
+ state='./sources/ahcccs-drug-list-2026-11-01.pdf'
+ display={'identityRxcui':int(rx),'separate':True}
+ if rx=='310169':
+  heading='Estradiol 0.01% vaginal cream (0.1 mg/g)'
+  display.update(labelUrl=label+'f76232ed-b109-43d1-bf2e-d41b6420c37d',
+                 note='Each gram of the labeled cream contains 0.1 mg estradiol.')
+  updates=[april_formulary('estradiol vaginal crea',78,'F'),
+           statewide_option(sources,11031,'ESTRADIOL VAGINAL CREAM 0.01% | ESTRACE CREAM | preference, PA, ST and QL blank.')]
+ elif rx=='1597076':
+  heading='Testosterone 1.62% transdermal gel pump — 20.25 mg/1.25 g per actuation, 60 actuations'
+  display.update(labelUrl=label+'0d84e5a6-11e9-4940-8991-21c611c4c32f',
+                 note='AHCCCS Statewide lists the authorized generic pump as preferred with PA. The Prasco 88 g pump (NDC 66993-951-88) is a labeled authorized generic. Confirm the manufacturer and package. Boxed warning for secondary exposure to testosterone in children.',
+                 sourceReferences=[['AHCCCS Statewide · authorized generic 1.62% pump only · p. 3',state+'#page=3']])
+  updates=[april_formulary('testosterone gel td 1 %, 1.62 %, 20.25 mg/1.25gm, 25 mg/2.5gm, 40.5 mg/2.5gm, 50 mg/5gm',
+                           10,'F; PA',pa='required',paText='The plan formulary lists PA for transdermal testosterone gel.')]
+ else:
+  yuvafem=rx=='1797113'
+  heading='Yuvafem 10 mcg vaginal tablet in a single-use applicator' if yuvafem else 'Estradiol 10 mcg vaginal insert — product form varies'
+  display['labelUrl']=label+('d20abc9a-8f47-e274-c9b1-b71c9489761f' if yuvafem else '6247e329-e20e-4ea5-9cc1-b593bd494577')
+  display['sourceReferences']=[['Arizona Complete Health · estradiol vaginal tablets · April 2023 · p. 78',april+'#page=78']]
+  if yuvafem:
+   display['note']='Yuvafem is a film-coated tablet supplied in a disposable applicator. The April 2023 formulary gives 58 tablets per 168 days at retail for its estradiol vaginal tablet listing. It does not name the Yuvafem package.'
+  else:
+   display['note']='The same generic RxNorm concept includes an applicator-delivered tablet and a manually inserted softgel. The April 2023 retail limit of 58 per 168 days applies to the tablet listing. Confirm the prescribed presentation.'
+   display['sourceReferences'].append(['Imvexxy softgel insert · FDA label',label+'6ce645c0-a550-4ae9-8dbd-3853ee8b7d26'])
+  updates=[]
+ display.update(prescribingHeading=heading,label=heading)
+ return updates,display
+
 def with_ach_baseline(d):
  src=ROOT/'dist/sources/ach/integrated-formulary-baseline.json.gz'
  raw=json.loads(gzip.decompress(src.read_bytes())); assert len(raw)==4454
@@ -612,6 +644,8 @@ def with_ach_baseline(d):
    candidates,oral_display=verified_oral_form(row["rxnorm_id"],name,indexed_sources)
   if row['rxnorm_id'] in ACH_ANTIPSYCHOTIC_OPTIONS:
    candidates,oral_display=antipsychotic_option(row['rxnorm_id'],name,indexed_sources)
+  if row['rxnorm_id'] in {'1797113','310169','884707','1597076'}:
+   candidates,oral_display=hormone_identity(row['rxnorm_id'],indexed_sources)
   if row['rxnorm_id'] in ACH_BRAND_ANTICOAGULANTS:
    candidates,oral_display=brand_anticoagulant(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_RESPIRATORY_DEVICES:

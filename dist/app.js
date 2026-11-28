@@ -1850,6 +1850,7 @@
       chips.push(['Preference not specified', 'neutral']);
     }
     if ((record.payerPackages || record.supplyAuthorization) && record.preferred === 'not_specified') chips.push(['Preference not specified', 'neutral']);
+    if (record.isStatewideReference && record.preferredPackageNdcs) chips.push(['Preferred for listed NDCs', 'positive']);
     if (record.preferred === 'preferred') chips.push([reviewedCardPresentation(record)?.printedPreference || 'Preferred', 'positive']);
     if (record.preferred === 'non_preferred') chips.push([reviewedCardPresentation(record)?.printedPreference || 'Nonpreferred', 'warning']);
     if (/\bbrand\s*only\b/i.test(record.brandGenericNotes || record.notes || '')) chips.push(['Brand only', 'warning']);
@@ -2007,6 +2008,9 @@
     if (scope) details.push(`<p>${escapeHtml(scope.description)}</p>`);
     if (record.isStatewideReference && record.id.endsWith(':statewide:formulary-9819')) {
       details.push('<p><strong>AHCCCS Statewide:</strong> For SMART asthma therapy, AHCCCS and its contractors cover the authorized generic and Teva generic effective October 1, 2026. The statewide drug list identifies the authorized generic as preferred. <a href="https://azahcccs.gov/Resources/Downloads/PharmacyUpdates/2026/Contractor_Memo_May_2026_PT_MeetingFinal.pdf#page=10" target="_blank" rel="noopener">AHCCCS contractor memo · June 8, 2026 · page 10</a></p>');
+    }
+    if (record.isStatewideReference && record.preferredPackageNdcs) {
+      details.push('<p><strong>AHCCCS Statewide · Preferred Albuterol NDCs</strong> · ' + escapeHtml(record.brand) + ' · ' + record.preferredPackageNdcs.map(escapeHtml).join(', ') + '</p>');
     }
     if (record.payerPackages) {
       details.push(`<p><strong>Plan notice table:</strong></p><ul>${record.payerPackages.map(item =>
