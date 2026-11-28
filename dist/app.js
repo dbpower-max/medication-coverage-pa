@@ -1870,7 +1870,7 @@
     if (reviewedCardPresentation(record)?.stepListingsDiffer) chips.push(['Step therapy varies by listing', 'warning']);
     else if (record.step === 'specified') chips.push(['Step therapy', 'warning']);
     if (record.quantityLimited || record.qlAmount || record.qlDays) chips.push([(reviewedCardPresentation(record)?.quantityAmount && String(record.qlAmount) === reviewedCardPresentation(record).quantityAmount && String(record.qlDays) === '30' && `QL: ${record.qlAmount} per 30 days (unit unspecified)`) || record.verifiedQuantityLabel || bannerAdhdLimit(record) || (reviewedEpinephrineLimit ? (bannerEpinephrine ? 'QL: 2 pens per 30 days' : 'QL: 2 per 30 days (unit unspecified)') : 'Quantity limit'), 'warning']);
-    if (record.ageLimited) chips.push(['Age limit', 'warning']);
+    if (record.ageLimited) chips.push([record.verifiedAgeLabel || 'Age limit', 'warning']);
     if (record.specialty) chips.push(['Specialty', 'warning']);
     if (record.diagnosisRequired) chips.push(['Diagnosis required', 'warning']);
     return chips.filter(([text]) => !/conflicting source listings\s*=\s*conservative status|PA not addressed by notice|exact.plan preference notice/i.test(text)).map(([text, kind, help]) => `<span class="chip ${kind}"${help ? ` title="${escapeHtml(help)}"` : ''}>${escapeHtml(text)}</span>`).join('');
@@ -1908,6 +1908,7 @@
           ? `QL: ${record.qlAmount} per day (unit unspecified)` : scope === 'statewide_reference' && belongs('quantityLimited')
           && reviewedCardPresentation(record)?.quantityAmount === record.qlAmount && record.qlDays === '30'
           ? `QL: ${record.qlAmount} per 30 days (unit unspecified)` : planFormularyLimit ? `QL: ${record.qlAmount} per day` : ''),
+        verifiedAgeLabel: belongs('ageLimited') && display?.planAgeBadge,
         ageLimited: belongs('ageLimited') && record.ageLimited
       }, belongs('coverage'));
       const preference = belongs('coverage') && record.coverage === 'listed' && record.preferred === 'not_specified'

@@ -175,3 +175,15 @@ for rx,(_bup,_nal,_printed,limit) in ACH_OUD_COMBINATIONS.items():
  assert row['benefitSources']['quantityLimited']==row['benefitSources']['preferred']=='selected_plan'
  assert bool(row.get('ageLimited'))==film and 'achProviderRule' not in row and row['pa'] not in ('required','conditional')
  assert {u['id'] for u in row['sourceUpdates'] if u['scope']=='statewide_reference'}==({'ach-mandated-formulary-9699'} if film else set())
+
+from import_ach_baseline import ACH_ENOXAPARIN, ACH_MONTELUKAST
+for rx,(dose,number) in ACH_ENOXAPARIN.items():
+ r=next(r for r in baseline if r['rxnormId']==rx)
+ state,=[u for u in r['sourceUpdates'] if u['scope']=='statewide_reference']
+ assert state['id']=='ach-mandated-formulary-'+str(number) and state['qlAmount']=='60' and state['qlDays']=='30'
+ assert r['qlAmount']==('60' if rx=='854255' else '48 mL' if rx=='854245' else '60 mL')
+ assert '180 mL' not in r['qlAmount'] and r['reviewedPresentation']['identityRxcui']==int(rx)
+for rx,(heading,printed,number) in ACH_MONTELUKAST.items():
+ r=next(r for r in baseline if r['rxnormId']==rx)
+ assert [u['id'] for u in r['sourceUpdates'] if u['scope']=='statewide_reference']==['ach-mandated-formulary-'+str(number)]
+ assert (r['pa']=='conditional')==(rx=='351246') and r['qlDays']=='1'
