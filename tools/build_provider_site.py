@@ -521,6 +521,42 @@ relion_listings = {
     '4245cf9695f76981': ('NovoLog', 351926, 1653204),
 }
 electronic_formulary = json.loads((ROOT / 'audits/uhc_complete_2026_11_12/official_machine_readable.json').read_text())
+# October printed PDL and both UCSAZQ3 electronic copies name these products.
+# Preserve the printed fields and their existing label-specific administration notes.
+electronic_pa_disagreements = {
+    'aa50f2e41f4faa14': (847261, 9975, 6011, '100 units/mL, 3 mL'),
+    'ad3656a231a145e1': (803194, 6865, 7859, '100 units/mL, 10 mL'),
+    '180f1c7535eea5b2': (1736863, 3660, 1564, '100 units/mL, 3 mL'),
+    '100bab6065fcfca3': (1986356, 4045, 2647, '100 units/mL, 3 mL'),
+    '47e7ac4802b75ef8': (2205454, 5393, 4076, '100 units/mL, 3 mL'),
+    '0d8138a620761a85': (2589014, 4145, 2853, '100 units/mL, 3 mL'),
+    '8eaaa9a428e51bfe': (801957, 9040, 9324, '2.5 mg/0.5 mL fixed-dose syringe'),
+}
+for record in data['medications']:
+    key = record['id'].removeprefix('uhc-oct-complete-')
+    if key not in electronic_pa_disagreements:
+        continue
+    rx, october, november, package = electronic_pa_disagreements[key]
+    assert record['planId'] == 'uhc-community-az' and record['sourceEffective'] == '2026-10-01'
+    assert record['rawRestrictions'] == f"Tier {record['tier']}; PA; QL" and record['step'] == 'not_specified'
+    archived = electronic_formulary[october - 1]
+    assert int(archived['rxnorm_id']) == rx
+    variants = [v for v in archived['plans'] if v['plan_id'] == 'UCSAZQ3' and 2026 in v['years']]
+    assert len(variants) == 1
+    variant = variants[0]
+    assert (variant['drug_tier'], variant['prior_authorization'], variant['step_therapy'],
+            variant['quantity_limit']) == ('NON-PREFERRED(90)', False, True, True)
+    evidence = f'RxCUI {rx}: NON-PREFERRED(90), PA false, ST true, QL true.'
+    display = record['reviewedPresentation']
+    display.update({
+        'prescribingHeading': f"{display['label']} — {package}", 'identityRxcui': rx,
+        'paSourceConflict': True, 'electronicStepOnly': True,
+        'electronicEvidence': [f'Row {october}, {evidence}'],
+        'novemberElectronicEvidence': f'Row {november}, {evidence}',
+    })
+    display['note'] += (' The printed formulary lists PA and leaves step therapy blank. '
+                        'Both electronic copies report no PA and list step therapy. '
+                        'The PA requirement and step prerequisites are unverified.')
 # Named UHC basal listings. An unsuffixed printed name cannot select one package.
 basal_labels = {
     'glargine-yfgn':'3ac85ebb-5594-59c8-77fd-df254329d151',

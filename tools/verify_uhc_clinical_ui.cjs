@@ -1323,7 +1323,18 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(!hfaCardMarkup.includes('severe milk protein allergy'));
  const xopenex=groups.flatMap(g=>g.records).find(r=>r.reviewedPresentation?.electronicVersion && r.reviewedPresentation.identityRxcui===746466);
  assert(a.recordDetails(xopenex).includes(currentElectronic) && !a.recordDetails(xopenex).includes(archivedElectronic));
- const basal=groups.filter(g=>g.records.some(r=>r.reviewedPresentation?.electronicEvidence));
+ const conflicts=groups.filter(g=>g.records.some(r=>r.reviewedPresentation?.electronicStepOnly));
+ assert.equal(conflicts.length,7);
+ for(const group of conflicts){
+   const row=group.records[0], presentation=row.reviewedPresentation;
+   const card=a.medicationGroupCard(group), sources=a.recordDetails(row);
+   assert(card.includes(presentation.prescribingHeading) && !card.includes('dosage form unverified'),row.id);
+   assert(card.includes('PA listings conflict') && card.includes('Step therapy listed electronically'),row.id);
+   assert(!card.includes('>PA required<') && row.pa==='required' && row.step==='not_specified',row.id);
+   assert(sources.includes('searchTerm='+presentation.identityRxcui) && sources.includes(archivedElectronic) && sources.includes(currentElectronic),row.id);
+   assert((await open(group)).html.includes('printed and electronic PA listings disagree'),row.id);
+ }
+ const basal=groups.filter(g=>g.records.some(r=>r.reviewedPresentation?.electronicEvidence && r.reviewedPresentation.labelProductExamples));
  assert.equal(basal.length,9);
  for(const g of basal){
    const r=g.records[0],p=r.reviewedPresentation,card=a.medicationGroupCard(g),source=a.recordDetails(r);
