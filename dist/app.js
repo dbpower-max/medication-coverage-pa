@@ -1750,7 +1750,7 @@
     if (state.coverage === 'preferred') return record.preferred === 'preferred';
     if (state.coverage === 'non_preferred') return record.preferred === 'non_preferred';
     const pa = reviewedCardPresentation(record)?.explicitPa ? 'required' : record.pa;
-    if (state.coverage === 'pa_required') return pa === 'required';
+    if (state.coverage === 'pa_required') return pa === 'required' && !reviewedCardPresentation(record)?.electronicStepOnly;
     if (state.coverage === 'pa_conditional') return pa === 'conditional';
     return record.coverage === state.coverage;
   }
@@ -1867,7 +1867,8 @@
       const epiThreshold = reviewedEpinephrineLimit && /PA REQUIRED for > 2 Per Month/i.test(record.paText);
       chips.push([epiThreshold ? 'PA if >2 per month' : 'Conditional PA', 'warning']);
     }
-    if (reviewedCardPresentation(record)?.stepListingsDiffer) chips.push(['Step therapy varies by listing', 'warning']);
+    if (reviewedCardPresentation(record)?.electronicStepOnly) chips.push(['Step therapy listed electronically', 'warning']);
+    else if (reviewedCardPresentation(record)?.stepListingsDiffer) chips.push(['Step therapy varies by listing', 'warning']);
     else if (record.step === 'specified') chips.push(['Step therapy', 'warning']);
     if (record.quantityLimited || record.qlAmount || record.qlDays) chips.push([(reviewedCardPresentation(record)?.quantityAmount && String(record.qlAmount) === reviewedCardPresentation(record).quantityAmount && String(record.qlDays) === '30' && `QL: ${record.qlAmount} per 30 days (unit unspecified)`) || record.verifiedQuantityLabel || bannerAdhdLimit(record) || (reviewedEpinephrineLimit ? (bannerEpinephrine ? 'QL: 2 pens per 30 days' : 'QL: 2 per 30 days (unit unspecified)') : 'Quantity limit'), 'warning']);
     if (record.ageLimited) chips.push([record.verifiedAgeLabel || 'Age limit', 'warning']);
@@ -3012,7 +3013,8 @@
     const classRows = (group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference && r.sourceEffective === '2026-10-01' && classRuleIds.has(r.id));
     if (classRows.length) sections.push('<section class="uhc-restriction-criteria"><h4>Class-wide prescription limit</h4><p>Applies to the listed options: ' + escapeHtml(classRows.map(r => r.name).join('; ')) + '. The October 2026 PDL limits sedative hypnotics, barbiturates and select muscle relaxants to four medications per 30 days; PA is required for additional fills. This is not an individual product quantity limit. <a class="source-link" href="' + escapeHtml(sourceHref({...classRows[0], sourcePage: 35})) + '" target="_blank" rel="noopener">UHC formulary · PDF page 35</a></p></section>');
     const conditionalOnly = duplication.length && paRows.length && paRows.every(r => r.pa === 'conditional');
-    if (conditionalOnly) sections.unshift('<p>The formulary lists conditional PA. See the formulation-specific restrictions and the duplication exception below.</p>');
+    if (paRows.length && paRows.every(r => reviewedCardPresentation(r)?.electronicStepOnly)) sections.unshift('<p>The printed and electronic PA listings disagree. The linked general review criteria do not resolve the product-specific requirement.</p>');
+    else if (conditionalOnly) sections.unshift('<p>The formulary lists conditional PA. See the formulation-specific restrictions and the duplication exception below.</p>');
     else if (paRows.length && !primary.length) sections.unshift(paRows.every(r => r.pa === 'conditional')
       ? '<p>Product-specific approval criteria are unverified. See the formulary for the conditional PA requirement.</p>'
       : '<p>PA is required. Approval criteria have not yet been verified for this formulation. Review the linked UHC source.</p>');
