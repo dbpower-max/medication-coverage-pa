@@ -58,6 +58,18 @@ ANTIDEPRESSANT_BRANCHES = {
         'Generic trazodone 50, 100, 150 and 300 mg tablets',
         [(1, 'trazodone 50 mg and 100 mg and 150 mg and 300 mg tabs')],
     ),
+    'wellbutrin xl (brand for bupropion hcl er (xl))': (
+        'Brand Wellbutrin XL', [(2, 'Brand Wellbutrin XL')],
+    ),
+    'bupropion hcl er (sr) (generic for wellbutrin sr)': (
+        'Generic bupropion ER (SR)', [(1, 'generic bupropion ER (SR)')],
+    ),
+    'bupropion hcl er (xl) tablet extended release 24 hour 150 mg oral (generic for wellbutrin xl)': (
+        'Generic bupropion XL 150 mg', [(1, 'generic bupropion ER (XL) 150 mg and 300 mg')],
+    ),
+    'bupropion hcl er (xl) tablet extended release 24 hour 300 mg oral (generic for wellbutrin xl)': (
+        'Generic bupropion XL 300 mg', [(1, 'generic bupropion ER (XL) 150 mg and 300 mg')],
+    ),
     'mirtazapine oral tablet 45 mg, 7.5 mg': (
         'Generic mirtazapine tablets', [(1, 'generic mirtazapine tabs')],
     ),
@@ -2736,6 +2748,23 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             matched.pop(code, None)
             add(code, [index for index, _ in branches], 'product' if pa else 'age_scoped')
             bindings[-1]['productLabel'] = label
+            if record['id'] == 'uhc-oct-complete-85bd5fad2a1e4e91':
+                bindings[-1]['branchLabels'] = {'2': label}
+                record['reviewedPresentation'] = {
+                    **record.get('reviewedPresentation', {}), 'separate': True,
+                    'label': 'Wellbutrin XL (Bupropion HCl) 24-Hour Extended-Release Oral Tablet',
+                    'dosageForm': '24-hour extended-release oral tablet',
+                    'note': 'DailyMed lists 150 mg and 300 mg tablets. The October formulary lists the brand without a strength.',
+                    'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a435da9d-f6e8-4ddc-897d-8cd2bf777b21',
+                }
+            elif record['id'] == 'uhc-oct-complete-d27be10fd9b0c1e1':
+                record['reviewedPresentation'] = {
+                    **record.get('reviewedPresentation', {}), 'separate': True,
+                    'label': 'Bupropion HCl SR 12-Hour Extended-Release Oral Tablet (generic for Wellbutrin SR)',
+                    'dosageForm': '12-hour extended-release oral tablet',
+                    'note': 'DailyMed lists 100 mg, 150 mg and 200 mg tablets. The October formulary lists this SR option without a strength.',
+                    'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ad784c8e-7201-4336-a310-616e3e979ca4',
+                }
         packet = PANTOPRAZOLE_PACKETS.get(record['name'].lower()) if record.get('sourceEffective') == '2026-10-01' else None
         if packet:
             code = 'GL-255208'
