@@ -1849,7 +1849,7 @@
     if (showCoverage && record.coverage === 'explicit_not_covered') chips.push(['Explicitly not covered', 'negative']);
     if (record.coverageCaveat) chips.push([record.coverageCaveat, 'warning']);
     if (record.planId === 'banner-ufc' && record.coverage === 'listed' && record.preferred === 'not_specified'
-        && reviewedCardPresentation(record) === bannerBasalInsulins.get(record.name) && bannerBasalInsulins.has(record.name)) {
+        && (record.reviewedPresentation?.scopedPlanHeading || (reviewedCardPresentation(record) === bannerBasalInsulins.get(record.name) && bannerBasalInsulins.has(record.name)))) {
       chips.push(['Preference not specified', 'neutral']);
     }
     if ((record.payerPackages || record.supplyAuthorization) && record.preferred === 'not_specified') chips.push(['Preference not specified', 'neutral']);
@@ -2032,14 +2032,15 @@
     if (achSmartRecords.has(record.id)) {
       details.push(`<p><a class="source-link" href="${achSmartNoticeUrl}" target="_blank" rel="noopener">Arizona Complete Health formulary notice ↗</a> · effective October 1, 2026 · SMART asthma therapy paragraph</p>`);
     }
+    const labelSourceName = presentation?.labelUrl?.startsWith('https://www.accessdata.fda.gov/') ? 'FDA drug label' : 'DailyMed drug label';
     if (presentation?.identityRxcui) {
       const id = Number(presentation.identityRxcui);
-      details.push(`<p><strong>Prescribing presentation:</strong> <a href="https://mor.nlm.nih.gov/RxNav/search?searchBy=RXCUI&amp;searchTerm=${id}" target="_blank" rel="noopener">RxCUI ${id}</a> · <a href="${escapeHtml(presentation.labelUrl)}" target="_blank" rel="noopener">DailyMed drug label ↗</a></p>`);
+      details.push(`<p><strong>Prescribing presentation:</strong> <a href="https://mor.nlm.nih.gov/RxNav/search?searchBy=RXCUI&amp;searchTerm=${id}" target="_blank" rel="noopener">RxCUI ${id}</a> · <a href="${escapeHtml(presentation.labelUrl)}" target="_blank" rel="noopener">${labelSourceName} ↗</a></p>`);
     }
     if (presentation?.labelProductExamples) {
       const links = presentation.labelProductExamples.map(([description, id]) =>
         `<a href="https://mor.nlm.nih.gov/RxNav/search?searchBy=RXCUI&amp;searchTerm=${Number(id)}" target="_blank" rel="noopener">${escapeHtml(description)} · RxCUI ${Number(id)}</a>`);
-      details.push(`<p><strong>Labeled presentations:</strong> ${links.join(' · ')}. The formulary does not identify the covered package. <a href="${escapeHtml(presentation.labelUrl)}" target="_blank" rel="noopener">DailyMed drug label ↗</a></p>`);
+      details.push(`<p><strong>Labeled presentations:</strong> ${links.join(' · ')}. The formulary does not identify the covered package. <a href="${escapeHtml(presentation.labelUrl)}" target="_blank" rel="noopener">${labelSourceName} ↗</a></p>`);
     }
     if (presentation?.electronicEvidence) {
       details.push(`<p>${uhcOctoberCitation}. ${escapeHtml(presentation.electronicEvidence.join(' '))}</p>`);
