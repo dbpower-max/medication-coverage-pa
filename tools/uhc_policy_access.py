@@ -2863,6 +2863,29 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                     assert fields['Guideline Type']['text'] == 'Prior Authorization'
                 assert branches[1]['fields']['Product Name']['text'] == 'Loreev XR'
                 add(code, [0, 2], 'anxiolytic_request')
+        # DEC-05/07/12/13/14/19/20: October PDL explicitly lists Loreev XR.
+        # Named age and duplication pathways are not separately staged initial/renewal.
+        if record['id'] == 'uhc-oct-complete-8b76927b97fcfd83':
+            assert october_name == 'loreev xr' and record['pa'] == 'required' and record['preferred'] == 'non_preferred' and ql
+            code = 'GL-140805'
+            assert policies[code]['policyEffective'] == '2023-08-01'
+            branches = structured[code]['branches']
+            assert len(branches) == 3
+            for index, diagnosis in enumerate(('Requests for patients less than 6 years of age', 'Requests for Patients 6 years of age and older', 'Greater than 1 Anxiolytic in 30 days')):
+                fields = branches[index]['fields']
+                assert 'Loreev XR' in fields['Product Name']['text']
+                assert ' '.join(fields['Diagnosis']['text'].split()) == diagnosis
+                assert not fields.get('Therapy Stage')
+            assert branches[1]['fields']['Product Name']['text'] == 'Loreev XR'
+            assert any(b['role'] == 'product' and b['branchIndexes'] == [0, 1, 2] and b['policyId'] == policies[code]['id'] for b in bindings)
+            add('GL-140667', [2], 'monthly_prescription_exception')
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Loreev XR (Lorazepam) Extended-Release Oral Capsule',
+                'dosageForm': 'extended-release oral capsule',
+                'note': 'FDA label: 1, 1.5, 2 and 3 mg extended-release capsules. Labeled for anxiety in adults already receiving stable, evenly divided lorazepam tablet doses; the payer age-specific request pathways do not establish pediatric FDA approval. Payer strength-specific benefit and numeric quantity limit are unverified.',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=227734c1-bf01-9607-73ea-5a1f38a89bd9',
+            }
         if ql:add('GL-140667',[0],'global_quantity')
         record['uhcClinicalBindings']=bindings
         if pa and not any(b['role'] in {'product','nonpreferred','nonsolid'} for b in bindings):missing.append(record['id'])
