@@ -166,3 +166,12 @@ for rx,limit in [('351264','16 tablets'),('351265','4 tablets')]:
  assert r['qlAmount']==limit and r['qlDays']=='1' and r['pa']=='conditional'
  assert r['benefitSources']['preferred']==r['benefitSources']['pa']==r['benefitSources']['quantityLimited']=='selected_plan'
  assert len(r['sourceUpdates'])==3 and r['achProviderRule']['effectiveDate'] is None
+
+from import_ach_baseline import ACH_OUD_COMBINATIONS
+for rx,(_bup,_nal,_printed,limit) in ACH_OUD_COMBINATIONS.items():
+ row=next(r for r in baseline if r['rxnormId']==rx)
+ film=rx!='351266'
+ assert row['qlAmount']==str(limit)+(' films' if film else ' tablets') and row['qlDays']=='1'
+ assert row['benefitSources']['quantityLimited']==row['benefitSources']['preferred']=='selected_plan'
+ assert bool(row.get('ageLimited'))==film and 'achProviderRule' not in row and row['pa'] not in ('required','conditional')
+ assert {u['id'] for u in row['sourceUpdates'] if u['scope']=='statewide_reference'}==({'ach-mandated-formulary-9699'} if film else set())

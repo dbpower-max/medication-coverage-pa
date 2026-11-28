@@ -358,6 +358,39 @@ def injectable_notice_option(rx,name,sources):
   updates.append(dated)
  return updates,display
 
+# Printed constituent order in the April PDL varies. Use both verified amounts.
+ACH_OUD_COMBINATIONS = {
+ '351266': ('2', '0.5', '0.5 mg-2 mg', 16),
+ '1010603': ('2', '0.5', '0.5 MG-2 MG', 16),
+ '1307058': ('4', '1', '1 MG-4 MG, 4 MG-1 MG', 8),
+ '1010606': ('8', '2', '2 MG-8 MG', 4),
+ '1307063': ('12', '3', '3 MG-12 MG', 2),
+}
+
+def oud_combination_updates(rx,name,sources):
+ bup,nal,printed,limit = ACH_OUD_COMBINATIONS[rx]
+ film=rx!='351266'
+ form='Film [Suboxone]' if film else 'Tablet'
+ assert name==f'buprenorphine {bup} MG / naloxone {nal} MG Sublingual {form}'
+ unit='films' if film else 'tablets'
+ drug='SUBOXONE FILM SL' if film else 'buprenorphine hcl-naloxone hcl dihydrate subl'
+ earlier={'name':drug+' '+printed,'sourceTitle':'Arizona Complete Health April 2023 Complete Care PDL',
+          'sourceUrl':ACH_APR_2023_PDL,'sourceEffective':'2023-04-01','sourcePage':10,'sourceKind':'plan_formulary',
+          'coverage':'listed','quantityLimited':True,'qlAmount':f'{limit} {unit}','qlDays':'1',
+          'rawBenefit':f'F; QL({limit} ea daily); AL(At least 6 yrs old)' if film else 'F; Tablet Formulation; QL(16 ea daily).'}
+ notice=sources['ach-notice-13948' if film else 'ach-notice-13947']
+ updates=[earlier,{**notice,'rawBenefit':'Preferred column, opioid dependence treatments. '+('BRAND PREFERRED OVER GENERIC.' if film else 'BUPRENORPHINE/NALOXONE TAB (SUBLINGUAL).')}]
+ heading=f'Suboxone {bup} mg/{nal} mg sublingual film' if film else f'Buprenorphine {bup} mg/naloxone {nal} mg sublingual tablet'
+ display={'prescribingHeading':heading,'identityRxcui':int(rx),
+          'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+('8a5edcf9-828c-4f97-b671-268ab13a8ecd' if film else '17b63f10-c9df-44be-80fa-6f1c305583b8')}
+ if film:
+  earlier.update(ageLimited=True,ageRestrictionText='Arizona Complete Health April 2023 formulary age limit: ≥6 years.')
+  ref=sources['ach-mandated-formulary-9699']
+  assert ref['brand']=='SUBOXONE FILM' and ref['sourcePage']==3
+  updates.append({**ref,**ref['statewideReference'],'rawBenefit':'SUBOXONE FILM | BRAND ONLY | PREFERRED DRUG | PA, ST and quantity fields blank.'})
+  display['note']='Arizona Complete Health lists brand Suboxone film as preferred over generic film.'
+ return updates,display
+
 def with_ach_baseline(d):
  src=ROOT/'dist/sources/ach/integrated-formulary-baseline.json.gz'
  raw=json.loads(gzip.decompress(src.read_bytes())); assert len(raw)==4454
@@ -447,6 +480,8 @@ def with_ach_baseline(d):
    candidates,oral_display=verified_oral_form(row["rxnorm_id"],name,indexed_sources)
   if row['rxnorm_id'] in ACH_ANTIPSYCHOTIC_OPTIONS:
    candidates,oral_display=antipsychotic_option(row['rxnorm_id'],name,indexed_sources)
+  if row['rxnorm_id'] in ACH_OUD_COMBINATIONS:
+   candidates,oral_display=oud_combination_updates(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in {'351264','351265'}:
    dose,limit=('2',16) if row['rxnorm_id']=='351264' else ('8',4)
    assert name==f'buprenorphine {dose} MG Sublingual Tablet'
