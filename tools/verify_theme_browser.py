@@ -31,7 +31,7 @@ def verify_coverage_labels(page, width):
     baseline = vials.filter(has_text="The plan does not specify a preferred vial size.")
     statewide = vials.filter(has_text="AHCCCS Statewide")
     for card, expected, evidence in (
-        (baseline, ["Covered", "Preferred", "Quantity limit"], "row 2170"),
+        (baseline, ["Covered", "Preferred", "Plan formulary", "QL: 1 mL per day"], "row 2170"),
         (statewide, ["AHCCCS Statewide", "Covered", "Preferred", "Authorized generic only"],
          "AHCCCS statewide reference. Exact-plan coverage and restrictions are unverified."),
     ):

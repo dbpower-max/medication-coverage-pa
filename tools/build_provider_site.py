@@ -114,6 +114,28 @@ for record in data['medications']:
             'sourceEffective':'2023-02-01', 'paText':'Humulin R U-500 KwikPen: F; PA.',
             'sourceUrl':'https://www.azcompletehealth.com/content/dam/centene/az-complete-health/pdf/provider/formulary/AZ%20Integrated%20English%20CNCAZCH01_19108_2023-01-25-Final%20508C%20PDF%20-%20Feb%202023.pdf#page=26',
         }]
+ach_insulin_labels = {
+ '311027': ('Novolin N (human NPH insulin) 100 units/mL multidose vial', 'injectable suspension', 'Labeled 10 mL multidose vial.', '82f1445c-b2c6-445a-82cf-ba8825fac776'),
+ '311033': ('Novolin R (regular human insulin) 100 units/mL multidose vial', 'solution for injection', 'Labeled 10 mL multidose vial.', 'aee7f1f3-612c-4027-8ce9-4fd1f41eed71'),
+ '311040': ('Insulin aspart 100 units/mL multidose vial', 'solution for injection', 'Labeled 10 mL multidose vial.', 'bee5b358-c863-420b-be73-ced2e920c499'),
+ '1653202': ('Insulin aspart 100 units/mL prefilled pen', 'solution for injection', 'Labeled FlexPen: 3 mL single-patient-use pen.', 'bee5b358-c863-420b-be73-ced2e920c499'),
+ '285018': ('Lantus (insulin glargine) 100 units/mL multidose vial', 'solution for injection', 'Labeled 10 mL multidose vial.', 'd5e07a0c-7e14-4756-9152-9fea485d654a'),
+ '847232': ('Lantus SoloStar (insulin glargine) 100 units/mL prefilled pen', 'solution for injection', '3 mL single-patient-use pen.', 'd5e07a0c-7e14-4756-9152-9fea485d654a'),
+ '106892': ('Humulin 70/30 (human NPH/regular insulin) 100 units/mL multidose vial', 'injectable suspension', 'Labeled 10 mL multidose vial.', 'e245e0c5-b2d6-418b-baa4-1c3324292885'),
+ '847189': ('Humulin 70/30 KwikPen (human NPH/regular insulin) 100 units/mL prefilled pen', 'injectable suspension', '3 mL single-patient-use pen.', 'e245e0c5-b2d6-418b-baa4-1c3324292885'),
+ '351926': ('NovoLog (insulin aspart) 100 units/mL multidose vial', 'solution for injection', 'Labeled 10 mL multidose vial.', '3a1e73a2-3009-40d0-876c-b4cb2be56fc5'),
+ '1653198': ('NovoLog PenFill (insulin aspart) 100 units/mL cartridge', 'solution for injection', '3 mL cartridge for a compatible PenFill insulin delivery device.', '3a1e73a2-3009-40d0-876c-b4cb2be56fc5'),
+ '1653204': ('NovoLog FlexPen (insulin aspart) 100 units/mL prefilled pen', 'solution for injection', '3 mL single-patient-use pen.', '3a1e73a2-3009-40d0-876c-b4cb2be56fc5'),
+ '977842': ('NovoLog Mix 70/30 (insulin aspart protamine/insulin aspart) 100 units/mL multidose vial', 'injectable suspension', 'Labeled 10 mL multidose vial.', '1861fcee-7673-4afe-a206-08fa05c0add2'),
+ '977840': ('NovoLog Mix 70/30 FlexPen (insulin aspart protamine/insulin aspart) 100 units/mL prefilled pen', 'injectable suspension', '3 mL single-patient-use pen.', '1861fcee-7673-4afe-a206-08fa05c0add2'),
+}
+for record in data['medications']:
+    rx=record['id'].removeprefix('ach-json-')
+    if rx in ach_insulin_labels:
+        assert record['planId']=='az-complete-health' and record['baselineSource'] and str(record['rxnormId'])==rx
+        heading,form,note,label_id=ach_insulin_labels[rx]
+        record['reviewedPresentation']={'label':heading,'dosageForm':form,'note':note,'identityRxcui':int(rx),'separate':True,
+                                        'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label_id}
 correct_source_restrictions(data['medications'])
 correct_source_conflicts(data['medications'])
 attach_provider_policies(data)
@@ -328,6 +350,48 @@ relion_listings = {
     '4245cf9695f76981': ('NovoLog', 351926, 1653204),
 }
 electronic_formulary = json.loads((ROOT / 'audits/uhc_complete_2026_11_12/official_machine_readable.json').read_text())
+# Named UHC basal listings. An unsuffixed printed name cannot select one package.
+basal_labels = {
+    'glargine-yfgn':'3ac85ebb-5594-59c8-77fd-df254329d151',
+    'Semglee':'8cf5544f-87d6-468b-f6ae-898b1fdb5d80',
+    'Lantus':'d5e07a0c-7e14-4756-9152-9fea485d654a',
+    'Tresiba':'456c5e87-3dfd-46fa-8ac0-c6128d4c97c6',
+    'Toujeo':'c9561d96-124d-48ca-982f-0aa1575bff36',
+}
+basal_presentations = {
+    '4270f8a1ce19e554': ('glargine-yfgn','Insulin glargine-yfgn 100 units/mL subcutaneous prefilled pen','3 mL single-patient-use pen. The electronic file contains preferred and nonpreferred variants with different step requirements. The printed pen listing is preferred; eligible packages are unverified.',[(5117,2563971,'3 mL pen')]),
+    '96922f638bb987d2': ('glargine-yfgn','Insulin glargine-yfgn 100 units/mL subcutaneous solution (device unspecified)','The printed solution listing does not name the device. The 10 mL vial is a labeled presentation.',[(4483,2563976,'Solution formulation')]),
+    '8adc25a96356b867': ('Lantus','Lantus SoloStar (insulin glargine) 100 units/mL prefilled pen','3 mL single-patient-use pen.',[(8397,847232,'3 mL pen')]),
+    '749c738dcab2dcdd': ('Lantus','Lantus (insulin glargine) 100 units/mL multidose vial','Labeled 10 mL multidose vial.',[(1393,285018,'Vial formulation')]),
+    '31c74f821a4c856f': ('Semglee','Semglee (insulin glargine-yfgn) 100 units/mL solution for injection (device unspecified)','The label identifies a 10 mL multidose vial and a 3 mL prefilled pen. The printed listing does not identify the covered device.',[(2838,2563977,'Vial formulation'),(7855,2563973,'3 mL pen')]),
+    '4bbdff08522d2939': ('Tresiba','Tresiba (insulin degludec) solution for injection (device unspecified)','The printed listing does not select a concentration or device. Labeled products include a 100 units/mL vial and FlexTouch pens in two concentrations.',[(5374,2107522,'100 units/mL vial'),(3320,1670016,'100 units/mL pen'),(1102,1670023,'200 units/mL pen')]),
+    '2785ed0256f35226': ('Tresiba','Tresiba FlexTouch (insulin degludec) 100 units/mL or 200 units/mL prefilled pen','Both pens contain 3 mL. The 100 units/mL pen dials in 1-unit increments; the 200 units/mL pen dials in 2-unit increments.',[(3320,1670016,'100 units/mL pen'),(1102,1670023,'200 units/mL pen')]),
+    'fdfe8892e218f00d': ('Toujeo','Toujeo Max SoloStar (insulin glargine) 300 units/mL prefilled pen','3 mL pen, 900 units total. Dials in 2-unit increments, up to 160 units per injection.',[(7766,2002420,'3 mL Max SoloStar')]),
+    'c04f64c23aca9188': ('Toujeo','Toujeo SoloStar (insulin glargine) 300 units/mL prefilled pen','1.5 mL pen, 450 units total. Dials in 1-unit increments, up to 80 units per injection.',[(1716,1604544,'1.5 mL SoloStar')]),
+}
+for record in data['medications']:
+    suffix=record['id'].removeprefix('uhc-oct-complete-')
+    if suffix not in basal_presentations:
+        continue
+    family,heading,note,products=basal_presentations[suffix]
+    assert record['planId']=='uhc-community-az' and record['sourceEffective']=='2026-10-01'
+    evidence=[]
+    conflict=record['pa']=='required'
+    for position,rx,description in products:
+        source=electronic_formulary[position-1]
+        assert int(source['rxnorm_id'])==rx
+        entries=[v for v in source['plans'] if v['plan_id']=='UCSAZQ3']
+        assert entries and all(2026 in v['years'] and v['quantity_limit'] and not v['prior_authorization'] for v in entries)
+        assert not conflict or all(v['step_therapy'] for v in entries)
+        flags=', '.join(v['drug_tier']+' (PA: no, ST: '+('yes' if v['step_therapy'] else 'no')+', QL: yes)' for v in entries)
+        evidence.append(f'Row {position}, RxCUI {rx}: {flags}.')
+    if conflict:
+        note+=' UHC’s printed list specifies PA. Its electronic file reports no PA and lists step therapy. Current requirements are unverified.'
+    record['reviewedPresentation']={
+        'label':heading,'dosageForm':'solution for injection','separate':True,'note':note,'paSourceConflict':conflict,
+        'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+basal_labels[family],
+        'labelProductExamples':[[desc,rx] for _,rx,desc in products],'electronicEvidence':evidence,
+    }
 reviewed_insulin_ids = set()
 for record in data['medications']:
     suffix = record['id'].removeprefix('uhc-oct-complete-')

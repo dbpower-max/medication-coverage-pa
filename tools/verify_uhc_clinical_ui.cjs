@@ -1193,6 +1193,15 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(vialSource.includes('row 8951')&&vialSource.includes('row 9571')&&vialSource.includes('searchTerm=311036')&&vialSource.includes('searchTerm=351859'));
  const u500=groups.find(g=>g.records.some(r=>r.id.endsWith('86d347968a4e113f')));
  assert(a.medicationGroupCard(u500).includes('PA listings conflict')&&a.recordDetails(u500.records[0]).includes('row 132'));
+ const basal=groups.filter(g=>g.records.some(r=>r.reviewedPresentation?.electronicEvidence));
+ assert.equal(basal.length,9);
+ for(const g of basal){
+   const r=g.records[0],p=r.reviewedPresentation,card=a.medicationGroupCard(g),source=a.recordDetails(r);
+   assert.equal(g.records.length,1);assert(card.includes(p.label)&&!card.includes('dosage form unverified'),r.id);
+   assert.equal(card.includes('PA listings conflict'),r.pa==='required');
+   for(const [,rx] of p.labelProductExamples) assert(source.includes('searchTerm='+rx),r.id);
+   assert(source.includes('UCSAZQ3')&&source.includes('QL: yes'));
+ }
  const restrictedTablet=groups.flatMap(g=>g.records).find(r=>r.id==='uhc-oct-complete-e0991a351bcb909e');
  assert(restrictedTablet.rawRestrictions.includes('Mallinckrodt and Kremers Urban labelers'));
  const adjacentOsm=groups.flatMap(g=>g.records).find(r=>r.id==='uhc-oct-complete-5a48097e2182f426');
@@ -1640,9 +1649,9 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   ['4b27f95aecd5c517', /Admelog.*Labeled Vial/, true],
   ['99b7a79d60f9be27', /Insulin Lispro U-100.*Labeled Vial/, false],
   ['6b20c512802745b5', /75\/25 U-100 Prefilled Pen/, false],
-  ['96922f638bb987d2', /Glargine-yfgn SC Solution.*Device Unspecified/, true],
-  ['4270f8a1ce19e554', /Glargine-yfgn SC Pen Injector/, false],
-  ['31c74f821a4c856f', /Semglee.*Device Unspecified/, true],
+  ['96922f638bb987d2', /glargine-yfgn 100 units\/mL subcutaneous solution.*device unspecified/i, true],
+  ['4270f8a1ce19e554', /glargine-yfgn 100 units\/mL subcutaneous prefilled pen/i, false],
+  ['31c74f821a4c856f', /Semglee.*device unspecified/i, true],
   ['c005b426150daab6', /BD Pen Needle Micro Ultra-Fine/, false],
   ['d8778fc0002099ad', /BD Pen Needle Mini Ultra-Fine/, false],
   ['29ba3ba96676a42d', /BD Ultra-Fine Pen Needles.*Size Unspecified/, false],
@@ -1664,13 +1673,20 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   assert.equal(group.records.length, 1, group.label);
   const card = a.medicationGroupCard(group);
   assert(card.includes('>Tier 2<') && card.includes('>Quantity limit<'));
-  assert.equal(card.includes('>PA required<'), pa, group.label);
+  const conflict=group.records[0].reviewedPresentation?.paSourceConflict || id==='4b27f95aecd5c517';
+  assert.equal(card.includes(conflict?'>PA listings conflict<':'>PA required<'),pa,group.label);
   const {html,ref} = await open(group);
   assert(ref.includes('QL reference'));
   if (!pa) assert(!card.includes('PA reference') && !ref.includes('PA reference') && !html.includes('General nonpreferred PA criteria'), group.label);
   insulinCards.add(group);
  }
  assert.equal(insulinCards.size, insulinAndSupplies.length);
+ for (const [id, rx, row] of [['4b27f95aecd5c517',1992169,5025], ['b66766253ca867d5',1992171,2429]]) {
+   const group=byId(id), card=a.medicationGroupCard(group), sources=a.recordDetails(group.records[0]);
+   assert(card.includes('PA listings conflict') && !card.includes('>PA required<'));
+   assert(sources.includes('searchTerm='+rx) && sources.includes('row '+row));
+   assert(sources.includes('0691def8-4a7b-4de3-866f-a280989f47f1'));
+ }
  for (const [id,label] of [
   ['7fb64d26f93768e3', /Humalog.*Vial or Cartridge/],
   ['bdd6e173aa27ca29', /Humalog Mix 75.25.*Labeled Vial/],

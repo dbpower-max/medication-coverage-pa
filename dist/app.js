@@ -790,10 +790,12 @@
       uhcFormRx: "847252"}],
     ["uhc-oct-complete-4b27f95aecd5c517", {...lisproProducts.admelogVial,
       label: "Admelog (Insulin Lispro) U-100 Injection Solution (Labeled Vial)", separate: true,
-      uhcFormRx: "1992169", packageQualifier: "UHC does not specify eligible vial sizes.", note: uhcLisproConflict}],
+      heading: "Admelog (insulin lispro) 100 units/mL solution for injection · labeled multidose vial",
+      identityRxcui: 1992169, electronicRow: 5025, paSourceConflict: true, packageQualifier: "UHC does not specify eligible vial sizes.", note: uhcLisproConflict}],
     ["uhc-oct-complete-b66766253ca867d5", {...lisproProducts.admelogPen,
       label: "Admelog SoloStar (Insulin Lispro) U-100 Prefilled Pen", separate: true,
-      uhcFormRx: "1992171", note: uhcLisproConflict}],
+      heading: "Admelog SoloStar (insulin lispro) 100 units/mL prefilled pen",
+      identityRxcui: 1992171, electronicRow: 2429, paSourceConflict: true, note: uhcLisproConflict}],
     ["uhc-oct-complete-7fb64d26f93768e3", {...lisproProducts.humalogVialCartridge,
       label: "Humalog (Insulin Lispro) U-100 Injection — Vial or Cartridge", separate: true,
       uhcFormRx: "865098, 1652646", paSourceConflict: true, packageQualifier: "UHC’s printed listing does not distinguish the vial from the cartridge.", note: uhcLisproConflict}],
@@ -1468,7 +1470,7 @@
     else if (record.pa === 'required') chips.push(['PA required', 'warning']);
     else if (record.pa === 'conditional') chips.push(['Conditional PA', 'warning']);
     if (record.step === 'specified') chips.push(['Step therapy', 'warning']);
-    if (record.quantityLimited || record.qlAmount || record.qlDays) chips.push([bannerAdhdLimit(record) || 'Quantity limit', 'warning']);
+    if (record.quantityLimited || record.qlAmount || record.qlDays) chips.push([record.verifiedQuantityLabel || bannerAdhdLimit(record) || 'Quantity limit', 'warning']);
     if (record.ageLimited) chips.push(['Age limit', 'warning']);
     if (record.specialty) chips.push(['Specialty', 'warning']);
     if (record.diagnosisRequired) chips.push(['Diagnosis required', 'warning']);
@@ -1484,16 +1486,20 @@
     ];
     const lines = sources.map(([scope, label]) => {
       const belongs = field => origins[field] === scope;
+      const planFormularyLimit = belongs('quantityLimited') && scope === 'selected_plan'
+        && record.sourceUpdates?.some(update => update.sourceTitle === 'Arizona Complete Health February 2023 Complete Care PDL' && update.qlAmount === record.qlAmount && update.qlDays === record.qlDays)
+        && record.qlAmount === '1 mL' && record.qlDays === '1';
       const badges = statusChips({
         recordType: 'formulary', coverage: record.coverage,
         preferred: belongs('preferred') && record.preferred,
         pa: belongs('pa') && record.pa, step: belongs('step') && record.step,
         quantityLimited: belongs('quantityLimited') && record.quantityLimited,
+        verifiedQuantityLabel: planFormularyLimit ? 'QL: 1 mL per day' : '',
         ageLimited: belongs('ageLimited') && record.ageLimited
       }, belongs('coverage'));
       const preference = belongs('coverage') && record.coverage === 'listed' && record.preferred === 'not_specified'
         && !record.preferenceUncertaintyReason ? '<span class="chip neutral">Preference not specified</span>' : '';
-      const sourceChip = label ? `<span class="chip neutral">${escapeHtml(label)}</span>` : '';
+      const sourceChip = label ? `<span class="chip neutral">${escapeHtml(planFormularyLimit ? 'Plan formulary' : label)}</span>` : '';
       return badges ? `<div class="chips" aria-label="${escapeHtml(label || 'Plan')} coverage attributes">${sourceChip}${badges}${preference}</div>` : '';
     }).join('');
     const holds = [...new Set([record.sourceConflict, record.paUncertaintyReason].filter(Boolean))];
@@ -1590,6 +1596,9 @@
         `<a href="https://mor.nlm.nih.gov/RxNav/search?searchBy=RXCUI&amp;searchTerm=${Number(id)}" target="_blank" rel="noopener">${escapeHtml(description)} · RxCUI ${Number(id)}</a>`);
       details.push(`<p><strong>Labeled presentations:</strong> ${links.join(' · ')}. The formulary does not identify the covered package. <a href="${escapeHtml(presentation.labelUrl)}" target="_blank" rel="noopener">DailyMed drug label ↗</a></p>`);
     }
+    if (presentation?.electronicEvidence) {
+      details.push(`<p><a href="https://legacy.providerlookuponline.com/mrf/optumrx/drugs/2877216/JSON_Drugs_UHCCPAZ.json" target="_blank" rel="noopener">UHC electronic formulary ↗</a> · UCSAZQ3, October 20, 2026 file. ${escapeHtml(presentation.electronicEvidence.join(' '))}</p>`);
+    }
     if (presentation?.electronicComparisons) {
       const comparisons = presentation.electronicComparisons.map(([label,rx,position,spl]) =>
         `<li>${escapeHtml(label)} · row ${position} · <a href="https://mor.nlm.nih.gov/RxNav/search?searchBy=RXCUI&amp;searchTerm=${rx}" target="_blank" rel="noopener">RxCUI ${rx}</a> · <a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=${spl}" target="_blank" rel="noopener">DailyMed label</a></li>`);
@@ -1613,7 +1622,7 @@
       if (record.paUncertaintyReason) details.push(`<p>${escapeHtml(record.paUncertaintyReason)}</p>`);
     }
     if (record.sourceUpdates?.length) details.push('<p><strong>Later applicable sources:</strong></p>' + record.sourceUpdates.map(item =>
-      `<p>${item.scope === 'statewide_reference' ? 'AHCCCS Statewide' : 'Plan notice'} · <a href="${escapeHtml(sourceHref(item))}" target="_blank" rel="noopener">${escapeHtml(item.name)} · ${escapeHtml(item.sourceEffective)}</a>${item.paText ? ' · ' + escapeHtml(item.paText) : ''}</p>`).join(''));
+      `<p>${item.scope === 'statewide_reference' ? 'AHCCCS Statewide' : item.sourceTitle === 'Arizona Complete Health February 2023 Complete Care PDL' ? 'Plan formulary' : 'Plan notice'} · <a href="${escapeHtml(sourceHref(item))}" target="_blank" rel="noopener">${escapeHtml(item.name)} · ${escapeHtml(item.sourceEffective)}</a>${item.paText ? ' · ' + escapeHtml(item.paText) : ''}</p>`).join(''));
     if (record.achProviderRule) details.push(`<p><strong>Plan PA rule:</strong> ${escapeHtml(record.achProviderRule.text)} <a href="${escapeHtml(record.achProviderRule.sourceUrl)}" target="_blank" rel="noopener">Provider pharmacy page ↗</a> · accessed ${escapeHtml(record.achProviderRule.observedDate)}.</p>`);
     if (record.quantityLimited && !record.qlAmount && !record.qlDays) details.push('<p><strong>Quantity limit:</strong> The source lists a limit without specifying an amount or interval.</p>');
     if (hasVerifiedMandatedCoverage(record)) details.push('<p><strong>Coverage source:</strong> AHCCCS-mandated minimum</p>');
@@ -1663,7 +1672,7 @@
       if (record.coverageText) details.push(`<p><strong>Coverage restriction:</strong> ${escapeHtml(record.coverageText)}</p>`);
       if (record.stepText) details.push(`<p><strong>Step:</strong> ${escapeHtml(record.stepText)}</p>`);
       if (record.qlAmount || record.qlDays) {
-        const interval = record.qlDays && `per ${record.qlDays}${/^\d+(?:\.\d+)?$/.test(String(record.qlDays)) ? ' days' : ''}`;
+        const interval = record.qlDays === '1' ? 'per day' : record.qlDays && `per ${record.qlDays}${/^\d+(?:\.\d+)?$/.test(String(record.qlDays)) ? ' days' : ''}`;
         details.push(`<p><strong>Quantity limit:</strong> ${escapeHtml([record.qlAmount, interval].filter(Boolean).join(' '))}</p>`);
       }
       if (record.notes) details.push(`<p><strong>Notes:</strong> ${escapeHtml(record.notes)}</p>`);

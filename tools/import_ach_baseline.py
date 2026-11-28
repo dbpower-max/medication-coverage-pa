@@ -115,6 +115,23 @@ def apply_benefit_updates(record, candidates):
  record['benefitSources'] = origins
  record['auditScope'] = baseline if not candidates else 'mixed_sources'
 
+ACH_FEB_2023_PDL = ('https://www.azcompletehealth.com/content/dam/centene/az-complete-health/pdf/provider/formulary/'
+                    'AZ%20Integrated%20English%20CNCAZCH01_19108_2023-01-25-Final%20508C%20PDF%20-%20Feb%202023.pdf')
+# Printed pages 20–21, PDF pages 25–26. F denotes formulary, not preference.
+ACH_DAILY_INSULIN_LIMITS = {
+ '311027': ('NOVOLIN N SUSP',26),
+ '311033': ('NOVOLIN R SOLN IJ',26),
+ '311040': ('INSULIN ASPART SOLN IJ',26),
+ '1653202': ('INSULIN ASPART FLEXPEN SOPN',26),
+ '242120': ('INSULIN LISPRO SOLN IJ',26),
+ '1652639': ('INSULIN LISPRO KWIKPEN SOPN',26),
+ '1926331': ('INSULIN LISPRO JUNIOR KWIKPEN SOPN',26),
+ '285018': ('LANTUS SOLN',26),
+ '847232': ('LANTUS SOLOSTAR SOPN',26),
+ '106892': ('HUMULIN 70/30 SUSP 70 UNIT/ML-30 UNIT/ML',25),
+ '847189': ('HUMULIN 70/30 KWIKPEN SUPN 30 UNIT/ML-70 UNIT/ML',26),
+}
+
 def with_ach_baseline(d):
  src=ROOT/'dist/sources/ach/integrated-formulary-baseline.json.gz'
  raw=json.loads(gzip.decompress(src.read_bytes())); assert len(raw)==4454
@@ -159,6 +176,11 @@ def with_ach_baseline(d):
   candidates=[r for b,r in candidates]
   if pack_update:
    candidates.append(pack_update)
+  if row['rxnorm_id'] in ACH_DAILY_INSULIN_LIMITS:
+   printed,page = ACH_DAILY_INSULIN_LIMITS[row['rxnorm_id']]
+   candidates.append({'name':printed, 'sourceTitle':'Arizona Complete Health February 2023 Complete Care PDL',
+                      'sourceEffective':'2023-02-01','sourceUrl':ACH_FEB_2023_PDL,'sourcePage':page,
+                      'quantityLimited':True,'qlAmount':'1 mL','qlDays':'1'})
   candidates.sort(key=lambda r:r.get('sourceEffective',''))
   rec=dict(id='ach-json-'+row['rxnorm_id'],recordType='formulary',planId='az-complete-health',name=name,brand=brand,category='Other',subcategory='Integrated formulary',coverage='listed',listingLabel='Covered',preferred='preferred' if p.get('drug_tier')=='PREFERRED' else 'not_specified',pa='required' if p.get('prior_authorization') else ('not_required' if p.get('prior_authorization') is False else 'not_specified'),paText='The formulary lists prior authorization.' if p.get('prior_authorization') else '',step='specified' if p.get('step_therapy') else 'not_specified',stepText='The formulary requires step therapy but does not specify the steps.' if p.get('step_therapy') else '',quantityLimited=bool(p.get('quantity_limit')),qlAmount='',qlDays='',conditions=[],notes='',sourceTitle='Arizona Complete Health official integrated JSON baseline (declared plan year 2022)',sourceEffective='2022',sourceUrl='/sources/ach/integrated-formulary-baseline.json.gz',sourceRow=index+1,rxnormId=row['rxnorm_id'],validation='official_json_baseline_with_later_updates',baselineSource={'url':SOURCE,'declaredPlanYears':p['years'],'row':index+1,'values':p},sourceUpdates=[])
   if pack_update:

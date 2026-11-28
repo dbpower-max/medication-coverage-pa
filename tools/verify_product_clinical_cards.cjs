@@ -93,6 +93,18 @@ for(const plan of data.plans){
 // DEC-06/07/19/20: ACH exact baseline flags and label presentation.
 api.state.planId='az-complete-health';
 const achOudGroups=api.planMedicationGroups();
+for(const [rx,matched] of [
+ ['285018',true],['847232',true],['106892',true],['847189',true],['311027',true],['311033',true],
+ ['311040',true],['1653202',true],['242120',true],['1652639',true],['1926331',true],['847252',false],
+ ['351926',false],['1653198',false],['1653204',false],['977842',false],['977840',false]
+]){
+ const g=achOudGroups.find(g=>g.records.some(r=>r.id==='ach-json-'+rx));
+ const r=g.records.find(r=>r.id==='ach-json-'+rx),card=api.medicationGroupCard(g),src=api.recordDetails(r);
+ assert.equal(card.includes('QL: 1 mL per day'),matched,rx);
+ assert.equal(r.baselineSource.values.quantity_limit,true);assert.equal(r.baselineSource.values.prior_authorization,false);
+ assert.equal(src.includes('Feb%202023.pdf#page='),matched);
+ if(matched) assert.equal(r.benefitSources.quantityLimited,'selected_plan');
+}
 for(const [rx,row,identity,pa] of [
  ['1670016',886,'100 units/mL prefilled pen',false],['1670023',887,'200 units/mL prefilled pen',false],
  ['2107522',1908,'100 units/mL multidose vial',false],['1731317',966,'500 units/mL prefilled pen',true]
