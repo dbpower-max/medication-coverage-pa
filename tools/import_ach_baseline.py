@@ -223,6 +223,52 @@ def antipsychotic_option(rx,name,sources):
           'note':f"AHCCCS Statewide requires PA below age {age}. At age {age} and older, PA is waived when prescribed by a psychiatric clinician, a developmental pediatrician or another prescriber approved by the MCO."}
  return [dated,sources['ach-notice-'+str(notice)],source],display
 
+# April 2023 integrated PDL, printed pp. 10 and 22. The November statewide
+# reference distinguishes oral solids, prepared liquid and extended release.
+ACH_ISENTRESS = {
+ '1235591':('ISENTRESS CHEW',10298,'Isentress 100 mg chewable tablet'),
+ '1235595':('ISENTRESS CHEW',10298,'Isentress 25 mg chewable tablet'),
+ '1486841':('ISENTRESS PACK',10299,'Isentress 100 mg granules for oral suspension, single-dose packet'),
+ '744846':('ISENTRESS TABS',10300,'Isentress 400 mg film-coated oral tablet'),
+ '1924315':('ISENTRESS HD TABS',None,'Isentress HD 600 mg film-coated oral tablet'),
+}
+ACH_LAMOTRIGINE = [
+ ('850087 900164 850091','lamotrigine tb24 25 mg, 50 mg, 100 mg',9880,'24-hour extended-release oral tablet',3,'260dc37d-6e64-4688-82dc-10a1a428af17'),
+ ('900156 1146690 1098608','lamotrigine tb24 200 mg, 250 mg, 300 mg',9880,'24-hour extended-release oral tablet',2,'260dc37d-6e64-4688-82dc-10a1a428af17'),
+ ('103968 252479 198430 252478','lamotrigine tbdp',9881,'orally disintegrating tablet',None,'df34faa4-829e-413a-a230-cbec604eead9'),
+ ('198427 198428 198429 282401','lamotrigine tabs',None,'oral tablet',None,'3dfdcc2d-b7c5-7abf-e063-6394a90a24a6'),
+ ('311264 311265','lamotrigine chew',9878,'chewable, dispersible tablet for oral suspension',None,'50fcf452-2d21-493e-a1dd-0c6ea9ac6184'),
+]
+LAMOTRIGINE_OPTIONS={rx:(printed,state,form,limit,label) for ids,printed,state,form,limit,label in ACH_LAMOTRIGINE for rx in ids.split()}
+
+def verified_oral_form(rx,name,sources):
+ limit=None
+ if rx in ACH_ISENTRESS:
+  printed,state,heading=ACH_ISENTRESS[rx]
+  assert '[Isentress]' in name and name.startswith('raltegravir ')
+  page=27
+  label='89a5ec53-d956-4329-8004-0f40f51c88a3'
+  note='The chewable tablets and oral suspension have different pharmacokinetics from the film-coated tablets. Do not substitute either for the 400 mg Isentress or 600 mg Isentress HD film-coated tablet.'
+  if state is None:
+   note+=' The statewide tablet listing does not specify the HD presentation.'
+ else:
+  printed,state,form,limit,label=LAMOTRIGINE_OPTIONS[rx]
+  assert 'lamotrigine' in name and '[' not in name
+  strength=re.search(r'([\d.]+) MG',name)[1]
+  heading=f'Lamotrigine {strength} mg {form}'
+  page=15
+  note='Disperse the tablet only as directed in the product labeling. The statewide suspension entry describes a separate product.' if state==9878 else ''
+ dated={'name':printed,'sourceTitle':'Arizona Complete Health April 2023 Complete Care PDL','sourceUrl':ACH_APR_2023_PDL,
+        'sourceEffective':'2023-04-01','sourcePage':page,'sourceKind':'plan_formulary','coverage':'listed','rawBenefit':'F; restrictions blank.'}
+ if limit:
+  dated.update(quantityLimited=True,qlAmount=f'{limit} tablets',qlDays='1',rawBenefit=f'F; QL({limit} ea daily).')
+ updates=[dated]
+ if state:
+  ref=sources['ach-mandated-formulary-'+str(state)]
+  updates.append({**ref, **ref['statewideReference'],
+                  'rawBenefit':' | '.join((ref['name'],ref['brand'],'PREFERRED DRUG' if ref['preferred']=='preferred' else 'Preference blank'))})
+ return updates,{'prescribingHeading':heading,'identityRxcui':int(rx),'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label,'note':note}
+
 def with_ach_baseline(d):
  src=ROOT/'dist/sources/ach/integrated-formulary-baseline.json.gz'
  raw=json.loads(gzip.decompress(src.read_bytes())); assert len(raw)==4454
@@ -307,9 +353,11 @@ def with_ach_baseline(d):
    candidates.extend([suspension, {'name':'budesonide (inhalation) susp', 'sourceTitle':'Arizona Complete Health April 2023 Complete Care PDL',
                                    'sourceEffective':'2023-04-01','sourceUrl':ACH_APR_2023_PDL,'sourcePage':13,
                                    'sourceKind':'plan_formulary','coverage':'listed','rawBenefit':'F; restriction fields blank.'}])
-  antipsychotic_display=None
+  oral_display=None
+  if row["rxnorm_id"] in ACH_ISENTRESS or row["rxnorm_id"] in LAMOTRIGINE_OPTIONS:
+   candidates,oral_display=verified_oral_form(row["rxnorm_id"],name,indexed_sources)
   if row['rxnorm_id'] in ACH_ANTIPSYCHOTIC_OPTIONS:
-   candidates,antipsychotic_display=antipsychotic_option(row['rxnorm_id'],name,indexed_sources)
+   candidates,oral_display=antipsychotic_option(row['rxnorm_id'],name,indexed_sources)
   if pack_update:
    candidates.append(pack_update)
   if row['rxnorm_id'] in ACH_DAILY_INSULIN_LIMITS:
@@ -346,8 +394,8 @@ def with_ach_baseline(d):
                       'paText':'NF; PA. The plan defines NF as requiring authorization for coverage.'})
   candidates.sort(key=lambda r:r.get('sourceEffective',''))
   rec=dict(id='ach-json-'+row['rxnorm_id'],recordType='formulary',planId='az-complete-health',name=name,brand=brand,category='Other',subcategory='Integrated formulary',coverage='listed',listingLabel='Covered',preferred='preferred' if p.get('drug_tier')=='PREFERRED' else 'not_specified',pa='required' if p.get('prior_authorization') else ('not_required' if p.get('prior_authorization') is False else 'not_specified'),paText='The formulary lists prior authorization.' if p.get('prior_authorization') else '',step='specified' if p.get('step_therapy') else 'not_specified',stepText='The formulary requires step therapy but does not specify the steps.' if p.get('step_therapy') else '',quantityLimited=bool(p.get('quantity_limit')),qlAmount='',qlDays='',conditions=[],notes='',sourceTitle='Arizona Complete Health official integrated JSON baseline (declared plan year 2022)',sourceEffective='2022',sourceUrl='/sources/ach/integrated-formulary-baseline.json.gz',sourceRow=index+1,rxnormId=row['rxnorm_id'],validation='official_json_baseline_with_later_updates',baselineSource={'url':SOURCE,'declaredPlanYears':p['years'],'row':index+1,'values':p},sourceUpdates=[])
-  if antipsychotic_display:
-   rec['reviewedPresentation']=antipsychotic_display
+  if oral_display:
+   rec['reviewedPresentation']=oral_display
   if pack_update:
    rec['verifiedStatewidePackId'] = pack_reference
   if row['rxnorm_id'] in {'349094', '351109', '252559'}:

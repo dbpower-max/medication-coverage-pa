@@ -457,6 +457,19 @@ for rx,(heading,set_id,note) in naloxone_presentations.items():
         display['statewideDailyLimit']='2'
     ach_records['ach-json-'+rx]['reviewedPresentation']=display
 
+# The statewide brand-only wording identifies the marketed 8 mg nasal product.
+# Copy prescribing identity only. Keep each source record's benefit fields intact.
+kloxxado_state=next(r for r in statewide_drugs if r['id']=='formulary-10015')
+assert kloxxado_state['brand']=='KLOXXADO' and kloxxado_state['notes']=='BRAND ONLY'
+kloxxado_banner=next(r for r in data['medications'] if r['id']=='banner-full-4eb997968790cb7c')
+assert (kloxxado_banner['sourcePage'],kloxxado_banner['brand'],kloxxado_banner['notes'])==(11,'KLOXXADO','BRAND ONLY')
+for record,rx in [(kloxxado_state,'2540709'),(kloxxado_banner,'2540709'),(ach_records['ach-notice-13953'],'2540709'),
+                  (ach_records['ach-notice-13957'],'1725064'),(ach_records['ach-notice-13958'],'2680741')]:
+    original=ach_records['ach-json-'+rx]['reviewedPresentation']
+    record['reviewedPresentation']={k:original[k] for k in ('prescribingHeading','identityRxcui','labelUrl')}
+    if record['id']=='ach-notice-13957':
+        record['reviewedPresentation']['prescribingHeading']='Narcan OTC 4 mg/0.1 mL single-dose nasal spray'
+
 attach_dosage_forms(data["medications"] + statewide_drugs)
 attach_shared_policy(data)
 data["planDataFiles"] = {k: v for k, v in data.get("planDataFiles", {}).items() if k in ALLOWED}
