@@ -171,6 +171,17 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
      }
    }
  }
+ for (const [suffix,brandSuspension] of [['aaa62ffa6b337f44',true],['21007168b6a3e6c9',false]]) {
+   const g=groups.find(group=>group.records.some(row=>row.id.endsWith(suffix)));
+   const row=g.records.find(row=>row.id.endsWith(suffix)), detail=await open(g);
+   const b=row.uhcClinicalBindings.find(x=>x.role==='duplication');
+   assert(b.policyId.endsWith('gl-735259') && b.namedProductPage===1712 && b.criteriaPage===1714,suffix);
+   assert(!row.uhcClinicalBindings.some(x=>x.policyId.endsWith('gl-140639')),suffix);
+   assert(!detail.html.includes('#page=550"') && !detail.html.includes('Crohn'),suffix);
+   assert(detail.html.includes('#page=1714"') && detail.html.includes('#page=702"'),suffix);
+   assert.equal(detail.html.includes('#page=1202"'),brandSuspension,suffix);
+   assert.equal(a.medicationGroupCard(g).includes('>PA listings conflict<'),brandSuspension,suffix);
+ }
  const marinolState=a.clinicalGuidanceFor({name:'Marinol',brands:['MARINOL'],records:[]});
  assert.equal(marinolState?.id,'gl-398214-marinol');
  assert(JSON.stringify(marinolState.pathways).includes('preferred generic dronabinol'));
@@ -838,7 +849,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   for(const phrase of ['Uceris (Budesonide) Extended-Release Oral Tablet or Rectal Foam (Payer Form Unspecified)','2 mg/actuation rectal foam','Exact UHC product-specific initial/renewal criteria'])assert(card.includes(phrase),phrase);
   assert(card.includes('href="'+r.reviewedPresentation.labelUrl+'"'));
   const out=await open(g);assert(!out.ref.includes('page=550'));assert(out.ref.includes('page=1202'));assert(out.ref.includes('page=702'));
-  assert(groups.some(x=>x.records.some(r=>r.id!==id&&r.uhcClinicalBindings?.some(b=>b.role==='product'&&b.policyId.endsWith('gl-140639')))));
+  assert(data.policies.some(p=>p.planId==='uhc-community-az' && p.policyCode==='GL-140639' && p.sourcePage===550),'Entocort EC remains accessible in the UHC policy library');
  }
  // These exact listings retain administrative review but no named product PA.
  for(const [suffix,label,phrase,hasQL] of [

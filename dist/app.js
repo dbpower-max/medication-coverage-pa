@@ -747,7 +747,40 @@
     link: libreReaderNoticeUrl, linkLabel: 'FDA reader charging precautions'
   };
   const libreSensorSources = [['FDA sensor correction · affected serial numbers', libreSensorNoticeUrl], ['Abbott sensor transition and reader compatibility', libreTransitionUrl]];
+  const respulesLabel = 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=33cd9834-76df-4f26-3fa2-aab6b9eee8f2';
+  const bannerRescueOptions = new Map();
+  for (const [planId, statewideId, label, rx, limit, labelUrl] of [
+    ['banner-oct26-013','9963','Zegalogue (dasiglucagon) 0.6 mg/0.6 mL single-dose subcutaneous autoinjector',2535249,'1','https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=14704879-872c-4967-8779-04a3bbdfb4e6'],
+    ['banner-oct26-014','9964','Zegalogue (dasiglucagon) 0.6 mg/0.6 mL single-dose subcutaneous prefilled syringe',2535243,'2','https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=14704879-872c-4967-8779-04a3bbdfb4e6'],
+    ['banner-oct26-016','9966','Baqsimi (glucagon) 3 mg single-dose nasal powder device',2180671,'2',baqsimiPresentation.labelUrl]
+  ]) {
+    const option = {label, identityRxcui: rx, labelUrl, quantityAmount: limit, dosageForm: rx === 2180671 ? 'nasal powder' : 'injection solution',
+      note: (rx === 2180671 ? '' : 'FDA lists both Zegalogue presentations as discontinued. ') + 'The label describes one- and two-device cartons. The formulary does not specify whether it counts devices or cartons.'};
+    if (rx !== 2180671) option.sourceReferences = [['FDA Drugs@FDA · NDA214231 · products 001 and 002, checked November 28, 2026', 'https://api.fda.gov/drug/drugsfda.json?search=application_number%3ANDA214231']];
+    bannerRescueOptions.set(planId, option);
+    bannerRescueOptions.set('banner-ufc:statewide:formulary-' + statewideId, option);
+  }
   const reviewedCardPresentations = new Map([
+    ['uhc-oct-complete-aaa62ffa6b337f44', {
+      label: 'Pulmicort Suspension (Respules) for nebulized inhalation', labelUrl: respulesLabel, paSourceConflict: true,
+      labelProductExamples: [['0.25 mg/2 mL',616830],['0.5 mg/2 mL',616817],['1 mg/2 mL',616819]],
+      electronicEvidence: ['Rows 9921, 7401 and 6835: all three brand strengths are nonpreferred, PA false, ST true and QL true.'],
+      novemberElectronicEvidence: 'Rows 5888, 6447 and 5493 retain the same flags for the three brand strengths.',
+      note: 'UHC’s printed list flags PA. Its electronic entries report no PA and list step therapy. The exact prerequisite, numeric quantity limit and eligible package are unverified.'
+    }],
+    ['uhc-oct-complete-21007168b6a3e6c9', {
+      label: 'Pulmicort Flexhaler (budesonide) dry powder inhaler', labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=10f2ae5b-a6fb-4804-9111-0cd067c2b1b2',
+      labelProductExamples: [['90 mcg/actuation, 60 actuations',966529],['180 mcg/actuation, 120 actuations',966524]],
+      electronicEvidence: ['Rows 6655 and 10114: preferred, PA false, ST false and QL true for both presentations.'],
+      novemberElectronicEvidence: 'Rows 8618 and 8389 retain the same flags.'
+    }],
+    ['uhc-oct-complete-954f6f2befd57997', {
+      label: 'Budesonide inhalation (generic for Pulmicort; printed form unspecified)', printedPreference: 'Preferred in printed PDL',
+      labelUrl: respulesLabel, labelProductExamples: [['0.25 mg/2 mL suspension',349094],['0.5 mg/2 mL suspension',351109],['1 mg/2 mL suspension',252559]],
+      electronicEvidence: ['Suspension rows 7367 and 5110 (0.25 and 1 mg/2 mL) are preferred, PA false, ST false, QL true. Row 8973 (0.5 mg/2 mL) also has a nonpreferred variant with ST true. Both variants report PA false and QL true.'],
+      novemberElectronicEvidence: 'Rows 6381, 5416 and 4820 retain the flags for the respective strengths.',
+      note: 'For the 0.5 mg/2 mL suspension, UHC lists preferred and nonpreferred electronic entries. Only the nonpreferred entry lists step therapy. The package mapping and numeric quantity limit are unverified.'
+    }],
     ['uhc-oct-complete-1fd2b0bc4536d405', {deviceSafety: libreReaderSafety}],
     ['uhc-oct-complete-24439ea20bf1ab84', {
       deviceSafety: libreReaderSafety, deviceSourceUrl: libreTransitionUrl, note: 'Compatible with the Libre 2 Plus sensor.'
@@ -1208,6 +1241,9 @@
   };
 
   function coverageSource(record) {
+    if (bannerRescueOptions.has(record.id)) return record.isStatewideReference
+      ? {label: 'AHCCCS Statewide', description: 'AHCCCS Statewide drug list · November 1, 2026.'}
+      : {label: 'Banner formulary', description: 'Banner–University Family Care/ACC formulary · October 1, 2026.'};
     if (record.isStatewideReference || record.auditScope === 'statewide_reference') return statewideCoverageSource;
     return null;
   }
@@ -1257,6 +1293,7 @@
   ]);
 
   function reviewedCardPresentation(record) {
+    if (bannerRescueOptions.has(record.id)) return bannerRescueOptions.get(record.id);
     if (record.id === 'banner-ufc:statewide:formulary-9598' && record.brand === 'CATAPRES') return {dosageForm: 'oral tablet'};
     // Pair each Banner October brand row only with its matching statewide November row.
     if (record.planId === 'banner-ufc' && record.name === 'INSULIN NPH ISOPHANE & REG (HUMAN) SUSPENSION'
@@ -1740,7 +1777,7 @@
     }
     if (reviewedCardPresentation(record)?.stepListingsDiffer) chips.push(['Step therapy varies by listing', 'warning']);
     else if (record.step === 'specified') chips.push(['Step therapy', 'warning']);
-    if (record.quantityLimited || record.qlAmount || record.qlDays) chips.push([record.verifiedQuantityLabel || bannerAdhdLimit(record) || (reviewedEpinephrineLimit ? (bannerEpinephrine ? 'QL: 2 pens per 30 days' : 'QL: 2 per 30 days (unit unspecified)') : 'Quantity limit'), 'warning']);
+    if (record.quantityLimited || record.qlAmount || record.qlDays) chips.push([(bannerRescueOptions.has(record.id) && String(record.qlAmount) === bannerRescueOptions.get(record.id).quantityAmount && String(record.qlDays) === '30' && `QL: ${record.qlAmount} per 30 days (unit unspecified)`) || record.verifiedQuantityLabel || bannerAdhdLimit(record) || (reviewedEpinephrineLimit ? (bannerEpinephrine ? 'QL: 2 pens per 30 days' : 'QL: 2 per 30 days (unit unspecified)') : 'Quantity limit'), 'warning']);
     if (record.ageLimited) chips.push(['Age limit', 'warning']);
     if (record.specialty) chips.push(['Specialty', 'warning']);
     if (record.diagnosisRequired) chips.push(['Diagnosis required', 'warning']);
@@ -3289,7 +3326,7 @@
         const continuedUse = isUhc && record.id === 'uhc-oct-complete-de1ca42f17826905' && uhcAgeEightPa(record)
           && record.rawRestrictions?.includes('Continued use of two or more drugs in this class may require prior authorization')
           ? '<p class="pa-condition">Continued use of two or more drugs in this class may require PA.</p>' : '';
-        const limit = !bannerEpiPenIds.has(record.id) && !bannerAdhdLimit(record) && (bannerProducts.includes(record) || (isBanner && group.isStatewide && mixedPlanRows.includes(record)))
+        const limit = !bannerRescueOptions.has(record.id) && !bannerEpiPenIds.has(record.id) && !bannerAdhdLimit(record) && (bannerProducts.includes(record) || (isBanner && group.isStatewide && mixedPlanRows.includes(record)))
           && /^\d+(?:\.\d+)?$/.test(record.qlAmount) && /^\d+$/.test(record.qlDays)
           ? `<p class="pa-condition"><strong>Quantity limit:</strong> ${escapeHtml(record.qlAmount)} per ${escapeHtml(record.qlDays)} days. The formulary does not specify a unit.</p>` : '';
         const source = coverageSource(record);

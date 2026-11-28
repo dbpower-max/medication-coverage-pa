@@ -176,6 +176,15 @@ def with_ach_baseline(d):
    candidates.append((branded,r))
   if any(b for b,r in candidates):candidates=[(b,r) for b,r in candidates if b]
   candidates=[r for b,r in candidates]
+  if row['rxnorm_id'] in {'349094', '351109', '252559'}:
+   # The baseline expresses concentration; the state prints total dose in each 2 mL ampule.
+   assert 'Inhalation Suspension' in name
+   suspension = next(r for r in current if r['id'] == 'ach-mandated-formulary-9805')
+   assert 'SUSPENSION 0.25MG, 0.50MG & 1.0MG' in suspension['name']
+   candidates = [r for r in candidates if r['id'] not in {'ach-mandated-formulary-9805', 'ach-mandated-formulary-9806'}]
+   candidates.extend([suspension, {'name':'budesonide (inhalation) susp', 'sourceTitle':'Arizona Complete Health April 2023 Complete Care PDL',
+                                   'sourceEffective':'2023-04-01','sourceUrl':ACH_APR_2023_PDL,'sourcePage':13,
+                                   'sourceKind':'plan_formulary','coverage':'listed','rawBenefit':'F; restriction fields blank.'}])
   if pack_update:
    candidates.append(pack_update)
   if row['rxnorm_id'] in ACH_DAILY_INSULIN_LIMITS:
@@ -214,6 +223,8 @@ def with_ach_baseline(d):
   rec=dict(id='ach-json-'+row['rxnorm_id'],recordType='formulary',planId='az-complete-health',name=name,brand=brand,category='Other',subcategory='Integrated formulary',coverage='listed',listingLabel='Covered',preferred='preferred' if p.get('drug_tier')=='PREFERRED' else 'not_specified',pa='required' if p.get('prior_authorization') else ('not_required' if p.get('prior_authorization') is False else 'not_specified'),paText='The formulary lists prior authorization.' if p.get('prior_authorization') else '',step='specified' if p.get('step_therapy') else 'not_specified',stepText='The formulary requires step therapy but does not specify the steps.' if p.get('step_therapy') else '',quantityLimited=bool(p.get('quantity_limit')),qlAmount='',qlDays='',conditions=[],notes='',sourceTitle='Arizona Complete Health official integrated JSON baseline (declared plan year 2022)',sourceEffective='2022',sourceUrl='/sources/ach/integrated-formulary-baseline.json.gz',sourceRow=index+1,rxnormId=row['rxnorm_id'],validation='official_json_baseline_with_later_updates',baselineSource={'url':SOURCE,'declaredPlanYears':p['years'],'row':index+1,'values':p},sourceUpdates=[])
   if pack_update:
    rec['verifiedStatewidePackId'] = pack_reference
+  if row['rxnorm_id'] in {'349094', '351109', '252559'}:
+   rec['excludedStatewidePolicyCode'] = 'GL-99451'
   for r in candidates:
    rec['category']=r.get('category') or rec['category'];rec['subcategory']=r.get('subcategory') or rec['subcategory']
    update={k:r.get(k) for k in ['id','name','sourceTitle','sourceUrl','sourceEffective','sourcePage','preferred','pa','paText','step','stepText','qlAmount','qlDays']}

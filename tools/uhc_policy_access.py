@@ -2143,6 +2143,11 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + setid,
             }
         # DEC-05/06/12/13/14/19/20: label-backed identities, no extrapolated payer criteria.
+        if record['id'] == 'uhc-oct-complete-aaa62ffa6b337f44':
+            assert october_name == 'pulmicort suspension (brand for budesonide)'
+            assert matched.pop('GL-140639') == {0}, 'Review changed Entocort source'
+            record['excludedPolicyCode'] = 'GL-140639'
+            record['excludedStatewidePolicyCode'] = 'GL-99451'
         # DEC-05/06/12/13/14/19/20: Uceris is not Entocort EC (Crohn disease).
         if record['id'] == 'uhc-oct-complete-07fe2aebae5a0ba6':
             assert october_name == 'uceris (brand for budesonide)'
@@ -2682,6 +2687,8 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             }
         # Named options in the administrative duplication branch, not routine product PA.
         duplication_product = {
+            'uhc-oct-complete-aaa62ffa6b337f44': 'Brand Pulmicort suspension',
+            'uhc-oct-complete-21007168b6a3e6c9': 'Brand Pulmicort Flexhaler',
             'uhc-oct-complete-be916cf5ebe9501f': 'generic budesonide/formoterol',
             'uhc-oct-complete-d286297ad03ac6d9': 'generic budesonide/formoterol',
             'uhc-oct-complete-836fcbdd50338512': 'Brand Symbicort',
@@ -2698,7 +2705,8 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             assert policies[code]['policyEffective'] == '2026-11-01' and record['sourceEffective'] == '2026-10-01'
             matched.pop(code, None)
             add(code, [0], 'duplication')
-            bindings[-1].update(productLabel=duplication_product, namedProductPage=1713, criteriaPage=1714)
+            named_page = 1712 if duplication_product.startswith('Brand Pulmicort') else 1713
+            bindings[-1].update(productLabel=duplication_product, namedProductPage=named_page, criteriaPage=1714)
         # DEC-05/12/13/14/19/20: exact preferred sprinkle capsule; retain conditional age rule.
         if record['id'] == 'uhc-oct-complete-f24f86de993ce49c':
             assert october_name == 'divalproex sodium oral capsule delayed release sprinkle (generic for depakote sprinkles)'
