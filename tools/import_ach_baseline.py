@@ -163,7 +163,7 @@ NALOXONE_SOURCES = {
  '2680741': (None, 13958, (10016,)),
 }
 
-def naloxone_updates(rx, sources):
+def naloxone_updates(rx, sources, statewide):
  printed,notice,ref_ids=NALOXONE_SOURCES[rx]
  updates=[]
  if printed:
@@ -175,7 +175,7 @@ def naloxone_updates(rx, sources):
  for n in ref_ids:
   ref=sources['ach-mandated-formulary-'+str(n)]
   updates.append({**ref, **ref['statewideReference'],
-                  'rawBenefit':' | '.join([ref['name'],ref['brand'],ref.get('brandGenericNotes',''),ref['preferred'],
+                  'rawBenefit':' | '.join([ref['name'],ref['brand'],statewide['formulary-'+str(n)]['notes'],ref['preferred'],
                                            str(ref['statewideReference'].get('qlAmount','')),str(ref['statewideReference'].get('qlDays',''))])})
  return updates
 
@@ -186,6 +186,7 @@ def with_ach_baseline(d):
  correct_source_restrictions(d['medications'])
  correct_source_conflicts(d['medications'])
  current=[r for r in d['medications'] if r['planId']=='az-complete-health' and r.get('validation')!='official_json_baseline_with_later_updates']
+ statewide_sources={r['id']:r for r in d['medications'] if r['planId']=='ahcccs-statewide'}
  indexed_sources={r['id']:r for r in current}
  result=[];counts=collections.Counter()
  for index,row in enumerate(raw):
@@ -223,7 +224,7 @@ def with_ach_baseline(d):
   if any(b for b,r in candidates):candidates=[(b,r) for b,r in candidates if b]
   candidates=[r for b,r in candidates]
   if row['rxnorm_id'] in NALOXONE_SOURCES:
-   candidates=naloxone_updates(row['rxnorm_id'],indexed_sources)
+   candidates=naloxone_updates(row['rxnorm_id'],indexed_sources,statewide_sources)
   if row['rxnorm_id'] in ACH_OCT_NOTICE_MATCH:
    notice_id, printed_name = ACH_OCT_NOTICE_MATCH[row['rxnorm_id']]
    notice = next(r for r in current if r['id'] == notice_id)

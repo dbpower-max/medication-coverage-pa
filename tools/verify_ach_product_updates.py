@@ -95,3 +95,9 @@ for rx in ('1191234','1191222','1659929','1191250','2679504','1725059','1725064'
  assert (str(row['qlAmount']),str(row['qlDays']))==(('2','1') if nasal else ('',''))
  assert row['reviewedPresentation']['identityRxcui']==int(rx)
  assert ('deviceSafety' in row['reviewedPresentation'])==(rx=='1191234')
+
+ for u in row['sourceUpdates']:
+  if u['id'] in ('ach-mandated-formulary-10015','ach-mandated-formulary-10016'):
+   assert 'BRAND ONLY' in u['rawBenefit']
+  if u['id']=='ach-mandated-formulary-9694':
+   assert 'OVER-THE-COUNTER & PRESCRIPTION ONLY' in u['rawBenefit']

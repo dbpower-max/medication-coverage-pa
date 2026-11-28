@@ -1903,7 +1903,8 @@
       }, belongs('coverage'));
       const preference = belongs('coverage') && record.coverage === 'listed' && record.preferred === 'not_specified'
         && !record.preferenceUncertaintyReason ? '<span class="chip neutral">Preference not specified</span>' : '';
-      const sourceChip = label ? `<span class="chip neutral">${escapeHtml(planFormulary ? 'Plan formulary' : label)}</span>` : '';
+      const mixedPlanSources = planFormulary && record.sourceUpdates.some(update => update.scope === scope && update.sourceUrl?.endsWith('/PU26135.html'));
+      const sourceChip = label ? `<span class="chip neutral">${escapeHtml(mixedPlanSources ? 'Plan sources' : planFormulary ? 'Plan formulary' : label)}</span>` : '';
       return badges ? `<div class="chips" aria-label="${escapeHtml(label || 'Plan')} coverage attributes">${sourceChip}${badges}${preference}</div>` : '';
     }).join('');
     const holds = [...new Set([record.sourceConflict, record.paUncertaintyReason].filter(Boolean))];
