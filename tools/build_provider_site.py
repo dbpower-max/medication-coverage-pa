@@ -151,6 +151,20 @@ statewide_pa = [r for r in data["policies"]
 assert 1400 <= len(statewide_drugs) <= 1500, "November AHCCCS drug list not found"
 assert len(statewide_pa) >= 400, "November AHCCCS PA criteria index not found"
 assert all(r["sourceEffective"] == "2026-11-01" for r in statewide_drugs)
+# November p6 preferred-status cells qualify only the NDCs on the same row.
+albuterol_package_rows = {
+    'formulary-9812': ['00254100752', '00781729685'],
+    'formulary-9813': ['00054074287', '69097014260', '72572001401', '76282067942'],
+    'formulary-9814': ['00093317431'],
+    'formulary-9815': ['45802008801', '68180096301'],
+    'formulary-9816': ['66993001968'],
+}
+for row in statewide_drugs:
+    if row['id'] in albuterol_package_rows:
+        codes = albuterol_package_rows[row['id']]
+        assert row['name'] == 'ALBUTEROL SULFATE INHALER' and row['sourcePage'] == 6
+        assert row['notes'] == ' '.join('NDC ' + code for code in codes)
+        row['preferredPackageNdcs'] = codes
 data["statewideDrugList"] = statewide_drugs
 data["statewidePaCriteria"] = statewide_pa
 # Only release clinically meaningful rules individually checked against the
