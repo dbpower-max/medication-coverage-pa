@@ -661,5 +661,28 @@ def attach_provider_policies(data):
   r['policySources']=[link]+[x for x in r.get('policySources',[]) if x.get('textUrl')!=link['textUrl']]
   checked.add(r['id'])
  assert checked==set(hormone_rows)
+ # October Banner names are retained verbatim in Sources; label examples do not set benefits by strength.
+ estradiol_forms={
+  '5909cef997161b0a':('ESTRADIOL TABLETS','Estradiol (Estrace reference) oral tablets','487ce40e-1f13-4497-994a-c5d91b87b6cc',[('0.5 mg oral tablet',197657),('1 mg oral tablet',197658),('2 mg oral tablet',197659)],''),
+  '345351bab03d7259':('ESTRADIOL VAGINAL CREAM 0.01%','Estradiol 0.01% vaginal cream (Estrace reference)','dfc41fcd-c5ba-4b25-b647-cf04d3988b3e',[('Generic vaginal cream',310169),('Estrace vaginal cream',890918)],'The FDA label specifies 0.1 mg of estradiol per gram of cream, with a calibrated applicator. Labeled package example: 42.5 g tube.'),
+  '3f55e627c5259328':('ESTRADIOL VAGINAL RING','Estring estradiol 7.5 mcg/day vaginal system','110b9865-5a07-4d45-b560-e89947f12600',[('Estradiol vaginal ring',848328),('Estring',848330)],'The ring contains 2 mg and releases 7.5 mcg/day over 90 days. Femring contains estradiol acetate at different release rates.'),
+  'ae17a433c5207130':('ESTRADIOL VAGINAL TABLETS','Estradiol 10 mcg vaginal insert (Vagifem reference)','e5ad3cf6-dd96-4e64-af21-c1eee38d0b88',[('10 mcg vaginal tablet',884707),('Vagifem 10 mcg vaginal insert',884709)],'Place vaginally with the single-use applicator.'),
+  'a6b8062a5dd6a05b':('ESTRADIOL & NORETHINDRONE ACETATE PATCH TWICE WEEKLY','CombiPatch estradiol / norethindrone acetate twice-weekly transdermal patch','83198ef1-11c4-11e4-9191-0800200c9a66',[('0.05/0.14 mg per day',1251493),('Brand 0.05/0.14 mg per day',1251495),('0.05/0.25 mg per day',1251499),('Brand 0.05/0.25 mg per day',1251501)],'The two patches deliver different daily amounts of norethindrone acetate. Replace twice weekly.'),
+  'c508cc7fbc5b9d3a':('ESTRADIOL PATCH-TWICE WEEKLY','Estradiol twice-weekly transdermal patch (Alora reference)','https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020655s022lbl.pdf',[('0.025 mg/day',248478),('0.05 mg/day',242891),('0.075 mg/day',1149632),('0.1 mg/day',242892),('Alora 0.025 mg/day',486155),('Alora 0.075 mg/day',1149645),('Alora 0.1 mg/day',310180)],'The Alora label lists four delivery rates. The 0.05 mg/day branded RxCUI is unverified.'),
+  '0adecd65a6b09ab5':('ESTRADIOL PATCH-WEEKLY','Menostar estradiol 14 mcg/day weekly transdermal patch','a78708cd-04d4-4221-a4e4-53680bbe2912',[('14 mcg/day estradiol',476545),('Menostar',545276)],'Replace the single-ingredient patch weekly.'),
+  '80479099c64b5951':('ESTRADIOL-LEVONORGESTREL PATCH WEEKLY','Climara Pro estradiol / levonorgestrel weekly transdermal patch','184d3092-7fc6-4375-816b-1ab06bb99cfd',[('0.045/0.015 mg per day',402250),('Climara Pro',402252)],'The patch delivers 0.045 mg estradiol and 0.015 mg levonorgestrel per day. Replace weekly.'),
+ }
+ seen=set()
+ for r in data['medications']:
+  key=r['id'].removeprefix('banner-full-')
+  if key not in estradiol_forms:continue
+  original,title,spl,examples,note=estradiol_forms[key]
+  assert r['name']==original and r['sourceEffective']=='2026-10-01' and r['sourcePage'] in (26,27,33)
+  assert r['planId']=='banner-ufc' and r['pa']==r['preferred']==r['step']=='not_specified' and not r.get('quantityLimited')
+  url=spl if spl.startswith('https://') else 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+spl
+  r['reviewedPresentation']={**r.get('reviewedPresentation',{}),'scopedPlanHeading':title,'prescribingHeading':title,'labelUrl':url,'labelProductExamples':examples,'note':note}
+  seen.add(key)
+ assert seen==set(estradiol_forms)
+
  print(f'Added {count} same-plan policy links across {len(records)} medication records')
  return count
