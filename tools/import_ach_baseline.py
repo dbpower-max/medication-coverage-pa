@@ -538,7 +538,8 @@ def hormone_identity(rx,sources):
   heading='Testosterone 1.62% transdermal gel pump — 20.25 mg/1.25 g per actuation, 60 actuations'
   display.update(labelUrl=label+'0d84e5a6-11e9-4940-8991-21c611c4c32f',
                  note='AHCCCS Statewide lists the authorized generic pump as preferred with PA. The Prasco 88 g pump (NDC 66993-951-88) is a labeled authorized generic. Confirm the manufacturer and package. Boxed warning for secondary exposure to testosterone in children.',
-                 sourceReferences=[['AHCCCS Statewide · authorized generic 1.62% pump only · p. 3',state+'#page=3']])
+                 sourceReferences=[['AHCCCS Statewide · authorized generic 1.62% pump only · p. 3',state+'#page=3'],
+                                   ['Arizona Complete Health · pharmacy and AHCCCS criteria','https://www.azcompletehealth.com/providers/pharmacy.html']])
   updates=[april_formulary('testosterone gel td 1 %, 1.62 %, 20.25 mg/1.25gm, 25 mg/2.5gm, 40.5 mg/2.5gm, 50 mg/5gm',
                            10,'F; PA',pa='required',paText='The plan formulary lists PA for transdermal testosterone gel.')]
  else:
