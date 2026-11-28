@@ -2221,6 +2221,21 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  console.log('PASS: buspirone named conditional scope and three hydroxyzine exact rows preserve QL without benzodiazepine or Loreev XR policy transfer.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  const bannerGroups=a.planMedicationGroups();
+ for(const suffix of ['fa9195de0647523b','fa62279e75a1c387','2193994c7e36326c','a457525bbf1d1d54']){
+   const id='banner-full-'+suffix,g=bannerGroups.find(g=>g.records.some(r=>r.id===id)),r=g.records.find(r=>r.id===id);
+   const card=a.medicationGroupCard(g),details=await open(g),sources=a.recordDetails(r);
+   assert(card.includes('PA reference ↗ · p. 53')&&details.html.includes('melatonin')&&details.html.includes('Criteria source · PDF page 53'));
+   assert(sources.includes('#page=53"')&&!sources.includes('12-1226.txt')&&!sources.includes('#page=1226'),id);
+   if(suffix==='fa9195de0647523b') assert(card.includes('oral tablet')&&sources.includes('searchTerm=884173'));
+ }
+ for(const [suffix,blank] of [['726809feb6a79584',false],['f3d7e46502c274c0',true]]){
+   const id='banner-full-'+suffix,g=bannerGroups.find(g=>g.records.some(r=>r.id===id)),r=g.records.find(r=>r.id===id);
+   const card=a.medicationGroupCard(g),sources=a.recordDetails(r);
+   assert(!sources.includes('12-52.txt')&&!card.includes('#page=52'),id);
+   assert.equal(r.pa,blank?'not_specified':'conditional');
+   if(blank) assert(!card.includes('data-card-clinical='));
+   else assert(card.includes('QL: 4 patches per 28 days')&&card.includes('patch-specific approval criteria are unverified'));
+ }
  for(const [suffix,page,unit] of [['e7a4e750d4c75cc1',52,'30 capsules'],['a457525bbf1d1d54',53,'120 tablets']]) {
    const id='banner-full-'+suffix, group=bannerGroups.find(g=>g.records.some(r=>r.id===id));
    const direct=group.records.find(r=>r.id===id), card=a.medicationGroupCard(group), detail=await open(group);

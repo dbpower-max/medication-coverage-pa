@@ -996,6 +996,7 @@
   ]);
 
   function reviewedCardPresentation(record) {
+    if (record.id === 'banner-ufc:statewide:formulary-9598' && record.brand === 'CATAPRES') return {dosageForm: 'oral tablet'};
     // Pair each Banner October brand row only with its matching statewide November row.
     if (record.planId === 'banner-ufc' && record.name === 'INSULIN NPH ISOPHANE & REG (HUMAN) SUSPENSION'
         && record.sourceEffective === (record.isStatewideReference ? '2026-11-01' : '2026-10-01')
@@ -1852,10 +1853,13 @@
       const preferredNdcs = bannerAlbuterolPreferredNdcs(entry.group);
       dialog.querySelector('#sourceDialogTitle').textContent = 'Sources — ' + (preferredNdcs.length ? 'Albuterol HFA inhaler' : dosageFormHeading(entry.group));
       const clinical = cardClinicalGroups.get(entry.group.key || entry.group.label);
+      const bannerBranch = entry.group.records.find(r => r.planId === 'banner-ufc' && r.reviewedBannerBranches?.exactReferencePage)?.reviewedBannerBranches;
+      const sourcePolicies = (clinical?.policies || []).map(policy => policy.id === bannerBranch?.policyId
+        ? {...policy, sourcePage: bannerBranch.exactReferencePage} : policy);
       const originalRows = entry.group.records.map(record => `<section><h3>${escapeHtml(readableMedicationName(record.name))}</h3>${recordDetails(record)}</section>`).join('');
       dialog.querySelector('#sourceDialogContent').innerHTML = (preferredNdcs.length ? bannerAlbuterolSources(entry.group, originalRows) : originalRows)
         + (clinical?.guidance ? `<section><p>Source-reviewed summary; clinician approval pending.</p><p>${escapeHtml(clinical.guidance.guidelineCaution)}</p></section>` : '')
-        + (clinical?.policies || []).map(policy => `<section>${policy.planId === 'ahcccs-ffs-aihp' ? `<p><strong>${statewideFfsLabel}</strong></p>` : ''}<a href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">${escapeHtml(policy.name || policy.policyCode)} · ${escapeHtml(policy.sourceEffective)}</a>${policy.scope ? `<p>${escapeHtml(policy.scope)}</p>` : ''}${policy.sourceTextUrl ? `<p><a href="${escapeHtml(policy.sourceTextUrl)}" target="_blank" rel="noopener">Original policy text</a></p>` : ''}<p>Source-transcribed criteria; clinician approval pending. Policy references do not independently establish selected-plan coverage or PA status.</p></section>`).join('');
+        + sourcePolicies.map(policy => `<section>${policy.planId === 'ahcccs-ffs-aihp' ? `<p><strong>${statewideFfsLabel}</strong></p>` : ''}<a href="${escapeHtml(sourceHref(policy))}" target="_blank" rel="noopener">${escapeHtml(policy.name || policy.policyCode)} · ${escapeHtml(policy.sourceEffective)}</a>${policy.scope ? `<p>${escapeHtml(policy.scope)}</p>` : ''}${policy.sourceTextUrl ? `<p><a href="${escapeHtml(policy.sourceTextUrl)}" target="_blank" rel="noopener">Original policy text</a></p>` : ''}<p>Source-transcribed criteria; clinician approval pending. Policy references do not independently establish selected-plan coverage or PA status.</p></section>`).join('');
       dialog.showModal();
     });
     document.addEventListener('click', async event => {
@@ -2755,7 +2759,10 @@
   }
 
   function bannerAdhdLimit(record) {
-    if (record.planId !== 'banner-ufc' || record.qlDays !== '30') return '';
+    if (record.planId !== 'banner-ufc') return '';
+    if (['banner-full-726809feb6a79584','banner-full-24c168cabe867c51','banner-ufc:statewide:formulary-9599','banner-ufc:statewide:formulary-10095'].includes(record.id) && record.qlAmount === '4' && record.qlDays === '28') return 'QL: 4 patches per 28 days';
+    if (record.qlDays !== '30') return '';
+    if (['banner-full-fa62279e75a1c387','banner-ufc:statewide:formulary-9601'].includes(record.id) && record.qlAmount === '30') return 'QL: 30 tablets per 30 days';
     if (['banner-full-e7a4e750d4c75cc1','banner-ufc:statewide:formulary-9597'].includes(record.id) && record.qlAmount === '30') return 'QL: 30 capsules per 30 days';
     if (['banner-full-a457525bbf1d1d54','banner-ufc:statewide:formulary-9600'].includes(record.id) && record.qlAmount === '120') return 'QL: 120 tablets per 30 days';
     return '';
