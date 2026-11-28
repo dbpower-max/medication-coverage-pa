@@ -555,6 +555,40 @@ def hormone_identity(rx,sources):
  display.update(prescribingHeading=heading,label=heading)
  return updates,display
 
+ACH_ANTICONVULSANT_FORMS = {
+ '1099596':('125','sprinkle',9910,None), '1099563':('250','extended',9911,None),
+ '1099569':('500','extended',9911,None), '1099625':('125','delayed',9912,16),
+ '1099678':('250','delayed',9912,16), '1099870':('500','delayed',9912,8),
+ '198358':('400','tablet',9902,9), '198359':('600','tablet',9902,6), '310285':('600 mg/5 mL','suspension',9901,None),
+}
+
+def anticonvulsant_option(rx,name,sources):
+ strength,form,number,limit=ACH_ANTICONVULSANT_FORMS[rx]
+ ref=statewide_option(sources,number,'Preference, PA, ST and QL blank.')
+ assert ref['sourcePage']==8 and ref['preferred']=='not_specified' and not ref['qlAmount'] and not ref['qlDays']
+ labels={'extended':'0dc024ce-efc8-4690-7cb5-639c728fccac','delayed':'08a65cf4-7749-4ceb-6895-8f4805e2b01f',
+         'sprinkle':'4619aff4-0f80-444f-858d-42e4137aa809','felbamate':'2f522701-397a-11de-8a39-0800200c9a66'}
+ if form in ('tablet','suspension'):
+  assert 'felbamate' in name
+  heading=f'Felbamate {strength} mg oral tablet' if limit else 'Felbamate 600 mg/5 mL oral suspension'
+  printed=f'felbamate tabs {strength} mg' if limit else 'felbamate susp'
+  label=labels['felbamate']
+  note='Boxed warnings for aplastic anemia and acute liver failure.'
+ else:
+  assert 'divalproex' in name
+  form_label={'sprinkle':'delayed-release oral sprinkle capsule','extended':'24-hour extended-release oral tablet',
+              'delayed':'delayed-release oral tablet'}[form]
+  heading=f'Divalproex sodium {strength} mg {form_label}'
+  printed={'sprinkle':'divalproex sodium csdr','extended':'divalproex sodium tb24',
+           'delayed':'divalproex sodium tbec '+('500 mg' if strength=='500' else '125 mg, 250 mg')}[form]
+  label=labels[form]
+  note='Boxed warnings for hepatotoxicity, fetal risk and pancreatitis.'
+ dated=april_formulary(printed,15,f'F; QL({limit} ea daily)' if limit else 'F')
+ if limit:
+  dated.update(quantityLimited=True,qlAmount=f'{limit} tablets',qlDays='1')
+ return [dated,ref],{'prescribingHeading':heading,'label':heading,'separate':True,'identityRxcui':int(rx),
+                     'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label,'note':note}
+
 def with_ach_baseline(d):
  src=ROOT/'dist/sources/ach/integrated-formulary-baseline.json.gz'
  raw=json.loads(gzip.decompress(src.read_bytes())); assert len(raw)==4454
@@ -646,6 +680,8 @@ def with_ach_baseline(d):
    candidates,oral_display=antipsychotic_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in {'1797113','310169','884707','1597076'}:
    candidates,oral_display=hormone_identity(row['rxnorm_id'],indexed_sources)
+  if row['rxnorm_id'] in ACH_ANTICONVULSANT_FORMS:
+   candidates,oral_display=anticonvulsant_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_BRAND_ANTICOAGULANTS:
    candidates,oral_display=brand_anticoagulant(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_RESPIRATORY_DEVICES:
