@@ -51,6 +51,29 @@ for (const [id,stateId,brand,pen] of [
   assert(markup.includes('>Preferred<')&&markup.includes('>Brand only<'),id);
   assert.equal(api.recordDetails(row).includes('searchTerm=847189'),pen,id);
 }
+for (const [id, stateId, heading, concepts, preferred, brandOnly] of [
+  ['banner-oct26-026','formulary-9977','Tresiba (insulin degludec) solution for injection (device unspecified)',[2107522,1670016,1670023],false,true],
+  ['banner-oct26-027','formulary-9978','Tresiba FlexTouch (insulin degludec) 100 units/mL or 200 units/mL prefilled pen',[1670016,1670023],false,true],
+  ['banner-oct26-032','formulary-9989','Lantus (insulin glargine) 100 units/mL solution for injection (device unspecified)',[285018,847232],true,true],
+  ['banner-oct26-034','formulary-9993','Insulin glargine-yfgn 100 units/mL prefilled pen (Semglee reference)',[2563971,2563973],false,false]
+]) {
+  const group=bannerPremixGroups.find(g=>g.records.some(r=>r.id===id));
+  assert.deepEqual(Array.from(group.records,r=>r.id).sort(),[id,'banner-ufc:statewide:'+stateId].sort());
+  const card=api.medicationGroupCard(group);
+  assert.equal(group.label,heading,id);
+  assert(card.includes('>Covered<') && !card.includes('>PA required<') && !card.includes('>Quantity limit<'),id);
+  assert.equal(card.includes('>Preference not specified<'),!preferred,id);
+  assert.equal(card.includes('>Preferred<'),preferred,id);
+  assert.equal(card.includes('>Brand only<'),brandOnly,id);
+  for (const row of group.records) {
+    assert.equal(row.pa,'not_specified',id);
+    const source=api.recordDetails(row);
+    for (const rx of concepts) assert(source.includes('searchTerm='+rx+'"'),id);
+  }
+}
+const soloStarConflict=bannerPremixGroups.find(g=>g.records.some(r=>r.id==='banner-source-review-11-1-10'));
+const soloStarCard=api.medicationGroupCard(soloStarConflict);
+assert(soloStarCard.includes('Banner source conflict') && !soloStarCard.includes('>Preferred<') && !soloStarCard.includes('>Covered<'));
 for (const id of ['banner-pcp-nov10-012','banner-pcp-nov10-013']) {
   const group=bannerPremixGroups.find(g=>g.records.some(r=>r.id===id));
   assert(group.label.includes('Aspart')&&!group.label.includes('human NPH/regular insulin'),id);

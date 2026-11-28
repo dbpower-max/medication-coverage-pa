@@ -1194,6 +1194,15 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(vialSource.includes('row 8951')&&vialSource.includes('row 9571')&&vialSource.includes('searchTerm=311036')&&vialSource.includes('searchTerm=351859'));
  const u500=groups.find(g=>g.records.some(r=>r.id.endsWith('86d347968a4e113f')));
  assert(a.medicationGroupCard(u500).includes('PA listings conflict')&&a.recordDetails(u500.records[0]).includes('row 132'));
+ const archivedElectronic = '82cf647905eec04d55891f0e57c3c6e56dce23af/audits/uhc_complete_2026_11_12/official_machine_readable.json';
+ const currentElectronic = 'legacy.providerlookuponline.com/mrf/optumrx/drugs/2877216/JSON_Drugs_UHCCPAZ.json';
+ for (const source of [vialSource,dualSources,a.recordDetails(u500.records[0])]) {
+   assert(source.includes(archivedElectronic) && source.includes(currentElectronic));
+ }
+ const glargineSolution=groups.find(g=>g.records.some(r=>r.id.endsWith('96922f638bb987d2')));
+ assert(a.medicationGroupCard(glargineSolution).includes('November 16 electronic file has no matching entry for RxCUI 2563976'));
+ const xopenex=groups.flatMap(g=>g.records).find(r=>r.reviewedPresentation?.electronicVersion && r.reviewedPresentation.identityRxcui===746466);
+ assert(a.recordDetails(xopenex).includes(currentElectronic) && !a.recordDetails(xopenex).includes(archivedElectronic));
  const basal=groups.filter(g=>g.records.some(r=>r.reviewedPresentation?.electronicEvidence));
  assert.equal(basal.length,9);
  for(const g of basal){
