@@ -3191,6 +3191,8 @@
           + '</h4><p>Policy threshold: ' + boxes + '.</p>' + cardBranchMarkup(scoped, rescuePolicy)
           + '<details class="result-disclosure"><summary>Initial and renewal review for seizure clusters</summary><p>These criteria apply when the payer reviews a request for seizure clusters.</p>'
           + cardBranchMarkup(initial, rescuePolicy) + cardBranchMarkup(renewal, rescuePolicy) + '</details>';
+        const references = details.querySelector('.card-pa-references');
+        if (references) references.innerHTML = cardPaReference(rescuePolicy, 'Quantity-limit guideline', quantity.sourcePage);
         details.dataset.loaded = 'true';
         return;
       }
