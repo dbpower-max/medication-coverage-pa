@@ -27,6 +27,35 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
      assert(a.recordDetails(row).includes('setid=6180fb40-7fca-4602-b3da-ce62b8cd2470'),id);
    }
  }
+ // These payer rows name the brand only as a reference for the dispensed generic.
+ for (const [suffix,name,uhc,statewide,pdlPage] of [
+   ['820cf0c2e68e26f3','pregabalin oral (generic for LYRICA)','140672','105529',142],
+   ['2605091c3829617d','glycopyrrolate oral solution 1 mg/5ml (generic for CUVPOSA)','140733','108674',98]
+ ]) {
+   const group=groups.find(g=>g.records.some(r=>r.id.endsWith(suffix)));
+   const row=group.records.find(r=>r.name===name);
+   assert.equal(row.sourcePage,pdlPage);
+   assert.equal(row.rawRestrictions,'Tier 1; QL');
+   assert.equal(row.pa,'not_specified');
+   assert.equal(row.step,'not_specified');
+   assert.equal(row.preferred,'preferred');
+   assert.equal(row.qlDays,'');
+   assert.deepEqual(a.uhcGroupBindings(group).map(b=>b.policyId).join(','),'uhc-nov2026-policy-gl-140667');
+   assert.equal(a.clinicalGuidanceFor(group),null);
+   const card=a.medicationGroupCard(group);
+   const detail=await open(group);
+   const text=card+detail.html+detail.ref;
+   assert(!text.includes('PA required') && !text.includes('Pathway 1:'),suffix);
+   assert(text.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page=702"'),suffix);
+   assert(!text.toLowerCase().includes('gl-'+uhc) && !text.toLowerCase().includes('gl-'+statewide),suffix);
+   assert(a.recordDetails(row).includes('uhc-az-medicaid-pdl-2026-10-01.pdf#page='+pdlPage),suffix);
+ }
+ const brandLyrica=groups.find(g=>g.records.some(r=>r.id.endsWith('0a7062f249ff06ac')));
+ assert.equal(brandLyrica.records.find(r=>r.id.endsWith('0a7062f249ff06ac')).rawRestrictions,'Tier 2; PA; QL');
+ assert.equal(a.uhcGroupBindings(brandLyrica).find(b=>b.policyId.endsWith('gl-140672')).branchIndexes.join(','),'0,1,2,3,4');
+ assert((await open(brandLyrica)).html.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page=1100"'));
+ // The UHC PDL has no separate Cuvposa brand listing. Keep the real state brand guide available.
+ assert.equal(a.clinicalGuidanceFor({name:'Cuvposa',brands:['CUVPOSA'],records:[]})?.policyCode,'GL-108674');
  const victozaGroup = groups.find(g => g.records.some(r => r.id.endsWith('4a0f4e9ba37d9202')));
  assert.equal(victozaGroup.records.length,2);
  const victozaCard = a.medicationGroupCard(victozaGroup);
@@ -56,6 +85,14 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  for (const id of ['formulary-9972','formulary-9974','formulary-9975']) {
    const statewide=a.planMedicationGroups().find(g=>g.isStatewide && g.records.some(r=>r.id.endsWith(id)));
    assert.equal(a.clinicalGuidanceFor(statewide)?.policyCode,'GL-749236',id+' statewide source');
+   const card=a.medicationGroupCard(statewide);
+   const detail=await open(statewide);
+   assert(detail.html.includes('laboratory report MUST be submitted'),id+' statewide criteria');
+   for (const view of [card,detail.ref]) {
+     assert(view.includes('ahcccs-ffs-pa-criteria-2026-11-01.pdf#page=718'),id+' statewide destination');
+     assert(view.includes('AHCCCS Statewide · Fee-for-service reference'),id+' source attribution');
+     assert(!view.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page=706'),id+' selected-plan policy leakage');
+   }
  }
  for (const [suffix,page] of [['1e189c171447f639',null],['f2372b8f6bf3951f',707],['b83d7c3fc6213943',709]]) {
    const id='uhc-oct-complete-'+suffix;
@@ -73,7 +110,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
      assert.equal(detail.html.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page='+branchPage+'"'),branchPage===page,id+' rendered policy destination');
    }
    if (page===707) {
-     assert(card.includes('2 mg/dose — 8 mg/3 mL subcutaneous prefilled pen'),id);
+     assert(card.includes('2 mg/dose — 8 mg/3 mL subcutaneous solution in a multidose prefilled pen</h3>'),id);
      assert(a.recordDetails(row).includes(row.reviewedPresentation.labelUrl),id);
      assert(a.recordDetails(row).includes('searchTerm=2599365'),id);
    }
@@ -986,7 +1023,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  const samscaContent=await open(samsca);
  assert(samscaContent.html.includes('Criteria source · PDF page 1488<'));
  assert(!samscaContent.html.includes('Criteria source · PDF page 986<'));
- const mounjaro=a.planMedicationGroups().find(g=>/mounjaro/i.test(g.label));assert(a.medicationGroupCard(mounjaro).includes('uhc-az-clinical-pharmacy-2026-11-01.pdf'),'Initial UHC reference incorrectly points to statewide criteria');
+ const mounjaro=groups.find(g=>g.records.some(r=>r.id==='uhc-oct-complete-a8c222acc865b35a'));assert(a.medicationGroupCard(mounjaro).includes('uhc-az-clinical-pharmacy-2026-11-01.pdf'),'Initial UHC reference incorrectly points to statewide criteria');
  let n=0;
  for(const g of groups){const out=await open(g);assert(out.html.trim(),g.label+' empty');assert(out.ref.includes('href='),g.label+' no policy/formulary reference');assert(!out.html.includes('Formatted criteria for this medication are not available'),'Empty template remains');
   if (a.uhcGroupBindings(g).some(binding => binding.policyId.endsWith('gl-735259'))) {
@@ -1951,6 +1988,33 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  console.log('PASS: buspirone named conditional scope and three hydroxyzine exact rows preserve QL without benzodiazepine or Loreev XR policy transfer.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  const bannerGroups=a.planMedicationGroups();
+ for (const [id,device,warning,rx] of [
+   ['banner-oct26-031','multidose vial','Use only a U-500 insulin syringe',351859],
+   ['banner-pcp-nov10-011','prefilled pen','Never withdraw insulin from the pen into a syringe',1731317]
+ ]) {
+   const group=bannerGroups.find(g=>g.records.some(r=>r.id===id));
+   const r=group.records.find(r=>r.id===id);
+   assert.equal(group.records.length,2,id+' exact and statewide evidence grouped');
+   assert.equal(r.step,'not_specified',id);
+   assert(!r.qlAmount&&!r.qlDays,id);
+   const card=a.medicationGroupCard(group);
+   assert(card.includes('500 units/mL '+device)&&card.includes(warning),id);
+   assert.equal(card.includes('May 14, 2026'),rx===351859,id+' vial marketing end');
+   assert(card.includes('>Preferred<')&&card.includes('>Brand only<')&&card.includes('>PA required<'),id);
+   assert(a.recordDetails(r).includes('searchTerm='+rx),id);
+   assert(card.includes('prov-bufc_pharmacy-pa-criteria_eff11012026_en.pdf')&&card.includes('#page=969'),id);
+   assert(!card.includes('ahcccs-ffs-pa-criteria-2026-11-01.pdf#page=976'),id);
+   const content=await open(group);
+   assert(content.ref.includes('prov-bufc_pharmacy-pa-criteria_eff11012026_en.pdf')&&content.ref.includes('#page=969'),id);
+   assert(content.html.includes('Insulin aspart or insulin lispro')&&content.html.includes('Lantus'),id);
+   assert(content.html.includes('special circumstance')&&content.html.includes('12 month')&&content.html.includes('Authorization stage is not separately labeled'),id);
+ }
+ for (const id of ['banner-pcp-nov10-007','banner-source-review-11-1-5','banner-source-review-11-1-10']) {
+   const group=bannerGroups.find(g=>g.records.some(r=>r.id===id));
+   const card=a.medicationGroupCard(group);
+   assert(!card.includes('#page=969')&&!card.includes('>PA required<')&&!card.includes('500 units/mL'),id);
+   if(id.startsWith('banner-source-review')) assert(card.includes('Exact pen coverage and preference are unverified.'),id);
+ }
  const igRows=[
   ['3a476647011e0ef8','not_specified','Gammagard Liquid'],
   ['b99ccac646481857','preferred','Octagam 5%'],

@@ -956,6 +956,15 @@
       } else supplements.push(group);
     }
     const result = [...sharedGroups, ...supplements];
+    if (state.planId === 'banner-ufc') {
+      for (const group of result) {
+        const insulin = group.records.find(r => r.reviewedBannerBranches?.policyId === 'banner-policy-12-969');
+        if (insulin) {
+          group.label = insulin.reviewedPresentation.heading;
+          group.search += ' ' + group.label.toLowerCase();
+        }
+      }
+    }
     if (state.planId === 'uhc-community-az') {
       const packets = result.find(group => group.records.some(record => record.id === 'uhc-oct-complete-b91029349d6055f8'));
       if (packets) {
@@ -1444,11 +1453,17 @@
     ["banner-full-5871af4cc5e1eb9b", ["BAN-P33-T1-R45", "BAN-P34-T1-R19"]]
   ]);
 
+  const achSmartRecords = new Set(['ach-json-1246288', 'ach-json-1246304', 'az-complete-health:statewide:formulary-9819']);
+  const achSmartNoticeUrl = 'https://www.azcompletehealth.com/newsroom/PU26135.html';
+
   function recordDetails(record) {
     const details = [];
     const presentation = reviewedCardPresentation(record);
     const scope = coverageSource(record);
     if (scope) details.push(`<p>${escapeHtml(scope.description)}</p>`);
+    if (achSmartRecords.has(record.id)) {
+      details.push(`<p><a class="source-link" href="${achSmartNoticeUrl}" target="_blank" rel="noopener">Arizona Complete Health formulary notice ↗</a> · effective October 1, 2026 · SMART asthma therapy paragraph</p>`);
+    }
     if (presentation?.identityRxcui) {
       const id = Number(presentation.identityRxcui);
       details.push(`<p><strong>Prescribing presentation:</strong> <a href="https://mor.nlm.nih.gov/RxNav/search?searchBy=RXCUI&amp;searchTerm=${id}" target="_blank" rel="noopener">RxCUI ${id}</a> · <a href="${escapeHtml(presentation.labelUrl)}" target="_blank" rel="noopener">DailyMed drug label ↗</a></p>`);
@@ -1826,12 +1841,15 @@
   }
 
   function clinicalGuidanceFor(group) {
+    // Banner has a product-specific counterpart to the statewide U-500 guideline.
+    if (group.records?.some(r => r.reviewedBannerBranches?.policyId === 'banner-policy-12-969')) return null;
     const hasUhcGlp1Criteria = group.records?.some(record => !record.isStatewideReference
       && record.uhcClinicalBindings?.some(binding => binding.policyId === 'uhc-nov2026-policy-gl-720195'));
     const brands = new Set(group.brands.map(normalize));
     const generic = normalize(group.name);
     return (state.data.statewideClinicalGuidance || []).find(guide => {
       if (hasUhcGlp1Criteria && guide.policyCode === 'GL-749236') return false;
+      if (group.records?.some(record => record.excludedStatewidePolicyCode === guide.policyCode)) return false;
       // Strength-specific policies must not attach to a brand/generic group
       // representing another tablet strength, or to an unspecified strength.
       // A group with mixed/ambiguous record strengths fails closed.
@@ -2003,7 +2021,8 @@
     for (const policy of [...namedPlanPolicies(group), ...namedPlanPolicies(group, true)]) {
       if (policy.planId === 'ahcccs-ffs-aihp' && policy.policyCode === 'GL-99431'
           && group.records.some(record => record.id === 'uhc-oct-complete-367d1f3038b2b927')) continue;
-      if (group.records.some(record => record.unverifiedPolicyCode === policy.policyCode || record.excludedPolicyCode === policy.policyCode)) continue;
+      if (group.records.some(record => record.unverifiedPolicyCode === policy.policyCode || record.excludedPolicyCode === policy.policyCode
+        || record.excludedStatewidePolicyCode === policy.policyCode)) continue;
       if (policy.policyCode === 'GL-572198' && policy.planId === 'uhc-community-az'
           && group.records.some(record => uhcBrandTopamaxRows.has(record.id) || uhcAgeEightPa(record))) continue;
       add(policy);
@@ -2644,8 +2663,7 @@
     const bannerGuide = isBanner && !group.policyOnly ? bannerRespiratoryGuide(group) : null;
     const bannerIcs = isBanner && group.records.some(record => reviewedCardPresentation(record)?.relatedBannerIcs)
       && state.data.policies.find(policy => policy.id === 'banner-guide-ics-nonpreferred');
-    const achSmart = state.planId === 'az-complete-health' && group.records.some(record =>
-      record.isStatewideReference && record.id.endsWith(':formulary-9819'));
+    const achSmart = state.planId === 'az-complete-health' && group.records.some(record => achSmartRecords.has(record.id));
     const achNotice = group.records.find(record => achConstipationLabels.has(record.id));
     const constipationGeneric = group.records.find(record => constipationGenericRows.has(record.id));
     const constipationBrand = group.records.find(record => record.id === uhcMotegrityId);
@@ -2655,8 +2673,12 @@
       : constipationBrand ? 'Prucalopride oral tablets (Motegrity)'
       : constipationGeneric ? 'Lubiprostone oral capsules (Amitiza reference)' : group.label;
     const noticeOnly = group.records.some(record => record.reviewedPresentation?.policyUnverified);
-    const guidance = group.policyOnly ? group.guide : (insulinConflict || bannerIcs || noticeOnly) ? null : bannerGuide || clinicalGuidanceFor(group);
-    const policies = group.policyOnly || insulinConflict || bannerIcs || noticeOnly ? [] : bannerGuide ? [bannerGuide] : linkedPolicyPanels(group, true);
+    const guide = group.policyOnly ? group.guide : (insulinConflict || bannerIcs || noticeOnly) ? null : bannerGuide || clinicalGuidanceFor(group);
+    const statewideGlp1 = isUhc && guide?.policyCode === 'GL-749236' && group.isStatewide
+      && group.records.every(record => record.isStatewideReference);
+    const guidance = statewideGlp1 ? {...guide, planId: 'ahcccs-ffs-aihp'} : guide;
+    const policies = group.policyOnly || insulinConflict || bannerIcs || noticeOnly ? [] : bannerGuide ? [bannerGuide]
+      : linkedPolicyPanels(group, true).filter(policy => !statewideGlp1 || policy.planId === 'ahcccs-ffs-aihp');
     const key = group.key || group.label;
     cardClinicalGroups.set(key, {group, policies, guidance, bannerGuide, bannerIcs, planId: state.planId});
     const restriction = state.planId === 'uhc-community-az' && (group.records || []).find(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays || r.uhcClinicalBindings?.some(b => b.role === 'hypnotic_request')));
@@ -2817,7 +2839,7 @@
           ${step ? `<p class="pa-condition"><strong>Step therapy:</strong> ${escapeHtml(step)} <a class="source-link" href="${escapeHtml(sourceHref({...record, sourcePage: 36}))}" target="_blank" rel="noopener">UHC formulary · step table ↗</a></p>` : ''}`;
       }).join('')}
       </div>
-      ${achSmart ? '<p class="pa-condition">Arizona Complete Health’s October 1, 2026 SMART notice identifies the authorized generic and Teva generic. Product-specific preference, PA, step therapy and quantity limits are unspecified in the notice. <a class="source-link" href="https://www.azcompletehealth.com/newsroom/PU26135.html" target="_blank" rel="noopener">Plan notice ↗</a></p>' : ''}
+      ${achSmart ? `<p class="pa-condition">Arizona Complete Health’s SMART asthma notice covers the authorized generic and Teva generic effective October 1, 2026. The notice does not specify strengths, NDCs, preference, PA, step therapy or quantity limits. <a class="source-link" href="${achSmartNoticeUrl}" target="_blank" rel="noopener">Plan notice ↗</a></p>` : ''}
       ${linzess || achNotice?.id === 'ach-notice-13846' ? '<p class="pa-condition">AHCCCS statewide reference lists PA.</p>' : ''}
       <div class="card-source-access">${sourcesLink(group)}</div>
       ${preferredNdcs.length ? `<details class="result-disclosure">

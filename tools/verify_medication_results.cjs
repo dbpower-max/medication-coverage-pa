@@ -35,6 +35,28 @@ for(const planId of data.plans.map(p=>p.id)) {
  const all=api.planMedicationGroups();
  assert.equal(new Set(all.map(g=>g.label.trim().toLowerCase())).size,all.length,'Exact duplicate medication labels in '+planId);
 }
+const smartNoticeUrl = 'https://www.azcompletehealth.com/newsroom/PU26135.html';
+for (const plan of data.plans) {
+ api.state.planId = plan.id;
+ const groups = api.planMedicationGroups().filter(group => /symbicort|budesonide.*formoterol/i.test(group.label));
+ assert(groups.length, plan.id);
+ for (const group of groups) {
+  const isAch = plan.id === 'az-complete-health';
+  const card = api.medicationGroupCard(group);
+  assert.equal(card.includes('SMART asthma notice covers the authorized generic and Teva generic'), isAch, group.label);
+  for (const row of group.records) {
+   const sources = api.recordDetails(row);
+   assert.equal(sources.includes(smartNoticeUrl), isAch, row.id);
+   if (isAch && row.isStatewideReference) {
+    assert(card.includes('>AHCCCS Statewide<') && card.includes('>Authorized generic only<'), row.id);
+   } else if (isAch) {
+    assert(['ach-json-1246288','ach-json-1246304'].includes(row.id), row.id);
+    assert(sources.includes('row '+row.sourceRow), row.id);
+    assert(card.includes('>Preferred<') && !card.includes('>Authorized generic only<'), row.id);
+   }
+  }
+ }
+}
 api.state.planId='banner-ufc';api.state.term='Inhaled Corticosteroids';
 assert.equal(api.render().length,0,'Policy still appears as a medication');
 assert(api.el.criteriaResults.innerHTML.includes('Inhaled Corticosteroids'),'Plan policy lost from criteria library');
