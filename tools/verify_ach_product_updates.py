@@ -46,6 +46,16 @@ for row in data['medications']:
   if row['rxnormId']=='1657212' and update.get('id')=='ach-mandated-formulary-9792':
    assert row['name']=='omalizumab 150 MG Injection [Xolair]' and update['name']=='OMALIZUMAB SOLUTION RECONSTITUTED' and update['sourcePage']==6
    continue
+  devices={'1190225':('COMBIVENT RESPIMAT','9824'),'1487524':('ANORO ELLIPTA','9828'),'1487528':('ANORO ELLIPTA','9828'),
+           '1651275':('STIOLTO RESPIMAT','9827'),'2166928':('STIOLTO RESPIMAT','9827')}
+  if row['rxnormId'] in devices and update['sourcePage'] in (13,7):
+   product,number=devices[row['rxnormId']]
+   assert 'Inhal' in row['name'] and product.split()[0].lower() in row['name'].lower()
+   if update['sourcePage']==13:
+    assert update['sourceEffective']=='2023-04-01' and update['name'].startswith(product+' ')
+   else:
+    assert update['sourceEffective']=='2026-11-01' and update.get('id')=='ach-mandated-formulary-'+number
+   continue
   assert compatible(row['name'],update['name']), 'Incompatible source applied: '+row['id']+' / '+update['name']
  if '[Triesence]' in row['name']:
   assert not any('KENALOG' in str(u).upper() for u in row['sourceUpdates'])

@@ -2330,7 +2330,7 @@
       dialog.querySelector('#sourceDialogTitle').textContent = 'Sources — ' + (preferredNdcs.length ? 'Albuterol HFA inhaler' : dosageFormHeading(entry.group));
       const clinical = cardClinicalGroups.get(entry.group.key || entry.group.label);
       const bannerBranch = entry.group.records.find(r => r.planId === 'banner-ufc' && r.reviewedBannerBranches?.exactReferencePage)?.reviewedBannerBranches;
-      const sourcePolicies = (clinical?.policies || []).map(policy => policy.id === bannerBranch?.policyId
+      const sourcePolicies = (clinical?.policies || []).map(policy => bannerBranch && policy.id === bannerBranch.policyId
         ? {...policy, sourcePage: bannerBranch.exactReferencePage} : policy);
       const originalRows = entry.group.records.map(record => `<section><h3>${escapeHtml(readableMedicationName(record.name))}</h3>${recordDetails(record)}</section>`).join('');
       dialog.querySelector('#sourceDialogContent').innerHTML = (preferredNdcs.length ? bannerAlbuterolSources(entry.group, originalRows) : originalRows)
@@ -2440,6 +2440,10 @@
     const hasUhcGlp1Criteria = group.records?.some(record => !record.isStatewideReference
       && record.uhcClinicalBindings?.some(binding => binding.policyId === 'uhc-nov2026-policy-gl-720195'));
     const brands = new Set(group.brands.map(normalize));
+    // ACH uses the abbreviated brand Anoro on these two verified branded inhalers.
+    if (group.records?.length && group.records.every(r => ['ach-json-1487524', 'ach-json-1487528'].includes(r.id))) {
+      return (state.data.statewideClinicalGuidance || []).find(g => g.id === 'gl-269199-lama-laba-regular') || null;
+    }
     const generic = normalize(group.name);
     return (state.data.statewideClinicalGuidance || []).find(guide => {
       if (hasUhcGlp1Criteria && guide.policyCode === 'GL-749236') return false;
@@ -3306,7 +3310,8 @@
     const guide = group.policyOnly ? group.guide : (insulinConflict || bannerIcs || noticeOnly || achFemring) ? null : bannerGuide || clinicalGuidanceFor(group);
     const statewideGlp1 = isUhc && guide?.policyCode === 'GL-749236' && group.isStatewide
       && group.records.every(record => record.isStatewideReference);
-    const guidance = statewideGlp1 ? {...guide, planId: 'ahcccs-ffs-aihp'} : guide;
+    const achLama = state.planId === 'az-complete-health' && guide?.id === 'gl-269199-lama-laba-regular';
+    const guidance = statewideGlp1 || achLama ? {...guide, planId: 'ahcccs-ffs-aihp'} : guide;
     const policies = group.policyOnly || insulinConflict || bannerIcs || noticeOnly ? [] : bannerGuide ? [bannerGuide]
       : linkedPolicyPanels(group, true).filter(policy => !statewideGlp1 || policy.planId === 'ahcccs-ffs-aihp');
     const key = group.key || group.label;
@@ -3487,6 +3492,7 @@
         <div class="result-disclosure-body">
           ${conditions.map(text => `<p class="pa-condition">${escapeHtml(text)}</p>`).join('')}
           ${uhcRestrictionSummary(group)}
+          ${achLama ? '<p>AHCCCS Statewide · Fee-for-service criteria. Arizona Complete Health product-specific approval criteria are unverified.</p>' : ''}
           <div class="card-clinical-content">${guidance ? clinicalGuidanceContent(guidance, true) : !policies.length ? '<p>Formatted criteria for this medication are not available.</p>' : ''}
           ${bannerIcs ? '<p>Banner’s class guideline mentions fluticasone propionate as a trial alternative. The selected formulary row does not specify PA.</p>' : ''}
           ${bannerGuide ? `<p>${escapeHtml(bannerGuide.guidelineCaution)} <a class="source-link" href="${escapeHtml(bannerGuide.sourceTextUrl)}" target="_blank" rel="noopener">Original policy text ↗</a></p>` : ''}</div>

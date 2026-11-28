@@ -450,6 +450,79 @@ def montelukast_option(rx,sources):
   display['planConditionalLabel']='PA if age ≥4'
  return [dated,state],display
 
+ACH_BRAND_ANTICOAGULANTS = {
+ '1364441':('Eliquis','2.5',9831), '1364447':('Eliquis','5',9831), '1992428':('Eliquis','pack',9832),
+ '1114202':('Xarelto','10',9834), '1232084':('Xarelto','15',9834), '1232088':('Xarelto','20',9834),
+ '2059017':('Xarelto','2.5',9834), '1549683':('Xarelto','pack',9835),
+}
+
+def brand_anticoagulant(rx,name,sources):
+ brand,strength,number=ACH_BRAND_ANTICOAGULANTS[rx]
+ pack=strength=='pack'
+ assert brand in name and ('} Pack' in name)==pack
+ ref=statewide_option(sources,number,'BRAND ONLY | PREFERRED DRUG | PA and ST blank.')
+ assert ref['sourcePage']==7 and ref['preferred']=='preferred'
+ ref['rawBenefit']+=f" | QL {ref['qlAmount']}, days {ref['qlDays']}, unit blank."
+ display={'identityRxcui':int(rx),'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+(
+          'e9481622-7cc6-418a-acb6-c5450daae9b0' if brand=='Eliquis' else '10db92f9-2300-4a80-836b-673e1ae91610'),
+          'scopedMonthlyLabel':f"QL: {ref['qlAmount']} tablets per {ref['qlDays']} days"}
+ title=brand.upper()+(' STARTER PACK TBPK' if pack else ' TABS')
+ if not pack:
+  raw,amount,days='QL(2 ea daily)','2 tablets','1'
+  heading=f'{brand} {strength} mg oral tablet'
+ elif brand=='Eliquis':
+  raw,amount,days='QL(74 ea per 365 days retail)','74 tablets','365'
+  heading='Eliquis 30-Day Starter Pack — 74 oral tablets of 5 mg'
+  display['planRetailLimit']={'amount':amount,'days':days}
+ else:
+  raw,amount,days='51 per month;; QL(1.7 ea daily)','1.7 tablets','1'
+  heading='Xarelto Starter Pack — 42 oral tablets of 15 mg and 9 of 20 mg'
+  display['planDailyAndRetailLabel']='QL: 51 tablets per month (1.7 tablets per day)'
+ display['prescribingHeading']=heading
+ if pack:
+  display['note']='Quantity limits count the tablets supplied in the starter pack. See prescribing information for the dosing schedule.'
+ dated=april_formulary(title,14,'F; '+raw,quantityLimited=True,qlAmount=amount,qlDays=days)
+ return [dated,ref],display
+
+ACH_RESPIRATORY_DEVICES = {
+ '1487528':('Anoro','30',9828,13843), '1487524':('Anoro','7',9828,13843),
+ '2166928':('Stiolto','10',9827,13844), '1651275':('Stiolto','60',9827,13844),
+ '1190225':('Combivent','120',9824,13842),
+}
+
+def respiratory_device(rx,name,sources):
+ brand,count,number,notice_id=ACH_RESPIRATORY_DEVICES[rx]
+ assert brand in name and name.startswith(count+' ACTUAT')
+ ref=statewide_option(sources,number,'PREFERRED DRUG | '+('PA; QL 1 per 30 days, unit blank; ST blank.' if brand!='Combivent' else 'PA, ST and QL blank.'))
+ notice=sources['ach-notice-'+str(notice_id)]
+ assert ref['sourcePage']==7 and notice['preferred']=='preferred'
+ display={'identityRxcui':int(rx)}
+ fields={}
+ if brand=='Anoro':
+  title='ANORO ELLIPTA 25 MCG/INH-62.5 MCG/INH'
+  heading=f'Anoro Ellipta 62.5/25 mcg per inhalation dry powder inhaler, {count} blisters'
+  raw,amount,days='QL(2 ea daily)','2','1'
+  display['planDailyAndRetailLabel']='QL: 2 per day (unit unspecified)'
+  label='2dbd0671-c565-40c5-bf0f-e324db26799c'
+ elif brand=='Stiolto':
+  title='STIOLTO RESPIMAT 2.5 MCG/ACT-2.5 MCG/ACT'
+  heading=f'Stiolto Respimat 2.5/2.5 mcg per actuation metered inhalation spray, {count} actuations'
+  raw,amount,days='QL(1 gm daily); PA','1 g','1'
+  fields={'pa':'required','paText':'The Arizona Complete Health formulary lists PA.'}
+  label='01e15aee-40e0-23f3-537f-c96dd63e2cb1'
+ else:
+  title='COMBIVENT RESPIMAT AERS 20 MCG/ACT-100 MCG/ACT'
+  heading='Combivent Respimat 20/100 mcg per actuation metered inhalation spray, 120 actuations'
+  raw,amount,days='1 rtl pack lmt amt; 30 rtl pack lmt day(s)','1 pack','30'
+  display['planRetailLimit']={'amount':amount,'days':days}
+  label='9832312e-0310-4ab6-8501-afa976fc7eb2'
+ if brand!='Combivent':
+  assert ref['pa']=='required' and ref['qlAmount']=='1' and ref['qlDays']=='30'
+  display['scopedMonthlyLabel']='QL: 1 per 30 days (unit unspecified)'
+ display.update(prescribingHeading=heading,labelUrl='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label)
+ dated=april_formulary(title,13,'F; '+raw,quantityLimited=True,qlAmount=amount,qlDays=days,**fields)
+ return [dated,notice,ref],display
+
 def with_ach_baseline(d):
  src=ROOT/'dist/sources/ach/integrated-formulary-baseline.json.gz'
  raw=json.loads(gzip.decompress(src.read_bytes())); assert len(raw)==4454
@@ -539,6 +612,10 @@ def with_ach_baseline(d):
    candidates,oral_display=verified_oral_form(row["rxnorm_id"],name,indexed_sources)
   if row['rxnorm_id'] in ACH_ANTIPSYCHOTIC_OPTIONS:
    candidates,oral_display=antipsychotic_option(row['rxnorm_id'],name,indexed_sources)
+  if row['rxnorm_id'] in ACH_BRAND_ANTICOAGULANTS:
+   candidates,oral_display=brand_anticoagulant(row['rxnorm_id'],name,indexed_sources)
+  if row['rxnorm_id'] in ACH_RESPIRATORY_DEVICES:
+   candidates,oral_display=respiratory_device(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_ENOXAPARIN:
    candidates,oral_display=enoxaparin_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_MONTELUKAST:
@@ -581,7 +658,7 @@ def with_ach_baseline(d):
                  'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3cc027f0-3462-4a2f-925b-d8a529bcb3c3',
                  'scopedMonthlyLabel':'QL: 240 mL per 30 days','planDailyAndRetailLabel':'QL: 8 mL per day and 240 mL per 30 days at retail',
                  'note':'AHCCCS Statewide requires PA below age 6. At age 6 and older, PA is waived for a psychiatric clinician, developmental pediatrician or other MCO-approved prescriber.'}
-  if pack_update:
+  if pack_update and not any(r.get('id')==pack_update['id'] for r in candidates):
    candidates.append(pack_update)
   if row['rxnorm_id'] in ACH_DAILY_INSULIN_LIMITS:
    printed,page = ACH_DAILY_INSULIN_LIMITS[row['rxnorm_id']]

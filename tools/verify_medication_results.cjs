@@ -112,9 +112,10 @@ for (const [rxcui,packId,ordinaryId,sourceRow] of [
  assert.equal(row.sourceRow,sourceRow);
  assert.equal(row.baselineSource.values.drug_tier,'PREFERRED');
  assert.equal(row.baselineSource.values.quantity_limit,true);
- assert.equal(row.benefitSources.quantityLimited,'presumed_2022');
- assert.equal(row.qlAmount,'');
- assert.equal(row.qlDays,'');
+ assert.equal(row.benefitSources.quantityLimited,'selected_plan');
+ assert.equal(row.qlAmount,rxcui==='1992428'?'74 tablets':'1.7 tablets');
+ assert.equal(row.qlDays,rxcui==='1992428'?'365':'1');
+ assert.equal(row.sourceUpdates.filter(u=>u.id==='ach-mandated-'+packId).length,1);
  assert(row.sourceUpdates.some(u=>u.id==='ach-mandated-'+packId));
  assert(!row.sourceUpdates.some(u=>u.id==='ach-mandated-'+ordinaryId));
  const regular=achGroups.find(g=>g.statewideRecord?.id==='az-complete-health:statewide:'+ordinaryId);
