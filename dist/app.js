@@ -2620,6 +2620,10 @@
         const policy = (state.data.statewidePaCriteria || []).find(p => p.id === 'ahcccs-ffs-nov2026-policy-gl-731218');
         if (policy) add(policy);
       }
+      if (record.reviewedPresentation?.lacosamideReference) {
+        const policy = (state.data.statewidePaCriteria || []).find(p => p.id === 'ahcccs-ffs-nov2026-policy-gl-545202');
+        if (policy) add(policy);
+      }
       if (record.reviewedPresentation?.anxiolyticPolicyProduct) {
         const policy = (state.data.statewidePaCriteria || []).find(p => p.id === 'ahcccs-ffs-nov2026-policy-gl-126970');
         if (policy) add(policy);
@@ -3128,6 +3132,21 @@
           + cardBranchMarkup(branch, ageReview);
         const refs = details.querySelector('.card-pa-references');
         if (refs) refs.innerHTML = cardPaReference(ageReview, 'AHCCCS Statewide · age-specific review', 125);
+        details.dataset.loaded = 'true';
+        return;
+      }
+      const lacosamidePolicy = group.records.some(r => r.reviewedPresentation?.lacosamideReference)
+        && policies.find(p => p.id === 'ahcccs-ffs-nov2026-policy-gl-545202');
+      if (lacosamidePolicy) {
+        const source = await loadClinicalSource(lacosamidePolicy);
+        const branch = source.branches[0];
+        const selected = [0,2,3,4,33,34].map(i => branch.criteria[i]);
+        if (!branch.fields['Product Name'].text.includes('generic lacosamide') || !selected[3].text.includes('primary generalized tonic-clonic') || !selected[5].text.includes('continuation of prior therapy')) throw new Error('Generic lacosamide scope changed');
+        target.innerHTML = '<p><strong>AHCCCS Statewide · Fee-for-service</strong> · GL-545202. Source-transcribed criteria, clinician approval pending.</p>'
+          + cardBranchMarkup({...branch, criteria:selected,notes:[],sourcePage:108},lacosamidePolicy)
+          + cardPaReference(lacosamidePolicy,'Continuation',109);
+        const refs = details.querySelector('.card-pa-references');
+        if (refs) refs.innerHTML = cardPaReference(lacosamidePolicy,'Seizure criteria',108);
         details.dataset.loaded = 'true';
         return;
       }
