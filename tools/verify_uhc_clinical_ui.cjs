@@ -1784,6 +1784,26 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    assert(!out.html.includes('Monthly prescription-limit exception')&&!out.ref.includes('gl-572198'),id);
  }
  console.log('PASS: Zonisade preferred suspension preserves QL and AL without Zonegran PA transfer.');
+ for (const [suffix,named,al] of [["c6c61bc0cec706b9",true,true],["edd352007388075e",true,true],["9a019396cacdaed3",false,true],["5b2d30386ecbaaa2",true,true],["1960c2c1e76dd309",true,true],["f26d17fa6da30f1d",true,false],["839293578fca2739",true,true],["296dbf312b98b7fc",true,true],["2e9de6596a023457",true,true],["d4187393ef4bdc80",true,true],["45703abb9145b928",true,true],["839554855bb9cf39",false,true],["8e2d70c27d62ddf0",true,true],["883ff0d5d9ba37aa",true,true],["ea7809b243b1cfc9",true,true],["8b7597665913cb1a",true,true]]) {
+   const id='uhc-oct-complete-'+suffix;
+   const g=a.planMedicationGroups().find(x=>x.records.some(r=>r.id===id));assert(g,id);
+   const r=g.records.find(r=>r.id===id);
+   assert.equal(r.preferred,'preferred',id);assert.equal(r.pa,'not_specified',id);assert.equal(Boolean(r.ageLimited),al,id);
+   assert(!r.policyQuantityLimit,id+' numeric QL invented');
+   const exact={...g,key:(g.key||g.label)+'-anxiolytic-'+suffix,records:[r],isStatewide:false,statewideRecord:null};
+   const card=a.medicationGroupCard(exact);assert(card.includes('>Preferred<')&&card.includes('>Quantity limit<')&&!card.includes('>PA required<'),id);
+   const b=a.uhcGroupBindings(exact);
+   assert(b.some(x=>x.role==='global_quantity'&&x.policyId.endsWith('gl-140667')&&x.branchIndexes.join(',')==='0'),id);
+   assert(b.some(x=>x.role==='monthly_prescription_exception'&&x.policyId.endsWith('gl-140667')&&x.branchIndexes.join(',')==='2'),id);
+   assert.equal(b.some(x=>x.role==='anxiolytic_request'&&x.policyId.endsWith('gl-140805')&&x.branchIndexes.join(',')==='0,2'),named,id);
+   assert(!b.some(x=>x.policyId.endsWith('gl-140805')&&x.branchIndexes.includes(1)),id+' Loreev XR transfer');
+   const out=await open(exact);
+   assert(out.html.includes('Monthly prescription-limit exception')&&out.html.includes('Criteria source · PDF page 704<'),id);
+   assert.equal(out.html.includes('Anxiolytic request criteria'),named,id);
+   assert(!out.html.includes('Class-wide prescription limit'),id+' unsupported class trigger');
+   const grouped=await open(g);assert(grouped.html.includes('Monthly prescription-limit exception'),id+' grouped');
+ }
+ console.log('PASS: 16 preferred benzodiazepine monthly request pathways, 14 exact named anxiolytic scopes, no routine PA or Loreev XR transfer.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  const bannerGroups=a.planMedicationGroups();
  const igRows=[
