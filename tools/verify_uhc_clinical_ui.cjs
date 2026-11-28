@@ -1171,7 +1171,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    assert(!detail.html.includes('Criteria source · PDF page 1686<'),suffix);
  }
  const insulinDevices=groups.filter(g=>g.records.some(r=>r.subcategory.startsWith('Insulins -') && r.reviewedPresentation?.electronicRow));
- assert.equal(insulinDevices.length,12);
+ assert.equal(insulinDevices.length,15);
  for(const g of insulinDevices){
    const r=g.records[0], p=r.reviewedPresentation, card=a.medicationGroupCard(g), sources=a.recordDetails(r);
    assert.equal(g.records.length,1); assert(card.includes('100 units/mL')&&!card.includes('dosage form unverified'),r.id);
@@ -1302,6 +1302,33 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  const qvar=groups.find(g=>/qvar/i.test(g.label)&&a.clinicalGuidanceFor(g));if(qvar){const out=await open(qvar);assert(out.html.includes('Diagnosis of asthma'),'Existing non-PA clinical guide erased by quantity-policy loading');}
  const supplies=groups.filter(g=>g.records.some(r=>r.policyQuantityLimit?.sourcePolicyId?.endsWith('gl-512232')));assert(supplies.length>5);
  for(const g of supplies){const out=await open(g);assert(out.html.includes('more frequent delivery of insulin'));const card=a.medicationGroupCard(g);assert(card.includes('6 pen needles per day and 6 syringes per day.'));if(g.records.every(r=>r.preferred==='preferred'))assert(!out.html.includes('unable to use a preferred'),'Preferred product got nonpreferred PA');}
+ const supplyRows=supplies.flatMap(g=>g.records.filter(r=>r.policyQuantityLimit?.sourcePolicyId?.endsWith('gl-512232')));
+ assert.equal(supplyRows.length,32);
+ for (const row of supplyRows) {
+   const source=a.recordDetails(row), group=supplies.find(g=>g.records.includes(row));
+   const unit=/pen needles?/i.test(row.name)?'pen needles':'syringes';
+   const badge='QL: 6 '+unit+' per day';
+   assert.equal(row.verifiedQuantityLabel,badge,row.id);
+   assert(a.medicationGroupCard(group).includes('>'+badge+'<') && source.includes('#page=950'),row.id);
+ }
+ for (const suffix of ['4270f8a1ce19e554','8adc25a96356b867','749c738dcab2dcdd','2785ed0256f35226']) {
+   const group=groups.find(g=>g.records.some(r=>r.id.endsWith(suffix)));
+   const detail=await open(group);
+   assert(detail.html.includes('Applies when a therapeutic duplication edit is triggered.') && detail.html.includes('120 days'),suffix);
+   assert(detail.html.includes('#page=1713"') && detail.html.includes('#page=1714"'),suffix);
+   assert(!a.medicationGroupCard(group).includes('>PA required<'),suffix);
+ }
+ for (const suffix of ['96922f638bb987d2','31c74f821a4c856f','4bbdff08522d2939','b6bad750052e8c96','00c9a85a6b9e582d','32fe3d13f9623a7f']) {
+   const group=groups.find(g=>g.records.some(r=>r.id.endsWith(suffix)));
+   assert(!a.uhcGroupBindings(group).some(b=>b.policyId.endsWith('gl-735259')),suffix);
+ }
+ const embecta=groups.find(g=>g.records.some(r=>r.id.endsWith('18831de05a9103a0')));
+ const syringe=embecta.records[0], syringeCard=a.medicationGroupCard(embecta), syringeDetail=a.recordDetails(syringe);
+ assert(syringeCard.includes('>QL: 6 syringes per day<') && syringeCard.includes('5-unit markings') && !syringeCard.includes('>PA required<'));
+ assert(syringeDetail.includes('00383017673017') && syringeDetail.includes('#page=950') && !syringeDetail.includes('without specifying an amount'));
+ assert.equal(syringe.rawRestrictions,'Tier 2; QL');assert.equal(syringe.qlAmount,'QL printed; numeric limit not shown in this PDL row');assert.equal(syringe.qlDays,'');
+ const relionPen=groups.find(g=>g.records.some(r=>r.id.endsWith('32fe3d13f9623a7f')));
+ assert(a.medicationGroupCard(relionPen).includes('does not distinguish the ReliOn package'));
  const dpp4Cases = [
   ['9f51490fe737364d', [['Alogliptin', 0]]],
   ['58dba0a2f1b044a1', [['Brand Januvia', 0]]],
@@ -1696,7 +1723,9 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   assert(group && label.test(group.label), group?.label || id);
   assert.equal(group.records.length, 1, group.label);
   const card = a.medicationGroupCard(group);
-  assert(card.includes('>Tier 2<') && card.includes('>Quantity limit<'));
+  const quantityBadge = group.records[0].policyQuantityLimit?.sourcePolicyId?.endsWith('gl-512232')
+    ? (/pen needle/i.test(group.records[0].name) ? 'QL: 6 pen needles per day' : 'QL: 6 syringes per day') : 'Quantity limit';
+  assert(card.includes('>Tier 2<') && card.includes('>'+quantityBadge+'<'),id);
   const conflict=group.records[0].reviewedPresentation?.paSourceConflict || ['4b27f95aecd5c517','7fb64d26f93768e3','a864ab78ab9356d7'].includes(id);
   assert.equal(card.includes(conflict?'>PA listings conflict<':'>PA required<'),pa,group.label);
   const {html,ref} = await open(group);
@@ -1740,7 +1769,13 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(juniorCard.includes('3 mL · 0.5-unit increments'));
  const brandJunior = juniorCard.split('Coverage attributes for Humalog Junior KwikPen')[1].split('</div>')[0];
  const otherJunior = juniorCard.split('Coverage attributes for Insulin Lispro Junior KwikPen Listing')[1].split('</div>')[0];
- assert(brandJunior.includes('>PA required<') && !otherJunior.includes('>PA required<'));
+ assert(brandJunior.includes('>PA listings conflict<') && !brandJunior.includes('>PA required<'));
+ assert(!otherJunior.includes('>PA required<') && !otherJunior.includes('>PA listings conflict<'));
+ for (const [id,rx,position] of [['1a0caccc9f7c79ae',1926332,4984],['d68963fe88140f42',1926331,7724]]) {
+   const row=junior.records.find(r=>r.id.endsWith(id)), detail=a.recordDetails(row);
+   assert(detail.includes('searchTerm='+rx+'"') && detail.includes('row '+position) && detail.includes(archivedElectronic));
+ }
+
  const juniorPolicy = await open(junior);
  assert(juniorPolicy.html.includes('General nonpreferred PA criteria'));
  assert(juniorPolicy.html.includes('<strong>Applies to:</strong> Humalog Junior KwikPen'));

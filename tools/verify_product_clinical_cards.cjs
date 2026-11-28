@@ -130,6 +130,10 @@ for(const [rx,matched] of [
  if (['242120','1652639','1926331','847252'].includes(rx)) assert(src.includes('searchTerm='+rx+'"'), rx);
  if(matched) assert.equal(r.benefitSources.quantityLimited,'selected_plan');
 }
+const halfMix=achOudGroups.find(g=>g.records.some(r=>r.id==='ach-json-847213'));
+const halfMixCard=api.medicationGroupCard(halfMix);
+assert(halfMixCard.includes('>Quantity limit<') && !halfMixCard.includes('1 mL per day') && !halfMixCard.includes('>PA required<'));
+assert(api.recordDetails(halfMix.records.find(r=>r.id==='ach-json-847213')).includes('searchTerm=847213"'));
 for(const [rx,row,identity,pa] of [
  ['1670016',886,'100 units/mL prefilled pen',false],['1670023',887,'200 units/mL prefilled pen',false],
  ['2107522',1908,'100 units/mL multidose vial',false],['1731317',966,'500 units/mL prefilled pen',true]

@@ -781,10 +781,10 @@
       uhcFormRx: "242120", packageQualifier: "UHC does not specify a preferred vial size."}],
     ["uhc-oct-complete-d68963fe88140f42", {...lisproProducts.juniorPen,
       label: "Insulin Lispro Junior KwikPen U-100 Prefilled Pen (0.5-Unit Increments)", separate: true,
-      uhcFormRx: "1926331", option: "Insulin Lispro Junior KwikPen Listing"}],
+      identityRxcui: 1926331, electronicRow: 7724, uhcFormRx: "1926331", option: "Insulin Lispro Junior KwikPen Listing"}],
     ["uhc-oct-complete-1a0caccc9f7c79ae", {...lisproProducts.juniorPen,
       label: "Insulin Lispro Junior KwikPen U-100 Prefilled Pen (0.5-Unit Increments)", separate: true,
-      uhcFormRx: "1926332", option: "Humalog Junior KwikPen", labelUrl: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c8ecbd7a-0e22-4fc7-a503-faa58c1b6f3f", note: uhcLisproConflict}],
+      paSourceConflict: true, identityRxcui: 1926332, electronicRow: 4984, uhcFormRx: "1926332", option: "Humalog Junior KwikPen", labelUrl: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c8ecbd7a-0e22-4fc7-a503-faa58c1b6f3f", note: uhcLisproConflict}],
     ["uhc-oct-complete-6b20c512802745b5", {...lisproProducts.mixPen,
       label: "Insulin Lispro Protamine / Lispro 75/25 U-100 Prefilled Pen", separate: true,
       uhcFormRx: "847252"}],
@@ -975,7 +975,7 @@
     ['ach-json-242120', {...lisproProducts.lisproVial, identityRxcui: 242120}],
     ['ach-json-1652639', {...lisproProducts.lisproPen, identityRxcui: 1652639}],
     ['ach-json-1926331', {...lisproProducts.juniorPen, identityRxcui: 1926331}],
-    ['ach-json-847213', lisproProducts.humalogFiftyPen],
+    ['ach-json-847213', {...lisproProducts.humalogFiftyPen, identityRxcui: 847213}],
     ['ach-json-847252', {...lisproProducts.mixPen, identityRxcui: 847252}]
   ]);
 
@@ -1651,7 +1651,7 @@
       details.push(`<p>${citation} · row ${Number(presentation.electronicRow)} · RxCUI ${Number(presentation.identityRxcui)}</p>`);
     }
     const formRx = presentation?.uhcFormRx;
-    if (formRx) details.push(`<p>${uhcOctoberCitation} · RxCUI ${escapeHtml(formRx)}.</p>`);
+    if (formRx && !presentation.electronicRow) details.push(`<p>${uhcOctoberCitation} · RxCUI ${escapeHtml(formRx)}.</p>`);
     if (!presentation?.electronicVersion && (formRx || presentation?.electronicRow || presentation?.electronicEvidence || presentation?.electronicComparisons)) {
       details.push(`<p>${uhcLiveCitation}</p>`);
     }
@@ -1672,7 +1672,10 @@
     if (record.sourceUpdates?.length) details.push('<p><strong>Later applicable sources:</strong></p>' + record.sourceUpdates.map(item =>
       `<p>${item.scope === 'statewide_reference' ? 'AHCCCS Statewide' : item.sourceTitle === 'Arizona Complete Health February 2023 Complete Care PDL' ? 'Plan formulary' : 'Plan notice'} · <a href="${escapeHtml(sourceHref(item))}" target="_blank" rel="noopener">${escapeHtml(item.name)} · ${escapeHtml(item.sourceEffective)}</a>${item.paText ? ' · ' + escapeHtml(item.paText) : ''}</p>`).join(''));
     if (record.achProviderRule) details.push(`<p><strong>Plan PA rule:</strong> ${escapeHtml(record.achProviderRule.text)} <a href="${escapeHtml(record.achProviderRule.sourceUrl)}" target="_blank" rel="noopener">Provider pharmacy page ↗</a> · accessed ${escapeHtml(record.achProviderRule.observedDate)}.</p>`);
-    if (record.quantityLimited && !record.qlAmount && !record.qlDays) details.push('<p><strong>Quantity limit:</strong> The source lists a limit without specifying an amount or interval.</p>');
+    if (record.verifiedQuantityLabel && record.policyQuantityLimit?.sourcePage) {
+      const policy = state.data.policies.find(item => item.id === record.policyQuantityLimit.sourcePolicyId);
+      if (policy) details.push(`<p><strong>${escapeHtml(record.verifiedQuantityLabel)}</strong> · <a href="${escapeHtml(sourceHref({...policy, sourcePage: record.policyQuantityLimit.sourcePage}))}" target="_blank" rel="noopener">${escapeHtml(policy.policyCode)} · PDF page ${record.policyQuantityLimit.sourcePage}</a></p>`);
+    } else if (record.quantityLimited && !record.qlAmount && !record.qlDays) details.push('<p><strong>Quantity limit:</strong> The source lists a limit without specifying an amount or interval.</p>');
     if (hasVerifiedMandatedCoverage(record)) details.push('<p><strong>Coverage source:</strong> AHCCCS-mandated minimum</p>');
     if (record.policyEffective) details.push(`<p><strong>Policy effective:</strong> ${escapeHtml(record.policyEffective)} · source document snapshot ${escapeHtml(record.sourceEffective)}</p>`);
     if (record.individualEffectiveMissing) details.push('<p><strong>Policy effective date:</strong> not stated in this source section. The document snapshot date is shown separately.</p>');
@@ -2570,7 +2573,9 @@
                 || !branch.criteria[0].text.includes('under 6 years old')) throw new Error('Preferred ADHD request scope changed');
             applicable = {...branch, criteria: branch.criteria.slice(0, cutoff - 1), notes: []};
           }
-          body.push(label + cardBranchMarkup(applicable, policy));
+          const namedPages = binding.namedProductPage && binding.criteriaPage
+            ? `<p><a href="${escapeHtml(sourceHref({...policy, sourcePage: binding.namedProductPage}))}" target="_blank" rel="noopener">Named products · PDF page ${binding.namedProductPage}</a> · <a href="${escapeHtml(sourceHref({...policy, sourcePage: binding.criteriaPage}))}" target="_blank" rel="noopener">Duplication criteria · PDF page ${binding.criteriaPage}</a></p>` : '';
+          body.push(label + namedPages + cardBranchMarkup(applicable, policy));
         }
         if (!references.some(p => p.id === policy.id)) {
           references.push(binding.exactQuantityPage ? {...policy, exactQuantityPage: binding.exactQuantityPage} : policy);
