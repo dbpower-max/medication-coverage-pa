@@ -388,8 +388,67 @@ def oud_combination_updates(rx,name,sources):
   ref=sources['ach-mandated-formulary-9699']
   assert ref['brand']=='SUBOXONE FILM' and ref['sourcePage']==3
   updates.append({**ref,**ref['statewideReference'],'rawBenefit':'SUBOXONE FILM | BRAND ONLY | PREFERRED DRUG | PA, ST and quantity fields blank.'})
+  display['planAgeBadge']='Age ≥6 years'
   display['note']='Arizona Complete Health lists brand Suboxone film as preferred over generic film.'
  return updates,display
+
+ACH_ENOXAPARIN = {
+ '854228':('30 mg/0.3 mL',9839), '854235':('40 mg/0.4 mL',9841),
+ '854238':('60 mg/0.6 mL',9842), '854241':('80 mg/0.8 mL',9843),
+ '854248':('100 mg/1 mL',9836), '854245':('120 mg/0.8 mL',9837),
+ '854252':('150 mg/1 mL',9838), '854255':('100 mg/mL',9836),
+}
+ACH_MONTELUKAST = {
+ '200224':('10 mg oral tablet','tabs',9803), '242438':('5 mg chewable tablet','chew',9801),
+ '311759':('4 mg chewable tablet','chew',9801), '351246':('4 mg oral granules, single-dose packet','pack',9802),
+}
+
+def april_formulary(name,page,raw,**fields):
+ return {'name':name,'sourceTitle':'Arizona Complete Health April 2023 Complete Care PDL','sourceUrl':ACH_APR_2023_PDL,
+         'sourceEffective':'2023-04-01','sourceKind':'plan_formulary','sourcePage':page,'coverage':'listed','rawBenefit':raw,**fields}
+
+def statewide_option(sources,number,raw):
+ ref=sources['ach-mandated-formulary-'+str(number)]
+ return {**ref,**ref['statewideReference'],'rawBenefit':raw}
+
+def enoxaparin_option(rx,name,sources):
+ dose,number=ACH_ENOXAPARIN[rx]
+ state=statewide_option(sources,number,'VARIOUS VIAL OR SYRINGE | PREFERRED DRUG | PA and ST blank | QL 60, days 30, unit blank.')
+ assert state['qlAmount']=='60' and state['qlDays']=='30' and state['sourcePage']==7
+ syringe=rx!='854255'
+ assert ('Prefilled Syringe' in name)==syringe and 'enoxaparin sodium' in name
+ heading='Enoxaparin '+dose+(' injection solution, single-dose prefilled syringe' if syringe else ' injection solution')
+ display={'prescribingHeading':heading,'label':heading,'separate':True,'identityRxcui':int(rx),
+          'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d978e06e-b758-460b-81d3-69f7a5b89b00',
+          'scopedMonthlyLabel':'QL: 60 per 30 days (unit unspecified)',
+          'note':'Boxed warning for spinal or epidural hematoma with neuraxial anesthesia or spinal puncture.'}
+ updates=[state]
+ if syringe:
+  amount='48 mL' if rx=='854245' else '60 mL'
+  printed='120 mg/0.8ml' if rx=='854245' else '30 mg/0.3ml, 40 mg/0.4ml, 60 mg/0.6ml, 80 mg/0.8ml, 100 mg/ml, 150 mg/ml'
+  updates.append(april_formulary('enoxaparin sodium sosy '+printed,14,f'F; QL({amount.lower()} per 30 days retail); SP.',
+                                quantityLimited=True,qlAmount=amount,qlDays='30'))
+  display['planRetailLimit']={'amount':amount,'days':'30'}
+ else:
+  display['note']+=' The labeled 300 mg/3 mL multidose vial contains benzyl alcohol. The April 2023 plan limit of 180 mL per 30 days at retail names this vial strength. Confirm the dispensed container.'
+  display['sourceReferences']=[['Arizona Complete Health · 300 mg/3 mL injection solution · April 2023 · p. 14',ACH_APR_2023_PDL+'#page=14']]
+ return updates,display
+
+def montelukast_option(rx,sources):
+ heading,printed,number=ACH_MONTELUKAST[rx]
+ packet=rx=='351246'
+ unit='packet' if packet else 'tablet'
+ state=statewide_option(sources,number,('PA IS NOT REQUIRED for < 4 Years of Age | preference blank' if packet else 'PREFERRED DRUG | PA blank')+' | ST blank | QL 30, days 30, unit blank.')
+ assert state['sourcePage']==6 and state['qlAmount']=='30' and state['qlDays']=='30'
+ dated=april_formulary('montelukast sodium '+printed,13,'F; QL(1 ea daily).',quantityLimited=True,qlAmount='1 '+unit,qlDays='1')
+ display={'prescribingHeading':'Montelukast '+heading,'identityRxcui':int(rx),'scopedMonthlyLabel':f'QL: 30 {unit}s per 30 days',
+          'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+('9a3bfc59-0ca6-4433-abf5-41659bfe0a8f' if packet else '49669ac0-0bb5-4576-bed5-9e85e0d76a44'),
+          'note':'Boxed warning for serious neuropsychiatric events. For allergic rhinitis, reserve montelukast for patients with inadequate response or intolerance to alternatives.'}
+ if packet:
+  dated.update(pa='conditional',paText='The plan requires PA for granules starting at age 4.',
+               rawBenefit='F; age 4 and up requires PA; QL(1 ea daily); AL(Up to 3 yrs old).')
+  display['planConditionalLabel']='PA if age ≥4'
+ return [dated,state],display
 
 def with_ach_baseline(d):
  src=ROOT/'dist/sources/ach/integrated-formulary-baseline.json.gz'
@@ -480,6 +539,10 @@ def with_ach_baseline(d):
    candidates,oral_display=verified_oral_form(row["rxnorm_id"],name,indexed_sources)
   if row['rxnorm_id'] in ACH_ANTIPSYCHOTIC_OPTIONS:
    candidates,oral_display=antipsychotic_option(row['rxnorm_id'],name,indexed_sources)
+  if row['rxnorm_id'] in ACH_ENOXAPARIN:
+   candidates,oral_display=enoxaparin_option(row['rxnorm_id'],name,indexed_sources)
+  if row['rxnorm_id'] in ACH_MONTELUKAST:
+   candidates,oral_display=montelukast_option(row['rxnorm_id'],indexed_sources)
   if row['rxnorm_id'] in ACH_OUD_COMBINATIONS:
    candidates,oral_display=oud_combination_updates(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in {'351264','351265'}:
