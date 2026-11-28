@@ -7,6 +7,32 @@ const a=ctx.api;a.state.data=data;a.state.planId='uhc-community-az';
 async function open(g){const content={innerHTML:'',isConnected:true},ref={innerHTML:''};a.medicationGroupCard(g);const d={open:true,dataset:{cardClinical:g.key||g.label},querySelector:s=>s==='.card-pa-references'?ref:content};await a.populateCardClinical(d);assert.equal(d.dataset.loaded,'true',g.label+' did not load');return {html:content.innerHTML,ref:ref.innerHTML};}
 (async()=>{
  const groups=a.planMedicationGroups().filter(g=>g.records.some(r=>r.planId==='uhc-community-az'&&!r.isStatewideReference&&(['required','conditional'].includes(r.pa)||r.qlAmount||r.qlDays)));
+ for (const [suffix,code,pages,preference,pdl] of [
+   ['90a95854421c8318','397200',[1111,1113],'preferred',136],
+   ['ef0118de69fa0736','140729',[335],'non_preferred',102]
+ ]) {
+   const group=groups.find(g=>g.records.some(r=>r.id.endsWith(suffix)));
+   const row=group.records.find(r=>r.id.endsWith(suffix));
+   const card=a.medicationGroupCard(group);
+   const detail=await open(group);
+   assert.equal(row.rawRestrictions,'Tier 1; PA; QL');
+   assert.equal(row.preferred,preference);
+   assert.equal(row.step,'not_specified');
+   assert.equal(row.qlDays,'');
+   assert.equal(a.clinicalGuidanceFor(group),null);
+   assert(a.recordDetails(row).includes('uhc-az-medicaid-pdl-2026-10-01.pdf#page='+pdl));
+   for (const page of pages) assert(detail.html.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page='+page+'"'));
+   if (code==='397200') {
+     assert.equal(a.uhcGroupBindings(group).find(b=>b.policyId.endsWith(code)).branchIndexes.join(','),'1,3');
+     assert(!/to preferred generic dronabinol/i.test(card+detail.html));
+     assert(/chemotherapy/i.test(detail.html) && /anorexia/i.test(detail.html) && /Megace/i.test(detail.html));
+     assert(!detail.html.includes('pdf#page=1110"') && !detail.html.includes('pdf#page=1112"'));
+   } else {
+     assert(detail.html.includes('Generic tadalafil 5 mg for BPH'));
+     assert(detail.html.includes('5-alpha reductase') && detail.html.includes('Adempas'));
+     assert(!/initial authorization|reauthorization/i.test(card+detail.html));
+   }
+ }
  const arnuity = groups.find(g => g.records.some(r => r.id.endsWith('10553d2806adfcf9')));
  const arnuityRow = arnuity.records.find(r => r.id.endsWith('10553d2806adfcf9'));
  assert.equal(arnuityRow.rawRestrictions,'Tier 2; QL');
@@ -72,6 +98,11 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
      assert(a.recordDetails(row).includes('setid=6180fb40-7fca-4602-b3da-ce62b8cd2470'),id);
    }
  }
+ const marinolState=a.clinicalGuidanceFor({name:'Marinol',brands:['MARINOL'],records:[]});
+ assert.equal(marinolState?.id,'gl-398214-marinol');
+ assert(JSON.stringify(marinolState.pathways).includes('preferred generic dronabinol'));
+ const pahTadalafil=groups.find(g=>g.records.some(r=>r.id.endsWith('c4664159ec823baf')));
+ assert(!a.uhcGroupBindings(pahTadalafil).some(b=>b.policyId.endsWith('gl-140729')));
  // These payer rows name the brand only as a reference for the dispensed generic.
  for (const [suffix,name,uhc,statewide,pdlPage] of [
    ['820cf0c2e68e26f3','pregabalin oral (generic for LYRICA)','140672','105529',142],
@@ -1013,6 +1044,11 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    const detail=await open(group);
    assert.equal(detail.html.includes('pdf#page=702"'),!strip);
    assert.equal(detail.html.includes('pdf#page=1687"'),strip);
+   for(const view of [card,detail.ref]) {
+     assert.equal(view.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page=1687"'),strip,suffix);
+     assert.equal(view.includes('Test strip QL reference ↗ · p. 1687'),strip,suffix);
+     assert(!view.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page=1686"'),suffix);
+   }
    assert(!detail.html.includes('pdf#page=1686"'),suffix);
  }
  // The same raw alias also occurs on the separately verified Aviva meter and Contour Plus control.
@@ -1100,6 +1136,54 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  const benOut=await open(benlysta);
  for(const page of [226,227,228])assert(benOut.html.includes('Criteria source · PDF page '+page+'<'),'Benlysta page '+page);
  assert(benOut.ref.includes('page=226'));assert(benRow.uhcClinicalBindings.some(b=>b.role==='nonpreferred'&&b.policyId.endsWith('gl-231255')));assert(!benOut.ref.includes('page=1202'),'Named criteria should not stack administrative fallback');assert(benOut.ref.includes('page=702'));
+ for(const [suffix,tier] of [['4583eee7556ae462',2],['7b0ebd262d31752a',1],['596ca4e932b330df',1]]) {
+   const id='uhc-oct-complete-'+suffix;
+   const group=groups.find(g=>g.records.some(r=>r.id===id));
+   const row=group.records.find(r=>r.id===id);
+   assert.equal(row.rawRestrictions,'Tier '+tier+'; QL; AL');
+   assert.equal(row.preferred,'preferred'); assert.equal(row.pa,'not_specified'); assert.equal(row.step,'not_specified');
+   const detail=await open(group), card=a.medicationGroupCard(group);
+   assert(card.includes('Tier '+tier)&&!card.includes('>PA required<')&&!card.includes('>Conditional PA<'),id);
+   assert(detail.html.includes('under 6 years old')&&detail.html.includes('psychosocial'),id);
+   assert(!/FOUR preferred|MedWatch|multisource brand|insomnia|melatonin/.test(detail.html),id+' inapplicable request pathway');
+   for(const page of [51,702])assert(detail.html.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page='+page+'"'),id);
+   assert.equal(group.records.some(r=>r.id.endsWith('596ca4e932b330df')),suffix==='596ca4e932b330df',id+' ER distinction');
+ }
+ for(const suffix of ['2f5098c47132fc2d','daa7640034071c95','ad9f23250285e687','38275709261b0c79','ce7df82b5c0d5f48','5a377b2c040e33fc','9dbf1c1936706eb9']) {
+   const id='uhc-oct-complete-'+suffix, marked=suffix==='9dbf1c1936706eb9';
+   const group=groups.find(g=>g.records.some(r=>r.id===id));
+   const row=group.records.find(r=>r.id===id);
+   assert.equal(row.rawRestrictions,marked?'Tier 1; *; QL; AL':'Tier 1; QL; AL');
+   assert.equal(row.pa,'not_specified'); assert.equal(row.preferred,'preferred'); assert.equal(row.step,'not_specified');
+   const exact={...group,key:id+'-only',records:[row],isStatewide:false,statewideRecord:null};
+   for (const g of [exact,group]) {
+     const card=a.medicationGroupCard(g), detail=await open(g);
+     assert(card.includes('>Preferred<')&&card.includes('Tier 1')&&card.includes('Age limit'),id);
+     assert.equal(card.includes('60 mg generic chewable tablet: available without PA'),g.records.some(r=>r.id.endsWith('9dbf1c1936706eb9')),id+' strength-specific prescriber exception');
+     assert.equal(card.includes('AHCCCS Statewide'),g===group,id+' statewide coverage source');
+     if(g===exact)assert(!card.includes('>PA required<')&&!card.includes('>Conditional PA<'),id);
+     assert(detail.html.includes('under 6 years old')&&detail.html.includes('psychosocial')&&detail.html.includes('clinical justification'),id);
+     assert(!/FOUR preferred|multi-source brand|MedWatch|non-preferred\*/.test(detail.html),id+' nonpreferred requirements');
+     for(const page of [51,702])assert(detail.html.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page='+page+'"'),id+' '+page);
+   }
+ }
+ // The 60 mg branded chewable has a prescriber-specific exception on its PA flag.
+ for (const [suffix, flag] of [['466ed897a555d892','required'], ['67b306246b077d76','required'], ['77c5b244d4cb7020','conditional']]) {
+   const id='uhc-oct-complete-'+suffix;
+   const group=groups.find(g=>g.records.some(r=>r.id===id));
+   const row=group.records.find(r=>r.id===id);
+   assert.equal(row.pa,flag);
+   assert.equal(row.rawRestrictions,flag==='conditional'?'Tier 2; PA; *; QL; AL':'Tier 2; PA; QL; AL');
+   assert.equal(row.preferred,'non_preferred');
+   const card=a.medicationGroupCard(group), detail=await open(group);
+   assert.equal(card.includes('available without PA for participating Behavioral Health Prescribers'),flag==='conditional',id);
+   assert(detail.html.includes('under 6 years old')&&detail.html.includes('FOUR')&&detail.html.includes('MedWatch'),id+' exact product requests');
+   for(const page of [51,702]) assert(detail.html.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page='+page+'"'),id+' policy page '+page);
+   assert(!detail.html.includes('page=1202"'),id+' general fallback overrode named policy');
+ }
+ const genericSixty=groups.flatMap(g=>g.records).find(r=>r.id==='uhc-oct-complete-9dbf1c1936706eb9');
+ assert.equal(genericSixty.rawRestrictions,'Tier 1; *; QL; AL');
+ assert.equal(genericSixty.pa,'not_specified');
  const samsca=groups.find(g=>g.records.some(r=>r.name.startsWith('SAMSCA (brand')));
  const samscaContent=await open(samsca);
  assert(samscaContent.html.includes('Criteria source · PDF page 1488<'));

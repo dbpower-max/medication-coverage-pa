@@ -5,6 +5,9 @@ from functools import lru_cache
 from source_restrictions import correct_source_restrictions, correct_source_conflicts
 ROOT=Path(__file__).resolve().parents[1]
 SOURCE='https://www.azcompletehealth.com/content/dam/centene/az-complete-health/json/Drugs_FAB_CNCAZCH01_AZ_Medicaid_Integrated_Formulary_eff_9-1-22_07142026131014_AZ.json'
+# Exact branded anticoagulant starter packs in the 2022 JSON and November 2026
+# statewide list. Ordinary tablet rows in the same class are separate options.
+STARTER_PACK_REFERENCES = {'1992428': 'formulary-9832', '1549683': 'formulary-9835'}
 SOURCE_SCOPE='Use the 2022 Arizona Complete Health formulary as the presumed baseline. Later applicable sources update only the fields they address. AHCCCS listings identify statewide benefits. A complete current plan formulary remains unverified.'
 STOP=set('w soln pref syr bitartrate bromide oral topical inhalation subcutaneous intramuscular intramusc intraven intravenous injection injectable nasal sublingual subcutane intrav sub q tablet tablets tab capsule capsules solution suspension cream ointment gel patch syringe syringes vial vials pen pens kit spray powder aerosol elixir suppository chewable chew chewable disintegrating odt er xr cr dr extended release delayed controlled hr hour hours 24 12 72 hcl hydrochloride hydrobromide sulfate sulphate mesylate sodium potassium mg mcg ml gm g % per actuation actuat metered dose inhaler nebulizer autoinjector cartridge prefilled pref pack pak various cf ag authorized generic only brand'.split())
 @lru_cache(maxsize=None)
@@ -125,7 +128,13 @@ def with_ach_baseline(d):
   p=row['plans'][0]; name=row['drug_name'];brand=re.search(r'\[([^]]+)\]',name);brand=brand.group(1) if brand else ''
   generic=re.sub(r'\[[^]]+\]','',name); nt=tokens(generic)
   candidates=[];held_pa=[]
+  pack_reference = STARTER_PACK_REFERENCES.get(row['rxnorm_id'])
+  pack_update = None
   for r in current:
+   if pack_reference and r.get('validation') == 'mandated_statewide_minimum_with_plan_adoption_evidence':
+    if r['id'] == 'ach-mandated-' + pack_reference:
+     pack_update = r
+    continue
    rn=r['name']; rb=r.get('brand','')
    if '(AG)' in rn or 'AUTHORIZED' in rn.upper():continue
    branded=bool(brand and tokens(brand) and tokens(brand) <= tokens(rn))
@@ -148,8 +157,12 @@ def with_ach_baseline(d):
    candidates.append((branded,r))
   if any(b for b,r in candidates):candidates=[(b,r) for b,r in candidates if b]
   candidates=[r for b,r in candidates]
+  if pack_update:
+   candidates.append(pack_update)
   candidates.sort(key=lambda r:r.get('sourceEffective',''))
   rec=dict(id='ach-json-'+row['rxnorm_id'],recordType='formulary',planId='az-complete-health',name=name,brand=brand,category='Other',subcategory='Integrated formulary',coverage='listed',listingLabel='Covered',preferred='preferred' if p.get('drug_tier')=='PREFERRED' else 'not_specified',pa='required' if p.get('prior_authorization') else ('not_required' if p.get('prior_authorization') is False else 'not_specified'),paText='The formulary lists prior authorization.' if p.get('prior_authorization') else '',step='specified' if p.get('step_therapy') else 'not_specified',stepText='The formulary requires step therapy but does not specify the steps.' if p.get('step_therapy') else '',quantityLimited=bool(p.get('quantity_limit')),qlAmount='',qlDays='',conditions=[],notes='',sourceTitle='Arizona Complete Health official integrated JSON baseline (declared plan year 2022)',sourceEffective='2022',sourceUrl='/sources/ach/integrated-formulary-baseline.json.gz',sourceRow=index+1,rxnormId=row['rxnorm_id'],validation='official_json_baseline_with_later_updates',baselineSource={'url':SOURCE,'declaredPlanYears':p['years'],'row':index+1,'values':p},sourceUpdates=[])
+  if pack_update:
+   rec['verifiedStatewidePackId'] = pack_reference
   for r in candidates:
    rec['category']=r.get('category') or rec['category'];rec['subcategory']=r.get('subcategory') or rec['subcategory']
    update={k:r.get(k) for k in ['id','name','sourceTitle','sourceUrl','sourceEffective','sourcePage','preferred','pa','paText','step','stepText','qlAmount','qlDays']}
