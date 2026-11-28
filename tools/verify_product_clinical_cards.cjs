@@ -5,7 +5,7 @@ for(const file of Object.values(data.planDataFiles||{})) data.medications.push(.
 delete data.planDataFiles;
 const source=fs.readFileSync('_site/app.js','utf8');
 const ctx={Intl,console,document:{addEventListener:()=>{}},fetch:async url=>({ok:true,json:async()=>read('_site/'+url.split('?')[0].replace(/^\.\//,'')),text:async()=>fs.readFileSync('_site/'+url.split('?')[0].replace(/^\.\//,''),'utf8')})};
-vm.createContext(ctx);vm.runInContext(source.replace("document.addEventListener('DOMContentLoaded', init);",'globalThis.api={state,planMedicationGroups,medicationGroupCard,populateCardClinical,matchingClinicalBranches,cardBranchMarkup,cardClinicalGroups,clinicalGuidanceFor,recordDetails};'),ctx);
+vm.createContext(ctx);vm.runInContext(source.replace("document.addEventListener('DOMContentLoaded', init);",'globalThis.api={state,planMedicationGroups,medicationGroupCard,populateCardClinical,matchingClinicalBranches,cardBranchMarkup,cardClinicalGroups,clinicalGuidanceFor,recordDetails,matchesCoverage};'),ctx);
 const api=ctx.api;api.state.data=data;
 function targetFor(group){const target={innerHTML:'',isConnected:true};return {target,details:{open:true,dataset:{cardClinical:group.key||group.label},querySelector:selector=>selector==='.card-pa-references'?{innerHTML:''}:target}};}
 (async()=>{
@@ -129,6 +129,29 @@ for(const [rx,matched] of [
  assert.equal(src.includes('Feb%202023.pdf#page='),matched);
  if (['242120','1652639','1926331','847252'].includes(rx)) assert(src.includes('searchTerm='+rx+'"'), rx);
  if(matched) assert.equal(r.benefitSources.quantityLimited,'selected_plan');
+}
+for (const [rx,dose,concentration] of [[727316,'0.15','0.5'],[1870207,'0.3','1']]) {
+  const group=achOudGroups.find(g=>g.records.some(r=>r.id==='ach-json-'+rx));
+  const row=group.records[0], card=api.medicationGroupCard(group), src=api.recordDetails(row);
+  assert.equal(group.records.length,1);
+  assert(card.includes(dose+' mg/0.3 mL single-dose autoinjector') && card.includes(concentration+' mg/mL'),rx);
+  assert(card.includes('>QL: 0.067 each per day<') && card.includes('>Preferred<'),rx);
+  assert(!card.includes('>PA required<') && !card.includes('2 pens per 30 days'),rx);
+  assert(src.includes('searchTerm='+rx+'"') && src.includes('#page=78') && src.includes('QL(0.067 ea daily)'),rx);
+}
+for (const [rx,concentration] of [[835831,100],[835842,200]]) {
+  const group=achOudGroups.find(g=>g.records.some(r=>r.id==='ach-json-'+rx));
+  const row=group.records[0],card=api.medicationGroupCard(group),src=api.recordDetails(row);
+  assert.equal(group.records.length,1);
+  assert(card.includes(concentration+' mg/mL intramuscular injection') && card.includes('>Nonformulary<') && card.includes('>PA required<'),rx);
+  assert(!card.includes('>Preferred<') && !card.includes('>Covered<') && !card.includes('>Explicitly not covered<'),rx);
+  assert.equal(card.includes('1 mL single-dose vial'),concentration===200);
+  assert(src.includes('searchTerm='+rx+'"') && src.includes('#page=13') && src.includes('#page=1785'),rx);
+  assert.equal(row.baselineSource.values.drug_tier,'PREFERRED');
+  for(const filter of ['listed','preferred','pa_required']) {
+    api.state.coverage=filter;assert.equal(api.matchesCoverage(row),filter==='pa_required',rx);
+  }
+  api.state.coverage='';
 }
 const halfMix=achOudGroups.find(g=>g.records.some(r=>r.id==='ach-json-847213'));
 const halfMixCard=api.medicationGroupCard(halfMix);
