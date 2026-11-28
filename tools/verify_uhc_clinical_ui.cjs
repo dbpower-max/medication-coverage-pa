@@ -1638,9 +1638,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  console.log('PASS: UHC oseltamivir, montelukast and Flector display source-supported dosage forms and exact payer flags.');
  const insulinAndSupplies = [
   ['4b27f95aecd5c517', /Admelog.*Labeled Vial/, true],
-  ['7fb64d26f93768e3', /Humalog.*Vial or Cartridge/, true],
   ['99b7a79d60f9be27', /Insulin Lispro U-100.*Labeled Vial/, false],
-  ['a864ab78ab9356d7', /Humalog Mix 75\/25 KwikPen/, true],
   ['6b20c512802745b5', /75\/25 U-100 Prefilled Pen/, false],
   ['96922f638bb987d2', /Glargine-yfgn SC Solution.*Device Unspecified/, true],
   ['4270f8a1ce19e554', /Glargine-yfgn SC Pen Injector/, false],
@@ -1673,6 +1671,25 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   insulinCards.add(group);
  }
  assert.equal(insulinCards.size, insulinAndSupplies.length);
+ for (const [id,label] of [
+  ['7fb64d26f93768e3', /Humalog.*Vial or Cartridge/],
+  ['bdd6e173aa27ca29', /Humalog Mix 75.25.*Labeled Vial/],
+  ['a864ab78ab9356d7', /Humalog Mix 75.25 KwikPen/],
+ ]) {
+  const group = byId(id);
+  assert.equal(group.records.length, 1);
+  assert.match(group.label, label);
+  const card = a.medicationGroupCard(group);
+  for (const badge of ['Tier 2', 'Nonpreferred', 'Quantity limit', 'PA listings conflict']) {
+   assert(card.includes('>' + badge + '<'), group.label + ' missing ' + badge);
+  }
+  assert(!card.includes('>PA required<'));
+  const {ref} = await open(group);
+  assert(ref.includes('QL reference'));
+ }
+ const fiftyMix = a.medicationGroupCard(byId('ae4326cd39db152e'));
+ assert(fiftyMix.includes('>Preferred<') && fiftyMix.includes('>Quantity limit<'));
+ assert(!fiftyMix.includes('>PA listings conflict<') && !fiftyMix.includes('>PA required<'));
  const standardLispro = byId('2dbe0497f9246f1b');
  assert.equal(standardLispro.label, 'Insulin Lispro U-100 Prefilled Pen (1-Unit Increments)');
  assert.equal(standardLispro.records.length, 1);
