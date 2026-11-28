@@ -546,28 +546,57 @@ electronic_pa_disagreements = {
     '0d8138a620761a85': (2589014, 4145, 2853, '100 units/mL, 3 mL'),
     '8eaaa9a428e51bfe': (801957, 9040, 9324, '2.5 mg/0.5 mL fixed-dose syringe'),
 }
+# (RxCUI, October row, November row, exact label presentation).
+specialty_disagreements = {
+    '6f70bcaf242cd685': [(1653243,108,1513,'150 mg/1 mL Sensoready auto-injector')],
+    'd7084ac5ae35fc25': [(2550713,3502,4507,'75 mg/0.5 mL prefilled syringe'),
+                         (1599797,4617,242,'150 mg/1 mL prefilled syringe')],
+    '9449c2ad49f55210': [(2637348,1945,5555,'300 mg/2 mL UnoReady pen')],
+    'f02ebb3ed15163c2': [(312071,2050,5789,'1000 mcg/mL injection solution')],
+    '2365e48035c832b5': [(314152,1433,5816,'200 mcg/mL injection solution')],
+    'cd9f5afab9cb36c4': [(1090558,2582,1660,'100 mcg/mL prefilled syringe'),
+                          (1090559,2264,4922,'50 mcg/mL prefilled syringe')],
+    '1e81e13b95303948': [(1090560,2583,1661,'500 mcg/mL prefilled syringe')],
+}
 for record in data['medications']:
     key = record['id'].removeprefix('uhc-oct-complete-')
-    if key not in electronic_pa_disagreements:
+    if key not in electronic_pa_disagreements and key not in specialty_disagreements:
         continue
-    rx, october, november, package = electronic_pa_disagreements[key]
     assert record['planId'] == 'uhc-community-az' and record['sourceEffective'] == '2026-10-01'
-    assert record['rawRestrictions'] == f"Tier {record['tier']}; PA; QL" and record['step'] == 'not_specified'
-    archived = electronic_formulary[october - 1]
-    assert int(archived['rxnorm_id']) == rx
-    variants = [v for v in archived['plans'] if v['plan_id'] == 'UCSAZQ3' and 2026 in v['years']]
-    assert len(variants) == 1
-    variant = variants[0]
-    assert (variant['drug_tier'], variant['prior_authorization'], variant['step_therapy'],
-            variant['quantity_limit']) == ('NON-PREFERRED(90)', False, True, True)
-    evidence = f'RxCUI {rx}: NON-PREFERRED(90), PA false, ST true, QL true.'
+    assert record['pa'] == 'required' and record['step'] == 'not_specified'
     display = record['reviewedPresentation']
-    display.update({
-        'prescribingHeading': f"{display['label']} — {package}", 'identityRxcui': rx,
-        'paSourceConflict': True, 'electronicStepOnly': True,
-        'electronicEvidence': [f'Row {october}, {evidence}'],
-        'novemberElectronicEvidence': f'Row {november}, {evidence}',
-    })
+    if key in electronic_pa_disagreements:
+        rx, october, november, package = electronic_pa_disagreements[key]
+        assert record['rawRestrictions'] == f"Tier {record['tier']}; PA; QL"
+        products = [(rx, october, november, package)]
+        display['prescribingHeading'] = f"{display['label']} — {package}"
+        tier = 'NON-PREFERRED(90)'
+    else:
+        products = specialty_disagreements[key]
+        display['prescribingHeading'] = display['label']
+        display['note'] = display['note'].replace('UHC lists PA, specialty status and QL.',
+                                                 'The printed UHC formulary lists PA, specialty status and QL.')
+        tier = 'PREFERRED(29)' if record['sourcePage'] == 167 else 'NON-PREFERRED(90)'
+        assert record['sourcePage'] in (113,167)
+    october_rows, november_rows = [], []
+    for rx, october, november, description in products:
+        archived = electronic_formulary[october - 1]
+        assert int(archived['rxnorm_id']) == rx
+        variants = [v for v in archived['plans'] if v['plan_id'] == 'UCSAZQ3' and 2026 in v['years']]
+        assert len(variants) == 1
+        variant = variants[0]
+        ql = 'QL' in record['rawRestrictions'].split('; ')
+        assert (variant['drug_tier'], variant['prior_authorization'], variant['step_therapy'],
+                variant['quantity_limit']) == (tier, False, True, ql)
+        evidence = f"RxCUI {rx}: {tier}, PA false, ST true, QL {str(ql).lower()}."
+        october_rows.append(f'Row {october}, {evidence}')
+        november_rows.append(f'Row {november}, {evidence}')
+    if len(products) == 1:
+        display['identityRxcui'] = products[0][0]
+    else:
+        display['labelProductExamples'] = [[description,rx] for rx,_,_,description in products]
+    display.update(paSourceConflict=True, electronicStepOnly=True, electronicEvidence=october_rows,
+                   novemberElectronicEvidence=' '.join(november_rows))
     display['note'] += (' The printed formulary lists PA and leaves step therapy blank. '
                         'Both electronic copies report no PA and list step therapy. '
                         'The PA requirement and step prerequisites are unverified.')
