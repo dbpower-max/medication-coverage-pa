@@ -72,6 +72,15 @@ for row in data['medications']:
    continue
   devices={'1190225':('COMBIVENT RESPIMAT','9824'),'1487524':('ANORO ELLIPTA','9828'),'1487528':('ANORO ELLIPTA','9828'),
            '1651275':('STIOLTO RESPIMAT','9827'),'2166928':('STIOLTO RESPIMAT','9827')}
+  if row['rxnormId'] in {'866049','790284','746804','746811','746813','746815'}:
+   assert 'Dry Powder Inhaler' in row['name']
+   serevent=row['rxnormId']=='866049'
+   if update['sourcePage']==13:
+    expected='SEREVENT DISKUS' if serevent else 'ASMANEX TWISTHALER '+row['name'].split()[0]+' METERED DOSES AEPB'
+    assert update['name']==expected and update['sourceEffective']=='2023-04-01'
+   else:
+    assert update.get('id')=='ach-mandated-formulary-'+('9826' if serevent else '9811') and update['sourceEffective']=='2026-11-01'
+   continue
   if row['rxnormId'] in {'1246310','1660934','1246313','1660938','2196592'}:
    assert row['name'].endswith('Metered Dose Inhaler [Dulera]')
    assert (update['name']=='DULERA' and update['sourceEffective']=='2023-04-01' and update['sourcePage']==13
