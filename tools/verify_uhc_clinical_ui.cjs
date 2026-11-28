@@ -1615,7 +1615,20 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   assert.match(group.search, /testosterone/i);
   assert.equal(group.records.length, 1);
   const card = a.medicationGroupCard(group);
-  assert(card.includes('>PA required<') && card.includes('>Quantity limit<'));
+  const unsuffixedDepo=id==='0618ed2eee749f42';
+  assert.equal(card.includes('>PA required<'),!unsuffixedDepo,id);
+  assert.equal(card.includes('>PA listings conflict<'),unsuffixedDepo,id);
+  assert(card.includes('>Quantity limit<'));
+  if (unsuffixedDepo) {
+    const sources=a.recordDetails(group.records[0]);
+    assert(sources.includes('row 6002') && sources.includes('row 8089') && sources.includes(archivedElectronic));
+    assert(sources.includes('searchTerm=835831') && sources.includes('searchTerm=835842'));
+    assert(!sources.includes('searchTerm=2694316') && card.includes('report no PA and list step therapy'));
+  }
+  if (id==='95f3abcf725dc69c') {
+    assert(card.includes('brand name, container and covered package are unverified'));
+    assert(!a.recordDetails(group.records[0]).includes('row 8089'));
+  }
   assert.equal(card.includes('>Preferred<'), preferred);
   assert.equal(card.includes('>Nonpreferred<'), !preferred);
   const {html, ref} = await open(group);
