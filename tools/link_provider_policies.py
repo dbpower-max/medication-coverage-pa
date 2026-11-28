@@ -223,9 +223,34 @@ def attach_provider_policies(data):
  }
  for rid,(name,pref,product,note) in banner_ig_scope.items():
   banner_exact_links[rid]=('banner-policy-12-877','GL-525296',product,name,'required',pref,note)
+ concentrated_insulin = {
+  'banner-oct26-031': ('INSULIN REGULAR (HUMAN) SOLUTION', 'HUMULIN R U-500 (CONCENTRATED)',
+                       'Humulin R U-500 (regular insulin) 500 units/mL multidose vial', 351859,
+                       'Use only a U-500 insulin syringe with this vial. DailyMed lists May 14, 2026 as the marketing end date for the 20 mL vial (NDC 0002-8501-01). Current vial availability and package eligibility are unverified.'),
+  'banner-pcp-nov10-011': ('INSULIN REGULAR (HUMAN) SOLUTION PEN- INJECTION', 'HUMULIN R U-500 KWIKPEN',
+                           'Humulin R U-500 KwikPen (regular insulin) 500 units/mL prefilled pen', 1731317,
+                           '3 mL single-patient-use pen. Dial the prescribed units in 5-unit increments. Never withdraw insulin from the pen into a syringe.'),
+ }
+ insulin_policy_id = 'banner-policy-12-969'
+ insulin_product = 'Humulin R U-500 vial and kwikpen'
+ insulin_policy = policies[insulin_policy_id]
+ insulin_text = (ROOT/'dist'/insulin_policy['sourceTextUrl'].lstrip('./')).read_text()
+ assert re.search(r'Effective Date:\s*10/1/2024', insulin_text)
+ insulin_policy.update(policyCode='GL-154074', policyEffective='2024-10-01')
+ policies['banner-guide-u500']['policyEffective'] = '2024-10-01'
+ for rid, (original, brand, heading, rxcui, warning) in concentrated_insulin.items():
+  banner_exact_links[rid] = (insulin_policy_id, 'GL-154074', insulin_product, original, 'required', 'preferred',
+                             'U-500 vial and KwikPen. Approval lasts 12 months. The policy does not distinguish initial from renewal requests.')
  found=set()
  for r in data['medications']:
   if r['id'] not in banner_exact_links:continue
+  if r['id'] in concentrated_insulin:
+   original,brand,heading,rxcui,warning = concentrated_insulin[r['id']]
+   assert r['brand']==brand and r['notes']=='BRAND ONLY' and r['sourcePage']==11 and r['sourceEffective']=='2026-10-01'
+   assert r['step']=='not_specified' and not r['qlAmount'] and not r['qlDays']
+   r['reviewedPresentation'] = {'heading':heading, 'identityRxcui':rxcui, 'note':warning,
+                               'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b60e8dd0-1d48-4dc9-87fd-e14675255e8c'}
+   r['reviewedBannerBranches'] = {'policyId':insulin_policy_id, 'product':insulin_product, 'unstagedPage':969}
   pid,code,product,original,pa,preference,scope=banner_exact_links[r['id']]
   assert r['planId']=='banner-ufc' and r['name']==original and r['pa']==pa and r['preferred']==preference
   p=policies[pid];assert p['planId']=='banner-ufc'

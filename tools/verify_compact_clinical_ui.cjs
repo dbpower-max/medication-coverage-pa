@@ -44,6 +44,20 @@ for(const fn of handlers)fn({target:{closest:s=>s==='[data-card-sources]'?source
 assert(dialog.open&&dialog.body.innerHTML.includes('AHCCCS')&&dialog.body.innerHTML.includes('href='),'Original records/source links not accessible');
 for(const fn of handlers)fn({target:{closest:s=>s==='[data-close-sources]'?{}:null}});
 assert(!dialog.open,'Sources close failed');
+api.state.planId='uhc-community-az';
+for(const [term,id] of [['Trulicity','9972'],['Victoza','9974'],['Mounjaro','9975']]){
+ api.state.term=term;
+ const group=api.render().find(g=>g.records.some(r=>r.id==='uhc-community-az:statewide:formulary-'+id));
+ assert(group,term+' statewide card missing');
+ const button={dataset:{cardSources:group.key||group.label}};
+ for(const fn of handlers)fn({target:{closest:s=>s==='[data-card-sources]'?button:null}});
+ const sources=dialog.body.innerHTML;
+ assert(dialog.open&&sources.includes('AHCCCS Statewide')&&sources.includes('ahcccs-ffs-pa-criteria-2026-11-01.pdf#page=718'),term+' statewide source popup');
+ assert(!sources.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page=706'),term+' UHC criteria in statewide source popup');
+ for(const fn of handlers)fn({target:{closest:s=>s==='[data-close-sources]'?{}:null}});
+ assert(!dialog.open,term+' Sources close');
+}
+api.state.planId='az-complete-health';api.state.term='Mounjaro';api.render();
 const content={hidden:true,dataset:{},innerHTML:''};
 const shortcut={dataset:{criteriaQuery:'FLEXERIL',criteriaFallback:'cyclobenzaprine'},closest:()=>({querySelector:()=>content}),setAttribute:()=>{}};
 for(const fn of handlers)fn({target:{closest:s=>s==='[data-criteria-query]'?shortcut:null}});

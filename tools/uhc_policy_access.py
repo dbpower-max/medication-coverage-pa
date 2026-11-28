@@ -26,12 +26,18 @@ RISPERIDONE_BRANCHES = {
 # Match the payer's printed product field when aliases cross brand or release boundaries.
 # A generic name shared between two products cannot transfer indication or route.
 EXCLUDED_OCTOBER_POLICIES = {
+    'glycopyrrolate oral solution 1 mg/5ml (generic for cuvposa)': 'GL-140733',
+    'pregabalin oral (generic for lyrica)': 'GL-140672',
     'soolantra (brand for ivermectin)': 'GL-140680',
     'tadalafil (pah) (generic for alyq)': 'GL-140729',
     'jynarque oral tablet (brand for tolvaptan)': 'GL-140869',
     'jynarque oral tablet therapy pack (brand for tolvaptan)': 'GL-140869',
     'samsca (brand for tolvaptan (hyponatremia))': 'GL-369225',
 }
+
+# The state chapters also name the brand, with the generic appearing as a prerequisite.
+BRAND_ONLY_STATEWIDE_COUNTERPARTS = {'GL-140733': 'GL-108674', 'GL-140672': 'GL-105529'}
+
 
 OCTOBER_POLICY_PRODUCTS = {
     'ozempic (2 mg/dose)': ('GL-720195', 'Ozempic injection'),
@@ -329,7 +335,7 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             assert policies['GL-720195']['policyEffective'] == '2026-10-18'
             record['reviewedPresentation'] = {
                 **record.get('reviewedPresentation', {}), 'separate': True,
-                'label': 'Ozempic (semaglutide) 2 mg/dose — 8 mg/3 mL subcutaneous prefilled pen',
+                'label': 'Ozempic (semaglutide) 2 mg/dose — 8 mg/3 mL subcutaneous solution in a multidose prefilled pen',
                 'dosageForm': 'subcutaneous solution in a multidose prefilled pen',
                 'identityRxcui': 2599365,
                 'note': 'The pen delivers four 2 mg doses. UHC lists a quantity limit without an amount or interval.',
@@ -339,6 +345,8 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         if excluded_code:
             matched.pop(excluded_code, None)
             record['excludedPolicyCode'] = excluded_code
+            if excluded_code in BRAND_ONLY_STATEWIDE_COUNTERPARTS:
+                record['excludedStatewidePolicyCode'] = BRAND_ONLY_STATEWIDE_COUNTERPARTS[excluded_code]
             if october_name == 'soolantra (brand for ivermectin)':
                 record['unverifiedPolicyCode'] = excluded_code
         exact_product = OCTOBER_POLICY_PRODUCTS.get(october_name)
