@@ -770,7 +770,32 @@
   const g6TransitionUrl = 'https://www.dexcom.com/en-us/g6-transition';
   const g6ComponentUrl = 'https://provider.dexcom.com/can-dexcom-g6-components-be-used-dexcom-g7';
   const g6ReceiverUpdate = 'https://www.dexcom.com/en-us/faqs/can-i-use-the-same-receiver-for-dexcom-g7-15-day-as-i-have-for-dexcom-g6';
+  const guardian3Presentation = {
+    deviceSafety: {
+      text: 'Hydroxyurea can cause falsely high Guardian Sensor 3 readings and excess insulin delivery. Use a blood glucose meter while taking hydroxyurea and disable the pump’s CGM feature as directed in its user guide.',
+      link: 'https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfRES/res.cfm?id=186942', linkLabel: 'FDA hydroxyurea correction'
+    },
+    note: 'Single-use sensor for up to 7 days. For a MiniMed 780G, pair with the Guardian Link 3 transmitter. Use meter readings for therapy adjustments in manual mode. MiniMed ended Link 3 transmitter sales April 24, 2026 and lists December 31, 2026 as the last day for sensor sales and replacements of both components.',
+    sourceReferences: [
+      ['FDA · Guardian Sensor 3 systems and wear time · pp. 2–3', 'https://www.accessdata.fda.gov/cdrh_docs/pdf16/P160017S091b.pdf#page=2'],
+      ['FDA · 780G manual · hydroxyurea warning · pp. 37–38', 'https://www.accessdata.fda.gov/cdrh_docs/pdf16/P160017S091C.pdf#page=37'],
+      ['MiniMed · Guardian Link 3 and Sensor 3 sales and replacement dates', 'https://www.minimed.com/en-us/products/guardian-sensor-3']
+    ]
+  };
+  const omnipod5Safety = {
+    text: 'Certain Pod lots can leak and underdeliver insulin. Check the lot on each Pod, including Pods supplied in an intro kit. Replace an affected Pod in use with one from an unaffected lot and request replacements.',
+    link: 'https://www.omnipod.com/mdc/check-pod-lot', linkLabel: 'Check Pod lot'
+  };
+  const omnipod5Sources = [
+    ['FDA · March 2026 Omnipod 5 Pod lot correction', 'https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/insulet-initiates-voluntary-medical-device-correction-certain-omnipodr-5-pods-us'],
+    ['FDA · May 2026 additional affected Pod lots', 'https://www.fda.gov/medical-devices/medical-device-recalls-and-early-alerts/insulin-pump-recall-insulet-removes-omnipod-pods'],
+    ['Insulet · Dexcom-compatible Pod packaging and NDC', 'https://www.omnipod.com/hcp/dexcom-g7'],
+    ['Insulet · Dexcom receiver compatibility by sensor', 'https://www.omnipod.com/current-podders/resources/omnipod-5/faqs/dexcom-g7/receiver-compatibility']
+  ];
+  const omnipod5Compatibility = 'Confirm the sensor named on the Pod box and tray lid. G6-only Pods and newer G6/G7 Pods share an NDC. With a compatible Pod, G6 and standard G7 require the Dexcom phone app with the receiver off. G7 15 Day can use a compatible phone or G7 receiver.';
   const reviewedCardPresentations = new Map([
+    ['uhc-oct-complete-900b6f543a871255', guardian3Presentation],
+    ['uhc-oct-complete-c48e74b3ca337637', guardian3Presentation],
     ['uhc-oct-complete-3c92c61765001722', {
       label: 'Dexcom G6 CGM receiver', deviceSourceUrl: g6ReceiverUpdate, deviceSafety: dexcomReceiverSafety,
       sourceReferences: [dexcomReceiverRecall, ['Dexcom · G6 manufacturing transition · July 1, 2026', g6TransitionUrl]],
@@ -1140,10 +1165,12 @@
     ["banner-full-cbfa838935217cc6", {"label": "Clindamycin Phosphate / Benzoyl Peroxide (Form Unspecified)", "note": "Banner prints “refrigerate” on the continuation of its October listing, page 24. Eligible concentration is unspecified."}],
     ['uhc-oct-complete-7643ae6c318710a6', {
       label: 'Omnipod 5 Dexcom insulin pump intro kit', separate: true,
-      note: 'The formulary lists an intro kit. The higher-quantity exception is specific to pods.'
+      deviceSafety: omnipod5Safety, sourceReferences: omnipod5Sources,
+      note: omnipod5Compatibility + ' The formulary lists an intro kit. The higher-quantity exception is specific to pods.'
     }],
     ['uhc-oct-complete-fcc058d760894f93', {
-      label: 'Omnipod 5 Dexcom insulin pump pods', separate: true
+      label: 'Omnipod 5 Dexcom insulin pump pods', separate: true,
+      deviceSafety: omnipod5Safety, sourceReferences: omnipod5Sources, note: omnipod5Compatibility
     }],
     ['uhc-oct-complete-4d48c8bd9a3822ca', {
       label: 'Nurtec ODT (rimegepant) orally disintegrating tablet', note: 'Labeled strength: 75 mg.',
