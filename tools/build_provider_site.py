@@ -427,6 +427,36 @@ ach_records['ach-notice-13874']['reviewedPresentation'] = {
     'labelProductExamples': [['45 mg/0.5 mL prefilled syringe', 2705597], ['90 mg/mL prefilled syringe', 2705600]],
 }
 
+naloxone_presentations = {
+    '1191234': ('Naloxone 0.4 mg/1 mL injection solution, Carpuject cartridge', 'b598c237-032d-4bb5-0e92-50eabd863dac',
+                'The 2.5 mL cartridge contains a 1 mL fill and requires a reusable Carpuject holder. The October plan notice names syringes and vials. Coverage of the holder is unverified.'),
+    '1659929': ('Naloxone 0.4 mg/1 mL injection solution', '8535cc84-ad4a-4d67-8480-fb5a2e3406f8',
+                'The linked label includes a 1 mL single-dose vial. Confirm the dispensed container before applying vial-specific coverage.'),
+    '1191222': ('Naloxone 0.4 mg/mL injection solution', '8535cc84-ad4a-4d67-8480-fb5a2e3406f8',
+                'Labeled vial presentations include 0.4 mg/1 mL single-dose and 4 mg/10 mL multidose. Confirm the dispensed container.'),
+    '1191250': ('Naloxone 2 mg/2 mL injection solution, prefilled syringe', '201fdedf-1736-4e52-9d7d-de14292547fd', '1 mg/mL in a 2 mL prefilled syringe.'),
+    '2679504': ('Naloxone 0.4 mg/1 mL injection solution, prefilled syringe', '201fdedf-1736-4e52-9d7d-de14292547fd', '0.4 mg/mL in a 1 mL prefilled syringe.'),
+    '1725059': ('Naloxone 4 mg/0.1 mL single-dose nasal spray', '8091a73d-9ecd-4578-a57b-5d85a2c5a16a',
+                'The October plan notice names OTC spray. Confirm the dispensing package for that listing.'),
+    '1725064': ('Narcan 4 mg/0.1 mL single-dose nasal spray', 'a0ebc83d-2892-40de-bc0a-775ce90b30db',
+                'The October plan notice specifies the OTC presentation. The statewide listing also names prescription spray.'),
+    '2540709': ('Kloxxado 8 mg/0.1 mL single-dose nasal spray', 'ebf0f833-c1c0-487c-8f29-01fa8c61b6cb', ''),
+    '2680741': ('Rextovy 4 mg/0.25 mL single-dose nasal spray', 'fe9735db-c57e-44a8-bffb-b87a84c2a6f3', 'Prescription nasal spray.'),
+}
+for rx,(heading,set_id,note) in naloxone_presentations.items():
+    display={'prescribingHeading':heading,'identityRxcui':int(rx),'note':note,
+             'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+set_id}
+    if rx == '1191234':
+        warning='https://www.fda.gov/media/191737/download'
+        display['deviceSafety']={'text':'Pfizer’s March 27, 2026 warning lists lot NH9362, unit NDC 0409-1782-03, carton 0409-1782-69, expiring July 31, 2027. Inspect before use and discard a unit with a hole at the needle-sheath tip.',
+                                 'link':warning+'#page=2','linkLabel':'FDA-hosted prescribing notice · inspection instructions · p. 2'}
+        display['sourceReferences']=[['Pfizer · affected naloxone cartridge lot · p. 6',warning+'#page=6']]
+    if rx == '1725059':
+        display['sourceReferences']=[['Arizona Complete Health · October OTC spray listing','https://www.azcompletehealth.com/newsroom/PU26135.html']]
+    if 'nasal spray' in heading:
+        display['statewideDailyLimit']='2'
+    ach_records['ach-json-'+rx]['reviewedPresentation']=display
+
 attach_dosage_forms(data["medications"] + statewide_drugs)
 attach_shared_policy(data)
 data["planDataFiles"] = {k: v for k, v in data.get("planDataFiles", {}).items() if k in ALLOWED}

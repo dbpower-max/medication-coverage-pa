@@ -32,6 +32,11 @@ for row in data['medications']:
    assert update['name']==ring_names[row['id']] and 'Vaginal System' in row['name']
    assert update['sourceUrl'].endswith('April%202023%202nd%20run.pdf')
    continue
+  # These literal brand names omit the nasal route on the printed source row.
+  nasal_aliases={'ach-json-2540709':{'KLOXXADO LIQD','NALOXONE'},'ach-json-1725064':{'NARCAN LIQD (naloxone hcl)'}}
+  if update['name'] in nasal_aliases.get(row['id'],set()):
+   assert 'Nasal Spray' in row['name'] and (update.get('id')=='ach-mandated-formulary-10015' or update['sourcePage']==19 and update['sourceEffective']=='2023-04-01')
+   continue
   assert compatible(row['name'],update['name']), 'Incompatible source applied: '+row['id']+' / '+update['name']
  if '[Triesence]' in row['name']:
   assert not any('KENALOG' in str(u).upper() for u in row['sourceUpdates'])
@@ -79,3 +84,20 @@ iv = products['ach-json-2705588']
 assert iv['benefitSources']['preferred'] == 'statewide_reference'
 assert not any(u.get('sourceUrl','').endswith('PU26135.html') for u in iv['sourceUpdates'])
 assert all(products['ach-json-' + rx]['preferred'] == 'preferred' for rx in ('847913', '847917'))
+
+for rx in ('1191234','1191222','1659929','1191250','2679504','1725059','1725064','2540709','2680741'):
+ row=next(r for r in baseline if r['rxnormId']==rx)
+ ids={u['id'] for u in row['sourceUpdates']}
+ assert ('ach-mandated-formulary-10015' in ids)==(rx=='2540709')
+ assert ('ach-notice-13954' in ids)==(rx in ('1191250','2679504'))
+ assert 'ach-notice-13955' not in ids
+ nasal='Nasal Spray' in row['name']
+ assert (str(row['qlAmount']),str(row['qlDays']))==(('2','1') if nasal else ('',''))
+ assert row['reviewedPresentation']['identityRxcui']==int(rx)
+ assert ('deviceSafety' in row['reviewedPresentation'])==(rx=='1191234')
+
+ for u in row['sourceUpdates']:
+  if u['id'] in ('ach-mandated-formulary-10015','ach-mandated-formulary-10016'):
+   assert 'BRAND ONLY' in u['rawBenefit']
+  if u['id']=='ach-mandated-formulary-9694':
+   assert 'OVER-THE-COUNTER & PRESCRIPTION ONLY' in u['rawBenefit']

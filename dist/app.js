@@ -1895,13 +1895,16 @@
         pa: belongs('pa') && record.pa, step: belongs('step') && record.step,
         quantityLimited: belongs('quantityLimited') && record.quantityLimited,
         verifiedQuantityLabel: scope === 'statewide_reference' && belongs('quantityLimited')
+          && reviewedCardPresentation(record)?.statewideDailyLimit === record.qlAmount && record.qlDays === '1'
+          ? `QL: ${record.qlAmount} per day (unit unspecified)` : scope === 'statewide_reference' && belongs('quantityLimited')
           && reviewedCardPresentation(record)?.quantityAmount === record.qlAmount && record.qlDays === '30'
           ? `QL: ${record.qlAmount} per 30 days (unit unspecified)` : planFormularyLimit ? `QL: ${record.qlAmount} per day` : '',
         ageLimited: belongs('ageLimited') && record.ageLimited
       }, belongs('coverage'));
       const preference = belongs('coverage') && record.coverage === 'listed' && record.preferred === 'not_specified'
         && !record.preferenceUncertaintyReason ? '<span class="chip neutral">Preference not specified</span>' : '';
-      const sourceChip = label ? `<span class="chip neutral">${escapeHtml(planFormulary ? 'Plan formulary' : label)}</span>` : '';
+      const mixedPlanSources = planFormulary && record.sourceUpdates.some(update => update.scope === scope && update.sourceUrl?.endsWith('/PU26135.html'));
+      const sourceChip = label ? `<span class="chip neutral">${escapeHtml(mixedPlanSources ? 'Plan sources' : planFormulary ? 'Plan formulary' : label)}</span>` : '';
       return badges ? `<div class="chips" aria-label="${escapeHtml(label || 'Plan')} coverage attributes">${sourceChip}${badges}${preference}</div>` : '';
     }).join('');
     const holds = [...new Set([record.sourceConflict, record.paUncertaintyReason].filter(Boolean))];
