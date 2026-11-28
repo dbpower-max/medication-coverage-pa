@@ -83,6 +83,37 @@ for record in data['medications']:
         }
         ach_oud_seen.add(rid)
 assert ach_oud_seen == set(ach_oud_rows) | {'ach-json-351264', 'ach-json-351265'}
+# Exact ACH baseline SBDs identify distinct devices. Keep statewide rows and
+# field-specific benefits separate when a shared brand spans a vial and pens.
+ach_insulin_devices = {
+    '1670016': ('Tresiba FlexTouch (insulin degludec) 100 units/mL prefilled pen',
+                '3 mL single-patient-use pen. Dials in 1-unit increments.'),
+    '1670023': ('Tresiba FlexTouch (insulin degludec) 200 units/mL prefilled pen',
+                '3 mL single-patient-use pen. Dials in 2-unit increments.'),
+    '2107522': ('Tresiba (insulin degludec) 100 units/mL multidose vial',
+                'Labeled 10 mL multidose vial.'),
+    '1731317': ('Humulin R U-500 KwikPen (regular insulin) 500 units/mL prefilled pen',
+                '3 mL single-patient-use pen. Dial in 5-unit increments. Never withdraw insulin from the pen into a syringe. Exact Arizona Complete Health authorization criteria are unverified.'),
+}
+for record in data['medications']:
+    rx = record['id'].removeprefix('ach-json-')
+    if rx not in ach_insulin_devices:
+        continue
+    assert record['planId']=='az-complete-health' and str(record['rxnormId'])==rx and record['baselineSource']
+    u500 = rx=='1731317'
+    heading,note = ach_insulin_devices[rx]
+    label_id = 'b60e8dd0-1d48-4dc9-87fd-e14675255e8c' if u500 else '456c5e87-3dfd-46fa-8ac0-c6128d4c97c6'
+    record['reviewedPresentation'] = {
+        'separate': True, 'label': heading, 'dosageForm': 'solution for injection', 'note': note,
+        'identityRxcui': int(rx), 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label_id,
+    }
+    if u500:
+        record['reviewedPresentation']['policyUnverified'] = True
+        record['sourceUpdates'] = [*record.get('sourceUpdates', []), {
+            'name':'Arizona Complete Health Complete Care PDL, printed p. 21 (PDF p. 26)',
+            'sourceEffective':'2023-02-01', 'paText':'Humulin R U-500 KwikPen: F; PA.',
+            'sourceUrl':'https://www.azcompletehealth.com/content/dam/centene/az-complete-health/pdf/provider/formulary/AZ%20Integrated%20English%20CNCAZCH01_19108_2023-01-25-Final%20508C%20PDF%20-%20Feb%202023.pdf#page=26',
+        }]
 correct_source_restrictions(data['medications'])
 correct_source_conflicts(data['medications'])
 attach_provider_policies(data)

@@ -93,6 +93,23 @@ for(const plan of data.plans){
 // DEC-06/07/19/20: ACH exact baseline flags and label presentation.
 api.state.planId='az-complete-health';
 const achOudGroups=api.planMedicationGroups();
+for(const [rx,row,identity,pa] of [
+ ['1670016',886,'100 units/mL prefilled pen',false],['1670023',887,'200 units/mL prefilled pen',false],
+ ['2107522',1908,'100 units/mL multidose vial',false],['1731317',966,'500 units/mL prefilled pen',true]
+]){
+ const id='ach-json-'+rx;
+ const group=achOudGroups.find(g=>g.records.some(r=>r.id===id)),record=group.records[0];
+ assert.equal(group.records.length,1);assert.equal(record.baselineSource.row,row);
+ const card=api.medicationGroupCard(group),source=api.recordDetails(record);
+ assert(card.includes(identity)&&card.includes('>Preferred<')&&card.includes('>Quantity limit<'));
+ assert.equal(card.includes('>PA required<'),pa);assert(source.includes('searchTerm='+rx)&&source.includes('row '+row));
+ assert.equal(source.includes('Feb%202023.pdf#page=26'),pa);
+ assert.equal(card.includes('Never withdraw insulin'),pa);
+}
+for(const suffix of ['9977','9978']){
+ const state=achOudGroups.find(g=>g.records.some(r=>r.id==='az-complete-health:statewide:formulary-'+suffix));
+ assert(state.records.every(r=>r.isStatewideReference),'Tresiba direct record under statewide heading');
+}
 for(const [id,sourceRow] of [['ach-json-848333',3851],['ach-json-848343',3852]]){
  const group=achOudGroups.find(g=>g.records.some(r=>r.id===id));
  const record=group.records.find(r=>r.id===id);

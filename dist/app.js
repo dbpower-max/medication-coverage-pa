@@ -730,10 +730,18 @@
 
   const gvokeLabelUrl = 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=92385737-dbad-98c5-e053-2995a90a2805';
   const reviewedCardPresentations = new Map([
+    ['uhc-oct-complete-f2ad2a3574ca8919', {
+      label: 'Humulin R (regular insulin) injection solution in a vial — concentration unspecified', dosageForm: 'injection solution', separate: true,
+      note: 'The printed listing does not identify the concentration. UHC lists PA and a quantity limit here. Its electronic formulary lists different preferences for 100 units/mL and 500 units/mL products, both with step therapy and no PA. Exact concentration, package and requirements are unverified.',
+      electronicComparisons: [
+        ['100 units/mL · nonpreferred', 311036, 8951, 'b519bd83-038c-4ec5-a231-a51ec5cc291f'],
+        ['500 units/mL · preferred', 351859, 9571, 'b60e8dd0-1d48-4dc9-87fd-e14675255e8c']
+      ]
+    }],
     ['uhc-oct-complete-86d347968a4e113f', {
       label: 'Humulin R U-500 KwikPen (regular insulin) 500 units/mL prefilled pen', dosageForm: 'solution for injection', separate: true,
-      identityRxcui: 1731317, labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b60e8dd0-1d48-4dc9-87fd-e14675255e8c',
-      note: '3 mL single-patient-use pen. Dial the prescribed units in 5-unit increments. Never withdraw insulin from the pen into a syringe.'
+      paSourceConflict: true, electronicRow: 132, identityRxcui: 1731317, labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b60e8dd0-1d48-4dc9-87fd-e14675255e8c',
+      note: '3 mL single-patient-use pen. Dial the prescribed units in 5-unit increments. Never withdraw insulin from the pen into a syringe. The UHC printed listing specifies PA. The preferred electronic entry reports no PA and lists step therapy. Current requirements are unverified.'
     }],
     ['uhc-oct-complete-2c1a20b7db0eeaaa', {
       label: 'Humulin 70/30 KwikPen (human NPH/regular insulin) 100 units/mL prefilled pen', dosageForm: 'injectable suspension', separate: true,
@@ -1581,6 +1589,11 @@
       const links = presentation.labelProductExamples.map(([description, id]) =>
         `<a href="https://mor.nlm.nih.gov/RxNav/search?searchBy=RXCUI&amp;searchTerm=${Number(id)}" target="_blank" rel="noopener">${escapeHtml(description)} · RxCUI ${Number(id)}</a>`);
       details.push(`<p><strong>Labeled presentations:</strong> ${links.join(' · ')}. The formulary does not identify the covered package. <a href="${escapeHtml(presentation.labelUrl)}" target="_blank" rel="noopener">DailyMed drug label ↗</a></p>`);
+    }
+    if (presentation?.electronicComparisons) {
+      const comparisons = presentation.electronicComparisons.map(([label,rx,position,spl]) =>
+        `<li>${escapeHtml(label)} · row ${position} · <a href="https://mor.nlm.nih.gov/RxNav/search?searchBy=RXCUI&amp;searchTerm=${rx}" target="_blank" rel="noopener">RxCUI ${rx}</a> · <a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=${spl}" target="_blank" rel="noopener">DailyMed label</a></li>`);
+      details.push(`<p><a href="https://legacy.providerlookuponline.com/mrf/optumrx/drugs/2877216/JSON_Drugs_UHCCPAZ.json" target="_blank" rel="noopener">UHC electronic formulary</a> · UCSAZQ3, October 20, 2026 file. The printed listing does not distinguish these entries. Both electronic entries list step therapy and quantity limits and report no PA.</p><ul>${comparisons.join('')}</ul>`);
     }
     if (presentation?.electronicRow) details.push(`<p><a href="https://legacy.providerlookuponline.com/mrf/optumrx/drugs/2877216/JSON_Drugs_UHCCPAZ.json" target="_blank" rel="noopener">UHC electronic formulary ↗</a> · UCSAZQ3, October 20, 2026 file · row ${Number(presentation.electronicRow)} · RxCUI ${Number(presentation.identityRxcui)}</p>`);
     const formRx = presentation?.uhcFormRx;
