@@ -730,6 +730,44 @@ def bupropion_option(rx,name,sources):
                  pediatricAntidepressantProduct='bupropion tabs/SR tabs/XL tabs (150 and 300mg)')
  return [dated,ref],display
 
+ACH_TWISTHALER = {'790284':(110,30),'746804':(220,120),'746811':(220,14),'746813':(220,30),'746815':(220,60)}
+ACH_SALMETEROL_POLICY = ('https://www.azcompletehealth.com/content/dam/centene/az-complete-health/policies/'
+                         'pharm_pol/508_AZ.CP.PMN.1022.pdf')
+
+def respiratory_powder(rx,name,sources):
+ serevent=rx=='866049'
+ if serevent:
+  assert name=='60 ACTUAT salmeterol 0.05 MG/ACTUAT Dry Powder Inhaler [Serevent]'
+  heading='Serevent Diskus 50 mcg per inhalation dry powder inhaler, 60 blisters'
+  dated=april_formulary('SEREVENT DISKUS',13,'F; PA',pa='required',paText='The Arizona Complete Health formulary lists PA.')
+  ref=statewide_option(sources,9826,'PREFERRED DRUG | PA REQUIRED | ST and QL blank.')
+  assert ref['sourcePage']==7 and ref['pa']=='required'
+  label='12d9728e-6b5c-4aee-bfb0-745e542ed2e4'
+  note='For asthma, concurrent inhaled corticosteroid treatment is required. Contraindicated in severe milk protein hypersensitivity. The current applicability of the January 2020 Arizona Complete Health policy is unverified.'
+  references=[['Arizona Complete Health · AZ.CP.PMN.1022 · January 2020 · initial asthma or COPD',ACH_SALMETEROL_POLICY+'#page=1'],
+              ['Arizona Complete Health · AZ.CP.PMN.1022 · January 2020 · continued therapy',ACH_SALMETEROL_POLICY+'#page=2']]
+  guide='gl-99495-serevent'
+  pages=[('asthma',1574),('exercise-induced bronchospasm',1575),('COPD bronchospasm',1576)]
+ else:
+  strength,count=ACH_TWISTHALER[rx]
+  assert name.startswith(f'{count} ACTUAT ') and name.endswith('Dry Powder Inhaler [Asmanex]')
+  heading=f'Asmanex Twisthaler {strength} mcg per metered dose, dry powder inhaler, {count} doses'
+  dated=april_formulary(f'ASMANEX TWISTHALER {count} METERED DOSES AEPB',13,'F')
+  ref=statewide_option(sources,9811,'BRAND ONLY | PREFERRED DRUG | PA, ST and QL blank.')
+  assert ref['sourcePage']==6 and ref['preferred']=='preferred' and not ref['qlAmount']
+  label='10b36fb2-6b0d-4f20-b197-3564d6f594b9'
+  note=f'The mouthpiece delivers {100 if strength==110 else 200} mcg per actuation. Contraindicated in known milk protein hypersensitivity.'
+  if count==14:
+   note+=' The 14-dose inhaler is labeled for institutional use.'
+  references=[]
+  guide='gl-589212-asmanex'
+  pages=[('preferred Asmanex asthma request',968)]
+ ffs='./sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf'
+ references.extend([['AHCCCS Statewide · Fee-for-service · '+indication,ffs+'#page='+str(page)] for indication,page in pages])
+ return [dated,ref],{'prescribingHeading':heading,'label':heading,'separate':True,'identityRxcui':int(rx),
+                    'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label,
+                    'note':note,'sourceReferences':references,'respiratoryGuideId':guide}
+
 def with_ach_baseline(d):
  src=ROOT/'dist/sources/ach/integrated-formulary-baseline.json.gz'
  raw=json.loads(gzip.decompress(src.read_bytes())); assert len(raw)==4454
@@ -825,6 +863,8 @@ def with_ach_baseline(d):
    candidates,oral_display=spiriva_spray(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_BUPROPION:
    candidates,oral_display=bupropion_option(row['rxnorm_id'],name,indexed_sources)
+  if row['rxnorm_id']=='866049' or row['rxnorm_id'] in ACH_TWISTHALER:
+   candidates,oral_display=respiratory_powder(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_DULERA:
    candidates,oral_display=dulera_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_MIRTAZAPINE:

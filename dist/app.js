@@ -2443,6 +2443,10 @@
     if (group.records?.some(r => r.reviewedBannerBranches?.policyId === 'banner-policy-12-969')) return null;
     const hasUhcGlp1Criteria = group.records?.some(record => !record.isStatewideReference
       && record.uhcClinicalBindings?.some(binding => binding.policyId === 'uhc-nov2026-policy-gl-720195'));
+    const respiratoryGuide = group.records?.[0]?.reviewedPresentation?.respiratoryGuideId;
+    if (respiratoryGuide && group.records.every(r => r.planId === 'az-complete-health' && r.reviewedPresentation?.respiratoryGuideId === respiratoryGuide)) {
+      return (state.data.statewideClinicalGuidance || []).find(g => g.id === respiratoryGuide) || null;
+    }
     const brands = new Set(group.brands.map(normalize));
     // ACH uses the abbreviated brand Anoro on these two verified branded inhalers.
     if (brands.size === 1 && brands.has('anoro') && group.records?.length
@@ -3392,7 +3396,8 @@
     const statewideGlp1 = isUhc && guide?.policyCode === 'GL-749236' && group.isStatewide
       && group.records.every(record => record.isStatewideReference);
     const achLama = state.planId === 'az-complete-health' && guide?.id === 'gl-269199-lama-laba-regular';
-    const guidance = statewideGlp1 || achLama ? {...guide, planId: 'ahcccs-ffs-aihp'} : guide;
+    const achPowder = group.records.some(r => r.reviewedPresentation?.respiratoryGuideId);
+    const guidance = statewideGlp1 || achLama || achPowder ? {...guide, planId: 'ahcccs-ffs-aihp'} : guide;
     const policies = group.policyOnly || insulinConflict || bannerIcs || noticeOnly ? [] : bannerGuide ? [bannerGuide]
       : linkedPolicyPanels(group, true).filter(policy => !statewideGlp1 || policy.planId === 'ahcccs-ffs-aihp');
     const key = group.key || group.label;
@@ -3576,6 +3581,7 @@
         <div class="result-disclosure-body">
           ${conditions.map(text => `<p class="pa-condition">${escapeHtml(text)}</p>`).join('')}
           ${uhcRestrictionSummary(group)}
+          ${achPowder ? '<p>AHCCCS Statewide · Fee-for-service request criteria. See Sources for the indication-specific policy pages.</p>' : ''}
           ${achLama ? '<p>AHCCCS Statewide · Fee-for-service criteria. Arizona Complete Health product-specific approval criteria are unverified.</p>' : ''}
           <div class="card-clinical-content">${guidance ? clinicalGuidanceContent(guidance, true) : !policies.length ? '<p>Formatted criteria for this medication are not available.</p>' : ''}
           ${bannerIcs ? '<p>Banner’s class guideline mentions fluticasone propionate as a trial alternative. The selected formulary row does not specify PA.</p>' : ''}
