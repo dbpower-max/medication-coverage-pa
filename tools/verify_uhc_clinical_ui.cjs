@@ -363,6 +363,19 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(unoDetail.html.includes('pediatric HS weighing at least 90 kg'));
  assert(!unoDetail.html.includes('Enthesitis-Related Arthritis (ERA)'));
  assert(unoDetail.ref.includes('page=405'));
+ for (const [suffix,syringe] of [['6f70bcaf242cd685',false],['d7084ac5ae35fc25',true]]) {
+  const group=groups.find(g=>g.records.some(r=>r.id==='uhc-oct-complete-'+suffix));
+  const row=group.records.find(r=>r.id==='uhc-oct-complete-'+suffix);
+  const binding=row.uhcClinicalBindings.find(b=>b.role==='product'&&b.policyId.endsWith('gl-628292'));
+  assert.deepEqual(binding.branchIndexes,[0,1,2,3,4,5,6,7,8]);
+  assert.equal(row.rawRestrictions,'Tier 2; PA; SP; QL');
+  assert(row.uhcClinicalBindings.some(b=>b.role==='duplication') && row.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
+  const detail=await open(group);
+  assert(detail.html.includes('HS: 150 mg presentation only') && detail.html.includes('Adult nr-axSpA: 150 mg presentation only'));
+  assert(detail.html.includes(syringe?'75 mg syringe for 15 to &lt;50 kg':'150 mg pen for weight ≥50 kg'));
+  assert(!detail.html.includes('UnoReady 300 mg only'));
+  for(const page of [405,407,408,409,410,411,413])assert(detail.html.includes('page='+page),suffix+' '+page);
+ }
  // Avlayah: label-only identity, never promote statewide criteria to UHC.
  const avlayahId='uhc-oct-complete-a8d0977aeaff8cc1';
  const avlayah=groups.find(g=>g.records.some(r=>r.id===avlayahId));
@@ -1926,10 +1939,11 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-cb36a822ee8dc7d4'));
  assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-be7159d568ed9f80'));
  assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-8ae98137dd88048f'));
- assert.equal(subtypeBNamed.length, 73);
+ assert.equal(subtypeBNamed.length, 75);
+ for(const suffix of ['6f70bcaf242cd685','d7084ac5ae35fc25']) assert(subtypeBNamed.some(r=>r.id.endsWith(suffix)));
  assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-001e5ba120fa0c78'));
  assert(subtypeBNamed.some(r=>r.id==='uhc-oct-complete-4bef2dde256711a9'));
- assert.equal(subtypeBNamed.filter(r => !scIds.has(r.id)).length, 70);
+ assert.equal(subtypeBNamed.filter(r => !scIds.has(r.id)).length, 72);
  assert.equal(subtypeBNamed.filter(r => scIds.has(r.id)).length, 3);
  const auditedSupplies = [
   ['3b25d168e772f4bb', /BD AutoShield Duo/, 'conflict'],
