@@ -51,6 +51,23 @@ for (const g of achGuideOptions) {
 }
 assert.equal(new Set(guidePackages).size,7);
 
+for (const rx of ['349094','351109','252559']) {
+ const row=data.medications.find(r=>r.id==='ach-json-'+rx);
+ assert.equal(row.excludedStatewidePolicyCode,'GL-99451');
+ assert(row.sourceUpdates.some(s=>s.id==='ach-mandated-formulary-9805'));
+ assert(!row.sourceUpdates.some(s=>s.id==='ach-mandated-formulary-9806'));
+ assert(row.sourceUpdates.some(s=>s.sourcePage===13 && s.scope==='selected_plan' && s.rawBenefit.startsWith('F;')));
+}
+assert(!data.medications.find(r=>r.id==='ach-json-1244214').excludedStatewidePolicyCode);
+api.state.planId='banner-ufc';
+for (const [id,rx,limit] of [['banner-oct26-013',2535249,1],['banner-oct26-014',2535243,2],['banner-oct26-016',2180671,2]]) {
+ const group=api.planMedicationGroups().find(g=>g.records.some(r=>r.id===id));
+ const card=api.medicationGroupCard(group), row=group.records.find(r=>r.id===id);
+ assert(card.includes('QL: '+limit+' per 30 days (unit unspecified)'),id);
+ assert(card.includes('>Preferred<') && card.includes('>Brand only<') && !card.includes('>PA required<'),id);
+ assert.equal(card.includes('FDA lists both Zegalogue presentations as discontinued'),rx!==2180671,id);
+ assert(api.recordDetails(row).includes('searchTerm='+rx),id);
+}
 api.state.planId='banner-ufc';
 const bannerPremixGroups=api.planMedicationGroups();
 const epiGroup=bannerPremixGroups.find(g=>g.records.some(r=>r.id==='banner-full-2d2738513f664b31'));
