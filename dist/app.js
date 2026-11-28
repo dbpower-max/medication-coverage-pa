@@ -760,7 +760,26 @@
     bannerRescueOptions.set(planId, option);
     bannerRescueOptions.set('banner-ufc:statewide:formulary-' + statewideId, option);
   }
+  const g6Transition = 'Dexcom ended G6 manufacturing in July 2026. Remaining stock varies.';
+  const g6TransitionUrl = 'https://www.dexcom.com/en-us/g6-transition';
+  const g6ComponentUrl = 'https://provider.dexcom.com/can-dexcom-g6-components-be-used-dexcom-g7';
+  const g6ReceiverUpdate = 'https://www.dexcom.com/en-us/faqs/can-i-use-the-same-receiver-for-dexcom-g7-15-day-as-i-have-for-dexcom-g6';
   const reviewedCardPresentations = new Map([
+    ['uhc-oct-complete-3c92c61765001722', {
+      label: 'Dexcom G6 CGM receiver', deviceSourceUrl: g6ReceiverUpdate,
+      sourceReferences: [['Dexcom · G6 manufacturing transition · July 1, 2026', g6TransitionUrl]],
+      note: g6Transition + ' For G7 15 Day, check the receiver against Dexcom’s model photo. The pictured model can be updated. The older G6 touchscreen receiver requires replacement.'
+    }],
+    ['uhc-oct-complete-34813eb407511ba8', {
+      label: 'Dexcom G6 CGM sensor', deviceSourceUrl: g6ComponentUrl,
+      sourceReferences: [['Dexcom · G6 manufacturing transition · July 1, 2026', g6TransitionUrl]],
+      note: g6Transition + ' Use with a G6 transmitter. The Guardian Sensor 3 alias in the UHC listing does not establish device compatibility.'
+    }],
+    ['uhc-oct-complete-15930e93a08d4fb2', {
+      label: 'Dexcom G6 CGM transmitter', deviceSourceUrl: g6ComponentUrl,
+      sourceReferences: [['Dexcom · G6 manufacturing transition · July 1, 2026', g6TransitionUrl]],
+      note: g6Transition + ' Use with a G6 sensor. G7 sensors have an integrated transmitter.'
+    }],
     ['uhc-oct-complete-aaa62ffa6b337f44', {
       label: 'Pulmicort Suspension (Respules) for nebulized inhalation', labelUrl: respulesLabel, paSourceConflict: true,
       labelProductExamples: [['0.25 mg/2 mL',616830],['0.5 mg/2 mL',616817],['1 mg/2 mL',616819]],
