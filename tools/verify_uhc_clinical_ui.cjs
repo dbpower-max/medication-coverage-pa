@@ -132,6 +132,37 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    assert.equal(detail.html.includes('#page=1202"'),brand,suffix);
    assert(detail.html.includes('#page=702"'),suffix);
  }
+ for (const [suffix,kind] of [
+   ['0a8e8be0e583c36e','15 Day'], ['d54831c71b32b66c','standard'], ['015d37aa214b0abe','receiver'],
+   ['1f589e6847a96acf','kit'], ['22e44c7c90dd0b92','with device'], ['e497702c050f5ccb','NEXT']
+ ]) {
+   const group=groups.find(g=>g.records.some(r=>r.id.endsWith(suffix)));
+   const row=group.records.find(r=>r.id.endsWith(suffix));
+   const card=a.medicationGroupCard(group), sources=a.recordDetails(row), detail=await open(group);
+   assert.equal(row.qlDays,'',suffix);
+   assert(detail.html.includes('#page=702"'),suffix);
+   if (['15 Day','standard','receiver'].includes(kind)) {
+     assert(detail.html.includes('#page=393"') && detail.html.includes('#page=396"'),suffix);
+     assert(card.includes('>PA required<') && !card.includes('>Age limit<'),suffix);
+     if (kind==='receiver') assert(card.includes('Update the software') && sources.includes('same-receiver-as-g7'),suffix);
+     else {
+       assert(card.includes(kind==='15 Day'?'ages 18 and older':'ages 2 and older'),suffix);
+       assert(card.includes(kind==='15 Day'?'up to 15 days':'up to 10 days'),suffix);
+       assert(sources.includes('K261402.pdf#page=4') && sources.includes('K261402.pdf#page=8'),suffix);
+     }
+   } else {
+     assert(!detail.html.includes('#page=245"') && !detail.html.includes('#page=246"'),suffix);
+     assert.equal(detail.html.includes('#page=1202"'),kind!=='with device',suffix);
+     assert(sources.includes('nxt-test-strips-insert'),suffix);
+     assert.equal(sources.includes('pdf#page=245"') && sources.includes('pdf#page=246"'),kind==='NEXT',suffix);
+     if (kind==='NEXT') assert(card.includes('>PA required<') && !card.includes('NEXT ONE kits'),suffix);
+     else {
+       assert(sources.includes('pdf#page=117"') && sources.includes('pdf#page=118"'),suffix);
+       assert(card.includes('two NEXT ONE kits') && !card.includes('>PA required<'),suffix);
+       assert.equal(card.includes('>PA on PDL p. 117<'),kind==='kit',suffix);
+     }
+   }
+ }
  const marinolState=a.clinicalGuidanceFor({name:'Marinol',brands:['MARINOL'],records:[]});
  assert.equal(marinolState?.id,'gl-398214-marinol');
  assert(JSON.stringify(marinolState.pathways).includes('preferred generic dronabinol'));

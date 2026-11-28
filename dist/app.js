@@ -730,7 +730,41 @@
   ]);
 
   const gvokeLabelUrl = 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=92385737-dbad-98c5-e053-2995a90a2805';
+  const g7Label = 'https://www.accessdata.fda.gov/cdrh_docs/pdf26/K261402.pdf';
+  const g7References = [['FDA indications · page 4', g7Label + '#page=4'], ['FDA sensor wear periods · page 8', g7Label + '#page=8']];
+  const contourStripInstructions = 'https://shop.ascensiadiabetes.com/pages/nxt-test-strips-insert';
+  const contourNextOnePages = [117, 118];
+  const contourNextOneNote = 'UHC lists two NEXT ONE kits. Page 117 lists a nonpreferred kit with PA. Page 118 lists a preferred kit with no PA field. Both list a quantity limit. UHC does not identify the package for each listing or specify the numeric limit.';
   const reviewedCardPresentations = new Map([
+    ['uhc-oct-complete-0a8e8be0e583c36e', {
+      label: 'Dexcom G7 15 Day CGM sensor', sourceReferences: g7References,
+      note: 'Device labeling: ages 18 and older. Wear for up to 15 days, followed by a 12-hour grace period. UHC does not specify the numeric dispensing limit.'
+    }],
+    ['uhc-oct-complete-d54831c71b32b66c', {
+      label: 'Dexcom G7 CGM sensor', sourceReferences: g7References,
+      note: 'Device labeling: ages 2 and older. Wear for up to 10 days, followed by a 12-hour grace period. UHC does not specify the numeric dispensing limit.'
+    }],
+    ['uhc-oct-complete-015d37aa214b0abe', {
+      label: 'Dexcom G7 CGM receiver',
+      deviceSourceUrl: 'https://www.dexcom.com/en-us/faqs/does-dexcom-g7-15-day-cgm-use-same-receiver-as-g7',
+      note: 'Update the software on an existing G7 receiver before using it with the G7 15 Day sensor.'
+    }],
+    ['uhc-oct-complete-1f589e6847a96acf', {
+      label: 'Contour NEXT ONE blood glucose meter kit', printedPreference: 'Nonpreferred on PDL p. 117', paBadge: 'PA on PDL p. 117',
+      deviceSourceUrl: contourStripInstructions, pdlComparisonPages: contourNextOnePages, note: contourNextOneNote
+    }],
+    ['uhc-oct-complete-22e44c7c90dd0b92', {
+      label: 'Contour NEXT ONE blood glucose meter kit (listed with device)', printedPreference: 'Preferred on PDL p. 118',
+      deviceSourceUrl: contourStripInstructions, pdlComparisonPages: contourNextOnePages, note: contourNextOneNote
+    }],
+    ['uhc-oct-complete-e497702c050f5ccb', {
+      label: 'Contour NEXT blood glucose meter kit', deviceSourceUrl: contourStripInstructions,
+      sourceReferences: [
+        ['UHC GL-140734 · NDC-specific monitor guideline, exact kit match unresolved · page 245', './sources/uhc-az-clinical-pharmacy-2026-11-01.pdf#page=245'],
+        ['UHC monitor table · abbreviated kit names · page 246', './sources/uhc-az-clinical-pharmacy-2026-11-01.pdf#page=246']
+      ],
+      note: 'Use Contour NEXT test strips with this meter. Exact kit or NDC eligibility under the nonpreferred monitor guideline and the numeric quantity limit are unverified.'
+    }],
     ['uhc-oct-complete-d9da7410b79a25df', {
       label: 'ProAir RespiClick (albuterol) 90 mcg/actuation dry powder inhaler', separate: true,
       dosageForm: 'inhalation powder', identityRxcui: 1649961, electronicRow: 3310, paSourceConflict: true,
@@ -1074,7 +1108,7 @@
       note: 'The printed list flags PA. The electronic list reports no PA and lists step therapy for 0.1 mg/0.1 mL, 0.15 mg/0.15 mL and 0.3 mg/0.3 mL. The applicable prerequisite, quantity limit amount and eligible package are unverified.'
     }],
     ['uhc-oct-complete-feedc25102cbbdb1', {
-      label: 'Epinephrine 0.15 mg/0.3 mL Autoinjector (EpiPen Jr Reference)', printedPreferenceOnly: true,
+      label: 'Epinephrine 0.15 mg/0.3 mL Autoinjector (EpiPen Jr Reference)', printedPreference: 'Preferred in printed PDL',
       identityRxcui: 727316, labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=778ac6ae-6bcb-47a4-bcb3-8dd0da9f8836',
       electronicEvidence: ['Row 8353 has two UCSAZQ3 entries for RxCUI 727316. Preferred: PA false, ST false, QL true. Nonpreferred: PA false, ST true, QL true. Neither specifies an NDC.'],
       novemberElectronicEvidence: 'Row 8953 retains both entries for RxCUI 727316.',
@@ -1653,8 +1687,8 @@
         && reviewedCardPresentation(record) === bannerBasalInsulins.get(record.name) && bannerBasalInsulins.has(record.name)) {
       chips.push(['Preference not specified', 'neutral']);
     }
-    if (record.preferred === 'preferred') chips.push([reviewedCardPresentation(record)?.printedPreferenceOnly ? 'Preferred in printed PDL' : 'Preferred', 'positive']);
-    if (record.preferred === 'non_preferred') chips.push(['Nonpreferred', 'warning']);
+    if (record.preferred === 'preferred') chips.push([reviewedCardPresentation(record)?.printedPreference || 'Preferred', 'positive']);
+    if (record.preferred === 'non_preferred') chips.push([reviewedCardPresentation(record)?.printedPreference || 'Nonpreferred', 'warning']);
     if (/\bbrand\s*only\b/i.test(record.brandGenericNotes || record.notes || '')) chips.push(['Brand only', 'warning']);
     if (/\bauthorized\s+generic\s+only\b/i.test([record.brandGenericNotes, record.notes].join(' '))) chips.push(['Authorized generic only', 'warning']);
     else if (/\bgeneric(?:\s+formulations)?\s+only\b/i.test([record.brandGenericNotes, record.notes].join(' '))) chips.push(['Generic only', 'warning']);
@@ -1792,6 +1826,15 @@
     const presentation = reviewedCardPresentation(record);
     const scope = coverageSource(record);
     if (scope) details.push(`<p>${escapeHtml(scope.description)}</p>`);
+    if (record.isStatewideReference && record.id.endsWith(':statewide:formulary-9819')) {
+      details.push('<p><strong>AHCCCS Statewide:</strong> For SMART asthma therapy, AHCCCS and its contractors cover the authorized generic and Teva generic effective October 1, 2026. The statewide drug list identifies the authorized generic as preferred. <a href="https://azahcccs.gov/Resources/Downloads/PharmacyUpdates/2026/Contractor_Memo_May_2026_PT_MeetingFinal.pdf#page=10" target="_blank" rel="noopener">AHCCCS contractor memo · June 8, 2026 · page 10</a></p>');
+    }
+    for (const [label, url] of presentation?.sourceReferences || []) {
+      details.push(`<p><a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(label)}</a></p>`);
+    }
+    for (const page of presentation?.pdlComparisonPages || []) {
+      details.push(`<p><a href="${escapeHtml(sourceHref({...record, sourcePage: page}))}" target="_blank" rel="noopener">UHC NEXT ONE listing · PDL page ${page}</a></p>`);
+    }
     if (achSmartRecords.has(record.id)) {
       details.push(`<p><a class="source-link" href="${achSmartNoticeUrl}" target="_blank" rel="noopener">Arizona Complete Health formulary notice ↗</a> · effective October 1, 2026 · SMART asthma therapy paragraph</p>`);
     }

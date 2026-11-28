@@ -53,6 +53,7 @@ for (const plan of data.plans) {
   for (const row of group.records) {
    const sources = api.recordDetails(row);
    assert.equal(sources.includes(smartNoticeUrl), isAch, row.id);
+   assert.equal(sources.includes('Contractor_Memo_May_2026_PT_MeetingFinal.pdf#page=10'), Boolean(row.isStatewideReference && row.id.endsWith(':statewide:formulary-9819')), row.id);
    if (isAch && row.isStatewideReference) {
     assert(card.includes('>AHCCCS Statewide<') && card.includes('>Authorized generic only<'), row.id);
    } else if (isAch) {
