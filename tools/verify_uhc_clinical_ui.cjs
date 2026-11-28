@@ -1021,7 +1021,8 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   assert.equal(html.includes('unable to swallow the oral tablet/capsule'), group === solution);
   assert(ref.includes('page=116'));
  }
- for (const suffix of ['4246642f69cb6e33', '6379fae422d23f63', '9da9ddf0a410ce97', '142ebea775e43d1c', '5e9993db04a01e23']) {
+ for (const suffix of ['4246642f69cb6e33', '6379fae422d23f63', '9da9ddf0a410ce97', '142ebea775e43d1c', '5e9993db04a01e23',
+                       'd27be10fd9b0c1e1', '344c74fb9dcc955a', '25d7872b3253145b']) {
   const group = byId(suffix);
   const record = group.records.find(row => row.id === 'uhc-oct-complete-' + suffix);
   const agePolicy = record.uhcClinicalBindings.find(binding => binding.policyId.endsWith('gl-743248'));
@@ -1033,6 +1034,21 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const {html} = await open(group);
   assert(html.includes('6 years of age or younger') && html.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page=117'));
   assert(html.includes('Quantity-limit exceptions'));
+ }
+ assert(a.medicationGroupCard(byId('d27be10fd9b0c1e1')).includes('12-Hour Extended-Release Oral Tablet'));
+ const wellbutrin = byId('85bd5fad2a1e4e91');
+ const brandRecord = wellbutrin.records.find(row => row.id.endsWith('85bd5fad2a1e4e91'));
+ const brandPolicy = brandRecord.uhcClinicalBindings.find(binding => binding.policyId.endsWith('gl-743248'));
+ assert.deepEqual(Array.from(brandPolicy.branchIndexes), [2]);
+ assert.equal(brandPolicy.branchLabels[2], 'Brand Wellbutrin XL');
+ assert.equal(brandRecord.pa, 'required');
+ assert.equal(brandRecord.preferred, 'non_preferred');
+ assert(a.medicationGroupCard(wellbutrin).includes('24-Hour Extended-Release Oral Tablet'));
+ const brandDetails = await open(wellbutrin);
+ assert(brandDetails.html.includes('at least 3') && !brandDetails.html.includes('6 years of age or younger'));
+ for (const suffix of ['788c508b2139bce2', '19e958e7265f9404']) {
+  const held = byId(suffix).records.find(row => row.id.endsWith(suffix));
+  assert(!held.uhcClinicalBindings.some(binding => binding.policyId.endsWith('gl-743248')));
  }
  const pristiq = byId('e40b2afd31f1fb40');
  assert(pristiq && pristiq === byId('094b55526d4ad05f'));
