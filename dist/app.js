@@ -1734,6 +1734,17 @@
       && record.validation === 'mandated_statewide_minimum_with_plan_adoption_evidence';
   }
 
+  function supplyAuthorizationDetails(record) {
+    const rule = record.supplyAuthorization;
+    if (!rule) return '';
+    const stage = (label, text, url) => `<p><strong>${label} · 1 year.</strong> ${escapeHtml(text)} <a href="${escapeHtml(url)}" class="source-link" target="_blank" rel="noopener">Policy criteria ↗</a></p>`;
+    return `<details class="result-disclosure"><summary>Quantity exception criteria</summary><div class="result-disclosure-body">
+      ${stage('Initial approval', rule.initial, rule.initialUrl)}
+      ${stage('Renewal', rule.renewal, rule.renewalUrl)}
+      <p>The plan allows no override of the $${Number(rule.cap)} high-dollar limit.</p>
+    </div></details>`;
+  }
+
   function statusChips(record, showCoverage = true) {
     const chips = [];
     // Description-correction provenance remains in the source records.
@@ -1757,7 +1768,7 @@
         && reviewedCardPresentation(record) === bannerBasalInsulins.get(record.name) && bannerBasalInsulins.has(record.name)) {
       chips.push(['Preference not specified', 'neutral']);
     }
-    if (record.payerPackages && record.preferred === 'not_specified') chips.push(['Preference not specified', 'neutral']);
+    if ((record.payerPackages || record.supplyAuthorization) && record.preferred === 'not_specified') chips.push(['Preference not specified', 'neutral']);
     if (record.preferred === 'preferred') chips.push([reviewedCardPresentation(record)?.printedPreference || 'Preferred', 'positive']);
     if (record.preferred === 'non_preferred') chips.push([reviewedCardPresentation(record)?.printedPreference || 'Nonpreferred', 'warning']);
     if (/\bbrand\s*only\b/i.test(record.brandGenericNotes || record.notes || '')) chips.push(['Brand only', 'warning']);
@@ -3350,7 +3361,7 @@
           ${presentation?.deviceSourceUrl ? `<p><a class="source-link" href="${escapeHtml(presentation.deviceSourceUrl)}" target="_blank" rel="noopener">Device reference ↗</a></p>` : ''}
           ${presentation?.billingUrl ? `<p><a class="source-link" href="${escapeHtml(presentation.billingUrl)}" target="_blank" rel="noopener">Plan billing notice ↗</a></p>` : ''}
           ${presentation?.labelUrl && !commonLabelUrl ? `<p><a class="source-link" href="${escapeHtml(presentation.labelUrl)}" target="_blank" rel="noopener">Drug label ↗</a></p>` : ''}
-          ${constipationCoverageNote(record)}${exactAge}${continuedUse}${limit}${nebulizerNote ? `<p class="pa-condition">${escapeHtml(nebulizerNote)}</p>` : ''}
+          ${supplyAuthorizationDetails(record)}${constipationCoverageNote(record)}${exactAge}${continuedUse}${limit}${nebulizerNote ? `<p class="pa-condition">${escapeHtml(nebulizerNote)}</p>` : ''}
           ${step ? `<p class="pa-condition"><strong>Step therapy:</strong> ${escapeHtml(step)} <a class="source-link" href="${escapeHtml(sourceHref({...record, sourcePage: 36}))}" target="_blank" rel="noopener">UHC formulary · step table ↗</a></p>` : ''}`;
       }).join('')}
       </div>

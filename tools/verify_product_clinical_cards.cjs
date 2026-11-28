@@ -30,6 +30,20 @@ for (const [plan, rows] of [
 }
 
 api.state.planId='az-complete-health';
+for (const [key, cap, renewalPage] of [['lancets', 26, 1], ['swabs', 15, 2]]) {
+ const id='ach-pu26022-'+key;
+ const group=api.planMedicationGroups().find(g=>g.records.some(r=>r.id===id));
+ const row=group.records.find(r=>r.id===id), html=api.medicationGroupCard(group), sources=api.recordDetails(row);
+ assert.equal(row.pa,'conditional');
+ assert.equal(row.preferred,'not_specified');
+ assert.equal(row.step,'not_specified');
+ assert(html.includes('PA if &gt;7/day or &gt;210 per 30 days') && html.includes('>Preference not specified<'),id);
+ assert(html.includes('Initial approval · 1 year.') && html.includes('Renewal · 1 year.') && html.includes('$'+cap),id);
+ assert(html.includes('100') && html.includes('medical necessity') && !html.includes('>PA required<'),id);
+ assert(html.includes(row.supplyAuthorization.initialUrl) && html.includes(row.supplyAuthorization.renewalUrl),id);
+ assert(row.supplyAuthorization.renewalUrl.endsWith('#page='+renewalPage) && sources.includes('#page=46') && sources.includes('PU26022.html'),id);
+}
+assert.equal(data.medications.filter(r=>r.supplyAuthorization).length,2);
 const achGuideOptions=api.planMedicationGroups().filter(g=>g.records.some(r=>r.id.startsWith('ach-pu25143-')));
 assert.equal(achGuideOptions.length,4);
 const guidePackages=[];
