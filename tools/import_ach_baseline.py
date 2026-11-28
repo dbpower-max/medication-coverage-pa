@@ -768,6 +768,46 @@ def respiratory_powder(rx,name,sources):
                     'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label,
                     'note':note,'sourceReferences':references,'respiratoryGuideId':guide}
 
+SEIZURE_RESCUE_KITS={'2272622':(10,1),'2272636':(15,2),'2272624':(20,2),'2272630':(5,1)}
+
+def seizure_nasal_presentation(rx):
+ nayzilam=rx=='2173500'
+ brand='Nayzilam' if nayzilam else 'Valtoco'
+ if nayzilam:
+  heading='Nayzilam 5 mg/0.1 mL single-dose nasal spray'
+  note='Each device delivers one spray. The carton contains two devices.'
+  label='2b29422e-54d5-4a49-8522-e9cf752368c3'
+ else:
+  dose,devices=SEIZURE_RESCUE_KITS[rx]
+  per_device=f'{dose/devices:g}'
+  heading=f'Valtoco {dose} mg dose kit — {devices} single-use nasal '+('spray' if devices==1 else 'sprays')+f' ({per_device} mg/0.1 mL each)'
+  note=('One spray delivers the dose.' if devices==1 else 'One dose uses two devices, one spray in each nostril.')+' The label lists two-dose and five-dose cartons.'
+  label='1a8bcc90-68fa-474d-832c-0df01e825f39'
+ return {'prescribingHeading':heading,'label':heading,'separate':True,'identityRxcui':int(rx),'nasalRescueProduct':brand,
+         'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label,'note':note}
+
+def ach_seizure_rescue(rx,name,sources):
+ if rx in ('801961','801966'):
+  size=10 if rx=='801961' else 20
+  assert 'Rectal Gel' in name and '5 MG/ML' in name
+  ref=statewide_option(sources,9861,'GENERIC ONLY | preference, PA, ST blank | QL 2 per 30 days, unit blank.')
+  disp={'prescribingHeading':f'Diazepam {size} mg adjustable rectal gel delivery system (5 mg/mL)',
+        'identityRxcui':int(rx),'separate':True,'scopedMonthlyLabel':'QL: 2 per 30 days (unit unspecified)',
+        'planRetailLimit':{'amount':'2','days':'30'},
+        'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=652714c7-25c4-4d05-979d-8eee3b6f2f4d',
+        'note':('Selectable doses: 5, 7.5 or 10 mg.' if size==10 else 'Selectable doses: 12.5, 15, 17.5 or 20 mg.')+' The retail limit is printed as 2 each per 30 days. The payer does not distinguish syringes from cartons.'}
+  disp['label']=disp['prescribingHeading']
+  dated=april_formulary('diazepam (anticonvulsant) gel'+(' 2.5 mg, 20 mg' if size==20 else ''),14,
+       'F; QL(2 ea per 30 days retail)',quantityLimited=True,qlAmount='2',qlDays='30')
+  return [dated,ref],disp
+ disp=seizure_nasal_presentation(rx)
+ assert disp['nasalRescueProduct'] in name
+ ref=statewide_option(sources,9864 if rx=='2173500' else 9863,'Preference, PA and ST blank; QL amount and days printed without a dispensing unit.')
+ assert ref['sourcePage']==8 and ref['qlDays']=='30' and ref['qlAmount']==('4' if rx=='2173500' else '2')
+ ref['rawBenefit']+=f" {ref['qlAmount']} per 30 days."
+ disp['scopedMonthlyLabel']=f"QL: {ref['qlAmount']} per 30 days (unit unspecified)"
+ return [ref],disp
+
 def with_ach_baseline(d):
  src=ROOT/'dist/sources/ach/integrated-formulary-baseline.json.gz'
  raw=json.loads(gzip.decompress(src.read_bytes())); assert len(raw)==4454
@@ -863,6 +903,8 @@ def with_ach_baseline(d):
    candidates,oral_display=spiriva_spray(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_BUPROPION:
    candidates,oral_display=bupropion_option(row['rxnorm_id'],name,indexed_sources)
+  if row['rxnorm_id'] in SEIZURE_RESCUE_KITS or row['rxnorm_id'] in ('2173500','801961','801966'):
+   candidates,oral_display=ach_seizure_rescue(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id']=='866049' or row['rxnorm_id'] in ACH_TWISTHALER:
    candidates,oral_display=respiratory_powder(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_DULERA:

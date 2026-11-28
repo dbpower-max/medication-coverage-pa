@@ -5,7 +5,7 @@ import hashlib
 import json
 import re
 import shutil
-from import_ach_baseline import with_ach_baseline
+from import_ach_baseline import with_ach_baseline, seizure_nasal_presentation
 from medication_dosage_forms import attach_dosage_forms
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
@@ -535,6 +535,29 @@ relion_listings = {
     '4245cf9695f76981': ('NovoLog', 351926, 1653204),
 }
 electronic_formulary = json.loads((ROOT / 'audits/uhc_complete_2026_11_12/official_machine_readable.json').read_text())
+# Exact October printed QL listings plus the named November UHC quantity policy.
+uhc_nasal_rescue = {
+    'ba3cc29f70e3992e': ('2173500',3146,2769), '1269267a8d723621': ('2272622',5094,4780),
+    '81163333c369ae67': ('2272636',285,3792), '4736e22cbe72783e': ('2272624',284,3791),
+    'd155cfd8d5af5722': ('2272630',1887,4781),
+}
+for record in data['medications']:
+    key=record['id'].removeprefix('uhc-oct-complete-')
+    if key not in uhc_nasal_rescue:
+        continue
+    rx,october,november=uhc_nasal_rescue[key]
+    assert record['planId']=='uhc-community-az' and record['sourceEffective']=='2026-10-01'
+    assert record['rawRestrictions']=='Tier 2; QL' and record['pa']=='not_specified'
+    archived=electronic_formulary[october-1]
+    variants=[v for v in archived['plans'] if v['plan_id']=='UCSAZQ3' and 2026 in v['years']]
+    assert archived['rxnorm_id']==rx and len(variants)==1
+    v=variants[0]
+    assert (v['drug_tier'],v['prior_authorization'],v['step_therapy'],v['quantity_limit'])==('PREFERRED(29)',False,False,True)
+    display=seizure_nasal_presentation(rx)
+    evidence=f'RxCUI {rx}: PREFERRED(29), PA false, ST false, QL true.'
+    display.update(electronicEvidence=[f'Row {october}, {evidence}'],novemberElectronicEvidence=f'Row {november}, {evidence}')
+    record['reviewedPresentation']=display
+    record['verifiedQuantityLabel']='QL: 2 boxes per 30 days (2 doses per box)' if rx=='2173500' else 'QL: 1 five-dose box per 30 days'
 # October printed PDL and both UCSAZQ3 electronic copies name these products.
 # Preserve the printed fields and their existing label-specific administration notes.
 electronic_pa_disagreements = {

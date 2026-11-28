@@ -2609,6 +2609,10 @@
         };
         add(state.data.policies.find(p => p.id === link.policyId && p.planId === state.planId) || policy);
       }
+      if (record.planId === 'az-complete-health' && record.reviewedPresentation?.nasalRescueProduct) {
+        const reference = (state.data.statewidePaCriteria || []).find(p => p.id === 'ahcccs-ffs-nov2026-policy-gl-288251');
+        if (reference) add(reference);
+      }
       if (record.reviewedPresentation?.pediatricAntidepressantProduct) {
         const policy = (state.data.statewidePaCriteria || []).find(p => p.id === 'ahcccs-ffs-nov2026-policy-gl-731218');
         if (policy) add(policy);
@@ -3168,6 +3172,30 @@
         details.dataset.loaded = 'true';
         return;
       }
+      const rescue = group.records.find(r => r.reviewedPresentation?.nasalRescueProduct);
+      const rescuePolicy = rescue && policies.find(p => p.policyCode === (state.planId === 'uhc-community-az' ? 'GL-292192' : 'GL-288251'));
+      if (rescuePolicy) {
+        const brand = rescue.reviewedPresentation.nasalRescueProduct;
+        const source = await loadClinicalSource(rescuePolicy);
+        const [initial, renewal, quantity] = source.branches;
+        const rationale = quantity?.criteria.find(c => c.text.startsWith('• For ' + brand + ':'));
+        const maximum = quantity?.criteria.find(c => c.text.includes('maximum dose per day'));
+        if (!rationale || !maximum || initial.fields['Therapy Stage']?.text !== 'Initial Authorization'
+            || renewal.fields['Therapy Stage']?.text !== 'Reauthorization') throw new Error('Rescue review source changed');
+        const boxes = brand === 'Nayzilam' ? '2 boxes per 30 days (2 doses per box)' : '1 box per 30 days (5 doses per box)';
+        const scoped = {...quantity, criteria: [rationale, {text:'AND',kind:'connector'}, maximum], notes: []};
+        const payer = state.planId === 'uhc-community-az' ? 'UHC Community Plan' : 'AHCCCS Statewide · Fee-for-service';
+        if (target.isConnected === false) return;
+        target.innerHTML = '<p><strong>' + payer + '</strong> · ' + escapeHtml(rescuePolicy.policyCode)
+          + '. Source-transcribed request criteria, clinician approval pending.</p><h4>Quantity-limit exception · ' + escapeHtml(brand)
+          + '</h4><p>Policy threshold: ' + boxes + '.</p>' + cardBranchMarkup(scoped, rescuePolicy)
+          + '<details class="result-disclosure"><summary>Initial and renewal review for seizure clusters</summary><p>These criteria apply when the payer reviews a request for seizure clusters.</p>'
+          + cardBranchMarkup(initial, rescuePolicy) + cardBranchMarkup(renewal, rescuePolicy) + '</details>';
+        const references = details.querySelector('.card-pa-references');
+        if (references) references.innerHTML = cardPaReference(rescuePolicy, 'Quantity-limit guideline', quantity.sourcePage);
+        details.dataset.loaded = 'true';
+        return;
+      }
       const bindings = uhcGroupBindings(group);
       if (state.planId === 'uhc-community-az' && (group.records || []).some(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays || r.uhcClinicalBindings?.some(b => b.role === 'hypnotic_request')))) {
         const content = await uhcClinicalContent(group, bindings, guidance);
@@ -3438,7 +3466,10 @@
     const exactBannerPolicy = exactBannerReference && policies.find(p => p.id === exactBannerReference.policyId);
     const ageReview = group.records.some(r => r.reviewedPresentation?.pediatricAntidepressantProduct)
       && policies.find(p => p.id === 'ahcccs-ffs-nov2026-policy-gl-731218');
-    const refs = ageReview ? cardPaReference(ageReview, 'AHCCCS Statewide · age-specific review', 125)
+    const nasalRescuePolicy = group.records.some(r => r.reviewedPresentation?.nasalRescueProduct)
+      && policies.find(p => p.policyCode === (isUhc ? 'GL-292192' : 'GL-288251'));
+    const refs = nasalRescuePolicy ? cardPaReference(nasalRescuePolicy, isUhc ? 'UHC quantity guideline' : 'AHCCCS Statewide · FFS quantity guideline', isUhc ? 1042 : 1081)
+      : ageReview ? cardPaReference(ageReview, 'AHCCCS Statewide · age-specific review', 125)
       : exactBannerPolicy ? cardPaReference(exactBannerPolicy, 'PA reference', exactBannerReference.exactReferencePage) : bannerQuantityException && reference ? cardPaReference(reference, 'Quantity-limit exception guideline') : bannerIcs ? cardPaReference(bannerIcs, 'Related inhaled corticosteroid guidance') : constipationPolicy ? cardPaReference(constipationPolicy,
       linzess ? 'Linzess PA guideline' : 'UHC October 18 policy')
       : glucosePolicy ? cardPaReference(glucosePolicy, glucoseDisplay.strip ? 'Test strip PA and QL guideline' : 'Nonpreferred meter PA guideline')
