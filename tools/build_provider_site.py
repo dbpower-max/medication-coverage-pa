@@ -340,6 +340,41 @@ for option, payer_name, heading, packages in guide_options:
         guide['reviewedPresentation']['note'] = 'Control solution for Accu-Chek Guide systems. The notice lists one bottle and gives no dispensing interval.'
     data['medications'].append(guide)
 
+# The 2023 PDL establishes class coverage. PU26022 supplies the later conditional limits.
+ach_supply_pdl = ('https://www.azcompletehealth.com/content/dam/centene/az-complete-health/pdf/provider/formulary/'
+                  'AZ%20Integrated%20English%20CNCAZCH01_19108_Final%20508C%20PDF%20-%20April%202023%202nd%20run.pdf#page=46')
+supply_policy = './sources/ach/AZ.CP.PMN.1018-Quantity-Limits--Alcohol-Swabs-Lancets-12.25_R.pdf'
+for key, heading, original, cap, prerequisite, renewal_page in [
+    ('lancets', 'Blood glucose lancets', 'LANCETS AND LANCET DEVICES', 26,
+     'blood glucose test strips in quantities above 100 per 30 days', 1),
+    ('swabs', 'Alcohol swabs', 'ALCOHOL SWABS', 15,
+     'more than 100 injections or blood glucose tests per 30 days', 2),
+]:
+    supply = 'lancets' if key == 'lancets' else 'alcohol swabs'
+    data['medications'].append({
+        'id': 'ach-pu26022-' + key, 'planId': 'az-complete-health', 'recordType': 'formulary',
+        'name': heading, 'category': 'Diabetes supplies', 'subcategory': 'Diabetes - Glucose Monitoring',
+        'coverage': 'listed', 'preferred': 'not_specified', 'step': 'not_specified', 'pa': 'conditional',
+        'conditions': [], 'quantityLimited': True, 'qlAmount': '210', 'qlDays': '30',
+        'verifiedQuantityLabel': f'QL: 7 {supply} per day and 210 per 30 days',
+        'sourceTitle': 'Arizona Complete Health Complete Care · quantity and high-dollar limits PU26022',
+        'sourceUrl': 'https://www.azcompletehealth.com/newsroom/PU26022.html', 'sourceEffective': '2026-04-01',
+        'supplyAuthorization': {
+            'initial': f'Document medical necessity for the requested quantity and an approval on file for {prerequisite}.',
+            'renewal': f'The member must currently receive {supply} through a previous authorization.',
+            'cap': cap, 'initialUrl': supply_policy + '#page=1', 'renewalUrl': supply_policy + f'#page={renewal_page}',
+        },
+        'reviewedPresentation': {
+            'label': heading, 'separate': True, 'scope': 'Arizona Complete Health · Complete Care',
+            'paBadge': 'PA if >7/day or >210 per 30 days',
+            'sourceReferences': [
+                [f'April 2023 Complete Care formulary · PDF p. 46 · {original} · F (formulary)', ach_supply_pdl],
+                ['AZ.CP.PMN.1018 · initial criteria · p. 1', supply_policy + '#page=1'],
+                [f'AZ.CP.PMN.1018 · continuation · p. {renewal_page}', supply_policy + f'#page={renewal_page}'],
+            ],
+        },
+    })
+
 attach_dosage_forms(data["medications"] + statewide_drugs)
 attach_shared_policy(data)
 data["planDataFiles"] = {k: v for k, v in data.get("planDataFiles", {}).items() if k in ALLOWED}
