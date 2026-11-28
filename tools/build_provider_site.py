@@ -375,6 +375,58 @@ for key, heading, original, cap, prerequisite, renewal_page in [
         },
     })
 
+# Display the exact verified dosage forms without changing card identities.
+ach_pref_labels = {
+    'Ocrevus': '9da42362-3bb5-4b83-b4bb-b59fd4e55f0d',
+    'Ocrevus Zunovo': 'b216af61-99d0-42a3-afc2-b5bf86df1ec0',
+    'Copaxone': 'aa88f583-4f5f-433b-80b4-1f4c9fb28357',
+    'Yesintek': '12a75613-ee33-d30a-215b-2a51cfa19b00',
+    'Exenatide': 'e6cb5c8f-e97f-4a6a-95a4-939fd2393949',
+}
+ach_pref_options = [
+    (['ach-json-1876385', 'ach-notice-13945'], 'Ocrevus', '300 mg/10 mL IV infusion solution, single-dose vial', 1876385),
+    (['ach-json-2693465', 'ach-notice-13946'], 'Ocrevus Zunovo', '40 mg/mL ocrelizumab and 1,000 units/mL hyaluronidase, 23 mL single-dose vial for subcutaneous injection', 2693465),
+    (['ach-json-1111642','ach-notice-13943'], 'Copaxone', '20 mg/mL subcutaneous injection solution, prefilled syringe', 1111642),
+    (['ach-notice-13944'], 'Copaxone', '40 mg/mL subcutaneous injection solution, prefilled syringe', 1487363),
+    (['ach-json-2705603','ach-notice-13875'], 'Yesintek', '45 mg/0.5 mL subcutaneous injection solution, single-dose vial', 2705603),
+    (['ach-json-2705597'], 'Yesintek', '45 mg/0.5 mL subcutaneous injection solution, prefilled syringe', 2705597),
+    (['ach-json-2705600'], 'Yesintek', '90 mg/mL subcutaneous injection solution, prefilled syringe', 2705600),
+    (['ach-json-2705588'], 'Yesintek', '130 mg/26 mL IV infusion solution, single-dose vial', 2705588),
+    (['ach-json-847910'], 'Exenatide', '250 mcg/mL subcutaneous injection solution, 10 mcg/dose multidose pen', 847910),
+    (['ach-json-847915'], 'Exenatide', '250 mcg/mL subcutaneous injection solution, 5 mcg/dose multidose pen', 847915),
+]
+ach_records = {r['id']: r for r in data['medications'] if r['planId'] == 'az-complete-health'}
+memo_url = 'https://www.azahcccs.gov/Resources/Downloads/PharmacyUpdates/2026/Contractor_Memo_May_2026_PT_MeetingFinal.pdf'
+infusion_policy = './sources/ach/508_AZ.CP.PHAR.493-Infusion-SOC-Optimization-final.pdf'
+for ids, product, description, rx in ach_pref_options:
+    for record_id in ids:
+        record = ach_records[record_id]
+        display = {'prescribingHeading': product + ' ' + description, 'identityRxcui': rx,
+                   'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + ach_pref_labels[product]}
+        if product == 'Ocrevus':
+            display['note'] = 'Arizona Complete Health evaluates the infusion site separately from authorization of the drug.'
+            display['sourceReferences'] = [
+                ['ACH infusion site criteria · pp. 1–2', infusion_policy + '#page=1'],
+                ['ACH site-of-care policy Appendix B · J2350 Ocrevus · p. 5', infusion_policy + '#page=5']]
+        elif product == 'Ocrevus Zunovo':
+            display['note'] = 'The 23 mL vial contains 920 mg ocrelizumab and 23,000 units hyaluronidase.'
+        elif product == 'Copaxone':
+            display['note'] = 'Arizona Complete Health lists this strength as nonpreferred with PA. The November AHCCCS Statewide list shows Copaxone prefilled syringes as preferred with PA without specifying the strength.'
+            display['sourceReferences'] = [['AHCCCS Statewide · November 2026 list · p. 33', './sources/ahcccs-drug-list-2026-11-01.pdf#page=33']]
+        elif rx == 2705588:
+            display['note'] = 'AHCCCS Statewide lists the IV vial as nonpreferred effective October 1. The 2022 Arizona Complete Health formulary listed it as preferred; the October plan notice repeats only the subcutaneous vial.'
+            display['sourceReferences'] = [['AHCCCS Statewide · contractor obligations · p. 1', memo_url + '#page=1'],
+                                           ['AHCCCS Statewide · IV vial decision · p. 6', memo_url + '#page=6']]
+        elif product == 'Exenatide':
+            record['searchAliases'] = [*record.get('searchAliases', []), 'EXENATIDE PEN (SUBCU SUBCUTANEOUS)']
+            display['sourceReferences'] = [['AHCCCS Statewide · generic exenatide pen · p. 8', memo_url + '#page=8']]
+        record['reviewedPresentation'] = display
+ach_records['ach-notice-13874']['reviewedPresentation'] = {
+    'prescribingHeading': 'Yesintek subcutaneous injection solution, prefilled syringe',
+    'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + ach_pref_labels['Yesintek'],
+    'labelProductExamples': [['45 mg/0.5 mL prefilled syringe', 2705597], ['90 mg/mL prefilled syringe', 2705600]],
+}
+
 attach_dosage_forms(data["medications"] + statewide_drugs)
 attach_shared_policy(data)
 data["planDataFiles"] = {k: v for k, v in data.get("planDataFiles", {}).items() if k in ALLOWED}
