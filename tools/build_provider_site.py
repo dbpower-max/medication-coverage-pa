@@ -643,6 +643,45 @@ for record in data['medications']:
     display['note'] += (' The printed formulary lists PA and leaves step therapy blank. '
                         'Both electronic copies report no PA and list step therapy. '
                         'The PA requirement and step prerequisites are unverified.')
+# Preserve the printed option while distinguishing label presentations and dated UCSAZQ3 flags.
+device_rows={
+ '3caf2252d3099d7a':('Afrezza insulin human inhalation powder, single-use cartridges and inhaler','29f4637b-e204-425b-b89c-7238008d8c10',[
+   (1543207,3619,1473,'4-unit cartridge'),(1544490,5552,5053,'8-unit cartridge'),(1654912,5247,1832,'12-unit cartridge'),
+   (1798388,7695,962,'4- and 8-unit cartridge pack'),(1862102,4010,2575,'4-, 8- and 12-unit cartridge pack'),(2100029,4426,4406,'8- and 12-unit cartridge pack')]),
+ 'f4a2898bc75ff772':('Enoxaparin sodium injection, prefilled syringes and multidose vial','21b095d1-5ade-43e9-9114-30fbfb2331c9',[
+   (854228,6307,10001,'30 mg/0.3 mL prefilled syringe'),(854235,8791,6034,'40 mg/0.4 mL prefilled syringe'),
+   (854238,8103,7916,'60 mg/0.6 mL graduated prefilled syringe'),(854241,9983,6035,'80 mg/0.8 mL graduated prefilled syringe'),
+   (854248,6021,9404,'100 mg/1 mL graduated prefilled syringe'),(854245,9984,6036,'120 mg/0.8 mL graduated prefilled syringe'),
+   (854252,2154,8225,'150 mg/1 mL graduated prefilled syringe'),(854255,6594,8504,'300 mg/3 mL multidose vial')]),
+}
+checked_devices=set()
+for record in data['medications']:
+    key=record['id'].removeprefix('uhc-oct-complete-')
+    if key not in device_rows:continue
+    heading,spl,options=device_rows[key]
+    inhaled=key=='3caf2252d3099d7a'
+    assert record['sourceEffective']=='2026-10-01' and record['planId']=='uhc-community-az'
+    assert record['rawRestrictions']==('Tier 2; PA; QL' if inhaled else 'Tier 1; QL') and record['preferred']==('non_preferred' if inhaled else 'preferred')
+    october_rows,november_rows=[],[]
+    tier='NON-PREFERRED(90)' if inhaled else 'PREFERRED(29)'
+    for rx,october,november,description in options:
+        original=electronic_formulary[october-1]
+        assert int(original['rxnorm_id'])==rx
+        flags,=[v for v in original['plans'] if v['plan_id']=='UCSAZQ3' and 2026 in v['years']]
+        assert (flags['drug_tier'],flags['prior_authorization'],flags['step_therapy'],flags['quantity_limit'])==(tier,False,inhaled,True)
+        statement=f'RxCUI {rx}: {tier}, PA false, ST {str(inhaled).lower()}, QL true.'
+        october_rows.append(f'Row {october}, '+statement);november_rows.append(f'Row {november}, '+statement)
+    d={'prescribingHeading':heading,'scopedPlanHeading':heading,'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+spl,
+       'labelProductExamples':[(description,rx) for rx,_,_,description in options],'electronicEvidence':october_rows,'novemberElectronicEvidence':' '.join(november_rows)}
+    if inhaled:
+        d.update(paSourceConflict=True,electronicStepOnly=True,afrezzaRequest=True,
+                 note='Boxed warning for acute bronchospasm in patients with chronic lung disease. Contraindicated in asthma or COPD. Use only with the Afrezza inhaler. Cartridge counts do not specify a covered quantity. The printed formulary lists PA; two electronic copies indicate no PA and list step therapy. Exact PA, step prerequisites and numeric QL are unverified.',
+                 sourceReferences=[['UHC GL-646189 · initial request','./sources/uhc-az-clinical-pharmacy-2026-11-01.pdf#page=61'],['UHC GL-646189 · renewal criteria','./sources/uhc-az-clinical-pharmacy-2026-11-01.pdf#page=63']])
+    else:
+        d['note']='The 30 mg and 40 mg syringes are fixed-dose. Larger prefilled syringes are graduated. The 120 mg and 150 mg presentations contain 150 mg/mL. The multidose vial contains benzyl alcohol. The exact eligible package and numeric quantity limit are unverified.'
+    record['reviewedPresentation']=d
+    checked_devices.add(key)
+assert checked_devices==set(device_rows)
 # Named UHC basal listings. An unsuffixed printed name cannot select one package.
 basal_labels = {
     'glargine-yfgn':'3ac85ebb-5594-59c8-77fd-df254329d151',

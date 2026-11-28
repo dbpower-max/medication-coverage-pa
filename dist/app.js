@@ -3009,6 +3009,11 @@
                 || !final.text.includes('tocilizumab biosimilars')) throw new Error('Tocilizumab preference scope changed');
             applicable = {...branch, criteria: branch.criteria.slice(0, -2)};
           }
+          if (policy.policyCode === 'GL-646189' && group.records.some(r => r.reviewedPresentation?.afrezzaRequest)) {
+            const stage = branch.fields['Therapy Stage']?.text;
+            if (!['Initial Authorization','Reauthorization'].includes(stage)) throw new Error('Afrezza request stage changed');
+            applicable = {...branch,sourcePage:stage === 'Reauthorization' ? 63 : 61};
+          }
           if (seizurePage) {
             if (i === 0) {
               if (!branch.fields['Product Name'].text.includes('Xcopri') || !branch.criteria[34].text.includes('continuation of prior therapy')) throw new Error('Xcopri request scope changed');
