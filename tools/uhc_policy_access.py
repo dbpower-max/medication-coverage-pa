@@ -309,6 +309,15 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         for key in sorted(keys):
             for code,i,product in by_key.get(key,[]):
                 if product_matches(record,product):matched[code].add(i)
+        # October PDL pp119–120 prints ST. The QL exception and all-brands
+        # CGM PA guideline do not establish prerequisites for these preferred devices.
+        if record['id'] in {
+            'uhc-oct-complete-1fd2b0bc4536d405', 'uhc-oct-complete-6039af312e593b2e',
+            'uhc-oct-complete-be716be68d4865ce', 'uhc-oct-complete-24439ea20bf1ab84',
+            'uhc-oct-complete-3068d3e50cfa3085', 'uhc-oct-complete-37e912a5126d83fa',
+            'uhc-oct-complete-ab8f709f566f6726', 'uhc-oct-complete-5b4814f8950a3d08',
+        } and record.get('stepText') == 'ST printed; read linked criteria for the exact product and indication.':
+            record['stepText'] = 'UHC lists step therapy. The prerequisite for this device is unverified.'
         if record['id'] == 'uhc-oct-complete-55381c317387d023':
             # GL-286216 gives manufacturer-based criteria without naming AUVI-Q.
             matched.pop('GL-286216', None)
@@ -730,6 +739,31 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: 150 mg lyophilized single-dose vial for IV infusion after preparation; pediatric initiation at 5 kg or more before advanced neurologic impairment. Not recommended with other enzyme replacement therapies for Hunter syndrome. Boxed warning: anaphylaxis. Exact UHC initial/renewal criteria are unverified; statewide criteria are reference only.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=014d92c1-b643-4680-8ca6-f0b3307da915',
             }
+        # The legacy PDL aliases do not establish cross-system compatibility.
+        contour_plus = {
+            'uhc-oct-complete-96c718bb20f57b3e': ('contour plus blue kit w/device', 'Contour Plus Blue Blood Glucose Meter Kit'),
+            'uhc-oct-complete-b12a033b829a8cb5': ('contour plus control solution', 'Contour Plus Control Solution'),
+            'uhc-oct-complete-4b221f6e9f188c62': ('contour plus test strip', 'Contour Plus Blood Glucose Test Strips'),
+        }
+        if record['id'] in contour_plus:
+            product, label = contour_plus[record['id']]
+            assert october_name.split(' (brand for ')[0] == product and record['preferred'] == 'preferred'
+            assert record['pa'] == 'not_specified' and ql
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True, 'label': label,
+                'note': 'Use only Contour Plus test strips and Contour Plus control solution with the Contour Plus Blue meter.',
+                'deviceSourceUrl': 'https://www.ascensiadiabetes.com/siteassets/products/cpb/web90013561_cntrplsblue_bw_ug_r10-24.pdf#page=16',
+            }
+            if product == 'contour plus test strip':
+                code = 'GL-369221'
+                branch = structured[code]['branches'][1]['fields']
+                assert policies[code]['policyEffective'] == '2025-09-01'
+                assert branch['Product Name']['text'] == 'Preferred or Non-preferred Test Strip Products'
+                assert branch['Guideline Type']['text'] == 'Quantity Limit'
+                assert record['rawRestrictions'] == 'Tier 2; ST; QL'
+                matched.pop(code, None)
+                add(code, [1], 'quantity')
+                record['stepText'] = 'Step therapy is listed. The exact step requirements are unverified.'
         # DEC-05/12/13/14/19/20: exact UHC nonpreferred glucose strip rows.
         # GL-369221 is a class PA/quantity exception; it does not identify a payer NDC or a numeric limit.
         strip_reviews = {

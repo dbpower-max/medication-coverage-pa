@@ -7,6 +7,30 @@ const a=ctx.api;a.state.data=data;a.state.planId='uhc-community-az';
 async function open(g){const content={innerHTML:'',isConnected:true},ref={innerHTML:''};a.medicationGroupCard(g);const d={open:true,dataset:{cardClinical:g.key||g.label},querySelector:s=>s==='.card-pa-references'?ref:content};await a.populateCardClinical(d);assert.equal(d.dataset.loaded,'true',g.label+' did not load');return {html:content.innerHTML,ref:ref.innerHTML};}
 (async()=>{
  const groups=a.planMedicationGroups().filter(g=>g.records.some(r=>r.planId==='uhc-community-az'&&!r.isStatewideReference&&(['required','conditional'].includes(r.pa)||r.qlAmount||r.qlDays)));
+ for (const [suffix,printedPA] of [
+   ['1fd2b0bc4536d405',false],['6039af312e593b2e',false],['be716be68d4865ce',false],
+   ['24439ea20bf1ab84',true],['3068d3e50cfa3085',true],['37e912a5126d83fa',true],
+   ['ab8f709f566f6726',true],['5b4814f8950a3d08',true],
+ ]) {
+   const id='uhc-oct-complete-'+suffix;
+   const group=groups.find(g=>g.records.some(record=>record.id===id));
+   const row=group.records.find(record=>record.id===id);
+   assert.equal(row.rawRestrictions,printedPA?'Tier 2; PA; ST; QL':'Tier 2; ST; QL',id);
+   assert.equal(row.preferred,'preferred',id);
+   assert.equal(row.step,'specified',id);
+   assert.equal(row.pa,printedPA?'required':'not_specified',id);
+   assert.equal(row.qlDays,'',id);
+   const sources=a.recordDetails(row);
+   assert(sources.includes('The prerequisite for this device is unverified.'),id);
+   assert(!sources.includes('read linked criteria'),id);
+   const card=a.medicationGroupCard(group);
+   assert(card.includes('>Step therapy<'),id);
+   assert.equal(card.includes('>PA required<'),printedPA,id);
+   const {html}=await open(group);
+   assert(html.includes('pdf#page=702"'),id);
+   for (const page of [393,396]) assert.equal(html.includes('pdf#page='+page+'"'),printedPA,id);
+   if (printedPA) assert(html.includes('If the request is non-preferred*, patient has tried and failed ALL preferred* products'),id);
+ }
  for (const [suffix,brand] of [['55381c317387d023',true],['feedc25102cbbdb1',false],['e1546021b5a54dde',false]]) {
    const id='uhc-oct-complete-'+suffix;
    const group=groups.find(g=>g.records.some(r=>r.id===id));
@@ -950,6 +974,42 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  const felCard=a.medicationGroupCard(felGroup);
  assert(felCard.includes('Felbamate Oral Suspension')&&felCard.includes('aplastic anemia and hepatic failure')&&felCard.includes('aged 8 years or older'));
  assert(felCard.includes('href="'+felRow.reviewedPresentation.labelUrl+'"'));
+ for (const [suffix,label,page,strip] of [
+   ['96c718bb20f57b3e','Contour Plus Blue Blood Glucose Meter Kit',118,false],
+   ['b12a033b829a8cb5','Contour Plus Control Solution',118,false],
+   ['4b221f6e9f188c62','Contour Plus Blood Glucose Test Strips',119,true]
+ ]) {
+   const group=groups.find(g=>g.records.some(r=>r.id.endsWith(suffix)));
+   const row=group.records.find(r=>r.id.endsWith(suffix));
+   const card=a.medicationGroupCard(group);
+   const sources=a.recordDetails(row);
+   assert(card.includes('<h3>'+label+'</h3>') && card.includes('Use only Contour Plus test strips'),suffix);
+   assert(sources.includes('web90013561_cntrplsblue_bw_ug_r10-24.pdf#page=16'),suffix);
+   assert(sources.includes('uhc-az-medicaid-pdl-2026-10-01.pdf#page='+page),suffix);
+   assert.equal(row.rawRestrictions,strip?'Tier 2; ST; QL':'Tier 2; QL');
+   assert.equal(row.pa,'not_specified');assert.equal(row.preferred,'preferred');assert.equal(row.qlDays,'');
+   assert.equal(sources.includes('exact step requirements are unverified'),strip);
+   const detail=await open(group);
+   assert.equal(detail.html.includes('pdf#page=702"'),!strip);
+   assert.equal(detail.html.includes('pdf#page=1687"'),strip);
+   assert(!detail.html.includes('pdf#page=1686"'),suffix);
+ }
+ // The same raw alias also occurs on the separately verified Aviva meter and Contour Plus control.
+ const expectedControlPositions = [1203,1207,1208,1218,1223,1224,1225,1265,1266,1267,1268,1280,1288,1290,1292,1293,1295,1296,1297,1298,1299];
+ const controlRows = groups.flatMap(group => group.records.filter(row => expectedControlPositions.includes(row.sourcePositionIds?.[0])).map(row => ({group,row})))
+   .filter(({row}) => row.name.endsWith(' (brand for element compact control 2)'));
+ assert.equal(controlRows.length,expectedControlPositions.length);
+ for (const {group,row} of controlRows) {
+   const printed = row.name.split(' (brand for ')[0];
+   assert.equal(group.records.length,1,row.id);
+   assert.equal(group.label.toLowerCase(),printed.toLowerCase(),row.id);
+   assert(!a.medicationGroupCard(group).match(/<h3>[^<]*element compact/i),row.id);
+   assert(group.search.toLowerCase().includes(row.name.toLowerCase()),row.id+' searchable original');
+   assert.equal(row.rawRestrictions,'Tier 2; QL');assert.equal(row.preferred,'preferred');
+   assert.equal(row.pa,'not_specified');assert.equal(row.step,'not_specified');assert.equal(row.qlDays,'');
+   assert(a.recordDetails(row).includes('uhc-az-medicaid-pdl-2026-10-01.pdf#page='+row.sourcePage),row.id);
+   assert((await open(group)).html.includes('pdf#page=702"'),row.id);
+ }
  // Exact nonpreferred UHC test strip class criteria; device references are not payer NDC evidence.
  for(const [suffix,label,phrase] of [
   ['0851f010ae01a71d','Blood Glucose Test Strips (Meter Model Unspecified by UHC)','do not assume interchangeability'],
