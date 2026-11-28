@@ -791,7 +791,10 @@
       uhcFormRx: "865098, 1652646", packageQualifier: "UHC’s printed listing does not distinguish the vial from the cartridge.", note: uhcLisproConflict}],
     ["uhc-oct-complete-bdf84a7dca46a5c9", {...lisproProducts.humalogPen,
       label: "Humalog KwikPen (Insulin Lispro) Prefilled Pen", separate: true,
-      uhcFormRx: "1652640", note: "UHC identifies the 100 units/mL pen. Coverage of the 200 units/mL pen is unverified. " + uhcLisproConflict}],
+      heading: "Humalog KwikPen (insulin lispro) 100 units/mL or 200 units/mL prefilled pen",
+      uhcFormRx: "1652640, 1652242", paSourceConflict: true,
+      labelProductExamples: [["100 units/mL", 1652640], ["200 units/mL", 1652242]],
+      note: "The October electronic formulary lists both 3 mL pens. The printed listing omits concentration. Never transfer U-200 insulin from the pen into a syringe. U-200 must not be used in a pump or given intravenously. " + uhcLisproConflict}],
     ["uhc-oct-complete-bdd6e173aa27ca29", {...lisproProducts.humalogMixVial,
       label: "Humalog Mix 75/25 U-100 Injection Suspension (Labeled Vial)", separate: true,
       uhcFormRx: "752388", packageQualifier: "UHC does not specify an eligible vial size.", note: uhcLisproConflict}],
@@ -1452,7 +1455,7 @@
     if (/\bauthorized\s+generic\s+only\b/i.test([record.brandGenericNotes, record.notes].join(' '))) chips.push(['Authorized generic only', 'warning']);
     else if (/\bgeneric(?:\s+formulations)?\s+only\b/i.test([record.brandGenericNotes, record.notes].join(' '))) chips.push(['Generic only', 'warning']);
     if (record.tier) chips.push([`Tier ${record.tier}`, 'neutral']);
-    if (uhcReviewedPaConflicts.has(record.id)) chips.push(['PA listings conflict', 'warning']);
+    if (uhcReviewedPaConflicts.has(record.id) || reviewedCardPresentation(record)?.paSourceConflict) chips.push(['PA listings conflict', 'warning']);
     else if (record.pa === 'required') chips.push(['PA required', 'warning']);
     else if (record.pa === 'conditional') chips.push(['Conditional PA', 'warning']);
     if (record.step === 'specified') chips.push(['Step therapy', 'warning']);
@@ -1578,6 +1581,7 @@
         `<a href="https://mor.nlm.nih.gov/RxNav/search?searchBy=RXCUI&amp;searchTerm=${Number(id)}" target="_blank" rel="noopener">${escapeHtml(description)} · RxCUI ${Number(id)}</a>`);
       details.push(`<p><strong>Labeled presentations:</strong> ${links.join(' · ')}. The formulary does not identify the covered package. <a href="${escapeHtml(presentation.labelUrl)}" target="_blank" rel="noopener">DailyMed drug label ↗</a></p>`);
     }
+    if (presentation?.electronicRow) details.push(`<p><a href="https://legacy.providerlookuponline.com/mrf/optumrx/drugs/2877216/JSON_Drugs_UHCCPAZ.json" target="_blank" rel="noopener">UHC electronic formulary ↗</a> · UCSAZQ3, October 20, 2026 file · row ${Number(presentation.electronicRow)} · RxCUI ${Number(presentation.identityRxcui)}</p>`);
     const formRx = presentation?.uhcFormRx;
     if (formRx) details.push(`<p><a href="https://legacy.providerlookuponline.com/mrf/optumrx/drugs/2877216/JSON_Drugs_UHCCPAZ.json" target="_blank" rel="noopener">UHC electronic formulary</a> · UCSAZQ3, 2026 · RxCUI ${escapeHtml(formRx)} · file dated October 20, 2026.</p>`);
     for (const position of bannerRepeatPositions.get(record.id) || []) {
