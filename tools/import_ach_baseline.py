@@ -303,6 +303,61 @@ def clonazepam_option(rx,name,sources):
           'note':'AHCCCS Statewide. '+qualifier}
  return updates,display
 
+ACH_TRULICITY_PENS={'1551300':'0.75','1551306':'1.5','2395779':'3','2395785':'4.5'}
+ACH_XOLAIR_DEVICES={
+ '2058946':('prefilled syringe','150 mg/1 mL'), '2058950':('prefilled syringe','75 mg/0.5 mL'),
+ '2663918':('prefilled syringe','300 mg/2 mL'), '2663923':('auto-injector','300 mg/2 mL'),
+ '2673761':('auto-injector','150 mg/1 mL'), '2673763':('auto-injector','75 mg/0.5 mL'),
+ '1657212':('single-dose vial','150 mg/1.2 mL after reconstitution'),
+}
+
+def injectable_notice_option(rx,name,sources):
+ is_trulicity=rx in ACH_TRULICITY_PENS
+ if is_trulicity:
+  assert '[Trulicity]' in name and 'Auto-Injector' in name
+  printed='TRULICITY ((SUBCUTANEOUS)*'
+  heading='Trulicity '+ACH_TRULICITY_PENS[rx]+' mg/0.5 mL subcutaneous injection, single-dose pen'
+  label='463050bd-2b1c-40f5-b3c3-0a04bb433309'
+  memo_page=7
+  state_id=9972
+  earlier='TRULICITY'
+  note=''
+ else:
+  assert '[Xolair]' in name
+  device,amount=ACH_XOLAIR_DEVICES[rx]
+  vial=device=='single-dose vial'
+  heading=f'Xolair {amount} '+('subcutaneous injection powder, single-dose vial' if vial else 'subcutaneous injection solution, '+device)
+  label='7f6a2191-adfb-48b9-9bfa-0d9920479f0d'
+  printed='XOLAIR VIAL (SUB-Q)' if vial else 'XOLAIR SYRINGE/AUTOINJ ((SUBCUTANEOUS)*'
+  memo_page=8
+  state_id=9792 if vial else 9793 if device=='auto-injector' else 9794
+  earlier='XOLAIR SOLR' if vial else 'XOLAIR SOSY' if rx in ('2058946','2058950') else None
+  note='Boxed warning for anaphylaxis. Initiate treatment in a healthcare setting equipped to manage anaphylaxis.'
+  if device=='auto-injector':
+   note+=' The label specifies the auto-injector for patients aged 12 years and older.'
+ notice={'name':printed,'sourceTitle':'Arizona Complete Health October 2026 Medicaid formulary update PU26135',
+         'sourceUrl':ACH_OCT_NOTICE_URL,'sourceEffective':'2026-10-01','coverage':'listed','preferred':'preferred',
+         'rawBenefit':f'Preferred column, table 1 data row {13 if is_trulicity else 14}. The asterisk identifies statewide listing.'}
+ if not is_trulicity and vial:
+  notice=sources['ach-notice-13917']
+ ref=sources['ach-mandated-formulary-'+str(state_id)]
+ assert ref['brand']==('TRULICITY' if is_trulicity else 'XOLAIR') and ref['pa']=='required'
+ state={**ref,**ref['statewideReference'],'rawBenefit':('' if is_trulicity else 'BRAND ONLY | ')+'PREFERRED DRUG | PA REQUIRED | ST and QL blank.'}
+ updates=[notice,state]
+ display={'prescribingHeading':heading,'identityRxcui':int(rx),'note':note,'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label,
+          'sourceReferences':[[f'AHCCCS Statewide · June 8 contractor memo · p. {memo_page}',AHCCCS_MAY_MEMO+f'#page={memo_page}']]}
+ if not is_trulicity and device=='auto-injector':
+  display.update(separate=True,label=heading)
+ if earlier:
+  dated={'name':earlier,'sourceTitle':'Arizona Complete Health April 2023 Complete Care PDL','sourceUrl':ACH_APR_2023_PDL,
+         'sourceEffective':'2023-04-01','sourcePage':18 if is_trulicity else 13,'sourceKind':'plan_formulary','coverage':'listed',
+         'pa':'required','paText':'The plan formulary lists PA.','rawBenefit':'F; SP; PA.'}
+  if is_trulicity:
+   dated.update(qlAmount='2 mL',qlDays='28',quantityLimited=True,rawBenefit='F; QL(2 ml per 28 days retail); PA.')
+   display['planRetailLimit']={'amount':'2 mL','days':'28'}
+  updates.append(dated)
+ return updates,display
+
 def with_ach_baseline(d):
  src=ROOT/'dist/sources/ach/integrated-formulary-baseline.json.gz'
  raw=json.loads(gzip.decompress(src.read_bytes())); assert len(raw)==4454
@@ -392,6 +447,8 @@ def with_ach_baseline(d):
    candidates,oral_display=verified_oral_form(row["rxnorm_id"],name,indexed_sources)
   if row['rxnorm_id'] in ACH_ANTIPSYCHOTIC_OPTIONS:
    candidates,oral_display=antipsychotic_option(row['rxnorm_id'],name,indexed_sources)
+  if row['rxnorm_id'] in ACH_TRULICITY_PENS or row['rxnorm_id'] in ACH_XOLAIR_DEVICES:
+   candidates,oral_display=injectable_notice_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_CLONAZEPAM:
    candidates,oral_display=clonazepam_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id']=='199387':

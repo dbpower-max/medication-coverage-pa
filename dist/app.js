@@ -1892,6 +1892,8 @@
       const display = reviewedCardPresentation(record);
       const stateTabletLimit = scope === 'statewide_reference' && display?.statewideMonthlyLimit;
       const stateLimitLabel = scope === 'statewide_reference' && (display?.scopedMonthlyLabel || (stateTabletLimit && `QL: ${stateTabletLimit} tablets per 30 days`));
+      const retail = planFormulary && belongs('quantityLimited') && display?.planRetailLimit;
+      const retailLabel = retail && retail.amount === record.qlAmount && retail.days === record.qlDays && `QL: ${retail.amount} per ${retail.days} days at retail`;
       const ageTrigger = scope === 'statewide_reference' && belongs('pa') && record.pa === 'conditional' && display?.statewideAge;
       const badges = statusChips({
         reviewedPresentation: scope === 'statewide_reference' && belongs('pa') && record.pa === 'conditional' && display?.scopedStatePa ? {paBadge: display.scopedStatePa} : ageTrigger ? {paBadge: `PA if age <${ageTrigger} · prescriber rules at ≥${ageTrigger}`} : undefined,
@@ -1899,7 +1901,7 @@
         preferred: belongs('preferred') && record.preferred,
         pa: belongs('pa') && record.pa, step: belongs('step') && record.step,
         quantityLimited: stateLimitLabel || (belongs('quantityLimited') && record.quantityLimited),
-        verifiedQuantityLabel: stateLimitLabel || (planFormularyLimit && display?.planDailyAndRetailLabel) || (scope === 'statewide_reference' && belongs('quantityLimited')
+        verifiedQuantityLabel: stateLimitLabel || retailLabel || (planFormularyLimit && display?.planDailyAndRetailLabel) || (scope === 'statewide_reference' && belongs('quantityLimited')
           && reviewedCardPresentation(record)?.statewideDailyLimit === record.qlAmount && record.qlDays === '1'
           ? `QL: ${record.qlAmount} per day (unit unspecified)` : scope === 'statewide_reference' && belongs('quantityLimited')
           && reviewedCardPresentation(record)?.quantityAmount === record.qlAmount && record.qlDays === '30'

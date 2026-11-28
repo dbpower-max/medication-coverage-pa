@@ -470,6 +470,7 @@ for record,rx in [(kloxxado_state,'2540709'),(kloxxado_banner,'2540709'),(ach_re
     if record['id']=='ach-notice-13957':
         record['reviewedPresentation']['prescribingHeading']='Narcan OTC 4 mg/0.1 mL single-dose nasal spray'
 
+ach_records['ach-notice-13917']['reviewedPresentation']=dict(ach_records['ach-json-1657212']['reviewedPresentation'])
 attach_dosage_forms(data["medications"] + statewide_drugs)
 attach_shared_policy(data)
 data["planDataFiles"] = {k: v for k, v in data.get("planDataFiles", {}).items() if k in ALLOWED}
