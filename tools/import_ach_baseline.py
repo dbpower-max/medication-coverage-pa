@@ -657,7 +657,10 @@ def spiriva_spray(rx,name,sources):
           'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b656b14-fcaa-2741-f6f0-e0be48971c02'}
  if count==10:
   display['note']='The 10-actuation presentation is labeled for institutional use.'
- return [{**notice,'rawBenefit':'Preferred column: SPIRIVA RESPIMAT (INHALATION), COPD Agents, Antimuscarinics – Long-Acting.'},ref],display
+ updates=[ref]
+ if strength=='2.5':
+  updates.append({**notice,'rawBenefit':'Preferred column: SPIRIVA RESPIMAT (INHALATION), COPD Agents, Antimuscarinics – Long-Acting.'})
+ return updates,display
 
 def dulera_option(rx,name,sources):
  strength,count=ACH_DULERA[rx]
