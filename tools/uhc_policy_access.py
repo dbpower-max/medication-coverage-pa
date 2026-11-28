@@ -435,29 +435,42 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 assert typ == 'Quantity Limit', fields['Guideline Type']['text']
             matched.pop(code, None)
             add(code, [2, 3], 'quantity')
-        adderall_product = {
-            'adderall (brand for amphetamine-dextroamphetamine)': 'brand adderall',
-            'amphetamine-dextroamphetamine (generic for adderall)': 'generic amphetamine/dextroamphetamine',
-            'amphetamine-dextroamphetamine er (generic for adderall xr)': 'generic amphetamine/dextroamphetamine er',
+        adhd_request = {
+            'adderall (brand for amphetamine-dextroamphetamine)': (100, 0, 'brand adderall'),
+            'amphetamine-dextroamphetamine (generic for adderall)': (100, 0, 'generic amphetamine/dextroamphetamine'),
+            'amphetamine-dextroamphetamine er (generic for adderall xr)': (100, 0, 'generic amphetamine/dextroamphetamine er'),
+            'atomoxetine hcl oral capsule': (101, 0, 'generic atomoxetine caps'),
+            'guanfacine hcl er (generic for intuniv)': (101, 1, 'generic guanfacine er'),
         }.get(october_name)
-        if adderall_product or record['id'].removeprefix('uhc-oct-complete-') in {
+        methylphenidate_form = {
+            '6e619505a2eade2b': 'la', 'd4a49a61c49b73c3': 'la',
+            '56250e586ef8af55': 'la', '68a337ebb0322d39': 'xr',
+        }.get(record['id'].removeprefix('uhc-oct-complete-'))
+        if methylphenidate_form:
+            assert october_name.startswith(f'methylphenidate hcl er ({methylphenidate_form}) oral capsule extended release 24 hour ')
+            adhd_request = (101, 0, f'generic methylphenidate er ({methylphenidate_form}) caps')
+        if adhd_request or record['id'].removeprefix('uhc-oct-complete-') in {
             '2f5098c47132fc2d', 'daa7640034071c95', 'ad9f23250285e687', '38275709261b0c79',
             'ce7df82b5c0d5f48', '5a377b2c040e33fc', '9dbf1c1936706eb9',
         }:
-            if not adderall_product:
+            if not adhd_request:
                 assert october_name.startswith('lisdexamfetamine dimesylate ') and october_name.endswith('(generic for vyvanse)')
-            assert record['sourcePage'] == 100 and record['preferred'] == 'preferred' and record['pa'] == 'not_specified'
+            page, index, product = adhd_request or (100, 0, 'generic lisdexamfetamine caps/chew tabs')
+            assert record['sourcePage'] == page and record['preferred'] == 'preferred' and record['pa'] == 'not_specified'
             assert record['ageLimited'] and ql
             code = 'GL-689195'
             assert policies[code]['policyEffective'] == '2026-08-13'
-            branch = structured[code]['branches'][0]
+            branch = structured[code]['branches'][index]
             named = [name.strip() for name in ' '.join(branch['fields']['Product Name']['text'].lower().split()).split(',')]
-            assert (adderall_product or 'generic lisdexamfetamine caps/chew tabs') in named
+            assert product in named
             matched.pop(code, None)
-            add(code, [0], 'preferred_adhd_request')
+            add(code, [index], 'preferred_adhd_request')
             if record['id'].endswith('9dbf1c1936706eb9'):
                 assert record['rawRestrictions'] == 'Tier 1; *; QL; AL'
                 record['paExceptionText'] = '60 mg generic chewable tablet: available without PA for participating Behavioral Health Prescribers.'
+            elif record['id'].endswith('56250e586ef8af55'):
+                assert record['rawRestrictions'] == 'Tier 1; *; QL; AL'
+                record['paExceptionText'] = '60 mg LA capsule: available without PA for participating Behavioral Health Prescribers.'
         if record['id'] == 'uhc-oct-complete-6e7e06e8657df79b':
             assert october_name == 'dextroamphetamine sulfate oral tablet (generic for zenzedi)'
             assert record['pa'] == 'not_specified' and record['preferred'] == 'preferred' and ql
