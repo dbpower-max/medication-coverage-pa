@@ -683,6 +683,35 @@ def attach_provider_policies(data):
   r['reviewedPresentation']={**r.get('reviewedPresentation',{}),'scopedPlanHeading':title,'prescribingHeading':title,'labelUrl':url,'labelProductExamples':examples,'note':note}
   seen.add(key)
  assert seen==set(estradiol_forms)
+ route_rows={
+  '23559529523fe119':('TESTOSTERONE PATCH','Androderm testosterone transdermal patch','e58a5328-fdd9-40cb-a19f-8ed798989b9c',[('2 mg/24 hours',1190953),('Androderm 2 mg/24 hours',1190955),('4 mg/24 hours',313233),('Androderm 4 mg/24 hours',1190957)],'The Banner formulary lists PA. Exact patch-specific approval and renewal criteria are unverified.'),
+  '6f8bd0685c3daf8e':('ETONOGESTREL-ETHINYL ESTRADIOL RING','Etonogestrel / ethinyl estradiol vaginal ring (generic only)','1488f5ae-3b34-fcd7-6049-215929b1d324',[('0.12 mg / 0.015 mg per day',1367436)],'The generic vaginal ring releases 0.12 mg etonogestrel and 0.015 mg ethinyl estradiol per day over 21 days.'),
+  '115665c38809e6b0':('NORELGESTROMIN-ETHINYL ESTRADIOL PATCH WEEKLY','Zafemy norelgestromin / ethinyl estradiol weekly transdermal patch','5ee34c07-65af-42b8-a98f-e299ff90a8a1',[('Zafemy 150 mcg / 35 mcg per day',2531285)],'Banner specifies brand only. Zafemy delivers 150 mcg norelgestromin and 35 mcg ethinyl estradiol per day.')
+ }
+ market_status={
+  '23559529523fe119':('Androderm transdermal patches',['020489']),
+  'c508cc7fbc5b9d3a':('Alora twice-weekly transdermal patches',['020655']),
+  '5909cef997161b0a':('Estrace oral tablets',['081295','084499','084500'])
+ }
+ found_routes=set()
+ for r in data['medications']:
+  key=r['id'].removeprefix('banner-full-')
+  if key in route_rows:
+   original,title,spl,examples,note=route_rows[key]
+   assert r['name']==original and r['planId']=='banner-ufc' and r['sourceEffective']=='2026-10-01'
+   assert r['step']=='not_specified' and r['preferred']=='not_specified' and not r['qlAmount'] and not r['qlDays']
+   assert r['pa']==('required' if key=='23559529523fe119' else 'not_specified')
+   assert (key!='6f8bd0685c3daf8e' or r['brand']=='Generic Only') and (key!='115665c38809e6b0' or r['notes']=='BRAND ONLY')
+   r['reviewedPresentation']={'scopedPlanHeading':title,'prescribingHeading':title,'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+spl,'labelProductExamples':examples,'note':note}
+   if key=='23559529523fe119':r['reviewedPresentation']['policyUnverified']=True
+   found_routes.add(key)
+  if key in market_status:
+   product,applications=market_status[key]
+   display=r['reviewedPresentation']
+   display['note']+=' Drugs@FDA lists branded '+product+' as discontinued. The Banner formulary listing is a separate source.'
+   display.setdefault('sourceReferences',[]).extend([['Drugs@FDA · '+product+' · application '+n,'https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?ApplNo='+n+'&event=overview.process'] for n in applications])
+ assert found_routes==set(route_rows)
+
 
  print(f'Added {count} same-plan policy links across {len(records)} medication records')
  return count

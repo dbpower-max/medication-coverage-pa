@@ -1324,7 +1324,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  const xopenex=groups.flatMap(g=>g.records).find(r=>r.reviewedPresentation?.electronicVersion && r.reviewedPresentation.identityRxcui===746466);
  assert(a.recordDetails(xopenex).includes(currentElectronic) && !a.recordDetails(xopenex).includes(archivedElectronic));
  const conflicts=groups.filter(g=>g.records.some(r=>r.reviewedPresentation?.electronicStepOnly));
- assert.equal(conflicts.length,20);
+ assert.equal(conflicts.length,21);
  for(const group of conflicts){
    const row=group.records[0], presentation=row.reviewedPresentation;
    const card=a.medicationGroupCard(group), sources=a.recordDetails(row);
@@ -1335,7 +1335,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    assert(concepts.every(rx=>sources.includes('searchTerm='+rx)) && sources.includes(archivedElectronic) && sources.includes(currentElectronic),row.id);
    assert((await open(group)).html.includes('printed and electronic PA listings disagree'),row.id);
  }
- const basal=groups.filter(g=>g.records.some(r=>r.id!=='uhc-oct-complete-f4a2898bc75ff772' && r.reviewedPresentation?.electronicEvidence && !r.reviewedPresentation.electronicStepOnly && r.reviewedPresentation.labelProductExamples));
+ const basal=groups.filter(g=>g.records.some(r=>r.reviewedPresentation?.label && r.reviewedPresentation?.electronicEvidence && !r.reviewedPresentation.electronicStepOnly && r.reviewedPresentation.labelProductExamples));
  assert.equal(basal.length,9);
  for(const g of basal){
    const r=g.records[0],p=r.reviewedPresentation,card=a.medicationGroupCard(g),source=a.recordDetails(r);

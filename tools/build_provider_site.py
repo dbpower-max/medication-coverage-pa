@@ -682,6 +682,46 @@ for record in data['medications']:
     record['reviewedPresentation']=d
     checked_devices.add(key)
 assert checked_devices==set(device_rows)
+# +RFID identifies the container; the electronic source is keyed to the SCD.
+rfid=next(r for r in data['medications'] if r['id']=='uhc-oct-complete-3d2f253750d58243')
+assert rfid['name']=='heparin sodium (porcine) +rfid' and rfid['sourcePage']==75 and rfid['rawRestrictions']=='Tier 1'
+assert rfid['pa']==rfid['step']=='not_specified' and not rfid.get('quantityLimited')
+entry=electronic_formulary[3917-1]
+flags,=[v for v in entry['plans'] if v['plan_id']=='UCSAZQ3' and 2026 in v['years']]
+assert entry['rxnorm_id']=='1361226' and (flags['drug_tier'],flags['prior_authorization'],flags['step_therapy'],flags['quantity_limit'])==('PREFERRED(29)',False,False,False)
+heading='Heparin sodium +RFID 1,000 units/mL injection, 10 mL multidose vial'
+rfid['reviewedPresentation']={'scopedPlanHeading':heading,'prescribingHeading':heading,'identityRxcui':1361226,
+ 'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2a173253-dfdc-4d9d-8dee-b9c13e6fa9f5',
+ 'note':'The labeled vial contains 10,000 units in 10 mL. The manufacturer identifies the +RFID tagged vial as NDC 65219-066-01 and the 25-vial carton as 65219-066-10. Electronic formulary flags apply at the clinical drug level. Exact package eligibility is unverified.',
+ 'sourceReferences':[['Fresenius Kabi · tagged heparin multidose vial','https://www.plusrfid.com/products/heparin/']],
+ 'electronicEvidence':['Row 3917, RxCUI 1361226: PREFERRED(29), PA false, ST false, QL false.'],'novemberElectronicEvidence':'Row 450, RxCUI 1361226: PREFERRED(29), PA false, ST false, QL false.'}
+
+antithrombotic_rows={
+ '07fb50b5c187f2f2':('Savaysa (edoxaban) film-coated oral tablets','e77d3400-56ad-11e3-949a-0800200c9a66',
+    [(1599549,4616,241,'15 mg'),(1599553,2339,5068,'30 mg'),(1599557,4281,2142,'60 mg')]),
+ '527060afcbd9ac6e':('Brilinta (ticagrelor) oral tablets','f7b3f443-e83d-4bf2-0e96-023448fed9a8',
+    [(1666334,5256,1846,'60 mg Brilinta'),(1116639,1638,2312,'90 mg Brilinta')])
+}
+for record in data['medications']:
+    key=record['id'].removeprefix('uhc-oct-complete-')
+    if key not in antithrombotic_rows:continue
+    heading,spl,products=antithrombotic_rows[key]
+    edoxaban=key=='07fb50b5c187f2f2'
+    assert record['planId']=='uhc-community-az' and record['rawRestrictions']==('Tier 2; PA; QL' if edoxaban else 'Tier 2; QL')
+    tier='NON-PREFERRED(90)' if edoxaban else 'PREFERRED(29)'
+    assert record['preferred']==('non_preferred' if edoxaban else 'preferred')
+    flags_oct,flags_nov=[],[]
+    for rx,october,november,description in products:
+        e=electronic_formulary[october-1]
+        f,=[v for v in e['plans'] if v['plan_id']=='UCSAZQ3' and 2026 in v['years']]
+        assert int(e['rxnorm_id'])==rx and (f['drug_tier'],f['prior_authorization'],f['step_therapy'],f['quantity_limit'])==(tier,False,edoxaban,True)
+        evidence=f'RxCUI {rx}: {tier}, PA false, ST {str(edoxaban).lower()}, QL true.'
+        flags_oct.append(f'Row {october}, '+evidence);flags_nov.append(f'Row {november}, '+evidence)
+    note=('For nonvalvular atrial fibrillation, the FDA boxed warning describes reduced efficacy when creatinine clearance exceeds 95 mL/min. The printed PA flag conflicts with both electronic files. Exact product-specific PA criteria, step prerequisites and the numeric quantity limit are unverified.' if edoxaban else 'The printed row and electronic examples identify brand Brilinta. The numeric quantity limit is unverified. GL-140667 provides general quantity-exception criteria.')
+    record['reviewedPresentation']={'prescribingHeading':heading,'scopedPlanHeading':heading,'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+spl,
+       'labelProductExamples':[(description,rx) for rx,_,_,description in products],'electronicEvidence':flags_oct,'novemberElectronicEvidence':' '.join(flags_nov),'note':note}
+    if edoxaban:record['reviewedPresentation'].update(paSourceConflict=True,electronicStepOnly=True)
+    else:record['excludedPolicyCode']='GL-524216'
 # Named UHC basal listings. An unsuffixed printed name cannot select one package.
 basal_labels = {
     'glargine-yfgn':'3ac85ebb-5594-59c8-77fd-df254329d151',
