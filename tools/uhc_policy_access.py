@@ -2863,6 +2863,25 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                     assert fields['Guideline Type']['text'] == 'Prior Authorization'
                 assert branches[1]['fields']['Product Name']['text'] == 'Loreev XR'
                 add(code, [0, 2], 'anxiolytic_request')
+        # DEC-07/12/13/14/19/20: buspirone is named in the anxiolytic
+        # request criteria, but is not a benzodiazepine. Do not transfer its
+        # monthly prescription-limit exception or the Loreev XR-only branch.
+        if record['id'] == 'uhc-oct-complete-c6bc551a9fa20e76':
+            assert october_name == 'buspirone hcl oral tablet 10 mg, 15 mg, 30 mg, 5 mg, 7.5 mg'
+            assert record['pa'] == 'not_specified' and record['preferred'] == 'preferred' and ql
+            code = 'GL-140805'
+            assert policies[code]['policyEffective'] == '2023-08-01'
+            branches = structured[code]['branches']
+            assert len(branches) == 3
+            for index, diagnosis in ((0, 'Requests for patients less than 6 years of age'), (2, 'Greater than 1 Anxiolytic in 30 days')):
+                fields = branches[index]['fields']
+                products = fields['Product Name'].get('displayText') or fields['Product Name']['text']
+                assert 'buspirone' in ' '.join(products.split()).split(', ')
+                assert ' '.join(fields['Diagnosis']['text'].split()) == diagnosis
+                assert fields['Guideline Type']['text'] == 'Prior Authorization'
+                assert not fields.get('Therapy Stage')
+            assert branches[1]['fields']['Product Name']['text'] == 'Loreev XR'
+            add(code, [0, 2], 'anxiolytic_request')
         # DEC-05/07/12/13/14/19/20: October PDL explicitly lists Loreev XR.
         # Named age and duplication pathways are not separately staged initial/renewal.
         if record['id'] == 'uhc-oct-complete-8b76927b97fcfd83':

@@ -1823,6 +1823,30 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    const grouped=await open(g);assert(grouped.html.includes('Requests for Patients 6 years of age and older'),id);
  }
  console.log('PASS: Loreev XR exact form, three named PA pathways, separate monthly exception, no inferred numeric QL.');
+ // Buspirone is not a benzodiazepine; hydroxyzine is not named in GL-140805.
+ for(const [suffix,named] of [['c6bc551a9fa20e76',true],['7fa9dbc3875538f4',false],['e3e6634bd7811575',false],['60c9ee05152ecb46',false]]){
+   const id='uhc-oct-complete-'+suffix;
+   const g=a.planMedicationGroups().find(x=>x.records.some(r=>r.id===id));assert(g,id);
+   const r=g.records.find(r=>r.id===id);
+   assert.equal(r.preferred,'preferred',id);assert.equal(r.pa,'not_specified',id);assert.equal(Boolean(r.ageLimited),named,id);
+   assert(!r.policyQuantityLimit,id+' numeric QL invented');
+   const exact={...g,key:(g.key||g.label)+'-nonbenzo-'+suffix,records:[r],isStatewide:false,statewideRecord:null};
+   const card=a.medicationGroupCard(exact);
+   assert(card.includes('>Preferred<')&&card.includes('>Quantity limit<')&&!card.includes('>PA required<'),id);
+   const b=a.uhcGroupBindings(exact);
+   assert(b.some(x=>x.role==='global_quantity'&&x.policyId.endsWith('gl-140667')&&x.branchIndexes.join(',')==='0'),id);
+   assert.equal(b.some(x=>x.role==='anxiolytic_request'&&x.policyId.endsWith('gl-140805')&&x.branchIndexes.join(',')==='0,2'),named,id);
+   assert(!b.some(x=>x.role==='monthly_prescription_exception'||(x.policyId.endsWith('gl-140805')&&(!named||x.branchIndexes.includes(1)))),id+' out-of-scope criteria');
+   const out=await open(exact);
+   assert(out.html.includes('Quantity-limit exceptions')&&out.html.includes('Criteria source · PDF page 702<'),id);
+   assert.equal(out.html.includes('Anxiolytic request criteria'),named,id);
+   assert(!out.html.includes('Monthly prescription-limit exception')&&!out.html.includes('Class-wide prescription limit'),id);
+   if(named){
+     assert(out.html.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page=154')&&out.html.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page=155'),id+' exact branch links');
+     const grouped=await open(g);assert(grouped.html.includes('Anxiolytic request criteria'),id+' grouped');
+   }
+ }
+ console.log('PASS: buspirone named conditional scope and three hydroxyzine exact rows preserve QL without benzodiazepine or Loreev XR policy transfer.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  const bannerGroups=a.planMedicationGroups();
  const igRows=[
