@@ -224,6 +224,9 @@ def attach_provider_policies(data):
  for rid,(name,pref,product,note) in banner_ig_scope.items():
   banner_exact_links[rid]=('banner-policy-12-877','GL-525296',product,name,'required',pref,note)
  banner_adhd_rows = {
+  'banner-full-fa9195de0647523b': ('CLONIDINE HCL', 'generic clonidine IR/ER', 53, 'not_specified'),
+  'banner-full-fa62279e75a1c387': ('GUANFACINE HCL (ADHD) TABLET 24-HOUR', 'generic guanfacine IR/ER', 53, 'preferred'),
+  'banner-full-2193994c7e36326c': ('GUANFACINE HCL TABLET', 'generic guanfacine IR/ER', 53, 'not_specified'),
   'banner-full-e7a4e750d4c75cc1': ('ATOMOXETINE HCL CAPSULES', 'generic atomoxetine', 52, 'preferred'),
   'banner-full-a457525bbf1d1d54': ('CLONIDINE HCL (ADHD) TABLET 12-HOUR', 'generic clonidine IR/ER', 53, 'not_specified'),
  }
@@ -250,12 +253,27 @@ def attach_provider_policies(data):
                              'U-500 vial and KwikPen. Approval lasts 12 months. The policy does not distinguish initial from renewal requests.')
  found=set()
  for r in data['medications']:
+  if r['id'] in ('banner-full-f3d7e46502c274c0', 'banner-full-726809feb6a79584'):
+   assert r['planId']=='banner-ufc' and r['sourceEffective']=='2026-10-01'
+   r['policySources']=[link for link in r.get('policySources',[]) if link.get('textUrl','').lstrip('./')!='banner-policy-text/12-52.txt']
+   r['excludedPolicyCode']='GL-669262'
+   if r['id']=='banner-full-726809feb6a79584':
+    assert r['name']=='CLONIDINE HCL TRANSDERMAL PATCH' and r['pa']=='conditional'
+    r['reviewedPresentation']={'note':'Banner requires PA under age 6. Exact patch-specific approval criteria are unverified.'}
+   else:
+    assert r['name']=='GUANFACINE HCL TABLETS' and r['pa']=='not_specified'
+    r['reviewedPresentation']={'policyUnverified':True}
   if r['id'] not in banner_exact_links:continue
   if r['id'] in banner_adhd_rows:
    _,product,page,_ = banner_adhd_rows[r['id']]
+   if r['id']=='banner-full-fa9195de0647523b':
+    assert r['brand']=='CATAPRES' and r['sourcePage']==1
+    r['reviewedPresentation']={'dosageForm':'oral tablet','labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=61b56917-1442-4068-86d8-0e5a5a59e612',
+                               'labelProductExamples':[['0.1 mg',884173],['0.2 mg',884185],['0.3 mg',884189]]}
+
    assert r['paText']=='PA REQUIRED for Ages < 6 years of age' and r['sourceEffective']=='2026-10-01'
    r['reviewedBannerBranches']={'policyId':'banner-policy-12-52','product':product,'unstagedPage':page,'exactReferencePage':page}
-   r['policySources']=[link for link in r.get('policySources',[]) if link.get('textUrl')!='./banner-policy-text/12-1226.txt']
+   r['policySources']=[link for link in r.get('policySources',[]) if link.get('textUrl','').lstrip('./')!='banner-policy-text/12-1226.txt']
   if r['id'] in concentrated_insulin:
    original,brand,heading,rxcui,warning = concentrated_insulin[r['id']]
    assert r['brand']==brand and r['notes']=='BRAND ONLY' and r['sourcePage']==11 and r['sourceEffective']=='2026-10-01'
@@ -270,6 +288,9 @@ def attach_provider_policies(data):
   assert code in raw and product.lower() in ' '.join(raw.lower().split())
   link=dict(policyId=pid,title=p['name'],policyCode=code,firstPage=p['sourcePage'],lastPage=p.get('sourceLastPage',p['sourcePage']),url=p['sourceUrl'],textUrl=p['sourceTextUrl'],effective=p.get('policyEffective') or p.get('sourceEffective',''),matchedProduct=product,scope=scope)
   links=r.setdefault('policySources',[])
+  if r['id'] in banner_adhd_rows:
+   page = banner_adhd_rows[r['id']][2]
+   link.update(firstPage=page,lastPage=page+1,effective='2026-08-01')
   same=next((i for i,x in enumerate(links) if x.get('policyId')==pid or x.get('textUrl')==link['textUrl']),None)
   if same is None:links.insert(0,link);count+=1;records.add(r['id'])
   else:links[same]={**links[same],**link}
