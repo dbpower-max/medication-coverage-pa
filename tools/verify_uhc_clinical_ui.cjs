@@ -62,6 +62,14 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    const id='uhc-oct-complete-'+suffix;
    const group=groups.find(g=>g.records.some(record=>record.id===id));
    const row=group.records.find(record=>record.id===id);
+   const safetyCard=a.medicationGroupCard(group), safetySources=a.recordDetails(row);
+   const sensorAlert=['37e912a5126d83fa','5b4814f8950a3d08'].includes(suffix);
+   const readerAlert=['1fd2b0bc4536d405','24439ea20bf1ab84'].includes(suffix);
+   assert.equal(safetyCard.includes('read falsely low'),sensorAlert,id);
+   assert.equal(safetySources.includes('freestylecheck.com/us-en/product-lookup.html'),sensorAlert,id);
+   assert.equal(safetyCard.includes('too hot to hold'),readerAlert,id);
+   assert.equal(safetyCard.includes('up to 15 days'),['be716be68d4865ce','37e912a5126d83fa'].includes(suffix),id);
+   assert.equal(safetyCard.includes('requires a new prescription'),['3068d3e50cfa3085','5b4814f8950a3d08'].includes(suffix),id);
    assert.equal(row.rawRestrictions,printedPA?'Tier 2; PA; ST; QL':'Tier 2; ST; QL',id);
    assert.equal(row.preferred,'preferred',id);
    assert.equal(row.step,'specified',id);

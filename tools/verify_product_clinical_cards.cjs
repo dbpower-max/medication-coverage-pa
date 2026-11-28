@@ -29,6 +29,28 @@ for (const [plan, rows] of [
  }
 }
 
+api.state.planId='az-complete-health';
+const achGuideOptions=api.planMedicationGroups().filter(g=>g.records.some(r=>r.id.startsWith('ach-pu25143-')));
+assert.equal(achGuideOptions.length,4);
+const guidePackages=[];
+for (const g of achGuideOptions) {
+ const row=g.records.find(r=>r.id.startsWith('ach-pu25143-')), card=api.medicationGroupCard(g), sources=api.recordDetails(row);
+ const strips=row.id.endsWith('-test'), meter=row.id.endsWith('meter');
+ assert(!card.includes('data-card-clinical='),row.id);
+ assert(sources.includes('PU25143.html') && sources.includes('2025-11-01'),row.id);
+ assert.equal(card.includes('>Preferred<'),strips,row.id);
+ assert.equal(card.includes('>Preference not specified<'),!strips,row.id);
+ assert.equal(card.includes('>QL: 1 meter per 365 days<'),meter,row.id);
+ assert.equal(card.includes('150 strips per 30 days') && card.includes('100 strips per 90 days'),strips,row.id);
+ assert(!card.includes('>PA required<') && !card.includes('>Step therapy<'),row.id);
+ assert.equal(row.pa,'not_specified');assert.equal(row.step,'not_specified');
+ if (!meter && !strips) assert(!row.qlDays && !row.quantityLimited && sources.includes('1 bottle'));
+ for (const {ndc} of row.payerPackages) {
+   assert(sources.includes(ndc) && row.searchAliases.includes(ndc),row.id);guidePackages.push(ndc);
+ }
+}
+assert.equal(new Set(guidePackages).size,7);
+
 api.state.planId='banner-ufc';
 const bannerPremixGroups=api.planMedicationGroups();
 const epiGroup=bannerPremixGroups.find(g=>g.records.some(r=>r.id==='banner-full-2d2738513f664b31'));
