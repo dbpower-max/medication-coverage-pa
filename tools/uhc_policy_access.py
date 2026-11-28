@@ -27,6 +27,7 @@ RISPERIDONE_BRANCHES = {
 # A generic name shared between two products cannot transfer indication or route.
 EXCLUDED_OCTOBER_POLICIES = {
     'glycopyrrolate oral solution 1 mg/5ml (generic for cuvposa)': 'GL-140733',
+    'xopenex hfa (brand for levalbuterol tartrate)': 'GL-140660',
     'pregabalin oral (generic for lyrica)': 'GL-140672',
     'soolantra (brand for ivermectin)': 'GL-140680',
     'tadalafil (pah) (generic for alyq)': 'GL-140729',
@@ -328,6 +329,15 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             # GL-565277 names tablets, nasal spray and Desmoda oral solution.
             matched.pop('GL-565277', None)
             record['unverifiedPolicyCode'] = 'GL-565277'
+        if october_name == 'xopenex hfa (brand for levalbuterol tartrate)':
+            record['reviewedPresentation'] = {
+                'separate': True, 'generalPa': True, 'paSourceConflict': True,
+                'label': 'Xopenex HFA (levalbuterol) 45 mcg/actuation metered-dose inhaler',
+                'identityRxcui': 746466, 'electronicRow': 7824,
+                'electronicVersion': '2026 plan year, accessed November 27, 2026',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=320fea02-8aa3-44c8-b52a-a118418d1f78',
+                'note': 'The printed UHC list flags PA. The electronic list flags step therapy and reports no PA. The inhaler-specific prerequisite is unverified.',
+            }
         if october_name in VICTOZA_PRESENTATIONS:
             option, rxcui, set_id = VICTOZA_PRESENTATIONS[october_name]
             record['reviewedPresentation'] = {
