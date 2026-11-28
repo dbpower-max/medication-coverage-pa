@@ -114,6 +114,28 @@ for record in data['medications']:
             'sourceEffective':'2023-02-01', 'paText':'Humulin R U-500 KwikPen: F; PA.',
             'sourceUrl':'https://www.azcompletehealth.com/content/dam/centene/az-complete-health/pdf/provider/formulary/AZ%20Integrated%20English%20CNCAZCH01_19108_2023-01-25-Final%20508C%20PDF%20-%20Feb%202023.pdf#page=26',
         }]
+ach_insulin_labels = {
+ '311027': ('Novolin N (human NPH insulin) 100 units/mL multidose vial', 'injectable suspension', 'Labeled 10 mL multidose vial.', '82f1445c-b2c6-445a-82cf-ba8825fac776'),
+ '311033': ('Novolin R (regular human insulin) 100 units/mL multidose vial', 'solution for injection', 'Labeled 10 mL multidose vial.', 'aee7f1f3-612c-4027-8ce9-4fd1f41eed71'),
+ '311040': ('Insulin aspart 100 units/mL multidose vial', 'solution for injection', 'Labeled 10 mL multidose vial.', 'bee5b358-c863-420b-be73-ced2e920c499'),
+ '1653202': ('Insulin aspart 100 units/mL prefilled pen', 'solution for injection', 'Labeled FlexPen: 3 mL single-patient-use pen.', 'bee5b358-c863-420b-be73-ced2e920c499'),
+ '285018': ('Lantus (insulin glargine) 100 units/mL multidose vial', 'solution for injection', 'Labeled 10 mL multidose vial.', 'd5e07a0c-7e14-4756-9152-9fea485d654a'),
+ '847232': ('Lantus SoloStar (insulin glargine) 100 units/mL prefilled pen', 'solution for injection', '3 mL single-patient-use pen.', 'd5e07a0c-7e14-4756-9152-9fea485d654a'),
+ '106892': ('Humulin 70/30 (human NPH/regular insulin) 100 units/mL multidose vial', 'injectable suspension', 'Labeled 10 mL multidose vial.', 'e245e0c5-b2d6-418b-baa4-1c3324292885'),
+ '847189': ('Humulin 70/30 KwikPen (human NPH/regular insulin) 100 units/mL prefilled pen', 'injectable suspension', '3 mL single-patient-use pen.', 'e245e0c5-b2d6-418b-baa4-1c3324292885'),
+ '351926': ('NovoLog (insulin aspart) 100 units/mL multidose vial', 'solution for injection', 'Labeled 10 mL multidose vial.', '3a1e73a2-3009-40d0-876c-b4cb2be56fc5'),
+ '1653198': ('NovoLog PenFill (insulin aspart) 100 units/mL cartridge', 'solution for injection', '3 mL cartridge for a compatible PenFill insulin delivery device.', '3a1e73a2-3009-40d0-876c-b4cb2be56fc5'),
+ '1653204': ('NovoLog FlexPen (insulin aspart) 100 units/mL prefilled pen', 'solution for injection', '3 mL single-patient-use pen.', '3a1e73a2-3009-40d0-876c-b4cb2be56fc5'),
+ '977842': ('NovoLog Mix 70/30 (insulin aspart protamine/insulin aspart) 100 units/mL multidose vial', 'injectable suspension', 'Labeled 10 mL multidose vial.', '1861fcee-7673-4afe-a206-08fa05c0add2'),
+ '977840': ('NovoLog Mix 70/30 FlexPen (insulin aspart protamine/insulin aspart) 100 units/mL prefilled pen', 'injectable suspension', '3 mL single-patient-use pen.', '1861fcee-7673-4afe-a206-08fa05c0add2'),
+}
+for record in data['medications']:
+    rx=record['id'].removeprefix('ach-json-')
+    if rx in ach_insulin_labels:
+        assert record['planId']=='az-complete-health' and record['baselineSource'] and str(record['rxnormId'])==rx
+        heading,form,note,label_id=ach_insulin_labels[rx]
+        record['reviewedPresentation']={'label':heading,'dosageForm':form,'note':note,'identityRxcui':int(rx),'separate':True,
+                                        'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label_id}
 correct_source_restrictions(data['medications'])
 correct_source_conflicts(data['medications'])
 attach_provider_policies(data)

@@ -1468,7 +1468,7 @@
     else if (record.pa === 'required') chips.push(['PA required', 'warning']);
     else if (record.pa === 'conditional') chips.push(['Conditional PA', 'warning']);
     if (record.step === 'specified') chips.push(['Step therapy', 'warning']);
-    if (record.quantityLimited || record.qlAmount || record.qlDays) chips.push([bannerAdhdLimit(record) || 'Quantity limit', 'warning']);
+    if (record.quantityLimited || record.qlAmount || record.qlDays) chips.push([record.verifiedQuantityLabel || bannerAdhdLimit(record) || 'Quantity limit', 'warning']);
     if (record.ageLimited) chips.push(['Age limit', 'warning']);
     if (record.specialty) chips.push(['Specialty', 'warning']);
     if (record.diagnosisRequired) chips.push(['Diagnosis required', 'warning']);
@@ -1484,16 +1484,20 @@
     ];
     const lines = sources.map(([scope, label]) => {
       const belongs = field => origins[field] === scope;
+      const planFormularyLimit = belongs('quantityLimited') && scope === 'selected_plan'
+        && record.sourceUpdates?.some(update => update.sourceTitle === 'Arizona Complete Health February 2023 Complete Care PDL' && update.qlAmount === record.qlAmount && update.qlDays === record.qlDays)
+        && record.qlAmount === '1 mL' && record.qlDays === '1';
       const badges = statusChips({
         recordType: 'formulary', coverage: record.coverage,
         preferred: belongs('preferred') && record.preferred,
         pa: belongs('pa') && record.pa, step: belongs('step') && record.step,
         quantityLimited: belongs('quantityLimited') && record.quantityLimited,
+        verifiedQuantityLabel: planFormularyLimit ? 'QL: 1 mL per day' : '',
         ageLimited: belongs('ageLimited') && record.ageLimited
       }, belongs('coverage'));
       const preference = belongs('coverage') && record.coverage === 'listed' && record.preferred === 'not_specified'
         && !record.preferenceUncertaintyReason ? '<span class="chip neutral">Preference not specified</span>' : '';
-      const sourceChip = label ? `<span class="chip neutral">${escapeHtml(label)}</span>` : '';
+      const sourceChip = label ? `<span class="chip neutral">${escapeHtml(planFormularyLimit ? 'Plan formulary' : label)}</span>` : '';
       return badges ? `<div class="chips" aria-label="${escapeHtml(label || 'Plan')} coverage attributes">${sourceChip}${badges}${preference}</div>` : '';
     }).join('');
     const holds = [...new Set([record.sourceConflict, record.paUncertaintyReason].filter(Boolean))];
@@ -1613,7 +1617,7 @@
       if (record.paUncertaintyReason) details.push(`<p>${escapeHtml(record.paUncertaintyReason)}</p>`);
     }
     if (record.sourceUpdates?.length) details.push('<p><strong>Later applicable sources:</strong></p>' + record.sourceUpdates.map(item =>
-      `<p>${item.scope === 'statewide_reference' ? 'AHCCCS Statewide' : 'Plan notice'} · <a href="${escapeHtml(sourceHref(item))}" target="_blank" rel="noopener">${escapeHtml(item.name)} · ${escapeHtml(item.sourceEffective)}</a>${item.paText ? ' · ' + escapeHtml(item.paText) : ''}</p>`).join(''));
+      `<p>${item.scope === 'statewide_reference' ? 'AHCCCS Statewide' : item.sourceTitle === 'Arizona Complete Health February 2023 Complete Care PDL' ? 'Plan formulary' : 'Plan notice'} · <a href="${escapeHtml(sourceHref(item))}" target="_blank" rel="noopener">${escapeHtml(item.name)} · ${escapeHtml(item.sourceEffective)}</a>${item.paText ? ' · ' + escapeHtml(item.paText) : ''}</p>`).join(''));
     if (record.achProviderRule) details.push(`<p><strong>Plan PA rule:</strong> ${escapeHtml(record.achProviderRule.text)} <a href="${escapeHtml(record.achProviderRule.sourceUrl)}" target="_blank" rel="noopener">Provider pharmacy page ↗</a> · accessed ${escapeHtml(record.achProviderRule.observedDate)}.</p>`);
     if (record.quantityLimited && !record.qlAmount && !record.qlDays) details.push('<p><strong>Quantity limit:</strong> The source lists a limit without specifying an amount or interval.</p>');
     if (hasVerifiedMandatedCoverage(record)) details.push('<p><strong>Coverage source:</strong> AHCCCS-mandated minimum</p>');
@@ -1663,7 +1667,7 @@
       if (record.coverageText) details.push(`<p><strong>Coverage restriction:</strong> ${escapeHtml(record.coverageText)}</p>`);
       if (record.stepText) details.push(`<p><strong>Step:</strong> ${escapeHtml(record.stepText)}</p>`);
       if (record.qlAmount || record.qlDays) {
-        const interval = record.qlDays && `per ${record.qlDays}${/^\d+(?:\.\d+)?$/.test(String(record.qlDays)) ? ' days' : ''}`;
+        const interval = record.qlDays === '1' ? 'per day' : record.qlDays && `per ${record.qlDays}${/^\d+(?:\.\d+)?$/.test(String(record.qlDays)) ? ' days' : ''}`;
         details.push(`<p><strong>Quantity limit:</strong> ${escapeHtml([record.qlAmount, interval].filter(Boolean).join(' '))}</p>`);
       }
       if (record.notes) details.push(`<p><strong>Notes:</strong> ${escapeHtml(record.notes)}</p>`);
