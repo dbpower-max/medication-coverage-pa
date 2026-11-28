@@ -1804,6 +1804,25 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    const grouped=await open(g);assert(grouped.html.includes('Monthly prescription-limit exception'),id+' grouped');
  }
  console.log('PASS: 16 preferred benzodiazepine monthly request pathways, 14 exact named anxiolytic scopes, no routine PA or Loreev XR transfer.');
+ {
+   const id='uhc-oct-complete-8b76927b97fcfd83';
+   const g=a.planMedicationGroups().find(x=>x.records.some(r=>r.id===id));assert(g,id);
+   const r=g.records.find(r=>r.id===id);
+   assert.equal(r.preferred,'non_preferred');assert.equal(r.pa,'required');assert(!r.policyQuantityLimit);
+   const exact={...g,key:(g.key||g.label)+'-loreev',records:[r],isStatewide:false,statewideRecord:null};
+   const card=a.medicationGroupCard(exact);
+   assert(card.includes('Loreev XR (Lorazepam) Extended-Release Oral Capsule')&&card.includes('>PA required<')&&card.includes('>Quantity limit<'),id);
+   const b=a.uhcGroupBindings(exact);
+   assert(b.some(x=>x.role==='product'&&x.policyId.endsWith('gl-140805')&&x.branchIndexes.join(',')==='0,1,2'),id);
+   assert(b.some(x=>x.role==='monthly_prescription_exception'&&x.policyId.endsWith('gl-140667')&&x.branchIndexes.join(',')==='2'),id);
+   assert(b.some(x=>x.role==='global_quantity'&&x.policyId.endsWith('gl-140667')&&x.branchIndexes.join(',')==='0'),id);
+   const out=await open(exact);
+   assert(out.html.includes('Requests for Patients 6 years of age and older')&&out.html.includes('Greater than 1 Anxiolytic in 30 days'),id);
+   assert(out.html.includes('Monthly prescription-limit exception')&&out.html.includes('Criteria source · PDF page 704<'),id);
+   assert(out.ref.includes('page=154')&&out.ref.includes('page=155'),id);
+   const grouped=await open(g);assert(grouped.html.includes('Requests for Patients 6 years of age and older'),id);
+ }
+ console.log('PASS: Loreev XR exact form, three named PA pathways, separate monthly exception, no inferred numeric QL.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  const bannerGroups=a.planMedicationGroups();
  const igRows=[
