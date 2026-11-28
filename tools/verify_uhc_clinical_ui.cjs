@@ -1324,7 +1324,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  const xopenex=groups.flatMap(g=>g.records).find(r=>r.reviewedPresentation?.electronicVersion && r.reviewedPresentation.identityRxcui===746466);
  assert(a.recordDetails(xopenex).includes(currentElectronic) && !a.recordDetails(xopenex).includes(archivedElectronic));
  const conflicts=groups.filter(g=>g.records.some(r=>r.reviewedPresentation?.electronicStepOnly));
- assert.equal(conflicts.length,14);
+ assert.equal(conflicts.length,19);
  for(const group of conflicts){
    const row=group.records[0], presentation=row.reviewedPresentation;
    const card=a.medicationGroupCard(group), sources=a.recordDetails(row);
@@ -2243,7 +2243,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
      assert(r.uhcClinicalBindings.some(b=>b.role==='global_quantity'));
      const card=a.medicationGroupCard(g),out=await open(g);
      for(const phrase of [total+' mg Daily Dose Oral Tablet Maintenance Pack',components,'nonpreferred-only trials','numeric dispensing QL unverified'])assert(card.includes(phrase),phrase);
-     assert(out.html.includes('Criteria source · PDF page 98<'));
+     assert(out.html.includes('Criteria source · PDF page 99<'));
    }
  }
  {

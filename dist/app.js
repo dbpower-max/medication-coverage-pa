@@ -2981,6 +2981,7 @@
         const policy = policies.find(p => p.id === binding.policyId);
         if (!policy) continue;
         const source = await loadClinicalSource(policy);
+        const seizurePage = policy.policyCode === 'GL-572198' && group.records.find(r => r.reviewedPresentation?.seizureRequestPage)?.reviewedPresentation.seizureRequestPage;
         for (const i of binding.branchIndexes) {
           const key = policy.id + ':' + i;
           if (seen.has(key)) continue;
@@ -3007,6 +3008,13 @@
                 || !final.text.includes('tocilizumab biosimilars')) throw new Error('Tocilizumab preference scope changed');
             applicable = {...branch, criteria: branch.criteria.slice(0, -2)};
           }
+          if (seizurePage) {
+            if (i === 0) {
+              if (!branch.fields['Product Name'].text.includes('Xcopri') || !branch.criteria[34].text.includes('continuation of prior therapy')) throw new Error('Xcopri request scope changed');
+              applicable = {...branch,criteria:[0,2,3,33,34].map(i => branch.criteria[i]),notes:[]};
+            }
+            applicable = {...applicable,sourcePage:seizurePage};
+          }
           if (binding.role === 'preferred_adhd_request') {
             const cutoff = branch.criteria.findIndex(item => item.text.startsWith('2 - If the request is non-preferred'));
             if (policy.policyCode !== 'GL-689195' || branch.criteria[cutoff - 1]?.text !== 'AND'
@@ -3018,7 +3026,7 @@
           body.push(label + namedPages + cardBranchMarkup(applicable, policy));
         }
         if (!references.some(p => p.id === policy.id)) {
-          references.push(binding.exactQuantityPage ? {...policy, exactQuantityPage: binding.exactQuantityPage} : policy);
+          references.push(seizurePage ? {...policy,exactRequestPage:seizurePage} : binding.exactQuantityPage ? {...policy, exactQuantityPage: binding.exactQuantityPage} : policy);
         }
       }
       const context = selected === duplication ? '<p>Applies when a therapeutic duplication edit is triggered.</p>'
@@ -3358,7 +3366,7 @@
     } finally { details.dataset.loading = 'false'; }
   }
 
-  function cardPaReference(source, label = 'PA reference', exactPage = source.exactQuantityPage) {
+  function cardPaReference(source, label = 'PA reference', exactPage = source.exactRequestPage || source.exactQuantityPage) {
     if (source.planId === 'ahcccs-ffs-aihp') label = statewideFfsLabel + ' reference';
     const chapter = exactPage ? ' · p. ' + exactPage
       : source.recordType === 'policy_index' && source.sourcePage ? ' · chapter p. ' + source.sourcePage : '';
@@ -3498,7 +3506,9 @@
       && policies.find(p => p.id === 'ahcccs-ffs-nov2026-policy-gl-731218');
     const nasalRescuePolicy = group.records.some(r => r.reviewedPresentation?.nasalRescueProduct)
       && policies.find(p => p.policyCode === (isUhc ? 'GL-292192' : 'GL-288251'));
-    const refs = nasalRescuePolicy ? cardPaReference(nasalRescuePolicy, isUhc ? 'UHC quantity guideline' : 'AHCCCS Statewide · FFS quantity guideline', isUhc ? 1042 : 1081)
+    const seizureRequest = group.records.find(r => r.reviewedPresentation?.seizureRequestPage)?.reviewedPresentation.seizureRequestPage;
+    const seizurePolicy = seizureRequest && policies.find(p => p.policyCode === 'GL-572198' && p.planId === state.planId);
+    const refs = seizurePolicy ? cardPaReference(seizurePolicy,'Seizure request guideline',seizureRequest) : nasalRescuePolicy ? cardPaReference(nasalRescuePolicy, isUhc ? 'UHC quantity guideline' : 'AHCCCS Statewide · FFS quantity guideline', isUhc ? 1042 : 1081)
       : ageReview ? cardPaReference(ageReview, 'AHCCCS Statewide · age-specific review', 125)
       : exactBannerPolicy ? cardPaReference(exactBannerPolicy, 'PA reference', exactBannerReference.exactReferencePage) : bannerQuantityException && reference ? cardPaReference(reference, 'Quantity-limit exception guideline') : bannerIcs ? cardPaReference(bannerIcs, 'Related inhaled corticosteroid guidance') : constipationPolicy ? cardPaReference(constipationPolicy,
       linzess ? 'Linzess PA guideline' : 'UHC October 18 policy')
