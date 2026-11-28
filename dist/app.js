@@ -130,6 +130,8 @@
     if (compact) return compact.heading;
     const title = expandFormWords(label);
     const records = group.records || [];
+    const heading = records[0] && reviewedCardPresentation(records[0])?.prescribingHeading;
+    if (heading && records.every(r => reviewedCardPresentation(r)?.prescribingHeading === heading)) return heading;
     const labeledForm = records[0] && reviewedCardPresentation(records[0])?.dosageForm;
     if (labeledForm && records.every(r => reviewedCardPresentation(r)?.dosageForm === labeledForm)
         && !title.toLowerCase().includes(labeledForm.toLowerCase())) return title + ' — ' + labeledForm;
@@ -712,7 +714,7 @@
     dosageForm: '3 mg nasal powder', identityRxcui: 2180671,
     labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f1f5df9b-872f-44e5-a18f-f0b68e7e9254'
   };
-  const zegalogueLabelUrl = 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c6c32b47-c47c-4a7f-8d4d-23578f663217';
+  const zegalogueLabelUrl = 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=14704879-872c-4967-8779-04a3bbdfb4e6';
   const gvokeHypoPenDoses = '0.5 mg/0.1 mL or 1 mg/0.2 mL per autoinjector';
   const uhcGvokePresentations = new Map([
     ['uhc-oct-complete-5fcb0ddd3560f776', {
@@ -793,7 +795,48 @@
     ['Insulet · Dexcom receiver compatibility by sensor', 'https://www.omnipod.com/current-podders/resources/omnipod-5/faqs/dexcom-g7/receiver-compatibility']
   ];
   const omnipod5Compatibility = 'Confirm the sensor named on the Pod box and tray lid. G6-only Pods and newer G6/G7 Pods share an NDC. With a compatible Pod, G6 and standard G7 require the Dexcom phone app with the receiver off. G7 15 Day can use a compatible phone or G7 receiver.';
+  const oneTouchCompatibility = 'https://www.onetouch.com/s/article/OneTouch-Meter-Compatibility-US';
+  const ultraSupplies = 'OneTouch Ultra 2 uses OneTouch Ultra test strips and Ultra control solution.';
+  const verioSupplies = 'OneTouch Verio Flex and Verio Reflect use OneTouch Verio test strips and Verio control solution.';
+  const zegalogueSources = [
+    ['Drugs@FDA · NDA214231 · products 001 and 002 · November 27, 2026', 'https://api.fda.gov/drug/drugsfda.json?search=application_number%3ANDA214231'],
+    ['FDA NDC Directory · Novo Nordisk labeler · November 27, 2026', 'https://api.fda.gov/drug/ndc.json?search=application_number%3ANDA214231&limit=100']
+  ];
+  function zegaloguePresentation(device, rxcui, quantity) {
+    return {
+      prescribingHeading: 'Zegalogue 0.6 mg/0.6 mL subcutaneous injection solution — ' + device,
+      identityRxcui: rxcui, quantityAmount: quantity, labelUrl: zegalogueLabelUrl, sourceReferences: zegalogueSources,
+      note: 'FDA lists this presentation as discontinued. The current label describes one- and two-device cartons. Pharmacy stock and the covered carton are unverified.'
+    };
+  }
+  const zegaloguePen = zegaloguePresentation('Autoinjector', 2535249, '1');
+  const zegalogueSyringe = zegaloguePresentation('Prefilled Syringe', 2535243, '2');
   const reviewedCardPresentations = new Map([
+    ...[
+      ['ach-notice-13878', 'Amphastar', '8cc40354-b5ac-45b6-a211-93b44444f2a3'],
+      ['ach-notice-13879', 'Lupin', '3d8c92cf-9263-4126-8a5b-4cd761e31bc1'],
+      ['ach-notice-13880', 'Mylan', '15b49500-0aae-4e25-9a1d-709983233cc6']
+    ].map(([id, manufacturer, setId]) => [id, {
+      prescribingHeading: manufacturer + ' glucagon emergency kit — 1 mg powder for injection',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + setId,
+      note: 'Reconstitute the single-dose powder vial with the supplied 1 mL prefilled diluent syringe. The resulting concentration is 1 mg/mL.',
+      sourceReferences: [[manufacturer + ' · DailyMed · kit labeling and reconstitution', 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + setId],
+        ['RxNorm · glucagon 1 mg injectable component · RxCUI 310497', 'https://mor.nlm.nih.gov/RxNav/search?searchBy=RXCUI&searchTerm=310497']]
+    }]),
+    ['formulary-9963', zegaloguePen], ['formulary-9964', zegalogueSyringe],
+    ['ach-json-2535249', zegaloguePen], ['ach-json-2535243', zegalogueSyringe],
+    ['ach-notice-13882', zegaloguePen], ['ach-notice-13883', zegalogueSyringe],
+    ['uhc-oct-complete-fda008f4a380e9be', {note: ultraSupplies, deviceSourceUrl: oneTouchCompatibility}],
+    ['uhc-oct-complete-b63e51cd8be09d8d', {note: verioSupplies, deviceSourceUrl: oneTouchCompatibility}],
+    ['uhc-oct-complete-a2688cb7eea9b098', {note: verioSupplies, deviceSourceUrl: oneTouchCompatibility}],
+    ['uhc-oct-complete-51f7daa9e8a1b50c', {
+      label: 'OneTouch Ultra 2 blood glucose meter kit', note: ultraSupplies, deviceSourceUrl: oneTouchCompatibility,
+      sourceReferences: [['FDA · Ultra 2 system components · p. 1', 'https://www.accessdata.fda.gov/cdrh_docs/pdf5/K053529.pdf#page=1']]
+    }],
+    ['uhc-oct-complete-4989e1e7604ae59e', {
+      label: 'OneTouch Verio Reflect blood glucose meter kit', note: verioSupplies, deviceSourceUrl: oneTouchCompatibility,
+      sourceReferences: [['FDA · Verio Reflect system components · p. 5', 'https://www.accessdata.fda.gov/cdrh_docs/pdf19/K193475.pdf#page=5']]
+    }],
     ['uhc-oct-complete-900b6f543a871255', guardian3Presentation],
     ['uhc-oct-complete-c48e74b3ca337637', guardian3Presentation],
     ['uhc-oct-complete-3c92c61765001722', {
@@ -1045,9 +1088,6 @@
     }],
     ['uhc-oct-complete-229568f7f286fb5b', baqsimiPresentation],
     ['uhc-oct-complete-1c725dc535b842a6', baqsimiPresentation],
-    ['ach-json-2535243', {dosageForm: 'subcutaneous solution', identityRxcui: 2535243, labelUrl: zegalogueLabelUrl}],
-    ['ach-notice-13882', {dosageForm: '0.6 mg/0.6 mL injection solution', identityRxcui: 2535249, labelUrl: zegalogueLabelUrl}],
-    ['ach-notice-13883', {dosageForm: '0.6 mg/0.6 mL injection solution', identityRxcui: 2535243, labelUrl: zegalogueLabelUrl}],
     ["uhc-oct-complete-2dbe0497f9246f1b", {...lisproProducts.lisproPen,
       label: "Insulin Lispro U-100 Prefilled Pen (1-Unit Increments)", separate: true,
       uhcFormRx: "1652639"}],
@@ -1732,7 +1772,7 @@
         if (selectedHeading && selectedHeading === state.term) return presentation?.heading === selectedHeading;
         if (selectedGroup) return selectedGroup.records.some(r => r.id === record.id);
         const haystack = normalize([
-          presentation?.heading, presentation?.packageLine, presentation?.searchAlias, record.displayName || record.name, expandFormWords(record.name), record.brand, record.standardName, record.rxTermsForm?.form, presentation?.dosageForm, record.searchAliases?.join(' '), presentation?.label
+          presentation?.heading, presentation?.prescribingHeading, presentation?.packageLine, presentation?.searchAlias, record.displayName || record.name, expandFormWords(record.name), record.brand, record.standardName, record.rxTermsForm?.form, presentation?.dosageForm, record.searchAliases?.join(' '), presentation?.label
         ].join(' '));
         return terms.every((term) => haystack.includes(term));
       })
@@ -1829,7 +1869,7 @@
     }
     if (reviewedCardPresentation(record)?.stepListingsDiffer) chips.push(['Step therapy varies by listing', 'warning']);
     else if (record.step === 'specified') chips.push(['Step therapy', 'warning']);
-    if (record.quantityLimited || record.qlAmount || record.qlDays) chips.push([(bannerRescueOptions.has(record.id) && String(record.qlAmount) === bannerRescueOptions.get(record.id).quantityAmount && String(record.qlDays) === '30' && `QL: ${record.qlAmount} per 30 days (unit unspecified)`) || record.verifiedQuantityLabel || bannerAdhdLimit(record) || (reviewedEpinephrineLimit ? (bannerEpinephrine ? 'QL: 2 pens per 30 days' : 'QL: 2 per 30 days (unit unspecified)') : 'Quantity limit'), 'warning']);
+    if (record.quantityLimited || record.qlAmount || record.qlDays) chips.push([(reviewedCardPresentation(record)?.quantityAmount && String(record.qlAmount) === reviewedCardPresentation(record).quantityAmount && String(record.qlDays) === '30' && `QL: ${record.qlAmount} per 30 days (unit unspecified)`) || record.verifiedQuantityLabel || bannerAdhdLimit(record) || (reviewedEpinephrineLimit ? (bannerEpinephrine ? 'QL: 2 pens per 30 days' : 'QL: 2 per 30 days (unit unspecified)') : 'Quantity limit'), 'warning']);
     if (record.ageLimited) chips.push(['Age limit', 'warning']);
     if (record.specialty) chips.push(['Specialty', 'warning']);
     if (record.diagnosisRequired) chips.push(['Diagnosis required', 'warning']);
@@ -1854,7 +1894,9 @@
         preferred: belongs('preferred') && record.preferred,
         pa: belongs('pa') && record.pa, step: belongs('step') && record.step,
         quantityLimited: belongs('quantityLimited') && record.quantityLimited,
-        verifiedQuantityLabel: planFormularyLimit ? `QL: ${record.qlAmount} per day` : '',
+        verifiedQuantityLabel: scope === 'statewide_reference' && belongs('quantityLimited')
+          && reviewedCardPresentation(record)?.quantityAmount === record.qlAmount && record.qlDays === '30'
+          ? `QL: ${record.qlAmount} per 30 days (unit unspecified)` : planFormularyLimit ? `QL: ${record.qlAmount} per day` : '',
         ageLimited: belongs('ageLimited') && record.ageLimited
       }, belongs('coverage'));
       const preference = belongs('coverage') && record.coverage === 'listed' && record.preferred === 'not_specified'
@@ -3344,7 +3386,7 @@
       !record.baselineSource && group.isStatewide && mixedPlanRows.length ? (record.isStatewideReference ? 'AHCCCS statewide reference' : planScopeLabel) + ' · ' + text : text)))];
     const labeledCaplets = isUhc && rows.some(record => uhcReviewedProductGroups.get(record.id)?.labelId);
     const preferredNdcs = state.planId === 'banner-ufc' ? bannerAlbuterolPreferredNdcs(group) : [];
-    const hideEmptyPa = insulinConflict || noticeOnly || ((preferredNdcs.length || (rows.length && rows.every(r => r.payerPackages))) && !guidance && !policies.length && !conditions.length
+    const hideEmptyPa = insulinConflict || noticeOnly || ((preferredNdcs.length || (rows.length && rows.every(r => r.payerPackages || reviewedCardPresentation(r)?.prescribingHeading))) && !guidance && !policies.length && !conditions.length
       && !group.records.some(record => ['required', 'conditional'].includes(record.pa) || record.policySource));
     const compact = compactPresentation(group);
     const packageQualifiers = compact ? [...new Set(rows.map(r => reviewedCardPresentation(r))
