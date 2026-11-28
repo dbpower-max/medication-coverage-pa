@@ -2824,6 +2824,45 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             dx = monthly['fields']['Diagnosis']
             assert 'Monthly prescription limit review for migraine therapy, benzodiazepines, or muscle relaxants' == ' '.join((dx.get('displayText') or dx['text']).split())
             add('GL-140667',[2],'monthly_prescription_exception')
+        # DEC-07/12/13/19: exact preferred October oral benzodiazepine listings.
+        reviewed_anxiolytic = {
+            'uhc-oct-complete-c6c61bc0cec706b9': ("alprazolam er", "generic alprazolam ER/XR"),
+            'uhc-oct-complete-edd352007388075e': ("alprazolam intensol", "alprazolam intensol"),
+            'uhc-oct-complete-9a019396cacdaed3': ("alprazolam oral (generic for xanax)", None),
+            'uhc-oct-complete-5b2d30386ecbaaa2': ("alprazolam xr", "generic alprazolam ER/XR"),
+            'uhc-oct-complete-1960c2c1e76dd309': ("chlordiazepoxide hcl", "chlordiazepoxide"),
+            'uhc-oct-complete-f26d17fa6da30f1d': ("clonazepam oral tablet dispersible", "clonazepam ODT"),
+            'uhc-oct-complete-839293578fca2739': ("clonazepam tablet 0.5 mg oral (generic for klonopin)", "generic clonazepam tabs"),
+            'uhc-oct-complete-296dbf312b98b7fc': ("clonazepam tablet 1 mg oral (generic for klonopin)", "generic clonazepam tabs"),
+            'uhc-oct-complete-2e9de6596a023457': ("clonazepam tablet 2 mg oral (generic for klonopin)", "generic clonazepam tabs"),
+            'uhc-oct-complete-d4187393ef4bdc80': ("clorazepate dipotassium", "generic clorazepate dipotassium"),
+            'uhc-oct-complete-45703abb9145b928': ("diazepam intensol (generic for diazepam intensol)", "diazepam intensol"),
+            'uhc-oct-complete-839554855bb9cf39': ("diazepam oral (generic for diazepam intensol)", None),
+            'uhc-oct-complete-8e2d70c27d62ddf0': ("lorazepam intensol (generic for lorazepam intensol)", "lorazepam intensol"),
+            'uhc-oct-complete-883ff0d5d9ba37aa': ("lorazepam oral concentrate 2 mg/ml (generic for lorazepam intensol)", "lorazepam conc"),
+            'uhc-oct-complete-ea7809b243b1cfc9': ("lorazepam oral tablet (generic for ativan)", "generic lorazepam"),
+            'uhc-oct-complete-8b7597665913cb1a': ("oxazepam", "oxazepam"),
+        }.get(record['id'])
+        if reviewed_anxiolytic:
+            expected, named_product = reviewed_anxiolytic
+            assert october_name == expected and record['pa'] == 'not_specified' and record['preferred'] == 'preferred' and ql
+            assert policies['GL-140667']['policyEffective'] == '2020-12-15'
+            monthly = structured['GL-140667']['branches'][2]
+            dx = monthly['fields']['Diagnosis']
+            assert 'Monthly prescription limit review for migraine therapy, benzodiazepines, or muscle relaxants' == ' '.join((dx.get('displayText') or dx['text']).split())
+            add('GL-140667', [2], 'monthly_prescription_exception')
+            if named_product:
+                code = 'GL-140805'
+                assert policies[code]['policyEffective'] == '2023-08-01'
+                branches = structured[code]['branches']
+                assert len(branches) == 3
+                for index in (0, 2):
+                    fields = branches[index]['fields']
+                    products = fields['Product Name'].get('displayText') or fields['Product Name']['text']
+                    assert named_product in ' '.join(products.split()).split(', '), (record['id'], named_product)
+                    assert fields['Guideline Type']['text'] == 'Prior Authorization'
+                assert branches[1]['fields']['Product Name']['text'] == 'Loreev XR'
+                add(code, [0, 2], 'anxiolytic_request')
         if ql:add('GL-140667',[0],'global_quantity')
         record['uhcClinicalBindings']=bindings
         if pa and not any(b['role'] in {'product','nonpreferred','nonsolid'} for b in bindings):missing.append(record['id'])
