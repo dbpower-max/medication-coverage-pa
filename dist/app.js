@@ -1428,6 +1428,13 @@
       && record.validation === 'mandated_statewide_minimum_with_plan_adoption_evidence';
   }
 
+  function bannerAdhdLimit(record) {
+    if (record.planId !== 'banner-ufc' || record.qlDays !== '30') return '';
+    if (['banner-full-e7a4e750d4c75cc1','banner-ufc:statewide:formulary-9597'].includes(record.id) && record.qlAmount === '30') return 'QL: 30 capsules per 30 days';
+    if (['banner-full-a457525bbf1d1d54','banner-ufc:statewide:formulary-9600'].includes(record.id) && record.qlAmount === '120') return 'QL: 120 tablets per 30 days';
+    return '';
+  }
+
   function statusChips(record, showCoverage = true) {
     const chips = [];
     // Description-correction provenance remains in the source records.
@@ -1456,7 +1463,7 @@
     else if (record.pa === 'required') chips.push(['PA required', 'warning']);
     else if (record.pa === 'conditional') chips.push(['Conditional PA', 'warning']);
     if (record.step === 'specified') chips.push(['Step therapy', 'warning']);
-    if (record.quantityLimited || record.qlAmount || record.qlDays) chips.push(['Quantity limit', 'warning']);
+    if (record.quantityLimited || record.qlAmount || record.qlDays) chips.push([bannerAdhdLimit(record) || 'Quantity limit', 'warning']);
     if (record.ageLimited) chips.push(['Age limit', 'warning']);
     if (record.specialty) chips.push(['Specialty', 'warning']);
     if (record.diagnosisRequired) chips.push(['Diagnosis required', 'warning']);
@@ -2687,7 +2694,7 @@
         const conditional = b.painPages ? '<h4>Separate conditional review references</h4><p>Not routine pain PA criteria or OUD approval:</p>' + [[1099,'Concurrent MAT / opioid DUR'],[1111,'Quantity limit review'],[1112,'MME review']].map(([page,label]) => '<p>'+escapeHtml(label)+'</p>'+branchPageLink({sourcePage:page},policy)).join('') : '';
         target.innerHTML = (b.quantityExceptionOnly ? '<h4>Quantity-limit exceptions</h4><p>Applies only to requests exceeding the plan dose threshold, not a routine PA requirement or absolute prescribing limit.</p>' : '') + painScope + (b.unstagedPage ? '<p>Authorization stage is not separately labeled in the source.</p>' : '') + selected.map(branch => (branch.heading ? '<h4>'+escapeHtml(branch.heading)+'</h4>' : '') + cardTextBranchMarkup(branch, policy)).join('') + conditional + (exclusion.length ? '<h4>Separate indication exclusion</h4>'+cardTextBranchMarkup(exclusion[0], policy) : '');
         const references = details.querySelector('.card-pa-references');
-        if (references) references.innerHTML = cardPaReference(policy, b.quantityExceptionOnly ? 'Quantity-limit exception guideline' : undefined);
+        if (references) references.innerHTML = cardPaReference(policy, b.quantityExceptionOnly ? 'Quantity-limit exception guideline' : undefined, b.exactReferencePage);
         details.dataset.loaded = 'true';
         return;
       }
@@ -2724,11 +2731,11 @@
     } finally { details.dataset.loading = 'false'; }
   }
 
-  function cardPaReference(source, label = 'PA reference') {
+  function cardPaReference(source, label = 'PA reference', exactPage = source.exactQuantityPage) {
     if (source.planId === 'ahcccs-ffs-aihp') label = statewideFfsLabel + ' reference';
-    const chapter = source.exactQuantityPage ? ' · p. ' + source.exactQuantityPage
+    const chapter = exactPage ? ' · p. ' + exactPage
       : source.recordType === 'policy_index' && source.sourcePage ? ' · chapter p. ' + source.sourcePage : '';
-    const destination = source.exactQuantityPage ? {...source, sourcePage: source.exactQuantityPage} : source;
+    const destination = exactPage ? {...source, sourcePage: exactPage} : source;
     return `<a class="source-link card-pa-reference" href="${escapeHtml(sourceHref(destination))}" target="_blank" rel="noopener" title="PDF source · ${escapeHtml(source.policyCode || source.name || 'PA source')} · ${escapeHtml(source.sourceEffective || '')}">${escapeHtml(label)} ↗${escapeHtml(chapter)}</a>`;
   }
 
@@ -2835,7 +2842,9 @@
       && group.records.some(record => record.id === 'uhc-oct-complete-009ca23afd12966f');
     const constipationPolicy = (constipationGeneric || linzess) && state.data.policies.find(policy => policy.id === constipationPolicyId);
     const bannerQuantityException = isBanner && group.records.some(r => r.reviewedBannerBranches?.quantityExceptionOnly);
-    const refs = bannerQuantityException && reference ? cardPaReference(reference, 'Quantity-limit exception guideline') : bannerIcs ? cardPaReference(bannerIcs, 'Related inhaled corticosteroid guidance') : constipationPolicy ? cardPaReference(constipationPolicy,
+    const exactBannerReference = isBanner && group.records.find(r => r.reviewedBannerBranches?.exactReferencePage)?.reviewedBannerBranches;
+    const exactBannerPolicy = exactBannerReference && policies.find(p => p.id === exactBannerReference.policyId);
+    const refs = exactBannerPolicy ? cardPaReference(exactBannerPolicy, 'PA reference', exactBannerReference.exactReferencePage) : bannerQuantityException && reference ? cardPaReference(reference, 'Quantity-limit exception guideline') : bannerIcs ? cardPaReference(bannerIcs, 'Related inhaled corticosteroid guidance') : constipationPolicy ? cardPaReference(constipationPolicy,
       linzess ? 'Linzess PA guideline' : 'UHC October 18 policy')
       : glucosePolicy ? cardPaReference(glucosePolicy, glucoseDisplay.strip ? 'Test strip PA and QL guideline' : 'Nonpreferred meter PA guideline')
       : stripQuantity ? cardPaReference({...stripQuantity, exactQuantityPage: exactStripQuantity?.exactQuantityPage}, 'Test strip QL reference')
@@ -2936,7 +2945,7 @@
         const continuedUse = isUhc && record.id === 'uhc-oct-complete-de1ca42f17826905' && uhcAgeEightPa(record)
           && record.rawRestrictions?.includes('Continued use of two or more drugs in this class may require prior authorization')
           ? '<p class="pa-condition">Continued use of two or more drugs in this class may require PA.</p>' : '';
-        const limit = (bannerProducts.includes(record) || (isBanner && group.isStatewide && mixedPlanRows.includes(record)))
+        const limit = !bannerAdhdLimit(record) && (bannerProducts.includes(record) || (isBanner && group.isStatewide && mixedPlanRows.includes(record)))
           && /^\d+(?:\.\d+)?$/.test(record.qlAmount) && /^\d+$/.test(record.qlDays)
           ? `<p class="pa-condition"><strong>Quantity limit:</strong> ${escapeHtml(record.qlAmount)} per ${escapeHtml(record.qlDays)} days. The formulary does not specify a unit.</p>` : '';
         const source = coverageSource(record);
