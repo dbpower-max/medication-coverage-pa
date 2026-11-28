@@ -40,6 +40,12 @@ for row in data['medications']:
   if update['name'].startswith('lamotrigine tb24 '):
    assert row['rxnormId'] in {'850087','900164','850091','900156','1146690','1098608'} and 'Extended Release' in row['name'] and update['sourcePage']==15
    continue
+  if update.get('id')=='ach-mandated-formulary-9972' and row['rxnormId'] in {'1551300','1551306','2395779','2395785'}:
+   assert row['name'].endswith('Auto-Injector [Trulicity]') and update['name']=='DULAGLUTIDE SOLUTION PEN-INJECTION' and update['sourcePage']==10
+   continue
+  if row['rxnormId']=='1657212' and update.get('id')=='ach-mandated-formulary-9792':
+   assert row['name']=='omalizumab 150 MG Injection [Xolair]' and update['name']=='OMALIZUMAB SOLUTION RECONSTITUTED' and update['sourcePage']==6
+   continue
   assert compatible(row['name'],update['name']), 'Incompatible source applied: '+row['id']+' / '+update['name']
  if '[Triesence]' in row['name']:
   assert not any('KENALOG' in str(u).upper() for u in row['sourceUpdates'])
@@ -142,3 +148,15 @@ for rx,ids in ACH_CLONAZEPAM.items():
  assert '< 6 years' in state[1]['paText'] and 'Anticonvulsant' in row['paText']
 solution=next(r for r in baseline if r['rxnormId']=='199387')
 assert solution['qlAmount']=='8 mL' and 'retail' in solution['reviewedPresentation']['planDailyAndRetailLabel']
+
+from import_ach_baseline import ACH_TRULICITY_PENS, ACH_XOLAIR_DEVICES
+for rx in set(ACH_TRULICITY_PENS)|set(ACH_XOLAIR_DEVICES):
+ row=next(r for r in baseline if r['rxnormId']==rx)
+ assert row['pa']=='required' and row['preferred']=='preferred' and row['benefitSources']['preferred']=='selected_plan'
+ assert row['reviewedPresentation']['identityRxcui']==int(rx)
+ state,=[u for u in row['sourceUpdates'] if u['scope']=='statewide_reference']
+ if rx in ACH_TRULICITY_PENS:
+  assert row['qlAmount']=='2 mL' and row['qlDays']=='28' and state['sourcePage']==10
+ else:
+  assert state['id'].endswith({'single-dose vial':'9792','auto-injector':'9793','prefilled syringe':'9794'}[ACH_XOLAIR_DEVICES[rx][0]])
+  assert row['qlAmount']=='' and row['qlDays']==''
