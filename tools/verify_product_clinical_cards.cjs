@@ -31,6 +31,11 @@ for (const [plan, rows] of [
 
 api.state.planId='banner-ufc';
 const bannerPremixGroups=api.planMedicationGroups();
+const epiGroup=bannerPremixGroups.find(g=>g.records.some(r=>r.id==='banner-full-2d2738513f664b31'));
+const epiCard=api.medicationGroupCard(epiGroup);
+assert(epiCard.includes('>PA if &gt;2 per month<') && epiCard.includes('>QL: 2 pens per 30 days<'));
+assert(!epiCard.includes('The formulary does not specify a unit.'));
+
 for (const [id,stateId,brand,pen] of [
   ['banner-oct26-029','formulary-9983','Humulin 70/30',false],
   ['banner-pcp-nov10-006','formulary-9984','Humulin 70/30 KwikPen',true],
@@ -165,6 +170,16 @@ for (const [rx, detail] of [[1490667,'30 minutes after every injection'],[835829
   assert.equal(src.includes('#page=10'),rx!==1490667);
   assert.equal(card.includes('pulmonary oil microembolism'),rx===1490667);
   assert.equal(row.baselineSource.values.prior_authorization,true);
+}
+for (const [rx,rate,femring] of [[848330,'7.5 mcg/day',false],[848333,'0.05 mg estradiol/day',true],[848343,'0.10 mg estradiol/day',true]]) {
+  const group=achOudGroups.find(g=>g.records.some(r=>r.id==='ach-json-'+rx));
+  const row=group.records[0],card=api.medicationGroupCard(group),src=api.recordDetails(row);
+  assert(card.includes(rate) && card.includes('vaginal ring') && card.includes('>Preferred<'),rx);
+  assert.equal(card.includes('>PA required<'),femring);
+  assert.equal(card.includes('Systemic-dose vaginal ring'),femring);
+  assert.equal(card.includes('2 mg estradiol reservoir'),!femring);
+  assert(src.includes('searchTerm='+rx+'"') && src.includes('#page=78'),rx);
+  assert.equal(card.includes('#page=602'),femring);
 }
 const halfMix=achOudGroups.find(g=>g.records.some(r=>r.id==='ach-json-847213'));
 const halfMixCard=api.medicationGroupCard(halfMix);

@@ -189,6 +189,15 @@ def with_ach_baseline(d):
                       'sourceEffective':'2023-04-01', 'sourceUrl':ACH_APR_2023_PDL, 'sourcePage':78,
                       'sourceKind':'plan_formulary', 'quantityLimited':True, 'qlAmount':'0.067 each', 'qlDays':'1',
                       'rawBenefit':'F; QL(0.067 ea daily).'})
+  if row['rxnorm_id'] in {'848330', '848333', '848343'}:
+   assert brand in {'Estring','Femring'}
+   ring_update = {'name':'ESTRING RING' if brand=='Estring' else 'FEMRING',
+                  'sourceTitle':'Arizona Complete Health April 2023 Complete Care PDL', 'sourceEffective':'2023-04-01',
+                  'sourceUrl':ACH_APR_2023_PDL, 'sourcePage':78, 'sourceKind':'plan_formulary',
+                  'coverage':'listed', 'rawBenefit':'F' if brand=='Estring' else 'F; PA.'}
+   if brand=='Femring':
+    ring_update['pa']='required'
+   candidates.append(ring_update)
   if row['rxnorm_id'] in {'835829', '2047882', '835840', '835809'}:
    ester = 'enanthate' if row['rxnorm_id'] == '835809' else 'cypionate'
    assert not brand and 'testosterone '+ester in name

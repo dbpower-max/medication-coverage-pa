@@ -25,6 +25,13 @@ data=json.loads(gzip.decompress((root/'_site/data.json.gz').read_bytes()))
 for row in data['medications']:
  if not row.get('baselineSource'):continue
  for update in row['sourceUpdates']:
+  # Their printed proprietary names omit the vaginal route. The linked labels
+  # verify only these three plan rows on the specified formulary page.
+  ring_names={'ach-json-848330':'ESTRING RING','ach-json-848333':'FEMRING','ach-json-848343':'FEMRING'}
+  if row['id'] in ring_names and update.get('sourceEffective')=='2023-04-01' and update.get('sourcePage')==78:
+   assert update['name']==ring_names[row['id']] and 'Vaginal System' in row['name']
+   assert update['sourceUrl'].endswith('April%202023%202nd%20run.pdf')
+   continue
   assert compatible(row['name'],update['name']), 'Incompatible source applied: '+row['id']+' / '+update['name']
  if '[Triesence]' in row['name']:
   assert not any('KENALOG' in str(u).upper() for u in row['sourceUpdates'])
