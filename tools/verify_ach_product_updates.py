@@ -37,6 +37,20 @@ for row in data['medications']:
   if update['name'] in nasal_aliases.get(row['id'],set()):
    assert 'Nasal Spray' in row['name'] and (update.get('id')=='ach-mandated-formulary-10015' or update['sourcePage']==19 and update['sourceEffective']=='2023-04-01')
    continue
+  divalproex={
+   '1099563':('divalproex sodium tb24', 'Extended Release Oral Tablet'), '1099569':('divalproex sodium tb24', 'Extended Release Oral Tablet'),
+   '1099596':('divalproex sodium csdr', 'Delayed Release Oral Capsule'),
+   '1099625':('divalproex sodium tbec 125 mg, 250 mg','Delayed Release Oral Tablet'),
+   '1099678':('divalproex sodium tbec 125 mg, 250 mg','Delayed Release Oral Tablet'),
+   '1099870':('divalproex sodium tbec 500 mg','Delayed Release Oral Tablet')}
+  if row['rxnormId'] in divalproex and (update['sourcePage']==15 or update.get('id')=='ach-mandated-formulary-9912'):
+   printed,form=divalproex[row['rxnormId']]
+   assert row['name'].endswith(form)
+   if update['sourcePage']==15:
+    assert update['name']==printed and update['sourceEffective']=='2023-04-01'
+   else:
+    assert form=='Delayed Release Oral Tablet' and update['name']=='DIVALPROEX SODIUM TABLET ENTERIC COATED'
+   continue
   if update['name'].startswith('lamotrigine tb24 '):
    assert row['rxnormId'] in {'850087','900164','850091','900156','1146690','1098608'} and 'Extended Release' in row['name'] and update['sourcePage']==15
    continue
