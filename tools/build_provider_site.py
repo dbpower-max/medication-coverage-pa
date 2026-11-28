@@ -303,6 +303,43 @@ data['medications'].append({
         'note': 'FDA-labeled 284 mg/1.5 mL (189 mg/mL) single-dose syringe, administered by a healthcare professional. Banner processes J1306; 1 mg is a billing unit, not a dose or package. Exact medical-benefit initial and renewal criteria and application of the pharmacy guideline remain unverified.',
     },
 })
+# PU25143 lists four prescribing options and seven package identifiers.
+# Quantity in a package is separate from a dispensing limit.
+guide_options = [
+    ('test', 'ACCU-CHEK GUIDE TEST', 'Accu-Chek Guide blood glucose test strips', [
+        (1, '65702070195', '50'), (2, '65702071910', '50'), (3, '65702071110', '50'), (4, '65702071210', '100')]),
+    ('control', 'ACCU-CHEK GUIDE CONTROL', 'Accu-Chek Guide glucose control solution', [(5, '65702071310', '1 bottle')]),
+    ('meter', 'ACCU-CHEK GUIDE', 'Accu-Chek Guide blood glucose meter kit', [(6, '65702072910', '1 per 365 days')]),
+    ('me-meter', 'ACCU-CHEK GUIDE ME', 'Accu-Chek Guide Me blood glucose meter kit', [(7, '65702073110', '1 per 365 days')]),
+]
+for option, payer_name, heading, packages in guide_options:
+    strips = option == 'test'
+    meter = option in ('meter', 'me-meter')
+    guide = {
+        'id': 'ach-pu25143-' + option, 'planId': 'az-complete-health', 'recordType': 'formulary',
+        'name': payer_name, 'brand': 'Accu-Chek', 'category': 'Diabetes supplies',
+        'subcategory': 'Diabetes - Glucose Monitoring', 'coverage': 'listed',
+        'preferred': 'preferred' if strips else 'not_specified', 'pa': 'not_specified', 'step': 'not_specified',
+        'conditions': [], 'sourceEffective': '2025-11-01',
+        'sourceTitle': 'Arizona Complete Health Complete Care · blood glucose testing product notice PU25143',
+        'sourceUrl': 'https://www.azcompletehealth.com/newsroom/PU25143.html',
+        'searchAliases': [ndc for _, ndc, _ in packages],
+        'payerPackages': [{'row': row, 'ndc': ndc, 'quantity': quantity} for row, ndc, quantity in packages],
+        'reviewedPresentation': {'label': heading, 'separate': True, 'scope': 'Arizona Complete Health · Complete Care'},
+    }
+    guide['reviewedPresentation']['deviceSourceUrl'] = ('https://www.accu-chek.com/products/control-solution/guide'
+                                                       if option == 'control' else 'https://www.accu-chek.com/products/strips/guide')
+    if strips:
+        guide.update(quantityLimited=True, verifiedQuantityLabel='QL by insulin use',
+                     rawRestrictions='Insulin Users: Max of 150 per 30 days. Non-Insulin Users: 50 per 30 days or 100 per 90 days.')
+        guide['reviewedPresentation']['note'] = 'Insulin users: up to 150 strips per 30 days. Non-insulin users: 50 strips per 30 days or 100 strips per 90 days. Compatible with Guide and Guide Me meters.'
+    elif meter:
+        guide.update(quantityLimited=True, qlAmount='1', qlDays='365', verifiedQuantityLabel='QL: 1 meter per 365 days')
+        guide['reviewedPresentation']['note'] = 'Use Accu-Chek Guide test strips with this meter.'
+    else:
+        guide['reviewedPresentation']['note'] = 'Control solution for Accu-Chek Guide systems. The notice lists one bottle and gives no dispensing interval.'
+    data['medications'].append(guide)
+
 attach_dosage_forms(data["medications"] + statewide_drugs)
 attach_shared_policy(data)
 data["planDataFiles"] = {k: v for k, v in data.get("planDataFiles", {}).items() if k in ALLOWED}

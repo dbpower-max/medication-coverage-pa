@@ -735,7 +735,40 @@
   const contourStripInstructions = 'https://shop.ascensiadiabetes.com/pages/nxt-test-strips-insert';
   const contourNextOnePages = [117, 118];
   const contourNextOneNote = 'UHC lists two NEXT ONE kits. Page 117 lists a nonpreferred kit with PA. Page 118 lists a preferred kit with no PA field. Both list a quantity limit. UHC does not identify the package for each listing or specify the numeric limit.';
+  const libreTransitionUrl = 'https://www.freestyleprovider.abbott/us-en/transition.html';
+  const libreSensorNoticeUrl = 'https://www.fda.gov/medical-devices/medical-device-recalls-and-early-alerts/glucose-monitor-sensor-recall-abbott-diabetes-care-removes-certain-freestyle-libre-3-and-freestyle';
+  const libreReaderNoticeUrl = 'https://www.fda.gov/medical-devices/medical-device-recalls-and-early-alerts/abbott-recalls-readers-used-freestyle-libre-freestyle-libre-14-day-and-freestyle-libre-2-flash';
+  const libreSensorSafety = {
+    text: 'Certain Libre 3 and 3 Plus sensors can read falsely low. Check the sensor serial number. Stop using a confirmed affected sensor and request a replacement. Use a blood glucose meter when the reading disagrees with symptoms or expectations.',
+    link: 'https://www.freestylecheck.com/us-en/product-lookup.html', linkLabel: 'Check sensor serial number'
+  };
+  const libreReaderSafety = {
+    text: 'Charge with the Abbott USB cable and power adapter. Switch to backup glucose monitoring if either is missing or the reader is damaged, swollen, too hot to hold or unable to hold a charge.',
+    link: libreReaderNoticeUrl, linkLabel: 'FDA reader charging precautions'
+  };
+  const libreSensorSources = [['FDA sensor correction · affected serial numbers', libreSensorNoticeUrl], ['Abbott sensor transition and reader compatibility', libreTransitionUrl]];
   const reviewedCardPresentations = new Map([
+    ['uhc-oct-complete-1fd2b0bc4536d405', {deviceSafety: libreReaderSafety}],
+    ['uhc-oct-complete-24439ea20bf1ab84', {
+      deviceSafety: libreReaderSafety, deviceSourceUrl: libreTransitionUrl, note: 'Compatible with the Libre 2 Plus sensor.'
+    }],
+    ['uhc-oct-complete-3068d3e50cfa3085', {
+      deviceSourceUrl: libreTransitionUrl, note: 'Abbott’s transition to Libre 2 Plus requires a new prescription.'
+    }],
+    ['uhc-oct-complete-be716be68d4865ce', {
+      deviceSourceUrl: libreTransitionUrl, note: 'Sensor wear is up to 15 days. Use a compatible Libre 2 reader. The numeric dispensing limit is unverified.'
+    }],
+    ['uhc-oct-complete-37e912a5126d83fa', {
+      deviceSafety: libreSensorSafety, sourceReferences: libreSensorSources,
+      note: 'Sensor wear is up to 15 days. Use a compatible Libre 3 reader. The numeric dispensing limit is unverified.'
+    }],
+    ['uhc-oct-complete-ab8f709f566f6726', {
+      deviceSourceUrl: libreTransitionUrl, note: 'Compatible with the Libre 3 Plus sensor.'
+    }],
+    ['uhc-oct-complete-5b4814f8950a3d08', {
+      deviceSafety: libreSensorSafety, sourceReferences: libreSensorSources,
+      note: 'Abbott’s transition to Libre 3 Plus requires a new prescription.'
+    }],
     ['uhc-oct-complete-0a8e8be0e583c36e', {
       label: 'Dexcom G7 15 Day CGM sensor', sourceReferences: g7References,
       note: 'Device labeling: ages 18 and older. Wear for up to 15 days, followed by a 12-hour grace period. UHC does not specify the numeric dispensing limit.'
@@ -1687,6 +1720,7 @@
         && reviewedCardPresentation(record) === bannerBasalInsulins.get(record.name) && bannerBasalInsulins.has(record.name)) {
       chips.push(['Preference not specified', 'neutral']);
     }
+    if (record.payerPackages && record.preferred === 'not_specified') chips.push(['Preference not specified', 'neutral']);
     if (record.preferred === 'preferred') chips.push([reviewedCardPresentation(record)?.printedPreference || 'Preferred', 'positive']);
     if (record.preferred === 'non_preferred') chips.push([reviewedCardPresentation(record)?.printedPreference || 'Nonpreferred', 'warning']);
     if (/\bbrand\s*only\b/i.test(record.brandGenericNotes || record.notes || '')) chips.push(['Brand only', 'warning']);
@@ -1828,6 +1862,14 @@
     if (scope) details.push(`<p>${escapeHtml(scope.description)}</p>`);
     if (record.isStatewideReference && record.id.endsWith(':statewide:formulary-9819')) {
       details.push('<p><strong>AHCCCS Statewide:</strong> For SMART asthma therapy, AHCCCS and its contractors cover the authorized generic and Teva generic effective October 1, 2026. The statewide drug list identifies the authorized generic as preferred. <a href="https://azahcccs.gov/Resources/Downloads/PharmacyUpdates/2026/Contractor_Memo_May_2026_PT_MeetingFinal.pdf#page=10" target="_blank" rel="noopener">AHCCCS contractor memo · June 8, 2026 · page 10</a></p>');
+    }
+    if (record.payerPackages) {
+      details.push(`<p><strong>Plan notice table:</strong></p><ul>${record.payerPackages.map(item =>
+        `<li>Row ${Number(item.row)} · ${escapeHtml(record.name)} · NDC ${escapeHtml(item.ndc)} · printed quantity: ${escapeHtml(item.quantity)}</li>`).join('')}</ul>`);
+    }
+    if (presentation?.deviceSafety) {
+      const safety = presentation.deviceSafety;
+      details.push(`<p><a href="${escapeHtml(safety.link)}" target="_blank" rel="noopener">${escapeHtml(safety.linkLabel)}</a></p>`);
     }
     for (const [label, url] of presentation?.sourceReferences || []) {
       details.push(`<p><a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(label)}</a></p>`);
@@ -3202,7 +3244,7 @@
       !record.baselineSource && group.isStatewide && mixedPlanRows.length ? (record.isStatewideReference ? 'AHCCCS statewide reference' : planScopeLabel) + ' · ' + text : text)))];
     const labeledCaplets = isUhc && rows.some(record => uhcReviewedProductGroups.get(record.id)?.labelId);
     const preferredNdcs = state.planId === 'banner-ufc' ? bannerAlbuterolPreferredNdcs(group) : [];
-    const hideEmptyPa = insulinConflict || noticeOnly || (preferredNdcs.length && !guidance && !policies.length && !conditions.length
+    const hideEmptyPa = insulinConflict || noticeOnly || ((preferredNdcs.length || (rows.length && rows.every(r => r.payerPackages))) && !guidance && !policies.length && !conditions.length
       && !group.records.some(record => ['required', 'conditional'].includes(record.pa) || record.policySource));
     const compact = compactPresentation(group);
     const packageQualifiers = compact ? [...new Set(rows.map(r => reviewedCardPresentation(r))
@@ -3264,6 +3306,7 @@
           ${record.unverifiedPolicyCode ? `<p class="pa-condition">${presentation?.paSourceConflict ? '' : 'UHC lists PA. '}Criteria for this exact presentation are unverified.</p>` : ''}
           ${avivaConflict ? '<p class="pa-condition"><strong>UHC source conflict:</strong> The formulary names the Aviva device and aliases it to a control solution. Exact meter package eligibility is unverified.</p>' : ''}
           ${gvoke ? `<p class="pa-condition"><strong>FDA-labeled presentation:</strong> ${escapeHtml(gvoke.dose)}. UHC does not specify eligible strengths. <a class="source-link" href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=92385737-dbad-98c5-e053-2995a90a2805" target="_blank" rel="noopener">Drug label ↗</a></p>` : ''}
+          ${presentation?.deviceSafety ? `<p class="pa-condition"><strong>Device safety:</strong> ${escapeHtml(presentation.deviceSafety.text)} <a class="source-link" href="${escapeHtml(presentation.deviceSafety.link)}" target="_blank" rel="noopener">${escapeHtml(presentation.deviceSafety.linkLabel)} ↗</a></p>` : ''}
           ${presentation?.note ? `<p class="pa-condition">${escapeHtml(presentation.note)}</p>` : ''}
           ${record.achProviderRule ? `<p class="pa-condition">${escapeHtml(record.achProviderRule.text)} <a class="source-link" href="${escapeHtml(record.achProviderRule.sourceUrl)}" target="_blank" rel="noopener">Plan PA rule ↗</a></p>` : ''}
 
