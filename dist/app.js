@@ -3109,8 +3109,11 @@
           const branch = source.branches.find(b => b.fields.Diagnosis?.text === diagnosis
             && (b.fields['Therapy Stage']?.text || '') === stage && b.fields['Product Name']?.text.includes('generic for Androgel'));
           if (!branch) throw new Error('Testosterone policy stage unavailable');
+          const notes = stage ? branch.notes : branch.notes.map(note => ({...note, text: note.text
+            .replace('patie nts', 'patients').replace('a nd', 'and')
+            .replace('produ ct', 'product').replace('gran dfathered', 'grandfathered')}));
           return '<details class="result-disclosure"><summary>' + escapeHtml(title) + '</summary>'
-            + cardBranchMarkup({...branch, sourcePage: page}, pumpPolicy) + '</details>';
+            + cardBranchMarkup({...branch, notes, sourcePage: page}, pumpPolicy) + '</details>';
         });
         if (target.isConnected === false) return;
         target.innerHTML = '<p><strong>AHCCCS Statewide · Fee-for-service</strong> · GL-731224. Source-transcribed criteria, clinician approval pending. Verify the requested pump and manufacturer before using the nonpreferred-product pathway. Arizona Complete Health may apply additional criteria.</p>'
