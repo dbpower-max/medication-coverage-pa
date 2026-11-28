@@ -972,11 +972,11 @@
   ]);
 
   const baselineLisproPackages = new Map([
-    ['ach-json-242120', lisproProducts.lisproVial],
-    ['ach-json-1652639', lisproProducts.lisproPen],
-    ['ach-json-1926331', lisproProducts.juniorPen],
+    ['ach-json-242120', {...lisproProducts.lisproVial, identityRxcui: 242120}],
+    ['ach-json-1652639', {...lisproProducts.lisproPen, identityRxcui: 1652639}],
+    ['ach-json-1926331', {...lisproProducts.juniorPen, identityRxcui: 1926331}],
     ['ach-json-847213', lisproProducts.humalogFiftyPen],
-    ['ach-json-847252', lisproProducts.mixPen]
+    ['ach-json-847252', {...lisproProducts.mixPen, identityRxcui: 847252}]
   ]);
 
   const statewideCoverageSource = {
@@ -1019,7 +1019,7 @@
     if (reviewed) return reviewed;
     const product = record.baselineSource && baselineLisproPackages.get(record.id);
     if (product) return {...product, separate: true,
-      packageQualifier: product === lisproProducts.lisproVial ? 'The plan does not specify a preferred vial size.' : ''};
+      packageQualifier: record.id === 'ach-json-242120' ? 'The plan does not specify a preferred vial size.' : ''};
     return null;
   }
 

@@ -101,8 +101,10 @@ for(const [rx,matched] of [
  const g=achOudGroups.find(g=>g.records.some(r=>r.id==='ach-json-'+rx));
  const r=g.records.find(r=>r.id==='ach-json-'+rx),card=api.medicationGroupCard(g),src=api.recordDetails(r);
  assert.equal(card.includes('QL: 1 mL per day'),matched,rx);
+ if(rx==='242120') assert(card.includes('The plan does not specify a preferred vial size.'));
  assert.equal(r.baselineSource.values.quantity_limit,true);assert.equal(r.baselineSource.values.prior_authorization,false);
  assert.equal(src.includes('Feb%202023.pdf#page='),matched);
+ if (['242120','1652639','1926331','847252'].includes(rx)) assert(src.includes('searchTerm='+rx+'"'), rx);
  if(matched) assert.equal(r.benefitSources.quantityLimited,'selected_plan');
 }
 for(const [rx,row,identity,pa] of [
