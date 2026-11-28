@@ -3023,7 +3023,10 @@
     const classRows = (group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference && r.sourceEffective === '2026-10-01' && classRuleIds.has(r.id));
     if (classRows.length) sections.push('<section class="uhc-restriction-criteria"><h4>Class-wide prescription limit</h4><p>Applies to the listed options: ' + escapeHtml(classRows.map(r => r.name).join('; ')) + '. The October 2026 PDL limits sedative hypnotics, barbiturates and select muscle relaxants to four medications per 30 days; PA is required for additional fills. This is not an individual product quantity limit. <a class="source-link" href="' + escapeHtml(sourceHref({...classRows[0], sourcePage: 35})) + '" target="_blank" rel="noopener">UHC formulary · PDF page 35</a></p></section>');
     const conditionalOnly = duplication.length && paRows.length && paRows.every(r => r.pa === 'conditional');
-    if (paRows.length && paRows.every(r => reviewedCardPresentation(r)?.electronicStepOnly)) sections.unshift('<p>The printed and electronic PA listings disagree. The linked general review criteria do not resolve the product-specific requirement.</p>');
+    if (paRows.length && paRows.every(r => reviewedCardPresentation(r)?.electronicStepOnly)) sections.unshift(primary.some(b => b.role === 'product')
+      ? '<p>The printed and electronic PA listings disagree. The linked review criteria do not resolve the product-specific PA requirement.</p>'
+      : !primary.length && !quantity.length ? '<p>The printed and electronic PA listings disagree. The product-specific PA requirement remains unverified.</p>'
+      : '<p>The printed and electronic PA listings disagree. The linked general review criteria do not resolve the product-specific requirement.</p>');
     else if (conditionalOnly) sections.unshift('<p>The formulary lists conditional PA. See the formulation-specific restrictions and the duplication exception below.</p>');
     else if (paRows.length && !primary.length) sections.unshift(paRows.every(r => r.pa === 'conditional')
       ? '<p>Product-specific approval criteria are unverified. See the formulary for the conditional PA requirement.</p>'
