@@ -149,6 +149,36 @@ ACH_OCT_NOTICE_MATCH = {
 ACH_OCT_NOTICE_URL = 'https://www.azcompletehealth.com/newsroom/PU26135.html'
 AHCCCS_MAY_MEMO = 'https://www.azahcccs.gov/Resources/Downloads/PharmacyUpdates/2026/Contractor_Memo_May_2026_PT_MeetingFinal.pdf'
 
+# Exact ACC notice and AHCCCS rows independently matched to labeled rescue presentations.
+# An SCD for an injection solution does not establish the container or OTC status.
+NALOXONE_SOURCES = {
+ '1191234': ('naloxone hcl soct', None, ()),
+ '1659929': ('naloxone hcl soln .4 mg/ml, 4 mg/10ml', None, ()),
+ '1191222': ('naloxone hcl soln .4 mg/ml, 4 mg/10ml', None, ()),
+ '1191250': ('naloxone hcl sosy', 13954, (9693,)),
+ '2679504': ('naloxone hcl sosy', 13954, (9693,)),
+ '1725059': (None, None, (9694,)),
+ '1725064': ('NARCAN LIQD (naloxone hcl)', 13957, (9694,10016)),
+ '2540709': ('KLOXXADO LIQD', 13953, (9695,10015)),
+ '2680741': (None, 13958, (10016,)),
+}
+
+def naloxone_updates(rx, sources):
+ printed,notice,ref_ids=NALOXONE_SOURCES[rx]
+ updates=[]
+ if printed:
+  updates.append({'name':printed,'sourceTitle':'Arizona Complete Health April 2023 Complete Care PDL',
+                  'sourceUrl':ACH_APR_2023_PDL,'sourceEffective':'2023-04-01','sourcePage':19,
+                  'sourceKind':'plan_formulary','coverage':'listed','rawBenefit':'F; restrictions blank.'})
+ if notice:
+  updates.append(sources['ach-notice-'+str(notice)])
+ for n in ref_ids:
+  ref=sources['ach-mandated-formulary-'+str(n)]
+  updates.append({**ref, **ref['statewideReference'],
+                  'rawBenefit':' | '.join([ref['name'],ref['brand'],ref.get('brandGenericNotes',''),ref['preferred'],
+                                           str(ref['statewideReference'].get('qlAmount','')),str(ref['statewideReference'].get('qlDays',''))])})
+ return updates
+
 def with_ach_baseline(d):
  src=ROOT/'dist/sources/ach/integrated-formulary-baseline.json.gz'
  raw=json.loads(gzip.decompress(src.read_bytes())); assert len(raw)==4454
@@ -156,6 +186,7 @@ def with_ach_baseline(d):
  correct_source_restrictions(d['medications'])
  correct_source_conflicts(d['medications'])
  current=[r for r in d['medications'] if r['planId']=='az-complete-health' and r.get('validation')!='official_json_baseline_with_later_updates']
+ indexed_sources={r['id']:r for r in current}
  result=[];counts=collections.Counter()
  for index,row in enumerate(raw):
   assert len(row['plans'])==1
@@ -191,6 +222,8 @@ def with_ach_baseline(d):
    candidates.append((branded,r))
   if any(b for b,r in candidates):candidates=[(b,r) for b,r in candidates if b]
   candidates=[r for b,r in candidates]
+  if row['rxnorm_id'] in NALOXONE_SOURCES:
+   candidates=naloxone_updates(row['rxnorm_id'],indexed_sources)
   if row['rxnorm_id'] in ACH_OCT_NOTICE_MATCH:
    notice_id, printed_name = ACH_OCT_NOTICE_MATCH[row['rxnorm_id']]
    notice = next(r for r in current if r['id'] == notice_id)
