@@ -44,6 +44,12 @@ OCTOBER_POLICY_PRODUCTS = {
     'xeljanz xr (brand for tofacitinib citrate er)': ('GL-657310', 'Brand Xeljanz XR tabs'),
 }
 
+VICTOZA_PRESENTATIONS = {
+    'victoza (brand for liraglutide)': ('Victoza (brand)', 897126, '5a9ef4ea-c76a-4d34-a604-27c5b505f5a4'),
+    'liraglutide (generic for victoza)': ('Liraglutide (generic for Victoza)', 897122, '2100ec49-57b2-4330-ab5f-057ce9b7e4d0'),
+}
+
+
 DPP4_BRANCHES = {
     'alogliptin benzoate': (0, 'Alogliptin'),
     'januvia (brand for sitagliptin phosphate)': (0, 'Brand Januvia'),
@@ -297,11 +303,23 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
         for key in sorted(keys):
             for code,i,product in by_key.get(key,[]):
                 if product_matches(record,product):matched[code].add(i)
+        if record['id'] == 'uhc-oct-complete-55381c317387d023':
+            # GL-286216 gives manufacturer-based criteria without naming AUVI-Q.
+            matched.pop('GL-286216', None)
+            record['unverifiedPolicyCode'] = 'GL-286216'
         if october_name in {'desmopressin acetate injection (generic for ddavp)',
                             'desmopressin acetate pf (generic for ddavp pf)'}:
             # GL-565277 names tablets, nasal spray and Desmoda oral solution.
             matched.pop('GL-565277', None)
             record['unverifiedPolicyCode'] = 'GL-565277'
+        if october_name in VICTOZA_PRESENTATIONS:
+            option, rxcui, set_id = VICTOZA_PRESENTATIONS[october_name]
+            record['reviewedPresentation'] = {
+                **record.get('reviewedPresentation', {}), 'separate': True,
+                'label': 'Liraglutide (Victoza) 6 mg/mL subcutaneous solution in a 3 mL prefilled pen',
+                'option': option, 'identityRxcui': rxcui, 'dosageForm': 'subcutaneous solution',
+                'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + set_id,
+            }
         # October p78 lists two distinct rows. Only the 2 mg/dose entry resolves
         # to a specific labeled presentation in the formulation-specific guideline.
         if october_name == 'ozempic':

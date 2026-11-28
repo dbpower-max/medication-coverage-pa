@@ -7,6 +7,56 @@ const a=ctx.api;a.state.data=data;a.state.planId='uhc-community-az';
 async function open(g){const content={innerHTML:'',isConnected:true},ref={innerHTML:''};a.medicationGroupCard(g);const d={open:true,dataset:{cardClinical:g.key||g.label},querySelector:s=>s==='.card-pa-references'?ref:content};await a.populateCardClinical(d);assert.equal(d.dataset.loaded,'true',g.label+' did not load');return {html:content.innerHTML,ref:ref.innerHTML};}
 (async()=>{
  const groups=a.planMedicationGroups().filter(g=>g.records.some(r=>r.planId==='uhc-community-az'&&!r.isStatewideReference&&(['required','conditional'].includes(r.pa)||r.qlAmount||r.qlDays)));
+ for (const [suffix,brand] of [['55381c317387d023',true],['feedc25102cbbdb1',false],['e1546021b5a54dde',false]]) {
+   const id='uhc-oct-complete-'+suffix;
+   const group=groups.find(g=>g.records.some(r=>r.id===id));
+   const row=group.records.find(r=>r.id===id);
+   assert.equal(row.rawRestrictions,brand?'Tier 2; PA; QL':'Tier 1; QL',id);
+   assert.equal(row.pa,brand?'required':'not_specified',id);
+   assert.equal(row.step,'not_specified',id);
+   assert.equal(row.qlDays,'',id);
+   const card=a.medicationGroupCard(group);
+   const {html}=await open(group);
+   assert(html.includes('pdf#page=702"'),id);
+   assert.equal(html.includes('pdf#page=1202"'),brand,id);
+   assert(!/pdf#page=56[01]"|Mylan|Neffy/.test(html),id);
+   assert.equal(card.includes('Criteria for this exact presentation are unverified.'),brand,id);
+   if (brand) {
+     assert(card.includes('single-dose prefilled autoinjector') && !card.includes('dosage form unverified'),id);
+     assert(card.includes('0.15 mg/0.15 mL') && card.includes('UHC does not specify eligible strengths or packages'),id);
+     assert(a.recordDetails(row).includes('setid=6180fb40-7fca-4602-b3da-ce62b8cd2470'),id);
+   }
+ }
+ const victozaGroup = groups.find(g => g.records.some(r => r.id.endsWith('4a0f4e9ba37d9202')));
+ assert.equal(victozaGroup.records.length,2);
+ const victozaCard = a.medicationGroupCard(victozaGroup);
+ assert.match(victozaCard, /<h3>Liraglutide \(Victoza\) 6 mg\/mL subcutaneous solution in a 3 mL prefilled pen<\/h3>/);
+ for (const [suffix,option,rxcui,tier,preference] of [
+   ['4a0f4e9ba37d9202','Victoza (brand)',897126,2,'Nonpreferred'],
+   ['8f681ad50bffaad5','Liraglutide (generic for Victoza)',897122,1,'Preferred']
+ ]) {
+   const row=victozaGroup.records.find(r => r.id.endsWith(suffix));
+   const attributes=victozaCard.split('aria-label="Coverage attributes for '+option+'"')[1]?.split('</div>')[0];
+   assert(attributes && attributes.includes('Tier '+tier) && attributes.includes('>'+preference+'<'),option);
+   assert.equal(row.rawRestrictions,'Tier '+tier+'; PA; QL');
+   assert(a.recordDetails(row).includes('searchTerm='+rxcui));
+   assert(a.recordDetails(row).includes(row.reviewedPresentation.labelUrl));
+ }
+ for (const suffix of ['a8c222acc865b35a','d551970cc53aa37a','4a0f4e9ba37d9202','8f681ad50bffaad5']) {
+   const group=groups.find(g=>g.records.some(r=>r.id.endsWith(suffix)));
+   const card=a.medicationGroupCard(group);
+   const detail=await open(group);
+   const all=card+detail.html;
+   assert(!all.includes('laboratory report MUST be submitted'),suffix+' statewide requirement on UHC listing');
+   assert(!all.includes('paid claims verifying metformin failure'),suffix+' narrowed UHC documentation');
+   assert(detail.html.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page=706"'),suffix);
+   assert(detail.html.includes('or paid claims'),suffix);
+   assert(!card.includes('Medication is not being co-administered with another GLP-1 receptor agonist'),suffix);
+ }
+ for (const id of ['formulary-9972','formulary-9974','formulary-9975']) {
+   const statewide=a.planMedicationGroups().find(g=>g.isStatewide && g.records.some(r=>r.id.endsWith(id)));
+   assert.equal(a.clinicalGuidanceFor(statewide)?.policyCode,'GL-749236',id+' statewide source');
+ }
  for (const [suffix,page] of [['1e189c171447f639',null],['f2372b8f6bf3951f',707],['b83d7c3fc6213943',709]]) {
    const id='uhc-oct-complete-'+suffix;
    const group=groups.find(g=>g.records.some(r=>r.id===id));
