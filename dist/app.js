@@ -760,14 +760,20 @@
     bannerRescueOptions.set(planId, option);
     bannerRescueOptions.set('banner-ufc:statewide:formulary-' + statewideId, option);
   }
+  const dexcomReceiverRecall = ['FDA · June 2025 receiver speaker correction · affected models and identifiers',
+    'https://www.fda.gov/medical-devices/medical-device-recalls-and-early-alerts/continuous-glucose-monitor-receiver-recall-dexcom-inc-removes-certain-dexcom-g6-g7-one-and-one'];
+  const dexcomReceiverSafety = {
+    text: 'Certain receivers can miss audible glucose alerts. Check the receiver serial number and contact Dexcom for a replacement if affected. Test the speaker each time the receiver charges.',
+    link: 'https://www.dexcom.com/checkreceiver', linkLabel: 'Check receiver serial number'
+  };
   const g6Transition = 'Dexcom ended G6 manufacturing in July 2026. Remaining stock varies.';
   const g6TransitionUrl = 'https://www.dexcom.com/en-us/g6-transition';
   const g6ComponentUrl = 'https://provider.dexcom.com/can-dexcom-g6-components-be-used-dexcom-g7';
   const g6ReceiverUpdate = 'https://www.dexcom.com/en-us/faqs/can-i-use-the-same-receiver-for-dexcom-g7-15-day-as-i-have-for-dexcom-g6';
   const reviewedCardPresentations = new Map([
     ['uhc-oct-complete-3c92c61765001722', {
-      label: 'Dexcom G6 CGM receiver', deviceSourceUrl: g6ReceiverUpdate,
-      sourceReferences: [['Dexcom · G6 manufacturing transition · July 1, 2026', g6TransitionUrl]],
+      label: 'Dexcom G6 CGM receiver', deviceSourceUrl: g6ReceiverUpdate, deviceSafety: dexcomReceiverSafety,
+      sourceReferences: [dexcomReceiverRecall, ['Dexcom · G6 manufacturing transition · July 1, 2026', g6TransitionUrl]],
       note: g6Transition + ' For G7 15 Day, check the receiver against Dexcom’s model photo. The pictured model can be updated. The older G6 touchscreen receiver requires replacement.'
     }],
     ['uhc-oct-complete-34813eb407511ba8', {
@@ -830,7 +836,7 @@
       note: 'Device labeling: ages 2 and older. Wear for up to 10 days, followed by a 12-hour grace period. UHC does not specify the numeric dispensing limit.'
     }],
     ['uhc-oct-complete-015d37aa214b0abe', {
-      label: 'Dexcom G7 CGM receiver',
+      label: 'Dexcom G7 CGM receiver', deviceSafety: dexcomReceiverSafety, sourceReferences: [dexcomReceiverRecall],
       deviceSourceUrl: 'https://www.dexcom.com/en-us/faqs/does-dexcom-g7-15-day-cgm-use-same-receiver-as-g7',
       note: 'Update the software on an existing G7 receiver before using it with the G7 15 Day sensor.'
     }],
