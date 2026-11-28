@@ -2204,6 +2204,16 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  console.log('PASS: buspirone named conditional scope and three hydroxyzine exact rows preserve QL without benzodiazepine or Loreev XR policy transfer.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  const bannerGroups=a.planMedicationGroups();
+ for(const [suffix,page,unit] of [['e7a4e750d4c75cc1',52,'30 capsules'],['a457525bbf1d1d54',53,'120 tablets']]) {
+   const id='banner-full-'+suffix, group=bannerGroups.find(g=>g.records.some(r=>r.id===id));
+   const direct=group.records.find(r=>r.id===id), card=a.medicationGroupCard(group), detail=await open(group);
+   assert.equal(direct.pa,'conditional'); assert.equal(direct.step,'not_specified');
+   assert.equal(direct.preferred,page===52?'preferred':'not_specified');
+   assert(card.includes('QL: '+unit+' per 30 days')&&card.includes('PA reference ↗ · p. '+page));
+   assert(detail.ref.includes('#page='+page+'"')&&detail.html.includes('Criteria source · PDF page '+page+'<'));
+   assert.equal(detail.html.includes('melatonin'),page===53);
+   assert(!/THREE|Nexiclon|#page=1226|#page=55"/i.test(detail.html),id+' other product branches');
+ }
  for (const [id,device,warning,rx] of [
    ['banner-oct26-031','multidose vial','Use only a U-500 insulin syringe',351859],
    ['banner-pcp-nov10-011','prefilled pen','Never withdraw insulin from the pen into a syringe',1731317]

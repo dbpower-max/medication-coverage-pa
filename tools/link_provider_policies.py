@@ -223,6 +223,13 @@ def attach_provider_policies(data):
  }
  for rid,(name,pref,product,note) in banner_ig_scope.items():
   banner_exact_links[rid]=('banner-policy-12-877','GL-525296',product,name,'required',pref,note)
+ banner_adhd_rows = {
+  'banner-full-e7a4e750d4c75cc1': ('ATOMOXETINE HCL CAPSULES', 'generic atomoxetine', 52, 'preferred'),
+  'banner-full-a457525bbf1d1d54': ('CLONIDINE HCL (ADHD) TABLET 12-HOUR', 'generic clonidine IR/ER', 53, 'not_specified'),
+ }
+ for rid,(original,product,page,pref) in banner_adhd_rows.items():
+  banner_exact_links[rid] = ('banner-policy-12-52','GL-669262',product,original,'conditional',pref,
+                             f'Under age 6 only. See the named product branch starting on page {page}; approval lasts 12 months.')
  concentrated_insulin = {
   'banner-oct26-031': ('INSULIN REGULAR (HUMAN) SOLUTION', 'HUMULIN R U-500 (CONCENTRATED)',
                        'Humulin R U-500 (regular insulin) 500 units/mL multidose vial', 351859,
@@ -244,6 +251,11 @@ def attach_provider_policies(data):
  found=set()
  for r in data['medications']:
   if r['id'] not in banner_exact_links:continue
+  if r['id'] in banner_adhd_rows:
+   _,product,page,_ = banner_adhd_rows[r['id']]
+   assert r['paText']=='PA REQUIRED for Ages < 6 years of age' and r['sourceEffective']=='2026-10-01'
+   r['reviewedBannerBranches']={'policyId':'banner-policy-12-52','product':product,'unstagedPage':page,'exactReferencePage':page}
+   r['policySources']=[link for link in r.get('policySources',[]) if link.get('textUrl')!='./banner-policy-text/12-1226.txt']
   if r['id'] in concentrated_insulin:
    original,brand,heading,rxcui,warning = concentrated_insulin[r['id']]
    assert r['brand']==brand and r['notes']=='BRAND ONLY' and r['sourcePage']==11 and r['sourceEffective']=='2026-10-01'
