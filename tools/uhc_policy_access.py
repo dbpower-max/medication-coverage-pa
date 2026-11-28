@@ -2816,6 +2816,14 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
 
         if pa and record['preferred']=='non_preferred':add('GL-231255',[0],'nonpreferred')
         if pa and record['preferred']=='preferred' and re.search(r'\b(?:oral (?:solution|suspension)|syrup|elixir|nebuliz\w*)\b',text):add('GL-545275',[0],'nonsolid')
+        # DEC-07/12/13: named monthly prescription-limit exception for the
+        # verified benzodiazepine row, independent of the ordinary product QL.
+        if record['id'] == 'uhc-oct-complete-64b218c84fdb66aa':
+            assert october_name == 'temazepam oral capsule 15 mg, 30 mg (generic for restoril)'
+            monthly = structured['GL-140667']['branches'][2]
+            dx = monthly['fields']['Diagnosis']
+            assert 'Monthly prescription limit review for migraine therapy, benzodiazepines, or muscle relaxants' == ' '.join((dx.get('displayText') or dx['text']).split())
+            add('GL-140667',[2],'monthly_prescription_exception')
         if ql:add('GL-140667',[0],'global_quantity')
         record['uhcClinicalBindings']=bindings
         if pa and not any(b['role'] in {'product','nonpreferred','nonsolid'} for b in bindings):missing.append(record['id'])
