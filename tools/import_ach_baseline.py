@@ -689,9 +689,45 @@ def mirtazapine_option(rx,name,sources):
  display={'prescribingHeading':heading,'label':heading,'separate':True,'identityRxcui':int(rx),
           'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+('5127517f-b8d0-4af1-8a2f-5225719600bc' if odt else 'b4b9b66e-87a1-4dbb-9eaf-71221bcb2265'),
           'scopedMonthlyLabel':'QL: 30 tablets per 30 days','scopedStatePa':'PA if age <6',
-          'statewideMirtazapineReview':True,'note':'Boxed warning for suicidal thoughts and behaviors in pediatric and young adult patients.'}
+          'pediatricAntidepressantProduct':'generic mirtazapine tabs/ODT','note':'Boxed warning for suicidal thoughts and behaviors in pediatric and young adult patients.'}
  if age:
   display['planAgeBadge']='Age ≥6 years'
+ return [dated,ref],display
+
+ACH_BUPROPION = {'993503':('SR',100),'993687':('IR',100),'993518':('SR',150),'993541':('XL',150),
+                 '1801289':('cessation',150),'993536':('SR',200),'993557':('XL',300),'993691':('IR',75)}
+
+def bupropion_option(rx,name,sources):
+ form,strength=ACH_BUPROPION[rx]
+ smoking=form=='cessation'
+ assert ('Smoking Cessation' in name)==smoking and f'{strength} MG ' in name
+ assert ('12 HR' in name)==(form in ('SR','cessation')) and ('24 HR' in name)==(form=='XL')
+ number,limit,form_label,label={
+  'IR':(9919,4,'immediate-release oral tablet','9a3b97be-afa3-49e6-962f-662b6807e607'),
+  'SR':(9920,2,'12-hour sustained-release oral tablet','093c4a61-02d9-4b55-b612-569aa25d3f2a'),
+  'XL':(9921,1,'24-hour extended-release oral tablet','b2e6c30f-a33c-4854-ab19-bc9f65880374'),
+  'cessation':(10962,2,'12-hour sustained-release oral tablet for smoking cessation','a591e33a-52f0-41c8-a00b-4a1afcc3dc4c')
+ }[form]
+ heading=f'Bupropion hydrochloride {strength} mg {form_label}'
+ display={'prescribingHeading':heading,'label':heading,'separate':True,'identityRxcui':int(rx),
+          'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label,
+          'note':'Boxed warning for suicidal thoughts and behaviors in children, adolescents and young adults.'}
+ printed={'IR':'bupropion hcl tabs','SR':'bupropion hcl tb12','XL':'bupropion hcl tb24 150 mg, 300 mg','cessation':'bupropion hcl (smoking deterrent)'}[form]
+ raw='F; '+('84 rtl MAX day(s) supply; 180 rtl lmt day(s); ' if smoking else '')+f'QL({limit} ea daily)'+('' if smoking else '; AL(At least 6 yrs old); MP')
+ dated=april_formulary(printed,72 if smoking else 15,raw,quantityLimited=True,qlAmount=f"{limit} tablet"+('s' if limit!=1 else ''),qlDays='1')
+ ref=statewide_option(sources,number,'Preference and ST blank.')
+ if smoking:
+  assert ref['pa']=='not_specified' and ref['qlAmount']=='84-day supply' and ref['qlDays']=='180'
+  ref['rawBenefit']+=' | PA blank; 84-day supply per 180 days.'
+  display['scopedMonthlyLabel']='QL: 84-day supply per 180 days'
+  display['planDailyAndRetailLabel']='QL: 2 tablets per day and 84-day supply per 180 days at retail'
+  display['policyUnverified']=True
+ else:
+  assert ref['pa']=='conditional' and ref['sourcePage']==9 and ref['qlAmount']==str(limit*30) and ref['qlDays']=='30'
+  ref['rawBenefit']+=f" | {ref['paText']} | QL {ref['qlAmount']}, days 30, unit blank."
+  dated.update(ageLimited=True,ageRestrictionText='At least 6 yrs old')
+  display.update(planAgeBadge='Age ≥6 years',scopedStatePa='PA if age <6',scopedMonthlyLabel=f"QL: {ref['qlAmount']} tablets per 30 days",
+                 pediatricAntidepressantProduct='bupropion tabs/SR tabs/XL tabs (150 and 300mg)')
  return [dated,ref],display
 
 def with_ach_baseline(d):
@@ -787,6 +823,8 @@ def with_ach_baseline(d):
    candidates,oral_display=hormone_identity(row['rxnorm_id'],indexed_sources)
   if row['rxnorm_id'] in ACH_SPIRIVA_SPRAYS:
    candidates,oral_display=spiriva_spray(row['rxnorm_id'],name,indexed_sources)
+  if row['rxnorm_id'] in ACH_BUPROPION:
+   candidates,oral_display=bupropion_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_DULERA:
    candidates,oral_display=dulera_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_MIRTAZAPINE:
