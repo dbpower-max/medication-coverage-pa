@@ -2282,6 +2282,8 @@
     const psoriasisRequest = byRole(['psoriasis_request']);
     const topicalQuantity = byRole(['topical_quantity']);
     const monthlyPrescriptionException = byRole(['monthly_prescription_exception']);
+    const anxiolyticRequest = byRole(['anxiolytic_request']);
+    const scopedOptionNames = role => [...new Set((group.records || []).filter(r => r.planId === state.planId && !r.isStatewideReference && r.uhcClinicalBindings?.some(b => b.role === role)).map(r => r.name))].map(escapeHtml).join('; ');
     const packetReference = byRole(['packet_reference']);
     const reviewedInsulin = group.records?.some(record => uhcInsulinAndSupplyLabels.has(record.id) || reviewedCardPresentation(record)?.uhcFormRx);
     const genericDabigatran = group.records.find(record => record.id === genericDabigatranId);
@@ -2309,7 +2311,8 @@
       ['Cumulative MME exceptions', byRole(['mme_exception'])],
       ['Quantity-limit exceptions', quantity],
       ['Topical quantity-limit exceptions', topicalQuantity],
-      ['Monthly prescription-limit exception', monthlyPrescriptionException]
+      ['Monthly prescription-limit exception', monthlyPrescriptionException],
+      ['Anxiolytic request criteria', anxiolyticRequest]
     ];
     for (const [kind, selected] of criteriaSections) {
       const body = [];
@@ -2352,7 +2355,8 @@
         : selected === hypnoticStep ? '<p>Applies to generic ramelteon only; this is step therapy, not routine PA.</p>'
         : selected === ageScoped ? '<p>The October 2026 formulary lists an age limit and leaves the PA field blank for the generic product below. The November 2026 guideline specifies these age-based criteria.</p>'
         : selected === psoriasisRequest ? '<p>The October 2026 formulary prints step therapy and a quantity limit. These are the named psoriasis request criteria, not a verified routine PA trigger or a numeric quantity limit.</p>'
-        : selected === monthlyPrescriptionException ? '<p>Applies to monthly prescription-limit exception requests for the reviewed benzodiazepine option. This is separate from the individual product quantity limit and conditional hypnotic PA.</p>'
+        : selected === monthlyPrescriptionException ? `<p>Applies to monthly prescription-limit exception requests for: ${scopedOptionNames('monthly_prescription_exception')}. This is separate from the individual product quantity limit and other conditional request criteria.</p>`
+        : selected === anxiolyticRequest ? `<p>Named options: ${scopedOptionNames('anxiolytic_request')}. Criteria for requests in patients under age 6 or for more than one anxiolytic in 30 days. This is not a routine PA requirement or a numeric product quantity limit.</p>`
         : selected === topicalQuantity ? '<p>Applies to requests exceeding the allowed topical package size or monthly quantity. The numeric limit is unverified.</p>'
         : selected === diagnosisRequest ? '<p>The October 2026 formulary requires a diagnosis and lists a quantity limit. This named UHC guideline supplies request criteria; the exact PA trigger or diagnosis-code override is unverified.</p>'
         : selected === packetReference ? '<p>The October 2026 formulary lists age and quantity limits for both packets and leaves their PA fields blank. The UHC guideline names both packets and gives criteria by age and ability to swallow solid forms.</p>'
@@ -2392,6 +2396,7 @@
         : (reviewedGvoke || generalPaPresentation) && p.policyCode === 'GL-231255' ? 'General nonpreferred PA reference'
         : genericDabigatran && p.policyCode === 'GL-231255' ? 'Brand nonpreferred reference' : 'PA reference')
       : [...hypnoticRequest, ...hypnoticStep].some(b => b.policyId === p.id) ? 'Hypnotic conditional PA / step guideline'
+      : anxiolyticRequest.some(b => b.policyId === p.id) ? 'Anxiolytic request guideline'
       : psoriasisRequest.some(b => b.policyId === p.id) ? 'Psoriasis request guideline'
       : diagnosisRequest.some(b => b.policyId === p.id) ? 'Diagnosis-linked request guideline'
       : packetReference.some(b => b.policyId === p.id) ? 'Packet PA guideline'
@@ -2658,6 +2663,7 @@
     const stripQuantity = isUhc && group.records.some(record => isUhcOctoberRow(record) && uhcReviewedTestStrips.has(record.id))
       && policies.find(policy => policy.id === uhcTestStripPolicyId);
     const hypnoticGuideline = reference?.policyCode === 'GL-637194' && group.records.some(r => r.uhcClinicalBindings?.some(b => b.role === 'hypnotic_request'));
+    const anxiolyticGuideline = reference?.policyCode === 'GL-140805' && group.records.some(r => r.uhcClinicalBindings?.some(b => b.role === 'anxiolytic_request'));
     const scopedQuantity = isUhc && reference?.policyCode === 'GL-140667';
     const insulinQuantity = state.planId === 'uhc-community-az' && reference
       && !group.records?.some(record => ['required', 'conditional'].includes(record.pa))
@@ -2679,6 +2685,7 @@
       : reference ? cardPaReference(reference, psoriasisGuideline ? 'Psoriasis request guideline'
       : psoriasisOintmentReference ? 'UHC psoriasis guideline (ointment only)'
       : hypnoticGuideline ? 'Hypnotic conditional PA / step guideline'
+      : anxiolyticGuideline ? 'Anxiolytic request guideline'
       : packetGuideline ? 'Packet PA guideline'
       : agePaFormulary ? 'PA formulary'
       : scopedQuantity || insulinQuantity || reviewedQuantity ? 'QL reference'
