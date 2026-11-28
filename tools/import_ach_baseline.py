@@ -664,6 +664,35 @@ def emergency_tablet(rx,name,sources):
    updates=[ref]
  return updates,display
 
+ACH_LEVETIRACETAM={'403884':100,'387003':1000,'311288':250,'311289':500,'311290':750,'807832':500,'846378':750,'1731020':500}
+
+def levetiracetam_option(rx,name,sources):
+ strength=ACH_LEVETIRACETAM[rx]
+ assert 'levetiracetam' in name and f'{strength} MG' in name
+ if rx=='403884':
+  number,printed=9882,'levetiracetam soln or 100 mg/ml, 500 mg/5ml'
+  title='Levetiracetam 100 mg/mL oral solution (500 mg/5 mL)'
+  label='0bc8468f-832c-4e71-95a2-db464d4d54bc'
+  note='Use a calibrated measuring device.'
+ elif 'Extended Release' in name:
+  number,printed=9884,'levetiracetam tb24'
+  title=f'Levetiracetam {strength} mg 24-hour extended-release oral tablet'
+  label='3e32f341-9926-47a3-a942-d8b9bfa7a55b'
+  note='Swallow the extended-release tablet whole. Do not crush or chew.'
+ else:
+  number,printed=9883,'levetiracetam tabs'
+  title=('Roweepra (levetiracetam)' if rx=='1731020' else 'Levetiracetam')+f' {strength} mg immediate-release oral tablet'
+  label='e662bf5b-c81c-4bcd-ba2e-552df95ca6f9' if rx=='1731020' else '1d71212b-ac97-4a61-8192-8e8303540019'
+  note=''
+ ref=statewide_option(sources,number,'Preference, PA, ST and QL blank.')
+ assert ref['sourcePage']==8 and ref['preferred']==ref['pa']==ref['step']=='not_specified' and not ref['qlAmount'] and not ref['qlDays']
+ display={'label':title,'prescribingHeading':title,'separate':True,'identityRxcui':int(rx),'note':note,
+          'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label}
+ if rx=='1731020':
+  assert 'ROWEEPRA' in ref['brand'].upper() and '[Roweepra]' in name
+  return [ref],display
+ return [april_formulary(printed,15,'F'),ref],display
+
 ACH_DIAZEPAM_ORAL={
  '197589':('10',9768), '197590':('2',9769), '197591':('5',9770),
  '309844':('5',9766), '309843':('1',9767),
@@ -1032,6 +1061,8 @@ def with_ach_baseline(d):
    candidates,oral_display=mirtazapine_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_EMERGENCY_CONTRACEPTION:
    candidates,oral_display=emergency_tablet(row['rxnorm_id'],name,indexed_sources)
+  if row['rxnorm_id'] in ACH_LEVETIRACETAM:
+   candidates,oral_display=levetiracetam_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_SEIZURE_FORMS:
    candidates,oral_display=seizure_form_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_DIAZEPAM_ORAL:
