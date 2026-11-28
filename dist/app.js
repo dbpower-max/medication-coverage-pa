@@ -2605,6 +2605,10 @@
         };
         add(state.data.policies.find(p => p.id === link.policyId && p.planId === state.planId) || policy);
       }
+      if (record.reviewedPresentation?.anxiolyticPolicyProduct) {
+        const policy = (state.data.statewidePaCriteria || []).find(p => p.id === 'ahcccs-ffs-nov2026-policy-gl-126970');
+        if (policy) add(policy);
+      }
       if (record.id === 'ach-json-1597076') {
         const pumpPolicy = (state.data.statewidePaCriteria || []).find(p => p.id === 'ahcccs-ffs-nov2026-policy-gl-731224');
         if (pumpPolicy) add(pumpPolicy);
@@ -3096,6 +3100,23 @@
     details.dataset.loading = 'true';
     target.innerHTML = '<p role="status">Loading clinical criteria…</p>';
     try {
+      const anxiolytic = group.records.find(r => r.reviewedPresentation?.anxiolyticPolicyProduct);
+      const anxiolyticPolicy = anxiolytic && policies.find(p => p.id === 'ahcccs-ffs-nov2026-policy-gl-126970');
+      if (anxiolyticPolicy) {
+        const source = await loadClinicalSource(anxiolyticPolicy);
+        const product = anxiolytic.reviewedPresentation.anxiolyticPolicyProduct;
+        const applicable = source.branches.filter(b => b.fields['Product Name']?.text.split(', ').includes(product));
+        if (applicable.length !== 2 || applicable[0].sourcePage !== 158 || applicable[1].sourcePage !== 159) {
+          throw new Error('Anxiolytic reference branches unavailable');
+        }
+        if (target.isConnected === false) return;
+        target.innerHTML = '<p><strong>AHCCCS Statewide · Fee-for-service</strong> · GL-126970. Source-transcribed criteria, clinician approval pending. The guideline does not distinguish initial and renewal requests.</p>'
+          + applicable.map(b => cardBranchMarkup(b, anxiolyticPolicy)).join('');
+        const refs = details.querySelector('.card-pa-references');
+        if (refs) refs.innerHTML = cardPaReference(anxiolyticPolicy, 'AHCCCS Statewide · anxiolytic guideline', 158);
+        details.dataset.loaded = 'true';
+        return;
+      }
       const pumpPolicy = group.records.some(r => r.id === 'ach-json-1597076')
         && policies.find(p => p.id === 'ahcccs-ffs-nov2026-policy-gl-731224');
       if (pumpPolicy) {
