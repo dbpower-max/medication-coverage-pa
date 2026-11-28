@@ -2605,6 +2605,10 @@
         };
         add(state.data.policies.find(p => p.id === link.policyId && p.planId === state.planId) || policy);
       }
+      if (record.id === 'ach-json-1597076') {
+        const pumpPolicy = (state.data.statewidePaCriteria || []).find(p => p.id === 'ahcccs-ffs-nov2026-policy-gl-731224');
+        if (pumpPolicy) add(pumpPolicy);
+      }
       if (record.scopedPolicyReference) {
         const { id, scope } = record.scopedPolicyReference;
         const policy = state.data.policies.find(p => p.id === id && p.planId === state.planId);
@@ -3092,6 +3096,33 @@
     details.dataset.loading = 'true';
     target.innerHTML = '<p role="status">Loading clinical criteria…</p>';
     try {
+      const pumpPolicy = group.records.some(r => r.id === 'ach-json-1597076')
+        && policies.find(p => p.id === 'ahcccs-ffs-nov2026-policy-gl-731224');
+      if (pumpPolicy) {
+        const source = await loadClinicalSource(pumpPolicy);
+        const sections = [
+          ['Initial authorization · hypogonadism', 'Hypogonadism', 'Initial Authorization', 1785],
+          ['Gender dysphoria · under age 19 · stage unspecified', 'Gender Dysphoria in Patients less than 19 years old', '', 1788],
+          ['Initial authorization · gender dysphoria · age 19 and older', 'Gender Dysphoria in Adults age 19 and older', 'Initial Authorization', 1788],
+          ['Reauthorization · hypogonadism or adult gender dysphoria', 'Hypogonadism, Gender Dysphoria in Adults 19 years and older', 'Reauthorization', 1790],
+        ].map(([title, diagnosis, stage, page]) => {
+          const branch = source.branches.find(b => b.fields.Diagnosis?.text === diagnosis
+            && (b.fields['Therapy Stage']?.text || '') === stage && b.fields['Product Name']?.text.includes('generic for Androgel'));
+          if (!branch) throw new Error('Testosterone policy stage unavailable');
+          const notes = stage ? branch.notes : branch.notes.map(note => ({...note, text: note.text
+            .replace('patie nts', 'patients').replace('a nd', 'and')
+            .replace('produ ct', 'product').replace('gran dfathered', 'grandfathered')}));
+          return '<details class="result-disclosure"><summary>' + escapeHtml(title) + '</summary>'
+            + cardBranchMarkup({...branch, notes, sourcePage: page}, pumpPolicy) + '</details>';
+        });
+        if (target.isConnected === false) return;
+        target.innerHTML = '<p><strong>AHCCCS Statewide · Fee-for-service</strong> · GL-731224. Source-transcribed criteria, clinician approval pending. Verify the requested pump and manufacturer before using the nonpreferred-product pathway. Arizona Complete Health may apply additional criteria.</p>'
+          + sections.join('');
+        const refs = details.querySelector('.card-pa-references');
+        if (refs) refs.innerHTML = cardPaReference(pumpPolicy, 'AHCCCS Statewide · testosterone guideline', 1785);
+        details.dataset.loaded = 'true';
+        return;
+      }
       const bindings = uhcGroupBindings(group);
       if (state.planId === 'uhc-community-az' && (group.records || []).some(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays || r.uhcClinicalBindings?.some(b => b.role === 'hypnotic_request')))) {
         const content = await uhcClinicalContent(group, bindings, guidance);
