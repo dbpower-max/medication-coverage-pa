@@ -9,6 +9,26 @@ vm.createContext(ctx);vm.runInContext(source.replace("document.addEventListener(
 const api=ctx.api;api.state.data=data;
 function targetFor(group){const target={innerHTML:'',isConnected:true};return {target,details:{open:true,dataset:{cardClinical:group.key||group.label},querySelector:selector=>selector==='.card-pa-references'?{innerHTML:''}:target}};}
 (async()=>{
+// Label-backed form and device remain separate from the listing-specific payer flags.
+for (const [plan, rows] of [
+ ['az-complete-health', [['ach-json-2535243','Prefilled Syringe','2535243'],['ach-notice-13882','Autoinjector','2535249'],['ach-notice-13883','Syringe','2535243']]],
+ ['uhc-community-az', [['uhc-oct-complete-229568f7f286fb5b','One Pack','2180671'],['uhc-oct-complete-1c725dc535b842a6','Two Pack','2180671'],
+   ['uhc-oct-complete-5fcb0ddd3560f776','Autoinjector (1-Pack)'],['uhc-oct-complete-7caf82e6ee33bfff','Autoinjector (2-Pack)'],
+   ['uhc-oct-complete-a5fa4856ca09e8de','Prefilled Syringe'],['uhc-oct-complete-5eca184f4914d610','Vial and Syringe']]]
+]) {
+ api.state.planId=plan;
+ for (const [id,device,rxcui] of rows) {
+   const group=api.planMedicationGroups().find(g=>g.records.some(r=>r.id===id));
+   const row=group.records.find(r=>r.id===id);
+   const html=api.medicationGroupCard(group);
+   const heading=html.match(/<h3>(.*?)<\/h3>/)[1];
+   assert(heading.includes(device) && /solution|nasal powder/i.test(heading) && !heading.includes('unverified'),id);
+   const sources=api.recordDetails(row);
+   if (rxcui) assert(sources.includes('searchTerm='+rxcui), id);
+   else assert(html.includes('UHC does not specify eligible strengths') && sources.includes('92385737-dbad-98c5-e053-2995a90a2805'), id);
+ }
+}
+
 api.state.planId='banner-ufc';
 const bannerPremixGroups=api.planMedicationGroups();
 for (const [id,stateId,brand,pen] of [

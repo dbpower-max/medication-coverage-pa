@@ -325,6 +325,10 @@
     ['uhc-oct-complete-e29a433265e8ba09', 'Calcitriol Oral Solution']
   ]);
   const uhcStandalonePolicyReferences = new Map([
+    ['arnuity_request_reference', {
+      label: 'UHC asthma request guideline',
+      scope: 'For a request involving preferred brand Arnuity Ellipta, UHC requires a diagnosis of asthma and lists a 12-month approval duration.'
+    }],
     ['general_nebulizer_reference', {
       label: 'General nebulizer policy',
       scope: 'General non-solid dosage form guidance. The age-specific albuterol approval criteria are unverified.'
@@ -402,22 +406,6 @@
     ['uhc-oct-complete-a2688cb7eea9b098', {label: 'OneTouch Verio Flex Blood Glucose Meter Kit', meterPolicy: true}]
   ]);
   const uhcMeterPolicyId = 'uhc-nov2026-policy-gl-140734';
-  const gvokeHypoPenDoses = '0.5 mg/0.1 mL or 1 mg/0.2 mL per autoinjector';
-  const uhcGvokePresentations = new Map([
-    ['uhc-oct-complete-5fcb0ddd3560f776', {
-      label: 'Gvoke HypoPen Subcutaneous Autoinjector (1-Pack)', dose: gvokeHypoPenDoses
-    }],
-    ['uhc-oct-complete-7caf82e6ee33bfff', {
-      label: 'Gvoke HypoPen Subcutaneous Autoinjector (2-Pack)', dose: gvokeHypoPenDoses
-    }],
-    ['uhc-oct-complete-a5fa4856ca09e8de', {
-      label: 'Gvoke PFS Subcutaneous Prefilled Syringe', dose: '1 mg/0.2 mL per prefilled syringe'
-    }],
-    ['uhc-oct-complete-5eca184f4914d610', {
-      label: 'Gvoke Kit Ready-to-Use Subcutaneous Solution (Vial and Syringe)', dose: '1 mg/0.2 mL per vial'
-    }]
-  ]);
-
   function isUhcOctoberRow(record) {
     return record.planId === 'uhc-community-az' && !record.isStatewideReference
       && record.sourceEffective === '2026-10-01';
@@ -719,7 +707,34 @@
       labelUrl: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b34cd3ff-d0af-4852-b4ef-2a8b4a93aeae"},
   };
   const uhcLisproConflict = "UHC’s printed list flags PA. Its electronic list flags step therapy and reports no PA. Verify the restriction before prescribing.";
+  const baqsimiPresentation = {
+    dosageForm: '3 mg nasal powder', identityRxcui: 2180671,
+    labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f1f5df9b-872f-44e5-a18f-f0b68e7e9254'
+  };
+  const zegalogueLabelUrl = 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c6c32b47-c47c-4a7f-8d4d-23578f663217';
+  const gvokeHypoPenDoses = '0.5 mg/0.1 mL or 1 mg/0.2 mL per autoinjector';
+  const uhcGvokePresentations = new Map([
+    ['uhc-oct-complete-5fcb0ddd3560f776', {
+      label: 'Gvoke HypoPen Subcutaneous Autoinjector (1-Pack)', dose: gvokeHypoPenDoses
+    }],
+    ['uhc-oct-complete-7caf82e6ee33bfff', {
+      label: 'Gvoke HypoPen Subcutaneous Autoinjector (2-Pack)', dose: gvokeHypoPenDoses
+    }],
+    ['uhc-oct-complete-a5fa4856ca09e8de', {
+      label: 'Gvoke PFS Subcutaneous Prefilled Syringe', dose: '1 mg/0.2 mL per prefilled syringe'
+    }],
+    ['uhc-oct-complete-5eca184f4914d610', {
+      label: 'Gvoke Kit Ready-to-Use Subcutaneous Solution (Vial and Syringe)', dose: '1 mg/0.2 mL per vial'
+    }]
+  ]);
+
+  const gvokeLabelUrl = 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=92385737-dbad-98c5-e053-2995a90a2805';
   const reviewedCardPresentations = new Map([
+    ['uhc-oct-complete-229568f7f286fb5b', baqsimiPresentation],
+    ['uhc-oct-complete-1c725dc535b842a6', baqsimiPresentation],
+    ['ach-json-2535243', {dosageForm: 'subcutaneous solution', identityRxcui: 2535243, labelUrl: zegalogueLabelUrl}],
+    ['ach-notice-13882', {dosageForm: '0.6 mg/0.6 mL injection solution', identityRxcui: 2535249, labelUrl: zegalogueLabelUrl}],
+    ['ach-notice-13883', {dosageForm: '0.6 mg/0.6 mL injection solution', identityRxcui: 2535243, labelUrl: zegalogueLabelUrl}],
     ["uhc-oct-complete-2dbe0497f9246f1b", {...lisproProducts.lisproPen,
       label: "Insulin Lispro U-100 Prefilled Pen (1-Unit Increments)", separate: true,
       uhcFormRx: "1652639"}],
@@ -875,7 +890,7 @@
     ['uhc-oct-complete-4295ce610108f0df', {label: tiotropiumCapsules, option: 'Brand Spiriva HandiHaler', note: tiotropiumContinuation, explicitPa: true, generalPa: true}],
     ['uhc-oct-complete-818668349b64ef42', {label: tiotropiumCapsules, option: 'Generic tiotropium inhalation capsules', note: tiotropiumContinuation}],
     ['uhc-oct-complete-9f26ef4f16fcfe13', {label: spirivaSpray, labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b656b14-fcaa-2741-f6f0-e0be48971c02'}],
-    ['banner-pcp-nov10-037', {label: 'Budesonide/Formoterol Inhalation Aerosol (Symbicort)', note: 'Banner lists the authorized generic only as preferred. Quantity limit: 6 per 90 days. The formulary does not specify a unit.'}],
+    ['banner-pcp-nov10-037', {label: 'Budesonide/Formoterol Inhalation Aerosol (Symbicort)', note: 'Banner lists the authorized generic only as preferred.'}],
     ['banner-pcp-nov10-024', {label: tiotropiumCapsules, scope: 'Banner formulary · October 1, 2026'}],
     ['banner-pcp-nov10-023', {label: spirivaSpray}],
     ['formulary-9798', {label: spirivaSpray}],
@@ -930,6 +945,7 @@
     if (record.planId === 'banner-ufc' && record.name === 'INSULIN NPH ISOPHANE & REG (HUMAN) SUSPENSION'
         && record.sourceEffective === (record.isStatewideReference ? '2026-11-01' : '2026-10-01')
         && bannerHumanPremix.has(record.brand)) return bannerHumanPremix.get(record.brand);
+    if (uhcGvokePresentations.has(record.id)) return {dosageForm: 'solution', deviceSourceUrl: gvokeLabelUrl};
     const id = record.isStatewideReference ? record.id.split(':').at(-1) : record.id;
     const reviewed = record.reviewedPresentation || reviewedCardPresentations.get(id);
     if (reviewed) return reviewed;
@@ -1495,6 +1511,11 @@
     if (presentation?.identityRxcui) {
       const id = Number(presentation.identityRxcui);
       details.push(`<p><strong>Prescribing presentation:</strong> <a href="https://mor.nlm.nih.gov/RxNav/search?searchBy=RXCUI&amp;searchTerm=${id}" target="_blank" rel="noopener">RxCUI ${id}</a> · <a href="${escapeHtml(presentation.labelUrl)}" target="_blank" rel="noopener">DailyMed drug label ↗</a></p>`);
+    }
+    if (presentation?.labelProductExamples) {
+      const links = presentation.labelProductExamples.map(([description, id]) =>
+        `<a href="https://mor.nlm.nih.gov/RxNav/search?searchBy=RXCUI&amp;searchTerm=${Number(id)}" target="_blank" rel="noopener">${escapeHtml(description)} · RxCUI ${Number(id)}</a>`);
+      details.push(`<p><strong>Labeled presentations:</strong> ${links.join(' · ')}. The formulary does not identify the covered package. <a href="${escapeHtml(presentation.labelUrl)}" target="_blank" rel="noopener">DailyMed drug label ↗</a></p>`);
     }
     const formRx = presentation?.uhcFormRx;
     if (formRx) details.push(`<p><a href="https://legacy.providerlookuponline.com/mrf/optumrx/drugs/2877216/JSON_Drugs_UHCCPAZ.json" target="_blank" rel="noopener">UHC electronic formulary</a> · UCSAZQ3, 2026 · RxCUI ${escapeHtml(formRx)} · file dated October 20, 2026.</p>`);

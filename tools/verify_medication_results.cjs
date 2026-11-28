@@ -44,6 +44,12 @@ for (const plan of data.plans) {
   const isAch = plan.id === 'az-complete-health';
   const card = api.medicationGroupCard(group);
   assert.equal(card.includes('SMART asthma notice covers the authorized generic and Teva generic'), isAch, group.label);
+  if (group.records.some(row => row.id === 'banner-pcp-nov10-037')) {
+   assert.equal((card.match(/6 per 90 days/g) || []).length, 1, group.label);
+   assert(card.includes('The formulary does not specify a unit.'), group.label);
+   assert(card.includes('Banner lists the authorized generic only as preferred.'), group.label);
+   assert(card.includes('>Authorized generic only<'), group.label);
+  }
   for (const row of group.records) {
    const sources = api.recordDetails(row);
    assert.equal(sources.includes(smartNoticeUrl), isAch, row.id);
