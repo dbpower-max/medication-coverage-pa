@@ -265,6 +265,77 @@ criteria_codes = {g['policyCode'] for g in clinical_guidance['guides']} | set(cr
 data['structuredCriteriaCount'] = publish_structured_criteria(statewide_pa, SRC, OUT, criteria_codes)
 assert data['structuredCriteriaCount'] == criteria_release.get('expectedStructuredCount', len(criteria_codes))
 publish_uhc_policy_access(data, SRC, OUT)
+# DEC-04/05/07/08/09/18/19/20. Exact UHC October listings and label presentations.
+# Vial concepts describe the drug product. The printed listing and SPL establish the container.
+insulin_labels = {
+    'Humulin N': ('human NPH insulin', 'injectable suspension', 'f6edd793-440b-40c2-96b5-c16133b7a921'),
+    'Novolin 70/30': ('human NPH/regular insulin 70/30', 'injectable suspension', '508a2763-3cb7-4be5-9e53-544e84cd9b1f'),
+    'Novolin N': ('human NPH insulin', 'injectable suspension', '82f1445c-b2c6-445a-82cf-ba8825fac776'),
+    'Novolin R': ('regular human insulin', 'solution for injection', 'aee7f1f3-612c-4027-8ce9-4fd1f41eed71'),
+    'NovoLog Mix 70/30': ('insulin aspart protamine/insulin aspart 70/30', 'injectable suspension', '1861fcee-7673-4afe-a206-08fa05c0add2'),
+    'NovoLog': ('insulin aspart', 'solution for injection', '3a1e73a2-3009-40d0-876c-b4cb2be56fc5'),
+}
+# Electronic file row numbers (one-based) refer to UCSAZQ3 entries. The electronic
+# file omits NDCs. Preserve both variants where an RxCUI has multiple plan entries.
+insulin_devices = {
+    '9d5d5dcd15aacbe5': ('Humulin N', 'KwikPen', 847199, 7454),
+    'eb2cb3d5df295b3a': ('Humulin N', 'vial', 311026, 6772),
+    'dc926ea3a037d052': ('Novolin 70/30', 'FlexPen', 2049380, 5048),
+    '6a8410666a95f39f': ('Novolin 70/30', 'vial', 213442, 1234),
+    '561e64d0e04ddba8': ('Novolin N', 'FlexPen', 2206099, 4460),
+    '2e61212e8b4a7198': ('Novolin N', 'vial', 311027, 2047),
+    '989f61316edaade8': ('Novolin R', 'FlexPen', 2206092, 282),
+    '3f6b79d26bf90161': ('Novolin R', 'vial', 311033, 9863),
+    '6c62c1d66fc1ba6f': ('NovoLog Mix 70/30', 'vial', 977842, 2218),
+    '3593e59ad9ff6053': ('NovoLog', 'PenFill cartridge', 1653198, 3637),
+    '539ff04df27e00e4': ('NovoLog Mix 70/30', 'FlexPen', 977840, 6370),
+    '91e996f2f036b4ef': ('NovoLog Mix 70/30', 'FlexPen ReliOn', 977840, 6370),
+}
+relion_listings = {
+    '3425a56e25a00dc0': ('Novolin 70/30', 213442, 2049380),
+    '0355c1cc6877f195': ('NovoLog Mix 70/30', 977842, 977840),
+    '4245cf9695f76981': ('NovoLog', 351926, 1653204),
+}
+electronic_formulary = json.loads((ROOT / 'audits/uhc_complete_2026_11_12/official_machine_readable.json').read_text())
+reviewed_insulin_ids = set()
+for record in data['medications']:
+    suffix = record['id'].removeprefix('uhc-oct-complete-')
+    if suffix not in insulin_devices and suffix not in relion_listings:
+        continue
+    assert record['planId'] == 'uhc-community-az' and record['sourceEffective'] == '2026-10-01'
+    if suffix in relion_listings:
+        family, vial, pen = relion_listings[suffix]
+        assert 'RELION' in record['name'] and 'FLEXPEN' not in record['name']
+        device = 'ReliOn'
+        presentation = {
+            'note': 'The label lists a 10 mL multidose vial and a 3 mL single-patient-use FlexPen. The printed ReliOn listing does not identify the device or covered package.',
+            'labelProductExamples': [['Vial formulation', vial], ['3 mL prefilled pen', pen]],
+        }
+    else:
+        family, device, rxcui, position = insulin_devices[suffix]
+        assert device.split()[0].upper() in record['name']
+        source_row = electronic_formulary[position - 1]
+        assert int(source_row['rxnorm_id']) == rxcui
+        variants = [r for r in source_row['plans'] if r['plan_id'] == 'UCSAZQ3']
+        assert variants and all(2026 in r['years'] and r['quantity_limit'] and not r['prior_authorization'] for r in variants)
+        electronic_steps = {r['step_therapy'] for r in variants}
+        note = ('Labeled 10 mL multidose vial.' if device == 'vial' else
+                '3 mL cartridge for a compatible PenFill insulin delivery device.' if device == 'PenFill cartridge' else
+                '3 mL single-patient-use prefilled pen.')
+        discrepancy = record['pa'] == 'required'
+        if electronic_steps == {True, False}:
+            note += ' The UHC electronic formulary has preferred and nonpreferred entries with differing step therapy for this RxCUI. Exact package eligibility and requirements are unverified.'
+        if discrepancy:
+            note += ' The printed formulary lists PA. The electronic formulary reports no PA and lists step therapy for the nonpreferred entry. Current requirements are unverified.'
+        presentation = {'identityRxcui': rxcui, 'electronicRow': position, 'note': note, 'paSourceConflict': discrepancy}
+    ingredient, form, label_id = insulin_labels[family]
+    record['reviewedPresentation'] = {
+        **presentation, 'separate': True, 'dosageForm': form,
+        'label': f'{family} {device} ({ingredient}) 100 units/mL {form}',
+        'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=' + label_id,
+    }
+    reviewed_insulin_ids.add(suffix)
+assert reviewed_insulin_ids == set(insulin_devices) | set(relion_listings)
 # DEC-04/05/08/09/12/13/14/19/20: reviewed October UHC prescribing rows.
 # Keep raw source wording, benefit fields and original policy bindings intact.
 # Label evidence is not confirmation of the payer's exact package or OUD benefit.

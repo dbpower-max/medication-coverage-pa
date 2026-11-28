@@ -1170,6 +1170,23 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    }
    assert(!detail.html.includes('Criteria source · PDF page 1686<'),suffix);
  }
+ const insulinDevices=groups.filter(g=>g.records.some(r=>r.reviewedPresentation?.electronicRow));
+ assert.equal(insulinDevices.length,12);
+ for(const g of insulinDevices){
+   const r=g.records[0], p=r.reviewedPresentation, card=a.medicationGroupCard(g), sources=a.recordDetails(r);
+   assert.equal(g.records.length,1); assert(card.includes('100 units/mL')&&!card.includes('dosage form unverified'),r.id);
+   assert(card.includes(p.note)&&sources.includes('searchTerm='+p.identityRxcui)&&sources.includes('row '+p.electronicRow),r.id);
+   assert.equal(card.includes('PA listings conflict'),r.pa==='required');
+ }
+ for(const suffix of ['3425a56e25a00dc0','0355c1cc6877f195','4245cf9695f76981']){
+   const g=groups.find(g=>g.records.some(r=>r.id.endsWith(suffix))),r=g.records[0],p=r.reviewedPresentation;
+   const card=a.medicationGroupCard(g); assert(card.includes('does not identify the device')&&!p.identityRxcui);
+   for(const [,rx] of p.labelProductExamples) assert(a.recordDetails(r).includes('searchTerm='+rx));
+ }
+ const humalogDual=groups.find(g=>g.records.some(r=>r.id.endsWith('bdf84a7dca46a5c9')));
+ const dual=a.medicationGroupCard(humalogDual), dualSources=a.recordDetails(humalogDual.records[0]);
+ assert(dual.includes('100 units/mL or 200 units/mL')&&dual.includes('Never transfer U-200 insulin'));
+ assert(dual.includes('PA listings conflict')&&dualSources.includes('searchTerm=1652242')&&dualSources.includes('searchTerm=1652640'));
  const restrictedTablet=groups.flatMap(g=>g.records).find(r=>r.id==='uhc-oct-complete-e0991a351bcb909e');
  assert(restrictedTablet.rawRestrictions.includes('Mallinckrodt and Kremers Urban labelers'));
  const adjacentOsm=groups.flatMap(g=>g.records).find(r=>r.id==='uhc-oct-complete-5a48097e2182f426');
