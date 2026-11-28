@@ -635,6 +635,35 @@ def seizure_form_option(rx,name,sources):
           'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label,'note':note}
  return [april_formulary(printed,14 if carb else 15,'F'),ref],display
 
+ACH_EMERGENCY_CONTRACEPTION={
+ '1005928':('Ella','2bf93d23-cddd-4613-9066-5b5fa090404b'),
+ '1736014':('Option 2','7d7b9e61-9f3d-477d-b74d-b0cc725f9bba'),
+ '1922759':('My Choice','500d9418-69a8-f4f3-e063-6394a90a9b66'),
+ '2003710':('New Day','9e8c96f6-ab51-4721-b276-1ca02a712510')
+}
+def emergency_tablet(rx,name,sources):
+ brand,label=ACH_EMERGENCY_CONTRACEPTION[rx]
+ ella=rx=='1005928'
+ assert '['+brand+']' in name and ('ulipristal acetate 30 MG' if ella else 'levonorgestrel 1.5 MG') in name
+ heading=brand+' ('+('ulipristal acetate) 30 mg' if ella else 'levonorgestrel) 1.5 mg')+' emergency contraception oral tablet'
+ display={'prescribingHeading':heading,'label':heading,'separate':True,'identityRxcui':int(rx),
+   'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label}
+ updates=[]
+ if ella:
+  ref=statewide_option(sources,10444,'ELLA | PREFERRED | PA/ST blank | QL 1, days 5, unit blank.')
+  assert ref['sourcePage']==22 and ref['qlAmount']=='1' and ref['qlDays']=='5'
+  dated=april_formulary('ELLA',31,'F; QL(1 ea per 5 days retail)',quantityLimited=True,qlAmount='1 tablet',qlDays='5')
+  updates=[dated,ref]
+  display.update(planRetailLimit={'amount':'1 tablet','days':'5'},scopedMonthlyLabel='QL: 1 tablet per 5 days',
+    note='Label: take within 120 hours. Wait at least 5 days after taking Ella before starting or resuming hormonal contraception.')
+ else:
+  display.update(note='OTC label: take within 72 hours.',sourceReferences=[['Arizona Complete Health · April 2023 · generic levonorgestrel emergency contraception 1.5 mg tablet listing',ACH_APR_2023_PDL+'#page=31']])
+  if rx=='1736014':
+   ref=statewide_option(sources,10443,'OPTION 2 | PREFERRED | PA, ST and QL blank.')
+   assert ref['sourcePage']==22 and 'OPTION 2' in ref['brand'].upper()
+   updates=[ref]
+ return updates,display
+
 ACH_DIAZEPAM_ORAL={
  '197589':('10',9768), '197590':('2',9769), '197591':('5',9770),
  '309844':('5',9766), '309843':('1',9767),
@@ -1001,6 +1030,8 @@ def with_ach_baseline(d):
    candidates,oral_display=dulera_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_MIRTAZAPINE:
    candidates,oral_display=mirtazapine_option(row['rxnorm_id'],name,indexed_sources)
+  if row['rxnorm_id'] in ACH_EMERGENCY_CONTRACEPTION:
+   candidates,oral_display=emergency_tablet(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_SEIZURE_FORMS:
    candidates,oral_display=seizure_form_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_DIAZEPAM_ORAL:
