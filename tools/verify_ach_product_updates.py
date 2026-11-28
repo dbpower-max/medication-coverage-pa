@@ -51,6 +51,19 @@ for row in data['medications']:
    else:
     assert form=='Delayed Release Oral Tablet' and update['name']=='DIVALPROEX SODIUM TABLET ENTERIC COATED'
    continue
+  if row['rxnormId'] in {'2173500','2272630','2272622','2272624','2272636'}:
+   nayzilam=row['rxnormId']=='2173500'
+   assert 'Nasal Spray' in row['name'] and ('[Nayzilam]' if nayzilam else '[Valtoco]') in row['name']
+   assert update['id']=='ach-mandated-formulary-'+('9864' if nayzilam else '9863')
+   assert update['sourceEffective']=='2026-11-01' and update['sourcePage']==8
+   assert update['name']==('MIDAZOLAM (ANTICONVULSANT) SOLUTION' if nayzilam else 'DIAZEPAM (ANTICONVULSANT) LIQD THER PACK')
+   continue
+  if row['rxnormId'] in {'801961','801966'}:
+   ten=row['rxnormId']=='801961'
+   assert row['name']==('2' if ten else '4')+' ML diazepam 5 MG/ML Rectal Gel'
+   assert (update['name']==('diazepam (anticonvulsant) gel' if ten else 'diazepam (anticonvulsant) gel 2.5 mg, 20 mg') and update['sourcePage']==14 and update['sourceEffective']=='2023-04-01'
+           or update['name']=='DIAZEPAM (ANTICONVULSANT) GEL (10MG, 20MG)' and update['sourcePage']==8 and update['sourceEffective']=='2026-11-01')
+   continue
   if row['rxnormId']=='1801289':
    assert row['name']=='Smoking Cessation 12 HR bupropion hydrochloride 150 MG Extended Release Oral Tablet'
    assert ((update['name']=='bupropion hcl (smoking deterrent)' and update['sourcePage']==72 and update['sourceEffective']=='2023-04-01')
