@@ -676,7 +676,7 @@
   const spirivaSpray = 'Spiriva Respimat Metered Inhalation Spray';
   const epiPenAutoInjector = 'Epinephrine Anaphylaxis Autoinjector (EpiPen Reference)';
   const bannerEpiPenIds = new Set(['banner-full-2d2738513f664b31', 'banner-full-450fe20ea940c46c']);
-  const bannerEpiPenDisplay = {label: epiPenAutoInjector, note: 'Banner: Viatris SP authorized generic only. Quantity limit: 2 per 30 days. PA is required above 2 per month.'};
+  const bannerEpiPenDisplay = {label: epiPenAutoInjector, note: 'Banner lists the Viatris SP authorized generic. The two-pen limit uses the clinician-reviewed dispensing unit.'};
   const augmentinSuspension = 'Amoxicillin/Clavulanate Oral Suspension (Augmentin Reference)';
   const rosuvastatinTablets = 'Rosuvastatin Tablets (Crestor Reference)';
   const simvastatinTablets = 'Simvastatin Tablets (Zocor Reference)';
@@ -764,6 +764,19 @@
       note: 'Each device delivers 0.3 mg (1 mg/mL) by intramuscular or subcutaneous injection. The plan reports its dispensing limit in “each” and does not specify device or carton counting.',
       labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=778ac6ae-6bcb-47a4-bcb3-8dd0da9f8836'
     }],
+    ['uhc-oct-complete-0618ed2eee749f42', {
+      label: 'Depo-Testosterone Cypionate IM (Concentration Unspecified)', dosageForm: 'solution for injection', separate: true,
+      paSourceConflict: true,
+      electronicComparisons: [
+        ['100 mg/mL intramuscular solution', 835831, 6002, 'cfbb53d4-b868-4a28-8436-f9112eb01c39'],
+        ['200 mg/mL intramuscular solution', 835842, 8089, 'cfbb53d4-b868-4a28-8436-f9112eb01c39']
+      ],
+      note: 'UHC’s printed brand listing flags PA and leaves the concentration unspecified. Its electronic entries for both concentrations report no PA and list step therapy. The printed quantity limit has no verified amount or interval.'
+    }],
+    ['uhc-oct-complete-95f3abcf725dc69c', {
+      label: 'Testosterone Cypionate 200 mg/mL IM Solution (Brand Listing)', dosageForm: 'solution for injection', separate: true,
+      note: 'The printed listing identifies the concentration and route. The brand name, container and covered package are unverified.'
+    }],
     ['uhc-oct-complete-0ea5d84001467f7a', {
       label: 'Testosterone cypionate 100 mg/mL intramuscular injection (generic)',
       dosageForm: 'solution for injection', separate: true, identityRxcui: 835829, paSourceConflict: true,
@@ -784,6 +797,21 @@
       electronicEvidence: ['Row 9339, RxCUI 835809: PREFERRED(29), PA: no, ST: yes, QL: yes.'],
       note: 'The printed formulary lists PA and a quantity limit. The electronic formulary reports no PA and lists step therapy. The covered vial size, numeric quantity limit and step requirements are unverified.',
       labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e89d6458-428c-4256-97a3-f1fa851293c1'
+    }],
+    ['ach-json-848330', {
+      label: 'Estring (estradiol) 7.5 mcg/day vaginal ring', dosageForm: 'vaginal ring', separate: true, identityRxcui: 848330,
+      note: 'Low-dose vaginal ring for local menopausal vulvar and vaginal symptoms. The 2 mg estradiol reservoir releases approximately 7.5 mcg/day for 90 days.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=110b9865-5a07-4d45-b560-e89947f12600'
+    }],
+    ['ach-json-848333', {
+      label: 'Femring (estradiol acetate) 0.05 mg estradiol/day vaginal ring', dosageForm: 'vaginal ring', separate: true, identityRxcui: 848333,
+      note: 'Systemic-dose vaginal ring. This estradiol acetate ring delivers the equivalent of 0.05 mg estradiol/day for three months.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7aaa97f9-a9d1-c815-e053-2991aa0afb9e'
+    }],
+    ['ach-json-848343', {
+      label: 'Femring (estradiol acetate) 0.10 mg estradiol/day vaginal ring', dosageForm: 'vaginal ring', separate: true, identityRxcui: 848343,
+      note: 'Systemic-dose vaginal ring. This estradiol acetate ring delivers the equivalent of 0.10 mg estradiol/day for three months.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7aaa97f9-a9d1-c815-e053-2991aa0afb9e'
     }],
     ['ach-json-1490667', {
       label: 'Aveed (testosterone undecanoate) 750 mg/3 mL (250 mg/mL) intramuscular injection',
@@ -1631,13 +1659,20 @@
     if (/\bauthorized\s+generic\s+only\b/i.test([record.brandGenericNotes, record.notes].join(' '))) chips.push(['Authorized generic only', 'warning']);
     else if (/\bgeneric(?:\s+formulations)?\s+only\b/i.test([record.brandGenericNotes, record.notes].join(' '))) chips.push(['Generic only', 'warning']);
     if (record.tier) chips.push([`Tier ${record.tier}`, 'neutral']);
+    const bannerEpinephrine = bannerEpiPenIds.has(record.id) && record.planId === 'banner-ufc' && record.sourceEffective === '2026-10-01';
+    const statewideEpinephrine = record.isStatewideReference && record.id.endsWith(':statewide:formulary-11033') && record.sourceEffective === '2026-11-01';
+    const reviewedEpinephrineLimit = (bannerEpinephrine || statewideEpinephrine)
+      && String(record.qlAmount) === '2' && String(record.qlDays) === '30';
     if (uhcReviewedPaConflicts.has(record.id) || reviewedCardPresentation(record)?.paSourceConflict) chips.push(['PA listings conflict', 'warning']);
     else if (reviewedCardPresentation(record)?.paBadge) chips.push([reviewedCardPresentation(record).paBadge, 'warning']);
     else if (record.pa === 'required') chips.push(['PA required', 'warning']);
-    else if (record.pa === 'conditional') chips.push(['Conditional PA', 'warning']);
+    else if (record.pa === 'conditional') {
+      const epiThreshold = reviewedEpinephrineLimit && /PA REQUIRED for > 2 Per Month/i.test(record.paText);
+      chips.push([epiThreshold ? 'PA if >2 per month' : 'Conditional PA', 'warning']);
+    }
     if (reviewedCardPresentation(record)?.stepListingsDiffer) chips.push(['Step therapy varies by listing', 'warning']);
     else if (record.step === 'specified') chips.push(['Step therapy', 'warning']);
-    if (record.quantityLimited || record.qlAmount || record.qlDays) chips.push([record.verifiedQuantityLabel || bannerAdhdLimit(record) || 'Quantity limit', 'warning']);
+    if (record.quantityLimited || record.qlAmount || record.qlDays) chips.push([record.verifiedQuantityLabel || bannerAdhdLimit(record) || (reviewedEpinephrineLimit ? (bannerEpinephrine ? 'QL: 2 pens per 30 days' : 'QL: 2 per 30 days (unit unspecified)') : 'Quantity limit'), 'warning']);
     if (record.ageLimited) chips.push(['Age limit', 'warning']);
     if (record.specialty) chips.push(['Specialty', 'warning']);
     if (record.diagnosisRequired) chips.push(['Diagnosis required', 'warning']);
@@ -2405,7 +2440,7 @@
   }
 
   function matchingClinicalBranches(policy, group) {
-    const brands = group.brands.map(productIdentity).filter(Boolean);
+    const brands = [...group.brands, ...(group.records || []).filter(r => ['ach-json-848333','ach-json-848343'].includes(r.id)).map(r => r.brand)].map(productIdentity).filter(Boolean);
     const names = [...new Set([group.name, ...(group.records || []).map(r => r.name)].map(productIdentity).filter(Boolean))];
     return (policy.branches || []).filter(branch => {
       const product = branch.fields?.['Product Name']?.text || branch.product || '';
@@ -3169,7 +3204,7 @@
         const continuedUse = isUhc && record.id === 'uhc-oct-complete-de1ca42f17826905' && uhcAgeEightPa(record)
           && record.rawRestrictions?.includes('Continued use of two or more drugs in this class may require prior authorization')
           ? '<p class="pa-condition">Continued use of two or more drugs in this class may require PA.</p>' : '';
-        const limit = !bannerAdhdLimit(record) && (bannerProducts.includes(record) || (isBanner && group.isStatewide && mixedPlanRows.includes(record)))
+        const limit = !bannerEpiPenIds.has(record.id) && !bannerAdhdLimit(record) && (bannerProducts.includes(record) || (isBanner && group.isStatewide && mixedPlanRows.includes(record)))
           && /^\d+(?:\.\d+)?$/.test(record.qlAmount) && /^\d+$/.test(record.qlDays)
           ? `<p class="pa-condition"><strong>Quantity limit:</strong> ${escapeHtml(record.qlAmount)} per ${escapeHtml(record.qlDays)} days. The formulary does not specify a unit.</p>` : '';
         const source = coverageSource(record);
