@@ -117,6 +117,8 @@ def apply_benefit_updates(record, candidates):
 
 ACH_FEB_2023_PDL = ('https://www.azcompletehealth.com/content/dam/centene/az-complete-health/pdf/provider/formulary/'
                     'AZ%20Integrated%20English%20CNCAZCH01_19108_2023-01-25-Final%20508C%20PDF%20-%20Feb%202023.pdf')
+ACH_APR_2023_PDL = ('https://www.azcompletehealth.com/content/dam/centene/az-complete-health/pdf/provider/formulary/'
+                    'AZ%20Integrated%20English%20CNCAZCH01_19108_Final%20508C%20PDF%20-%20April%202023%202nd%20run.pdf')
 # Printed pages 20–21, PDF pages 25–26. F denotes formulary, not preference.
 ACH_DAILY_INSULIN_LIMITS = {
  '311027': ('NOVOLIN N SUSP',26),
@@ -181,6 +183,18 @@ def with_ach_baseline(d):
    candidates.append({'name':printed, 'sourceTitle':'Arizona Complete Health February 2023 Complete Care PDL',
                       'sourceEffective':'2023-02-01','sourceUrl':ACH_FEB_2023_PDL,'sourcePage':page,
                       'quantityLimited':True,'qlAmount':'1 mL','qlDays':'1'})
+  if row['rxnorm_id'] in {'727316', '1870207'}:
+   assert name.startswith('NDA019430 0.3 ML epinephrine') and name.endswith('Auto-Injector')
+   candidates.append({'name':'epinephrine (anaphylaxis) soaj', 'sourceTitle':'Arizona Complete Health April 2023 Complete Care PDL',
+                      'sourceEffective':'2023-04-01', 'sourceUrl':ACH_APR_2023_PDL, 'sourcePage':78,
+                      'sourceKind':'plan_formulary', 'quantityLimited':True, 'qlAmount':'0.067 each', 'qlDays':'1',
+                      'rawBenefit':'F; QL(0.067 ea daily).'})
+  if row['rxnorm_id'] in {'835831', '835842'}:
+   assert brand.lower()=='depo-testosterone' and 'testosterone cypionate' in name
+   candidates.append({'name':'DEPO-TESTOSTERONE SOLN IM', 'sourceTitle':'Arizona Complete Health February 2023 Complete Care PDL',
+                      'sourceEffective':'2023-02-01', 'sourceUrl':ACH_FEB_2023_PDL, 'sourcePage':13,
+                      'sourceKind':'plan_formulary', 'coverage':'non_formulary', 'pa':'required',
+                      'paText':'NF; PA. The plan defines NF as requiring authorization for coverage.'})
   candidates.sort(key=lambda r:r.get('sourceEffective',''))
   rec=dict(id='ach-json-'+row['rxnorm_id'],recordType='formulary',planId='az-complete-health',name=name,brand=brand,category='Other',subcategory='Integrated formulary',coverage='listed',listingLabel='Covered',preferred='preferred' if p.get('drug_tier')=='PREFERRED' else 'not_specified',pa='required' if p.get('prior_authorization') else ('not_required' if p.get('prior_authorization') is False else 'not_specified'),paText='The formulary lists prior authorization.' if p.get('prior_authorization') else '',step='specified' if p.get('step_therapy') else 'not_specified',stepText='The formulary requires step therapy but does not specify the steps.' if p.get('step_therapy') else '',quantityLimited=bool(p.get('quantity_limit')),qlAmount='',qlDays='',conditions=[],notes='',sourceTitle='Arizona Complete Health official integrated JSON baseline (declared plan year 2022)',sourceEffective='2022',sourceUrl='/sources/ach/integrated-formulary-baseline.json.gz',sourceRow=index+1,rxnormId=row['rxnorm_id'],validation='official_json_baseline_with_later_updates',baselineSource={'url':SOURCE,'declaredPlanYears':p['years'],'row':index+1,'values':p},sourceUpdates=[])
   if pack_update:
@@ -189,8 +203,17 @@ def with_ach_baseline(d):
    rec['category']=r.get('category') or rec['category'];rec['subcategory']=r.get('subcategory') or rec['subcategory']
    update={k:r.get(k) for k in ['id','name','sourceTitle','sourceUrl','sourceEffective','sourcePage','preferred','pa','paText','step','stepText','qlAmount','qlDays']}
    update['scope']='statewide_reference' if r.get('validation')=='mandated_statewide_minimum_with_plan_adoption_evidence' else 'selected_plan'
+   if r.get('sourceKind'):
+    update['sourceKind']=r['sourceKind']
+   if r.get('rawBenefit'):
+    update['rawBenefit']=r['rawBenefit']
    rec['sourceUpdates'].append(update)
   apply_benefit_updates(rec, candidates)
+  if rec['coverage']=='non_formulary' and rec['benefitSources']['preferred']=='presumed_2022':
+   rec['preferred']='not_specified'
+   rec['benefitSources']['preferred']='selected_plan'
+   rec['listingLabel']='Nonformulary'
+
   if rec['pa']=='not_required' and held_pa and not any(r.get('pa') in ('required','conditional','not_required') for r in candidates):
    rec['pa']='not_specified'
    rec['heldSourceUpdates']=held_pa

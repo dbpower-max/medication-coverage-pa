@@ -730,6 +730,51 @@
 
   const gvokeLabelUrl = 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=92385737-dbad-98c5-e053-2995a90a2805';
   const reviewedCardPresentations = new Map([
+    ['uhc-oct-complete-d9da7410b79a25df', {
+      label: 'ProAir RespiClick (albuterol) 90 mcg/actuation dry powder inhaler', separate: true,
+      dosageForm: 'inhalation powder', identityRxcui: 1649961, electronicRow: 3310, paSourceConflict: true,
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9324e2eb-26fd-4f14-9f10-e5aa467306f4',
+      note: 'Breath-actuated, 200 actuations. Do not use with a spacer. Contraindicated in severe milk protein allergy. UHC’s printed list flags PA. The electronic entry reports no PA and lists step therapy. The current requirement and numeric quantity limit are unverified.'
+    }],
+    ['uhc-oct-complete-c46564b2cf6fafaa', {
+      label: 'Albuterol HFA 90 mcg/actuation metered-dose inhaler (Ventolin HFA reference)', separate: true,
+      dosageForm: 'inhalation aerosol', option: 'Brand Ventolin HFA', scopeFallbackToOption: true, paSourceConflict: true,
+      labelProductExamples: [['60 actuations', 801095], ['200 actuations', 859088]],
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d92c5d6b-ff10-4087-36a2-1cfc464cb967',
+      electronicEvidence: ['Row 893, RxCUI 859088 (200 actuations): NON-PREFERRED(90), PA: no, ST: yes, QL: yes.'],
+      note: 'The printed listing flags PA and leaves the package unspecified. The 200-actuation electronic entry reports no PA and lists step therapy. Requirements for the 60-actuation package and the numeric quantity limit are unverified.'
+    }],
+    ['uhc-oct-complete-939fdd916f3110dd', {
+      label: 'Albuterol HFA 90 mcg/actuation metered-dose inhaler (Ventolin HFA reference)', separate: true,
+      dosageForm: 'inhalation aerosol', option: 'Generic albuterol HFA (Ventolin reference)',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d92c5d6b-ff10-4087-36a2-1cfc464cb967',
+      labelProductExamples: [['60-actuation generic formulation example', 801092], ['200-actuation generic formulation example', 2123076]],
+      note: 'UHC lists the generic separately. The covered package and numeric quantity limit are unverified.'
+    }],
+    ['ach-json-727316', {
+      label: 'Epinephrine 0.15 mg/0.3 mL single-dose autoinjector (EpiPen Jr generic)',
+      dosageForm: 'solution for injection', separate: true, identityRxcui: 727316,
+      note: 'Each device delivers 0.15 mg (0.5 mg/mL) by intramuscular or subcutaneous injection. The plan reports its dispensing limit in “each” and does not specify device or carton counting.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=778ac6ae-6bcb-47a4-bcb3-8dd0da9f8836'
+    }],
+    ['ach-json-1870207', {
+      label: 'Epinephrine 0.3 mg/0.3 mL single-dose autoinjector (EpiPen generic)',
+      dosageForm: 'solution for injection', separate: true, identityRxcui: 1870207,
+      note: 'Each device delivers 0.3 mg (1 mg/mL) by intramuscular or subcutaneous injection. The plan reports its dispensing limit in “each” and does not specify device or carton counting.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=778ac6ae-6bcb-47a4-bcb3-8dd0da9f8836'
+    }],
+    ['ach-json-835831', {
+      label: 'Depo-Testosterone (testosterone cypionate) 100 mg/mL intramuscular injection',
+      dosageForm: 'solution for injection', separate: true, identityRxcui: 835831,
+      note: 'Labeled package: 10 mL multidose vial. The February 2023 plan formulary requires authorization for this brand. Current brand exception criteria and eligible vial size are unverified.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cfbb53d4-b868-4a28-8436-f9112eb01c39'
+    }],
+    ['ach-json-835842', {
+      label: 'Depo-Testosterone (testosterone cypionate) 200 mg/mL intramuscular injection',
+      dosageForm: 'solution for injection', separate: true, identityRxcui: 835842,
+      note: 'Labeled packages: 1 mL single-dose vial or 10 mL multidose vial. The February 2023 plan formulary requires authorization for this brand. Current brand exception criteria and eligible vial size are unverified.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cfbb53d4-b868-4a28-8436-f9112eb01c39'
+    }],
     ['uhc-oct-complete-f2ad2a3574ca8919', {
       label: 'Humulin R (regular insulin) injection solution in a vial — concentration unspecified', dosageForm: 'injection solution', separate: true, paSourceConflict: true,
       note: 'The printed listing does not identify the concentration. UHC lists PA and a quantity limit here. Its electronic formulary lists different preferences for 100 units/mL and 500 units/mL products, both with step therapy and no PA. Exact concentration, package and requirements are unverified.',
@@ -1394,7 +1439,7 @@
     if (!state.coverage) return true;
     if (record.planId === 'banner-ufc' && bannerInsulinConflicts.has(record.id)
         && ['listed', 'preferred'].includes(state.coverage)) return false;
-    if (state.coverage === 'listed') return record.recordType === 'formulary' && record.coverage !== 'explicit_not_covered';
+    if (state.coverage === 'listed') return record.recordType === 'formulary' && !['explicit_not_covered','non_formulary'].includes(record.coverage);
     if (state.coverage === 'preferred') return record.preferred === 'preferred';
     if (state.coverage === 'non_preferred') return record.preferred === 'non_preferred';
     const pa = reviewedCardPresentation(record)?.explicitPa ? 'required' : record.pa;
@@ -1483,6 +1528,7 @@
     if (record.suppressCoverageAndPaBadges) return '';
     if (record.recordType === 'policy') chips.push([record.guide ? 'PA guide · clinical review pending' : 'Policy criteria', 'warning']);
     else if (record.recordType === 'policy_index') chips.push(['Policy source indexed', 'warning']);
+    else if (showCoverage && record.coverage === 'non_formulary') chips.push(['Nonformulary', 'warning']);
     else if (showCoverage && record.coverage !== 'explicit_not_covered') {
       const listingLabel = record.isStatewideReference || record.planId === 'ahcccs-statewide' ? 'Covered'
         : record.planId === 'uhc-community-az' && record.sourceEffective === '2026-07-01' ? 'On archived formulary' : record.coverage === 'listed' ? 'Covered' : 'On formulary';
@@ -1522,20 +1568,21 @@
     ];
     const lines = sources.map(([scope, label]) => {
       const belongs = field => origins[field] === scope;
-      const planFormularyLimit = belongs('quantityLimited') && scope === 'selected_plan'
-        && record.sourceUpdates?.some(update => update.sourceTitle === 'Arizona Complete Health February 2023 Complete Care PDL' && update.qlAmount === record.qlAmount && update.qlDays === record.qlDays)
-        && record.qlAmount === '1 mL' && record.qlDays === '1';
+      const planFormulary = scope === 'selected_plan' && record.sourceUpdates?.some(update =>
+        update.sourceKind === 'plan_formulary' || update.sourceTitle === 'Arizona Complete Health February 2023 Complete Care PDL');
+      const planFormularyLimit = planFormulary && belongs('quantityLimited') && record.qlDays === '1'
+        && record.qlAmount && record.sourceUpdates.some(update => update.scope === scope && update.qlAmount === record.qlAmount && update.qlDays === record.qlDays);
       const badges = statusChips({
         recordType: 'formulary', coverage: record.coverage,
         preferred: belongs('preferred') && record.preferred,
         pa: belongs('pa') && record.pa, step: belongs('step') && record.step,
         quantityLimited: belongs('quantityLimited') && record.quantityLimited,
-        verifiedQuantityLabel: planFormularyLimit ? 'QL: 1 mL per day' : '',
+        verifiedQuantityLabel: planFormularyLimit ? `QL: ${record.qlAmount} per day` : '',
         ageLimited: belongs('ageLimited') && record.ageLimited
       }, belongs('coverage'));
       const preference = belongs('coverage') && record.coverage === 'listed' && record.preferred === 'not_specified'
         && !record.preferenceUncertaintyReason ? '<span class="chip neutral">Preference not specified</span>' : '';
-      const sourceChip = label ? `<span class="chip neutral">${escapeHtml(planFormularyLimit ? 'Plan formulary' : label)}</span>` : '';
+      const sourceChip = label ? `<span class="chip neutral">${escapeHtml(planFormulary ? 'Plan formulary' : label)}</span>` : '';
       return badges ? `<div class="chips" aria-label="${escapeHtml(label || 'Plan')} coverage attributes">${sourceChip}${badges}${preference}</div>` : '';
     }).join('');
     const holds = [...new Set([record.sourceConflict, record.paUncertaintyReason].filter(Boolean))];
@@ -1670,7 +1717,10 @@
       if (record.paUncertaintyReason) details.push(`<p>${escapeHtml(record.paUncertaintyReason)}</p>`);
     }
     if (record.sourceUpdates?.length) details.push('<p><strong>Later applicable sources:</strong></p>' + record.sourceUpdates.map(item =>
-      `<p>${item.scope === 'statewide_reference' ? 'AHCCCS Statewide' : item.sourceTitle === 'Arizona Complete Health February 2023 Complete Care PDL' ? 'Plan formulary' : 'Plan notice'} · <a href="${escapeHtml(sourceHref(item))}" target="_blank" rel="noopener">${escapeHtml(item.name)} · ${escapeHtml(item.sourceEffective)}</a>${item.paText ? ' · ' + escapeHtml(item.paText) : ''}</p>`).join(''));
+      `<p>${item.scope === 'statewide_reference' ? 'AHCCCS Statewide' : (item.sourceKind === 'plan_formulary' || item.sourceTitle === 'Arizona Complete Health February 2023 Complete Care PDL') ? 'Plan formulary' : 'Plan notice'} · <a href="${escapeHtml(sourceHref(item))}" target="_blank" rel="noopener">${escapeHtml(item.name)} · ${escapeHtml(item.sourceEffective)}</a>${item.paText ? ' · ' + escapeHtml(item.paText) : ''}${item.rawBenefit ? ' · ' + escapeHtml(item.rawBenefit) : ''}</p>`).join(''));
+    if (record.coverage === 'non_formulary' && ['ach-json-835831','ach-json-835842'].includes(record.id)) {
+      details.push('<p>AHCCCS Statewide · Fee-for-service. The October 14, 2026 FFS testosterone criteria name Depo-Testosterone as preferred. Current ACC brand preference and product-specific approval criteria remain unverified. <a href="./sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf#page=1785" target="_blank" rel="noopener">Statewide FFS guideline · PDF page 1785</a></p>');
+    }
     if (record.achProviderRule) details.push(`<p><strong>Plan PA rule:</strong> ${escapeHtml(record.achProviderRule.text)} <a href="${escapeHtml(record.achProviderRule.sourceUrl)}" target="_blank" rel="noopener">Provider pharmacy page ↗</a> · accessed ${escapeHtml(record.achProviderRule.observedDate)}.</p>`);
     if (record.verifiedQuantityLabel && record.policyQuantityLimit?.sourcePage) {
       const policy = state.data.policies.find(item => item.id === record.policyQuantityLimit.sourcePolicyId);
@@ -2598,8 +2648,8 @@
         : selected === primary && asmanexHfa
         ? '<p>The guideline covers asthma. How it applies to the age and continued-use conditions in the formulary is unverified.</p>'
         : selected === primary && administrativeFallback ? (
-          (fallbackRows.length < paRows.length || (reviewedInsulin && fallbackRows.length < group.records.length)
-            ? `<p><strong>Applies to:</strong> ${escapeHtml(fallbackRows.map(r => uhcReviewedProductGroups.get(r.id)?.label || (reviewedCardPresentation(r)?.uhcFormRx && reviewedCardPresentation(r).option) || uhcInsulinAndSupplyLabels.get(r.id) || readableMedicationName(r.name)).join('; '))}</p>` : '')
+          (fallbackRows.length < paRows.length || (fallbackRows.length < group.records.length && (reviewedInsulin || fallbackRows.some(r => reviewedCardPresentation(r)?.scopeFallbackToOption)))
+            ? `<p><strong>Applies to:</strong> ${escapeHtml(fallbackRows.map(r => uhcReviewedProductGroups.get(r.id)?.label || ((reviewedCardPresentation(r)?.uhcFormRx || reviewedCardPresentation(r)?.scopeFallbackToOption) && reviewedCardPresentation(r).option) || uhcInsulinAndSupplyLabels.get(r.id) || readableMedicationName(r.name)).join('; '))}</p>` : '')
           + '<p>Product-specific approval criteria are unverified.</p>'
         ) : '';
       if (body.length) sections.push(`<section class="uhc-restriction-criteria"><h4>${kind}</h4>${context}${body.join('')}</section>`);

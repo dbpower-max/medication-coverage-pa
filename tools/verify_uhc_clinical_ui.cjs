@@ -1201,6 +1201,29 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  }
  const glargineSolution=groups.find(g=>g.records.some(r=>r.id.endsWith('96922f638bb987d2')));
  assert(a.medicationGroupCard(glargineSolution).includes('November 16 electronic file has no matching entry for RxCUI 2563976'));
+ const rescueById=suffix=>groups.find(g=>g.records.some(r=>r.id.endsWith(suffix)));
+ const powder=rescueById('d9da7410b79a25df'), ventolin=rescueById('c46564b2cf6fafaa');
+ assert.notEqual(powder,ventolin);
+ assert.equal(ventolin,rescueById('939fdd916f3110dd'));
+ assert.equal(ventolin.records.length,2);
+ const powderCard=a.medicationGroupCard(powder), powderSources=a.recordDetails(powder.records[0]);
+ assert(powderCard.includes('90 mcg/actuation dry powder inhaler') && powderCard.includes('severe milk protein allergy'));
+ assert(powderCard.includes('>PA listings conflict<') && !powderCard.includes('>PA required<'));
+ assert(powderSources.includes('searchTerm=1649961"') && powderSources.includes('row 3310') && powderSources.includes(archivedElectronic));
+ const hfaCardMarkup=a.medicationGroupCard(ventolin);
+ for (const [option,rxs,brand] of [['Brand Ventolin HFA',[801095,859088],true],['Generic albuterol HFA (Ventolin reference)',[801092,2123076],false]]) {
+   const badges=hfaCardMarkup.split('Coverage attributes for '+option+'"')[1].split('</div>')[0];
+   assert.equal(badges.includes('>PA listings conflict<'),brand,option);
+   assert(badges.includes(brand?'>Nonpreferred<':'>Preferred<') && !badges.includes('>PA required<'),option);
+   const row=ventolin.records.find(r=>r.id.endsWith(brand?'c46564b2cf6fafaa':'939fdd916f3110dd'));
+   const src=a.recordDetails(row);
+   for (const rx of rxs) assert(src.includes('searchTerm='+rx+'"'),option);
+   assert.equal(src.includes('Row 893'),brand,option);
+   assert(!src.includes('2123111'),option);
+ }
+ const hfaReview=await open(ventolin);
+ assert(hfaReview.html.includes('Applies to:</strong> Brand Ventolin HFA') && !hfaReview.html.includes('GL-140660'));
+ assert(!hfaCardMarkup.includes('severe milk protein allergy'));
  const xopenex=groups.flatMap(g=>g.records).find(r=>r.reviewedPresentation?.electronicVersion && r.reviewedPresentation.identityRxcui===746466);
  assert(a.recordDetails(xopenex).includes(currentElectronic) && !a.recordDetails(xopenex).includes(archivedElectronic));
  const basal=groups.filter(g=>g.records.some(r=>r.reviewedPresentation?.electronicEvidence));
