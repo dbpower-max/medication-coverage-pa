@@ -101,3 +101,17 @@ for rx in ('1191234','1191222','1659929','1191250','2679504','1725059','1725064'
    assert 'BRAND ONLY' in u['rawBenefit']
   if u['id']=='ach-mandated-formulary-9694':
    assert 'OVER-THE-COUNTER & PRESCRIPTION ONLY' in u['rawBenefit']
+
+# Exact-plan daily quantity and statewide 30-day quantities remain distinct for every form.
+reviewed=[r for r in baseline if r.get('reviewedPresentation',{}).get('statewideMonthlyLimit')]
+assert len(reviewed)==31
+for r in reviewed:
+ d=r['reviewedPresentation']
+ state,= [u for u in r['sourceUpdates'] if u['scope']=='statewide_reference']
+ notice,= [u for u in r['sourceUpdates'] if u.get('sourceUrl','').endswith('PU26135.html')]
+ plan,= [u for u in r['sourceUpdates'] if u.get('sourcePage')==25]
+ odt='Disintegrating' in r['name']
+ assert odt==('ODT' in notice['name'])==('DISPERSABLE' in state['name'])==('tbdp' in plan['name'])
+ assert r['qlDays']=='1' and r['qlAmount']==plan['qlAmount'] and r['benefitSources']['quantityLimited']=='selected_plan'
+ assert state['qlDays']=='30' and state['qlAmount']==d['statewideMonthlyLimit']
+ assert r['pa']=='conditional' and r['benefitSources']['pa']=='statewide_reference' and r['step']=='not_specified'

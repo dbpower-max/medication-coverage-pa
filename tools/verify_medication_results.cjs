@@ -198,8 +198,8 @@ assert(api.render().some(group => group.label === 'doxepin HCl 10 MG Oral Capsul
 for (const [term, id, expected] of [
   ['lispro', 'ach-json-242120', [['Covered', 'Preferred'], ['Plan formulary', 'QL: 1 mL per day']]],
   ['Tudorza', 'ach-json-1303107', [['Plan notice', 'Covered', 'Nonpreferred', 'PA required']]],
-  ['clozapine', 'ach-json-1006801', [['Quantity limit'], ['Plan notice', 'Covered', 'Preferred'],
-    ['AHCCCS Statewide', 'Conditional PA']]]
+  ['clozapine', 'ach-json-1006801', [['Plan sources', 'Covered', 'Preferred', 'QL: 5 tablets per day', 'Age limit'],
+    ['AHCCCS Statewide', 'PA if age &lt;18 · prescriber rules at ≥18', 'QL: 150 tablets per 30 days']]]
 ]) {
   api.state.term = term;
   const group = api.render().find(g => g.records.some(r => r.id === id));

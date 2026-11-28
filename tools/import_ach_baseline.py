@@ -179,6 +179,50 @@ def naloxone_updates(rx, sources, statewide):
                                            str(ref['statewideReference'].get('qlAmount','')),str(ref['statewideReference'].get('qlDays',''))])})
  return updates
 
+# Grouped by the exact conventional/ODT source rows, never merely by ingredient.
+ACH_ANTIPSYCHOTIC_FORMS = [
+ ('clozapine',False,'197536 429212 197535 309374',13820,10210,'883b5d43-0339-7dc1-f775-93791fb9b978'),
+ ('clozapine',True,'721773 476179 476177 1006801 996921',13819,10209,'6fccf4f7-2e30-4272-9800-225aaef20584'),
+ ('olanzapine',False,'200034 312078 312079 314154 312077 283639',13823,10215,'6077f5c4-01d7-4c1d-97a0-cb859f98ce68'),
+ ('olanzapine',True,'314155 312076 351107 351108',13822,10214,'df43938a-3469-40eb-8166-f0a2fd29d6d8'),
+ ('risperidone',False,'312828 312829 312830 312831 312832 314211',13828,10220,'43aa2a4f-1123-4f86-800b-9218882f7bcd'),
+ ('risperidone',True,'645037 403825 401953 401954 616698 616705',13826,10218,'58b7504f-c4a3-ef1b-e063-6394a90ac0f3'),
+]
+ACH_ANTIPSYCHOTIC_OPTIONS={rx:(drug,odt,notice,state,label)
+ for drug,odt,ids,notice,state,label in ACH_ANTIPSYCHOTIC_FORMS for rx in ids.split()}
+
+def antipsychotic_option(rx,name,sources):
+ drug,odt,notice,state,label=ACH_ANTIPSYCHOTIC_OPTIONS[rx]
+ assert name.startswith(drug+' ') and ('Disintegrating' in name)==odt and name.endswith('Oral Tablet')
+ strength=re.search(r'([\d.]+) MG',name)[1]
+ age=18 if drug=='clozapine' else 6
+ printed=drug+(' tbdp' if odt else ' tabs')
+ if drug=='clozapine':
+  daily=5
+ elif drug=='olanzapine':
+  daily=2 if strength in ('5','10') else 1
+  printed+=' '+('5 mg, 10 mg' if daily==2 else '15 mg, 20 mg' if odt else '2.5 mg, 7.5 mg, 15 mg, 20 mg')
+ elif odt:
+  daily=2
+ else:
+  daily=4 if strength in ('0.25','0.5') else 3 if strength in ('1','2') else 2
+  printed+=' '+{4:'.25 mg, .5 mg',3:'1 mg, 2 mg',2:'3 mg, 4 mg'}[daily]
+ dated={'name':printed,'sourceTitle':'Arizona Complete Health April 2023 Complete Care PDL','sourceUrl':ACH_APR_2023_PDL,
+        'sourcePage':25,'sourceEffective':'2023-04-01','sourceKind':'plan_formulary','coverage':'listed',
+        'quantityLimited':True,'qlAmount':str(daily)+' tablets','qlDays':'1','ageLimited':True,
+        'ageRestrictionText':f'At least {age} yrs old','rawBenefit':f'F; QL({daily} ea daily); AL(At least {age} yrs old).'}
+ ref=sources['ach-mandated-formulary-'+str(state)]
+ source={**ref, **ref['statewideReference']}
+ raw=source['qlAmount']
+ monthly=re.search(r'(?<!\d)'+strength+r'MG: (\d+)',raw)[1] if state==10214 else raw
+ assert all(v=='30' for v in source['qlDays'].split()) and monthly.isdigit() and source['pa']=='conditional'
+ source.update(qlAmount=monthly,qlDays='30',rawBenefit=f"{source['name']} | {source['brand']} | PREFERRED DRUG | QL {raw}, days {ref['statewideReference']['qlDays']}.")
+ display={'prescribingHeading':f"{drug.capitalize()} {strength} mg "+('orally disintegrating tablet' if odt else 'oral tablet'),
+          'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label,'identityRxcui':int(rx),
+          'statewideMonthlyLimit':monthly,'statewideAge':age,
+          'note':f"AHCCCS Statewide requires PA below age {age}. At age {age} and older, PA is waived when prescribed by a psychiatric clinician, a developmental pediatrician or another prescriber approved by the MCO."}
+ return [dated,sources['ach-notice-'+str(notice)],source],display
+
 def with_ach_baseline(d):
  src=ROOT/'dist/sources/ach/integrated-formulary-baseline.json.gz'
  raw=json.loads(gzip.decompress(src.read_bytes())); assert len(raw)==4454
@@ -263,6 +307,9 @@ def with_ach_baseline(d):
    candidates.extend([suspension, {'name':'budesonide (inhalation) susp', 'sourceTitle':'Arizona Complete Health April 2023 Complete Care PDL',
                                    'sourceEffective':'2023-04-01','sourceUrl':ACH_APR_2023_PDL,'sourcePage':13,
                                    'sourceKind':'plan_formulary','coverage':'listed','rawBenefit':'F; restriction fields blank.'}])
+  antipsychotic_display=None
+  if row['rxnorm_id'] in ACH_ANTIPSYCHOTIC_OPTIONS:
+   candidates,antipsychotic_display=antipsychotic_option(row['rxnorm_id'],name,indexed_sources)
   if pack_update:
    candidates.append(pack_update)
   if row['rxnorm_id'] in ACH_DAILY_INSULIN_LIMITS:
@@ -299,6 +346,8 @@ def with_ach_baseline(d):
                       'paText':'NF; PA. The plan defines NF as requiring authorization for coverage.'})
   candidates.sort(key=lambda r:r.get('sourceEffective',''))
   rec=dict(id='ach-json-'+row['rxnorm_id'],recordType='formulary',planId='az-complete-health',name=name,brand=brand,category='Other',subcategory='Integrated formulary',coverage='listed',listingLabel='Covered',preferred='preferred' if p.get('drug_tier')=='PREFERRED' else 'not_specified',pa='required' if p.get('prior_authorization') else ('not_required' if p.get('prior_authorization') is False else 'not_specified'),paText='The formulary lists prior authorization.' if p.get('prior_authorization') else '',step='specified' if p.get('step_therapy') else 'not_specified',stepText='The formulary requires step therapy but does not specify the steps.' if p.get('step_therapy') else '',quantityLimited=bool(p.get('quantity_limit')),qlAmount='',qlDays='',conditions=[],notes='',sourceTitle='Arizona Complete Health official integrated JSON baseline (declared plan year 2022)',sourceEffective='2022',sourceUrl='/sources/ach/integrated-formulary-baseline.json.gz',sourceRow=index+1,rxnormId=row['rxnorm_id'],validation='official_json_baseline_with_later_updates',baselineSource={'url':SOURCE,'declaredPlanYears':p['years'],'row':index+1,'values':p},sourceUpdates=[])
+  if antipsychotic_display:
+   rec['reviewedPresentation']=antipsychotic_display
   if pack_update:
    rec['verifiedStatewidePackId'] = pack_reference
   if row['rxnorm_id'] in {'349094', '351109', '252559'}:

@@ -1889,12 +1889,16 @@
         update.sourceKind === 'plan_formulary' || update.sourceTitle === 'Arizona Complete Health February 2023 Complete Care PDL');
       const planFormularyLimit = planFormulary && belongs('quantityLimited') && record.qlDays === '1'
         && record.qlAmount && record.sourceUpdates.some(update => update.scope === scope && update.qlAmount === record.qlAmount && update.qlDays === record.qlDays);
+      const display = reviewedCardPresentation(record);
+      const stateTabletLimit = scope === 'statewide_reference' && display?.statewideMonthlyLimit;
+      const ageTrigger = scope === 'statewide_reference' && belongs('pa') && record.pa === 'conditional' && display?.statewideAge;
       const badges = statusChips({
+        reviewedPresentation: ageTrigger ? {paBadge: `PA if age <${ageTrigger} · prescriber rules at ≥${ageTrigger}`} : undefined,
         recordType: 'formulary', coverage: record.coverage,
         preferred: belongs('preferred') && record.preferred,
         pa: belongs('pa') && record.pa, step: belongs('step') && record.step,
-        quantityLimited: belongs('quantityLimited') && record.quantityLimited,
-        verifiedQuantityLabel: scope === 'statewide_reference' && belongs('quantityLimited')
+        quantityLimited: stateTabletLimit || (belongs('quantityLimited') && record.quantityLimited),
+        verifiedQuantityLabel: stateTabletLimit ? `QL: ${stateTabletLimit} tablets per 30 days` : scope === 'statewide_reference' && belongs('quantityLimited')
           && reviewedCardPresentation(record)?.statewideDailyLimit === record.qlAmount && record.qlDays === '1'
           ? `QL: ${record.qlAmount} per day (unit unspecified)` : scope === 'statewide_reference' && belongs('quantityLimited')
           && reviewedCardPresentation(record)?.quantityAmount === record.qlAmount && record.qlDays === '30'
