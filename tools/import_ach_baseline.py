@@ -134,6 +134,21 @@ ACH_DAILY_INSULIN_LIMITS = {
  '847189': ('HUMULIN 70/30 KWIKPEN SUPN 30 UNIT/ML-70 UNIT/ML',26),
 }
 
+# Exact brand, strength, route and device mappings in the October 2026 ACC bulletin.
+# Do not extend these to other forms by ingredient or by a similar product name.
+ACH_OCT_NOTICE_MATCH = {
+ '1111642': ('ach-notice-13943', 'COPAXONE 20 MG/ML (SUBCUTANEOUS)'),
+ '1876385': ('ach-notice-13945', 'OCREVUS (INTRAVEN.)'),
+ '2693465': ('ach-notice-13946', 'OCREVUS ZUNOVO VIAL (SUBCUTANEOUS)'),
+ '2705603': ('ach-notice-13875', 'YESINTEK VIAL (SUBCUTANEOUS)'),
+ '2705597': ('ach-notice-13874', 'YESINTEK SYRINGE (SUBCUTANEOUS)'),
+ '2705600': ('ach-notice-13874', 'YESINTEK SYRINGE (SUBCUTANEOUS)'),
+ '847913': ('ach-notice-13905', 'BYETTA PENS (SUBCUTANEOUS)'),
+ '847917': ('ach-notice-13905', 'BYETTA PENS (SUBCUTANEOUS)'),
+}
+ACH_OCT_NOTICE_URL = 'https://www.azcompletehealth.com/newsroom/PU26135.html'
+AHCCCS_MAY_MEMO = 'https://www.azahcccs.gov/Resources/Downloads/PharmacyUpdates/2026/Contractor_Memo_May_2026_PT_MeetingFinal.pdf'
+
 def with_ach_baseline(d):
  src=ROOT/'dist/sources/ach/integrated-formulary-baseline.json.gz'
  raw=json.loads(gzip.decompress(src.read_bytes())); assert len(raw)==4454
@@ -176,6 +191,24 @@ def with_ach_baseline(d):
    candidates.append((branded,r))
   if any(b for b,r in candidates):candidates=[(b,r) for b,r in candidates if b]
   candidates=[r for b,r in candidates]
+  if row['rxnorm_id'] in ACH_OCT_NOTICE_MATCH:
+   notice_id, printed_name = ACH_OCT_NOTICE_MATCH[row['rxnorm_id']]
+   notice = next(r for r in current if r['id'] == notice_id)
+   assert notice['name'] == printed_name and notice['sourceUrl'] == ACH_OCT_NOTICE_URL
+   if all(r['id'] != notice_id for r in candidates):
+    candidates.append(notice)
+  if row['rxnorm_id'] in {'847910', '847915'}:
+   assert not brand and '60 ACTUAT exenatide' in name and 'Pen Injector' in name
+   candidates.append({'name':'EXENATIDE PEN (SUBCU SUBCUTANEOUS)*', 'sourceTitle':'Arizona Complete Health Complete Care PU26135, GLP-1 table',
+                      'sourceUrl':ACH_OCT_NOTICE_URL, 'sourceEffective':'2026-10-01', 'coverage':'listed',
+                      'preferred':'non_preferred', 'pa':'required', 'paText':'The notice directs nonpreferred drugs through the PA process.',
+                      'rawBenefit':'Nonpreferred column. Continuation of nonformulary medication: No. Route confirmed by the AHCCCS June 8 contractor memo, p. 8.'})
+  if row['rxnorm_id'] == '2705588':
+   assert '[Yesintek]' in name and '26 ML' in name and '5 MG/ML' in name
+   candidates.append({'name':'YESINTEK VIAL (INTRAVENOUS)', 'sourceTitle':'AHCCCS Statewide June 8, 2026 contractor memo',
+                      'validation':'mandated_statewide_minimum_with_plan_adoption_evidence', 'sourceUrl':AHCCCS_MAY_MEMO,
+                      'sourcePage':6, 'sourceEffective':'2026-10-01', 'preferred':'non_preferred',
+                      'rawBenefit':'Cytokine and CAM antagonists: products moving to nonpreferred. The ACH October notice repeats the subcutaneous vial.'})
   if row['rxnorm_id'] in {'2535249', '2535243'}:
    # Both named devices are preferred, but each has its own statewide quantity.
    is_pen = row['rxnorm_id'] == '2535249'

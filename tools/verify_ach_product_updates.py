@@ -66,3 +66,16 @@ for row in baseline:
  if origins['step']=='presumed_2022':
   assert (row['step']=='specified')==flags['step_therapy']
 print('PASS: all 4,454 baseline entries preserve archived source flags and documented exceptions')
+
+# PU26135 addresses these exact products and the generic twice-daily pen.
+products = {r['id']:r for r in data['medications']}
+for rx in ('1111642', '1876385', '2693465', '2705597', '2705600', '2705603', '847910', '847915'):
+ row = products['ach-json-' + rx]
+ assert row['preferred'] == 'non_preferred' and row['pa'] == 'required'
+ assert row['benefitSources']['preferred'] == 'selected_plan'
+ assert any(u.get('sourceUrl','').endswith('PU26135.html') for u in row['sourceUpdates'])
+ assert row['baselineSource']['values']['drug_tier'] == 'PREFERRED'
+iv = products['ach-json-2705588']
+assert iv['benefitSources']['preferred'] == 'statewide_reference'
+assert not any(u.get('sourceUrl','').endswith('PU26135.html') for u in iv['sourceUpdates'])
+assert all(products['ach-json-' + rx]['preferred'] == 'preferred' for rx in ('847913', '847917'))
