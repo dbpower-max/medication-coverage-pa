@@ -597,6 +597,44 @@ ACH_ANXIOLYTIC_OPTIONS = {
  '198057':('Oxazepam','10',9775,2), '312134':('Oxazepam','15',9776,2), '198059':('Oxazepam','30',9777,2),
 }
 
+# Reviewed salt, release and route distinctions on ACH April pp14–15.
+ACH_SEIZURE_FORMS={
+ '1313112':('phenytoin susp',9906,'Phenytoin 125 mg/5 mL oral suspension','093fd736-5971-47af-b4ef-08c1696cebe8'),
+ '1313885':('phenytoin chew',9904,'Phenytoin 50 mg chewable tablet','78b38e7b-1460-4adc-b738-320ffa6259c2'),
+ '855671':('phenytoin sodium extended',9905,'Phenytoin sodium 100 mg extended-release oral capsule','36262a4c-33f1-40a5-e063-6394a90ad36a'),
+ '855861':('phenytoin sodium extended',9905,'Phenytoin sodium 200 mg extended-release oral capsule','c40f66cc-6f4a-4b29-84ba-d265e4848735'),
+ '855873':('phenytoin sodium extended',9905,'Phenytoin sodium 300 mg extended-release oral capsule','c40f66cc-6f4a-4b29-84ba-d265e4848735'),
+ '855871':('DILANTIN',9905,'Dilantin (phenytoin sodium) 30 mg extended-release oral capsule','86dd27d1-9cee-48ae-b55d-e2d2f7dbc593'),
+}
+for ids,printed,number,form,label in [
+ ([('388311',100),('200133',200),('200131',300)],'cp12',9869,'12-hour extended-release oral capsule','2676f950-48b4-4bef-a792-ea4570de9aa6'),
+ ([('199378',100),('402505',200),('402506',400)],'tb12',9872,'12-hour extended-release oral tablet','726a127b-03b2-44e8-a63d-078b35e27525'),
+ ([('308973',100)],'chew',9868,'chewable tablet','0526a054-3eda-49b4-b390-7d5d16e30af8'),
+ ([('308979',200)],'tabs',9871,'immediate-release oral tablet','0526a054-3eda-49b4-b390-7d5d16e30af8'),
+ ([('308976','100 mg/5 mL')],'susp',9870,'oral suspension','0526a054-3eda-49b4-b390-7d5d16e30af8'),
+]:
+ for rx,strength in ids:
+  dose=f'{strength} mg' if isinstance(strength,int) else strength
+  ACH_SEIZURE_FORMS[rx]=('carbamazepine '+printed,number,f'Carbamazepine {dose} {form}',label)
+
+def seizure_form_option(rx,name,sources):
+ printed,number,heading,label=ACH_SEIZURE_FORMS[rx]
+ carb='carbamazepine' in name.lower()
+ assert carb or 'phenytoin' in name.lower()
+ ref=statewide_option(sources, number,'Preference, PA, ST and QL blank.')
+ assert ref['sourcePage']==8 and ref['pa']=='not_specified' and ref['step']=='not_specified' and not ref['qlAmount'] and not ref['qlDays']
+ if rx=='855871':assert 'DILANTIN' in ref.get('brand','').upper()
+ note=''
+ if not carb:
+  note='The suspension and chewable tablet contain phenytoin free acid. The extended-release capsules contain phenytoin sodium. The free-acid form has approximately 8% more drug content. A switch between forms may require dose adjustment and serum level monitoring.'
+ elif number==9869:
+  note='The extended-release capsule may be opened and the beads sprinkled on soft food. Swallow the beads without crushing or chewing.'
+ elif number==9872:
+  note='Swallow the extended-release tablet whole. Do not crush, chew or break.'
+ display={'label':heading,'prescribingHeading':heading,'separate':True,'identityRxcui':int(rx),
+          'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label,'note':note}
+ return [april_formulary(printed,14 if carb else 15,'F'),ref],display
+
 ACH_DIAZEPAM_ORAL={
  '197589':('10',9768), '197590':('2',9769), '197591':('5',9770),
  '309844':('5',9766), '309843':('1',9767),
@@ -963,6 +1001,8 @@ def with_ach_baseline(d):
    candidates,oral_display=dulera_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_MIRTAZAPINE:
    candidates,oral_display=mirtazapine_option(row['rxnorm_id'],name,indexed_sources)
+  if row['rxnorm_id'] in ACH_SEIZURE_FORMS:
+   candidates,oral_display=seizure_form_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_DIAZEPAM_ORAL:
    candidates,oral_display=diazepam_oral(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_LACOSAMIDE:
