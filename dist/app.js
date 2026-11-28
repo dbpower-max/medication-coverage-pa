@@ -2621,7 +2621,7 @@
         const policy = (state.data.statewidePaCriteria || []).find(p => p.id === 'ahcccs-ffs-nov2026-policy-gl-731218');
         if (policy) add(policy);
       }
-      if (record.reviewedPresentation?.lacosamideReference) {
+      if (record.reviewedPresentation?.lacosamideReference || record.reviewedPresentation?.rufinamideRequest === 'tablet') {
         const policy = (state.data.statewidePaCriteria || []).find(p => p.id === 'ahcccs-ffs-nov2026-policy-gl-545202');
         if (policy) add(policy);
       }
@@ -3129,7 +3129,7 @@
     if (entry.bannerGuide || entry.bannerIcs) return;
     const {group, policies, guidance} = entry;
     const target = details.querySelector('.card-clinical-content');
-    if (!policies.length && !(state.planId === 'uhc-community-az' && (group.records || []).some(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays || r.uhcClinicalBindings?.some(b => b.role === 'hypnotic_request'))))) return;
+    if (!policies.length && !group.records.some(r => r.reviewedPresentation?.rufinamideRequest) && !(state.planId === 'uhc-community-az' && (group.records || []).some(r => r.planId === state.planId && !r.isStatewideReference && (['required','conditional'].includes(r.pa) || r.qlAmount || r.qlDays || r.uhcClinicalBindings?.some(b => b.role === 'hypnotic_request'))))) return;
     details.dataset.loading = 'true';
     target.innerHTML = '<p role="status">Loading clinical criteria…</p>';
     try {
@@ -3146,6 +3146,20 @@
           + cardBranchMarkup(branch, ageReview);
         const refs = details.querySelector('.card-pa-references');
         if (refs) refs.innerHTML = cardPaReference(ageReview, 'AHCCCS Statewide · age-specific review', 125);
+        details.dataset.loaded = 'true';
+        return;
+      }
+      const rufinamide = group.records.find(r => r.reviewedPresentation?.rufinamideRequest)?.reviewedPresentation;
+      if (rufinamide) {
+        const refs = rufinamide.sourceReferences;
+        const link = ([title,url]) => '<p><a href="'+escapeHtml(url)+'" target="_blank" rel="noopener">'+escapeHtml(title)+'</a></p>';
+        let html = '<p><strong>Centene Medicaid · CP.PMN.157</strong> · Review date August 2026. Initial and continued approvals for Lennox-Gastaut syndrome are each 12 months. Applicability to this ACC request is unverified.</p>'+refs.slice(0,2).map(link).join('');
+        if (rufinamide.rufinamideRequest === 'tablet') {
+          html += '<p><strong>AHCCCS Statewide · Fee-for-service · GL-545202</strong> · Generic tablets: records documenting seizures associated with Lennox-Gastaut syndrome, or continuation of prior therapy for a seizure disorder. Approval lasts 12 months. The source does not label separate initial and renewal stages.</p>'+link(refs[2]);
+        }
+        target.innerHTML = html;
+        const sources = details.querySelector('.card-pa-references');
+        if (sources) sources.innerHTML = refs.map(link).join('');
         details.dataset.loaded = 'true';
         return;
       }
@@ -3514,7 +3528,8 @@
       && policies.find(p => p.policyCode === (isUhc ? 'GL-292192' : 'GL-288251'));
     const seizureRequest = group.records.find(r => r.reviewedPresentation?.seizureRequestPage)?.reviewedPresentation.seizureRequestPage;
     const seizurePolicy = seizureRequest && policies.find(p => p.policyCode === 'GL-572198' && p.planId === state.planId);
-    const refs = seizurePolicy ? cardPaReference(seizurePolicy,'Seizure request guideline',seizureRequest) : nasalRescuePolicy ? cardPaReference(nasalRescuePolicy, isUhc ? 'UHC quantity guideline' : 'AHCCCS Statewide · FFS quantity guideline', isUhc ? 1042 : 1081)
+    const rufinamide = group.records.find(r => r.reviewedPresentation?.rufinamideRequest)?.reviewedPresentation;
+    const refs = rufinamide ? '<a class="source-link card-pa-reference" href="'+escapeHtml(rufinamide.sourceReferences[0][1])+'" target="_blank" rel="noopener">Centene Medicaid initial request · p. 1</a>' : seizurePolicy ? cardPaReference(seizurePolicy,'Seizure request guideline',seizureRequest) : nasalRescuePolicy ? cardPaReference(nasalRescuePolicy, isUhc ? 'UHC quantity guideline' : 'AHCCCS Statewide · FFS quantity guideline', isUhc ? 1042 : 1081)
       : ageReview ? cardPaReference(ageReview, 'AHCCCS Statewide · age-specific review', 125)
       : exactBannerPolicy ? cardPaReference(exactBannerPolicy, 'PA reference', exactBannerReference.exactReferencePage) : bannerQuantityException && reference ? cardPaReference(reference, 'Quantity-limit exception guideline') : bannerIcs ? cardPaReference(bannerIcs, 'Related inhaled corticosteroid guidance') : constipationPolicy ? cardPaReference(constipationPolicy,
       linzess ? 'Linzess PA guideline' : 'UHC October 18 policy')
