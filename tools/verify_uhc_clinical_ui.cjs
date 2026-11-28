@@ -1628,6 +1628,16 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
   const group = byId(id);
   assert(group && !testosteroneGroups.has(group), id);
  }
+ for (const [id,rx,pos] of [['0ea5d84001467f7a',835829,6886],['4532690d14e80d40',835840,9966],['edf9f82d54c3283d',835809,9339]]) {
+  const group=byId(id),row=group.records[0],card=a.medicationGroupCard(group),src=a.recordDetails(row);
+  assert.equal(group.records.length,1);
+  assert(card.includes('mg/mL intramuscular injection (generic)') && card.includes('>PA listings conflict<'),id);
+  assert(!card.includes('>PA required<') && card.includes('>Preferred<') && card.includes('>Quantity limit<'),id);
+  assert(src.includes('searchTerm='+rx+'"') && src.includes('Row '+pos+', RxCUI '+rx) && src.includes(archivedElectronic),id);
+  const review=await open(group);
+  assert(review.ref.includes('page=1689') && review.ref.includes('page=702'),id);
+  assert(!review.html.includes('PA is required.'),id);
+ }
  console.log('PASS: Five UHC brand testosterone listings retain distinct flags, concentration scope and policy references.');
  const oralAzithromycin = byId('2cf325e856cd66c2');
  assert(oralAzithromycin);

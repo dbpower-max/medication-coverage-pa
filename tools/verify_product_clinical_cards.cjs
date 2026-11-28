@@ -153,6 +153,19 @@ for (const [rx,concentration] of [[835831,100],[835842,200]]) {
   }
   api.state.coverage='';
 }
+for (const [rx, detail] of [[1490667,'30 minutes after every injection'],[835829,'10 mL multidose vial'],
+  [2047882,'1 mL fill at 200 mg/mL'],[835840,'fill size unspecified'],[835809,'5 mL multidose vial']]) {
+  const group=achOudGroups.find(g=>g.records.some(r=>r.id==='ach-json-'+rx));
+  assert.equal(group.records.length,1);
+  const row=group.records[0],card=api.medicationGroupCard(group),src=api.recordDetails(row);
+  assert(card.includes('intramuscular injection') && card.includes(detail),rx);
+  assert(card.includes('>Preferred<') && card.includes('>PA required<'),rx);
+  assert(!card.includes('>Step therapy<') && !card.includes('>Quantity limit<'),rx);
+  assert(src.includes('searchTerm='+rx+'"') && src.includes('dailymed.nlm.nih.gov/'),rx);
+  assert.equal(src.includes('#page=10'),rx!==1490667);
+  assert.equal(card.includes('pulmonary oil microembolism'),rx===1490667);
+  assert.equal(row.baselineSource.values.prior_authorization,true);
+}
 const halfMix=achOudGroups.find(g=>g.records.some(r=>r.id==='ach-json-847213'));
 const halfMixCard=api.medicationGroupCard(halfMix);
 assert(halfMixCard.includes('>Quantity limit<') && !halfMixCard.includes('1 mL per day') && !halfMixCard.includes('>PA required<'));

@@ -189,6 +189,12 @@ def with_ach_baseline(d):
                       'sourceEffective':'2023-04-01', 'sourceUrl':ACH_APR_2023_PDL, 'sourcePage':78,
                       'sourceKind':'plan_formulary', 'quantityLimited':True, 'qlAmount':'0.067 each', 'qlDays':'1',
                       'rawBenefit':'F; QL(0.067 ea daily).'})
+  if row['rxnorm_id'] in {'835829', '2047882', '835840', '835809'}:
+   ester = 'enanthate' if row['rxnorm_id'] == '835809' else 'cypionate'
+   assert not brand and 'testosterone '+ester in name
+   candidates.append({'name':'testosterone '+ester+' soln im', 'sourceTitle':'Arizona Complete Health April 2023 Complete Care PDL',
+                      'sourceEffective':'2023-04-01', 'sourceUrl':ACH_APR_2023_PDL, 'sourcePage':10,
+                      'sourceKind':'plan_formulary', 'coverage':'listed', 'pa':'required', 'rawBenefit':'F; PA.'})
   if row['rxnorm_id'] in {'835831', '835842'}:
    assert brand.lower()=='depo-testosterone' and 'testosterone cypionate' in name
    candidates.append({'name':'DEPO-TESTOSTERONE SOLN IM', 'sourceTitle':'Arizona Complete Health February 2023 Complete Care PDL',

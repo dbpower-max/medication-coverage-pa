@@ -763,6 +763,57 @@
       note: 'Each device delivers 0.3 mg (1 mg/mL) by intramuscular or subcutaneous injection. The plan reports its dispensing limit in “each” and does not specify device or carton counting.',
       labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=778ac6ae-6bcb-47a4-bcb3-8dd0da9f8836'
     }],
+    ['uhc-oct-complete-0ea5d84001467f7a', {
+      label: 'Testosterone cypionate 100 mg/mL intramuscular injection (generic)',
+      dosageForm: 'solution for injection', separate: true, identityRxcui: 835829, paSourceConflict: true,
+      electronicEvidence: ['Row 6886, RxCUI 835829: PREFERRED(29), PA: no, ST: yes, QL: yes.'],
+      note: 'The printed formulary lists PA and a quantity limit. The electronic formulary reports no PA and lists step therapy. The covered vial size, numeric quantity limit and step requirements are unverified.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6909596e-4bf7-4e11-8029-b89740a30aec'
+    }],
+    ['uhc-oct-complete-4532690d14e80d40', {
+      label: 'Testosterone cypionate 200 mg/mL intramuscular injection (generic)',
+      dosageForm: 'solution for injection', separate: true, identityRxcui: 835840, paSourceConflict: true,
+      electronicEvidence: ['Row 9966, RxCUI 835840: PREFERRED(29), PA: no, ST: yes, QL: yes.'],
+      note: 'The printed formulary lists PA and a quantity limit. The electronic formulary reports no PA and lists step therapy. The covered vial size, numeric quantity limit and step requirements are unverified.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6909596e-4bf7-4e11-8029-b89740a30aec'
+    }],
+    ['uhc-oct-complete-edf9f82d54c3283d', {
+      label: 'Testosterone enanthate 200 mg/mL intramuscular injection (generic)',
+      dosageForm: 'solution for injection', separate: true, identityRxcui: 835809, paSourceConflict: true,
+      electronicEvidence: ['Row 9339, RxCUI 835809: PREFERRED(29), PA: no, ST: yes, QL: yes.'],
+      note: 'The printed formulary lists PA and a quantity limit. The electronic formulary reports no PA and lists step therapy. The covered vial size, numeric quantity limit and step requirements are unverified.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e89d6458-428c-4256-97a3-f1fa851293c1'
+    }],
+    ['ach-json-1490667', {
+      label: 'Aveed (testosterone undecanoate) 750 mg/3 mL (250 mg/mL) intramuscular injection',
+      dosageForm: 'solution for injection', separate: true, identityRxcui: 1490667,
+      note: 'Single-dose vial for deep gluteal intramuscular injection. Boxed warning for serious pulmonary oil microembolism and anaphylaxis. Observe the patient in the healthcare setting for 30 minutes after every injection. The Aveed REMS requires certified prescribers and healthcare settings.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f80f025b-17d8-40af-8739-20ce07902045'
+    }],
+    ['ach-json-835829', {
+      label: 'Testosterone cypionate 100 mg/mL intramuscular injection',
+      dosageForm: 'solution for injection', separate: true, identityRxcui: 835829,
+      note: 'Labeled presentation includes a 10 mL multidose vial. The ACC formulary lists the intramuscular solution without specifying an insured vial size.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6909596e-4bf7-4e11-8029-b89740a30aec'
+    }],
+    ['ach-json-2047882', {
+      label: 'Testosterone cypionate 200 mg/1 mL intramuscular injection in a single-dose vial',
+      dosageForm: 'solution for injection', separate: true, identityRxcui: 2047882,
+      note: 'This listing specifies a 1 mL fill at 200 mg/mL. The distinct prefilled syringe has a separate product identity.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ed65346b-31bc-f872-516d-78d5ab70229e'
+    }],
+    ['ach-json-835840', {
+      label: 'Testosterone cypionate 200 mg/mL intramuscular injection',
+      dosageForm: 'solution for injection', separate: true, identityRxcui: 835840,
+      note: 'Labeled vials include a 1 mL single-dose vial and a 10 mL multidose vial. The ACC listing leaves the fill size unspecified.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6909596e-4bf7-4e11-8029-b89740a30aec'
+    }],
+    ['ach-json-835809', {
+      label: 'Testosterone enanthate 200 mg/mL intramuscular injection',
+      dosageForm: 'solution for injection', separate: true, identityRxcui: 835809,
+      note: 'Labeled presentation includes a 5 mL multidose vial for intramuscular administration. The subcutaneous autoinjector has a separate product identity.',
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e89d6458-428c-4256-97a3-f1fa851293c1'
+    }],
     ['ach-json-835831', {
       label: 'Depo-Testosterone (testosterone cypionate) 100 mg/mL intramuscular injection',
       dosageForm: 'solution for injection', separate: true, identityRxcui: 835831,
