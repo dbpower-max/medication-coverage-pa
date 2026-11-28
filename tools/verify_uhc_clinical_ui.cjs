@@ -1136,6 +1136,35 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  const benOut=await open(benlysta);
  for(const page of [226,227,228])assert(benOut.html.includes('Criteria source · PDF page '+page+'<'),'Benlysta page '+page);
  assert(benOut.ref.includes('page=226'));assert(benRow.uhcClinicalBindings.some(b=>b.role==='nonpreferred'&&b.policyId.endsWith('gl-231255')));assert(!benOut.ref.includes('page=1202'),'Named criteria should not stack administrative fallback');assert(benOut.ref.includes('page=702'));
+ for(const [suffix,form,marked] of [['6e619505a2eade2b','la',false],['d4a49a61c49b73c3','la',false],['56250e586ef8af55','la',true],['68a337ebb0322d39','xr',false]]) {
+   const id='uhc-oct-complete-'+suffix;
+   const group=groups.find(g=>g.records.some(r=>r.id===id));
+   const row=group.records.find(r=>r.id===id);
+   const card=a.medicationGroupCard(group),detail=await open(group);
+   assert.equal(row.rawRestrictions,marked?'Tier 1; *; QL; AL':'Tier 1; QL; AL');
+   assert.equal(row.pa,'not_specified'); assert.equal(row.step,'not_specified'); assert.equal(row.preferred,'preferred');
+   assert.equal(group.records.length,1); assert(card.toLowerCase().includes('('+form+') oral capsule'),id+' exact release form');
+   assert(!card.includes('>Conditional PA<')&&!card.includes('>PA required<'),id);
+   assert.equal(card.includes('60 mg LA capsule: available without PA for participating Behavioral Health Prescribers'),marked,id);
+   assert(detail.html.includes('under 6 years old')&&!/FOUR preferred|MedWatch|insomnia|melatonin/.test(detail.html),id);
+   for(const page of [51,702])assert(detail.html.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page='+page+'"'),id);
+ }
+ const restrictedTablet=groups.flatMap(g=>g.records).find(r=>r.id==='uhc-oct-complete-e0991a351bcb909e');
+ assert(restrictedTablet.rawRestrictions.includes('Mallinckrodt and Kremers Urban labelers'));
+ assert(!restrictedTablet.uhcClinicalBindings.some(b=>b.role==='preferred_adhd_request'));
+ for(const [suffix,page] of [['1e14d23b75695797',51],['df6f8cc226a7adf5',53],['b03b1e57bae5ea76',null],['077d46e205062d39',null]]) {
+   const id='uhc-oct-complete-'+suffix;
+   const group=groups.find(g=>g.records.some(r=>r.id===id)), row=group.records.find(r=>r.id===id);
+   const card=a.medicationGroupCard(group), detail=await open(group);
+   assert.equal(row.rawRestrictions,'Tier 1; QL; AL'); assert.equal(row.pa,'not_specified'); assert.equal(row.step,'not_specified');
+   assert.equal(row.preferred,'preferred'); assert(!card.includes('>PA required<')&&!card.includes('>Conditional PA<'),id+' raw PA');
+   for(const branchPage of [51,53,56,57])assert.equal(detail.html.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page='+branchPage+'"'),branchPage===page,id+' branch '+branchPage);
+   assert(detail.html.includes('uhc-az-clinical-pharmacy-2026-11-01.pdf#page=702"'),id+' QL');
+   assert.equal(detail.html.includes('under 6 years old'),Boolean(page),id+' exact age');
+   assert.equal(detail.html.includes('psychosocial'),Boolean(page),id+' ADHD pathway');
+   assert.equal(detail.html.includes('insomnia')&&detail.html.includes('melatonin'),page===53,id+' insomnia pathway');
+   assert(!/FOUR preferred|MedWatch/.test(detail.html),id+' nonpreferred-specific conditions');
+ }
  for(const [suffix,tier] of [['4583eee7556ae462',2],['7b0ebd262d31752a',1],['596ca4e932b330df',1]]) {
    const id='uhc-oct-complete-'+suffix;
    const group=groups.find(g=>g.records.some(r=>r.id===id));
