@@ -1017,7 +1017,7 @@
     if (reviewed) return reviewed;
     const product = record.baselineSource && baselineLisproPackages.get(record.id);
     if (product) return {...product, separate: true,
-      packageQualifier: product === lisproProducts.lisproVial ? 'The plan does not specify a preferred vial size.' : ''};
+      packageQualifier: record.id === 'ach-json-242120' ? 'The plan does not specify a preferred vial size.' : ''};
     return null;
   }
 
