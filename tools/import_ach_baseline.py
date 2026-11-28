@@ -597,6 +597,58 @@ ACH_ANXIOLYTIC_OPTIONS = {
  '198057':('Oxazepam','10',9775,2), '312134':('Oxazepam','15',9776,2), '198059':('Oxazepam','30',9777,2),
 }
 
+ACH_DIAZEPAM_ORAL={
+ '197589':('10',9768), '197590':('2',9769), '197591':('5',9770),
+ '309844':('5',9766), '309843':('1',9767),
+}
+ACH_LACOSAMIDE={'993856':10,'809987':100,'809992':150,'809996':200,'810000':50}
+
+def diazepam_oral(rx,name,sources):
+ strength,number=ACH_DIAZEPAM_ORAL[rx]
+ liquid=rx in ('309843','309844')
+ unit='mL' if liquid else 'tablets'
+ age='Up to 6 yrs old' if liquid else 'At least 6 yrs old'
+ daily=2 if rx=='309844' else 10 if liquid else 4
+ printed='diazepam conc' if rx=='309844' else 'diazepam soln or 5 mg/5ml' if liquid else 'diazepam tabs'
+ raw='F; QL('+str(daily)+(' ml daily; 60 ml per 30 days retail' if rx=='309844' else ' ml daily' if liquid else ' ea daily')+'); AL('+age+')'
+ dated=april_formulary(printed,12,raw,quantityLimited=True,qlAmount=f'{daily} {unit}',qlDays='1',ageLimited=True,ageRestrictionText=age)
+ ref=statewide_option(sources,number,'Preference and ST blank.')
+ assert ref['sourcePage']==5 and ref['pa']=='conditional' and 'Ages < 6 years' in ref['paText'] and '> 1 Anxiolytic' in ref['paText']
+ assert ref['qlAmount']==str(daily*30) and ref['qlDays']=='30'
+ ref['rawBenefit']+=f" | {ref['paText']} | QL {ref['qlAmount']}, days 30, unit blank."
+ if rx=='309844':
+  heading='Diazepam 5 mg/mL concentrate for oral solution'
+  label='1aaf9375-ae3d-4fed-9cd1-24102e00be1a';product='diazepam conc'
+ elif liquid:
+  heading='Diazepam 5 mg/5 mL oral solution (1 mg/mL)'
+  label='167ee280-be68-4a28-a7d8-de41df14bc48';product='diazepam oral soln'
+ else:
+  heading=f'Diazepam {strength} mg oral tablet'
+  label='8b51f4b3-a5e8-4400-b624-ac0c47630c86';product='generic diazepam tabs'
+ assert 'diazepam' in name.lower() and ('oral' in name.lower())
+ display={'prescribingHeading':heading,'label':heading,'separate':True,'identityRxcui':int(rx),
+          'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label,
+          'scopedStatePa':'PA if age <6 or >1 anxiolytic in 30 days','planAgeBadge':'Age up to 6 years' if liquid else 'Age ≥6 years',
+          'scopedMonthlyLabel':f"QL: {ref['qlAmount']} {unit} per 30 days",'anxiolyticPolicyProduct':product,
+          'note':'Boxed warnings for concomitant opioid use, abuse, misuse, addiction, dependence and withdrawal.'}
+ if rx=='309844':display['planDailyAndRetailLabel']='QL: 2 mL per day and 60 mL per 30 days at retail'
+ return [dated,ref],display
+
+def lacosamide_option(rx,name,sources):
+ liquid=rx=='993856'
+ strength=ACH_LACOSAMIDE[rx]
+ assert name.startswith('lacosamide') and str(strength) in name and ('Oral Solution' if liquid else 'Oral Tablet') in name
+ printed='lacosamide soln or 10 mg/ml' if liquid else 'lacosamide tabs'
+ dated=april_formulary(printed,15,'F; PA',pa='required',paText='The Arizona Complete Health formulary lists PA.')
+ ref=statewide_option(sources,9876 if liquid else 9877,'PA REQUIRED | Preference, ST and QL blank.')
+ assert ref['sourcePage']==8 and ref['pa']=='required' and not ref['qlAmount'] and not ref['qlDays']
+ heading='Lacosamide 10 mg/mL oral solution' if liquid else f'Lacosamide {strength} mg immediate-release oral tablet'
+ label='e265fd09-8149-4423-a317-5760d34b8e9b' if liquid else 'c5b91128-f838-4e98-9684-5f477fc7af06'
+ return [dated,ref],{'prescribingHeading':heading,'label':heading,'separate':True,'identityRxcui':int(rx),
+    'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label,'lacosamideReference':True,
+    'sourceReferences':[['AHCCCS Statewide · Fee-for-service · seizure diagnoses','./sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf#page=108'],['AHCCCS Statewide · Fee-for-service · continuation','./sources/ahcccs-ffs-pa-criteria-2026-11-01.pdf#page=109']],
+    'note':'The exact Arizona Complete Health generic lacosamide approval criteria are unverified.'}
+
 def anxiolytic_option(rx,name,sources):
  family,strength,number,daily=ACH_ANXIOLYTIC_OPTIONS[rx]
  liquid=rx=='311376'
@@ -911,6 +963,10 @@ def with_ach_baseline(d):
    candidates,oral_display=dulera_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_MIRTAZAPINE:
    candidates,oral_display=mirtazapine_option(row['rxnorm_id'],name,indexed_sources)
+  if row['rxnorm_id'] in ACH_DIAZEPAM_ORAL:
+   candidates,oral_display=diazepam_oral(row['rxnorm_id'],name,indexed_sources)
+  if row['rxnorm_id'] in ACH_LACOSAMIDE:
+   candidates,oral_display=lacosamide_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_ANXIOLYTIC_OPTIONS:
    candidates,oral_display=anxiolytic_option(row['rxnorm_id'],name,indexed_sources)
   if row['rxnorm_id'] in ACH_ANTICONVULSANT_FORMS:
