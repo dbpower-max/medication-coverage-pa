@@ -1754,10 +1754,36 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
    }
    assert.equal(out.html.includes('Criteria source · PDF page 1494<'),step,id);
    assert.equal(out.html.includes('Quantity-limit exceptions'),ql,id);
+   const monthly = suffix==='64b218c84fdb66aa';
+   assert.equal(b.some(x=>x.role==='monthly_prescription_exception'&&x.policyId.endsWith('gl-140667')&&x.branchIndexes.join(',')==='2'),monthly,id);
+   assert.equal(out.html.includes('Monthly prescription-limit exception'),monthly,id);
+   if(monthly){assert(out.html.includes('Criteria source · PDF page 704<'),id);assert(out.html.includes('5 or more fills'),id);}
    const grouped=await open(g);
    if(cls) assert(grouped.html.includes('Class-wide prescription limit'),id+' grouped class rule');
  }
- console.log('PASS: Seven exact hypnotic/barbiturate rows retain raw flags and scoped conditional PA, ST and class limit.');
+ console.log('PASS: Seven exact hypnotic/barbiturate rows retain raw flags and scoped conditional PA, ST and class limit; temazepam monthly exception scoped separately.');
+ // DEC-05/07/12/13/19: Zonisade is the preferred oral suspension, not
+ // the nonpreferred Zonegran capsule. Keep age and quantity flags, not inferred limits.
+ {
+   const id='uhc-oct-complete-a9ea3a8b52f8beac';
+   const g=a.planMedicationGroups().find(x=>x.records.some(r=>r.id===id));assert(g,id);
+   const r=g.records.find(r=>r.id===id);
+   assert.equal(r.preferred,'preferred');assert.equal(r.pa,'not_specified');
+   assert.equal(r.step,'not_specified');assert(r.ageLimited);assert(r.qlAmount||r.qlDays);
+   assert(!r.policyQuantityLimit,id+' unsupported numeric QL');
+   const exact={...g,key:(g.key||g.label)+'-zonisade-exact',records:[r],isStatewide:false,statewideRecord:null};
+   const card=a.medicationGroupCard(exact);
+   assert(card.includes('Zonisade')&&/oral suspension/i.test(card),id+' name and form');
+   assert(card.includes('>Preferred<')&&card.includes('>Age limit<')&&card.includes('>Quantity limit<'),id+' flags');
+   assert(!card.includes('>PA required<'),id+' incorrect routine PA');
+   const bindings=a.uhcGroupBindings(exact);
+   assert(bindings.some(b=>b.role==='global_quantity'&&b.policyId.endsWith('gl-140667')&&b.branchIndexes.join(',')==='0'),id+' general QL');
+   assert(!bindings.some(b=>b.policyId.endsWith('gl-572198')||b.role==='monthly_prescription_exception'||b.role==='nonpreferred'),id+' wrong policy');
+   const out=await open(exact);
+   assert(out.html.includes('Quantity-limit exceptions')&&out.html.includes('Criteria source · PDF page 702<'),id);
+   assert(!out.html.includes('Monthly prescription-limit exception')&&!out.ref.includes('gl-572198'),id);
+ }
+ console.log('PASS: Zonisade preferred suspension preserves QL and AL without Zonegran PA transfer.');
  a.state.planId='banner-ufc';assert.equal(a.uhcGroupBindings(groups[0]).length,0,'UHC policy leaked across plans');
  const bannerGroups=a.planMedicationGroups();
  const igRows=[
