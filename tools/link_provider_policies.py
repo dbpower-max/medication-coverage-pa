@@ -623,5 +623,43 @@ def attach_provider_policies(data):
   else:r['reviewedBannerBranches']={'policyId':p['id'],'product':'Brand suboxone','initialPage':1692,'renewalPage':1692,'renewalCriteriaPage':renewal_criteria_page,'quantityExceptionOnly':True}
   seen_suboxone.add(r['id'])
  assert seen_suboxone==set(suboxone_review)
+ # Banner November ACC compilation. Branch headings can precede the criteria by a page.
+ hormone_rows = {
+  'banner-full-0396954c70e1c01c': ('testosterone cypionate', 'Testosterone cypionate 100 mg/mL or 200 mg/mL intramuscular injection (vials)', '6909596e-4bf7-4e11-8029-b89740a30aec', [('100 mg/mL',835829),('200 mg/mL',835840),('Depo-Testosterone 100 mg/mL',835831),('Depo-Testosterone 200 mg/mL',835842)], 'Label presentations include a 10 mL multidose vial at 100 or 200 mg/mL and a 1 mL single-dose vial at 200 mg/mL. Exact plan package eligibility is unverified. The policy names testosterone cypionate and Depo-Testosterone as preferred. The printed formulary does not specify preference.'),
+  'banner-full-464f82c2e5d04b43': ('testosterone enanthate', 'Testosterone enanthate 200 mg/mL intramuscular injection (multidose vial)', 'e89d6458-428c-4256-97a3-f1fa851293c1', [('200 mg/mL IM vial',835809)], 'The policy names IM testosterone enanthate as preferred. The printed formulary does not specify preference. Subcutaneous Xyosted is a separate device.'),
+  'banner-full-8ff9170efdf9ef15': ('generic testosterone 1.62% gel', 'Testosterone 1.62% topical gel metered-dose pump (authorized generic only)', '0d84e5a6-11e9-4940-8991-21c611c4c32f', [('20.25 mg per actuation',1597076)], 'The formulary specifies authorized generic only. Prasco carton 66993-951-88 is a label example. Verify the manufacturer before applying the policy’s nonpreferred-product criteria.'),
+  'banner-full-b4d7f706d1833860': ('Oriahnn', 'Oriahnn morning and evening oral capsule co-pack', '99f6eee7-7e52-6999-7eb8-488d06dd1710',[('Oriahnn co-pack',2371768),('AM elagolix 300 mg / estradiol 1 mg / norethindrone acetate 0.5 mg',2371764),('PM elagolix 300 mg',2371766)], 'The morning capsule contains all three ingredients. The evening capsule contains elagolix alone. Total treatment duration is limited to 24 months.'),
+  'banner-full-8b4e241e2071f07a': ('Myfembree', 'Myfembree 40 mg/1 mg/0.5 mg film-coated oral tablet', 'fc3feb73-cc84-43a8-aa32-b262460495e8',[('Relugolix / estradiol / norethindrone acetate',2556800)], 'Total treatment duration is limited to 24 months.'),
+  'banner-full-e9d3201769338c6c': ('Femring','Femring estradiol acetate vaginal system', '7aaa97f9-a9d1-c815-e053-2991aa0afb9e',[('0.05 mg/day',848333),('0.10 mg/day',848343)], 'Label presentations release estradiol for three months. The plan row does not distinguish strengths.')
+ }
+ checked=set()
+ for r in data['medications']:
+  if r['id'] not in hormone_rows:continue
+  product,heading,label,examples,note=hormone_rows[r['id']]
+  assert r['planId']=='banner-ufc' and r['sourceEffective']=='2026-10-01' and r['pa']=='required'
+  assert r['step']=='not_specified' and not r.get('qlAmount') and not r.get('qlDays')
+  if 'testosterone' in product:
+   start,code=1775,'GL-731224'
+   stages=[['Initial Authorization',1775,'Hypogonadism',None,1776],['',1777,'Gender dysphoria under age 19 (stage not separately labeled)',None,1778],['Initial Authorization',1778,'Gender dysphoria at age 19 or older'],['Reauthorization',1779,'Hypogonadism, or gender dysphoria in adults age 19 or older',None,1780]]
+  elif product=='Femring':
+   start,code=597,'GL-99455'
+   stages=[['',597,'Menopausal symptoms (stage not separately labeled)']]
+  else:
+   start,code=1201,'GL-118559'
+   stages=[['Initial Authorization',1201,'Heavy menstrual bleeding due to uterine fibroids',None,1202],['Reauthorization',1202,'Heavy menstrual bleeding due to uterine fibroids',None,1203]]
+   if product=='Myfembree':
+    stages.extend([['Initial Authorization',1203,'Moderate to severe endometriosis pain'],['Reauthorization',1204,'Moderate to severe endometriosis pain']])
+  pid=f'banner-policy-12-{start}';policy=policies[pid]
+  assert policy['planId']=='banner-ufc' and code in (ROOT/'dist'/policy['sourceTextUrl'].lstrip('./')).read_text()
+  binding={'policyId':pid,'product':product,'indicationPages':stages,'exactReferencePage':stages[0][-1] if len(stages[0])==5 else start}
+  if start==1775 and product!='generic testosterone 1.62% gel':binding['testosteronePreferredInjection']=True
+  r['reviewedBannerBranches']=binding
+  r['reviewedPresentation']={**r.get('reviewedPresentation',{}),'scopedPlanHeading':heading,'prescribingHeading':heading,'note':note,'labelProductExamples':examples,'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid='+label}
+  if product=='testosterone cypionate':
+   r['reviewedPresentation']['sourceReferences']=[['Depo-Testosterone FDA label','https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cfbb53d4-b868-4a28-8436-f9112eb01c39']]
+  link=dict(policyId=pid,title=policy['name'],policyCode=code,firstPage=binding['exactReferencePage'],lastPage=policy.get('sourceLastPage',start),url=policy['sourceUrl'],textUrl=policy['sourceTextUrl'],effective='2026-11-01',matchedProduct=product,scope='Banner ACC November compilation. '+', '.join(stage[2] for stage in stages)+'.')
+  r['policySources']=[link]+[x for x in r.get('policySources',[]) if x.get('textUrl')!=link['textUrl']]
+  checked.add(r['id'])
+ assert checked==set(hormone_rows)
  print(f'Added {count} same-plan policy links across {len(records)} medication records')
  return count

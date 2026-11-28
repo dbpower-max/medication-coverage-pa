@@ -130,6 +130,9 @@
     if (compact) return compact.heading;
     const title = expandFormWords(label);
     const records = group.records || [];
+    const planRows = records.filter(r => r.planId === state.planId && !r.isStatewideReference);
+    const scopedHeading = planRows[0]?.reviewedPresentation?.scopedPlanHeading;
+    if (scopedHeading && planRows.every(r => r.reviewedPresentation?.scopedPlanHeading === scopedHeading)) return scopedHeading;
     const heading = records[0] && reviewedCardPresentation(records[0])?.prescribingHeading;
     if (heading && records.every(r => reviewedCardPresentation(r)?.prescribingHeading === heading)) return heading;
     const labeledForm = records[0] && reviewedCardPresentation(records[0])?.dosageForm;
@@ -3220,11 +3223,19 @@
         if (!policy) throw new Error('Missing exact Banner policy');
         const source = await loadClinicalSource(policy);
         const stages = b.indicationPages || (b.painPages ? [['', 1100, 'Cancer-related pain / hospice / end-of-life (stage not separately labeled)'], ['Initial Authorization', 1104, 'Noncancer pain / non-hospice / non-end-of-life'], ['Reauthorization', 1110, 'Noncancer pain / non-hospice / non-end-of-life']] : b.unstagedPage ? [['', b.unstagedPage]] : [['Initial Authorization', b.initialPage], ['Reauthorization', b.renewalPage]]);
-        const selected = stages.map(([stage,page,heading,diagnosisHint]) => {
+        const selected = stages.map(([stage,page,heading,diagnosisHint,criteriaPage]) => {
           const matches = source.branches.filter(branch => branch.stage === stage && branch.sourcePage === page && new RegExp('(?:^|[^a-z])'+b.product+'(?:[^a-z]|$)', 'i').test(branch.product) && (!diagnosisHint || branch.product.toLowerCase().includes(diagnosisHint.toLowerCase())));
           if (matches.length !== 1) throw new Error('Exact Banner product/stage branch not verified');
           if (b.quantityExceptionOnly && (b.policyId !== 'banner-policy-12-1690' || !/^Brand suboxone,/i.test(matches[0].product) || !/Guideline Type\s+Quantity Limit/i.test(matches[0].text) || !/requests exceeding\s+24 mg/i.test(matches[0].text) && stage === 'Initial Authorization' || !/requests exceeding\s+16 mg/i.test(matches[0].text) && stage === 'Reauthorization')) throw new Error('Unverified Banner quantity-exception branch');
           let text = matches[0].text.split(/\n\s*2\s*\.\s*Revision History/i)[0];
+          if (b.policyId === 'banner-policy-12-1775' && !stage) {
+            text = text.replace(/patie\s+nts/g, 'patients').replace(/a\s+nd will/g, 'and will').replace(/produ\s+ct/g, 'product').replace(/gran\s+dfathered/g, 'grandfathered');
+          }
+          if (b.testosteronePreferredInjection && stage) {
+            const condition = /\n\s*AND\s*\n\s*\d+ - If the request is for a NON-PREFERRED drug:/i.exec(text);
+            if (b.policyId !== 'banner-policy-12-1775' || !condition) throw new Error('Named preferred testosterone injection scope changed');
+            text = text.slice(0,condition.index);
+          }
           if (b.omitNintedanibNonpreferredStep) {
             if (b.policyId !== 'banner-policy-12-589' || !/generic nintedanib 100mg and 150mg capsules \(Sandoz mfg\)/i.test(matches[0].product)) throw new Error('Sandoz product scope not verified');
             const cleaned = text.replace(/^(?:=== PDF PAGE \d+ ===|Page \d+)\s*$/gmi, '');
@@ -3282,7 +3293,7 @@
           }
           const stageHeading = heading && !stage && !/stage not separately labeled/i.test(heading) && b.policyId === 'banner-policy-12-1530' ? heading + ' (stage not separately labeled)' : heading;
           // A product heading can start on the page before its renewal criteria.
-          const sourcePage = stage === 'Reauthorization' ? (b.renewalCriteriaPage ?? page) : page;
+          const sourcePage = criteriaPage ?? (stage === 'Reauthorization' ? (b.renewalCriteriaPage ?? page) : page);
           return {...matches[0], sourcePage, heading: stageHeading, text};
         });
         const exclusion = b.exclusionPage ? source.branches.filter(branch => branch.sourcePage === b.exclusionPage && /^All products\b/i.test(branch.product) && /Idiopathic Short Stature/i.test(branch.product)) : [];
