@@ -1189,6 +1189,7 @@ async function open(g){const content={innerHTML:'',isConnected:true},ref={innerH
  assert(dual.includes('PA listings conflict')&&dualSources.includes('searchTerm=1652242')&&dualSources.includes('searchTerm=1652640'));
  const regularVial=groups.find(g=>g.records.some(r=>r.id.endsWith('f2ad2a3574ca8919')));
  const vialListing=a.medicationGroupCard(regularVial),vialSource=a.recordDetails(regularVial.records[0]);
+ assert(vialListing.includes('PA listings conflict') && !vialListing.includes('>PA required<'));
  assert(vialListing.includes('concentration unspecified')&&!vialListing.includes('5-unit increments'));
  assert(vialSource.includes('row 8951')&&vialSource.includes('row 9571')&&vialSource.includes('searchTerm=311036')&&vialSource.includes('searchTerm=351859'));
  const u500=groups.find(g=>g.records.some(r=>r.id.endsWith('86d347968a4e113f')));
