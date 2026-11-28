@@ -2680,6 +2680,22 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: 100 mg single-use packet for oral suspension. Do not substitute the packet for the film-coated tablet on a milligram-for-milligram basis; the formulations are not bioequivalent. UHC PDL requires PA for members aged 2 years or older for the oral packet; exact product-specific criteria and numeric quantity limit are unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=89a5ec53-d956-4329-8004-0f40f51c88a3',
             }
+        # Named devices in the administrative duplication branch, not routine product PA.
+        basal_duplication = {
+            'uhc-oct-complete-4270f8a1ce19e554': 'Insulin Glargine-YFGN pen',
+            'uhc-oct-complete-8adc25a96356b867': 'Lantus Solostar',
+            'uhc-oct-complete-749c738dcab2dcdd': 'Lantus vial',
+            'uhc-oct-complete-2785ed0256f35226': 'Tresiba Flextouch',
+        }.get(record['id'])
+        if basal_duplication:
+            code = 'GL-735259'
+            branch = structured[code]['branches'][0]
+            products = ' '.join(branch['fields']['Product Name']['text'].split()).split(', ')
+            assert basal_duplication in products and branch['fields']['Guideline Type']['text'] == 'Administrative'
+            assert policies[code]['policyEffective'] == '2026-11-01' and record['sourceEffective'] == '2026-10-01'
+            matched.pop(code, None)
+            add(code, [0], 'duplication')
+            bindings[-1].update(productLabel=basal_duplication, namedProductPage=1713, criteriaPage=1714)
         # DEC-05/12/13/14/19/20: exact preferred sprinkle capsule; retain conditional age rule.
         if record['id'] == 'uhc-oct-complete-f24f86de993ce49c':
             assert october_name == 'divalproex sodium oral capsule delayed release sprinkle (generic for depakote sprinkles)'
@@ -3000,6 +3016,20 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 add('GL-512232',[1],'quantity')
                 assert '6 of each per day' in ' '.join(n['text'] for n in structured['GL-512232']['branches'][1]['notes'])
                 record['policyQuantityLimit']={'text':'6 pen needles per day and 6 syringes per day.','sourcePolicyId':policies['GL-512232']['id']}
+                pen_needle = bool(re.search(r'\bpen needles?\b', text))
+                syringe = bool(re.search(r'\bsyr(?:inge)?s?\b', text))
+                if pen_needle != syringe:
+                    unit = 'pen needles' if pen_needle else 'syringes'
+                    record['verifiedQuantityLabel'] = f'QL: 6 {unit} per day'
+                    record['policyQuantityLimit']['sourcePage'] = 950
+                if record['id'] == 'uhc-oct-complete-18831de05a9103a0':
+                    record['reviewedPresentation'] = {
+                        'label': 'Embecta U-500 insulin syringe', 'separate': True,
+                        'note': 'Single-use syringe for U-500 insulin vials only. The labeled 0.5 mL syringe has 5-unit markings. Never withdraw insulin from a U-500 KwikPen into a syringe. UHC does not specify the covered package.',
+                        'deviceSourceUrl': 'https://accessgudid.nlm.nih.gov/devices/00383017673017',
+                        'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b60e8dd0-1d48-4dc9-87fd-e14675255e8c',
+                    }
+
 
         if pa and record['preferred']=='non_preferred':add('GL-231255',[0],'nonpreferred')
         if pa and record['preferred']=='preferred' and re.search(r'\b(?:oral (?:solution|suspension)|syrup|elixir|nebuliz\w*)\b',text):add('GL-545275',[0],'nonsolid')

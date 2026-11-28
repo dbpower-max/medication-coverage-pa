@@ -340,6 +340,9 @@ insulin_devices = {
     '989f61316edaade8': ('Novolin R', 'FlexPen', 2206092, 282),
     '3f6b79d26bf90161': ('Novolin R', 'vial', 311033, 9863),
     '6c62c1d66fc1ba6f': ('NovoLog Mix 70/30', 'vial', 977842, 2218),
+    'b6bad750052e8c96': ('NovoLog', 'vial', 351926, 8666),
+    '00c9a85a6b9e582d': ('NovoLog', 'FlexPen', 1653204, 4928),
+    '32fe3d13f9623a7f': ('NovoLog', 'FlexPen ReliOn', 1653204, 4928),
     '3593e59ad9ff6053': ('NovoLog', 'PenFill cartridge', 1653198, 3637),
     '539ff04df27e00e4': ('NovoLog Mix 70/30', 'FlexPen', 977840, 6370),
     '91e996f2f036b4ef': ('NovoLog Mix 70/30', 'FlexPen ReliOn', 977840, 6370),
@@ -417,6 +420,10 @@ for record in data['medications']:
         note = ('Labeled 10 mL multidose vial.' if device == 'vial' else
                 '3 mL cartridge for a compatible PenFill insulin delivery device.' if device == 'PenFill cartridge' else
                 '3 mL single-patient-use prefilled pen.')
+        if family == 'NovoLog' and device.startswith('FlexPen'):
+            note += ' The pen dials in 1-unit increments.'
+            if device == 'FlexPen ReliOn':
+                note += ' The electronic entry identifies the pen formulation. It does not distinguish the ReliOn package.'
         discrepancy = record['pa'] == 'required'
         if electronic_steps == {True, False}:
             note += ' The UHC electronic formulary has preferred and nonpreferred entries with differing step therapy for this RxCUI. Exact package eligibility and requirements are unverified.'
