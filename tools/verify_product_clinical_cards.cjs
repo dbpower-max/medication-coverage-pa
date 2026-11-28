@@ -103,6 +103,7 @@ for(const [rx,matched] of [
  assert.equal(card.includes('QL: 1 mL per day'),matched,rx);
  assert.equal(r.baselineSource.values.quantity_limit,true);assert.equal(r.baselineSource.values.prior_authorization,false);
  assert.equal(src.includes('Feb%202023.pdf#page='),matched);
+ if (['242120','1652639','1926331','847252'].includes(rx)) assert(src.includes('searchTerm='+rx+'"'), rx);
  if(matched) assert.equal(r.benefitSources.quantityLimited,'selected_plan');
 }
 for(const [rx,row,identity,pa] of [
