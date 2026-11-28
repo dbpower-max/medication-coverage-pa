@@ -663,6 +663,9 @@
   const uhcLinzessId = 'uhc-oct-complete-856ab149c565f2d6';
   const uhcMotegrityId = 'uhc-oct-complete-e1b4c7a47cd7c144';
   const bannerLubiprostoneId = 'banner-full-df398cde927a2a85';
+  const achSmartRecords = new Set(['ach-json-1246288', 'ach-json-1246304', 'az-complete-health:statewide:formulary-9819']);
+  const achSmartNoticeUrl = 'https://www.azcompletehealth.com/newsroom/PU26135.html';
+
   const achConstipationLabels = new Map([
     ['ach-notice-13846', 'Linzess (linaclotide) oral capsules'],
     ['ach-notice-13847', 'Lubiprostone oral capsules (authorized generic)'],
@@ -1452,9 +1455,6 @@
     ["banner-full-345351bab03d7259", ["BAN-P33-T1-R44", "BAN-P34-T1-R18"]],
     ["banner-full-5871af4cc5e1eb9b", ["BAN-P33-T1-R45", "BAN-P34-T1-R19"]]
   ]);
-
-  const achSmartRecords = new Set(['ach-json-1246288', 'ach-json-1246304', 'az-complete-health:statewide:formulary-9819']);
-  const achSmartNoticeUrl = 'https://www.azcompletehealth.com/newsroom/PU26135.html';
 
   function recordDetails(record) {
     const details = [];
