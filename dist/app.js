@@ -849,7 +849,11 @@
     ['formulary-10080', {label: simvastatinTablets, note: 'Statewide quantity limit: 30 per 30 days.'}],
     ...[...bannerEpiPenIds].map(id => [id, bannerEpiPenDisplay]),
     ['formulary-11033', {label: epiPenAutoInjector, note: 'The statewide listing applies to its named authorized generic. Exact selected-plan package eligibility is unverified.'}],
-    ['uhc-oct-complete-55381c317387d023', {label: 'AUVI-Q Epinephrine Autoinjector (Brand)', generalPa: true}],
+    ['uhc-oct-complete-55381c317387d023', {
+      label: 'AUVI-Q (epinephrine) single-dose prefilled autoinjector', dosageForm: 'injection solution', generalPa: true,
+      deviceSourceUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6180fb40-7fca-4602-b3da-ce62b8cd2470',
+      note: 'Labeled doses are 0.1 mg/0.1 mL, 0.15 mg/0.15 mL and 0.3 mg/0.3 mL. UHC does not specify eligible strengths or packages.'
+    }],
     ['uhc-oct-complete-feedc25102cbbdb1', {label: 'Epinephrine 0.15 mg/0.3 mL Autoinjector (EpiPen Jr Reference)'}],
     ['uhc-oct-complete-e1546021b5a54dde', {label: 'Epinephrine 0.3 mg/0.3 mL Autoinjector (AUVI-Q Reference)'}],
     ['uhc-oct-complete-347f997a8ebe87f9', {label: 'Amoxicillin/Clavulanate Oral Suspension (Augmentin ES-600 Reference)', note: 'Label reference strength: 600 mg/42.9 mg per 5 mL. UHC does not identify eligible packages.', labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=59979859-8c9b-4173-a5e3-2e6312fd9d79'}],
@@ -1822,9 +1826,12 @@
   }
 
   function clinicalGuidanceFor(group) {
+    const hasUhcGlp1Criteria = group.records?.some(record => !record.isStatewideReference
+      && record.uhcClinicalBindings?.some(binding => binding.policyId === 'uhc-nov2026-policy-gl-720195'));
     const brands = new Set(group.brands.map(normalize));
     const generic = normalize(group.name);
     return (state.data.statewideClinicalGuidance || []).find(guide => {
+      if (hasUhcGlp1Criteria && guide.policyCode === 'GL-749236') return false;
       // Strength-specific policies must not attach to a brand/generic group
       // representing another tablet strength, or to an unspecified strength.
       // A group with mixed/ambiguous record strengths fails closed.
