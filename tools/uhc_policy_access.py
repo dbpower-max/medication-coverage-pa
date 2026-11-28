@@ -2777,8 +2777,13 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
             }
         # DEC-05/12/13/14/19/20: fixed 300 mg SC UnoReady, not every Cosentyx SC dose.
         # Preserve original source branches and label mixed populations explicitly.
-        if record['id'] == 'uhc-oct-complete-9449c2ad49f55210':
-            assert october_name == 'cosentyx unoready'
+        cosentyx_devices = {
+            'uhc-oct-complete-9449c2ad49f55210':'cosentyx unoready',
+            'uhc-oct-complete-6f70bcaf242cd685':'cosentyx subcutaneous solution auto-injector 150 mg/ml',
+            'uhc-oct-complete-d7084ac5ae35fc25':'cosentyx subcutaneous solution prefilled syringe 150 mg/ml, 75 mg/0.5ml',
+        }
+        if record['id'] in cosentyx_devices:
+            assert october_name == cosentyx_devices[record['id']]
             assert record['pa'] == 'required' and record['preferred'] == 'non_preferred' and ql
             code = 'GL-628292'
             assert policies[code]['policyEffective'] == '2026-07-01'
@@ -2803,9 +2808,10 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 stage_field = fields['Therapy Stage']
                 assert stage_field.get('displayText', stage_field['text']) == stage
                 assert fields['Guideline Type']['text'] == 'Prior Authorization'
-            assert set(matched).issubset({code}), ('Review other named policy', matched)
+            assert set(matched).issubset({code,'GL-733328'}), ('Review other named policy', matched)
             matched.pop(code, None)
-            add(code, [0, 1, 2, 5, 6, 7, 8], 'product')
+        if record['id'] == 'uhc-oct-complete-9449c2ad49f55210':
+            add('GL-628292', [0, 1, 2, 5, 6, 7, 8], 'product')
             bindings[-1]['branchLabels'] = {
                 '0': 'UnoReady 300 mg only: adult plaque psoriasis; pediatric doses are lower',
                 '1': 'UnoReady 300 mg only: adult HS or pediatric HS weighing at least 90 kg',
@@ -2822,6 +2828,31 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: fixed single-dose 300 mg pen; not for 75 mg or 150 mg doses or IV infusion. The UHC Cosentyx SC guideline is not pen-specific. Apply criteria only to a labeled 300 mg regimen: adult plaque psoriasis, qualifying adult PsA or AS, adult HS or pediatric HS weighing at least 90 kg. Do not apply the nr-axSpA, ERA or lower-dose pediatric branches to this pen. Exact payer device-specific approval criteria and numeric quantity limit are unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=77c4b13e-7df3-42d4-81db-3d0cddb7f67a',
             }
+        if record['id'] in {'uhc-oct-complete-6f70bcaf242cd685','uhc-oct-complete-d7084ac5ae35fc25'}:
+            syringe=record['id']=='uhc-oct-complete-d7084ac5ae35fc25'
+            assert record['sourcePage']==113 and record['rawRestrictions']=='Tier 2; PA; SP; QL'
+            add('GL-628292',list(range(9)),'product')
+            lighter='75 mg syringe for weight <50 kg; 150 mg for ≥50 kg' if syringe else '150 mg pen for weight ≥50 kg'
+            juvenile='75 mg syringe for 15 to <50 kg; 150 mg for ≥50 kg' if syringe else '150 mg pen for weight ≥50 kg'
+            psoriasis=f'Plaque psoriasis: adults use the 150 mg presentation for labeled 150 or 300 mg regimens. Pediatric age ≥6: {lighter}.'
+            hs='HS: 150 mg presentation only. Adult 300 mg regimen uses two injections. Pediatric age ≥12: 150 mg at 30 to <90 kg or 300 mg at ≥90 kg.'
+            era=f'ERA: pediatric age ≥4; {juvenile}.'
+            psa=f'PsA: adults use the 150 mg presentation for labeled 150 or 300 mg regimens. Pediatric age ≥2: {juvenile}.'
+            axial=f'AS: adults use the 150 mg presentation for labeled 150 or 300 mg regimens. Juvenile AS age ≥12: {lighter}. Adult nr-axSpA: 150 mg presentation only.'
+            bindings[-1]['branchLabels']={str(i):msg for i,msg in enumerate((psoriasis,hs,psoriasis+' '+hs,era,era,psa,psa,axial,axial))}
+            display={
+                'separate':True,
+                'label':('Cosentyx 75 mg/0.5 mL and 150 mg/1 mL subcutaneous prefilled syringes' if syringe else
+                         'Cosentyx Sensoready 150 mg/1 mL subcutaneous auto-injector'),
+                'dosageForm':'subcutaneous prefilled syringe' if syringe else 'subcutaneous auto-injector',
+                'note':'UHC lists PA, specialty status and QL. Its guideline covers subcutaneous Cosentyx by indication and stage. Device-specific requirements and the numeric quantity limit are unverified. The 150 mg presentation can provide a labeled 300 mg dose in two injections. See the strength-specific criteria. The removable cap contains natural rubber latex.',
+                'labelUrl':'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=77c4b13e-7df3-42d4-81db-3d0cddb7f67a',
+            }
+            if syringe:
+                display['labelProductExamples']=[['75 mg/0.5 mL prefilled syringe',2550713],['150 mg/1 mL prefilled syringe',1599797]]
+            else:
+                display['identityRxcui']=1653243
+            record['reviewedPresentation']={**record.get('reviewedPresentation',{}),**display}
         # DEC-05/12/13/14/19/20: exact pharmacy SQ policy; never inherit IV medical-benefit criteria.
         if record['id'] == 'uhc-oct-complete-36c4a27401324b71':
             assert october_name == 'benlysta subcutaneous solution auto-injector'
