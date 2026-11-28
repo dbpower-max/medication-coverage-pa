@@ -2680,22 +2680,25 @@ def publish_uhc_policy_access(data, source_dir, output_dir):
                 'note': 'FDA label: 100 mg single-use packet for oral suspension. Do not substitute the packet for the film-coated tablet on a milligram-for-milligram basis; the formulations are not bioequivalent. UHC PDL requires PA for members aged 2 years or older for the oral packet; exact product-specific criteria and numeric quantity limit are unverified.',
                 'labelUrl': 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=89a5ec53-d956-4329-8004-0f40f51c88a3',
             }
-        # Named devices in the administrative duplication branch, not routine product PA.
-        basal_duplication = {
+        # Named options in the administrative duplication branch, not routine product PA.
+        duplication_product = {
+            'uhc-oct-complete-be916cf5ebe9501f': 'generic budesonide/formoterol',
+            'uhc-oct-complete-d286297ad03ac6d9': 'generic budesonide/formoterol',
+            'uhc-oct-complete-836fcbdd50338512': 'Brand Symbicort',
             'uhc-oct-complete-4270f8a1ce19e554': 'Insulin Glargine-YFGN pen',
             'uhc-oct-complete-8adc25a96356b867': 'Lantus Solostar',
             'uhc-oct-complete-749c738dcab2dcdd': 'Lantus vial',
             'uhc-oct-complete-2785ed0256f35226': 'Tresiba Flextouch',
         }.get(record['id'])
-        if basal_duplication:
+        if duplication_product:
             code = 'GL-735259'
             branch = structured[code]['branches'][0]
             products = ' '.join(branch['fields']['Product Name']['text'].split()).split(', ')
-            assert basal_duplication in products and branch['fields']['Guideline Type']['text'] == 'Administrative'
+            assert duplication_product in products and branch['fields']['Guideline Type']['text'] == 'Administrative'
             assert policies[code]['policyEffective'] == '2026-11-01' and record['sourceEffective'] == '2026-10-01'
             matched.pop(code, None)
             add(code, [0], 'duplication')
-            bindings[-1].update(productLabel=basal_duplication, namedProductPage=1713, criteriaPage=1714)
+            bindings[-1].update(productLabel=duplication_product, namedProductPage=1713, criteriaPage=1714)
         # DEC-05/12/13/14/19/20: exact preferred sprinkle capsule; retain conditional age rule.
         if record['id'] == 'uhc-oct-complete-f24f86de993ce49c':
             assert october_name == 'divalproex sodium oral capsule delayed release sprinkle (generic for depakote sprinkles)'

@@ -668,7 +668,8 @@
   ]);
   const constipationPolicyId = 'uhc-nov2026-policy-gl-720196';
 
-  const symbicortGenericNote = 'UHC source rows disagree on step therapy. Both print a quantity limit. The plan does not specify the applicable step or which packages it affects.';
+  const symbicortGenericNote = 'UHC’s printed listings differ on step therapy. The electronic list reports no step for the 120-actuation inhaler. The generic prerequisite, package assignment and numeric quantity limit are unverified.';
+  const genericBudesonideFormoterolLabel = 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1d266fe8-52e3-4f85-a037-c5c1afa15e60';
   const tiotropiumContinuation = 'Continued use of two or more drugs in this class may require PA.';
   const fluticasoneUnspecified = 'Fluticasone Propionate Oral Inhalation (Dosage Form Unspecified)';
   const tiotropiumCapsules = 'Tiotropium Inhalation Capsules (Spiriva HandiHaler)';
@@ -1038,18 +1039,49 @@
     ['formulary-11033', {label: epiPenAutoInjector, note: 'The statewide listing applies to its named authorized generic. Exact selected-plan package eligibility is unverified.'}],
     ['uhc-oct-complete-55381c317387d023', {
       label: 'AUVI-Q (epinephrine) single-dose prefilled autoinjector', dosageForm: 'injection solution', generalPa: true,
-      deviceSourceUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6180fb40-7fca-4602-b3da-ce62b8cd2470',
-      note: 'Labeled doses are 0.1 mg/0.1 mL, 0.15 mg/0.15 mL and 0.3 mg/0.3 mL. UHC does not specify eligible strengths or packages.'
+      paSourceConflict: true, labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6180fb40-7fca-4602-b3da-ce62b8cd2470',
+      labelProductExamples: [['0.1 mg/0.1 mL', 1991329], ['0.15 mg/0.15 mL', 1305268], ['0.3 mg/0.3 mL', 1305269]],
+      electronicEvidence: ['Rows 4054, 3254 and 60 respectively: all three brand strengths are nonpreferred, with PA false, step therapy true and QL true.'],
+      novemberElectronicEvidence: 'Rows 2659, 2048 and 1421 respectively have the same flags for these three strengths.',
+      note: 'The printed list flags PA. The electronic list reports no PA and lists step therapy for 0.1 mg/0.1 mL, 0.15 mg/0.15 mL and 0.3 mg/0.3 mL. The applicable prerequisite, quantity limit amount and eligible package are unverified.'
     }],
-    ['uhc-oct-complete-feedc25102cbbdb1', {label: 'Epinephrine 0.15 mg/0.3 mL Autoinjector (EpiPen Jr Reference)'}],
-    ['uhc-oct-complete-e1546021b5a54dde', {label: 'Epinephrine 0.3 mg/0.3 mL Autoinjector (AUVI-Q Reference)'}],
+    ['uhc-oct-complete-feedc25102cbbdb1', {
+      label: 'Epinephrine 0.15 mg/0.3 mL Autoinjector (EpiPen Jr Reference)', printedPreferenceOnly: true,
+      identityRxcui: 727316, labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=778ac6ae-6bcb-47a4-bcb3-8dd0da9f8836',
+      electronicEvidence: ['Row 8353 has two UCSAZQ3 entries for RxCUI 727316. Preferred: PA false, ST false, QL true. Nonpreferred: PA false, ST true, QL true. Neither specifies an NDC.'],
+      novemberElectronicEvidence: 'Row 8953 retains both entries for RxCUI 727316.',
+      note: 'UHC’s electronic list includes preferred and nonpreferred entries for the same formulation. Only the nonpreferred entry lists step therapy. The package for each entry and the numeric quantity limit are unverified.'
+    }],
+    ['uhc-oct-complete-e1546021b5a54dde', {
+      label: 'Epinephrine 0.3 mg/0.3 mL Autoinjector (AUVI-Q Reference)', identityRxcui: 1870205,
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6180fb40-7fca-4602-b3da-ce62b8cd2470'
+    }],
     ['uhc-oct-complete-347f997a8ebe87f9', {label: 'Amoxicillin/Clavulanate Oral Suspension (Augmentin ES-600 Reference)', note: 'Label reference strength: 600 mg/42.9 mg per 5 mL. UHC does not identify eligible packages.', labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=59979859-8c9b-4173-a5e3-2e6312fd9d79'}],
     ['uhc-oct-complete-9b7855078f1fa6e3', {label: 'Augmentin (Dosage Form and Strength Unspecified by UHC)'}],
     ['banner-full-30e8484da347ad72', {label: augmentinSuspension, scope: 'Banner formulary · October 1, 2026', note: 'The formulary does not specify a strength, preference, PA, step therapy or quantity limit.'}],
     ['formulary-10929', {label: augmentinSuspension, note: 'The statewide list does not specify strength or restrictions for this listing.'}],
-    ['uhc-oct-complete-836fcbdd50338512', {label: 'Symbicort Metered-Dose Inhalation Aerosol', generalPa: true}],
-    ['uhc-oct-complete-d286297ad03ac6d9', {label: 'Budesonide/Formoterol Inhalation Aerosol 80/4.5 mcg per actuation', note: symbicortGenericNote}],
-    ['uhc-oct-complete-be916cf5ebe9501f', {label: 'Budesonide/Formoterol Inhalation Aerosol 160/4.5 mcg per actuation', note: symbicortGenericNote}],
+    ['uhc-oct-complete-836fcbdd50338512', {
+      label: 'Symbicort Metered-Dose Inhalation Aerosol', generalPa: true, paSourceConflict: true,
+      labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=fafa4cf1-99c2-43d5-73ad-51f256de3be0',
+      labelProductExamples: [['80/4.5 mcg per actuation, 120 actuations', 1246290], ['160/4.5 mcg per actuation, 120 actuations', 1246306]],
+      electronicEvidence: ['Rows 4218 and 4220: both 120-actuation brand entries are nonpreferred, PA false, ST true, QL true.'],
+      novemberElectronicEvidence: 'Rows 2026 and 2028 retain those flags for both 120-actuation brand entries.',
+      note: 'The printed list flags PA. UHC’s electronic entries for both 120-actuation strengths report no PA. The numeric quantity limit is unverified.'
+    }],
+    ['uhc-oct-complete-d286297ad03ac6d9', {
+      label: 'Budesonide/Formoterol Inhalation Aerosol 80/4.5 mcg per actuation', paSourceConflict: true, stepListingsDiffer: true,
+      labelUrl: genericBudesonideFormoterolLabel, labelProductExamples: [['120 actuations', 1246288]],
+      electronicEvidence: ['Row 2599: two preferred entries for RxCUI 1246288, one with PA true and one with PA false. Both report ST false and QL true.'],
+      novemberElectronicEvidence: 'Row 2346 retains both PA variants for RxCUI 1246288.',
+      note: 'For the 120-actuation inhaler, UHC’s electronic entries disagree on PA. ' + symbicortGenericNote
+    }],
+    ['uhc-oct-complete-be916cf5ebe9501f', {
+      label: 'Budesonide/Formoterol Inhalation Aerosol 160/4.5 mcg per actuation', paBadge: 'PA listed for 120 actuations', stepListingsDiffer: true,
+      labelUrl: genericBudesonideFormoterolLabel, labelProductExamples: [['120 actuations', 1246304]],
+      electronicEvidence: ['Row 4219: RxCUI 1246304 is preferred, PA true, ST false, QL true.'],
+      novemberElectronicEvidence: 'Row 2027 retains those flags for RxCUI 1246304.',
+      note: 'The printed listings leave PA blank. UHC’s electronic entry flags PA for the 120-actuation inhaler. ' + symbicortGenericNote
+    }],
     ['uhc-oct-complete-4295ce610108f0df', {label: tiotropiumCapsules, option: 'Brand Spiriva HandiHaler', note: tiotropiumContinuation, explicitPa: true, generalPa: true}],
     ['uhc-oct-complete-818668349b64ef42', {label: tiotropiumCapsules, option: 'Generic tiotropium inhalation capsules', note: tiotropiumContinuation}],
     ['uhc-oct-complete-9f26ef4f16fcfe13', {label: spirivaSpray, labelUrl: 'https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b656b14-fcaa-2741-f6f0-e0be48971c02'}],
@@ -1593,16 +1625,18 @@
         && reviewedCardPresentation(record) === bannerBasalInsulins.get(record.name) && bannerBasalInsulins.has(record.name)) {
       chips.push(['Preference not specified', 'neutral']);
     }
-    if (record.preferred === 'preferred') chips.push(['Preferred', 'positive']);
+    if (record.preferred === 'preferred') chips.push([reviewedCardPresentation(record)?.printedPreferenceOnly ? 'Preferred in printed PDL' : 'Preferred', 'positive']);
     if (record.preferred === 'non_preferred') chips.push(['Nonpreferred', 'warning']);
     if (/\bbrand\s*only\b/i.test(record.brandGenericNotes || record.notes || '')) chips.push(['Brand only', 'warning']);
     if (/\bauthorized\s+generic\s+only\b/i.test([record.brandGenericNotes, record.notes].join(' '))) chips.push(['Authorized generic only', 'warning']);
     else if (/\bgeneric(?:\s+formulations)?\s+only\b/i.test([record.brandGenericNotes, record.notes].join(' '))) chips.push(['Generic only', 'warning']);
     if (record.tier) chips.push([`Tier ${record.tier}`, 'neutral']);
     if (uhcReviewedPaConflicts.has(record.id) || reviewedCardPresentation(record)?.paSourceConflict) chips.push(['PA listings conflict', 'warning']);
+    else if (reviewedCardPresentation(record)?.paBadge) chips.push([reviewedCardPresentation(record).paBadge, 'warning']);
     else if (record.pa === 'required') chips.push(['PA required', 'warning']);
     else if (record.pa === 'conditional') chips.push(['Conditional PA', 'warning']);
-    if (record.step === 'specified') chips.push(['Step therapy', 'warning']);
+    if (reviewedCardPresentation(record)?.stepListingsDiffer) chips.push(['Step therapy varies by listing', 'warning']);
+    else if (record.step === 'specified') chips.push(['Step therapy', 'warning']);
     if (record.quantityLimited || record.qlAmount || record.qlDays) chips.push([record.verifiedQuantityLabel || bannerAdhdLimit(record) || 'Quantity limit', 'warning']);
     if (record.ageLimited) chips.push(['Age limit', 'warning']);
     if (record.specialty) chips.push(['Specialty', 'warning']);
@@ -1738,6 +1772,9 @@
     if (presentation?.electronicEvidence) {
       details.push(`<p>${uhcOctoberCitation}. ${escapeHtml(presentation.electronicEvidence.join(' '))}</p>`);
     }
+    if (presentation?.novemberElectronicEvidence) {
+      details.push(`<p>${uhcLiveCitation} · November 16, 2026 copy · UCSAZQ3. ${escapeHtml(presentation.novemberElectronicEvidence)}</p>`);
+    }
     if (presentation?.electronicComparisons) {
       const comparisons = presentation.electronicComparisons.map(([label,rx,position,spl]) =>
         `<li>${escapeHtml(label)} · row ${position} · <a href="https://mor.nlm.nih.gov/RxNav/search?searchBy=RXCUI&amp;searchTerm=${rx}" target="_blank" rel="noopener">RxCUI ${rx}</a> · <a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=${spl}" target="_blank" rel="noopener">DailyMed label</a></li>`);
@@ -1750,7 +1787,7 @@
     }
     const formRx = presentation?.uhcFormRx;
     if (formRx && !presentation.electronicRow) details.push(`<p>${uhcOctoberCitation} · RxCUI ${escapeHtml(formRx)}.</p>`);
-    if (!presentation?.electronicVersion && (formRx || presentation?.electronicRow || presentation?.electronicEvidence || presentation?.electronicComparisons)) {
+    if (!presentation?.electronicVersion && !presentation?.novemberElectronicEvidence && (formRx || presentation?.electronicRow || presentation?.electronicEvidence || presentation?.electronicComparisons)) {
       details.push(`<p>${uhcLiveCitation}</p>`);
     }
     for (const position of bannerRepeatPositions.get(record.id) || []) {
@@ -3146,7 +3183,7 @@
           ${scope ? `<p class="pa-condition">${escapeHtml(scope)}</p>` : ''}
           ${record.baselineSource ? baselineBadgeRows(record) : `<div class="chips" aria-label="Coverage attributes${label ? ` for ${escapeHtml(label)}` : ''}">${source ? `<span class="chip neutral">${escapeHtml(source.label)}</span>` : ''}${badges}${preferredNdcs.length && record === rows[0] ? '<span class="chip positive">Preferred for listed products</span>' : ''}${step && record.step !== 'specified' ? '<span class="chip warning">Step therapy</span>' : ''}</div>`}
           ${glucoseSupply === record && glucoseDisplay.note ? `<p class="pa-condition"><strong>UHC formulary disagreement:</strong> ${escapeHtml(glucoseDisplay.note)} ${glucoseDisplay.pages.map(page => `<a class="source-link" href="${escapeHtml(sourceHref({...record, sourcePage: page}))}" target="_blank" rel="noopener">PDL p. ${page} ↗</a>`).join(' · ')}</p>` : ''}
-          ${record.unverifiedPolicyCode ? '<p class="pa-condition">UHC lists PA. Criteria for this exact presentation are unverified.</p>' : ''}
+          ${record.unverifiedPolicyCode ? `<p class="pa-condition">${presentation?.paSourceConflict ? '' : 'UHC lists PA. '}Criteria for this exact presentation are unverified.</p>` : ''}
           ${avivaConflict ? '<p class="pa-condition"><strong>UHC source conflict:</strong> The formulary names the Aviva device and aliases it to a control solution. Exact meter package eligibility is unverified.</p>' : ''}
           ${gvoke ? `<p class="pa-condition"><strong>FDA-labeled presentation:</strong> ${escapeHtml(gvoke.dose)}. UHC does not specify eligible strengths. <a class="source-link" href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=92385737-dbad-98c5-e053-2995a90a2805" target="_blank" rel="noopener">Drug label ↗</a></p>` : ''}
           ${presentation?.note ? `<p class="pa-condition">${escapeHtml(presentation.note)}</p>` : ''}
